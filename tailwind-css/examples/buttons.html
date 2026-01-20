@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Examples - Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Button Examples</h1>
+
+    <!-- Basic Buttons -->
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Basic Buttons</h2>
+      <div class="space-x-2 space-y-2">
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+          Primary
+        </button>
+        <button class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors">
+          Secondary
+        </button>
+        <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors">
+          Success
+        </button>
+        <button class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
+          Danger
+        </button>
+        <button class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors">
+          Warning
+        </button>
+      </div>
+    </section>
+
+    <!-- Outline Buttons -->
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Outline Buttons</h2>
+      <div class="space-x-2 space-y-2">
+        <button class="px-4 py-2 border-2 border-blue-600 text-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors">
+          Primary
+        </button>
+        <button class="px-4 py-2 border-2 border-gray-600 text-gray-600 rounded hover:bg-gray-600 hover:text-white transition-colors">
+          Secondary
+        </button>
+        <button class="px-4 py-2 border-2 border-green-600 text-green-600 rounded hover:bg-green-600 hover:text-white transition-colors">
+          Success
+        </button>
+      </div>
+    </section>
+
+    <!-- Button Sizes -->
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Button Sizes</h2>
+      <div class="flex items-center space-x-2">
+        <button class="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700">
+          Extra Small
+        </button>
+        <button class="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+          Small
+        </button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Medium
+        </button>
+        <button class="px-6 py-3 text-lg bg-blue-600 text-white rounded hover:bg-blue-700">
+          Large
+        </button>
+        <button class="px-8 py-4 text-xl bg-blue-600 text-white rounded hover:bg-blue-700">
+          Extra Large
+        </button>
+      </div>
+    </section>
+
+    <!-- Button States -->
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Button States</h2>
+      <div class="space-x-2 space-y-2">
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-4 focus:ring-blue-300">
+          With Focus Ring
+        </button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded opacity-50 cursor-not-allowed" disabled>
+          Disabled
+        </button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded flex items-center">
+          <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+          Loading...
+        </button>
+      </div>
+    </section>
+
+    <!-- Button Groups -->
+    <section class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Button Groups</h2>
+      <div class="inline-flex rounded-lg shadow-sm">
+        <button class="px-4 py-2 bg-blue-600 text-white rounded-l-lg hover:bg-blue-700 border-r border-blue-700">
+          Left
+        </button>
+        <button class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 border-r border-blue-700">
+          Center
+        </button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700">
+          Right
+        </button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

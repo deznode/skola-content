@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Examples - Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Card Examples</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Basic Card -->
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="text-xl font-semibold mb-2">Basic Card</h3>
+        <p class="text-gray-600">A simple card with just padding, shadow, and rounded corners.</p>
+      </div>
+
+      <!-- Card with Image -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+        <img src="https://via.placeholder.com/400x200" alt="Card image" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Card with Image</h3>
+          <p class="text-gray-600">Image at the top with content below.</p>
+        </div>
+      </div>
+
+      <!-- Card with Header -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+        <div class="bg-blue-600 px-6 py-4">
+          <h3 class="text-xl font-semibold text-white">Card Header</h3>
+        </div>
+        <div class="p-6">
+          <p class="text-gray-600">Card with a colored header section.</p>
+        </div>
+      </div>
+
+      <!-- Card with Footer -->
+      <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col">
+        <div class="p-6 flex-grow">
+          <h3 class="text-xl font-semibold mb-2">Card with Footer</h3>
+          <p class="text-gray-600">Content area with a footer below.</p>
+        </div>
+        <div class="bg-gray-50 px-6 py-4 border-t">
+          <button class="text-blue-600 hover:text-blue-800">Learn more →</button>
+        </div>
+      </div>
+
+      <!-- Horizontal Card -->
+      <div class="bg-white rounded-lg shadow overflow-hidden flex md:col-span-2">
+        <img src="https://via.placeholder.com/200x200" alt="Card image" class="w-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">Horizontal Card</h3>
+          <p class="text-gray-600">Image on the left, content on the right. Great for blog post previews.</p>
+          <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Read more</a>
+        </div>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="bg-white rounded-lg shadow p-6 text-center">
+        <img src="https://via.placeholder.com/100x100" alt="Avatar" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold">Maria Silva</h3>
+        <p class="text-gray-500">Software Engineer</p>
+        <div class="flex justify-center space-x-2 mt-4">
+          <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Follow</button>
+          <button class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50">Message</button>
+        </div>
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+        <div class="p-6 text-center border-b">
+          <h3 class="text-xl font-semibold text-gray-900">Pro Plan</h3>
+          <div class="mt-4">
+            <span class="text-4xl font-bold">$29</span>
+            <span class="text-gray-500">/month</span>
+          </div>
+        </div>
+        <ul class="p-6 space-y-3">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Unlimited projects
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Priority support
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Advanced analytics
+          </li>
+        </ul>
+        <div class="p-6 pt-0">
+          <button class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Card -->
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-gray-500 text-sm font-medium">Total Revenue</h3>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">+12.5%</span>
+        </div>
+        <p class="text-3xl font-bold text-gray-900">$45,231.89</p>
+        <p class="text-gray-500 text-sm mt-2">Compared to last month</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
