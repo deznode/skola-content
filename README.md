@@ -1,83 +1,127 @@
-# Skola Samples
+# Skola Content
 
-Tutorial companion code for [Skola.dev](https://skola.dev) educational content.
+Educational content and code samples for [Skola.dev](https://skola.dev) - teaching programming, cloud-native development, and AI in Cape Verdean Kriolu.
 
 ## Repository Structure
 
-This repository contains code samples organized by topic to accompany Skola tutorials and reference materials.
+This repository contains both **written content** (tutorials, cheatsheets, blog posts) and **code samples** organized by topic.
+
+### Content Types
+
+| Type | Content Location | Code Location |
+|------|------------------|---------------|
+| **Tutorials** | `{topic}/{lang}/tutorial.mdx` | `{topic}/code/start/` + `{topic}/code/final/` |
+| **Cheatsheets** | `{topic}/{lang}/cheatsheet.md` | `{topic}/code/examples/` |
+| **Blog** | `blog/` | N/A |
 
 ### Tutorials (Hands-on, Step-by-Step)
 
-These topics include both **starter scaffolding** (`initial/`) and **complete solutions** (`complete/`).
-
-| Topic | Description | Language |
-|-------|-------------|----------|
-| [intro-python](./intro-python/) | Introduction to Python programming | Python |
-| [java-swing-events](./java-swing-events/) | Event handling in Java Swing | Java |
-| [jdbc-postgresql](./jdbc-postgresql/) | Database connectivity with JDBC and PostgreSQL | Java |
-| [swing-foundations](./swing-foundations/) | Java Swing fundamentals | Java |
-| [swing-layout-managers](./swing-layout-managers/) | Layout management in Java Swing | Java |
+| Topic | Languages | Description |
+|-------|-----------|-------------|
+| [intro-python](./intro-python/) | kea | Introduction to Python programming |
+| [java-swing-events](./java-swing-events/) | en | Event handling in Java Swing |
+| [jdbc-postgresql](./jdbc-postgresql/) | kea | Database connectivity with JDBC and PostgreSQL |
+| [swing-foundations](./swing-foundations/) | en | Java Swing fundamentals |
+| [swing-layout-managers](./swing-layout-managers/) | en | Layout management in Java Swing |
 
 ### References (Cheatsheets & Examples)
 
-These topics contain complete working examples only.
-
-| Topic | Description | Type |
-|-------|-------------|------|
-| [kubernetes](./kubernetes/) | Kubernetes configuration examples | Cheatsheet |
-| [tailwind-css](./tailwind-css/) | Tailwind CSS utility examples | Cheatsheet |
-| [rag-strategies](./rag-strategies/) | RAG implementation patterns | Reference |
+| Topic | Languages | Description |
+|-------|-----------|-------------|
+| [kubernetes](./kubernetes/) | en | Kubernetes configuration cheatsheet |
+| [tailwind-css](./tailwind-css/) | en | Tailwind CSS utility cheatsheet |
+| [rag-strategies](./rag-strategies/) | en | RAG implementation patterns |
 
 ## Usage
 
-### For Tutorials
+### For Students
 
-1. **Clone the starter code** to follow along:
-   ```bash
-   git clone https://github.com/deznode/skola-samples.git
-   cd skola-samples/{topic}/initial
-   ```
+Clone this repository to get all content and code:
 
-2. **Reference the complete solution** when needed:
-   ```bash
-   cd skola-samples/{topic}/complete
-   ```
-
-### For References
-
-Browse the `examples/` folder for working code snippets:
 ```bash
-cd skola-samples/{topic}/examples
+git clone https://github.com/deznode/skola-content.git
+cd skola-content
+```
+
+#### Following a Tutorial
+
+1. Navigate to the topic and start with the scaffolding:
+   ```bash
+   cd intro-python/code/start
+   ```
+
+2. Follow along with the written tutorial in `intro-python/kea/tutorial.mdx`
+
+3. Check the complete solution when needed:
+   ```bash
+   cd intro-python/code/final
+   ```
+
+#### Using Cheatsheets
+
+Reference examples alongside the cheatsheet:
+```bash
+# Read the cheatsheet
+cat kubernetes/en/cheatsheet.md
+
+# Browse examples
+ls kubernetes/code/examples/
 ```
 
 ## Folder Structure
 
 ```
-skola-samples/
+skola-content/
 ├── {tutorial-topic}/
-│   ├── README.md           # Setup instructions, prerequisites
-│   ├── initial/            # Starter scaffolding with TODOs
-│   └── complete/           # Full working solution
+│   ├── {lang}/                 # Written content (en/, kea/, pt/)
+│   │   ├── tutorial.mdx
+│   │   ├── infographics/       # Visual assets
+│   │   ├── slides/             # Presentation slides
+│   │   └── microlearn/         # Short-form content
+│   └── code/
+│       ├── start/              # Starter scaffolding with TODOs
+│       └── final/              # Complete working solution
 │
-└── {reference-topic}/
-    ├── README.md           # Overview and usage
-    └── examples/           # Working code examples
+├── {reference-topic}/
+│   ├── {lang}/
+│   │   └── cheatsheet.md
+│   └── code/
+│       └── examples/           # Working code examples
+│
+└── blog/
+    ├── drafts/
+    └── published/
 ```
+
+## Language Support
+
+- **Primary**: Cape Verdean Kriolu (`kea`)
+- **Secondary**: English (`en`), Portuguese (`pt`)
+
+Content is created first in Kriolu, with translations following. Technical terms remain in English when no direct translation exists.
 
 ## Contributing
 
-When adding new samples:
+### Adding New Content
 
-1. **Tutorials**: Create both `initial/` and `complete/` versions
-   - `complete/` is the source of truth
-   - `initial/` is derived from `complete/` with implementation stripped and TODOs added
+1. **Tutorials**: Create both `code/start/` and `code/final/` versions
+   - `code/final/` is the source of truth
+   - `code/start/` is derived with implementation stripped and TODOs added
 
-2. **References**: Create only the `examples/` folder with working code
+2. **References**: Create `code/examples/` with working code
 
-3. **Always include** a `README.md` with:
-   - Prerequisites
-   - Setup instructions
-   - Learning objectives (for tutorials)
+3. **Written Content**: Add language-specific folders (`en/`, `kea/`, `pt/`)
+
+4. **Always include**:
+   - Clear learning objectives
+   - Prerequisites and setup instructions
+   - Links between content and code
+
+### File Naming
+
+- Tutorials: `{lang}/tutorial.mdx`
+- Cheatsheets: `{lang}/cheatsheet.md`
+- Blog posts: `blog/{status}/{date}-{slug}.mdx`
 
 ## License
 
@@ -85,4 +129,4 @@ MIT License - See individual topic folders for specific licensing if applicable.
 
 ---
 
-**Nôs ta kriâ djunta!** (We build together!)
+**Nos ta kria djunta!** (We build together!)

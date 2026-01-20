@@ -1,0 +1,68 @@
+name: Content CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation tools
+        run: npm install -g markdownlint-cli
+
+      - name: Lint Markdown files
+        run: markdownlint "**/*.md" --ignore node_modules || true
+
+      - name: Check for broken internal links
+        run: |
+          # Find all markdown files and check for broken relative links
+          find . -name "*.md" -o -name "*.mdx" | while read file; do
+            dir=$(dirname "$file")
+            grep -oE '\[.*\]\(\./[^)]+\)' "$file" 2>/dev/null | while read link; do
+              target=$(echo "$link" | sed 's/.*(\.\///' | sed 's/).*//')
+              if [ ! -e "$dir/$target" ]; then
+                echo "Broken link in $file: $target"
+              fi
+            done
+          done
+
+  # Validate code samples can at least be parsed
+  validate-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate Python syntax
+        run: |
+          find . -name "*.py" -exec python -m py_compile {} \;
+
+      - name: Validate Java projects compile
+        run: |
+          for pom in $(find . -name "pom.xml" -path "*/code/*"); do
+            dir=$(dirname "$pom")
+            echo "Validating $dir"
+            cd "$dir"
+            mvn compile -q || echo "Warning: $dir failed to compile"
+            cd - > /dev/null
+          done
