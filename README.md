@@ -19,19 +19,13 @@ This repository contains both **written content** (tutorials, cheatsheets, blog 
 
 | Topic | Languages | Description |
 |-------|-----------|-------------|
-| [intro-python](./intro-python/) | kea | Introduction to Python programming |
-| [java-swing-events](./java-swing-events/) | en | Event handling in Java Swing |
 | [jdbc-postgresql](./jdbc-postgresql/) | kea | Database connectivity with JDBC and PostgreSQL |
-| [swing-foundations](./swing-foundations/) | en | Java Swing fundamentals |
-| [swing-layout-managers](./swing-layout-managers/) | en | Layout management in Java Swing |
 
 ### References (Cheatsheets & Examples)
 
 | Topic | Languages | Description |
 |-------|-----------|-------------|
-| [kubernetes](./kubernetes/) | en | Kubernetes configuration cheatsheet |
-| [tailwind-css](./tailwind-css/) | en | Tailwind CSS utility cheatsheet |
-| [rag-strategies](./rag-strategies/) | en | RAG implementation patterns |
+| [jdbc-postgresql](./jdbc-postgresql/) | kea | JDBC + PostgreSQL quick reference |
 
 ## Usage
 
@@ -48,14 +42,14 @@ cd skola-content
 
 1. Navigate to the topic and start with the scaffolding:
    ```bash
-   cd intro-python/code/start
+   cd jdbc-postgresql/code/start
    ```
 
-2. Follow along with the written tutorial in `intro-python/kea/tutorial.mdx`
+2. Follow along with the written tutorial in `jdbc-postgresql/kea/tutorial.mdx`
 
 3. Check the complete solution when needed:
    ```bash
-   cd intro-python/code/final
+   cd jdbc-postgresql/code/final
    ```
 
 #### Using Cheatsheets
@@ -63,10 +57,10 @@ cd skola-content
 Reference examples alongside the cheatsheet:
 ```bash
 # Read the cheatsheet
-cat kubernetes/en/cheatsheet.md
+cat jdbc-postgresql/kea/cheatsheet.md
 
 # Browse examples
-ls kubernetes/code/examples/
+ls jdbc-postgresql/code/examples/
 ```
 
 ## Folder Structure
