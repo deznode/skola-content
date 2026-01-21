@@ -1,0 +1,170 @@
+/* Skola.dev Brand Theme for Slidev */
+
+:root {
+  /* Skola Brand Colors */
+  --skola-ocean: #0077B6;
+  --skola-yellow: #FFC300;
+  --skola-sand: #F4EBD0;
+  --skola-navy: #001F3F;
+  --skola-coral: #FF595E;
+  --skola-teal: #2A9D8F;
+  --skola-gray: #4A5D73;
+
+  /* Slidev color overrides */
+  --slidev-theme-primary: var(--skola-ocean);
+  --slidev-theme-accent: var(--skola-yellow);
+}
+
+/* Headers - Ocean Blue */
+h1, h2, h3 {
+  color: var(--skola-ocean) !important;
+}
+
+/* Links - Ocean Blue with Yellow hover */
+a {
+  color: var(--skola-ocean);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--skola-yellow);
+}
+
+/* Code blocks - Teal accent */
+code {
+  background-color: rgba(42, 157, 143, 0.1);
+  color: var(--skola-teal);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Slide backgrounds */
+.slidev-layout {
+  background: linear-gradient(135deg, #ffffff 0%, var(--skola-sand) 100%);
+}
+
+/* Title slide special styling */
+.slidev-layout.cover,
+.slidev-layout.intro {
+  background: linear-gradient(135deg, var(--skola-ocean) 0%, var(--skola-navy) 100%);
+  color: white;
+}
+
+.slidev-layout.cover h1,
+.slidev-layout.intro h1,
+.slidev-layout.cover h2,
+.slidev-layout.intro h2 {
+  color: white !important;
+}
+
+/* Center layout - for demo transitions */
+.slidev-layout.center {
+  background: linear-gradient(135deg, var(--skola-navy) 0%, #003366 100%);
+  color: white;
+}
+
+.slidev-layout.center h1 {
+  color: var(--skola-yellow) !important;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: var(--skola-ocean);
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 119, 182, 0.2);
+}
+
+tr:hover {
+  background-color: rgba(244, 235, 208, 0.5);
+}
+
+/* Warning/Error styling */
+.warning, .error {
+  color: var(--skola-coral);
+  font-weight: bold;
+}
+
+/* Success styling */
+.success {
+  color: var(--skola-teal);
+  font-weight: bold;
+}
+
+/* Accent text */
+.accent {
+  color: var(--skola-yellow);
+  font-weight: bold;
+}
+
+/* Footer branding */
+.slidev-layout::after {
+  content: 'Skola.dev';
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--skola-gray);
+  opacity: 0.6;
+}
+
+/* Progress bar - Yellow accent */
+.slidev-progress {
+  background: var(--skola-yellow) !important;
+}
+
+/* Navigation dots */
+.slidev-nav-dots .slidev-nav-dot {
+  background-color: var(--skola-ocean);
+}
+
+.slidev-nav-dots .slidev-nav-dot.active {
+  background-color: var(--skola-yellow);
+}
+
+/* v-clicks animation */
+.slidev-vclick-target {
+  transition: all 0.3s ease;
+}
+
+/* List markers - Ocean Blue */
+ul > li::marker,
+ol > li::marker {
+  color: var(--skola-ocean);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--skola-yellow);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--skola-gray);
+}
+
+/* Images - subtle shadow */
+img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.15);
+}
+
+/* Presenter notes */
+.slidev-note {
+  background-color: var(--skola-sand);
+  border-left: 3px solid var(--skola-ocean);
+}

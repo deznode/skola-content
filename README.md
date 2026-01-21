@@ -12,6 +12,7 @@ This repository contains both **written content** (tutorials, cheatsheets, blog 
 |------|------------------|---------------|
 | **Tutorials** | `{topic}/{lang}/tutorial.mdx` | `{topic}/code/start/` + `{topic}/code/final/` |
 | **Cheatsheets** | `{topic}/{lang}/cheatsheet.md` | `{topic}/code/examples/` |
+| **Projects** | N/A | `{topic}/code/projects/{name}/` |
 | **Blog** | `blog/` | N/A |
 
 ### Tutorials (Hands-on, Step-by-Step)
@@ -80,7 +81,8 @@ skola-content/
 │   │   └── microlearn/         # Short-form content
 │   └── code/
 │       ├── start/              # Starter scaffolding with TODOs
-│       └── final/              # Complete working solution
+│       ├── final/              # Complete working solution
+│       └── projects/           # Hands-on practice projects
 │
 ├── {reference-topic}/
 │   ├── {lang}/
@@ -110,9 +112,13 @@ Content is created first in Kriolu, with translations following. Technical terms
 
 2. **References**: Create `code/examples/` with working code
 
-3. **Written Content**: Add language-specific folders (`en/`, `kea/`, `pt/`)
+3. **Projects**: Create standalone practice exercises in `code/projects/{name}/`
+   - Self-contained projects for students to practice concepts
+   - Include README with instructions
 
-4. **Always include**:
+4. **Written Content**: Add language-specific folders (`en/`, `kea/`, `pt/`)
+
+5. **Always include**:
    - Clear learning objectives
    - Prerequisites and setup instructions
    - Links between content and code
