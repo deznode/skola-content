@@ -20,79 +20,79 @@ modules:
     title:
       kea: Fundamentus di Python
     lessons:
-      - slug: 01-o-ki-e-python
+      - slug: o-ki-e-python
         languages: [kea]
-      - slug: 02-instala-python
+      - slug: instala-python
         languages: [kea]
-      - slug: 03-le-errus
+      - slug: le-errus
         languages: [kea]
-      - slug: 04-sintaxi-semantika
+      - slug: sintaxi-semantika
         languages: [kea]
-      - slug: 05-variaveis
+      - slug: variaveis
         languages: [kea]
-      - slug: 06-tipu-di-dadus
+      - slug: tipu-di-dadus
         languages: [kea]
-      - slug: 07-strings-metodus
+      - slug: strings-metodus
         languages: [kea]
-      - slug: 08-operadoris
+      - slug: operadoris
         languages: [kea]
-      - slug: 09-kondisionais
+      - slug: kondisionais
         languages: [kea]
-      - slug: 10-loops
+      - slug: loops
         languages: [kea]
   - slug: estruturas-di-dadus
     title:
       kea: Estruturas di Dadus
     lessons:
-      - slug: 11-listas
+      - slug: listas
         languages: [kea]
-      - slug: 12-tuplas
+      - slug: tuplas
         languages: [kea]
-      - slug: 13-disionarius
+      - slug: disionarius
         languages: [kea]
-      - slug: 14-konjuntus
+      - slug: konjuntus
         languages: [kea]
-      - slug: 15-kazus-real
+      - slug: kazus-real
         languages: [kea]
   - slug: funsoens-i-operasoens-ku-ficheru
     title:
       kea: Funsoens i Operasoens ku Ficheru
     lessons:
-      - slug: 16-funsoens-baziku
+      - slug: funsoens-baziku
         languages: [kea]
-      - slug: 17-lambda-map-filter
+      - slug: lambda-map-filter
         languages: [kea]
-      - slug: 18-funsoens-inkorporadus
+      - slug: funsoens-inkorporadus
         languages: [kea]
-      - slug: 19-jeneradorus
+      - slug: jeneradorus
         languages: [kea]
-      - slug: 20-modulus-pakotis
+      - slug: modulus-pakotis
         languages: [kea]
-      - slug: 21-ambiente-virtual
+      - slug: ambiente-virtual
         languages: [kea]
-      - slug: 22-operasoens-ficheru
+      - slug: operasoens-ficheru
         languages: [kea]
-      - slug: 23-tratamentu-erru
+      - slug: tratamentu-erru
         languages: [kea]
-      - slug: 24-annotasoens-tipu
+      - slug: annotasoens-tipu
         languages: [kea]
-      - slug: 25-testu-kodiku
+      - slug: testu-kodiku
         languages: [kea]
   - slug: programasun-orientadu-a-objetu
     title:
       kea: Programasun Orientadu a Objetu
     lessons:
-      - slug: 26-klasis-objetis
+      - slug: klasis-objetis
         languages: [kea]
-      - slug: 27-eransa
+      - slug: eransa
         languages: [kea]
-      - slug: 28-polimorfismu-abstrasun
+      - slug: polimorfismu-abstrasun
         languages: [kea]
-      - slug: 29-enkapsolamentu-property
+      - slug: enkapsolamentu-property
         languages: [kea]
-      - slug: 30-metodus-madjiku
+      - slug: metodus-madjiku
         languages: [kea]
-      - slug: 31-sobrekarga-operador
+      - slug: sobrekarga-operador
         languages: [kea]
-      - slug: 32-prosimus-pasus
+      - slug: prosimus-pasus
         languages: [kea]
