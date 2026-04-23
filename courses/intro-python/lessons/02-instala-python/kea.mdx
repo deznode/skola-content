@@ -30,7 +30,9 @@ Python é grátis e disponível pa tudu sistema operasional. Bai na **[python.or
 4. Klika **"Install Now"**
 5. Spera instalasun akaba e klika **"Close"**
 
-> **⚠️ Atensun:** Si bo skesi marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bo dja instala sem marka, roda installer otu ves e skolhi "Modify" → marka "Add to PATH".
+:::callout{type=warning}
+**⚠️ Atensun:** Si bo skesi marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bo dja instala sem marka, roda installer otu ves e skolhi "Modify" → marka "Add to PATH".
+:::
 
 Pa verifika ki tudu ta funsiona, abri **Command Prompt** (o PowerShell) e skrebi:
 
@@ -52,7 +54,9 @@ Pa verifika, abri **Terminal** e skrebi:
 python3 --version
 ```
 
-> **💡 Dika:** Na macOS, uza `python3` (ku 3) na lugar di `python`. macOS ta ben ku un Python antigu pré-instaladu, nton `python3` garanti ki bo ta uza versaun novu.
+:::callout{type=tip}
+**💡 Dika:** Na macOS, uza `python3` (ku 3) na lugar di `python`. macOS ta ben ku un Python antigu pré-instaladu, nton `python3` garanti ki bo ta uza versaun novu.
+:::
 
 ### Linux (Ubuntu/Debian)
 
@@ -69,7 +73,9 @@ Verifika ku:
 python3 --version
 ```
 
-> **💡 Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sem kel pakoti, `python -m venv` ta da erru.
+:::callout{type=tip}
+**💡 Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sem kel pakoti, `python -m venv` ta da erru.
+:::
 
 ## Pasu 2: Instala VS Code
 
@@ -168,11 +174,13 @@ Kuandu .venv ta ativu, bo ta odja `(.venv)` na kumessu di prompt:
 
 Kel `(.venv)` ta indika ki tudu pakoti ki bo instala agora ta bai pa es projetu so, ka pa sistema interu.
 
-> **⚠️ Atensun (Windows PowerShell):** Si bo odja erru di "execution policy", roda es komandu primeiru:
-> ```powershell
-> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-> ```
-> Dipôs tenta ativa .venv otu ves.
+:::callout{type=warning}
+**⚠️ Atensun (Windows PowerShell):** Si bo odja erru di "execution policy", roda es komandu primeiru:
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+Dipôs tenta ativa .venv otu ves.
+:::
 
 ### VS Code e .venv
 
@@ -193,7 +201,9 @@ Agora si! Nôs ta skrebi nôs priméru programa Python.
 1. Na VS Code, klika na **New File** (o `Ctrl+N`)
 2. Salva kumu **`ola.py`** (File → Save, o `Ctrl+S`)
 
-> **💡 Dika:** Fixeru Python sempri tene extensun **`.py`**. Kel é manera Python sabi ki é un programa pa roda.
+:::callout{type=tip}
+**💡 Dika:** Fixeru Python sempri tene extensun **`.py`**. Kel é manera Python sabi ki é un programa pa roda.
+:::
 
 ### Skrebi Kódiku
 
@@ -283,7 +293,9 @@ python ola.py               # Windows
 python3 ola.py              # macOS/Linux (fora di .venv)
 ```
 
-> **💡 Dika:** Kuandu `.venv` ta ativu, bo pode uza `python` (sem 3) na tudu sistema — virtual environment dja sabi kal versaun pa uza.
+:::callout{type=tip}
+**💡 Dika:** Kuandu `.venv` ta ativu, bo pode uza `python` (sem 3) na tudu sistema — virtual environment dja sabi kal versaun pa uza.
+:::
 
 ## Errus Kumuns e Soluson
 

@@ -66,7 +66,9 @@ for valor in quadradus:
 # 0 1 4 9 16 25
 ```
 
-> **💡 Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+:::callout{type=tip}
+**💡 Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+:::
 
 ## Generator Functions ku `yield`
 
@@ -137,7 +139,9 @@ print(primeru_15)
 # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
 ```
 
-> **💡 Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
+:::callout{type=tip}
+**💡 Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
+:::
 
 ## Lé Ficheru Grandi Linha pa Linha
 
@@ -198,7 +202,9 @@ total_gen = sum(x for x in range(1_000_000))
 print(total_lista == total_gen)  # True
 ```
 
-> **💡 Dika:** Kuandu bo ta pasa un generator diretu pa un funsun kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+:::callout{type=tip}
+**💡 Dika:** Kuandu bo ta pasa un generator diretu pa un funsun kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+:::
 
 ## Kuandu Uza Generator vs Lista
 

@@ -50,7 +50,9 @@ print(maria._ilha)      # Santiago ⚠️ (funsiona, ma ka debe)
 # print(maria.__nota)   # AttributeError: 'Estudanti' object has no attribute '__nota'
 ```
 
-> **💡 Dika:** Na Python, `_protejidu` é só un **konvensun** — nada ta impidi bo di asésa-l. É komu un avizu: "Oji, ka toka nisi sin motivo!" Ma `__privadu` tene protesun real.
+:::callout{type=tip}
+**💡 Dika:** Na Python, `_protejidu` é só un **konvensun** — nada ta impidi bo di asésa-l. É komu un avizu: "Oji, ka toka nisi sin motivo!" Ma `__privadu` tene protesun real.
+:::
 
 ## Name Mangling — Komu Python ta Proteje Atributus Privadu
 
@@ -79,7 +81,9 @@ print([attr for attr in dir(konta) if "saldu" in attr])
 # ['_KontaBankaria__saldu']
 ```
 
-> **💡 Dika:** Name mangling ka é seguránsa — é protesun kontra **erru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
+:::callout{type=tip}
+**💡 Dika:** Name mangling ka é seguránsa — é protesun kontra **erru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
+:::
 
 ## Getters e Setters Tradisionál
 
@@ -165,7 +169,9 @@ print(kaxtelu.presu)          # Asésa komu atributu ✨
 # kaxtelu.presu = 300         # Atribui komu atributu (si tene setter)
 ```
 
-> **💡 Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di métodu**. Utilizador ka presiza sabi ki tene un funsun por trás!
+:::callout{type=tip}
+**💡 Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di métodu**. Utilizador ka presiza sabi ki tene un funsun por trás!
+:::
 
 ## `@property.setter` ku Validasun
 
@@ -260,7 +266,9 @@ print(f"Nova área: {terrenu.area} m²")       # Nova área: 800 m² (rekalkula 
 # terrenu.area = 999  # AttributeError: property 'area' has no setter
 ```
 
-> **💡 Dika:** Property kalkuladu (sem setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SEMPRI atualizadu!
+:::callout{type=tip}
+**💡 Dika:** Property kalkuladu (sem setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SEMPRI atualizadu!
+:::
 
 ## Ezemplu Prátiku: Konta Bankáriu Seguru
 
@@ -406,7 +414,9 @@ ist.append("HAKE!")          # Muda kópia, nau orijinál
 print(len(konta.istóriku))   # 4 (orijinál ka mudá)
 ```
 
-> **💡 Dika:** Nota komu `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padrãu importanti di enkapsolamentu txomadu "defensive copy".
+:::callout{type=tip}
+**💡 Dika:** Nota komu `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padrãu importanti di enkapsolamentu txomadu "defensive copy".
+:::
 
 ## Rezumu di @property vs Getters/Setters
 
