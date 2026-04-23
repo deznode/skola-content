@@ -1,0 +1,278 @@
+---
+title: "Ambiente Virtual i pip"
+language: kea
+courseSlug: intro-python
+lessonSlug: 21-ambiente-virtual
+slug: "ambiente-virtual"
+module: 3
+lesson: 21
+duration: "15 min"
+objectives:
+  - "Intendi PAMODI ambientis virtual é esensial pa projetu Python"
+  - "Kria, ativa, e dezativa un ambiente virtual ku venv"
+  - "Instala pakotis i jera requirements.txt"
+  - "Partilha projetu ku otu pesoa uzandu requirements.txt"
+  - "Konfigura .gitignore pa ignora .venv/"
+---
+
+# Ambiente Virtual i pip
+
+Imajina bo tene dos kuzinha: un pa prepara cachupa i otu pa prepara pastéis. Kada kuzinha tene ses própriu ingredientis i utensilhos — es nau ta mistura. **Ambientis virtual** na Python funsiona exatamenti asim: kada projetu tene ses própriu "kuzinha" ku ses pakotis, sin interferi ku otus projetus.
+
+## Pamodi Ambientis Virtual É Esensial?
+
+Sin ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — partilhadu pa TUDU bo projetus. Kel ta kria problemas sério:
+
+```
+❌ SIN ambiente virtual:
+┌──────────────────────────────────────┐
+│ Python Global                        │
+│                                      │
+│ Projetu A presiza: requests 2.28     │
+│ Projetu B presiza: requests 2.31     │
+│                                      │
+│ 💥 KONFLIKTU! Só un versan podi      │
+│    sta instaladu di kada ves!         │
+└──────────────────────────────────────┘
+
+✅ KU ambiente virtual:
+┌─────────────────┐  ┌─────────────────┐
+│ Projetu A       │  │ Projetu B       │
+│ .venv/          │  │ .venv/          │
+│ requests 2.28   │  │ requests 2.31   │
+│ flask 2.0       │  │ django 5.0      │
+│                 │  │                 │
+│ ✓ Izoladu!     │  │ ✓ Izoladu!     │
+└─────────────────┘  └─────────────────┘
+```
+
+**Problemas reaís ki ta kontesi sin venv:**
+
+- Bo atualiza un pakotu pa Projetu B i Projetu A ta kéba
+- Bo nau sabi kual pakotis bo projetu realmenti presiza (tene 200 instaladu global!)
+- Kuandu bo manda projetu pa kolega, el nau konsigi roda pamodi falta pakotis
+
+## Fluxu Kompletu: Kria → Ativa → Instala → Freeze
+
+### Pasu 1: Kria Ambiente Virtual
+
+```bash
+# Navega pa bo pasta di projetu
+cd meu_projetu
+
+# Kria ambiente virtual (konvensun: .venv)
+python -m venv .venv
+```
+
+Kel komandu ta kria un pasta `.venv/` ku un kópia izoladu di Python i pip.
+
+### Pasu 2: Ativa Ambiente Virtual
+
+```bash
+# macOS / Linux
+source .venv/bin/activate
+
+# Windows (cmd)
+.venv\Scripts\activate
+
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+```
+
+Kuandu ativadu, bo terminal ta mostra `(.venv)` na ínisiu:
+
+```bash
+(.venv) $ python --version
+Python 3.13.2
+(.venv) $ pip list
+Package    Version
+---------- -------
+pip        24.0
+```
+
+> **💡 Dika:** Si bo ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selecioná kómu interpretador Python. Klika "Yes"!
+
+### Pasu 3: Instala Pakotis
+
+```bash
+# Agora tudu ki bo instala ta bai SÓMENTI pa kel .venv
+(.venv) $ pip install requests
+(.venv) $ pip install flask
+(.venv) $ pip install python-dotenv
+
+# Verifica ki ta instaladu
+(.venv) $ pip list
+Package        Version
+-------------- -------
+certifi        2024.2.2
+charset-normalizer 3.3.2
+flask          3.0.2
+requests       2.31.0
+...
+```
+
+### Pasu 4: Jera requirements.txt
+
+```bash
+# "Freeze" tudu pakotu i ses versaun pa un ficheru
+(.venv) $ pip freeze > requirements.txt
+```
+
+```python
+# requirements.txt ta parsé ku kel li:
+# certifi==2024.2.2
+# charset-normalizer==3.3.2
+# flask==3.0.2
+# requests==2.31.0
+# python-dotenv==1.0.1
+```
+
+### Pasu 5: Dezativa
+
+```bash
+# Kuandu bo akaba di trabadja
+(.venv) $ deactivate
+$ # Prompt volta pa normal -- bo sta fora di venv
+```
+
+## Partilha Projetu ku Otu Pesoa
+
+Kuandu Ana kere roda bo projetu, el só presiza:
+
+```bash
+# 1. Klona ó kopia projetu
+git clone https://github.com/nilton/gestor-notas.git
+cd gestor-notas
+
+# 2. Kria ses própriu ambiente virtual
+python -m venv .venv
+
+# 3. Ativa
+source .venv/bin/activate  # (ó komandu Windows)
+
+# 4. Instala tudu dependénsia a partir di requirements.txt
+pip install -r requirements.txt
+
+# 5. Pronto! Tudu pakotu instaladu ku versan serti
+python main.py
+```
+
+> **💡 Dika:** `pip install -r requirements.txt` ta lé kel ficheru i instala tudu pakotu listadu, ku versaun exatu. É kómu un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
+
+## .gitignore: Nunka Manda .venv pa Git!
+
+Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **nau divi bai pa git**:
+
+```bash
+# .gitignore
+.venv/
+__pycache__/
+*.pyc
+.env
+```
+
+```bash
+# Struktura ki ta bai pa git:
+gestor_notas/
+├── .gitignore           ✓ ta bai
+├── requirements.txt     ✓ ta bai (reseta di pakotis)
+├── main.py              ✓ ta bai
+├── modulus/             ✓ ta bai
+│   ├── __init__.py
+│   └── estudanti.py
+├── .venv/               ✗ NAU ta bai (na .gitignore)
+└── .env                 ✗ NAU ta bai (segredus!)
+```
+
+## Errus Komun i Soluson
+
+### Erru 1: "python: command not found"
+
+```bash
+# Tenta python3 na vés di python (macOS/Linux)
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### Erru 2: "No module named venv"
+
+```bash
+# Linux: presiza instala venv separadu
+sudo apt install python3-venv
+python3 -m venv .venv
+```
+
+### Erru 3: Skedji di ativa .venv dipos di kria
+
+```bash
+# Sénpri ativa antis di instala!
+# Si bo instala sin ativa, pakotu ta bai pa global ❌
+source .venv/bin/activate   # PRIMÉRU
+pip install requests        # DIPOS
+```
+
+### Erru 4: PowerShell blokeia aktivasun (Windows)
+
+```powershell
+# Si da erru di "execution policy":
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Dipos tenta di nóvu:
+.venv\Scripts\Activate.ps1
+```
+
+### Erru 5: requirements.txt sta fora di sinku
+
+```bash
+# Si bo instala pakotu nóvu, atualiza requirements.txt!
+pip install beautifulsoup4
+pip freeze > requirements.txt   # Re-jera ficheru
+```
+
+## Fluxu Rezmidu (Txeat Sheet)
+
+```bash
+# === PROJETU NÓVU ===
+mkdir meu_projetu && cd meu_projetu
+python -m venv .venv
+source .venv/bin/activate      # (ó .venv\Scripts\activate na Windows)
+pip install requests flask
+pip freeze > requirements.txt
+echo ".venv/" >> .gitignore
+
+# === PROJETU ESISTENTI (klonadu di git) ===
+cd projetu_esistenti
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# === KUANDU AKABA ===
+deactivate
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1: Priméru Ambiente** — Kria un pasta `teste_venv/`, kria un ambiente virtual, ativa, instala `requests`, e verifica ku `pip list`. Dipos dezativa.
+
+2. **Exersísiu 2: Partilha Simuladu** — Na pasta di exersísiu 1, fazi `pip freeze > requirements.txt`. Dipos apaga `.venv/`, kria di nóvu, ativa, e instala ku `pip install -r requirements.txt`. Verifica ki tudu sta di volta!
+
+3. **Exersísiu 3: Projetu Kompletu** — Kria un projetu "conversor_moeda" ku:
+   - `.venv/` (kreadu ku `python -m venv`)
+   - `.gitignore` (ku `.venv/` i `.env`)
+   - `requirements.txt` (ku `requests` instaladu)
+   - `main.py` ki importa requests i fazi un `print("Projetu prontu!")`
+
+## Rezumu
+
+- **Ambiente virtual** izola pakotis di kada projetu (kómu kuzinhas separadu)
+- Kria ku `python -m venv .venv` (konvensun: sénpri `.venv`)
+- Ativa ku `source .venv/bin/activate` (macOS/Linux) ó `.venv\Scripts\activate` (Windows)
+- `pip install pakotu` — instala sómenti na ambiente ativu
+- `pip freeze > requirements.txt` — salva "reseta" di tudu pakotis
+- `pip install -r requirements.txt` — reproduz ambiente na otu komputador
+- **NUNKA** manda `.venv/` pa git — pô na `.gitignore`
+- Sénpri ativa `.venv` antis di instala pakotis
+- `deactivate` pa sai di ambiente virtual
+
+---
+
+**Prósimu lisun:** [Operasoens ku Ficheru] →

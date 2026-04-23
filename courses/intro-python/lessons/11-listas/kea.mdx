@@ -1,0 +1,356 @@
+---
+title: "Listas i List Comprehension"
+language: kea
+courseSlug: intro-python
+lessonSlug: 11-listas
+slug: "listas-i-list-comprehension"
+module: 2
+lesson: 11
+duration: "30 min"
+objectives:
+  - "Kria listas i asesa elementus ku indexasun i slicing"
+  - "Modifika listas ku métodus append, insert, remove, pop, sort"
+  - "Skrebi list comprehensions ku kondison"
+  - "Evita pitfall di slice assignment ki ta spredi karaktéris"
+---
+
+# Listas i List Comprehension
+
+Imagina bo tene un lista di ilhas ki bo kre vizita, un lista di presus di merkadu, ó nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesoens di dadus na orden.
+
+Lista é un di estruturas más usadu na Python — é **mutável** (bo podi muda dipôs di kria), **ordenadu** (elementus ta mantene es posisun), e podi guarda **kualker tipu di dadu**.
+
+## Kria Listas
+
+Pa kria un lista, uza kolxetis `[]` ku elementus separadu pa vírgula:
+
+```python
+# Lista di strings
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+# Lista di númerus
+notis = [85, 92, 78, 95, 88]
+
+# Lista mistu (diferentes tipus)
+perfil = ["Maria", 22, 1.65, True, "Praia"]
+
+# Lista vazia
+karrinhu = []
+
+print(ilhas)   # ['Santiago', 'São Vicente', 'Sal', 'Fogo', 'Santo Antão']
+print(len(ilhas))  # 5
+```
+
+> **💡 Dika:** Lista podi guarda kualker tipu di dadu — strings, númerus, booleans, e até otrus listas!
+
+## Indexasun: Asesa Elementus
+
+Kada elementu na lista tene un **index** (posisun). Python ta kumesa konta na **0**:
+
+```python
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+# Indexasun positiva (di frenti pa trás)
+print(ilhas[0])   # Santiago (primeiru)
+print(ilhas[1])   # São Vicente (segundu)
+print(ilhas[4])   # Santo Antão (últimu)
+
+# Indexasun negativa (di trás pa frenti)
+print(ilhas[-1])  # Santo Antão (últimu)
+print(ilhas[-2])  # Fogo (penúltimu)
+print(ilhas[-5])  # Santiago (primeiru)
+```
+
+```python
+# ERRU KOMUN: Index fora di ranja
+# print(ilhas[5])  # IndexError: list index out of range
+# Lista tene 5 elementus, entun indexis válidu é 0 a 4
+```
+
+## Slicing: Korta Pedasus di Lista
+
+Slicing ta permiti bo pega un pedasu di lista uzandu `[start:stop:step]`:
+
+```python
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+# [start:stop] — stop é EXCLUSIVU
+print(ilhas[1:3])    # ['São Vicente', 'Sal']
+print(ilhas[0:2])    # ['Santiago', 'São Vicente']
+print(ilhas[2:])     # ['Sal', 'Fogo', 'Santo Antão'] (di 2 até final)
+print(ilhas[:3])     # ['Santiago', 'São Vicente', 'Sal'] (di inísiu até 3)
+
+# [start:stop:step] — ku pasu
+print(ilhas[::2])    # ['Santiago', 'Sal', 'Santo Antão'] (pula 1)
+print(ilhas[::-1])   # Lista al revés!
+```
+
+```python
+# Ezemplu prátiku: Top 3 notis
+notis = [85, 92, 78, 95, 88, 73, 91]
+notis_ordenadu = sorted(notis, reverse=True)
+top_3 = notis_ordenadu[:3]
+print(f"Top 3 notis: {top_3}")  # Top 3 notis: [95, 92, 91]
+```
+
+## Mutabilidadi: Muda Elementus
+
+Diferenti di strings i tuples, listas é **mutável** — bo podi muda es dipôs di kria:
+
+```python
+frutas = ["manga", "papaia", "banana", "laranja"]
+
+# Muda un elementu
+frutas[0] = "tambarina"
+print(frutas)  # ['tambarina', 'papaia', 'banana', 'laranja']
+
+# Muda vários elementus ku slicing
+frutas[1:3] = ["koku", "goiaba"]
+print(frutas)  # ['tambarina', 'koku', 'goiaba', 'laranja']
+```
+
+### ATENSUN: Pitfall di Slice Assignment
+
+```python
+frutas = ["manga", "papaia", "banana", "laranja"]
+
+# KUIDADU! Slice assignment ku string ta spredi karaktéris!
+frutas[1:] = "koku"
+print(frutas)  # ['manga', 'k', 'o', 'k', 'u'] — Kada letra bira un elementu!
+
+# KORETU — uza lista
+frutas = ["manga", "papaia", "banana", "laranja"]
+frutas[1:] = ["koku"]
+print(frutas)  # ['manga', 'koku']
+```
+
+> **💡 Dika:** Kuandu uza slice assignment, senpri atribui un **lista**, nunka un string diretu. `frutas[1:] = ["koku"]` é koretu, `frutas[1:] = "koku"` ta spredi karaktéris!
+
+## Métodus di Lista
+
+Listas tene vários métodus útil pa manipulasun:
+
+### Adisiona Elementus
+
+```python
+pratus = ["cachupa", "katxupa guisadu"]
+
+# append() — adisiona na final
+pratus.append("buzio grelhadu")
+print(pratus)  # ['cachupa', 'katxupa guisadu', 'buzio grelhadu']
+
+# insert(posisun, valor) — adisiona na posisun spesífiku
+pratus.insert(1, "pastéis di atum")
+print(pratus)  # ['cachupa', 'pastéis di atum', 'katxupa guisadu', 'buzio grelhadu']
+```
+
+### Remove Elementus
+
+```python
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Sal"]
+
+# remove() — tira primeiru okorrénsia
+ilhas.remove("Sal")
+print(ilhas)  # ['Santiago', 'São Vicente', 'Fogo', 'Sal']
+
+# pop() — tira i retorna últimu (ó na posisun dadu)
+ultimu = ilhas.pop()
+print(ultimu)  # Sal
+print(ilhas)   # ['Santiago', 'São Vicente', 'Fogo']
+
+segundu = ilhas.pop(1)
+print(segundu)  # São Vicente
+print(ilhas)    # ['Santiago', 'Fogo']
+
+# clear() — limpa tudu
+ilhas.clear()
+print(ilhas)  # []
+```
+
+### Ordena i Inverte
+
+```python
+presus = [350, 150, 500, 200, 450]
+
+# sort() — ordena in-place (muda lista orijinal)
+presus.sort()
+print(presus)  # [150, 200, 350, 450, 500]
+
+# sort(reverse=True) — ordena desendenti
+presus.sort(reverse=True)
+print(presus)  # [500, 450, 350, 200, 150]
+
+# reverse() — inverte orden atual
+nomis = ["Ana", "Pedro", "Carla", "João"]
+nomis.reverse()
+print(nomis)  # ['João', 'Carla', 'Pedro', 'Ana']
+```
+
+```python
+# sorted() — retorna NOVA lista ordenada (ka muda orijinal)
+notis = [85, 92, 78, 95, 88]
+notis_ordenadu = sorted(notis)
+print(notis)           # [85, 92, 78, 95, 88] (ka muda!)
+print(notis_ordenadu)  # [78, 85, 88, 92, 95]
+```
+
+> **💡 Dika:** `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bo ka kre perdi lista orijinal.
+
+## Otrus Métodus Útil
+
+```python
+notis = [85, 92, 78, 95, 88, 92, 85]
+
+# count() — konta kantu vez un valor aparese
+print(notis.count(92))   # 2
+print(notis.count(100))  # 0
+
+# index() — enkontra posisun di primeiru okorrénsia
+print(notis.index(95))   # 3
+print(notis.index(85))   # 0 (primeiru, ka últimu)
+
+# in — verifica si elementu ezisti
+print(92 in notis)   # True
+print(100 in notis)  # False
+
+# Funsoens built-in ku listas
+print(len(notis))    # 7
+print(sum(notis))    # 615
+print(min(notis))    # 78
+print(max(notis))    # 95
+```
+
+## List Comprehension
+
+List comprehension é un manera eleganti i konpaktu di kria listas novas. É un di featuris más sabi di Python:
+
+### Sintaxi Báziku
+
+```python
+# Manera tradisional (ku loop)
+quadradus = []
+for n in range(1, 6):
+    quadradus.append(n ** 2)
+print(quadradus)  # [1, 4, 9, 16, 25]
+
+# Mesmu rezultadu ku list comprehension — 1 linia!
+quadradus = [n ** 2 for n in range(1, 6)]
+print(quadradus)  # [1, 4, 9, 16, 25]
+```
+
+Estrutura: `[espresun for variável in iterável]`
+
+### Ku Kondisun (Filtru)
+
+```python
+# Só númerus par
+pares = [n for n in range(1, 11) if n % 2 == 0]
+print(pares)  # [2, 4, 6, 8, 10]
+
+# Notis asin di 80
+notis = [85, 62, 78, 95, 55, 88, 73, 91]
+boas_notis = [n for n in notis if n >= 80]
+print(boas_notis)  # [85, 95, 88, 91]
+
+# Ilhas ku nomi kurtu (< 5 letras)
+ilhas = ["Santiago", "Sal", "Fogo", "Maio", "Brava", "São Vicente"]
+ilhas_kurtu = [ilha for ilha in ilhas if len(ilha) < 5]
+print(ilhas_kurtu)  # ['Sal', 'Fogo', 'Maio']
+```
+
+### Ku Transformasun
+
+```python
+# Maiúskulu
+nomis = ["maria", "joão", "ana", "pedro"]
+nomis_maiusku = [nomi.upper() for nomi in nomis]
+print(nomis_maiusku)  # ['MARIA', 'JOÃO', 'ANA', 'PEDRO']
+
+# Kapitaliza
+nomis_kapital = [nomi.capitalize() for nomi in nomis]
+print(nomis_kapital)  # ['Maria', 'João', 'Ana', 'Pedro']
+
+# Konverti presus di ECV pa EUR (1 EUR = 110 ECV)
+presus_ecv = [350, 500, 150, 800]
+presus_eur = [round(p / 110, 2) for p in presus_ecv]
+print(presus_eur)  # [3.18, 4.55, 1.36, 7.27]
+```
+
+### Comprehension Aninhadu (Nested)
+
+```python
+# Kria pares di koordinadas
+koordinadas = [[x, y] for x in range(1, 4) for y in range(1, 4)]
+print(koordinadas)
+# [[1,1], [1,2], [1,3], [2,1], [2,2], [2,3], [3,1], [3,2], [3,3]]
+
+# Tabela di multiplikasun (1-5)
+tabela = [[i * j for j in range(1, 6)] for i in range(1, 6)]
+for linia in tabela:
+    print(linia)
+# [1, 2, 3, 4, 5]
+# [2, 4, 6, 8, 10]
+# [3, 6, 9, 12, 15]
+# [4, 8, 12, 16, 20]
+# [5, 10, 15, 20, 25]
+```
+
+## Ezemplu Prátiku: Jestaun di Turma
+
+```python
+# === Lista di Estudantis di Programasun ===
+estudantis = ["Djina", "Nilton", "Edna", "Kelvin", "Lara", "Nuno"]
+notis = [88, 72, 95, 65, 91, 78]
+
+# Estudantis ki pasa (nota >= 70)
+aprovadus = [estudantis[i] for i in range(len(estudantis)) if notis[i] >= 70]
+print(f"Aprovadus: {aprovadus}")
+# Aprovadus: ['Djina', 'Nilton', 'Edna', 'Lara', 'Nuno']
+
+# Média di turma
+media = sum(notis) / len(notis)
+print(f"Média di turma: {media:.1f}")  # Média di turma: 81.5
+
+# Top 3 notis
+top3_notis = sorted(notis, reverse=True)[:3]
+print(f"Top 3 notis: {top3_notis}")  # Top 3 notis: [95, 91, 88]
+
+# Adisiona novu estudanti
+estudantis.append("Gil")
+notis.append(83)
+print(f"Total estudantis: {len(estudantis)}")  # Total estudantis: 7
+
+# Kria lista formatadu
+rezumu = [f"{estudantis[i]}: {notis[i]}" for i in range(len(estudantis))]
+for r in rezumu:
+    print(r)
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1:** Kria un lista `kompras` ku 5 ítens di merkadu. Dipôs:
+   - Adisiona 2 ítens más ku `append()`
+   - Inseri "banana" na posisun 2
+   - Remove últimu íten ku `pop()`
+   - Mostra lista final i kantu ítens tene
+
+2. **Exersísiu 2:** Dadu un lista di presus na ECV: `[250, 500, 180, 750, 320, 90, 450]`, uza list comprehension pa:
+   - Kria lista só ku presus asin di 300 ECV
+   - Kria lista ku presus ku 15% diskóntu
+   - Kria lista ku presus konvertidu pa EUR (1 EUR = 110 ECV)
+
+3. **Exersísiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, e kria lista di dias "kenti" (asin di 30 graus).
+
+## Rezumu
+
+- **Lista** é kolesoens ordenadu i mutável ki uza `[]`
+- **Indexasun** ta kumesa na 0; indexis negativus konta di trás pa frenti
+- **Slicing** `[start:stop:step]` ta korta pedasus — stop é exclusivu
+- **Mutabilidadi** signifika ki bo podi muda elementus dipôs di kria
+- **Métodus**: `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`
+- **List comprehension**: `[espresun for item in iterável if kondisun]` — manera eleganti di kria listas
+- **KUIDADU**: Slice assignment ku string ta spredi karaktéris — senpri atribui un lista
+
+---
+
+**Prósimu lisun:** [Tuplas] →

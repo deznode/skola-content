@@ -1,0 +1,318 @@
+---
+title: "Annotasoens di Tipu"
+language: kea
+courseSlug: intro-python
+lessonSlug: 24-annotasoens-tipu
+slug: "annotasoens-tipu"
+module: 3
+lesson: 24
+duration: "15 min"
+objectives:
+  - "Adisiona type hints na funsoens i variáveis pa dokumenta tipu di dadus"
+  - "Uza sintaxi int | None (Python 3.10+) pa valóris opisionais"
+  - "Kompriendi ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
+---
+
+# Annotasoens di Tipu
+
+Kuandu bo ta skrebi un funsun, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez después... e sabi? I bo mesmu, depois di un férias na Sal, bo ta lembra?
+
+**Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsun ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
+
+## Primeiru Ezemplu: Antis i Después
+
+**Sem type hints:**
+
+```python
+def kalkula_total(presus, diskonto):
+    total = sum(presus)
+    return total - (total * diskonto / 100)
+```
+
+Perguntas ki leitor ta fazi: `presus` é un lista? Di ints o floats? `diskonto` é persentajen (0-100) o frasun (0-1)? O ki ta retorna?
+
+**Ku type hints:**
+
+```python
+def kalkula_total(presus: list[float], diskonto: float) -> float:
+    total = sum(presus)
+    return total - (total * diskonto / 100)
+```
+
+Agora é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), e funsun ta retorna un float.
+
+## Annotasoens di Funsun
+
+Sintaxi é simples: `parâmetru: tipu` i `-> tipu_retorno`:
+
+```python
+def saudason(nomi: str) -> str:
+    """Retorna un saudason personalizadu"""
+    return f"Ola, {nomi}! Bon dia!"
+
+def soma(a: int, b: int) -> int:
+    """Soma dôs numerus interu"""
+    return a + b
+
+def é_maior_di_idadi(idadi: int) -> bool:
+    """Verifika si pesoa é maior di idadi na Kabu Verdi"""
+    return idadi >= 18
+
+def mostra_mensajen(mensajen: str) -> None:
+    """Funsun ki ka retorna nada (None)"""
+    print(f"📢 {mensajen}")
+```
+
+> **💡 Dika:** `-> None` signifika ki funsun ka retorna nada (só ta fazi un asun kumu print).
+
+## Annotasoens di Variável
+
+Bo pode anotar variáveis também:
+
+```python
+# Variáveis simples
+nomi: str = "Cesária"
+idadi: int = 28
+saltu: float = 85000.50
+ta_ativi: bool = True
+
+# Sem valór inisiál (só deklarasun di tipu)
+rezultadu: float
+```
+
+Na prátika, pa variáveis simples, type hint é opisionál pamodi tipu ta ser óbviu. É más útil na funsun i kazus más kompleksu.
+
+## Tipus di Container (Python 3.9+)
+
+Disdi Python 3.9, bo pode uza tipus di container diretamenti (antis, presizava `from typing import List`):
+
+```python
+# Lista di strings
+ilhas: list[str] = ["Santiago", "São Vicente", "Sal", "Fogo"]
+
+# Lista di numerus
+notas: list[float] = [85.5, 92.0, 78.3, 90.1]
+
+# Disionáriu: xavi é string, valór é int
+populasun: dict[str, int] = {
+    "Praia": 159_050,
+    "Mindelo": 70_468,
+    "Santa Maria": 25_765,
+}
+
+# Tupla ku tipus fixu
+koordenadas: tuple[float, float] = (14.9333, -23.5133)  # Praia
+
+# Set di strings
+lingua_ofisial: set[str] = {"português", "kriolu"}
+```
+
+### Funsun ku Containers
+
+```python
+def média_notas(notas: list[float]) -> float:
+    """Kalkula média di un lista di notas"""
+    if not notas:
+        return 0.0
+    return sum(notas) / len(notas)
+
+def konta_palavras(tekstu: str) -> dict[str, int]:
+    """Konta frekvénsia di kada palavra"""
+    palavras = tekstu.lower().split()
+    kontador: dict[str, int] = {}
+    for palavra in palavras:
+        kontador[palavra] = kontador.get(palavra, 0) + 1
+    return kontador
+
+def filtra_aprovadus(estudantis: dict[str, float], mínima: float = 10.0) -> list[str]:
+    """Retorna nomis di estudantis ku nota >= mínima"""
+    return [nomi for nomi, nota in estudantis.items() if nota >= mínima]
+
+# Uza
+notas_klasi = {"Maria": 15.5, "João": 8.0, "Ana": 12.3, "Pedro": 9.5}
+aprovadus = filtra_aprovadus(notas_klasi)
+print(aprovadus)  # ['Maria', 'Ana']
+```
+
+## Union: `int | None` (Python 3.10+)
+
+Algunhas vezes, un funsun pode retorna un valór **o** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
+
+```python
+def buska_estudanti(nomi: str, bazi: dict[str, int]) -> int | None:
+    """Buska nota di estudanti. Retorna None si ka atxа."""
+    return bazi.get(nomi)
+
+# Rezultadu pode ser int o None
+notas = {"Kelvin": 16, "Edna": 14, "Nilton": 18}
+
+nota_kelvin: int | None = buska_estudanti("Kelvin", notas)
+print(nota_kelvin)  # 16
+
+nota_lara: int | None = buska_estudanti("Lara", notas)
+print(nota_lara)  # None
+```
+
+### Más Ezemplus di Union
+
+```python
+def konverti_pa_numeru(tekstu: str) -> float | None:
+    """Tenta konverti string pa float. None si faya."""
+    try:
+        return float(tekstu)
+    except ValueError:
+        return None
+
+def buska_presu(prudotu: str) -> int | str:
+    """Retorna presu o mensajen di erru"""
+    presus = {"katchupa": 250, "grogue": 500, "ponche": 300}
+    if prudotu in presus:
+        return presus[prudotu]
+    return f"Prudotu '{prudotu}' ka foi atxadu"
+
+# Parâmetru opisionál ku valór padraun
+def saudason(nomi: str, lingua: str | None = None) -> str:
+    """Sauda na lingua espesifikadu o padraun (kriolu)"""
+    if lingua == "pt":
+        return f"Olá, {nomi}!"
+    elif lingua == "en":
+        return f"Hello, {nomi}!"
+    return f"Ola, {nomi}! Tudu dretu?"
+```
+
+## Grandi Segredu: Type Hints Ka Ta Muda NADA na Runtime!
+
+Es é pontu más importanti di es lisun: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
+
+```python
+def soma(a: int, b: int) -> int:
+    return a + b
+
+# Python ka ta dа erru — mesmu ku tipus eradu!
+rezultadu = soma("Ola", "Mundu")  # Funxiona! Retorna "OlaMundu"
+print(rezultadu)  # OlaMundu
+```
+
+Entun pa ki é ki type hints ta sirbi?
+
+### 1. Dokumentasun pa Umanus
+
+```python
+# Sem hints — ki é ki es funsun ta espera?
+def prosesa(dadus, opcoes, callback):
+    ...
+
+# Ku hints — klaru!
+def prosesa(dadus: list[dict], opcoes: dict[str, bool], callback: callable) -> bool:
+    ...
+```
+
+### 2. IDE Autocomplete
+
+Kuandu bo skrebi `nomi: str = "Maria"`, bo IDE (VS Code) ta sabi ki `nomi` é string i ta sugerir tudu métodus di string (`.upper()`, `.split()`, etc.) automátikamenti!
+
+### 3. Ferramenta di Análizi (mypy)
+
+```bash
+# mypy ta verifika type hints sem roda programa
+pip install mypy
+mypy nha_programa.py
+```
+
+```python
+# mypy ta aviza si tipo é inkompatível
+def soma(a: int, b: int) -> int:
+    return a + b
+
+soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
+```
+
+> **💡 Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
+
+## Ezemplu Konpletu: Registu di Estudantis
+
+```python
+def kria_estudanti(
+    nomi: str,
+    idadi: int,
+    kursu: str,
+    nota_final: float | None = None
+) -> dict[str, str | int | float | None]:
+    """Kria un registu di estudanti"""
+    return {
+        "nomi": nomi,
+        "idadi": idadi,
+        "kursu": kursu,
+        "nota_final": nota_final,
+    }
+
+def klasifika(nota: float) -> str:
+    """Retorna klasifikasun bazеadu na nota (0-20)"""
+    if nota >= 16:
+        return "Exselenti"
+    elif nota >= 14:
+        return "Mutu Bon"
+    elif nota >= 10:
+        return "Sufisienti"
+    return "Insufisienti"
+
+def relatóriu_klasi(
+    estudantis: list[dict[str, str | int | float | None]]
+) -> dict[str, float | int]:
+    """Jera relatóriu di klasi ku estatístikas"""
+    notas: list[float] = []
+    for est in estudantis:
+        if est["nota_final"] is not None:
+            notas.append(est["nota_final"])
+
+    return {
+        "total_estudantis": len(estudantis),
+        "ku_nota": len(notas),
+        "média": sum(notas) / len(notas) if notas else 0.0,
+        "más_altu": max(notas) if notas else 0.0,
+        "más_baxu": min(notas) if notas else 0.0,
+    }
+
+# Uza
+klasi: list[dict] = [
+    kria_estudanti("Edna", 20, "Informátika", 17.5),
+    kria_estudanti("Gil", 22, "Informátika", 14.0),
+    kria_estudanti("Lara", 19, "Informátika", 11.5),
+    kria_estudanti("Nuno", 21, "Informátika"),  # Inda sem nota
+]
+
+relátoriu = relatóriu_klasi(klasi)
+print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1:** Adisiona type hints na es funsun:
+```python
+def area_retangulu(largura, altura):
+    return largura * altura
+
+def buska_ilha(nomis, alvu):
+    for nomi in nomis:
+        if nomi.lower() == alvu.lower():
+            return nomi
+    return None
+```
+
+2. **Exersísiu 2:** Skrebi un funsun `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), e "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
+
+3. **Exersísiu 3:** Kria un funsun `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", e "máxima".
+
+## Rezumu
+
+- **Annotasoens di funsun:** `def f(param: tipu) -> tipu_retorno:`
+- **Annotasoens di variável:** `nomi: str = "valór"`
+- **Containers (3.9+):** `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`
+- **Union (3.10+):** `int | None` pa valóris ki pode ser un tipu o `None`
+- **Ka ta muda runtime!** Type hints é pa umanus, IDEs, e ferramentas (mypy)
+- **Kuandu uza:** Sempri na funsun (parâmetrus + retornu); opisionál na variáveis óbvias
+- **Benefísiu:** Melhor autocomplete, errus deskubridu más sedu, kódiku más lezível
+
+---
+
+**Prósimu lisun:** [Testu di Kódiku ku pytest] →

@@ -1,0 +1,360 @@
+---
+title: "Sobrekarga di Operador"
+language: kea
+courseSlug: intro-python
+lessonSlug: 31-sobrekarga-operador
+slug: "sobrekarga-operador"
+module: 4
+lesson: 31
+duration: "20 min"
+objectives:
+  - "Implementa __add__, __sub__, __mul__, __eq__ pa tipu personalizadu"
+  - "Konstrui un klasi Vetor ku suporti kompletu di operadoris"
+  - "Kompriendi kumu Python ta uza métodus mádjiku kuandu bo skrebi +, -, ==, <"
+---
+
+# Sobrekarga di Operador
+
+Imajina ki bo sta na merkadu di Sukupira i bo tene dôs saku di katchupa ingredientis. Un saku tene 2kg di milhu i 1kg di fijun, otru tene 1kg di milhu i 3kg di fijun. Si bo "soma" dôs saku, bo ta fika ku 3kg di milhu i 4kg di fijun. Bo acabou di faze **sobrekarga di operador** — bo enxina o ki "soma" signifika pa saku di katchupa!
+
+Na Python, kuandu bo skrebi `3 + 5`, Python sabe ki deve soma numerus. Ma si bo kria un klasi `Vetor` o `Dineru`, Python ka sabe o ki `+` signifika pa es tipu. **Sobrekarga di operador** ta permiti-bu enxina Python o ki `+`, `-`, `==`, e otru operadoris deve faze ku **bo** objetis.
+
+## O ki é Sobrekarga di Operador?
+
+Kuandu bo skrebi `a + b`, Python na verdadi ta txama un métodu mádjiku:
+
+```python
+# Es dôs linhas é EZATAMENTI mesmu kuza:
+rezultadu = 3 + 5
+rezultadu = (3).__add__(5)
+
+# Mesmu pa strings:
+rezultadu = "Ola" + " Mundo"
+rezultadu = "Ola".__add__(" Mundo")
+```
+
+Kada operador tene un métodu mádjiku korispondenti. Kuandu bo defini es métodu na bo klasi, bo ta "sobrekarga" operador — da-l un novu signifikadu pa bo tipu.
+
+## Tabela di Operadoris Mádjiku
+
+| Operador | Métodu Mádjiku | Diskrisun |
+|----------|---------------|-----------|
+| `+` | `__add__` | Adisun |
+| `-` | `__sub__` | Subtrasun |
+| `*` | `__mul__` | Multiplikasun |
+| `/` | `__truediv__` | Divisun |
+| `//` | `__floordiv__` | Divisun interu |
+| `%` | `__mod__` | Módulu (restu) |
+| `**` | `__pow__` | Potensia |
+| `==` | `__eq__` | Igualdadi |
+| `!=` | `__ne__` | Diferenti |
+| `<` | `__lt__` | Menor ki |
+| `>` | `__gt__` | Maior ki |
+| `<=` | `__le__` | Menor o igual |
+| `>=` | `__ge__` | Maior o igual |
+
+> **💡 Dika:** Bo ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, e `__str__` — es é ki bo ta uza más freku. Konsulta tabela kuandu presiza otrus.
+
+## `__add__` i `__sub__` — Adisun i Subtrasun
+
+Vamus kumesa ku un ezemplu simples — un klasi ki ta representa un pontu na mapa:
+
+```python
+class Pontu:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, otru):
+        """Pontu(1, 2) + Pontu(3, 4) = Pontu(4, 6)"""
+        return Pontu(self.x + otru.x, self.y + otru.y)
+
+    def __sub__(self, otru):
+        """Pontu(5, 7) - Pontu(2, 3) = Pontu(3, 4)"""
+        return Pontu(self.x - otru.x, self.y - otru.y)
+
+    def __repr__(self):
+        return f"Pontu({self.x}, {self.y})"
+```
+
+```python
+# Agora operadoris ta funxiona naturalmenti!
+p1 = Pontu(2, 3)
+p2 = Pontu(5, 7)
+
+p3 = p1 + p2          # Python ta txama p1.__add__(p2)
+print(p3)              # Pontu(7, 10)
+
+p4 = p2 - p1           # Python ta txama p2.__sub__(p1)
+print(p4)              # Pontu(3, 4)
+
+# Pode enkadea operasoens!
+p5 = p1 + p2 + Pontu(1, 1)
+print(p5)              # Pontu(8, 11)
+```
+
+Nota ki `__add__` i `__sub__` ta retorna un **novu** objetu `Pontu`. Es é importanti — operador ka deve muda objetis orijinál.
+
+> **💡 Dika:** Sempri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
+
+## `__mul__` — Multiplikasun (Eskalar)
+
+Pa multiplikasun, ta fazi sentidu multiplika kada koordenada por un numeru (eskalar):
+
+```python
+class Pontu:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, otru):
+        return Pontu(self.x + otru.x, self.y + otru.y)
+
+    def __sub__(self, otru):
+        return Pontu(self.x - otru.x, self.y - otru.y)
+
+    def __mul__(self, eskalar):
+        """Pontu(2, 3) * 4 = Pontu(8, 12)"""
+        return Pontu(self.x * eskalar, self.y * eskalar)
+
+    def __repr__(self):
+        return f"Pontu({self.x}, {self.y})"
+```
+
+```python
+p = Pontu(2, 3)
+
+dobru = p * 2     # Python ta txama p.__mul__(2)
+print(dobru)      # Pontu(4, 6)
+
+triplu = p * 3
+print(triplu)     # Pontu(6, 9)
+```
+
+## `__eq__` i `__lt__` — Operadoris di Komparasun
+
+Sem `__eq__`, Python ta kompara por **identidadi** (si é mesmu objetu na memória), ka por **valór**:
+
+```python
+# SEM __eq__
+class Pontu:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p1 = Pontu(2, 3)
+p2 = Pontu(2, 3)
+print(p1 == p2)   # False!!! — é objetis diferenti na memória
+```
+
+```python
+# KU __eq__
+class Pontu:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, otru):
+        """Dôs pontus é igual si x i y é igual"""
+        return self.x == otru.x and self.y == otru.y
+
+    def __lt__(self, otru):
+        """Kompara por distansia di orijem (0,0)"""
+        return (self.x**2 + self.y**2) < (otru.x**2 + otru.y**2)
+
+    def __repr__(self):
+        return f"Pontu({self.x}, {self.y})"
+
+p1 = Pontu(2, 3)
+p2 = Pontu(2, 3)
+p3 = Pontu(10, 10)
+
+print(p1 == p2)    # True — agora ta kompara por valór!
+print(p1 == p3)    # False
+print(p1 < p3)     # True — p1 sta más pertu di orijem
+```
+
+> **💡 Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tambê. Ku es dôs, `sorted()` ta funxiona ku bo objetis automátikamenti!
+
+## Ezemplu Konpletu: Klasi Vetor
+
+Agora vamus kombina tudu num klasi `Vetor2D` kompletu — un vetor matemátiku ku dôs koordenadas:
+
+```python
+import math
+
+class Vetor2D:
+    """Vetor 2D ku suporti kompletu di operadoris"""
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, otru):
+        """v1 + v2"""
+        return Vetor2D(self.x + otru.x, self.y + otru.y)
+
+    def __sub__(self, otru):
+        """v1 - v2"""
+        return Vetor2D(self.x - otru.x, self.y - otru.y)
+
+    def __mul__(self, eskalar):
+        """v * 3"""
+        return Vetor2D(self.x * eskalar, self.y * eskalar)
+
+    def __eq__(self, otru):
+        """v1 == v2"""
+        return self.x == otru.x and self.y == otru.y
+
+    def __lt__(self, otru):
+        """Kompara por magnitude (konprimentu)"""
+        return self.magnitude() < otru.magnitude()
+
+    def __gt__(self, otru):
+        """Kompara por magnitude"""
+        return self.magnitude() > otru.magnitude()
+
+    def magnitude(self):
+        """Konprimentu di vetor"""
+        return math.sqrt(self.x**2 + self.y**2)
+
+    def __str__(self):
+        """Vizun amigável"""
+        return f"({self.x}, {self.y})"
+
+    def __repr__(self):
+        """Vizun pa programador"""
+        return f"Vetor2D({self.x}, {self.y})"
+```
+
+```python
+# Testa tudu operadoris
+v1 = Vetor2D(3, 4)
+v2 = Vetor2D(1, 2)
+
+print(v1 + v2)       # (4, 6)
+print(v1 - v2)       # (2, 2)
+print(v1 * 3)        # (9, 12)
+print(v1 == v2)      # False
+print(v1 == Vetor2D(3, 4))  # True
+
+print(f"Magnitude di v1: {v1.magnitude():.2f}")  # 5.00
+print(f"Magnitude di v2: {v2.magnitude():.2f}")  # 2.24
+print(v1 > v2)       # True — v1 é más grandi
+
+# Funxiona ku sorted()!
+vetores = [Vetor2D(10, 0), Vetor2D(1, 1), Vetor2D(3, 4)]
+ordenadu = sorted(vetores)
+print(ordenadu)       # [Vetor2D(1, 1), Vetor2D(3, 4), Vetor2D(10, 0)]
+```
+
+## Ezemplu Prátiku: Klasi Dineru
+
+Un ezemplu do dia-a-dia — un klasi pa trabadja ku dineru na Eskudu Kabo-Verdianu:
+
+```python
+class Dineru:
+    """Representa un montanti na ECV"""
+
+    def __init__(self, montanti):
+        self.montanti = round(montanti, 2)  # Sempri 2 kasas desimal
+
+    def __add__(self, otru):
+        """Dineru(500) + Dineru(300) = Dineru(800)"""
+        if isinstance(otru, Dineru):
+            return Dineru(self.montanti + otru.montanti)
+        return NotImplemented  # Si ka é Dineru, Python ta tenta otru forma
+
+    def __sub__(self, otru):
+        """Dineru(500) - Dineru(200) = Dineru(300)"""
+        if isinstance(otru, Dineru):
+            return Dineru(self.montanti - otru.montanti)
+        return NotImplemented
+
+    def __mul__(self, fator):
+        """Dineru(100) * 3 = Dineru(300)"""
+        if isinstance(fator, (int, float)):
+            return Dineru(self.montanti * fator)
+        return NotImplemented
+
+    def __eq__(self, otru):
+        """Dineru(500) == Dineru(500) → True"""
+        if isinstance(otru, Dineru):
+            return self.montanti == otru.montanti
+        return NotImplemented
+
+    def __lt__(self, otru):
+        """Dineru(100) < Dineru(500) → True"""
+        if isinstance(otru, Dineru):
+            return self.montanti < otru.montanti
+        return NotImplemented
+
+    def __gt__(self, otru):
+        if isinstance(otru, Dineru):
+            return self.montanti > otru.montanti
+        return NotImplemented
+
+    def __str__(self):
+        return f"{self.montanti:,.2f} ECV"
+
+    def __repr__(self):
+        return f"Dineru({self.montanti})"
+```
+
+```python
+# Operasoens ku dineru — naturál i intuitivu!
+presu_katchupa = Dineru(350)
+presu_grogue = Dineru(200)
+presu_pastel = Dineru(150)
+
+# Soma tudu
+total = presu_katchupa + presu_grogue + presu_pastel
+print(f"Total: {total}")  # Total: 700.00 ECV
+
+# Kalkula troku
+pagamentu = Dineru(1000)
+troku = pagamentu - total
+print(f"Troku: {troku}")  # Troku: 300.00 ECV
+
+# Diskonto di 10%
+ku_diskonto = total * 0.9
+print(f"Ku diskonto: {ku_diskonto}")  # Ku diskonto: 630.00 ECV
+
+# Kompara presus
+print(presu_katchupa > presu_pastel)  # True
+print(presu_grogue == Dineru(200))    # True
+
+# Ordena presus!
+presus = [presu_katchupa, presu_grogue, presu_pastel]
+print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
+```
+
+> **💡 Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasun" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasun.
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1:** Kria un klasi `Temperatura` ku atributu `graus` (na Celsius). Implementa `__add__` (soma graus), `__sub__` (subtrai graus), `__eq__`, `__lt__`, e `__str__` (mostra "Nº°C"). Testa: `Temperatura(30) + Temperatura(5)` deve da `Temperatura(35)`.
+
+2. **Exersísiu 2:** Kria un klasi `Korida` pa um servisiu di hifo (taksi) na Praia. Korida tene `distansia` (km) e `presu_por_km` (ECV). Implementa:
+   - `__add__` — soma dôs koridas (distansia total, média di presu)
+   - `__mul__` — multiplika distansia por un fator
+   - `__eq__` — dôs koridas é igual si distansia i presu é igual
+   - `__str__` — mostra "Korida: Nkm — N ECV"
+   - Métodu `total()` ki ta retorna presu total (distansia * presu_por_km)
+
+3. **Exersísiu 3:** Extende klasi `Dineru` pa suporta `__truediv__` (divisun). `Dineru(1000) / 4` deve retorna `Dineru(250)`. Testa ku esemplu di dividi un konta di restoranti entre amigus.
+
+4. **Exersísiu 4:** Kria un klasi `Nota` pa nota di estudanti (0-20). Implementa tudu operadoris di komparasun (`__eq__`, `__lt__`, `__gt__`, `__le__`, `__ge__`). Kria un lista di 5 notas i uza `sorted()`, `min()`, e `max()` ku es.
+
+## Rezumu
+
+- **Sobrekarga di operador** — ensina Python o ki `+`, `-`, `*`, `==` signifika pa bo klasi
+- **Kada operador** tene un métodu mádjiku korispondenti (`+` → `__add__`, `==` → `__eq__`)
+- **Sempri retorna novu objetu** — ka muda `self` na `__add__`, `__sub__`, etc.
+- **`isinstance()`** — uza pa verifika tipu antis di opera; retorna `NotImplemented` si tipu ka é kompatível
+- **`__eq__` + `__lt__`** — ku es dôs, `sorted()`, `min()`, `max()` ta funxiona ku bo klasi
+- **Klasi Dineru** i **Klasi Vetor** — ezemplus prátiku di kumu sobrekarga ta faze kódiku más naturál i legível
+
+---
+
+**Prósimu lisun:** [Prosimus Pasus: Dataclasses i Alén] →
