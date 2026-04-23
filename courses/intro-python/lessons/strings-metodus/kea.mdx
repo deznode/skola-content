@@ -1,0 +1,380 @@
+---
+title: "Strings: Métodus e Formatason"
+slug: "strings-metodus"
+module: 1
+lesson: 7
+duration: "25 min"
+objectives:
+  - "Uza métodus di string pa muda kazu, limpa espasu, buska e substitui testu"
+  - "Korta (slice) strings ku sintaxi [start:stop:step]"
+  - "Formata saída ku f-strings — métodu prinsipal di Python modernu"
+  - "Uza f\"{var=}\" pa debugging rápidul"
+---
+
+# Strings: Métodus e Formatason
+
+Na lisun anteriol, bo aprendi tipu di dadus — e string é un dos ki bo ta uza MA na programasun. Tudu ves ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bo ta uza string. Python tene dezenas di métodus inkorporadu ki ta fasilitá manipulasun di testu. Nês lisun, nôs ta domina kes métodus e aprendi a formata saída di forma profisional.
+
+## Métodus di Kazu (Case Methods)
+
+Python tene métodus pa muda letras pa maiúskula, minúskula, e mais.
+
+```python
+# Métodus di kazu
+nomi = "maria da graça"
+
+print(nomi.upper())       # MARIA DA GRAÇA
+print(nomi.lower())       # maria da graça
+print(nomi.capitalize())  # Maria da graça  (só primeiru letra)
+print(nomi.title())       # Maria Da Graça  (kada palavra)
+```
+
+```python
+# Ezemplu prátiku: kompara input di utilizador
+resposta = input("Bo gosta di cachupa? (sim/nao): ")
+
+# Sem .lower(), "SIM", "Sim", "sIM" ta fika diferenti
+if resposta.lower() == "sim":
+    print("Ótima escolha! Cachupa é vida!")
+```
+
+> **💡 Dika:** Métodus di string NUNKA ta muda string original — es ta retorna un string NOVU. String é imutável na Python.
+
+```python
+# String original ka ta muda
+saudasan = "ola mundu"
+saudasan.upper()        # retorna "OLA MUNDU" ma ka ta guarda
+print(saudasan)         # "ola mundu" — mesmu koisa!
+
+# Pa guarda, bo tene ki atribui:
+saudasan = saudasan.upper()
+print(saudasan)         # "OLA MUNDU"
+```
+
+## Limpa Espasu (Whitespace Methods)
+
+Kuandu bo resebe input di utilizador o lê dadus di ficheru, mutas ves tene espasus sobra na início o final. `.strip()` ta resolve es problema.
+
+```python
+# .strip() — tira espasu di ambos ladus
+nomi = "   Cesária Évora   "
+print(nomi.strip())    # "Cesária Évora"
+
+# .lstrip() — tira espasu só na eskérda (left)
+print(nomi.lstrip())   # "Cesária Évora   "
+
+# .rstrip() — tira espasu só na direita (right)
+print(nomi.rstrip())   # "   Cesária Évora"
+```
+
+```python
+# Ezemplu prátiku: limpa input di utilizador
+email = input("Skrebe bo email: ")
+email = email.strip().lower()  # limpa espasu I muda pa minúskula
+print(f"Email registradu: {email}")
+```
+
+> **💡 Dika:** Bo pode enkadea (chain) vários métodus djuntu: `" OLA ".strip().lower()` ta da `"ola"`. Python ta exekuta di eskérda pa direita.
+
+## Split e Join
+
+`.split()` ta kebra un string na pedasus e ta da un lista. `"sep".join()` ta djunta un lista nun string. Es dois métodus é un par poderoso.
+
+```python
+# .split() — separa string nun lista
+frase = "Kabu Verdi é nha tera"
+palavras = frase.split()  # separa por espasu (padrau)
+print(palavras)  # ['Kabu', 'Verdi', 'é', 'nha', 'tera']
+
+# .split(sep) — separa por un karáter espesífiku
+ilhas = "Santiago,São Vicente,Sal,Boa Vista,Fogo"
+lista_ilhas = ilhas.split(",")
+print(lista_ilhas)  # ['Santiago', 'São Vicente', 'Sal', 'Boa Vista', 'Fogo']
+```
+
+```python
+# "sep".join(lista) — djunta lista nun string
+frutas = ["papaia", "manga", "banana"]
+resultado = ", ".join(frutas)
+print(resultado)  # "papaia, manga, banana"
+
+# Join ku outro separador
+palavras = ["nôs", "ta", "programa"]
+print(" ".join(palavras))   # "nôs ta programa"
+print("-".join(palavras))   # "nôs-ta-programa"
+```
+
+```python
+# Ezemplu prátiku: formata lista di kompras
+kompras = input("Skrebe bo lista di kompras (separadu por vírgula): ")
+itens = kompras.split(",")
+
+print("Bo lista di kompras:")
+for i, iten in enumerate(itens, 1):
+    print(f"  {i}. {iten.strip()}")
+```
+
+## Buska na Strings (Search Methods)
+
+Python tene vários métodus pa buska konteúdu dentu di un string.
+
+```python
+# .find() — retorna índisi di primeiru okorensia, o -1 si ka atxa
+mensaji = "Funana é músika di Kabu Verdi"
+print(mensaji.find("Kabu"))    # 22
+print(mensaji.find("morna"))   # -1 (ka atxa)
+
+# .index() — igualzinhu a .find(), ma ta da ValueError si ka atxa
+print(mensaji.index("Kabu"))   # 22
+# print(mensaji.index("morna"))  # ValueError!
+
+# .count() — konta kuantas ves aparese
+testu = "banana"
+print(testu.count("a"))   # 3
+print(testu.count("na"))  # 2
+```
+
+```python
+# .startswith() i .endswith() — verifica início o final
+ficheru = "relatoriu_2026.pdf"
+
+print(ficheru.startswith("relatoriu"))  # True
+print(ficheru.endswith(".pdf"))         # True
+print(ficheru.endswith(".txt"))         # False
+```
+
+```python
+# Ezemplu prátiku: klasifika ficheru por extensun
+nomis_ficheru = ["foto.jpg", "trabalhu.pdf", "musika.mp3", "nota.txt", "video.mp4"]
+
+pa_kada = {"imaji": [], "dokumentu": [], "áudiu": [], "otru": []}
+
+for f in nomis_ficheru:
+    if f.endswith((".jpg", ".png")):
+        pa_kada["imaji"].append(f)
+    elif f.endswith(".pdf"):
+        pa_kada["dokumentu"].append(f)
+    elif f.endswith(".mp3"):
+        pa_kada["áudiu"].append(f)
+    else:
+        pa_kada["otru"].append(f)
+
+print(pa_kada)
+```
+
+## Replace
+
+`.replace(antigu, novu)` ta substitui tudu okorensia di un testu por otru.
+
+```python
+# .replace(antigu, novu)
+frase = "Python é difísil, Python é konplexu"
+nova_frase = frase.replace("difísil", "fásil")
+print(nova_frase)  # "Python é fásil, Python é konplexu"
+
+# Substitui tudu okorensia
+frase2 = "Ola Mundu, Ola Python"
+print(frase2.replace("Ola", "Adeus"))  # "Adeus Mundu, Adeus Python"
+```
+
+```python
+# Ezemplu prátiku: limpa dadus
+telefone = "+238 991-23-45"
+telefone_limpu = telefone.replace(" ", "").replace("-", "")
+print(telefone_limpu)  # "+2389912345"
+```
+
+## Klasifikasun di String (Classification Methods)
+
+Es métodus ta verifica ki tipu di karáteris un string tene. Tudu ta retorna `True` o `False`.
+
+```python
+# .isdigit() — só dígitus?
+pin = "1234"
+print(pin.isdigit())     # True
+print("12.34".isdigit()) # False (tene pontu)
+print("12ab".isdigit())  # False (tene letras)
+
+# .isalpha() — só letras?
+nomi = "Amilcar"
+print(nomi.isalpha())     # True
+print("João 3".isalpha()) # False (tene espasu i nùmeru)
+
+# .isalnum() — letras O dígitus?
+kodigu = "ABC123"
+print(kodigu.isalnum())   # True
+print("ABC 123".isalnum()) # False (tene espasu)
+```
+
+```python
+# Ezemplu prátiku: valida input di utilizador
+idadi = input("Skrebe bo idadi: ")
+
+if idadi.isdigit():
+    idadi = int(idadi)
+    print(f"Bo tene {idadi} anu")
+else:
+    print("Por favor, skrebe só nùmerus!")
+```
+
+## String Slicing (Korta Strings)
+
+Slicing ta permite bo pega un parte di string, igualzinhu ki bo ta korta un fatia di bolu. Sintaxi é `s[start:stop:step]`.
+
+```python
+# Báziku: s[start:stop] — start inkluzívu, stop ekskluzívu
+ilha = "Santiago"
+
+print(ilha[0])      # 'S'  — primeiru karáter
+print(ilha[0:3])    # 'San' — índisi 0, 1, 2
+print(ilha[3:])     # 'tiago' — di índisi 3 até final
+print(ilha[:4])     # 'Sant' — di início até índisi 3
+print(ilha[-4:])    # 'iago' — últimus 4 karáteris
+```
+
+```python
+# Step (pasu)
+alfabet = "ABCDEFGHIJ"
+
+print(alfabet[::2])    # 'ACEGI'  — kada 2 karáteris
+print(alfabet[1::2])   # 'BDFHJ'  — kada 2, kumesandu di 1
+```
+
+```python
+# INVERTE un string ku [::-1]
+nomi = "Edna"
+print(nomi[::-1])  # "andE"
+
+# Verifica si é palíndromu
+palavra = "aba"
+if palavra == palavra[::-1]:
+    print(f"'{palavra}' é palíndromu!")
+```
+
+```python
+# Ezemplu prátiku: formata nùmeru di telefone
+telefone = "2389912345"
+formatadu = f"+{telefone[:3]} {telefone[3:6]}-{telefone[6:8]}-{telefone[8:]}"
+print(formatadu)  # "+238 991-23-45"
+```
+
+## f-strings — Formatason Prinsipal
+
+f-strings é forma prinsipal e modérna pa formata strings na Python. Basta koloka `f` antis di aspas e uza `{}`  pa inseri variáveis o expresoens.
+
+```python
+# Báziku: f-string
+nomi = "Djina"
+idadi = 22
+print(f"Nha nomi é {nomi} i N tene {idadi} anu")
+# "Nha nomi é Djina i N tene 22 anu"
+```
+
+```python
+# Expresoens dentu di {}
+presu = 850
+print(f"Presu ku IVA: {presu * 1.15:.2f} ECV")
+# "Presu ku IVA: 977.50 ECV"
+
+# Formata nùmerus
+populasun = 587000
+print(f"Populasun: {populasun:,}")  # "Populasun: 587,000"
+
+# Alinhar testu
+for produto in ["Cachupa", "Grogue", "Ponche"]:
+    print(f"{produto:<15} ..... disponível")
+# Cachupa         ..... disponível
+# Grogue          ..... disponível
+# Ponche          ..... disponível
+```
+
+### f-string pa Debugging: `f"{var=}"`
+
+Desde Python 3.8, bo pode uza `=` dentu di f-string pa mostra nomi di variável DJUNTU ku se valor. É fantástiku pa debugging!
+
+```python
+# f-string debug — mostra nomi = valor
+nomi = "Kelvin"
+idadi = 19
+nota = 85.5
+
+print(f"{nomi=}")        # nomi='Kelvin'
+print(f"{idadi=}")       # idadi=19
+print(f"{nota=}")        # nota=85.5
+
+# Funsiona ku expresoens tanbe!
+print(f"{idadi + 1=}")   # idadi + 1=20
+print(f"{nomi.upper()=}")  # nomi.upper()='KELVIN'
+```
+
+```python
+# Ezemplu prátiku: debugging un kalkulu
+largura = 5
+altura = 3
+area = largura * altura
+
+# Sem f"{=}" — bo tene ki skrebe nomi manualmente
+print(f"largura={largura}, altura={altura}, area={area}")
+
+# Ku f"{=}" — mais rápidul i sem erru
+print(f"{largura=}, {altura=}, {area=}")
+# largura=5, altura=3, area=15
+```
+
+> **💡 Dika:** `f"{var=}"` é bo melhor amigu kuandu bo ta tenta intende pamodi bo kódiku ka ta funsiona. Uza el na lugar di `print("x =", x)`.
+
+## Otrus Métodus di Formatason (pa Lê Kódiku Antigu)
+
+f-strings é métodu prinsipal, ma bo ta enkontra otrus métodus na kódiku ezistenti. Ka presiza domina — basta konhese pa pode lê.
+
+```python
+# .format() — komun na kódiku antigu (Python 2-3.5)
+nomi = "Ana"
+idadi = 25
+print("Nha nomi é {} i N tene {} anu".format(nomi, idadi))
+print("Nha nomi é {0} i N tene {1} anu".format(nomi, idadi))
+
+# %-formatting — legadu, mutu antigu
+print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
+# %s = string, %d = interu, %f = float
+```
+
+> **💡 Dika:** Kuandu bo skrebe kódiku novu, SEMPRI uza f-strings. `.format()` e `%` só esisti pa bo pode lê kódiku ki otru pesoas skrebê antis.
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1 — Prosesador di Nomi:** Pedi utilizador pa skrebe se nomi kompletu ku `input()`. Depois:
+   - Mostra na maiúskula ku `.upper()`
+   - Mostra na minúskula ku `.lower()`
+   - Mostra na formatu título ku `.title()`
+   - Mostra kuantas letras tene (uza `len()` e `.replace(" ", "")` pa tira espasus)
+
+2. **Exersísiu 2 — Analizador di Frase:** Pedi un frase e mostra:
+   - Kuantas palavras tene (uza `.split()` e `len()`)
+   - Kuantas ves letra "a" aparese (uza `.count()`)
+   - Frase invertida (uza `[::-1]`)
+
+3. **Exersísiu 3 — Formatador di Kontatu:** Kria un programa ki pedi nomi, ilha e telefone, depois mostra un kartu di kontatu formatadu ku f-strings:
+   ```
+   ╔══════════════════════════╗
+   ║  Nomi: Lara Silva        ║
+   ║  Ilha: São Vicente       ║
+   ║  Tel:  +238 991-23-45    ║
+   ╚══════════════════════════╝
+   ```
+
+## Rezumu
+
+- **Métodus di kazu:** `.upper()`, `.lower()`, `.capitalize()`, `.title()` — muda letras ma ka altera string original
+- **Limpa espasu:** `.strip()`, `.lstrip()`, `.rstrip()` — esensial pa input di utilizador
+- **Split/Join:** `.split()` ta kebra string pa lista; `"sep".join()` ta djunta lista pa string
+- **Buska:** `.find()` (retorna -1), `.index()` (da erru), `.count()`, `.startswith()`, `.endswith()`
+- **Replace:** `.replace(antigu, novu)` — substitui tudu okorensia
+- **Klasifikasun:** `.isdigit()`, `.isalpha()`, `.isalnum()` — verifica konteúdu
+- **Slicing:** `s[start:stop:step]` — `s[::-1]` pa inverte
+- **f-strings:** `f"Ola {nomi}"` — forma prinsipal di formata strings
+- **Debug:** `f"{var=}"` — mostra nomi e valor djuntu (Python 3.8+)
+
+---
+
+**Prósimu lisun:** [Operadoris] →

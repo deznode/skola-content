@@ -1,0 +1,297 @@
+---
+title: "Konjuntus (Sets)"
+slug: "konjuntus"
+module: 2
+lesson: 14
+duration: "20 min"
+objectives:
+  - "Kria sets ku chaves {} ó ku set()"
+  - "Uza auto-deduplikasun pa elimina valóris repetidu"
+  - "Testa membership ku 'in' na tempu O(1)"
+  - "Aplika operasoens matemátiku: union, intersection, difference"
+  - "Skrévi set comprehension"
+---
+
+# Konjuntus (Sets)
+
+Na matemátika, un konjuntu é un grupu di elementus úniku -- sin repetisun. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi una ves só, ó kuandu bo presiza verifica rápidu si un elementu ezisti. Nôs ta uza sets pa tudu tipu di koza -- dezdi removi duplikadus te kompara listas di dadus.
+
+## Kria Sets
+
+Tene dos maneira di kria un set:
+
+```python
+# Ku chaves {}
+ilhas = {"Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"}
+print(ilhas)        # Órdin podi varia! Sets NAU tene órdin garantidu
+print(type(ilhas))  # <class 'set'>
+
+# Ku set() a partir di un lista
+numeros = set([1, 2, 3, 4, 5])
+print(numeros)  # {1, 2, 3, 4, 5}
+
+# Set vazio -- ATENSUN!
+vazio_corretu = set()     # Set vazio ✓
+vazio_eradu = {}          # Kel li é un dict vazio, NAU un set!
+print(type(vazio_corretu))  # <class 'set'>
+print(type(vazio_eradu))    # <class 'dict'>
+```
+
+> **💡 Dika:** `{}` ta kria un dicionáriu vazio, NAU un set vazio! Pa kria set vazio, sénpri uza `set()`. É un armadilha komun ki muitius programadoris ta kái.
+
+## Auto-Deduplikasun
+
+Kuandu bo kria un set, Python ta elimina automatikamenti tudu elementu repetidu:
+
+```python
+# Notas di exami ku repetisun
+notas = [15, 18, 12, 15, 18, 10, 12, 20, 15]
+notas_unikas = set(notas)
+print(notas_unikas)  # {10, 12, 15, 18, 20}
+print(f"Tinha {len(notas)} notas, ma só {len(notas_unikas)} é úniku")
+
+# Letras di un palavra
+palavra = "cachupa"
+letras = set(palavra)
+print(letras)  # {'c', 'a', 'h', 'u', 'p'} (órdin podi varia)
+print(f"'{palavra}' tene {len(letras)} letras diferenti")
+```
+
+```python
+# Nomi di estudantis ki registra pa kursus (podi tene duplikadus)
+registrus = ["Maria", "João", "Ana", "Maria", "Pedro", "Ana", "Maria"]
+estudantis = set(registrus)
+print(f"Total registrus: {len(registrus)}")
+print(f"Estudantis úniku: {len(estudantis)}")
+print(estudantis)  # {'Maria', 'João', 'Ana', 'Pedro'}
+```
+
+## Membership Testing (Testa si Elementu Ezisti)
+
+Un di grandi vantajens di sets é velocidadi di busca. Verifica si un elementu sta dentru di un set é **O(1)** -- konstanti, independenti di tamanhu. Na listas, é **O(n)** -- más lentu pa listas grandi.
+
+```python
+# Lista di ilhas ku aeroporitu internasional
+ilhas_ku_aeroportu = {"Santiago", "Sal", "São Vicente", "Boa Vista"}
+
+# Testa membership -- super rápidu!
+ilha = "Sal"
+if ilha in ilhas_ku_aeroportu:
+    print(f"{ilha} tene aeroporitu internasional! ✈️")
+else:
+    print(f"{ilha} nau tene aeroporitu internasional.")
+
+# Kompara ku lista -- resultado é igual, ma set é más rápidu
+ilha_lista = ["Santiago", "Sal", "São Vicente", "Boa Vista"]
+print("Fogo" in ilhas_ku_aeroportu)  # False -- O(1)
+print("Fogo" in ilha_lista)          # False -- O(n)
+```
+
+```python
+# Ezemplu prátiku: verifica si password tene karakter spesial
+password = "M1nh@Senha"
+karakter_spesial = set("!@#$%^&*()_+-=")
+
+tene_spesial = any(c in karakter_spesial for c in password)
+print(f"Password tene karakter spesial: {tene_spesial}")  # True
+```
+
+> **💡 Dika:** Kuandu bo presiza verifica si un valór ezisti dentru di un kolesun grandi, konverti pa set priméru. Pa 1 milhaun di elementus, set ta responde instantaneamenti, lista ta leva tempu.
+
+## Operasoens Matemátiku
+
+Sets na Python ta suporta operasoens di konjuntus ki bo ta aprendi na matemátika:
+
+```python
+# Estudantis na kursus di Python i di JavaScript
+python_estudantis = {"Maria", "João", "Ana", "Pedro", "Carla"}
+javascript_estudantis = {"Ana", "Nilton", "Pedro", "Kelvin", "Edna"}
+
+# UNION (|) -- tudu estudanti (di ambos kursus)
+tudus = python_estudantis | javascript_estudantis
+print(f"Union: {tudus}")
+# {'Maria', 'João', 'Ana', 'Pedro', 'Carla', 'Nilton', 'Kelvin', 'Edna'}
+
+# INTERSECTION (&) -- estudantis na AMBOS kursus
+ambos = python_estudantis & javascript_estudantis
+print(f"Na ambos kursus: {ambos}")  # {'Ana', 'Pedro'}
+
+# DIFFERENCE (-) -- só na Python, NAU na JavaScript
+so_python = python_estudantis - javascript_estudantis
+print(f"Só Python: {so_python}")  # {'Maria', 'João', 'Carla'}
+
+# SYMMETRIC DIFFERENCE (^) -- na un ó otu, ma NAU ambos
+exklusivu = python_estudantis ^ javascript_estudantis
+print(f"Só na un kursus: {exklusivu}")
+# {'Maria', 'João', 'Carla', 'Nilton', 'Kelvin', 'Edna'}
+```
+
+```python
+# Ezemplu: ingredientis pa cachupa
+ingredientis_cachupa_santiago = {"milhu", "feijun", "banana-verdi", "mandioka", "batata-dosi", "karni-porku"}
+ingredientis_cachupa_sv = {"milhu", "feijun", "banana-verdi", "mandioka", "pexi", "atum"}
+
+# Ki ingredientis ta komun na ambos?
+komun = ingredientis_cachupa_santiago & ingredientis_cachupa_sv
+print(f"Ingredientis komun: {komun}")
+
+# Ki diferensa entre es?
+so_santiago = ingredientis_cachupa_santiago - ingredientis_cachupa_sv
+so_sv = ingredientis_cachupa_sv - ingredientis_cachupa_santiago
+print(f"Só Santiago: {so_santiago}")
+print(f"Só São Vicente: {so_sv}")
+```
+
+## Métodus di Sets
+
+```python
+frutas = {"manga", "papaia", "banana"}
+
+# .add() -- djunta un elementu
+frutas.add("laranja")
+print(frutas)  # {'manga', 'papaia', 'banana', 'laranja'}
+
+# .add() ku elementu ki dja ezisti -- nada ta muda
+frutas.add("manga")
+print(frutas)  # {'manga', 'papaia', 'banana', 'laranja'} -- sin repetisun
+
+# .remove() -- elimina (da erru si nau ezisti!)
+frutas.remove("papaia")
+print(frutas)  # {'manga', 'banana', 'laranja'}
+# frutas.remove("uva")  # KeyError! 'uva' nau ezisti
+
+# .discard() -- elimina (NAU da erru si nau ezisti)
+frutas.discard("uva")  # Nada ta kontesi, sin erru
+frutas.discard("banana")
+print(frutas)  # {'manga', 'laranja'}
+```
+
+> **💡 Dika:** Uza `.discard()` na vés di `.remove()` kuandu bo nau tene serteza si elementu ezisti. Asim bo programa nau ta krasa ku `KeyError`.
+
+```python
+# Métodus pa operasoens (alternativa a operadoris)
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a.union(b))         # {1, 2, 3, 4, 5, 6} -- igual a a | b
+print(a.intersection(b))  # {3, 4} -- igual a a & b
+print(a.difference(b))    # {1, 2} -- igual a a - b
+
+# .issubset() i .issuperset()
+vogais = {"a", "e", "i", "o", "u"}
+letras_nomi = set("maria")  # {'m', 'a', 'r', 'i'}
+vogais_nomi = letras_nomi & vogais
+print(f"Vogais na 'maria': {vogais_nomi}")
+print(vogais_nomi.issubset(vogais))  # True -- tudu vogais_nomi sta na vogais
+```
+
+## Set Comprehension
+
+Mesmu lójika di list comprehension, ma ku chaves `{}`:
+
+```python
+# Numeros par di 0 a 20
+pares = {x for x in range(21) if x % 2 == 0}
+print(pares)  # {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+
+# Priméru letra di kada nomi (úniku)
+nomis = ["Maria", "Marcos", "Ana", "Amilcar", "Carla", "Cesária"]
+primeru_letras = {nomi[0] for nomi in nomis}
+print(primeru_letras)  # {'M', 'A', 'C'}
+
+# Tamanhu di palavras na un frazi
+frazi = "funana ta toka na prasa di Praia tudu fin di simana"
+tamanhu_palavras = {len(palavra) for palavra in frazi.split()}
+print(f"Tamanhus diferenti di palavra: {tamanhu_palavras}")
+```
+
+```python
+# Quadradus perfeitsu te 100
+quadradus = {x ** 2 for x in range(1, 11)}
+print(quadradus)  # {1, 4, 9, 16, 25, 36, 49, 64, 81, 100}
+
+# Verifica si un numeru é quadradu perfeitu
+numeru = 49
+if numeru in quadradus:
+    print(f"{numeru} é un quadradu perfeitu!")
+```
+
+## Padrões Komun: Removi Duplikadus Preservandu Órdin
+
+`set()` ta removi duplikadus, ma el ta perdi órdin orijinal. Pa preserva órdin:
+
+```python
+# Problema: removi duplikadus ma mante órdin
+musika_playlist = [
+    "Cesária Évora - Sodade",
+    "Bana - Lua Nha Testemunha",
+    "Cesária Évora - Sodade",  # duplikadu
+    "Gil Semedo - Nha Inspiração",
+    "Bana - Lua Nha Testemunha",  # duplikadu
+    "Mayra Andrade - Tunuka",
+]
+
+# Soluson: uza set pa rastreia ki dja aparesi
+vistu = set()
+playlist_limpu = []
+for musika in musika_playlist:
+    if musika not in vistu:
+        vistu.add(musika)
+        playlist_limpu.append(musika)
+
+print("Playlist sin duplikadus:")
+for i, musika in enumerate(playlist_limpu, 1):
+    print(f"  {i}. {musika}")
+```
+
+```python
+# Versan más kurtu ku dict.fromkeys() (Python 3.7+ -- dicts ta preserva órdin)
+playlist_limpu = list(dict.fromkeys(musika_playlist))
+print(playlist_limpu)
+```
+
+## Kuandu Uza Sets vs Listas
+
+| Situasun | Uza Set | Uza Lista |
+|----------|---------|-----------|
+| Presiza elementus úniku | ✓ | |
+| Presiza busca rápidu (`in`) | ✓ | |
+| Presiza operasoens di konjuntus | ✓ | |
+| Presiza mante órdin | | ✓ |
+| Presiza asesu pa índisi | | ✓ |
+| Presiza elementus repetidu | | ✓ |
+| Elementus é mutável (listas, dicts) | | ✓ |
+
+> **💡 Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bo nau podi pô listas ó dicionárius dentru di un set.
+
+```python
+# Kel li ta funsiona
+validu = {1, "hello", (1, 2, 3), True}
+
+# Kel li ta da erru!
+# invalidu = {[1, 2], {"a": 1}}  # TypeError: unhashable type: 'list'
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1: Letras Komun** -- Kria dos sets ku letras di dos palavras (por ezemplu, "cachupa" i "funana"). Mostra letras ki ambos ta partilha (intersection) e letras ki só un di es tene (symmetric difference).
+
+2. **Exersísiu 2: Deduplikador di Emali** -- Tene un lista di emalis ki podi tene duplikadus. Uza set pa removi duplikadus i mostra lista limpu ku total antis i dipos.
+
+3. **Exersísiu 3: Analiza di Playlist** -- Kria dos playlists (sets di nomi di músika). Mostra: (a) tudu músika kombindadu, (b) músika ki sta na ambos playlists, (c) músika ki só sta na playlist 1.
+
+## Rezumu
+
+- Sets é kolesun di elementus **úniku** i **sin órdin**
+- Kria ku `{elementus}` ó `set()` -- nunka `{}` pa set vazio
+- Auto-deduplikasun: elementus repetidu ta desaparesi automatikamenti
+- Membership testing (`in`) é **O(1)** -- muitísimu más rápidu ki listas
+- Operasoens matemátiku: `|` (union), `&` (intersection), `-` (difference), `^` (symmetric difference)
+- `.add()` pa djunta, `.discard()` pa elimina sin erru
+- Set comprehension: `{expr for item in iterable if condition}`
+- Pa removi duplikadus preservandu órdin: uza un set auxiliar ó `dict.fromkeys()`
+- Sets só ta aseita elementus imutável (hashable)
+
+---
+
+**Prósimu lisun:** [Kazus Real ku Estruturas di Dadus] →

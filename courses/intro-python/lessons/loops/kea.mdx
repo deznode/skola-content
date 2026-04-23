@@ -1,0 +1,459 @@
+---
+title: "Loops (for/while)"
+slug: "loops"
+module: 1
+lesson: 10
+duration: "25 min"
+objectives:
+  - "Uza for loop ku range() pa repeti kódiku"
+  - "Itera sima strings e listas ku for"
+  - "Uza while loop pa repetisun kondisinál"
+  - "Kontrola fluxu ku break, continue e pass"
+  - "Kria loops aninhadu pa padruns kompleksu"
+  - "Konxé enumerate() komu pitu pa Module 3"
+---
+
+# Loops (for/while)
+
+Imajina ki bo ta presiza konta di 1 té 100. Bo ta skrévi `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu ves sin skrévi mesmu koza rapitidu. Na Python, nôs tene dos tipu prinsipál di loop: `for` e `while`. Nôs ta domina ambos na kel lisun li!
+
+## For Loop ku Range()
+
+`for` loop é forma más komun di repetisun na Python. Funsun `range()` ta jera un sequénsia di numerus pa nôs itera.
+
+```python
+# Konta di 0 a 4
+for i in range(5):
+    print(i)
+# Saída: 0, 1, 2, 3, 4
+```
+
+`range()` ta aséita até 3 argumentus: `range(start, stop, step)`:
+
+```python
+# range(stop) -- kumesa na 0
+for i in range(5):
+    print(i)         # 0, 1, 2, 3, 4
+
+# range(start, stop) -- stop nau ta inkluídu!
+for i in range(1, 6):
+    print(i)         # 1, 2, 3, 4, 5
+
+# range(start, stop, step)
+for i in range(0, 10, 2):
+    print(i)         # 0, 2, 4, 6, 8
+
+# Kontajen disendenti
+for i in range(10, 0, -1):
+    print(i)         # 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+```
+
+> **💡 Dika:** `range(stop)` ta kumesa SÉNPRI na 0 e ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 -- sinku numerus, ma nunka txiga na 5!
+
+Ezemplu prátiku -- kontajen regresivu:
+
+```python
+# Kontajen regresivu pa lansamentu di fogeti na Fogu 🌋
+print("Lansamentu na Ilha du Fogu!")
+for i in range(10, 0, -1):
+    print(f"{i}...")
+print("FOGETI! 🚀")
+```
+
+## Itera Sima Strings
+
+`for` loop ta funsiona dirétamenti ku strings -- el ta pasa pu kada karáter:
+
+```python
+# Itera sima kada letra
+nomi = "Cesária"
+for letra in nomi:
+    print(letra)
+# Saída: C, e, s, á, r, i, a
+
+# Konta vogais na un nomi
+nomi = "Amilcar"
+vogais = "aeiouAEIOU"
+kontador = 0
+
+for letra in nomi:
+    if letra in vogais:
+        kontador += 1
+
+print(f"'{nomi}' tene {kontador} vogais.")  # 'Amilcar' tene 3 vogais.
+```
+
+## Itera Sima Listas
+
+Bo tanbe podi itera dirétamenti sima listas (nôs ta aprendi listas na Module 2, ma li ta mostru pitu):
+
+```python
+# Lista di ilhas di Kabu Verdi
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+for ilha in ilhas:
+    print(f"Ilha: {ilha}")
+```
+
+```python
+# Kalkula média di notus
+notus = [14, 17, 12, 19, 15]
+soma = 0
+
+for nota in notus:
+    soma += nota
+
+media = soma / len(notus)
+print(f"Média: {media}")  # Média: 15.4
+```
+
+## While Loop
+
+`while` loop ta repeti enkuantu kondisun é `True`. Útil kuandu bo nau sabi kuántus ves loop ta presiza kori.
+
+```python
+# Konta di 1 a 5 ku while
+kontador = 1
+while kontador <= 5:
+    print(kontador)
+    kontador += 1     # IMPORTANTI: sen kel li, loop ta kori pa senpri!
+```
+
+> **💡 Dika:** Sénpri garanti ki kondisun di `while` ta txiga a `False` na algun momentu. Sin kél, bo ta kria un "loop infinitu" ki nau ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
+
+Ezemplu prátiku -- jogu di adivinha:
+
+```python
+# Jogu di adivinha numeru
+import random
+
+numeru_sekretu = random.randint(1, 10)
+tentativa = 0
+
+print("Nha ta pensa na un numeru di 1 a 10...")
+
+while True:
+    resposta = int(input("Bo palpiti: "))
+    tentativa += 1
+
+    if resposta == numeru_sekretu:
+        print(f"Paraben! Bo adivinha na {tentativa} tentativa(s)! 🎉")
+        break
+    elif resposta < numeru_sekretu:
+        print("Más altu!")
+    else:
+        print("Más baxu!")
+```
+
+Otu ezemplu -- validasun di input:
+
+```python
+# Pidi un numeru positivu
+numeru = -1
+while numeru <= 0:
+    numeru = int(input("Inseri un numeru positivu: "))
+    if numeru <= 0:
+        print("Kel nau é positivu! Tenta más.")
+
+print(f"Bo inseri: {numeru}")
+```
+
+## Break, Continue e Pass
+
+Python tene 3 instruson spesiál pa kontrola kumé loop ta funsiona:
+
+### Break -- Sai di Loop
+
+`break` ta termina loop imediatamenti, mesmu si kondisun ainda é `True`:
+
+```python
+# Buska priméru numeru divisível pa 7
+for i in range(1, 100):
+    if i % 7 == 0:
+        print(f"Priméru divisível pa 7: {i}")
+        break
+# Saída: Priméru divisível pa 7: 7
+```
+
+```python
+# Para kuandu txiga na un nomi spesífiku
+nomis = ["João", "Ana", "Maria", "Pedro", "Carla"]
+
+for nomi in nomis:
+    if nomi == "Maria":
+        print("Nha atxa Maria! 🎯")
+        break
+    print(f"Verifikandu: {nomi}...")
+```
+
+### Continue -- Pula pa Prósimu
+
+`continue` ta pula restu di iterasun atual e ta bai pa prósimu:
+
+```python
+# Mostra só numerus ímpar di 1 a 10
+for i in range(1, 11):
+    if i % 2 == 0:
+        continue       # Pula numerus par
+    print(i)
+# Saída: 1, 3, 5, 7, 9
+```
+
+```python
+# Mostra tudu ilhas MENUS Sal
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+for ilha in ilhas:
+    if ilha == "Sal":
+        continue
+    print(f"Ilha: {ilha}")
+```
+
+### Pass -- Nau Fazi Nada
+
+`pass` é un "placeholder" -- el nau ta fazi nada, ma ta permiti bo tene un bloku vazio sin erru:
+
+```python
+# Placeholder pa kódiku ki bo ta skrévi dipos
+for i in range(10):
+    if i % 2 == 0:
+        pass  # TODO: Prosesa numerus par dipos
+    else:
+        print(f"{i} é ímpar")
+```
+
+> **💡 Dika:** `pass` é útil kuandu bo ta planeja bo programa e bo kre dexa un bloku vazio pa dipos. Sin `pass`, Python ta dá `IndentationError`.
+
+## For-Else: Bloku Else Dipos di Loop
+
+Python tene un karaterístika únika: bo podi pô `else` dipos di un `for` loop. Bloku `else` ta kori SÓ si loop termina normalmenti (sin `break`):
+
+```python
+# Buska un numeru na lista
+numerus = [2, 4, 6, 8, 10]
+buska = 7
+
+for n in numerus:
+    if n == buska:
+        print(f"Atxa {buska}!")
+        break
+else:
+    print(f"{buska} nau sta na lista.")
+# Saída: 7 nau sta na lista.
+```
+
+Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bo nau atxa, `else` ta kori.
+
+Ezemplu klásku -- verifikador di numeru primu:
+
+```python
+# Verifica si un numeru é primu
+numeru = int(input("Inseri un numeru: "))
+
+if numeru <= 1:
+    print(f"{numeru} nau é primu.")
+else:
+    for i in range(2, numeru):
+        if numeru % i == 0:
+            print(f"{numeru} nau é primu (divisível pa {i}).")
+            break
+    else:
+        print(f"{numeru} é primu! ✨")
+```
+
+## Loops Aninhadu
+
+Bo podi pô un loop dentru di otu loop. Loop di dentru ta kori kompletu pa KADA iterasun di loop di fora:
+
+```python
+# Tábua di multiplikasun di 1 a 5
+for i in range(1, 6):
+    print(f"\n--- Tábua di {i} ---")
+    for j in range(1, 11):
+        print(f"{i} x {j} = {i * j}")
+```
+
+Ezemplu más kurtu -- gridu di koordenadas:
+
+```python
+# Gridu 3x3
+for linha in range(3):
+    for koluna in range(3):
+        print(f"({linha},{koluna})", end="  ")
+    print()  # Nova linha dipos di kada linha di gridu
+
+# Saída:
+# (0,0)  (0,1)  (0,2)
+# (1,0)  (1,1)  (1,2)
+# (2,0)  (2,1)  (2,2)
+```
+
+Ezemplu dekorativu -- triángulu di estrelas:
+
+```python
+# Triángulu di estrelas
+andaris = 5
+for i in range(1, andaris + 1):
+    print("⭐" * i)
+
+# Saída:
+# ⭐
+# ⭐⭐
+# ⭐⭐⭐
+# ⭐⭐⭐⭐
+# ⭐⭐⭐⭐⭐
+```
+
+## Ezemplus Prátikus
+
+### Soma di N Numerus
+
+```python
+# Kalkula soma di numerus di 1 a N
+n = int(input("Kalkula soma di 1 a: "))
+soma = 0
+
+for i in range(1, n + 1):
+    soma += i
+
+print(f"Soma di 1 a {n} = {soma}")
+
+# Verifikasun: soma di 1 a 10 = 55
+```
+
+> **💡 Dika:** Python tene un atalhu pa kel: `soma = sum(range(1, n + 1))`. Funsun `sum()` ta soma tudu elementus di un sequénsia!
+
+### Atxador di Numerus Primu
+
+```python
+# Atxa tudu numerus primu di 1 a 50
+print("Numerus primu di 1 a 50:")
+print("-" * 30)
+
+for num in range(2, 51):
+    for i in range(2, num):
+        if num % i == 0:
+            break    # Nau é primu
+    else:
+        print(num, end=" ")
+
+print()
+# Saída: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
+```
+
+### Konversor di Temperatura pa Ilhas
+
+```python
+# Konverti temperaturás di Fahrenheit pa Celsius
+# Temperaturas típiku di ilhas di Kabu Verdi
+
+print("=== Temperaturas di Ilhas di Kabu Verdi ===")
+print(f"{'Ilha':<15} {'°F':>6} {'°C':>6}")
+print("-" * 30)
+
+ilhas_temp = [
+    ("Santiago", 82),
+    ("São Vicente", 79),
+    ("Sal", 86),
+    ("Fogo", 75),
+    ("Santo Antão", 77),
+]
+
+for ilha, temp_f in ilhas_temp:
+    temp_c = (temp_f - 32) * 5 / 9
+    print(f"{ilha:<15} {temp_f:>5}°F {temp_c:>5.1f}°C")
+```
+
+### FizzBuzz (Ezersísiu Klásku)
+
+```python
+# FizzBuzz -- un ezersísiu famózu di programasun
+for i in range(1, 31):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+```
+
+## Pitu di Enumerate() 👀
+
+Kuandu bo ta itera sima un lista e bo presiza tanbe sabé índisi (pozisun), `enumerate()` é bo amigu milhor:
+
+```python
+# Sin enumerate -- funsiona ma nau é eleganti
+ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+
+for i in range(len(ilhas)):
+    print(f"{i + 1}. {ilhas[i]}")
+
+# Ku enumerate -- más limpu e Pythonic!
+for i, ilha in enumerate(ilhas, start=1):
+    print(f"{i}. {ilha}")
+```
+
+Ambos ta dá mesmu resultadu:
+```
+1. Santiago
+2. São Vicente
+3. Sal
+4. Fogo
+5. Santo Antão
+```
+
+> **💡 Dika:** `enumerate()` é un funsun inkorporadu ki nôs ta explora na detalhi na Module 3 (Lisun 18: Funsoens Inkorporadus Úteis). Pa agora, lembra ki el ta dá un kontador automátiku kuandu bo ta itera.
+
+## Erus Komun ku Loops
+
+```python
+# ERRU 1: Loop infinitu (skexi atualiza variável)
+# kontador = 0
+# while kontador < 5:
+#     print(kontador)
+#     # Skexi: kontador += 1  --> loop ta kori pa sénpri!
+
+# ERRU 2: Off-by-one ku range()
+# range(1, 5) ta dá 1, 2, 3, 4 -- NAU inklui 5!
+# Pa inklui 5: range(1, 6)
+
+# ERRU 3: Modifika lista enkuantu ta itera
+# nomis = ["João", "Ana", "Maria"]
+# for nomi in nomis:
+#     if nomi == "Ana":
+#         nomis.remove(nomi)  # PERIGOZU! Ta kauza bugs
+
+# ERRU 4: Uza = na vés di == na kondisun
+# while kontador = 5:    # SyntaxError!
+# while kontador == 5:   # Korretu ✓
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1: Tábua di multiplikasun** -- Pidi uzuáriu pa inseri un numeru e mostra tábua di multiplikasun kompletu (di 1 a 10). Formata saída bonitu ku alinhámentu.
+
+2. **Exersísiu 2: Atxador di numerus perfeitus** -- Un numeru perfeitu é ki soma di ses divisóris (menus el mesmu) é igual a el. Ezemplu: 6 = 1 + 2 + 3. Atxa tudu numerus perfeitus di 1 a 1000. (Dika: uza loops aninhadu)
+
+3. **Exersísiu 3: Jogu di adivinha avansadu** -- Kria un jogu undi:
+   - Computador ta skolhi numeru aleatóriu di 1 a 100
+   - Uzuáriu tene mássimu 7 tentativas
+   - Programa ta dá dika "Más altu!" ó "Más baxu!"
+   - Si uzuáriu adivinha, mostra kuántus tentativas el uza
+   - Si 7 tentativas akaba, mostra numeru sekretu
+
+## Rezumu
+
+- `for` loop ta itera sima un sequénsia (numerus, strings, listas)
+- `range(start, stop, step)` ta jera sequénsia di numerus; `stop` NAU ta inkluídu
+- `while` loop ta repeti enkuantu kondisun é `True` -- kuidadu ku loops infinitu!
+- `break` ta sai di loop, `continue` ta pula pa prósimu iterasun, `pass` é placeholder
+- `for-else` -- bloku `else` ta kori só si loop termina sin `break`
+- Loops aninhadu: loop di dentru ta kori kompletu pa kada iterasun di loop di fora
+- `enumerate()` ta dá índisi e valór djuntu -- más Pythonic ki `range(len(...))`
+- Sénpri lembra di atualiza variável di kontrol na `while` loop!
+
+---
+
+**Prósimu lisun:** [Listas e List Comprehension] →

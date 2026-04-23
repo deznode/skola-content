@@ -1,0 +1,315 @@
+---
+title: "Tuplas"
+slug: "tuplas"
+module: 2
+lesson: 12
+duration: "20 min"
+objectives:
+  - "Kria tuples i intendi imutabilidadi"
+  - "Uza packing i unpacking di valores"
+  - "Aplika star unpacking ku *middle"
+  - "Sabi kuandu uza tuple vs lista"
+---
+
+# Tuplas
+
+Tuples é "prima" di listas — tanbé ta guarda kolesoens ordenadu di elementus, ma ku un diferensa fundamental: **tuples é imutável**. Una vez ki bo kria un tuple, bo ka podi muda es elementus.
+
+Kel ta parese un limitasun, ma na verdadi é un vantajen: tuples é más rápidu, más seguru, e perfeitu pa dadus ki ka deve muda (kumu koordinadas geográfikas, datas di nasimentu, ó konfigurasoens fixas).
+
+## Kria Tuples
+
+Pa kria un tuple, uza paréntesis `()` ó simplesmente vírgulas:
+
+```python
+# Ku paréntesis
+ilhas = ("Santiago", "São Vicente", "Sal", "Fogo")
+koordinadas_praia = (14.9315, -23.5125)
+notas_final = (85, 92, 78, 95, 88)
+
+# Sen paréntesis (tanbé funxiona — Python ta intendi)
+kores_bandera = "azul", "branu", "vermelhu"
+print(type(kores_bandera))  # <class 'tuple'>
+
+# Tuple ku un só elementu — PRESIZA vírgula!
+un_ilha = ("Sal",)      # É tuple
+ka_tuple = ("Sal")      # É string! Sen vírgula ka é tuple!
+print(type(un_ilha))    # <class 'tuple'>
+print(type(ka_tuple))   # <class 'str'>
+
+# Tuple vazia
+vazio = ()
+
+# Konverti lista pa tuple
+lista = [1, 2, 3, 4, 5]
+tupla = tuple(lista)
+print(tupla)  # (1, 2, 3, 4, 5)
+```
+
+> **💡 Dika:** Pa kria tuple ku un só elementu, senpri poe vírgula: `("Sal",)`. Sen vírgula, Python ta trata kumu string dentu di paréntesis.
+
+## Imutabilidadi: Ka Podi Muda!
+
+Diferensa prinsipal entre tuple i lista: **ka podi muda tuple dipôs di kria**.
+
+```python
+ilhas = ("Santiago", "São Vicente", "Sal", "Fogo")
+
+# Lê — funxiona normalmenti
+print(ilhas[0])    # Santiago
+print(ilhas[-1])   # Fogo
+print(ilhas[1:3])  # ('São Vicente', 'Sal')
+
+# TENTA MUDA — TypeError!
+# ilhas[0] = "Maio"
+# TypeError: 'tuple' object does not support item assignment
+
+# Tanbé ka podi adisiona ó remove
+# ilhas.append("Brava")
+# AttributeError: 'tuple' object has no attribute 'append'
+```
+
+```python
+# Si bo presiza muda, konverti pa lista, muda, i konverti di volta
+ilhas = ("Santiago", "São Vicente", "Sal", "Fogo")
+lista_ilhas = list(ilhas)       # Konverti pa lista
+lista_ilhas.append("Brava")    # Agora podi muda
+ilhas = tuple(lista_ilhas)     # Konverti di volta
+print(ilhas)  # ('Santiago', 'São Vicente', 'Sal', 'Fogo', 'Brava')
+```
+
+## Métodus di Tuple
+
+Tuples só tene 2 métodus (pamodi é imutável — ka presiza más):
+
+```python
+notas = (85, 92, 78, 95, 88, 92, 85, 92)
+
+# count() — konta kantu vez un valor aparese
+print(notas.count(92))   # 3
+print(notas.count(100))  # 0
+
+# index() — enkontra posisun di primeiru okorrénsia
+print(notas.index(95))   # 3
+print(notas.index(92))   # 1 (primeiru, ka últimu)
+```
+
+```python
+# Operasoens ki tanbé funxiona ku tuples
+numeros = (10, 20, 30, 40, 50)
+
+print(len(numeros))    # 5
+print(sum(numeros))    # 150
+print(min(numeros))    # 10
+print(max(numeros))    # 50
+print(30 in numeros)   # True
+print(60 in numeros)   # False
+```
+
+## Konkatenasun i Repetisun
+
+Mesmu ki ka podi muda un tuple, bo podi kria **novas tuples** a partir di existentis:
+
+```python
+# Konkatenasun (+) — kria novu tuple
+ilhas_barlaventu = ("Santo Antão", "São Vicente", "Sal")
+ilhas_sotaventu = ("Santiago", "Fogo", "Brava")
+tudu_ilhas = ilhas_barlaventu + ilhas_sotaventu
+print(tudu_ilhas)
+# ('Santo Antão', 'São Vicente', 'Sal', 'Santiago', 'Fogo', 'Brava')
+
+# Repetisun (*) — kria novu tuple
+ritmu = ("tum", "pa")
+funana = ritmu * 4
+print(funana)
+# ('tum', 'pa', 'tum', 'pa', 'tum', 'pa', 'tum', 'pa')
+
+# Inverti
+print(tudu_ilhas[::-1])
+# ('Brava', 'Fogo', 'Santiago', 'Sal', 'São Vicente', 'Santo Antão')
+```
+
+## Packing i Unpacking
+
+Un di featuris más podarozu di tuples é **packing** i **unpacking** — manera eleganti di traba ku múltiplus valores.
+
+### Packing (Enpakota)
+
+```python
+# Python ta kria tuple automátikamente kuandu bo separa valores ku vírgula
+pessoa = "Cesária", 78, "São Vicente"
+print(pessoa)        # ('Cesária', 78, 'São Vicente')
+print(type(pessoa))  # <class 'tuple'>
+
+# Funson ta retorna múltiplus valores (na verdadi é tuple!)
+def kalkula_estatistika(notas):
+    return min(notas), max(notas), sum(notas) / len(notas)
+
+resultado = kalkula_estatistika([85, 92, 78, 95, 88])
+print(resultado)  # (78, 95, 87.6)
+```
+
+### Unpacking (Dezenpakota)
+
+```python
+# Atribui kada elementu a un variável separadu
+pessoa = ("João", 25, "Praia")
+nomi, idadi, sidadi = pessoa
+print(nomi)    # João
+print(idadi)   # 25
+print(sidadi)  # Praia
+
+# Unpacking diretu di funson
+minima, maxima, media = kalkula_estatistika([85, 92, 78, 95, 88])
+print(f"Mín: {minima}, Máx: {maxima}, Média: {media:.1f}")
+# Mín: 78, Máx: 95, Média: 87.6
+```
+
+```python
+# Truqui sabi: Troka valores sen variável temporáriu!
+a = "Praia"
+b = "Mindelo"
+a, b = b, a
+print(a)  # Mindelo
+print(b)  # Praia
+```
+
+> **💡 Dika:** Unpacking di tuples é manera más limpu di troka valores di variáveis — ka presiza di variável temporáriu!
+
+### Star Unpacking (*) — Pega "Restu"
+
+Kuandu bo ka sabi ezatamente kantu elementus tene, uza `*` pa pega restu:
+
+```python
+numeros = (1, 2, 3, 4, 5, 6, 7, 8)
+
+# Primeiru i restu
+primeiru, *restu = numeros
+print(primeiru)  # 1
+print(restu)     # [2, 3, 4, 5, 6, 7, 8] (nota: é lista!)
+
+# Primeiru, últimu, i meiu
+primeiru, *meiu, ultimu = numeros
+print(primeiru)  # 1
+print(meiu)      # [2, 3, 4, 5, 6, 7]
+print(ultimu)    # 8
+
+# Dôs primeiru i restu
+a, b, *restu = numeros
+print(a)      # 1
+print(b)      # 2
+print(restu)  # [3, 4, 5, 6, 7, 8]
+```
+
+```python
+# Ezemplu prátiku: Prosesa dados di estudanti
+rejistru = ("Edna", "edna@email.cv", 85, 92, 78, 95, 88)
+
+nomi, email, *notas = rejistru
+print(f"Estudanti: {nomi}")
+print(f"Email: {email}")
+print(f"Notas: {notas}")
+print(f"Média: {sum(notas) / len(notas):.1f}")
+# Estudanti: Edna
+# Email: edna@email.cv
+# Notas: [85, 92, 78, 95, 88]
+# Média: 87.6
+```
+
+## Tuples Aninhadu (Nested)
+
+Tuples podi kontene otrus tuples dentu:
+
+```python
+# Koordinadas di sidadis kabu-verdianas
+sidadis = (
+    ("Praia", 14.9315, -23.5125),
+    ("Mindelo", 16.8901, -24.9801),
+    ("Espargos", 16.7397, -22.9467)
+)
+
+# Asesa elementus aninhadu
+print(sidadis[0])      # ('Praia', 14.9315, -23.5125)
+print(sidadis[0][0])   # Praia
+print(sidadis[1][1])   # 16.8901 (latitudi di Mindelo)
+
+# Itera sobri tuples aninhadu ku unpacking
+for nomi, lat, lon in sidadis:
+    print(f"{nomi}: {lat}°N, {lon}°W")
+# Praia: 14.9315°N, -23.5125°W
+# Mindelo: 16.8901°N, -24.9801°W
+# Espargos: 16.7397°N, -22.9467°W
+```
+
+## Kuandu Uza Tuple vs Lista?
+
+| Situasun | Uza Tuple | Uza Lista |
+|----------|-----------|-----------|
+| Dadus ki ka deve muda | Koordinadas, datas | — |
+| Kolesoens ki ta kresi/diminui | — | Karrinhu di kompras |
+| Retorna múltiplus valores di funson | `return min, max, avg` | — |
+| Keys di disionáriu | Tuples podi ser keys | Listas ka podi! |
+| Performansi importa | Tuple é más rápidu | — |
+| Bo presiza métodus kumu sort/append | — | Lista tene más métodus |
+
+```python
+# Tuple kumu key di disionáriu (lista ka podi!)
+distansia = {
+    ("Praia", "Mindelo"): 295,
+    ("Praia", "Sal"): 200,
+    ("Mindelo", "Sal"): 120
+}
+print(distansia[("Praia", "Mindelo")])  # 295
+```
+
+## Ezemplu Prátiku: Voos Inter-Ilhas
+
+```python
+# === Sistema di Voos Inter-Ilhas ===
+# Kada voo é un tuple (oríjen, destinu, durasun_minutos, presu_ecv)
+voos = (
+    ("Praia", "Sal", 35, 8500),
+    ("Praia", "São Vicente", 45, 9200),
+    ("Sal", "São Vicente", 25, 6800),
+    ("Praia", "Fogo", 20, 5500),
+    ("São Vicente", "Santo Antão", 15, 3200)
+)
+
+print("=== Voos Disponível ===")
+for oríjen, destinu, durasun, presu in voos:
+    print(f"  {oríjen} → {destinu}: {durasun}min | {presu} ECV")
+
+# Voo más baratu
+mais_baratu = min(voos, key=lambda v: v[3])
+nomi_rota = f"{mais_baratu[0]} → {mais_baratu[1]}"
+print(f"\nMás baratu: {nomi_rota} ({mais_baratu[3]} ECV)")
+
+# Voos di Praia
+voos_praia = [v for v in voos if v[0] == "Praia"]
+print(f"\nVoos partindo di Praia: {len(voos_praia)}")
+for _, destinu, durasun, presu in voos_praia:
+    print(f"  → {destinu}: {durasun}min, {presu} ECV")
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1:** Kria un tuple `meu_perfil` ku bo nomi, idadi, ilha, e kursu. Uza unpacking pa atribui kada valor a un variável separadu i imprimi ku f-string.
+
+2. **Exersísiu 2:** Dadu kel tuple: `dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)`, uza star unpacking pa separa nomi, email, e notas. Kalkula i mostra: média, nota másimu, e nota mínimu.
+
+3. **Exersísiu 3:** Kria un tuple di tuples ku informasun di 4 ilhas: `(nomi, populasun, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Kalkula populasun total i ilha ku más pesoas.
+
+## Rezumu
+
+- **Tuple** é kolesoens ordenadu i **imutável** ki uza `()`
+- **Imutável** signifika ki ka podi muda, adisiona, ó remove elementus
+- Só tene 2 métodus: `.count()` i `.index()`
+- **Packing**: Python ta kria tuple automátikamente kuandu separa valores ku vírgula
+- **Unpacking**: `nomi, idadi, ilha = pessoa` — atribui kada elementu a variáveis
+- **Star unpacking**: `primeiru, *restu, ultimu = dados` — `*` ta pega restu kumu lista
+- Tuples é **más rápidu** ki listas i podi ser **keys di disionáriu**
+- Uza tuples pa dadus ki ka deve muda; listas pa kolesoens dinámikus
+
+---
+
+**Prósimu lisun:** [Disionárius i Dict Comprehension] →

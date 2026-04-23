@@ -1,0 +1,234 @@
+---
+title: "Jeneradorus"
+slug: "jeneradorus"
+module: 3
+lesson: 19
+duration: "15 min"
+objectives:
+  - "Intendi lazy evaluation i pamodi el ta puopa memória"
+  - "Skrévi generator expressions ku sintaxi (x for x in ...)"
+  - "Kria generator functions ku yield"
+  - "Kompara uzu di memória entre listas i jeneradorus"
+---
+
+# Jeneradorus
+
+Imajina bo tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di una ves, bo komputador podi fika lentu ó krasá. Ma si bo só presiza un valór di kada ves — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valóris un pa un, só kuandu bo pidi.
+
+## Problema: Listas Grandi ta Kume Memória
+
+```python
+# Kel li ta kria 10 milhoens di numeru na memória di una ves!
+numeros = [x * 2 for x in range(10_000_000)]
+print(f"Lista tene {len(numeros)} elementus")
+# Kel lista ta okupa sérka di 80 MB di memória 😱
+```
+
+Kuandu bo ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sequénsia infinita — bo nau presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, e pasa pa prósimu.
+
+## Generator Expressions
+
+Un **generator expression** é kómu un list comprehension, ma ku paréntesis `()` na vés di brackets `[]`:
+
+```python
+# List comprehension -- kria tudu na memória
+lista = [x * 2 for x in range(10_000_000)]
+
+# Generator expression -- kria um di kada ves
+gen = (x * 2 for x in range(10_000_000))
+
+print(type(lista))  # <class 'list'>
+print(type(gen))    # <class 'generator'>
+```
+
+```python
+# Generator nau mostra elementus diretu
+gen = (x ** 2 for x in range(5))
+print(gen)  # <generator object <genexpr> at 0x...>
+
+# Pa obter valóris, uza next() ó un loop
+print(next(gen))  # 0
+print(next(gen))  # 1
+print(next(gen))  # 4
+print(next(gen))  # 9
+print(next(gen))  # 16
+# print(next(gen))  # StopIteration! -- akaba
+```
+
+```python
+# Na prátika, uza for loop (el ta trata StopIteration automátiku)
+quadradus = (x ** 2 for x in range(6))
+for valor in quadradus:
+    print(valor, end=" ")
+# 0 1 4 9 16 25
+```
+
+> **💡 Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+
+## Generator Functions ku `yield`
+
+Pa kria jeneradorus más komplexu, uza un **funsun ku `yield`** na vés di `return`:
+
+```python
+def kontador(maximo):
+    """Konta di 1 te másimu, un di kada ves."""
+    n = 1
+    while n <= maximo:
+        yield n
+        n += 1
+
+# Uza el
+for numeru in kontador(5):
+    print(numeru, end=" ")
+# 1 2 3 4 5
+```
+
+### `yield` vs `return`
+
+| `return` | `yield` |
+|----------|---------|
+| Termina funsun imediatamenti | **Pausa** funsun i devolvi un valór |
+| Funsun pérdi tudu stadu | Funsun **lembra** undi para |
+| Retorna un valór só | Podi produz múltiplus valóris |
+| Funsun normal | Generator function |
+
+```python
+def saudason_ilhas():
+    """Generator ki produz saudason pa kada ilha."""
+    ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+    for ilha in ilhas:
+        yield f"Morabeza di {ilha}! 🏝️"
+
+# Kada chamada a next() ta kontinua undi el para
+gen = saudason_ilhas()
+print(next(gen))  # Morabeza di Santiago! 🏝️
+print(next(gen))  # Morabeza di São Vicente! 🏝️
+# ... el ta kontinua di undi el para
+```
+
+## Sequénsia di Fibonacci ku Generator
+
+Un ezemplu klássiku: sequénsia di Fibonacci (kada numeru é soma di dos anterioris):
+
+```python
+def fibonacci():
+    """Generator infinitu di Fibonacci."""
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Pega só primeru 10 numeru
+fib = fibonacci()
+for _ in range(10):
+    print(next(fib), end=" ")
+# 0 1 1 2 3 5 8 13 21 34
+```
+
+```python
+# Alternativa: uza islice pa limita un generator infinitu
+from itertools import islice
+
+primeru_15 = list(islice(fibonacci(), 15))
+print(primeru_15)
+# [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+```
+
+> **💡 Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
+
+## Lé Ficheru Grandi Linha pa Linha
+
+Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sin karrega tudu na memória:
+
+```python
+def le_linhas(kaminu_ficheru):
+    """Generator ki lé ficheru linha pa linha."""
+    with open(kaminu_ficheru, "r") as f:
+        for linha in f:
+            yield linha.strip()
+
+# Prosesa un ficheru grandi sin gasta memória
+for linha in le_linhas("vendas_2024.csv"):
+    if "Santiago" in linha:
+        print(linha)
+```
+
+```python
+# Kompara: lé tudu di una ves (perigózu pa ficheru grandi!)
+# linhas = open("ficheru_enormi.txt").readlines()  # Tudu na memória!
+
+# Ku generator: só un linha di kada ves na memória
+def filtra_linhas(ficheru, palavra):
+    """Filtra linhas ki kontene un palavra."""
+    for linha in le_linhas(ficheru):
+        if palavra.lower() in linha.lower():
+            yield linha
+
+# Ezemplu: buska tudu linhas ku "cachupa" na un ficheru di receitas
+for resultado in filtra_linhas("receitas.txt", "cachupa"):
+    print(resultado)
+```
+
+## Kompara Memória: Lista vs Generator
+
+```python
+import sys
+
+# Lista: tudu na memória
+lista = [x * 2 for x in range(100_000)]
+print(f"Lista: {sys.getsizeof(lista):,} bytes")  # ≈ 800,000+ bytes
+
+# Generator: kvazi nada na memória
+gen = (x * 2 for x in range(100_000))
+print(f"Generator: {sys.getsizeof(gen):,} bytes")  # ≈ 200 bytes!
+```
+
+```python
+# Ezemplu prátiku: soma di 1 milhaun di numeru
+# Ku lista (uza memória)
+total_lista = sum([x for x in range(1_000_000)])
+
+# Ku generator (kvazi sin memória) -- más efizienti!
+total_gen = sum(x for x in range(1_000_000))
+
+# Resultado é igual, ma generator ta uza muitísimu menus memória
+print(total_lista == total_gen)  # True
+```
+
+> **💡 Dika:** Kuandu bo ta pasa un generator diretu pa un funsun kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+
+## Kuandu Uza Generator vs Lista
+
+| Situasun | Uza Generator | Uza Lista |
+|----------|---------------|-----------|
+| Dadus é muitiu grandi (milhoens) | ✓ | |
+| Só presiza itera una ves | ✓ | |
+| Prosesa stream di dadus (ficheru, rede) | ✓ | |
+| Sequénsia infinita | ✓ | |
+| Presiza asesu aleatoriu (índisi) | | ✓ |
+| Presiza tamanhu (`len()`) | | ✓ |
+| Presiza itera múltiplas vezes | | ✓ |
+| Lista é pikininu (< 1000 elementus) | | ✓ |
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1: Generator di Pares** — Skrévi un generator expression ki produz numeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valóris.
+
+2. **Exersísiu 2: Kontador di ECV** — Kria un generator function `moedas_ecv()` ki ta produz valóris di moeda cabo-verdianu: 1, 5, 10, 20, 50, 100. Itera sobri el ku `next()`.
+
+3. **Exersísiu 3: Fibonacci Limitadu** — Modifika generator `fibonacci()` pa aseita un parámetru `limite` i para kuandu valór ta pasa kel limite. Testa ku `limite=100`.
+
+## Rezumu
+
+- **Jeneradorus** ta produz valóris un pa un (lazy evaluation) — sin guarda tudu na memória
+- **Generator expression**: `(expr for item in iterable)` — kómu list comprehension ma ku `()`
+- **Generator function**: funsun ku `yield` na vés di `return`
+- `yield` ta **pausa** funsun i lembra undi el para; `return` ta **termina**
+- `next()` ta pega prósimu valór; `StopIteration` signifika ki akaba
+- Generators é **una-ves-só** — dipos di iteradu, sta vazio
+- Pa ficheru grandi, generators ta evita karrega tudu na memória
+- Uza generator kuandu dadus é grandi ó infinitu; uza lista kuandu presiza asesu aleatoriu ó reuzu
+
+---
+
+**Prósimu lisun:** [Módulus i Pakotis] →

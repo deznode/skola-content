@@ -1,0 +1,183 @@
+# SEO Metadata — Intro Python Video Scripts
+# Language: Kriolu (KEA)
+# Course: Introdusun Konpletu a Python
+
+# === MODULE 1: Fundamentus di Python ===
+
+m1-variaveis:
+  title: "Variáveis na Python — 60 Segundu pa Bo Intendi"
+  slug: variaveis-python-60-segundu
+  description: "Aprendi kumu kria variáveis na Python i intendi tipu dinámiku. Tutorial rápidu pa prinsipianti na Kriolu."
+  keywords:
+    - variáveis python
+    - tipu dinámiku python
+    - python prinsipianti
+    - python kriolu
+    - python kabu verdi
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - variables
+
+m1-strings:
+  title: "f-strings na Python — Manera Limpu pa Formata Textu"
+  slug: f-strings-python-formata-textu
+  description: "Para ku konkatenason ku +. Aprendi f-strings na Python pa formata textu limpu i rápidu. Tutorial na Kriolu."
+  keywords:
+    - python f-strings
+    - formatason string python
+    - python prinsipianti
+    - python kriolu
+    - string formatting
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - strings
+
+m1-kondisionais:
+  title: "if/elif/else na Python — Fazi Bo Programa Pensa"
+  slug: if-elif-else-python-kondisionais
+  description: "Aprendi kumu uza if, elif i else na Python pa fazi programa toma desizun. Tutorial rápidu na Kriolu."
+  keywords:
+    - python if else
+    - kondisionais python
+    - python prinsipianti
+    - python kriolu
+    - python conditions
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - conditionals
+
+m1-loops:
+  title: "Loops na Python — for i while sin Kansera"
+  slug: loops-python-for-while
+  description: "Aprendi for i while loops na Python pa repeti kódiku efisientemente. Tutorial rápidu na Kriolu."
+  keywords:
+    - python loops
+    - for loop python
+    - while loop python
+    - python prinsipianti
+    - python kriolu
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - loops
+
+# === MODULE 2: Estruturas di Dadus ===
+
+m2-listas:
+  title: "Listas na Python — Guarda Tudu na Un Lugár"
+  slug: listas-python-list-comprehension
+  description: "Aprendi listas i list comprehension na Python. Tutorial rápidu na Kriolu pa prinsipianti."
+  keywords:
+    - python listas
+    - list comprehension python
+    - python prinsipianti
+    - python kriolu
+    - python data structures
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - lists
+
+m2-disionarius:
+  title: "Disionárius na Python — Guarda Dadus ku Xavi"
+  slug: disionarius-python-dict
+  description: "Aprendi disionárius (dict) na Python — pares xavi:valor. Tutorial rápidu na Kriolu."
+  keywords:
+    - python disionárius
+    - python dict
+    - python prinsipianti
+    - python kriolu
+    - python dictionary
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - dictionaries
+
+# === MODULE 3: Funsoens i Operasoens ku Ficheru ===
+
+m3-funsoens:
+  title: "Funsoens na Python — Skrévi Un Bes, Uza Mil Bes"
+  slug: funsoens-python-def-return
+  description: "Aprendi kumu kria funsoens na Python ku def, parámetrus i return. Tutorial rápidu na Kriolu."
+  keywords:
+    - python funsoens
+    - python def return
+    - python prinsipianti
+    - python kriolu
+    - python functions
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - functions
+
+m3-tratamentu-erru:
+  title: "try/except na Python — Trata Erru Komu un Pro"
+  slug: try-except-python-tratamentu-erru
+  description: "Aprendi tratamentu di erru ku try/except/else/finally na Python. Tutorial rápidu na Kriolu."
+  keywords:
+    - python try except
+    - python erru
+    - python exception handling
+    - python prinsipianti
+    - python kriolu
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - error-handling
+
+# === MODULE 4: OOP ===
+
+m4-klasis:
+  title: "Klasis i Objetis na Python — Kria Bo Própriu Tipu"
+  slug: klasis-objetis-python-oop
+  description: "Aprendi kumu kria klasis i objetis na Python. OOP pa prinsipianti na Kriolu."
+  keywords:
+    - python klasis
+    - python oop
+    - python objetis
+    - python prinsipianti
+    - python kriolu
+    - python classes
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - oop
+
+m4-eransa:
+  title: "Eransa na Python — Reutiliza Kódiku di Klasis"
+  slug: eransa-python-inheritance
+  description: "Aprendi eransa (inheritance) na Python — reutiliza kódiku di klasis pai. Tutorial na Kriolu."
+  keywords:
+    - python eransa
+    - python inheritance
+    - python oop
+    - python prinsipianti
+    - python kriolu
+  tags:
+    - python
+    - beginner
+    - youtube-short
+    - kriolu
+    - oop
+    - inheritance

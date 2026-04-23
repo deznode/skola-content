@@ -1,0 +1,471 @@
+---
+title: "Enkapsolamentu e @property"
+slug: "enkapsolamentu-property"
+module: 4
+lesson: 29
+duration: "25 min"
+objectives:
+  - "Intende diferensa entre asésu públiku, protejidu e privadu"
+  - "Uza name mangling ku atributus privadu (__var)"
+  - "Substitui getter/setter tradisionál ku @property e @property.setter"
+  - "Djunta validasun na setters pa proteje dadus di objetu"
+---
+
+# Enkapsolamentu e @property
+
+Pensa na un kuzinha di restoranti na Mindelo. Klientis ta senta na sala, ta odjá menu e ta faze pedidu — isu é **públiku**. Garsons ta entra na kuzinha pa buska pratus e ta komuniká ku xefi — es tene asésu **protejidu**. Ma reseita sekretu di cachupa di xefi? Kel só xefi ta sabi — é **privadu**. Ninguén ka pode txiga diretamenti na reseita — si bo kre sabi ingredientis, bo tene ki pidi xefi (el ta disidi si ta fala o nau).
+
+Na programasun, enkapsolamentu é mesmu ideia: **kontrola ken ki pode asésa e modifika dadus di un objetu**. Em vés di dexa tudu abertu, bo ta proteje partis sensíveis e ta fornese maneiras kontroladu di asésa-l.
+
+## Asésu Públiku, Protejidu e Privadu
+
+Python tene 3 niveis di asésu, bazadu na **konvensun di nomi**:
+
+| Tipu | Sintaxi | Signifikadu |
+|------|---------|-------------|
+| Públiku | `self.nomi` | Kualker un pode asésa |
+| Protejidu | `self._nomi` | Konvensun: só klasi e fidju debe uza |
+| Privadu | `self.__nomi` | Python ta transforma nomi (name mangling) |
+
+```python
+class Estudanti:
+    def __init__(self, nomi, ilha, nota):
+        self.nomi = nomi          # Públiku — kualker un pode asésa
+        self._ilha = ilha          # Protejidu — konvensun: "ka toka sin motivo"
+        self.__nota = nota         # Privadu — Python ta proteje ku name mangling
+
+# Kria estudanti
+maria = Estudanti("Maria", "Santiago", 16)
+
+# Asésu públiku — funsiona normal
+print(maria.nomi)       # Maria ✅
+
+# Asésu protejidu — funsiona, ma é konvensun pa ka uza diretu
+print(maria._ilha)      # Santiago ⚠️ (funsiona, ma ka debe)
+
+# Asésu privadu — ERRU!
+# print(maria.__nota)   # AttributeError: 'Estudanti' object has no attribute '__nota'
+```
+
+> **💡 Dika:** Na Python, `_protejidu` é só un **konvensun** — nada ta impidi bo di asésa-l. É komu un avizu: "Oji, ka toka nisi sin motivo!" Ma `__privadu` tene protesun real.
+
+## Name Mangling — Komu Python ta Proteje Atributus Privadu
+
+Kuandu bo uza `__` (dois underscore) na inísiu di un nomi, Python ta transforma-l internamenti. Isu ta txoma **name mangling**.
+
+```python
+class KontaBankaria:
+    def __init__(self, titular, saldu):
+        self.titular = titular      # Públiku
+        self.__saldu = saldu        # Privadu
+
+# Kria konta
+konta = KontaBankaria("João", 50_000)
+
+# Tenta asésa diretu — ERRU
+# print(konta.__saldu)  # AttributeError!
+
+# Ma Python ka ta eskonde TOTALMENTI — el ta muda nomi
+# __saldu ta vira _KontaBankaria__saldu
+print(konta._KontaBankaria__saldu)  # 50000 ⚠️ (funsiona, ma NUNKA faze isu!)
+```
+
+```python
+# Uza dir() pa odjá tudu atributus (inklusindu nomi transformadu)
+print([attr for attr in dir(konta) if "saldu" in attr])
+# ['_KontaBankaria__saldu']
+```
+
+> **💡 Dika:** Name mangling ka é seguránsa — é protesun kontra **erru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
+
+## Getters e Setters Tradisionál
+
+Na linguajis komu Java o C++, bo ta kria métodus espesífikis pa le (get) e skrebe (set) atributus privadu. Na Python, bo pode faze mesmu koza:
+
+```python
+class Produto:
+    def __init__(self, nomi, presu):
+        self.__nomi = nomi
+        self.__presu = presu
+
+    # Getter — pa le presu
+    def get_presu(self):
+        return self.__presu
+
+    # Setter — pa muda presu ku validasun
+    def set_presu(self, novu_presu):
+        if novu_presu < 0:
+            print("Erru: presu ka pode ser negativu!")
+            return
+        self.__presu = novu_presu
+
+    # Getter pa nomi
+    def get_nomi(self):
+        return self.__nomi
+
+# Uza
+kaxtelu = Produto("Kaxtelu di Fera", 250)
+
+# Asésa via getters/setters
+print(kaxtelu.get_nomi())         # Kaxtelu di Fera
+print(kaxtelu.get_presu())        # 250
+
+kaxtelu.set_presu(300)            # Muda presu
+print(kaxtelu.get_presu())        # 300
+
+kaxtelu.set_presu(-50)            # Erru: presu ka pode ser negativu!
+print(kaxtelu.get_presu())        # 300 (ka mudá)
+```
+
+Isu ta funsiona, ma é **txeu kódiku** e ka é "Pythonic". Na Python, tene un maneira más eleganti...
+
+## `@property` — Maneira Modernu
+
+Dekorador `@property` ta transforma un métodu na un atributu ki pode ser lidu komu si el fosse públiku, ma na verdadi ta roda un funsun por trás.
+
+```python
+class Produto:
+    def __init__(self, nomi, presu):
+        self.__nomi = nomi
+        self.__presu = presu
+
+    @property
+    def nomi(self):
+        """Getter — asésa komu atributu, nau komu funsun."""
+        return self.__nomi
+
+    @property
+    def presu(self):
+        """Getter pa presu."""
+        return self.__presu
+
+# Uza — limpu e eleganti!
+kaxtelu = Produto("Kaxtelu di Fera", 250)
+
+# Asésa komu atributu (sem paréntesis!)
+print(kaxtelu.nomi)    # Kaxtelu di Fera
+print(kaxtelu.presu)   # 250
+
+# Ma ka pode muda (ainda nau tene setter)
+# kaxtelu.presu = 300  # AttributeError: property 'presu' has no setter
+```
+
+Kompara ku maneira tradisionál:
+
+```python
+# ANTIS (tradisionál):
+print(kaxtelu.get_presu())    # Txama komu funsun
+kaxtelu.set_presu(300)        # Txama komu funsun
+
+# AGORA (ku @property):
+print(kaxtelu.presu)          # Asésa komu atributu ✨
+# kaxtelu.presu = 300         # Atribui komu atributu (si tene setter)
+```
+
+> **💡 Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di métodu**. Utilizador ka presiza sabi ki tene un funsun por trás!
+
+## `@property.setter` ku Validasun
+
+Pa permiti modifikasun, bo ta djunta un setter uzandu `@nomi.setter`:
+
+```python
+class Produto:
+    def __init__(self, nomi, presu):
+        self.__nomi = nomi
+        self.presu = presu  # Nota: ta uza setter pa validasun dja na __init__!
+
+    @property
+    def nomi(self):
+        return self.__nomi
+
+    @property
+    def presu(self):
+        return self.__presu
+
+    @presu.setter
+    def presu(self, valor):
+        """Setter ku validasun — proteje kontra valóris inválidus."""
+        if not isinstance(valor, (int, float)):
+            raise TypeError("Presu tene ki ser un nùmeru!")
+        if valor < 0:
+            raise ValueError("Presu ka pode ser negativu!")
+        self.__presu = valor
+```
+
+```python
+# Testa
+grogue = Produto("Grogue di Santo Antão", 1_500)
+print(grogue.presu)       # 1500
+
+# Muda presu — validasun ta roda automatikamenti
+grogue.presu = 1_800
+print(grogue.presu)       # 1800 ✅
+
+# Tenta valor inválidu
+# grogue.presu = -500     # ValueError: Presu ka pode ser negativu!
+# grogue.presu = "karú"   # TypeError: Presu tene ki ser un nùmeru!
+```
+
+Bo pode tanbe kria properties kalkuladu — valoris ki ta depende di otru atributus:
+
+```python
+class Retangulu:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+
+    @property
+    def largura(self):
+        return self.__largura
+
+    @largura.setter
+    def largura(self, valor):
+        if valor <= 0:
+            raise ValueError("Largura tene ki ser positivu!")
+        self.__largura = valor
+
+    @property
+    def altura(self):
+        return self.__altura
+
+    @altura.setter
+    def altura(self, valor):
+        if valor <= 0:
+            raise ValueError("Altura tene ki ser positivu!")
+        self.__altura = valor
+
+    @property
+    def area(self):
+        """Property kalkuladu — ka tene setter, é só leitura."""
+        return self.__largura * self.__altura
+
+    @property
+    def perimetru(self):
+        """Otru property kalkuladu."""
+        return 2 * (self.__largura + self.__altura)
+```
+
+```python
+# Terrenu na Boa Vista
+terrenu = Retangulu(30, 20)
+print(f"Área: {terrenu.area} m²")           # Área: 600 m²
+print(f"Perímetru: {terrenu.perimetru} m")   # Perímetru: 100 m
+
+terrenu.largura = 40
+print(f"Nova área: {terrenu.area} m²")       # Nova área: 800 m² (rekalkula automatikamenti!)
+
+# terrenu.area = 999  # AttributeError: property 'area' has no setter
+```
+
+> **💡 Dika:** Property kalkuladu (sem setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SEMPRI atualizadu!
+
+## Ezemplu Prátiku: Konta Bankáriu Seguru
+
+Nôs ta kria un klasi di konta bankáriu ki ta proteje saldu e ta valida tudu operasoens:
+
+```python
+class KontaBankaria:
+    """Konta bankáriu ku enkapsolamentu — saldu privadu e protejidu."""
+
+    # Atributu di klasi — taxa di juru anuál
+    _taxa_juru = 0.02  # 2% (protejidu — pode ser atualizadu pa banku)
+
+    def __init__(self, titular, numeru_konta, saldu_inisiál=0):
+        self.__titular = titular
+        self.__numeru_konta = numeru_konta
+        self.__saldu = 0
+        self.__istóriku = []
+
+        # Uza setter pa validasun di saldu inisiál
+        if saldu_inisiál > 0:
+            self.deposita(saldu_inisiál)
+
+    @property
+    def titular(self):
+        """Nomi di titular — só leitura."""
+        return self.__titular
+
+    @property
+    def numeru_konta(self):
+        """Nùmeru di konta maskáru pa seguránsa."""
+        return f"***{self.__numeru_konta[-4:]}"
+
+    @property
+    def saldu(self):
+        """Saldu atuál — só leitura (ka pode seta diretamenti)."""
+        return self.__saldu
+
+    @property
+    def istóriku(self):
+        """Kópia di istóriku (ka pode modifika orijinál)."""
+        return self.__istóriku.copy()
+
+    def deposita(self, montanti):
+        """Deposita dinheru na konta."""
+        if not isinstance(montanti, (int, float)):
+            raise TypeError("Montanti tene ki ser un nùmeru!")
+        if montanti <= 0:
+            raise ValueError("Montanti di depózitu tene ki ser positivu!")
+
+        self.__saldu += montanti
+        self.__istóriku.append(f"Depózitu: +{montanti:,.0f} ECV")
+        print(f"✅ Depózitu di {montanti:,.0f} ECV konfirmadu.")
+        return True
+
+    def levanta(self, montanti):
+        """Levanta dinheru di konta."""
+        if not isinstance(montanti, (int, float)):
+            raise TypeError("Montanti tene ki ser un nùmeru!")
+        if montanti <= 0:
+            raise ValueError("Montanti di levantamentu tene ki ser positivu!")
+        if montanti > self.__saldu:
+            print(f"❌ Saldu insufisienti! Saldu atuál: {self.__saldu:,.0f} ECV")
+            return False
+
+        self.__saldu -= montanti
+        self.__istóriku.append(f"Levantamentu: -{montanti:,.0f} ECV")
+        print(f"✅ Levantamentu di {montanti:,.0f} ECV konfirmadu.")
+        return True
+
+    def aplika_juru(self):
+        """Aplika juru anuál na saldu."""
+        juru = self.__saldu * self._taxa_juru
+        self.__saldu += juru
+        self.__istóriku.append(f"Juru ({self._taxa_juru*100:.0f}%): +{juru:,.0f} ECV")
+        print(f"📈 Juru di {juru:,.0f} ECV aplikadu.")
+
+    def estratu(self):
+        """Mostra estratu bankáriu."""
+        print(f"\n{'='*45}")
+        print(f"  ESTRATU BANKÁRIU — BCA")
+        print(f"{'='*45}")
+        print(f"  Titular: {self.__titular}")
+        print(f"  Konta:   {self.numeru_konta}")
+        print(f"{'─'*45}")
+        if self.__istóriku:
+            for mov in self.__istóriku:
+                print(f"  {mov}")
+        else:
+            print("  (sem movimentus)")
+        print(f"{'─'*45}")
+        print(f"  SALDU: {self.__saldu:,.0f} ECV")
+        print(f"{'='*45}")
+```
+
+```python
+# Kria konta di Nilton
+konta = KontaBankaria("Nilton Ferreira", "BCA-20261234", 100_000)
+# ✅ Depózitu di 100,000 ECV konfirmadu.
+
+# Operasoens
+konta.deposita(25_000)
+# ✅ Depózitu di 25,000 ECV konfirmadu.
+
+konta.levanta(40_000)
+# ✅ Levantamentu di 40,000 ECV konfirmadu.
+
+konta.levanta(200_000)
+# ❌ Saldu insufisienti! Saldu atuál: 85,000 ECV
+
+konta.aplika_juru()
+# 📈 Juru di 1,700 ECV aplikadu.
+
+# Tenta modifika saldu diretamenti — KA FUNSIONA!
+# konta.saldu = 999_999  # AttributeError: property 'saldu' has no setter
+# konta.__saldu = 999_999  # Kria un NOVU atributu, ka muda orijinál!
+
+# Odjá estratu
+konta.estratu()
+# =============================================
+#   ESTRATU BANKÁRIU — BCA
+# =============================================
+#   Titular: Nilton Ferreira
+#   Konta:   ***1234
+# ─────────────────────────────────────────────
+#   Depózitu: +100,000 ECV
+#   Depózitu: +25,000 ECV
+#   Levantamentu: -40,000 ECV
+#   Juru (2%): +1,700 ECV
+# ─────────────────────────────────────────────
+#   SALDU: 86,700 ECV
+# =============================================
+```
+
+```python
+# Asésa properties
+print(konta.titular)         # Nilton Ferreira
+print(konta.numeru_konta)    # ***1234 (maskáru!)
+print(konta.saldu)           # 86700
+
+# Istóriku é un kópia — ka pode modifika orijinál
+ist = konta.istóriku
+ist.append("HAKE!")          # Muda kópia, nau orijinál
+print(len(konta.istóriku))   # 4 (orijinál ka mudá)
+```
+
+> **💡 Dika:** Nota komu `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padrãu importanti di enkapsolamentu txomadu "defensive copy".
+
+## Rezumu di @property vs Getters/Setters
+
+```python
+# ❌ MANEIRA TRADISIONÁL (verbózu)
+class Pesoal_V1:
+    def __init__(self, nomi):
+        self.__nomi = nomi
+    def get_nomi(self):
+        return self.__nomi
+    def set_nomi(self, nomi):
+        self.__nomi = nomi
+
+p = Pesoal_V1("Edna")
+print(p.get_nomi())     # Edna
+p.set_nomi("Ivete")     # Txeu kódiku pa un koza simples
+
+# ✅ MANEIRA PYTHONIC (limpu e eleganti)
+class Pesoal_V2:
+    def __init__(self, nomi):
+        self.__nomi = nomi
+    @property
+    def nomi(self):
+        return self.__nomi
+    @nomi.setter
+    def nomi(self, valor):
+        self.__nomi = valor
+
+p = Pesoal_V2("Edna")
+print(p.nomi)           # Edna (komu atributu!)
+p.nomi = "Ivete"        # Limpu e naturál!
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1 — Temperatura Seguru:** Kria un klasi `Termometru` ku un atributu privadu `__temperatura` (na Celsius). Djunta `@property` pa le temperatura e un setter ki valida ki temperatura ka pode ser menus ki -273.15°C (zeru absolutu). Djunta un property kalkuladu `fahrenheit` ki ta konverte automatikamenti.
+
+2. **Exersísiu 2 — Perfil di Estudanti:** Kria un klasi `Estudanti` ku:
+   - `nomi` (públiku)
+   - `_idadi` (protejidu, ku setter ki valida ki idadi é entre 5 e 100)
+   - `__notas` (privadu, lista di notas)
+   - Property `media` ki ta kalkula média di notas
+   - Métodu `djunta_nota(nota)` ki valida ki nota é entre 0 e 20
+   Testa ku estudantis: Kelvin di Praia e Carla di Mindelo.
+
+3. **Exersísiu 3 — Inventáriu di Loja:** Kria un klasi `Produto` ku nomi (públiku), `__presu` (privadu ku validasun), e `__stoki` (privadu). Djunta métodus `vende(kuantidadi)` e `repon(kuantidadi)` ku validasun. Kria un klasi `Loja` ku lista privadu di produtus e métodu pa mostra inventáriu. Simula un loja na Sukupira.
+
+4. **Exersísiu 4 — Senha Seguru:** Kria un klasi `Utilizador` ku `nomi` (públiku) e `__senha` (privadu). Property `senha` debe retorna `"********"` (maskáru). Setter debe validar ki senha novu tene pelo menus 8 karáteris, un maiúskula, un minúskula e un nùmeru. Djunta métodu `verifica_senha(tentativa)` ki retorna `True` o `False`.
+
+## Rezumu
+
+- **Enkapsolamentu** ta kontrola asésu a dadus di un objetu — proteje kontra modifikasun asidentál
+- **Públiku** (`self.nomi`) — kualker un pode asésa e muda
+- **Protejidu** (`self._nomi`) — konvensun: só klasi e fidju debe uza (Python ka forsa)
+- **Privadu** (`self.__nomi`) — Python ta aplika name mangling (`_Klasi__nomi`)
+- **Name mangling** ka é seguránsa — é protesun kontra erru asidentál
+- **`@property`** ta transforma un métodu na un atributu di só leitura
+- **`@nomi.setter`** ta permiti modifikasun ku validasun
+- **Property kalkuladu** (sem setter) é perfeitu pa valoris derivadu ki ta rekalkula automatikamenti
+- `@property` é maneira Pythonic — más limpu ki getters/setters tradisionál
+- **Defensive copy** (retorna `.copy()`) ta previni modifikasun estranu di dados internu
+
+---
+
+**Prósimu lisun:** [Métodus Mádjiku] →
