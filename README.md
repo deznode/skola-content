@@ -4,28 +4,88 @@ Educational content and code samples for [Skola.dev](https://skola.dev) - teachi
 
 ## Repository Structure
 
-This repository contains both **written content** (tutorials, cheatsheets, blog posts) and **code samples** organized by topic.
+This repository contains **published, polished content** organized by course. Content is created through the [skola-research](https://github.com/deznode/skola-research) pipeline and published here as the public-facing output.
 
-### Content Types
+### Content Modes
 
-| Type | Content Location | Code Location |
-|------|------------------|---------------|
-| **Tutorials** | `{topic}/{lang}/tutorial.mdx` | `{topic}/code/start/` + `{topic}/code/final/` |
-| **Cheatsheets** | `{topic}/{lang}/cheatsheet.md` | `{topic}/code/examples/` |
-| **Projects** | N/A | `{topic}/code/projects/{name}/` |
-| **Blog** | `blog/` | N/A |
+Content is organized in two modes:
 
-### Tutorials (Hands-on, Step-by-Step)
+| Mode | Structure | Description |
+|------|-----------|-------------|
+| **Course** (canonical) | `courses/{slug}/` | Structured courses with modules, individual lessons, and supporting materials |
+| **Tutorial** (legacy) | `{slug}/` | Single-topic tutorials with one tutorial file and code samples |
 
-| Topic | Languages | Description |
-|-------|-----------|-------------|
-| [jdbc-postgresql](./jdbc-postgresql/) | kea | Database connectivity with JDBC and PostgreSQL |
+New content should always use **Course mode**.
 
-### References (Cheatsheets & Examples)
+### Courses
 
-| Topic | Languages | Description |
-|-------|-----------|-------------|
-| [jdbc-postgresql](./jdbc-postgresql/) | kea | JDBC + PostgreSQL quick reference |
+| Course | Lessons | Languages | Description |
+|--------|---------|-----------|-------------|
+| [intro-python](./courses/intro-python/) | 32 | kea | Complete Python introduction (beginner) |
+| [intro-kotlin](./courses/intro-kotlin/) | 1 | kea, pt | Kotlin introduction (in progress) |
+| [jdbc-postgresql](./courses/jdbc-postgresql/) | 8 | kea | Database connectivity with JDBC and PostgreSQL |
+
+### Legacy Tutorials
+
+| Topic | Languages | Description | Notes |
+|-------|-----------|-------------|-------|
+| [jdbc-postgresql](./jdbc-postgresql/) | kea | JDBC + PostgreSQL tutorial and reference | Pending migration to course mode |
+
+### Blog
+
+| Location | Description |
+|----------|-------------|
+| [blog/drafts/](./blog/drafts/) | Blog posts in progress |
+| [blog/published/](./blog/published/) | Published blog posts |
+
+## Course Structure (Canonical)
+
+Every course follows this layout:
+
+```
+courses/{slug}/
+├── course.yaml                # Course manifest (modules, lessons, metadata)
+├── cheatsheet-{lang}.md       # Reference cheatsheet (one per language)
+├── slides-{lang}/             # Slidev presentation (one per language)
+│   ├── slides.md
+│   ├── package.json
+│   └── styles/
+├── lessons/                   # Individual lessons
+│   └── {lessonSlug}/
+│       ├── kea.mdx            # Kriolu lesson
+│       └── pt.mdx             # Portuguese lesson (if available)
+├── code/                      # Code samples (language-neutral)
+│   ├── start/                 # Starter scaffolding with TODOs
+│   ├── final/                 # Complete working solution
+│   ├── docker/                # Docker environment (optional)
+│   └── projects/              # Practice projects (optional)
+├── infographics/              # Visual assets (PNGs)
+├── microlearn/                # Short-form content
+│   ├── video-scripts/         # 60-90s video scripts
+│   ├── micro-blogs/           # 100-250 word posts
+│   ├── seo/                   # SEO metadata (YAML)
+│   └── thumbnails/            # Thumbnail briefs
+└── manifest.md                # Published asset inventory
+```
+
+**Key relationship**: `code/final/` is the source of truth. `code/start/` is derived from it with implementation stripped and TODOs added.
+
+### Legacy Tutorial Structure
+
+```
+{slug}/
+├── README.md
+├── kea/
+│   ├── tutorial.mdx
+│   ├── cheatsheet.md
+│   ├── infographics/
+│   └── slides/
+└── code/
+    ├── start/
+    ├── final/
+    ├── docker/
+    └── projects/
+```
 
 ## Usage
 
@@ -38,89 +98,81 @@ git clone https://github.com/deznode/skola-content.git
 cd skola-content
 ```
 
-#### Following a Tutorial
+#### Following a Course
 
-1. Navigate to the topic and start with the scaffolding:
+1. Navigate to the course and start with the first lesson:
    ```bash
-   cd jdbc-postgresql/code/start
+   cd courses/intro-python/lessons/01-o-ki-e-python
+   cat kea.mdx
    ```
 
-2. Follow along with the written tutorial in `jdbc-postgresql/kea/tutorial.mdx`
+2. Work through lessons sequentially — each directory is numbered
 
-3. Check the complete solution when needed:
+3. Use the starter code alongside lessons:
    ```bash
-   cd jdbc-postgresql/code/final
+   cd courses/intro-python/code/start
+   ```
+
+4. Check the complete solution when needed:
+   ```bash
+   cd courses/intro-python/code/final
    ```
 
 #### Using Cheatsheets
 
-Reference examples alongside the cheatsheet:
+Quick reference for an entire course:
 ```bash
-# Read the cheatsheet
-cat jdbc-postgresql/kea/cheatsheet.md
-
-# Browse examples
-ls jdbc-postgresql/code/examples/
+cat courses/intro-python/cheatsheet-kea.md
 ```
 
-## Folder Structure
+#### Slidev Presentations
 
-```
-skola-content/
-├── {tutorial-topic}/
-│   ├── {lang}/                 # Written content (en/, kea/, pt/)
-│   │   ├── tutorial.mdx
-│   │   ├── infographics/       # Visual assets
-│   │   ├── slides/             # Presentation slides
-│   │   └── microlearn/         # Short-form content
-│   └── code/
-│       ├── start/              # Starter scaffolding with TODOs
-│       ├── final/              # Complete working solution
-│       └── projects/           # Hands-on practice projects
-│
-├── {reference-topic}/
-│   ├── {lang}/
-│   │   └── cheatsheet.md
-│   └── code/
-│       └── examples/           # Working code examples
-│
-└── blog/
-    ├── drafts/
-    └── published/
+```bash
+cd courses/{slug}/slides-kea
+pnpm install
+pnpm dev              # Start dev server with hot reload
+pnpm build            # Build static site
+pnpm export-pdf       # Export to PDF
 ```
 
 ## Language Support
 
 - **Primary**: Cape Verdean Kriolu (`kea`)
-- **Secondary**: English (`en`), Portuguese (`pt`)
+- **Secondary**: Portuguese (`pt`), English (`en`)
 
 Content is created first in Kriolu, with translations following. Technical terms remain in English when no direct translation exists.
 
 ## Contributing
 
-### Adding New Content
+### Adding a New Course
 
-1. **Tutorials**: Create both `code/start/` and `code/final/` versions
+1. Create the course directory under `courses/`:
+   ```bash
+   mkdir -p courses/{slug}/lessons
+   ```
+
+2. Create `course.yaml` with course metadata (title, modules, lessons)
+
+3. Create lesson files: `courses/{slug}/lessons/{lessonSlug}/kea.mdx`
+   - Each lesson requires frontmatter: `title`, `language`, `courseSlug`, `lessonSlug`
+
+4. Add code samples in `code/start/` and `code/final/`
    - `code/final/` is the source of truth
    - `code/start/` is derived with implementation stripped and TODOs added
 
-2. **References**: Create `code/examples/` with working code
+5. Add supporting materials as needed:
+   - `cheatsheet-kea.md` — Quick reference for the entire course
+   - `infographics/` — Visual diagrams (PNG)
+   - `slides-kea/` — Slidev presentation
+   - `microlearn/` — Short-form content (video scripts, micro-blogs)
 
-3. **Projects**: Create standalone practice exercises in `code/projects/{name}/`
-   - Self-contained projects for students to practice concepts
-   - Include README with instructions
-
-4. **Written Content**: Add language-specific folders (`en/`, `kea/`, `pt/`)
-
-5. **Always include**:
-   - Clear learning objectives
-   - Prerequisites and setup instructions
-   - Links between content and code
+6. Create `manifest.md` listing all published assets
 
 ### File Naming
 
-- Tutorials: `{lang}/tutorial.mdx`
-- Cheatsheets: `{lang}/cheatsheet.md`
+- Lessons: `courses/{slug}/lessons/{lessonSlug}/{lang}.mdx`
+- Cheatsheets: `courses/{slug}/cheatsheet-{lang}.md`
+- Slides: `courses/{slug}/slides-{lang}/slides.md`
 - Blog posts: `blog/{status}/{date}-{slug}.mdx`
 
 ## License
