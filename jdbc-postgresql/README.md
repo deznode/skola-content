@@ -221,4 +221,4 @@ docker compose up -d
 
 ---
 
-*Skola.dev - Nôs ta kriâ djunta!*
+*Skola.dev - Nu ta kria djuntu!*

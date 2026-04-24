@@ -72,7 +72,7 @@ pip --version           # pip 24.x
 
 ```python
 print("Ola, Mundu!")     # Bo primeiro programa Python!
-print("Nôs ta kriâ djunta!")
+print("Nu ta kria djuntu!")
 ```
 
 ---
@@ -135,7 +135,7 @@ print(type(é_estudanti)) # <class 'bool'>
 
 ```python
 nomi = "Djon"
-frase = 'Nôs ta kriâ djunta!'
+frase = 'Nu ta kria djuntu!'
 multilinha = """
 Praia é kapital
 di Kabu Verdi.

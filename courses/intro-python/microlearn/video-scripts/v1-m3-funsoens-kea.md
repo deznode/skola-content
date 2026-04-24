@@ -15,14 +15,14 @@ Funson é un bloku di kódiku ku nomi ki ta fazi un tarefa espesífiku. Bo ta de
 ```python
 # Defini un funson
 def saudason(nomi, ilha="Santiago"):
-    return f"Oi {nomi} di {ilha}! Nôs ta kriâ djunta!"
+    return f"Oi {nomi} di {ilha}! Nu ta kria djuntu!"
 
 # Xama funson
 print(saudason("Maria"))
-# Output: Oi Maria di Santiago! Nôs ta kriâ djunta!
+# Output: Oi Maria di Santiago! Nu ta kria djuntu!
 
 print(saudason("Djon", "Fogo"))
-# Output: Oi Djon di Fogo! Nôs ta kriâ djunta!
+# Output: Oi Djon di Fogo! Nu ta kria djuntu!
 ```
 
 ```python

@@ -155,4 +155,4 @@ sudo lsof -i :5432
 
 ---
 
-*Skola.dev - Nôs ta kriâ djunta!*
+*Skola.dev - Nu ta kria djuntu!*

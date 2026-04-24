@@ -85,6 +85,6 @@ Units are designed to link sequentially. Each ends with a CTA pointing to the ne
 - **Language**: Kriolu (kea) primary. Technical terms (def, class, list, dict, etc.) stay in English.
 - **Names**: Cape Verdean names — Maria, Djon, Ana, Amilka, Carla, Gil, Mingau (gatu), Bobi (katxor)
 - **Cultural references**: Ilhas (Santiago, Sal, Fogo, Brava), katchupa, Kebra Kanela, ECV (Eskudu)
-- **Tone**: Friendly, inclusive — "Nôs ta kriâ djunta!"
+- **Tone**: Friendly, inclusive — "Nu ta kria djuntu!"
 - **Python**: 3.13+ features where applicable (f-string debug `{var=}`, union types `X | None`)
 - **Environment**: Standard Python + venv (NOT conda)
