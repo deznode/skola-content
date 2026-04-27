@@ -1,0 +1,76 @@
+---
+title: "Rezumu & Prósimus Pasus"
+language: kea
+courseSlug: jdbc-postgresql
+lessonSlug: summary
+---
+
+### Kuzé ki Bu Prende
+
+- ✅ Manera di konekta Java ku PostgreSQL uzandu JDBC
+- ✅ Três objetu prinsipal: Connection, PreparedStatement, ResultSet
+- ✅ Manera di faze operason CRUD di forma seguru
+- ✅ Pamodi PreparedStatement ta privini SQL injection
+- ✅ Manera ki ResultSet ta funsiona komu kursor (ka é koleson)
+- ✅ Jeston koretu di rekursus ku try-with-resources
+
+### Referénsia Rápidu
+
+```java
+// Konekta
+Connection conn = DriverManager.getConnection(
+    "jdbc:postgresql://localhost:5432/nomibazi", "uzuariu", "senha");
+
+// Query ku parâmetrus (SELECT)
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM uzuarius WHERE id = ?");
+pstmt.setInt(1, uzuariuId);
+ResultSet rs = pstmt.executeQuery();
+
+// Modifika dadus (INSERT, UPDATE, DELETE)
+PreparedStatement pstmt = conn.prepareStatement("INSERT INTO uzuarius (nomi) VALUES (?)");
+pstmt.setString(1, nomi);
+int linhasAfetadus = pstmt.executeUpdate();
+
+// Sénpri fetxa rekursus (uza try-with-resources)
+```
+
+### Prósimus Pasus
+
+1. **Imediatu:** Tenta dezafiu di Livru di Enderesus li nriba
+2. **Explora:** Prende sobri Connection Pooling ku HikariCP (esensial pa produson)
+3. **Fundu:** Studa Transason - manera di agrupa operason multiplu ki ta susede ô falha djuntu
+4. **Konstrui:** Kria un REST API sinples ki ta uza JDBC pa armazenamentu di dadus
+
+**Rekursus Rekumendadu:**
+- [Dokumentason JDBC di PostgreSQL](https://jdbc.postgresql.org/documentation/) - Docs ofisial di driver
+- [Tutorial JDBC di Baeldung](https://www.baeldung.com/java-jdbc) - Más ezénplus
+- [HikariCP](https://github.com/brettwooldridge/HikariCP) - Connection pooling pa produson
+
+---
+
+
+## Apéndisi
+
+### Notas di Seguransa
+
+- **Nunka** guarda kredensial di bazi di dadus na kódigu fonti pa produson
+- Uza variável di anbienti ô jestor di segredu:
+
+  ```java
+  String url = System.getenv("DATABASE_URL");
+  String user = System.getenv("DATABASE_USER");
+  String password = System.getenv("DATABASE_PASSWORD");
+  ```
+
+- Sénpri uza PreparedStatement, nunka konkatenar input di uzuáriu
+- Da uzuárius di bazi di dadus sô permison ki es meste (prinsípiu di mínimu priviléjiu)
+
+### Txeklista pa Produson
+
+- [ ] Ta uza connection pooling (HikariCP, c3p0, ô similar)
+- [ ] Kredensial guardadu di forma seguru (variável anbienti, jestor di segredu)
+- [ ] Tudu query ta uza PreparedStatement
+- [ ] Tudu rekursus fetxadu ku try-with-resources
+- [ ] Timeout konfiguradu pa konexon i query
+- [ ] Tratamentu di éru i logging adekuadu
+- [ ] Uzuáriu di bazi di dadus tene permison mínimu nesesáriu

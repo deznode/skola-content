@@ -1,0 +1,98 @@
+slug: intro-python
+title: Introdusun Konpletu a Python
+level: beginner
+category: programming
+duration_minutes: 480
+instructor: Joaquim Costa
+translations:
+  kea:
+    title: "Introdusun Konpletu a Python"
+    description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasun, estruturas di dadus, funsoens, ficheru, e programasun orientadu a objetu.
+    prerequisites: Nenhum konhesimentu préviu nesesáriu
+    outcomes: |
+      Kria programas ku Python di zero
+      Komprendi variáveis, tipu di dadus, e operadoris
+      Uza listas, tuplas, disionárius, e konjuntus
+      Skrebi funsoens e trabadja ku ficheru
+      Implementa klasis e objetus ku OOP
+modules:
+  - slug: fundamentus-di-python
+    title:
+      kea: Fundamentus di Python
+    lessons:
+      - slug: o-ki-e-python
+        languages: [kea]
+      - slug: instala-python
+        languages: [kea]
+      - slug: le-errus
+        languages: [kea]
+      - slug: sintaxi-semantika
+        languages: [kea]
+      - slug: variaveis
+        languages: [kea]
+      - slug: tipu-di-dadus
+        languages: [kea]
+      - slug: strings-metodus
+        languages: [kea]
+      - slug: operadoris
+        languages: [kea]
+      - slug: kondisionais
+        languages: [kea]
+      - slug: loops
+        languages: [kea]
+  - slug: estruturas-di-dadus
+    title:
+      kea: Estruturas di Dadus
+    lessons:
+      - slug: listas
+        languages: [kea]
+      - slug: tuplas
+        languages: [kea]
+      - slug: disionarius
+        languages: [kea]
+      - slug: konjuntus
+        languages: [kea]
+      - slug: kazus-real
+        languages: [kea]
+  - slug: funsoens-i-operasoens-ku-ficheru
+    title:
+      kea: Funsoens i Operasoens ku Ficheru
+    lessons:
+      - slug: funsoens-baziku
+        languages: [kea]
+      - slug: lambda-map-filter
+        languages: [kea]
+      - slug: funsoens-inkorporadus
+        languages: [kea]
+      - slug: jeneradorus
+        languages: [kea]
+      - slug: modulus-pakotis
+        languages: [kea]
+      - slug: ambiente-virtual
+        languages: [kea]
+      - slug: operasoens-ficheru
+        languages: [kea]
+      - slug: tratamentu-erru
+        languages: [kea]
+      - slug: annotasoens-tipu
+        languages: [kea]
+      - slug: testu-kodiku
+        languages: [kea]
+  - slug: programasun-orientadu-a-objetu
+    title:
+      kea: Programasun Orientadu a Objetu
+    lessons:
+      - slug: klasis-objetis
+        languages: [kea]
+      - slug: eransa
+        languages: [kea]
+      - slug: polimorfismu-abstrasun
+        languages: [kea]
+      - slug: enkapsolamentu-property
+        languages: [kea]
+      - slug: metodus-madjiku
+        languages: [kea]
+      - slug: sobrekarga-operador
+        languages: [kea]
+      - slug: prosimus-pasus
+        languages: [kea]

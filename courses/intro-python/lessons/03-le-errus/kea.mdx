@@ -1,0 +1,386 @@
+---
+title: "Lé Errus (Tracebacks)"
+language: kea
+courseSlug: intro-python
+lessonSlug: le-errus
+slug: "le-errus-tracebacks"
+module: 1
+lesson: 3
+duration: "15 min"
+objectives:
+  - "Lé mensajen di erru di Python di baxu pa sima"
+  - "Identifika 5 exceptions más kumun e o ki ta kauza káda un"
+  - "Uza seta ^ (caret) di Python 3.11+ pa atxa lokalizasun exatu di erru"
+---
+
+# Lé Errus (Tracebacks)
+
+Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru e rezolve rápidu. Na es lisun, nôs ta aprendi a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal e undi.
+
+Errus ka é sinál di frakasu. É sinál di ki bo ta tenta. Nôs ta kriá djunta, e parti di kria é erá!
+
+## O ki é un Traceback?
+
+Kuandu Python atxa un problema na bo kódiku, e ta para e mostra un **traceback** — un mensajen ki ta esplika o ki korreu mal e undi. Odja es ezemplu:
+
+```python
+# fixeru: kalkula.py
+def kalkula_media(notas):
+    total = sum(notas)
+    media = total / len(notas)
+    return media
+
+notas_di_ana = []
+rezultadu = kalkula_media(notas_di_ana)
+print(f"Média: {rezultadu}")
+```
+
+Kuandu bo roda es kódiku, Python ta mostra:
+
+```
+Traceback (most recent call last):
+  File "kalkula.py", line 7, in <module>
+    rezultadu = kalkula_media(notas_di_ana)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  File "kalkula.py", line 3, in kalkula_media
+    media = total / len(notas)
+            ~~~~~~^~~~~~~~~~~~
+ZeroDivisionError: division by zero
+```
+
+Es parsesi komplikadu, ma ka é! Nôs ta aprendi lé el pasu a pasu.
+
+## Regra di Oru: Lé di Baxu pa Sima
+
+Segridu más importanti: **sempri kumesa lé di última linha**. É la ki resposta ta stá.
+
+### Pasu 1: Última Linha — O ki korreu mal
+
+```
+ZeroDivisionError: division by zero
+```
+
+Es linha tene **dôs parti**:
+- **`ZeroDivisionError`** — tipu di erru (nomi di exception)
+- **`division by zero`** — mensajen ki ta esplika problema
+
+Tradusun: "Bo ta tenta dividi pa zero — Python ka pode fazi kel."
+
+### Pasu 2: Linhas di Sima — Undi korreu mal
+
+```
+  File "kalkula.py", line 3, in kalkula_media
+    media = total / len(notas)
+            ~~~~~~^~~~~~~~~~~~
+```
+
+Es ta dize-bu:
+- **Fixeru:** `kalkula.py`
+- **Linha:** 3
+- **Funsun:** `kalkula_media`
+- **Kódiku:** `media = total / len(notas)`
+- **Seta `^`:** aponta direitamenti pa `/` — é operasun ki faya!
+
+### Pasu 3: Subi más — Kemi txama kemi
+
+```
+  File "kalkula.py", line 7, in <module>
+    rezultadu = kalkula_media(notas_di_ana)
+```
+
+Es ta mostra ki linha 7 é undi bo txama funsun ki faya. `<module>` signifika ki ta na nível prinsipál di programa (ka dentru di un funsun).
+
+:::callout{type=tip}
+**💡 Dika:** Pensa na traceback manera un pilha di pratus — última pratu (última linha) é undi pratu kibra. Ma bo precisa odja pratus di baxu pa kompriendi pamodi tudu kai.
+:::
+
+## Seta `^` — Bo Melhor Amigu (Python 3.11+)
+
+Disdi Python 3.11, errus tene un **seta `^`** ki ta aponta exatamenti pa parti di kódiku ki ta kauza problema. Es é un melhoria enormi!
+
+```python
+# Ezemplu: erru na espresun kompleksu
+presu = {"katchupa": 350, "grogue": 200}
+total = presu["katchupa"] + presu["ponche"]
+```
+
+```
+Traceback (most recent call last):
+  File "loja.py", line 3, in <module>
+    total = presu["katchupa"] + presu["ponche"]
+                                ~~~~~^^^^^^^^^^
+KeyError: 'ponche'
+```
+
+Odja undi `^` ta aponta: `presu["ponche"]` — é exatamenti kel parti ki ta kauza erru! "ponche" ka ezisti na disionáriu `presu`.
+
+Más un ezemplu:
+
+```python
+nomis = ["Maria", "João", "Ana"]
+print(nomis[5])
+```
+
+```
+Traceback (most recent call last):
+  File "nomis.py", line 2, in <module>
+    print(nomis[5])
+          ~~~~~^^^
+IndexError: list index out of range
+```
+
+Seta `^` ta mostra ki `nomis[5]` é problema — lista so tene 3 elementus (índisi 0, 1, 2), ma bo ta pidi índisi 5.
+
+## 5 Exceptions Más Kumun
+
+Es é errus ki bo ta atxa más frekventi kuandu bo ta kumesa. Konhesi kes e bo ta rezolve problemus mutu más rápidu.
+
+### 1. `SyntaxError` — Erru di Sintaxi
+
+Python ka kompriende o ki bo skrebi. É manera un frazi ku gramátika eradu.
+
+```python
+# Skesi dôs pontus (:) después di if
+idadi = 20
+if idadi > 18
+    print("Adultu")
+```
+
+```
+  File "testa.py", line 3
+    if idadi > 18
+                 ^
+SyntaxError: expected ':'
+```
+
+**Kauzas kumun:**
+- Skesi `:` después di `if`, `for`, `while`, `def`, `class`
+- Skesi fexá paréntesis `)`, kólxeti `]`, o xavi `}`
+- Uza `=` (atribuisun) na lugar di `==` (komparasun) na kondisionais
+
+:::callout{type=tip}
+**💡 Dika:** `SyntaxError` é úniku erru ki Python ta atxa **antis** di roda programa. Tudu otru errus ta aparesi kuandu programa ta roda.
+:::
+
+### 2. `NameError` — Nomi ka Ezisti
+
+Bo ta uza un variável ki ka foi kriadu inda.
+
+```python
+print(mensajen)
+```
+
+```
+Traceback (most recent call last):
+  File "testa.py", line 1, in <module>
+    print(mensajen)
+          ^^^^^^^^
+NameError: name 'mensajen' is not defined
+```
+
+**Kauzas kumun:**
+- Variável ka foi atribuídu (skesi `mensajen = "Ola"`)
+- Erru di ortografia: `mesnajen` na lugar di `mensajen`
+- Uza variável fora di si scope (ex.: dentru di un funsun vs fora)
+
+```python
+# Korresun: defini variável antis di uza
+mensajen = "Ola, mundu!"
+print(mensajen)
+```
+
+### 3. `TypeError` — Tipu Eradu
+
+Bo ta mistura tipus ki ka é kompatível.
+
+```python
+idadi = 25
+mensajen = "Bo tene " + idadi + " anu"
+```
+
+```
+Traceback (most recent call last):
+  File "testa.py", line 2, in <module>
+    mensajen = "Bo tene " + idadi + " anu"
+               ~~~~~~~~~~~~^~~~~~
+TypeError: can only concatenate str (not "int") to str
+```
+
+Seta `^` ta mostra exatamenti undi string ta bate ku int!
+
+**Kauzas kumun:**
+- Junta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
+- Txama algu ki ka é funsun: `x = 5; x()` (TypeError: 'int' is not callable)
+- Manda argumentu eradu pa funsun
+
+```python
+# Korresun: uza f-string
+idadi = 25
+mensajen = f"Bo tene {idadi} anu"
+print(mensajen)  # Bo tene 25 anu
+```
+
+### 4. `IndexError` — Índisi Fora di Rangu
+
+Bo ta tenta asesa un posisun ki ka ezisti na lista.
+
+```python
+ilhas = ["Santiago", "São Vicente", "Sal"]
+print(ilhas[3])
+```
+
+```
+Traceback (most recent call last):
+  File "testa.py", line 2, in <module>
+    print(ilhas[3])
+          ~~~~~^^^
+IndexError: list index out of range
+```
+
+Lista tene 3 elementus (índisi 0, 1, 2), ma bo ta pidi índisi 3.
+
+**Kauzas kumun:**
+- Skesi ki índisi ta kumesa na **0** (ka na 1)
+- Uza `len(lista)` kumu índisi (último índisi válidu é `len(lista) - 1`)
+- Lista váziu e bo ta tenta asesa kualker índisi
+
+```python
+# Korresun: verifika tamañu antis
+ilhas = ["Santiago", "São Vicente", "Sal"]
+indisi = 3
+if indisi < len(ilhas):
+    print(ilhas[indisi])
+else:
+    print(f"Índisi {indisi} ka ezisti! Lista so tene {len(ilhas)} elementus.")
+```
+
+### 5. `KeyError` — Xavi ka Ezisti na Disionáriu
+
+Bo ta buska un xavi ki ka ezisti na disionáriu.
+
+```python
+estudanti = {"nomi": "Kelvin", "idadi": 22}
+print(estudanti["nota"])
+```
+
+```
+Traceback (most recent call last):
+  File "testa.py", line 2, in <module>
+    print(estudanti["nota"])
+          ~~~~~~~~~^^^^^^^^
+KeyError: 'nota'
+```
+
+**Korresun: uza `.get()` pa evita erru**
+
+```python
+estudanti = {"nomi": "Kelvin", "idadi": 22}
+
+# Manera seguru — retorna None si ka ezisti
+nota = estudanti.get("nota")
+print(nota)  # None
+
+# Manera seguru ku valór padraun
+nota = estudanti.get("nota", "Sem nota")
+print(nota)  # Sem nota
+```
+
+## Rezimu Vizual: 5 Exceptions
+
+| Exception | Signifikadu | Ezemplu Rápidu | Korresun Kumun |
+|-----------|-------------|-----------------|----------------|
+| `SyntaxError` | Gramátika eradu | `if x > 5` (falta `:`) | Djunta `:`, `)`, `]` ki falta |
+| `NameError` | Variável ka defini | `print(x)` sem `x = ...` | Defini variável o verifica ortografia |
+| `TypeError` | Tipus inkompatível | `"Ola" + 5` | Uza `str()`, `int()` o f-string |
+| `IndexError` | Índisi fora di rangu | `lista[10]` ku 3 elementus | Verifika `len()` antis |
+| `KeyError` | Xavi ka ezisti | `d["xavi"]` ki ka ezisti | Uza `.get(xavi, padraun)` |
+
+## Estratéjia di 3 Pasus pa Rezolvi Erru
+
+Kuandu bo odja un erru, sigui sempri es 3 pasus:
+
+```
+1. LÉ  →  Última linha di traceback (tipu + mensajen)
+2. ATXA →  Fixeru i número di linha (seta ^ mostra lokalizasun)
+3. PENSA →  "Pamodi Python ta pensa ki es é un problema?"
+```
+
+Vamus prátika ku un ezemplu:
+
+```python
+# Programa ku erru — bo pode atxa?
+lista_di_presus = [350, 200, 150, 400]
+total = 0
+
+for i in range(1, 5):
+    total = total + lista_di_presus[i]
+
+media = total / 4
+print(f"Média di presu: {media} ECV")
+```
+
+```
+Traceback (most recent call last):
+  File "presus.py", line 5, in <module>
+    total = total + lista_di_presus[i]
+                    ~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+```
+
+Aplika 3 pasus:
+1. **LÉ:** `IndexError: list index out of range` — índisi fora di rangu
+2. **ATXA:** Linha 5, `lista_di_presus[i]` — seta mostra ki problema é na asesu a lista
+3. **PENSA:** `range(1, 5)` ta da `1, 2, 3, 4`. Ma `lista_di_presus[4]` ka ezisti pamodi índisis ta bai di 0 a 3. Soluson: `range(len(lista_di_presus))` o `range(0, 4)`.
+
+```python
+# Korrejidu!
+lista_di_presus = [350, 200, 150, 400]
+total = 0
+
+for i in range(len(lista_di_presus)):
+    total = total + lista_di_presus[i]
+
+media = total / len(lista_di_presus)
+print(f"Média di presu: {media} ECV")  # Média di presu: 275.0 ECV
+```
+
+:::callout{type=tip}
+**💡 Dika:** Na futuru, bo ta aprendi ki `sum(lista_di_presus)` é manera más simples di soma un lista. Ma pa agora, importanti é kompriendi kumu lé errus!
+:::
+
+## Tenta Agora 🏋️
+
+Odja kada traceback e identifika: (a) tipu di erru, (b) undi korreu mal, (c) kumu koriji.
+
+1. **Exersísiu 1:** Kel ki é problema aki?
+```
+Traceback (most recent call last):
+  File "nomi.py", line 2, in <module>
+    print("Ola, " + nomi)
+                     ^^^^
+NameError: name 'nomi' is not defined
+```
+
+2. **Exersísiu 2:** Kel ki é problema aki?
+```
+Traceback (most recent call last):
+  File "loja.py", line 3, in <module>
+    presu_total = presu * kantidadi
+                  ~~~~~^~~~~~~~~~~
+TypeError: can't multiply sequence by non-int of type 'str'
+```
+*(Dika: `input()` ta retorna sempri un string!)*
+
+3. **Exersísiu 3:** Skrebi un programa ku deliberadamenti ta kauza un `IndexError`. Dipôs koriji el. Ezemplu: kria un lista di 3 fruta e tenta asesa índisi 5.
+
+## Rezumu
+
+- **Lé tracebacks di baxu pa sima** — última linha tene tipu di erru e mensajen
+- **Seta `^`** (Python 3.11+) ta aponta exatamenti pa parti di kódiku ki faya
+- **5 exceptions más kumun:** `SyntaxError`, `NameError`, `TypeError`, `IndexError`, `KeyError`
+- Sigui **estratéjia di 3 pasus**: Lé → Atxa → Pensa
+- Errus ka é problema — é oportunidadi pa aprendi. Até programadoris ku 20 anus di speriénsia ta atxa errus tudu dia!
+
+---
+
+**Prósimu lisun:** [Sintaxi e Semantika] →

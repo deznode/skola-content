@@ -1,0 +1,369 @@
+---
+title: "Kazus Real ku Estruturas di Dadus"
+language: kea
+courseSlug: intro-python
+lessonSlug: kazus-real
+slug: "kazus-real"
+module: 2
+lesson: 15
+duration: "20 min"
+objectives:
+  - "Aplika listas pa jestaun di tarefas"
+  - "Uza listas ku funsoens built-in pa analiza dadus"
+  - "Konstrui inventárius ku disionárius"
+  - "Removi duplikadus ku sets preservandu órdin"
+  - "Kombina múltiplu estruturas di dadus pa rezolvi problemas real"
+---
+
+# Kazus Real ku Estruturas di Dadus
+
+Nôs dja aprendi 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, e konjuntus. Agora é óra di pô tudu djuntu! Na kel lisun li, nôs ta rezolvi problemas reais ki bo ta nkontra na dia-a-dia komu programador. Kada ezemplu ta mostra kumé ki bo ta skolhe estrutura sertu pa situasun sertu.
+
+<Figure src="../../infographics/06-4-estruturas-komparasun.png" caption="4 estruturas di dadus di Python: lista, tupla, disionariu, i konjuntu" />
+
+<Figure src="../../infographics/09-kuandu-uza-kual.png" caption="Kual estrutura di dadus bo dibi uza? Guia rapidu di desizun" />
+
+## Lista di Tarefa (To-Do List)
+
+Listas é perfeitu pa jestaun di tarefas -- bo podi djunta, elimina, e reorganiza elementus. Nôs ta kria un sistema simples di tarefas:
+
+```python
+# Sistema di tarefa pa un estudanti na Praia
+tarefas = []
+
+# Djunta tarefas
+tarefas.append("Studu Python kapítulu 3")
+tarefas.append("Kunpra material pa skola")
+tarefas.append("Manda emali pa profesóra")
+tarefas.append("Fazi ezersísiu di matemátika")
+
+print("📋 Lista di tarefa:")
+for i, tarefa in enumerate(tarefas, 1):
+    print(f"  {i}. {tarefa}")
+```
+
+```python
+# Marka tarefa komu konpletadu (elimina)
+tarefa_feitu = "Kunpra material pa skola"
+if tarefa_feitu in tarefas:
+    tarefas.remove(tarefa_feitu)
+    print(f"\n✅ Konpletadu: '{tarefa_feitu}'")
+
+# Djunta tarefa urjenti na komésu
+tarefas.insert(0, "Entrega projetu final ODJÊ!")
+
+# Mostra lista atualizadu
+print("\n📋 Lista atualizadu:")
+for i, tarefa in enumerate(tarefas, 1):
+    print(f"  {i}. {tarefa}")
+
+print(f"\nTotal di tarefas pendenti: {len(tarefas)}")
+```
+
+```python
+# Versan más konpletu ku prioridadi
+tarefas_ku_prioridadi = [
+    ("Entrega projetu final", "alta"),
+    ("Studu Python", "média"),
+    ("Limpa kaza", "baxa"),
+    ("Paga konta di luz", "alta"),
+]
+
+# Filtra só tarefas di prioridadi alta
+urgenti = [tarefa for tarefa, prio in tarefas_ku_prioridadi if prio == "alta"]
+print(f"⚠️ Tarefas urgenti: {urgenti}")
+```
+
+:::callout{type=tip}
+**💡 Dika:** Listas é ótimus kuandu bo presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasun.
+:::
+
+## Nota di Estudanti (Student Grades)
+
+Listas kombina perfeitamenti ku funsoens built-in (`sum`, `max`, `min`, `len`, `sorted`) pa analiza dadus numérikiu:
+
+```python
+# Notas di Maria na diferentes matérias
+nomis_materia = ["Python", "Matemátika", "Inglés", "Istória", "Fizika"]
+notas_maria = [17, 14, 16, 12, 15]
+
+# Estatístikas báziku
+media = sum(notas_maria) / len(notas_maria)
+nota_max = max(notas_maria)
+nota_min = min(notas_maria)
+
+print(f"📊 Notas di Maria:")
+print(f"  Média: {media:.1f}")
+print(f"  Nota más altu: {nota_max}")
+print(f"  Nota más baxu: {nota_min}")
+```
+
+```python
+# Klasifika notas
+def klasifika_nota(nota):
+    if nota >= 17:
+        return "Eksélenti"
+    elif nota >= 14:
+        return "Bon"
+    elif nota >= 10:
+        return "Sufisiente"
+    else:
+        return "Insufisiente"
+
+print("\n📝 Detalhes:")
+for materia, nota in zip(nomis_materia, notas_maria):
+    klasifikasun = klasifika_nota(nota)
+    print(f"  {materia}: {nota}/20 - {klasifikasun}")
+
+# Konta kuantus é "Bon" ó milhor
+aprovadu = sum(1 for nota in notas_maria if nota >= 10)
+print(f"\nMaérias aprovadu: {aprovadu}/{len(notas_maria)}")
+```
+
+```python
+# Kompara ku otu estudanti
+notas_joao = [13, 18, 11, 16, 14]
+
+print(f"\n🏆 Komparasun:")
+print(f"  Maria - Média: {sum(notas_maria)/len(notas_maria):.1f}")
+print(f"  João  - Média: {sum(notas_joao)/len(notas_joao):.1f}")
+
+# Ken tene nota más altu na kada matéria?
+print("\n  Milhor na kada matéria:")
+for materia, nota_m, nota_j in zip(nomis_materia, notas_maria, notas_joao):
+    if nota_m > nota_j:
+        milhor = "Maria"
+    elif nota_j > nota_m:
+        milhor = "João"
+    else:
+        milhor = "Empati"
+    print(f"    {materia}: {milhor}")
+```
+
+## Inventáriu di Loja (Store Inventory)
+
+Disionárius é estrtura ideal pa inventáriu -- bo ta mapeia produktu pa informasoens (presu, kantidadi, etc.):
+
+```python
+# Inventáriu di un merkadu na Mindelo
+inventariu = {
+    "banana": {"presu": 50, "kantidadi": 120, "unidadi": "kg"},
+    "manga": {"presu": 80, "kantidadi": 45, "unidadi": "kg"},
+    "atum": {"presu": 350, "kantidadi": 30, "unidadi": "lata"},
+    "feijun": {"presu": 180, "kantidadi": 60, "unidadi": "kg"},
+    "milhu": {"presu": 150, "kantidadi": 80, "unidadi": "kg"},
+    "grogue": {"presu": 500, "kantidadi": 15, "unidadi": "garafa"},
+}
+
+# Mostra inventáriu kompletu
+print("🏪 Inventáriu -- Merkadu di Mindelo")
+print("-" * 45)
+for produktu, info in inventariu.items():
+    print(f"  {produktu.capitalize():12} | {info['presu']:>5} ECV/{info['unidadi']} | Stock: {info['kantidadi']}")
+```
+
+```python
+# Busca produktu
+def buska_produktu(inventariu, nomi):
+    produktu = inventariu.get(nomi)
+    if produktu:
+        print(f"✅ '{nomi}' disponível: {produktu['kantidadi']} {produktu['unidadi']} a {produktu['presu']} ECV")
+    else:
+        print(f"❌ '{nomi}' nau ta ezisti na inventáriu")
+
+buska_produktu(inventariu, "manga")
+buska_produktu(inventariu, "laranja")
+```
+
+```python
+# Atualiza stock (venda i repozisun)
+def vendi(inventariu, produktu, kantidadi):
+    if produktu not in inventariu:
+        print(f"Erru: '{produktu}' nau ezisti!")
+        return
+    if inventariu[produktu]["kantidadi"] < kantidadi:
+        print(f"Erru: Stock insufisiente di '{produktu}'!")
+        return
+    inventariu[produktu]["kantidadi"] -= kantidadi
+    total = kantidadi * inventariu[produktu]["presu"]
+    print(f"💰 Vendidu: {kantidadi} {inventariu[produktu]['unidadi']} di {produktu} = {total} ECV")
+
+vendi(inventariu, "grogue", 3)
+vendi(inventariu, "atum", 50)  # Stock insufisiente!
+
+# Produktus ku stock baxu (alerta)
+print("\n⚠️ Stock baxu (menos di 20):")
+stock_baxu = {prod: info for prod, info in inventariu.items() if info["kantidadi"] < 20}
+for prod, info in stock_baxu.items():
+    print(f"  {prod}: só {info['kantidadi']} {info['unidadi']} resta!")
+```
+
+:::callout{type=tip}
+**💡 Dika:** Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` na vés di `KeyError` si produktu nau ezisti.
+:::
+
+## Removi Duplikadus (Sets + Lists)
+
+Sets é arma perfetu pa deteta i elimina duplikadus. Nôs ta vê diferentes senárius:
+
+```python
+# Senáriu 1: Kontatus ku emali duplikadu
+kontatus = [
+    "maria@email.cv",
+    "joao@email.cv",
+    "ana@email.cv",
+    "maria@email.cv",   # duplikadu
+    "pedro@email.cv",
+    "ana@email.cv",     # duplikadu
+    "carla@email.cv",
+    "joao@email.cv",    # duplikadu
+]
+
+print(f"Total kontatus: {len(kontatus)}")
+print(f"Kontatus úniku: {len(set(kontatus))}")
+
+# Removi duplikadus preservandu órdin
+vistu = set()
+kontatus_limpu = []
+for emali in kontatus:
+    if emali not in vistu:
+        vistu.add(emali)
+        kontatus_limpu.append(emali)
+
+print(f"\n📧 Lista limpu ({len(kontatus_limpu)} kontatus):")
+for emali in kontatus_limpu:
+    print(f"  - {emali}")
+```
+
+```python
+# Senáriu 2: Palavaras repetidu na un textu
+textu = "funana é músika funana é kultura funana é vida na Kabu Verdi"
+palavras = textu.split()
+
+# Palavras únikas
+unikas = set(palavras)
+print(f"Total palavras: {len(palavras)}")
+print(f"Palavras únikas: {len(unikas)}")
+
+# Palavras ki ta repeti
+from collections import Counter
+kontador = Counter(palavras)
+repetidus = {palavra: konta for palavra, konta in kontador.items() if konta > 1}
+print(f"Palavras ki ta repeti: {repetidus}")
+```
+
+```python
+# Senáriu 3: Verifica intersesun -- ki klientis ta kunpra na ambos lojas?
+klients_loja_praia = {"Maria", "João", "Ana", "Nilton", "Edna", "Carla"}
+klients_loja_mindelo = {"Pedro", "Ana", "Gil", "Nilton", "Lara", "Nuno"}
+
+klients_ambos = klients_loja_praia & klients_loja_mindelo
+klients_so_praia = klients_loja_praia - klients_loja_mindelo
+klients_total = klients_loja_praia | klients_loja_mindelo
+
+print(f"Klientis total (úniku): {len(klients_total)}")
+print(f"Klientis na ambos lojas: {klients_ambos}")
+print(f"Klientis só na Praia: {klients_so_praia}")
+```
+
+## Ezemplu Final: Kombina Tudu Estruturas
+
+Agora nôs ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolvi un problema más konpleksu -- un sistema di jestaun di evento kultural:
+
+```python
+# 🎵 Sistema di Jestaun di Festival di Músika na Praia
+
+# TUPLAS -- informasoens fixu di kada artista (nau ta muda)
+artistas = [
+    ("Cesária Évora", "morna", "São Vicente"),
+    ("Gil Semedo", "funana", "Santiago"),
+    ("Mayra Andrade", "morna", "Santiago"),
+    ("Bana", "morna", "São Vicente"),
+    ("Ferro Gaita", "funana", "Santiago"),
+    ("Lura", "batuku", "Santiago"),
+]
+
+# DICIONÁRIU -- detalhes di bilhetu i vendas
+bilhetus = {
+    "VIP": {"presu": 5000, "total": 50, "vendidu": 42},
+    "Normal": {"presu": 2000, "total": 200, "vendidu": 187},
+    "Estudanti": {"presu": 1000, "total": 100, "vendidu": 98},
+}
+
+# LISTA -- registru di vendas (órdin ta importa)
+vendas_resenti = [
+    {"tipu": "Normal", "kliente": "Maria", "data": "2025-03-15"},
+    {"tipu": "VIP", "kliente": "João", "data": "2025-03-15"},
+    {"tipu": "Estudanti", "kliente": "Ana", "data": "2025-03-16"},
+    {"tipu": "Normal", "kliente": "Pedro", "data": "2025-03-16"},
+    {"tipu": "Estudanti", "kliente": "Djina", "data": "2025-03-16"},
+]
+
+# SET -- jéneru di músika disponível (sem repetisun)
+jeneru_disponivel = {jeneru for _, jeneru, _ in artistas}
+
+print("🎵 Festival di Músika di Praia 2025")
+print("=" * 50)
+
+# 1. Mostra artistas pa jéneru
+print("\n📌 Artistas pa jéneru:")
+for jeneru in sorted(jeneru_disponivel):
+    artistas_jeneru = [nomi for nomi, j, _ in artistas if j == jeneru]
+    print(f"  {jeneru.capitalize()}: {', '.join(artistas_jeneru)}")
+
+# 2. Rezumu di vendas di bilhetu
+print("\n🎫 Vendas di bilhetu:")
+reseta_total = 0
+for tipu, info in bilhetus.items():
+    disponivel = info["total"] - info["vendidu"]
+    reseta = info["vendidu"] * info["presu"]
+    reseta_total += reseta
+    print(f"  {tipu:10} | {info['vendidu']}/{info['total']} vendidu | {disponivel} disponível | {reseta:,} ECV")
+print(f"  {'':10} | Reseta total: {reseta_total:,} ECV")
+
+# 3. Atividade resenti
+print(f"\n📊 Últimas {len(vendas_resenti)} vendas:")
+klientis_resenti = set()
+for venda in vendas_resenti:
+    klientis_resenti.add(venda["kliente"])
+    print(f"  {venda['data']} -- {venda['kliente']} ({venda['tipu']})")
+print(f"\n  Klientis úniku resenti: {len(klientis_resenti)}")
+
+# 4. Ilhas representadu
+ilhas = {ilha for _, _, ilha in artistas}
+print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
+```
+
+## Rezumu: Kuandu Skolhe Kual Estrutura
+
+| Estrutura | Uza Kuandu... | Ezemplu |
+|-----------|--------------|---------|
+| **Lista** | Presiza órdin, modifikasun, repetisun | Tarefas, notas, playlist |
+| **Tupla** | Dadus fixu ki nau ta muda | Koordenadas, registrus, retornu múltiplu |
+| **Disionáriu** | Mapeia xavi pa valór, busca rápidu | Inventáriu, konfigasoens, kontadoris |
+| **Set** | Elementus úniku, membership testing, operasoens di konjuntus | Deduplikasun, filtragem, komparasun |
+
+:::callout{type=tip}
+**💡 Dika:** Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus podi repeti?" (lista). "Nha dadus nau podi muda?" (tupla). "Nha dadus presiza ser úniku?" (set).
+:::
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1: Kontrol di Presensia** -- Kria un sistema ondi bo djunta nomi di estudantis ki ta txiga na aula (podi repeti si txiga múltiplu dia). Uza un set pa sabi kuantus estudantis úniku tinha, e un lista pa mante registru kompletu.
+
+2. **Exersísiu 2: Karrinhu di Konpra** -- Kria un disionáriu pa un merkadu ondi produktus tene presu. Dipos kria un lista (karrinhu) ku produktus ki kliente skolhe. Kalkula total i mostra rezumu di konpra ku kantidadi di kada item.
+
+3. **Exersísiu 3: Komparador di Playlists** -- Dos amigu (Nilton i Edna) tene kada un un lista di músika favoritu. Uza sets pa nkontra: (a) músikas ki ambos ta gosta, (b) músikas ki só Nilton ta gosta, (c) total di músikas úniku entre ambos. Mostra rezultadu organizadu.
+
+## Rezumu
+
+- Listas é ideal pa dadus ordanadu ku modifikasun (tarefas, notas, registrus)
+- Funsoens built-in (`sum`, `max`, `min`, `sorted`, `len`) ta funsiona perfeitamenti ku listas
+- Disionárius é milhor pa mapea xavi-valór (inventáriu, konfigurasun)
+- Sets ta resolve elegantimenti problemas di duplikasun i pertensa
+- Problemas real normalmenti ta presia **kombinasun** di múltiplu estruturas
+- Skolhe estrutura sertu ta fazi kódiku más simples, rápidu i fásil di mante
+
+---
+
+**Prósimu lisun:** [Funsoens Báziku] →

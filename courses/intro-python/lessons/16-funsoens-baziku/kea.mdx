@@ -1,0 +1,402 @@
+---
+title: "Funsoens Báziku"
+language: kea
+courseSlug: intro-python
+lessonSlug: funsoens-baziku
+slug: "funsoens-baziku"
+module: 3
+lesson: 16
+duration: "25 min"
+objectives:
+  - "Defini funsoens ku def e uza return pa retorna valoris"
+  - "Intende diferensa entre parámetrus e argumentus"
+  - "Uza parámetrus padrãu, *args e **kwargs pa funsoens flexível"
+  - "Dokumenta funsoens ku docstrings"
+  - "Skrebe funsoens rekursivas ku kazu bazi"
+---
+
+# Funsoens Báziku
+
+Imajina bo ta kuzinha cachupa tudu dia. Kada bes bo tene ki lembra pasu por pasu: korta midju, ferbe feijun, djunta ingredientis... Sería más fásil si bo pudesse dize "faze cachupa" e tudu pasu korre automatikamenti? É exatamenti isu ki funsoens ta faze na programasun — es ta guarda un konjuntu di instrusoens ku un nomi, e bo pode xama-l kuantas bes bo kre.
+
+Funsoens é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisun, e torna programa más fásil pa intende e mantene.
+
+<Figure src="../../infographics/10-anatomia-di-funsun.png" caption="Anatomia di un funsun Python — parametrus, docstring, return, i type hints" />
+
+## Kria Funsun ku `def`
+
+Pa defini un funsun na Python, bo uza keyword `def`, seguidu di nomi di funsun e paréntesis:
+
+```python
+# Estrutura báziku di un funsun
+def saudason():
+    print("Bon dia! Morabeza!")
+
+# Xama funsun
+saudason()   # Bon dia! Morabeza!
+saudason()   # Bon dia! Morabeza! (pode xama kuantas bes bo kre)
+```
+
+```python
+# Funsun ki verifica si nùmeru é par o ímpar
+def par_o_impar(numeru):
+    if numeru % 2 == 0:
+        print(f"{numeru} é par")
+    else:
+        print(f"{numeru} é ímpar")
+
+par_o_impar(7)    # 7 é ímpar
+par_o_impar(10)   # 10 é par
+```
+
+:::callout{type=tip}
+**💡 Dika:** Nomi di funsun debe ser deskritivu e uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjor ki `kt` o `func1`.
+:::
+
+## Parámetrus e Argumentus
+
+**Parámetrus** é variáveis ki funsun ta resebe (na definisun). **Argumentus** é valoris ki bo ta pasa kuandu bo xama funsun.
+
+```python
+# 'nomi' e 'ilha' é PARÁMETRUS (na definisun)
+def apresenta(nomi, ilha):
+    print(f"Nha nomi é {nomi}, N é di {ilha}.")
+
+# "Maria" e "Santiago" é ARGUMENTUS (na xamada)
+apresenta("Maria", "Santiago")    # Nha nomi é Maria, N é di Santiago.
+apresenta("João", "São Vicente")  # Nha nomi é João, N é di São Vicente.
+```
+
+```python
+# Funsun ku vários parámetrus
+def kalkula_area(largura, konprimentu):
+    area = largura * konprimentu
+    print(f"Área: {area} m²")
+
+kalkula_area(5, 3)    # Área: 15 m²
+kalkula_area(10, 8)   # Área: 80 m²
+```
+
+## Parámetrus Padrãu (Default Parameters)
+
+Bo pode da un valor padrãu a un parámetru. Si ninguén pasa argumentu, Python ta uza valor padrãu.
+
+```python
+def saudason(nomi="Vizitanti"):
+    print(f"Bon dia, {nomi}! Ben-vindu!")
+
+saudason("Ana")      # Bon dia, Ana! Ben-vindu!
+saudason()           # Bon dia, Vizitanti! Ben-vindu! (uza padrãu)
+```
+
+```python
+# Funsun pa kalkula presu ku diskontu opsinál
+def kalkula_presu(presu, diskontu=0):
+    final = presu - (presu * diskontu / 100)
+    print(f"Presu final: {final:.0f} ECV")
+
+kalkula_presu(5000)       # Presu final: 5000 ECV (sem diskontu)
+kalkula_presu(5000, 10)   # Presu final: 4500 ECV (10% diskontu)
+kalkula_presu(5000, 25)   # Presu final: 3750 ECV (25% diskontu)
+```
+
+:::callout{type=tip}
+**💡 Dika:** Parámetrus ku valor padrãu SEMPRI tene ki ben DIPÔS di parámetrus sem padrãu. `def f(a, b=5)` é koretu. `def f(a=5, b)` ta da erru!
+:::
+
+## Return — Retorna Valoris
+
+`print()` ta mostra rezultadu na tela, ma `return` ta "manda" valor di volta pa kel ki xama funsun. Es é diferensa fundamentál.
+
+```python
+# Ku print — SÓ mostra, ka retorna nada
+def soma_print(a, b):
+    print(a + b)
+
+resultado = soma_print(3, 4)   # mostra: 7
+print(resultado)               # None! (funsun ka retorná nada)
+
+# Ku return — retorna valor pa uza más tardi
+def soma_return(a, b):
+    return a + b
+
+resultado = soma_return(3, 4)
+print(resultado)               # 7
+print(resultado * 2)           # 14 (pode uza valor)
+```
+
+```python
+# Konversor di temperatura
+def celsius_pa_fahrenheit(celsius):
+    return celsius * (9/5) + 32
+
+def fahrenheit_pa_celsius(fahrenheit):
+    return (fahrenheit - 32) * (5/9)
+
+# Temperatura na Praia oji
+temp_praia = 28
+temp_f = celsius_pa_fahrenheit(temp_praia)
+print(f"{temp_praia}°C = {temp_f}°F")  # 28°C = 82.4°F
+
+# Konverte volta
+print(f"{temp_f}°F = {fahrenheit_pa_celsius(temp_f):.1f}°C")  # 82.4°F = 28.0°C
+```
+
+```python
+# Funsun pode retorna más ki un valor (tuple)
+def divide(a, b):
+    kosiente = a // b
+    restu = a % b
+    return kosiente, restu
+
+k, r = divide(17, 5)
+print(f"17 ÷ 5 = {k} restu {r}")  # 17 ÷ 5 = 3 restu 2
+```
+
+## Docstrings — Dokumenta Bo Funsun
+
+Docstring é un string di dokumentasun logo na inísiu di funsun. El ta esplika kel ki funsun ta faze.
+
+```python
+def verifica_senha(senha):
+    """Verifica si un senha é forti.
+
+    Un senha forti tene ki tene:
+    - Pelo menus 8 karáteris
+    - Pelo menus un nùmeru
+    - Pelo menus un letra maiúskula
+    - Pelo menus un karáter espesiál
+
+    Args:
+        senha: String ku senha pa verifica.
+
+    Returns:
+        True si senha é forti, False si ka é.
+    """
+    if len(senha) < 8:
+        return False
+    if not any(c.isdigit() for c in senha):
+        return False
+    if not any(c.isupper() for c in senha):
+        return False
+    if not any(c.islower() for c in senha):
+        return False
+    if not any(c in "!@#$%^&*()_+-=" for c in senha):
+        return False
+    return True
+
+# Testa
+print(verifica_senha("abc"))           # False (mutu kurtu)
+print(verifica_senha("Pr@ia2026!"))    # True (forti!)
+
+# Asei dokumentasun
+help(verifica_senha)
+```
+
+## `*args` — Argumentus Pozisionais Variáveis
+
+Kuandu bo ka sabe kuantu argumentus funsun vai resebe, uza `*args`. Python ta koloka tudu na un tuple.
+
+```python
+def soma_tudu(*numeros):
+    """Soma kuantu nùmeru ki bo manda."""
+    total = 0
+    for n in numeros:
+        total += n
+    return total
+
+print(soma_tudu(10, 20))           # 30
+print(soma_tudu(100, 200, 300))    # 600
+print(soma_tudu(5, 10, 15, 20))    # 50
+```
+
+```python
+# Kalkula média di nota di studantis
+def media(*notas):
+    """Kalkula média di kuantu notas ki entra."""
+    if len(notas) == 0:
+        return 0
+    return sum(notas) / len(notas)
+
+print(f"Média di Kelvin: {media(14, 16, 18):.1f}")    # 16.0
+print(f"Média di Edna: {media(12, 15, 17, 19):.1f}")  # 15.8
+```
+
+## `**kwargs` — Argumentus Nomiadu Variáveis
+
+`**kwargs` ta resebe argumentus nomiadu komu un disionáriu (dict).
+
+```python
+def fixa_perfil(**dados):
+    """Mostra perfil ku kuantu dados ki entra."""
+    print("=== Perfil ===")
+    for xave, valor in dados.items():
+        print(f"  {xave}: {valor}")
+
+fixa_perfil(nomi="Cesária", ilha="São Vicente", profisun="Kantora")
+# === Perfil ===
+#   nomi: Cesária
+#   ilha: São Vicente
+#   profisun: Kantora
+
+fixa_perfil(nomi="Amilcar", idadi=30, sidade="Praia")
+# === Perfil ===
+#   nomi: Amilcar
+#   idadi: 30
+#   sidade: Praia
+```
+
+```python
+# Kombina parámetrus normais, *args e **kwargs
+def registra_pedidu(klienti, *ítens, **opsoens):
+    """Registra pedidu di un klienti."""
+    print(f"Klienti: {klienti}")
+    print(f"Ítens: {list(ítens)}")
+    if opsoens:
+        print(f"Opsoens: {opsoens}")
+
+registra_pedidu("Pedro", "cachupa", "grogue", entrega=True, urgenti=False)
+# Klienti: Pedro
+# Ítens: ['cachupa', 'grogue']
+# Opsoens: {'entrega': True, 'urgenti': False}
+```
+
+:::callout{type=tip}
+**💡 Dika:** Orden sempri é: parámetrus normais, dipôs `*args`, dipôs `**kwargs`. `def f(a, b, *args, **kwargs)` — nunka inverte!
+:::
+
+## Ezemplu Prátiku: Karrinhu di Konpras
+
+```python
+def kalkula_total(karrinhu):
+    """Kalkula total di un karrinhu di konpras.
+
+    Args:
+        karrinhu: Lista di disionárius ku 'nomi', 'presu', 'kuantidadi'.
+
+    Returns:
+        Total na ECV.
+    """
+    total = 0
+    for item in karrinhu:
+        total += item["presu"] * item["kuantidadi"]
+    return total
+
+# Konpras na merkadu di Sukupira
+karrinhu = [
+    {"nomi": "Banana", "presu": 50, "kuantidadi": 6},
+    {"nomi": "Atun", "presu": 350, "kuantidadi": 2},
+    {"nomi": "Midju", "presu": 120, "kuantidadi": 3},
+]
+
+total = kalkula_total(karrinhu)
+print(f"Total: {total} ECV")  # Total: 1360 ECV
+```
+
+## Verifikador di Palíndromu
+
+```python
+def é_palíndromu(tekstu):
+    """Verifica si un tekstu é palíndromu (le igual di frenti e di trás).
+
+    Ignora espasus e maiúskulas/minúskulas.
+    """
+    tekstu = tekstu.lower().replace(" ", "")
+    return tekstu == tekstu[::-1]
+
+# Testa
+print(é_palíndromu("Ana"))          # True (a-n-a)
+print(é_palíndromu("Arara"))        # True (a-r-a-r-a)
+print(é_palíndromu("Python"))       # False
+print(é_palíndromu("A man a plan"))  # False
+```
+
+## Rekursun — Funsun ki ta Xama Si Mesmu
+
+Un funsun rekursiva é un funsun ki ta xama si mesmu pa resolve un problema. É komu un espelhu dentu di otru espelhu — ma SEMPRI tene ki tene un pontu di paradu (kazu bazi), sinon ta roda pa sempri!
+
+```python
+# Fatoriál: 5! = 5 × 4 × 3 × 2 × 1 = 120
+def fatoriál(n):
+    """Kalkula fatoriál di n (n!).
+
+    Kazu bazi: 0! = 1
+    Kazu rekursivu: n! = n × (n-1)!
+    """
+    # Kazu bazi — OBRIGATÓRIU!
+    if n == 0:
+        return 1
+    # Kazu rekursivu
+    return n * fatoriál(n - 1)
+
+print(fatoriál(5))   # 120 (5 × 4 × 3 × 2 × 1)
+print(fatoriál(0))   # 1
+print(fatoriál(10))  # 3628800
+```
+
+```python
+# Komu rekursun ta funsiona pasu a pasu:
+# fatoriál(4)
+#   → 4 * fatoriál(3)
+#       → 3 * fatoriál(2)
+#           → 2 * fatoriál(1)
+#               → 1 * fatoriál(0)
+#                   → 1  ← kazu bazi! para aki
+#               → 1 * 1 = 1
+#           → 2 * 1 = 2
+#       → 3 * 2 = 6
+#   → 4 * 6 = 24
+```
+
+```python
+# Kontajen regresiva rekursiva
+def kontajen(n):
+    """Konta di n até 0."""
+    if n < 0:
+        print("Lansamentu! 🚀")
+        return
+    print(n)
+    kontajen(n - 1)
+
+kontajen(5)
+# 5
+# 4
+# 3
+# 2
+# 1
+# 0
+# Lansamentu! 🚀
+```
+
+:::callout{type=tip}
+**💡 Dika:** Sempri pensa na **kazu bazi** primeiru kuandu bo ta skrebe funsun rekursiva. Sem el, programa ta entra na loop infinitu e Python ta da `RecursionError`.
+:::
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1 — Konversor di Temperatura:** Skrebe un funsun `konverte_temp(temp, di, pa)` ki konverte entre Celsius, Fahrenheit e Kelvin. Ezemplu: `konverte_temp(100, "C", "F")` debe retorna `212.0`.
+
+2. **Exersísiu 2 — Validador di Senha:** Skrebe un funsun `verifica_forsa(senha)` ki retorna "fraku", "médiu" o "forti" bazadu na:
+   - Fraku: menus di 6 karáteris
+   - Médiu: 6+ karáteris ku letras e nùmerus
+   - Forti: 8+ karáteris ku maiúskulas, minúskulas, nùmerus e karáteris espesiál
+
+3. **Exersísiu 3 — Soma Rekursiva:** Skrebe un funsun rekursiva `soma_ate(n)` ki retorna soma di tudu nùmerus di 1 até n. Ezemplu: `soma_ate(5)` → 15 (1+2+3+4+5).
+
+4. **Exersísiu 4 — Perfil Flexível:** Skrebe un funsun `kria_perfil(nomi, **info)` ki resebe nomi obrigatóriu e kuantu info adisionál ki utilizador kre (ilha, idadi, profisun, etc.) e retorna un disionáriu kompletu.
+
+## Rezumu
+
+- **`def`** ta defini un funsun; nomi debe ser deskritivu na snake_case
+- **Parámetrus** ta na definisun; **argumentus** ta na xamada
+- **Parámetrus padrãu** ta da valor si ninguén pasa argumentu
+- **`return`** ta manda valor di volta; sem return, funsun retorna `None`
+- **Docstrings** (string na inísiu) ta dokumenta kel ki funsun ta faze
+- **`*args`** ta resebe argumentus pozisionais variáveis (tuple)
+- **`**kwargs`** ta resebe argumentus nomiadu variáveis (dict)
+- **Rekursun** é funsun ki ta xama si mesmu — SEMPRI presiza kazu bazi
+- Funsoens ta torna kódiku más organizadu, reutilizável e fásil di testa
+
+---
+
+**Prósimu lisun:** [Lambda, Map e Filter] →

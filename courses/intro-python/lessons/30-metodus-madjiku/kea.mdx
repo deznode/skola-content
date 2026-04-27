@@ -1,0 +1,333 @@
+---
+title: "Métodus Mádjiku"
+language: kea
+courseSlug: intro-python
+lessonSlug: metodus-madjiku
+slug: "metodus-madjiku"
+module: 4
+lesson: 30
+duration: "20 min"
+objectives:
+  - "Override __str__ e __repr__ pa personaliza kumu bo objetu ta aparese"
+  - "Uza dir() pa deskubri métodus disponível di kualker objetu"
+  - "Kompriendi konvensun dunder (__nomi__) e si signifikadu"
+---
+
+# Métodus Mádjiku
+
+Imajina ki na Kabo Verdi, kada pesoa tene un "apelidu di kasa" — un nomi karinhozu ki família ta uza — e un nomi kompletu ki ta sai na dokumentus ofisal. Bo avó ta txama-bu "Nené", ma na bilheti di identidadi ta skrebi "Cesária Maria Santos". Dôs forma di identifika mesmu pesoa, ma pa kontextus diferenti.
+
+Python tene un sistema parésidu. Kada objetu tene **métodus mádjiku** — funsoens espesiál ku nomis sekretu ki Python ta txama automátikamenti na momentus sertus. Es é kuma **superpoderis sekretu** ki bo objetu tene. Bo ka txama es direitamenti — Python ta txama pa bo, na bakstage!
+
+## O ki é Métodus Mádjiku?
+
+Métodus mádjiku (tambê txamadu **dunder methods**) é funsoens espesiál ki kumesa e akaba ku dôs underscore: `__nomi__`. "Dunder" ben di "**d**ouble **under**score".
+
+```python
+# Ezemplus di métodus mádjiku
+__init__    # Konstrutor (bo djá konhese!)
+__str__     # Kuandu print() txama bo objetu
+__repr__    # Representasun pa programador
+__len__     # Kuandu len() txama bo objetu
+__add__     # Kuandu uza + ku bo objetu
+```
+
+Bo djá ta uza un métodus mádjiku desde lisun di Klasis: `__init__`! Kada vez ki bo skrebi `MinhaKlasi()`, Python ta txama `__init__` automátikamenti.
+
+:::callout{type=tip}
+**💡 Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu métodus, uza nomis normál.
+:::
+
+## `__str__` — Representasun pa Uzuáriu
+
+`__str__` ta defini o ki `print()` ta mostra kuandu bo imprime un objetu. Sem el, Python ta mostra un textu feiu ku enderésu di memória:
+
+```python
+class Estudanti:
+    def __init__(self, nomi, kursu):
+        self.nomi = nomi
+        self.kursu = kursu
+
+# SEM __str__
+alunu = Estudanti("Maria", "Python")
+print(alunu)  # <__main__.Estudanti object at 0x7f3b2c1a5e90>  ← feiu!
+```
+
+Agora ku `__str__`:
+
+```python
+class Estudanti:
+    def __init__(self, nomi, kursu):
+        self.nomi = nomi
+        self.kursu = kursu
+
+    def __str__(self):
+        return f"{self.nomi} — Kursu: {self.kursu}"
+
+# KU __str__
+alunu = Estudanti("Maria", "Python")
+print(alunu)  # Maria — Kursu: Python  ← limpu e klaru!
+```
+
+`__str__` deve retorna un string **amigável pa uzuáriu** — un textu ki kualker pesoa pode lé e kompriendi.
+
+```python
+class Prodotu:
+    def __init__(self, nomi, presu):
+        self.nomi = nomi
+        self.presu = presu
+
+    def __str__(self):
+        return f"{self.nomi}: {self.presu} ECV"
+
+katchupa = Prodotu("Katchupa Spesiál", 350)
+print(katchupa)  # Katchupa Spesiál: 350 ECV
+
+# Tambê funxiona ku f-string e str()
+msg = f"Ofo di oji: {katchupa}"
+print(msg)  # Ofo di oji: Katchupa Spesiál: 350 ECV
+```
+
+## `__repr__` — Representasun pa Programador
+
+`__repr__` é pa **programador** — deve mostra informasun sufisienti pa rekria objetu. É o ki Python shell ta mostra kuandu bo skrebi un variável sem `print()`:
+
+```python
+class Estudanti:
+    def __init__(self, nomi, kursu):
+        self.nomi = nomi
+        self.kursu = kursu
+
+    def __str__(self):
+        return f"{self.nomi} — Kursu: {self.kursu}"
+
+    def __repr__(self):
+        return f"Estudanti(nomi='{self.nomi}', kursu='{self.kursu}')"
+
+alunu = Estudanti("João", "Data Science")
+
+# print() ta uza __str__
+print(alunu)        # João — Kursu: Data Science
+
+# Python shell / repr() ta uza __repr__
+print(repr(alunu))  # Estudanti(nomi='João', kursu='Data Science')
+```
+
+```python
+# Na Python shell interativu:
+>>> alunu = Estudanti("João", "Data Science")
+>>> alunu                 # __repr__ ta aparese
+Estudanti(nomi='João', kursu='Data Science')
+>>> print(alunu)          # __str__ ta aparese
+João — Kursu: Data Science
+```
+
+:::callout{type=tip}
+**💡 Dika:** Un bon `__repr__` deve parése ku kódiku ki bo pode kopia e kola pa kria mesmu objetu. Pensa nél kuma "receta pa rekonstrui".
+:::
+
+## Diferensa entre `__str__` e `__repr__`
+
+| | `__str__` | `__repr__` |
+|--|-----------|-----------|
+| **Pa ken?** | Uzuáriu final | Programador / debug |
+| **Txamadu por** | `print()`, `str()`, f-strings | Shell interativu, `repr()`, listas |
+| **Estilu** | Bonitu, amigável | Tekniku, detalhadu |
+| **Regra** | Legível pa umanu | Deve rekria objetu (si posível) |
+
+Ezemplu importanti — kuandu objetu sta dentru di un lista, Python ta uza `__repr__`, ka `__str__`:
+
+```python
+alunusis = [
+    Estudanti("Maria", "Python"),
+    Estudanti("Nilton", "Web Dev"),
+    Estudanti("Ana", "AI")
+]
+
+# print() di lista ta uza __repr__ di kada elementu!
+print(alunusis)
+# [Estudanti(nomi='Maria', kursu='Python'), Estudanti(nomi='Nilton', kursu='Web Dev'), Estudanti(nomi='Ana', kursu='AI')]
+```
+
+:::callout{type=tip}
+**💡 Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
+:::
+
+## `dir()` — Deskubri Métodus
+
+`dir()` ta mostra **tudu** métodus e atributus di un objetu. É kuma abri kapota di un karu pa odja tudu pesas:
+
+```python
+# Odja métodus di un string
+print(dir("ola"))
+# ['__add__', '__class__', '__contains__', ..., 'capitalize', 'count',
+#  'endswith', 'find', 'format', ..., 'upper', 'zfill']
+
+# Odja métodus di un lista
+print(dir([1, 2, 3]))
+# ['__add__', '__contains__', ..., 'append', 'clear', 'copy', 'count',
+#  'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+```
+
+Filtra pa odja só métodus "normál" (sem dunder):
+
+```python
+# Só métodus públiku (sem __)
+metodus = [m for m in dir("ola") if not m.startswith("_")]
+print(metodus)
+# ['capitalize', 'casefold', 'center', 'count', 'encode', 'endswith',
+#  'expandtabs', 'find', 'format', ...]
+```
+
+```python
+# Uza ku bo propriu klasi
+class Veikulu:
+    def __init__(self, marka):
+        self.marka = marka
+
+    def anda(self):
+        print(f"{self.marka} ta anda")
+
+karu = Veikulu("Toyota")
+print([m for m in dir(karu) if not m.startswith("_")])
+# ['anda', 'marka']
+```
+
+:::callout{type=tip}
+**💡 Dika:** Uza `dir()` kuandu bo ka lembra ki métodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
+:::
+
+## `__len__` e `__contains__` — Otru Métodus Mádjiku Útil
+
+Alén di `__str__` e `__repr__`, ezisti otru métodus mádjiku ki ta faze bo klasi konporta kuma tipu nativu di Python:
+
+```python
+class Turma:
+    def __init__(self, nomi):
+        self.nomi = nomi
+        self.alunusis = []
+
+    def adisiona(self, estudanti):
+        self.alunusis.append(estudanti)
+
+    def __len__(self):
+        """len(turma) ta retorna kuantus alunusis tene"""
+        return len(self.alunusis)
+
+    def __contains__(self, nomi):
+        """'Maria' in turma — verifika si alunu sta na turma"""
+        return any(a.nomi == nomi for a in self.alunusis)
+
+    def __str__(self):
+        return f"Turma {self.nomi} ({len(self)} alunusis)"
+
+    def __repr__(self):
+        return f"Turma(nomi='{self.nomi}', alunusis={len(self)})"
+```
+
+```python
+# Kria turma e adisiona alunusis
+python_turma = Turma("Python Fundamentals")
+python_turma.adisiona(Estudanti("Maria", "Python"))
+python_turma.adisiona(Estudanti("João", "Python"))
+python_turma.adisiona(Estudanti("Ana", "Python"))
+
+# __len__ permite uza len()
+print(len(python_turma))    # 3
+
+# __contains__ permite uza 'in'
+print("Maria" in python_turma)   # True
+print("Pedro" in python_turma)   # False
+
+# __str__ e __repr__
+print(python_turma)              # Turma Python Fundamentals (3 alunusis)
+print(repr(python_turma))        # Turma(nomi='Python Fundamentals', alunusis=3)
+```
+
+| Métodu Mádjiku | Operasun | Ezemplu |
+|---------------|----------|---------|
+| `__len__` | `len(obj)` | `len(turma)` → 3 |
+| `__contains__` | `x in obj` | `"Maria" in turma` → True |
+| `__getitem__` | `obj[i]` | `turma[0]` → primeru alunu |
+| `__bool__` | `bool(obj)` | `if turma:` → True si ka váziu |
+
+## Ezemplu Prátiku: Klasi Restoranti
+
+Vamus kria un klasi kompletu ki uza tudu métodus mádjiku ki nôs prende:
+
+```python
+class Restoranti:
+    """Restoranti na Kabo Verdi ku menu e klasis"""
+
+    def __init__(self, nomi, sidadi):
+        self.nomi = nomi
+        self.sidadi = sidadi
+        self.pratus = {}  # nomi: presu
+
+    def adisiona_pratu(self, nomi, presu):
+        """Adisiona pratu na menu"""
+        self.pratus[nomi] = presu
+
+    def __str__(self):
+        """Vizun amigável pa klientu"""
+        return f"🍽️ {self.nomi} — {self.sidadi}"
+
+    def __repr__(self):
+        """Vizun pa programador"""
+        return f"Restoranti(nomi='{self.nomi}', sidadi='{self.sidadi}', pratus={len(self.pratus)})"
+
+    def __len__(self):
+        """Kuantus pratus na menu"""
+        return len(self.pratus)
+
+    def __contains__(self, pratu):
+        """Verifika si pratu sta na menu"""
+        return pratu in self.pratus
+```
+
+```python
+# Kria restoranti
+lugar = Restoranti("Morabeza Grill", "Mindelo")
+lugar.adisiona_pratu("Katchupa", 350)
+lugar.adisiona_pratu("Lagosta Grelhada", 1800)
+lugar.adisiona_pratu("Pastél ku Diabolinha", 150)
+
+# Uza métodus mádjiku naturalmenti
+print(lugar)                     # 🍽️ Morabeza Grill — Mindelo
+print(f"Menu tene {len(lugar)} pratus")  # Menu tene 3 pratus
+print("Katchupa" in lugar)       # True
+print("Pizza" in lugar)          # False
+
+# Odja tudu métodus di bo objetu
+metodus = [m for m in dir(lugar) if not m.startswith("_")]
+print(metodus)  # ['adisiona_pratu', 'nomi', 'pratus', 'sidadi']
+```
+
+## Tenta Agora 🏋️
+
+1. **Exersísiu 1:** Kria un klasi `Livru` ku atributus `titulo`, `autor`, e `pajinas`. Implementa `__str__` (pa mostra "Titulo por Autor") e `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` e `repr()`.
+
+2. **Exersísiu 2:** Kria un klasi `PlaylistMusika` ki ta garda un lista di morna e funana. Implementa:
+   - `adisiona(musika)` — pa adisiona musika
+   - `__len__` — pa `len(playlist)` funxiona
+   - `__contains__` — pa `"Sodade" in playlist` funxiona
+   - `__str__` — pa mostra nomi di playlist e kuantus musika tene
+
+3. **Exersísiu 3:** Uza `dir()` pa deskubri kuantus métodus un disionáriu (`dict`) tene ki ka kumesa ku `_`. Garda na un lista e imprime. Depois, atxa un métodu ki bo ka konhesia e testa-l.
+
+4. **Exersísiu 4:** Kria un klasi `KontaBankária` ku `__str__` e `__repr__`. `__str__` deve mostra "Konta di [nomi]: [saldo] ECV" e `__repr__` deve mostra tudu informasun pa rekria objetu. Testa inprimindo un lista di 3 kontas (lembra: lista ta uza `__repr__`!).
+
+## Rezumu
+
+- **Métodus mádjiku (dunder)** — funsoens espesiál ku `__nomi__` ki Python ta txama automátikamenti
+- **`__str__`** — representasun amigável pa uzuáriu; `print()` e `str()` ta txama-l
+- **`__repr__`** — representasun teknika pa programador; shell e `repr()` ta txama-l
+- **Si bo só implementa un**, implementa `__repr__` — Python ta uza-l kuma fallback
+- **`dir()`** — mostra tudu métodus e atributus disponível di un objetu
+- **`__len__`** — permite uza `len()` ku bo objetu
+- **`__contains__`** — permite uza `in` ku bo objetu
+- **Ka inventa dunder nomis** — `__nomi__` é reservadu pa Python
+
+---
+
+**Prósimu lisun:** [Sobrekarga di Operador] →

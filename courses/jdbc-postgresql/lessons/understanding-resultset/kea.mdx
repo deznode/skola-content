@@ -1,0 +1,63 @@
+---
+title: "Intendi ResultSet Más Fundu"
+language: kea
+courseSlug: jdbc-postgresql
+lessonSlug: understanding-resultset
+---
+
+Dizenvolvedor nobu txeu bês ta konfundi `ResultSet` ku un `List` ô `Array` di Java. El **KA É** un koleson di dadus na mimória di bu konputador.
+
+### Manera ki ResultSet Ta Funsiona Mésmu
+
+```
+Bazi di dadus atxa 10,000 linhas ki ta korresponde ku bu query
+          │
+          ▼
+   ┌─────────────────┐
+   │   ResultSet     │ ← Kursor ta ponta pa linha atual
+   │   (link bibu)   │
+   └─────────────────┘
+          │
+          ▼
+      rs.next()  →  Pidi bazi di dadus: "Manda-m PRÓSIMA linha"
+          │
+          ▼
+   rs.getString()  →  Le dadus di linha atual na mimória
+```
+
+**Implikason importanti:**
+- `Connection` debe fika ABERTU enkuantu bu ta loop através di ResultSet
+- Bu sô pode move pa frenti pa padron (ka pode volta atras)
+- Si bu fetxa Connection, ResultSet ta móre na mésmu óra
+
+**Ezénplu di kuzé ki KA DEBE faze:**
+
+```java
+// ÉRU - Connection ta fetxa antis di nu le resultadu!
+ResultSet pegaUzuarius() throws SQLException {
+    Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+    PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM uzuarius");
+    return pstmt.executeQuery();  // Connection fetxa, ResultSet móre!
+}
+```
+
+**Abordajen koretu - prosesa déntu di konexon:**
+
+```java
+List<Uzuariu> pegaUzuarius() throws SQLException {
+    List<Uzuariu> uzuarius = new ArrayList<>();
+
+    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+         PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM uzuarius");
+         ResultSet rs = pstmt.executeQuery()) {
+
+        while (rs.next()) {
+            uzuarius.add(new Uzuariu(rs.getInt("id"), rs.getString("nomi_uzuariu")));
+        }
+    }
+
+    return uzuarius;  // Connection fetxadu, mas dadus sta seguru na lista
+}
+```
+
+---
