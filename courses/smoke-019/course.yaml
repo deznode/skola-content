@@ -1,0 +1,28 @@
+slug: smoke-019
+title: Smoke Topic for Spec 019 Publish Parity
+level: beginner
+category: Programming
+duration_minutes: 30
+instructor: Skola Pipeline
+translations:
+  kea:
+    title: Smoke Topic for Spec 019 Publish Parity
+    description: "A beginner-friendly smoke-test course for Spec 019 Publish Parity, covering Python file I/O basics — reading, writing, and appending text files — with all content in Kabuverdianu (kea). Created to validate the full Skola pipeline end-to-end."
+    prerequisites: No prior programming experience required. A basic understanding of running Python scripts is helpful.
+    outcomes: |
+      Use open() in read mode to read text files
+      Apply read() and readlines() to retrieve file contents
+      Use the with statement for safe, automatic file closing
+      Handle UTF-8 encoding for Kabuverdianu/Portuguese diacritics
+      Use "w" and "a" file modes correctly
+      Write text to a file using write() with correct newline characters
+      Avoid unintentional file truncation when appending
+modules:
+  - slug: fixerus-na-python
+    title:
+      kea: Fixerus na Python
+    lessons:
+      - slug: le-un-fixeru-di-tekstu
+        languages: [kea]
+      - slug: skrebe-na-un-fixeru
+        languages: [kea]

@@ -1,0 +1,128 @@
+---
+trace_id: Skola-article-smoke-019-2026-04-29-fixerus-na-python-le-un-fixeru-di-tekstu
+topic: smoke-019
+module: fixerus-na-python
+lesson: le-un-fixeru-di-tekstu
+kind: article
+language: kea
+generated_at: "2026-04-29T14:31:05.790Z"
+title: "Lê un Fixeru di Tekstu"
+courseSlug: smoke-019
+lessonSlug: le-un-fixeru-di-tekstu
+---
+
+# Lê un Fixeru di Tekstu
+
+Nesta lisaun bu ta aprendê kuma ki bu podi abri é lê fikserus di tekstu na Python. Fikserus di tekstu é un di kes kuzas más útis ki bu ta uza na programason — dês di guarda notas atxi salva rezultadus di un prugrema.
+
+---
+
+## 1. Kuzé ki é un "file handle"?
+
+Kuandu bu xama `open()`, Python ta volta un **ojetu di fixeru** (file handle). Kel ojetu é kuma un "janela" aberta pa kel fixeru — bu ta uza li pa lê ou skrebe konteúdu.
+
+```python
+f = open("mensajen.txt", "r", encoding="utf-8")
+# f é un file handle
+f.close()  # IMPORTANTE: sempri fecha!
+```
+
+> ⚠️ Si bu skisi `f.close()`, bu podi perde dadus ou blokia kel fixeru. É pa kel ki nos ta uza `with` (si Section 3).
+
+---
+
+## 2. `read()` kontra `readlines()`
+
+Python ten dós jeitu prinsipal pa lê konteúdu di un fixeru:
+
+| Métodu | Volta | Melhor pa |
+|--------|-------|-----------|
+| `read()` | Totu fikxeru kuma un `str` | Fikserus pikininus |
+| `readlines()` | Lista di linhas (`list[str]`) | Prosesa linha pa linha |
+| `readline()` | Un sô linha kuma `str` | Lê inkrementalmente |
+
+```python
+with open("mensajen.txt", "r", encoding="utf-8") as f:
+    konteúdu = f.read()          # totu kumu un string
+    print(konteúdu)
+
+with open("mensajen.txt", "r", encoding="utf-8") as f:
+    linhas = f.readlines()       # lista di linhas
+    print(linhas)
+```
+
+---
+
+## 3. Deklarason `with` — Xavi pa Siguridadi
+
+A deklarason `with` garanti ki fikxeru ta fika txadu **otomatikamenti**, átxi si un eróru akontesi:
+
+```python
+with open("mensajen.txt", "r", encoding="utf-8") as f:
+    for linha in f.readlines():
+        print(linha.strip())
+```
+
+**Siklus di vida di `with`:**
+1. `open()` ta xama — fikxeru ta abri
+2. Kódigo dentru di bloku ta simuí
+3. `__exit__()` ta xama — fikxeru ta txada **otomatikamenti**
+4. Si un eróru akontesi na pasu 2, fikxeru inda ta txada antes di eróru ta propaGA
+
+---
+
+## 4. Enkodifikason UTF-8 — Purkê é Importante?
+
+Kabuverdianu (kea) ten vogais asentuadas é tilhis (ex.: `ã`, `ê`, `ó`, `ç`). Si bu skisi `encoding="utf-8"`, Python ta podi lê kes karatéris mal.
+
+```python
+# ❌ Purisivel problema ku enkodifikason padrón (Windows)
+with open("mensajen.txt", "r") as f:
+    print(f.read())  # podi mostra lixu pa letras kea
+
+# ✅ Sempre uza utf-8
+with open("mensajen.txt", "r", encoding="utf-8") as f:
+    print(f.read())  # karatéris kea koretus
+```
+
+---
+
+## 5. Ekzemplu Kompletu
+
+Riba ki nos ten un fikxeru `mensajen.txt` ku konteúdu:
+```
+Bon dia!
+Komu ki bu sta?
+Tudo ben, obrigadu.
+```
+
+```python
+# le_fixeru.py — Lê un fikxeru di tekstu na kea
+with open("mensajen.txt", "r", encoding="utf-8") as f:
+    for linha in f.readlines():
+        print(linha.strip())
+```
+
+**Saída esperada:**
+```
+Bon dia!
+Komu ki bu sta?
+Tudo ben, obrigadu.
+```
+
+---
+
+## 6. Armadilhas Komuns
+
+| Problema | Sintoma | Solusion |
+|----------|---------|----------|
+| Skisi `encoding="utf-8"` | Karatéris stranhos | Sempri mete `encoding="utf-8"` |
+| Uza `f.close()` manualmente | Risku di fikxeru aberta si eróru | Uza `with` |
+| `read()` pa fikxerus grandis | Memoria esgotada | Uza `readlines()` ou itera diretamenti |
+| Skisi `.strip()` | Linhas ku `\n` na kabo | Xama `.strip()` pa kada linha |
+
+---
+
+## 7. Prósimu Pasu
+
+Na prósima lisaun nos ta aprendê kumu **skrebe é juntar** konteúdu na fikserus — uza `"w"` é `"a"` modus. Fikserus di tekstu lêdus agora ta sivi di bazi pa es novas operasons.

@@ -1,0 +1,152 @@
+---
+trace_id: Skola-article-smoke-019-2026-04-29-fixerus-na-python-skrebe-na-un-fixeru
+topic: smoke-019
+module: fixerus-na-python
+lesson: skrebe-na-un-fixeru
+kind: article
+language: kea
+generated_at: "2026-04-29T14:32:46.015Z"
+title: "Skrebe na un Fixeru"
+courseSlug: smoke-019
+lessonSlug: skrebe-na-un-fixeru
+---
+
+# Skrebe na un Fixeru
+
+Na lisaun anterior bu aprendê kumu lê fikserus di tekstu. Agora nos ta vira a kuzas pa lá: kumu **skrebe** é **juntar** konteúdu na fikserus. Kel abridura anel de habilidadi pa trabadja ku dadus persistentis na Python.
+
+---
+
+## 1. Modus di Skreva — `"w"` kontra `"a"`
+
+Python ten dós modus prinsipal pa skrebe na fikserus:
+
+| Modu | Nómi | Kria si nun existe? | Sobreskrebe? | Uzu típiku |
+|------|------|----------------------|-------------|------------|
+| `"w"` | Write (skreva) | ✅ Sim | ✅ Sim — **PERIGÓZU** | Kria fikxeru novu ou reskribi kompletamente |
+| `"a"` | Append (juntar) | ✅ Sim | ❌ Non — ta juntar | Logs, históriku, rejistu inkremental |
+
+> ⚠️ **Avertencia ku `"w"`**: Si fikxeru já existe, totu konteúdu anterior ta sumi **imediatamente** kuandu bu abri el ku `"w"`. Nun ten "lixu di rekuperason"!
+
+---
+
+## 2. Modu Skreva (`"w"`) — Pasu a Pasu
+
+```python
+# Skrebe na un fixeru novu (ou sobreskribi existenti)
+with open("rezultadu.txt", "w", encoding="utf-8") as f:
+    f.write("Liña 1: Bon dia!\n")
+    f.write("Liña 2: Komu ki bu sta?\n")
+```
+
+**Notas importantes:**
+- `write()` ta skrebe **exatamente** ki bu ta pasa — sem `\n` otomátiku
+- Bloku `with` ta txada fikxeru otomatikamente na fin
+- Fikxeru `rezultadu.txt` ta kria si nun existe; ta sobreskribi si existe
+
+---
+
+## 3. Modu Juntar (`"a"`) — Adisionar sem Destruir
+
+```python
+# Juntar más un liña sem apagá konteúdu anterior
+with open("rezultadu.txt", "a", encoding="utf-8") as f:
+    f.write("Liña 3: Atxon!\n")
+```
+
+Depôs di es dós blokus, `rezultadu.txt` ta konteni:
+```
+Liña 1: Bon dia!
+Liña 2: Komu ki bu sta?
+Liña 3: Atxon!
+```
+
+---
+
+## 4. `write()` kontra `writelines()`
+
+| Métodu | Input | `\n` otomátiku? |
+|--------|-------|-----------------|
+| `write(str)` | Un sô string | ❌ — bu ta meti manualmente |
+| `writelines(list[str])` | Lista di strings | ❌ — bu ta meti manualmente |
+
+```python
+linhas = ["Liña A\n", "Liña B\n", "Liña C\n"]
+
+with open("listu.txt", "w", encoding="utf-8") as f:
+    f.writelines(linhas)   # ta skrebe tódu lista
+```
+
+---
+
+## 5. A Armadilha Más Komun — Falta di `\n`
+
+Es é kel bug ki todos ta komete un vez:
+
+```python
+# ❌ Eradu — linhas ta fusiona!
+with open("bugadu.txt", "w", encoding="utf-8") as f:
+    f.write("Bon dia")
+    f.write("Komu ki bu sta")
+# Fikxeru ta konteni: Bon diaKomu ki bu sta
+
+# ✅ Koretu — cada liña ku sê própriu \n
+with open("koretu.txt", "w", encoding="utf-8") as f:
+    f.write("Bon dia\n")
+    f.write("Komu ki bu sta\n")
+# Fikxeru ta konteni:
+# Bon dia
+# Komu ki bu sta
+```
+
+---
+
+## 6. Ekzemplu Kompletu — Skrebe é Juntar
+
+```python
+# skrebe_fixeru.py — Demonstra "w" é "a" na kea
+
+# Paso 1: Skrebe fikxeru novu
+with open("resultado.txt", "w", encoding="utf-8") as f:
+    f.write("=== Rejistu di Atividades ===\n")
+    f.write("Atividade 1: Lê fikserus\n")
+    f.write("Atividade 2: Skrebe fikserus\n")
+
+# Paso 2: Juntar nova entrada
+with open("resultado.txt", "a", encoding="utf-8") as f:
+    f.write("Atividade 3: Trabadja ku CSV\n")
+
+# Paso 3: Verifikasaun — lê é mostra
+with open("resultado.txt", "r", encoding="utf-8") as f:
+    print(f.read())
+```
+
+**Saída esperada:**
+```
+=== Rejistu di Atividades ===
+Atividade 1: Lê fikserus
+Atividade 2: Skrebe fikserus
+Atividade 3: Trabadja ku CSV
+```
+
+---
+
+## 7. Padrons Melóris (Best Practices)
+
+| Regra | Razaun |
+|-------|--------|
+| Sempri uza `with` | Garanti txada otomátiku |
+| Sempri meti `encoding="utf-8"` | Suporta karatéris kea/Portugês |
+| Prefiri `"a"` kuandu bu kuer juntar | Evita destrui dadus existentis |
+| Sempri meti `\n` na fin di kada liña | Evita fusaun di linhas |
+| Verifikadu: lê fikxeru depôs di skreve | Konfirma ki konteúdu ta koretu |
+
+---
+
+## 8. Prósimu Pasu
+
+Bu agora sabi kumu lê **é** skrebe fikserus di tekstu na Python — kel é un habilidadi fundamental. Pa ir más longi:
+
+- 🗂 Eksplora `pathlib.Path` — un manera moderna é orientada a objetus di trabadja ku fikserus
+- 📊 Aprende kumu lê é skrebe fikserus **CSV** ku modulu `csv`
+- 🔬 **Projetu prátiku**: kria un kontador di frekuensia di palavras Kabuverdianu di un fikxeru di tekstu
