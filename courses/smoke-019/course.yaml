@@ -7,16 +7,15 @@ instructor: Skola Pipeline
 translations:
   kea:
     title: Smoke Topic for Spec 019 Publish Parity
-    description: "A beginner-friendly smoke-test course for Spec 019 Publish Parity, covering Python file I/O basics — reading, writing, and appending text files — with all content in Kabuverdianu (kea). Created to validate the full Skola pipeline end-to-end."
-    prerequisites: No prior programming experience required. A basic understanding of running Python scripts is helpful.
+    description: "Un kursu di nivel iniciante pa aprendê komo trabadja ku fixerus di tekstu na Python — lê, skrebe, i junta konteúdu — tudu skrita na Kabuverdianu. Kriadu kumu artefatu di smoke-test pa validá parity di publikason na Spec 019."
+    prerequisites: "Konhesimentu básiku di Python (variáveis, loops, i funsoens). Nun preciza sabê nada di fixerus ántes."
     outcomes: |
-      Use open() in read mode to read text files
-      Apply read() and readlines() to retrieve file contents
-      Use the with statement for safe, automatic file closing
-      Handle UTF-8 encoding for Kabuverdianu/Portuguese diacritics
-      Use "w" and "a" file modes correctly
-      Write text to a file using write() with correct newline characters
-      Avoid unintentional file truncation when appending
+      Uza open() na modu di leitura pa abrí fixerus di tekstu
+      Apliká read() i readlines() pa buská konteúdu di fixeru
+      Uza instruson with pa fechadu seguru i otomátiku di fixerus
+      Trata kodifikason UTF-8 pa karateres diakritkus do Kriolu/Portugês
+      Uza modus "w" i "a" koretamente pa skrebe i juntá konteúdu
+      Evitá trunkamentu axidental di fixeru kuandu junta linhas
 modules:
   - slug: fixerus-na-python
     title:

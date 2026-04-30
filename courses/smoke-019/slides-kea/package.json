@@ -1,0 +1,9 @@
+{
+  "name": "smoke-019-slides",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build"
+  }
+}

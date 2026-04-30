@@ -1,39 +1,48 @@
 # Smoke Topic for Spec 019 Publish Parity
 
-> ⚠️ **Smoke Test Notice:** This is a synthetic pipeline-validation course created for Spec 019 (Publish Parity). It is not production educational content.
+> ⚠️ **Smoke Test Artefact**: This course was created to validate Spec 019 (Publish Parity) pipeline end-to-end. It is not production educational content.
+
+**Slug:** `smoke-019`  
+**Language:** Kabuverdianu (`kea`)  
+**Level:** Beginner  
+**Duration:** ~30 minutes  
+**Category:** Programming  
+
+---
 
 ## Description
 
-A beginner-friendly smoke-test course covering Python file I/O basics — reading, writing, and appending text files — with all content in Kabuverdianu (kea). Created to validate the full Skola pipeline end-to-end.
+Un kursu di nivel iniciante pa aprendê komo trabadja ku fixerus di tekstu na Python — lê, skrebe, i junta konteúdu — tudu skrita na Kabuverdianu. Kriadu kumu artefatu di smoke-test pa validá parity di publikason na Spec 019.
 
-- **Slug:** smoke-019
-- **Language:** kea (Kabuverdianu / Cape Verdean Creole)
-- **Level:** Beginner
-- **Duration:** ~30 minutes
-- **Category:** Programming
+---
 
 ## Prerequisites
 
-No prior programming experience required. A basic understanding of running Python scripts is helpful.
+Konhesimentu básiku di Python (variáveis, loops, i funsoens). Nun preciza sabê nada di fixerus ántes.
+
+---
 
 ## Learning Outcomes
 
-- Use `open()` in read mode to read text files
-- Apply `read()` and `readlines()` to retrieve file contents
-- Use the `with` statement for safe, automatic file closing
-- Handle UTF-8 encoding for Kabuverdianu/Portuguese diacritics
-- Use `"w"` and `"a"` file modes correctly
-- Write text to a file using `write()` with correct newline characters
-- Avoid unintentional file truncation when appending
+1. Uza `open()` na modu di leitura pa abrí fixerus di tekstu
+2. Apliká `read()` i `readlines()` pa buskà konteúdu di fixeru
+3. Uza instruson `with` pa fechadu seguru i otomátiku di fixerus
+4. Trata kodifikason UTF-8 pa karateres diakritkus do Kriolu/Português
+5. Uza modus `"w"` i `"a"` koretamente pa skrebe i juntá konteúdu
+6. Evitá trunkamentu axidental di fixeru kuandu junta linhas
 
-## Course Structure
+---
+
+## Module Structure
 
 ### Module 1: Fixerus na Python
 
-| # | Lesson Slug | File |
-|---|-------------|------|
-| 1 | le-un-fixeru-di-tekstu | `lessons/01-le-un-fixeru-di-tekstu/kea.mdx` |
-| 2 | skrebe-na-un-fixeru | `lessons/02-skrebe-na-un-fixeru/kea.mdx` |
+| # | Lesson Slug | Duration |
+|---|-------------|----------|
+| 1 | `le-un-fixeru-di-tekstu` | 15 min |
+| 2 | `skrebe-na-un-fixeru` | 15 min |
+
+---
 
 ## File Listing
 
@@ -42,9 +51,35 @@ courses/smoke-019/
 ├── course.yaml
 ├── README.md
 ├── manifest.md
-└── lessons/
-    ├── 01-le-un-fixeru-di-tekstu/
-    │   └── kea.mdx
-    └── 02-skrebe-na-un-fixeru/
-        └── kea.mdx
+├── lessons/
+│   ├── 01-le-un-fixeru-di-tekstu/
+│   │   └── kea.mdx
+│   └── 02-skrebe-na-un-fixeru/
+│       └── kea.mdx
+├── infographics/
+│   ├── smoke-019-infographic-01_0_20260429_103500.jpg
+│   ├── smoke-019-infographic-02_0_20260429_103527.jpg
+│   ├── smoke-019-infographic-03_0_20260429_103541.jpg
+│   └── smoke-019-infographic-04_0_20260429_103600.jpg
+├── cheatsheet-kea.md
+├── slides-kea/
+│   ├── package.json
+│   └── slides.md
+├── microlearn/
+│   ├── micro-blogs/
+│   │   ├── v1-m1-01-le-un-fixeru-di-tekstu-kea.md
+│   │   └── v1-m1-02-skrebe-na-un-fixeru-kea.md
+│   ├── thumbnails/
+│   │   ├── thumb-m1-01-le-un-fixeru-di-tekstu.md
+│   │   └── thumb-m1-02-skrebe-na-un-fixeru.md
+│   └── video-scripts/
+│       ├── v1-m1-01-le-un-fixeru-di-tekstu-kea.md
+│       └── v1-m1-02-skrebe-na-un-fixeru-kea.md
+└── code/
+    ├── start/
+    │   ├── m1-01-le-fixeru/main.py
+    │   └── m1-02-skrebe-fixeru/main.py
+    └── final/
+        ├── m1-01-le-fixeru/main.py
+        └── m1-02-skrebe-fixeru/main.py
 ```
