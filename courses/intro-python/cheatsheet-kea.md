@@ -639,11 +639,11 @@ soma(3, 4)                     # 7
 ```python
 numeros = [1, 2, 3, 4, 5]
 
-# Aplika funsun a kada elementu
+# Aplika funsan a kada elementu
 kuadradus = list(map(lambda x: x**2, numeros))
 # [1, 4, 9, 16, 25]
 
-# Ku funsun normal
+# Ku funsan normal
 nomis = ["maria", "djon", "ana"]
 maiuskula = list(map(str.upper, nomis))
 # ["MARIA", "DJON", "ANA"]
@@ -755,7 +755,7 @@ next(gen)    # 3
 import math
 math.sqrt(16)                  # 4.0
 
-# Import funsun spesífiku
+# Import funsan spesífiku
 from math import sqrt, pi
 sqrt(25)                       # 5.0
 

@@ -104,7 +104,7 @@ for num_linja, linja in enumerate(linhas, start=1):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Sempri ki bo pensa na skrebe `for i in range(len(lista))`, PARA e uza `enumerate()` na bes. É más Pythonic, más lijível, e menus propensu a erru.
+**Dika:** Sempri ki bo pensa na skrebe `for i in range(len(lista))`, PARA e uza `enumerate()` na bes. É más Pythonic, más lijível, e menus propensu a erru.
 :::
 
 ## `zip()` — Itera na Paralelu
@@ -186,7 +186,7 @@ for nomi, nota in zip(nomis, notas):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Si bo kre ki `zip()` kontinua até más longu (prixenxe ku un valor padrãu), uza `itertools.zip_longest()` di módulu `itertools`.
+**Dika:** Si bo kre ki `zip()` kontinua até más longu (prixenxe ku un valor padrãu), uza `itertools.zip_longest()` di módulu `itertools`.
 :::
 
 ## `sorted()` vs `.sort()`
@@ -254,7 +254,7 @@ for pos, s in enumerate(ranking, start=1):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Uza `sorted()` kuandu bo kre mantene lista original intaktu. Uza `.sort()` kuandu bo ka presiza original e kre evita kria kópia (más efizienti na memória).
+**Dika:** Uza `sorted()` kuandu bo kre mantene lista original intaktu. Uza `.sort()` kuandu bo ka presiza original e kre evita kria kópia (más efizienti na memória).
 :::
 
 ## `any()` e `all()` — Agregasun Boolean
@@ -430,7 +430,7 @@ for pos, (nomi, nota) in enumerate(ranking, start=1):
 
 2. **Exersísiu 2 — Zip di Notas:** Dadu duas listas — `nomis` e `notas` — uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipôs uza `sorted()` ku `key` pa mostra ranking di midjor pa pior.
 
-3. **Exersísiu 3 — Validador Kompletu:** Skrebe un funsun `valida_lista(dados)` ki resebe un lista e verifica:
+3. **Exersísiu 3 — Validador Kompletu:** Skrebe un funsan `valida_lista(dados)` ki resebe un lista e verifica:
    - `all()`: tudu elementu é nùmeru? (isinstance)
    - `any()`: algun é negativu?
    - Si tudu é nùmeru, retorna `sorted()` di lista; sinon retorna mensajen di erru.

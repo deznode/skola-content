@@ -62,7 +62,7 @@ def main():
 
     opsun = input("Opsun: ")
 
-    # TODO 7: Pidi temperatura e xama funsun apropriadu
+    # TODO 7: Pidi temperatura e xama funsan apropriadu
     # TODO 8: Mostra rezultadu formatadu ku 1 kaza desimal
     # TODO 9: Trata ValueError si uzuáriu mete tekstu en vez di numeru
     pass

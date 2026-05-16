@@ -16,7 +16,7 @@ objectives:
 
 # Tratamentu di Erru
 
-Na lisun 3, nôs aprendi a **lé** errus. Agora nôs ta aprendi a **trata** kes — a fazi programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
+Na lisun 3, nôs prende a **lé** errus. Agora nôs ta prende a **trata** kes — a fazi programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
 
 Imajina un kaixa eletrónika na Praia ki ta para tudu vez ki algen ta mete numeru eradu. Kel ka é atxeitável! Programa profisionál tene ki reagí: mostra mensajen klaru, pidi di novu, o sigui ku otru alternativa.
 
@@ -82,7 +82,7 @@ except Exception as e:
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
+**Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
 :::
 
 ## else — Só Roda Si Ka Teve Erru
@@ -165,7 +165,7 @@ def lé_konfigurason_melhor(kaminhu):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
+**Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
 :::
 
 ## Fluxu Konpletu: try/except/else/finally
@@ -209,7 +209,7 @@ transferi_saldу(konta_maria, konta_joao, 9000)  # Faya: saldу insufisienti
 
 ## raise — Lansa Bo Própriu Erru
 
-`raise` ta dizi a Python: "Es é un problema! Para i aviza kemi ta uza nha funsun."
+`raise` ta dizi a Python: "Es é un problema! Para i aviza kemi ta uza nha funsan."
 
 ```python
 def kalkula_média(notas):
@@ -235,9 +235,9 @@ except TypeError as e:
 ### Kuandu Uza `raise`?
 
 Uza `raise` kuandu:
-- Argumentu inválidu ta txega na bo funsun
+- Argumentu inválidu ta txega na bo funsan
 - Kondisun di negósiu ka é satisfeitu (saldу insufisienti, idade inválidu)
-- Bo kre informá kódigu ki ta txama bo funsun ki algu korreu mal
+- Bo kre informá kódigu ki ta txama bo funsan ki algu korreu mal
 
 ```python
 def registra_estudanti(nomi, idadi):
@@ -317,7 +317,7 @@ except SalduInsufisientiError as e:
 
 ## Padrаun Prátiku: Ficheru ku Exsesoens
 
-Un ezemplu ki kombina tudu ki nôs aprendi — leitura di ficheru ku tratamentu konpletu:
+Un ezemplu ki kombina tudu ki nôs prende — leitura di ficheru ku tratamentu konpletu:
 
 ```python
 import os
@@ -377,16 +377,16 @@ BaseException
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
+**Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
 :::
 
 ## Tenta Agora 🏋️
 
-1. **Exersísiu 1:** Skrebi un funsun `dividi_seguru(a, b)` ki ta retorna rezultadu di `a / b`. Si `b` é zero, retorna mensajen "Ka pode dividi pa zero". Si `a` o `b` ka é numeru, retorna "Argumentus inválidus". Uza try/except.
+1. **Exersísiu 1:** Skrebi un funsan `dividi_seguru(a, b)` ki ta retorna rezultadu di `a / b`. Si `b` é zero, retorna mensajen "Ka pode dividi pa zero". Si `a` o `b` ka é numeru, retorna "Argumentus inválidus". Uza try/except.
 
 2. **Exersísiu 2:** Kria un programa ki ta pidi uzuáriu pa mete si idadi (ku `input()`). Si uzuáriu mete algu ki ka é numeru, programa ta pidi di novu (uza un loop `while` ku try/except). Só para kuandu uzuáriu mete un numeru válidu entre 1 i 120.
 
-3. **Exersísiu 3:** Kria un exsesun personalizadu `IdadiInváliduError` i un funsun `valida_idadi(idadi)` ki ta lansa el si idadi é negativu o maior ki 150. Testa ku try/except.
+3. **Exersísiu 3:** Kria un exsesun personalizadu `IdadiInváliduError` i un funsan `valida_idadi(idadi)` ki ta lansa el si idadi é negativu o maior ki 150. Testa ku try/except.
 
 4. **Exersísiu 4:** Skrebi un programa ki ta lé un ficheru di notas (un numeru por linha), kaptura `FileNotFoundError` si ficheru ka ezisti, kaptura `ValueError` pa linhas ki ka é numeru, e na final (`else`) mostra média das notas válidus.
 

@@ -51,7 +51,7 @@ print(maria._ilha)      # Santiago ⚠️ (funsiona, ma ka debe)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Na Python, `_protejidu` é só un **konvensun** — nada ta impidi bo di asésa-l. É komu un avizu: "Oji, ka toka nisi sin motivo!" Ma `__privadu` tene protesun real.
+**Dika:** Na Python, `_protejidu` é só un **konvensun** — nada ta impidi bo di asésa-l. É komu un avizu: "Oji, ka toka nisi sin motivo!" Ma `__privadu` tene protesun real.
 :::
 
 ## Name Mangling — Komu Python ta Proteje Atributus Privadu
@@ -82,7 +82,7 @@ print([attr for attr in dir(konta) if "saldu" in attr])
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Name mangling ka é seguránsa — é protesun kontra **erru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
+**Dika:** Name mangling ka é seguránsa — é protesun kontra **erru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
 :::
 
 ## Getters e Setters Tradisionál
@@ -128,7 +128,7 @@ Isu ta funsiona, ma é **txeu kódiku** e ka é "Pythonic". Na Python, tene un m
 
 ## `@property` — Maneira Modernu
 
-Dekorador `@property` ta transforma un métodu na un atributu ki pode ser lidu komu si el fosse públiku, ma na verdadi ta roda un funsun por trás.
+Dekorador `@property` ta transforma un métodu na un atributu ki pode ser lidu komu si el fosse públiku, ma na verdadi ta roda un funsan por trás.
 
 ```python
 class Produto:
@@ -138,7 +138,7 @@ class Produto:
 
     @property
     def nomi(self):
-        """Getter — asésa komu atributu, nau komu funsun."""
+        """Getter — asésa komu atributu, nau komu funsan."""
         return self.__nomi
 
     @property
@@ -161,8 +161,8 @@ Kompara ku maneira tradisionál:
 
 ```python
 # ANTIS (tradisionál):
-print(kaxtelu.get_presu())    # Txama komu funsun
-kaxtelu.set_presu(300)        # Txama komu funsun
+print(kaxtelu.get_presu())    # Txama komu funsan
+kaxtelu.set_presu(300)        # Txama komu funsan
 
 # AGORA (ku @property):
 print(kaxtelu.presu)          # Asésa komu atributu ✨
@@ -170,7 +170,7 @@ print(kaxtelu.presu)          # Asésa komu atributu ✨
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di métodu**. Utilizador ka presiza sabi ki tene un funsun por trás!
+**Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di métodu**. Utilizador ka presiza sabi ki tene un funsan por trás!
 :::
 
 ## `@property.setter` ku Validasun
@@ -267,7 +267,7 @@ print(f"Nova área: {terrenu.area} m²")       # Nova área: 800 m² (rekalkula 
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Property kalkuladu (sem setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SEMPRI atualizadu!
+**Dika:** Property kalkuladu (sem setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SEMPRI atualizadu!
 :::
 
 ## Ezemplu Prátiku: Konta Bankáriu Seguru
@@ -415,7 +415,7 @@ print(len(konta.istóriku))   # 4 (orijinál ka mudá)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Nota komu `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padrãu importanti di enkapsolamentu txomadu "defensive copy".
+**Dika:** Nota komu `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padrãu importanti di enkapsolamentu txomadu "defensive copy".
 :::
 
 ## Rezumu di @property vs Getters/Setters

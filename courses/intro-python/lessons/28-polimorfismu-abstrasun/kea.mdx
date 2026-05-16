@@ -50,7 +50,7 @@ print(batuku.toka())   # 👏 Pam-pam-pam! (batuku tradisionál)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku métodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda komu patu i ta faze kuak komu patu, entun el é patu."
+**Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku métodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda komu patu i ta faze kuak komu patu, entun el é patu."
 :::
 
 ## Sobreskrebe Métodus (Method Overriding)
@@ -115,7 +115,7 @@ Nota ki `deskrebe()` ta xama `self.area()` — i Python ta xama versun koretu pa
 
 ## Funsun Polimórfiku
 
-Un funsun polimórfiku é un funsun ki ta aseta kualker objetu, dezdi ki el tene métodus nesesáriu. El ka liga pa tipu konkrétu — el só ta uza interfasi.
+Un funsan polimórfiku é un funsan ki ta aseta kualker objetu, dezdi ki el tene métodus nesesáriu. El ka liga pa tipu konkrétu — el só ta uza interfasi.
 
 ```python
 # Funsun ki ta aseta KUALKER forma
@@ -155,7 +155,7 @@ mostra_relatoriu(formas)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Funsun `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta xama `.area()` i `.nomi`. Kualker klasi novu ki tene kes métodus ta funsiona sin muda funsun!
+**Dika:** Funsun `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta xama `.area()` i `.nomi`. Kualker klasi novu ki tene kes métodus ta funsiona sin muda funsan!
 :::
 
 ## Klasi Abstratu ku ABC
@@ -239,7 +239,7 @@ class FormaInkompleta(Forma):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `@abstractmethod` é komu un kontratu. Bo ta dize: "Kualker klasi ki ta erda di mi TENE KI implementa kes métodus li." Python ta verifica na momentu ki bo tenta kria objetu.
+**Dika:** `@abstractmethod` é komu un kontratu. Bo ta dize: "Kualker klasi ki ta erda di mi TENE KI implementa kes métodus li." Python ta verifica na momentu ki bo tenta kria objetu.
 :::
 
 ## `@abstractmethod` — Forsa Implementasun
@@ -417,7 +417,7 @@ class DinheruMovel(MetoduPagamentu):
         return f"Móvel {self.numeru_telefoni}"
 ```
 
-Agora nôs ta kria un funsun polimórfiku ki ta prosesa kualker tipu di pagamentu:
+Agora nôs ta kria un funsan polimórfiku ki ta prosesa kualker tipu di pagamentu:
 
 ```python
 def prosesa_pagamentu(metodu, montanti):
@@ -439,7 +439,7 @@ ana = TransferensiaBankaria("Ana Sousa", "BCA", "001-2345678")
 joao = KartunKreditu("João Lima", "4532789012345678")
 djina = DinheruMovel("Djina Lopes", "+238 991 2345")
 
-# Mesmu funsun ta prosesa tudu!
+# Mesmu funsan ta prosesa tudu!
 prosesa_pagamentu(ana, 25_000)
 # 💰 Pagamentu di 25,000 ECV pa Ana Sousa
 # ========================================
@@ -475,7 +475,7 @@ prosesa_pagamentu(djina, 3_200)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta xama `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsun ka muda!
+**Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta xama `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
 :::
 
 ## Kuandu Uza Klasi Abstratu?
@@ -498,9 +498,9 @@ prosesa_pagamentu(djina, 3_200)
 
 1. **Exersísiu 1 — Ierarakia di Veíkulu:** Kria un klasi abstratu `Veikulu` ku métodus abstratu `ligar()` i `acelera()`. Dipôs kria klasis `Karu`, `Motu` i `Barku` ki ta implementa kes métodus di maneras diferenti. Testa ku un lista di veíkulus.
 
-2. **Exersísiu 2 — Sistema di Notifikasun:** Kria un klasi abstratu `Notifikasun` ku métodu abstratu `manda(mensajen)`. Kria klasis `Email`, `SMS` i `WhatsApp` ki ta manda notifikasun di maneras diferenti. Skrebe un funsun `manda_pa_tudu(notifikadoris, mensajen)` ki ta uza polimorfismu.
+2. **Exersísiu 2 — Sistema di Notifikasun:** Kria un klasi abstratu `Notifikasun` ku métodu abstratu `manda(mensajen)`. Kria klasis `Email`, `SMS` i `WhatsApp` ki ta manda notifikasun di maneras diferenti. Skrebe un funsan `manda_pa_tudu(notifikadoris, mensajen)` ki ta uza polimorfismu.
 
-3. **Exersísiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku métodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsun ki ta mostra konversun di 10,000 ECV na tudu moedas.
+3. **Exersísiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku métodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsan ki ta mostra konversun di 10,000 ECV na tudu moedas.
 
 4. **Exersísiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku métodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) e `FreeLancer` (paga por ora). Kalkula folha di pagamentu total.
 
