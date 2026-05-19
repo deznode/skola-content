@@ -8,7 +8,7 @@ module: 4
 lesson: 30
 duration: "20 min"
 objectives:
-  - "Override __str__ e __repr__ pa personaliza kumu bo objetu ta aparese"
+  - "Override __str__ e __repr__ pa personaliza kumo bo objetu ta aparese"
   - "Uza dir() pa deskubri métodus disponível di kualker objetu"
   - "Kompriendi konvensun dunder (__nomi__) e si signifikadu"
 ---
@@ -53,7 +53,7 @@ alunu = Estudanti("Maria", "Python")
 print(alunu)  # <__main__.Estudanti object at 0x7f3b2c1a5e90>  ← feiu!
 ```
 
-Agora ku `__str__`:
+Gosi ku `__str__`:
 
 ```python
 class Estudanti:
@@ -303,7 +303,7 @@ metodus = [m for m in dir(lugar) if not m.startswith("_")]
 print(metodus)  # ['adisiona_pratu', 'nomi', 'pratus', 'sidadi']
 ```
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1:** Kria un klasi `Livru` ku atributus `titulo`, `autor`, e `pajinas`. Implementa `__str__` (pa mostra "Titulo por Autor") e `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` e `repr()`.
 

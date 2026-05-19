@@ -43,7 +43,7 @@ for xavi, valor in estudanti.items():
 Dict = kadérnu di kontatus di Python. Xavi ta asesa valor diretamenti — sem busca na lista intéru. Uza `.get()` pa evita erru!
 
 ## 5) CTA
-Tenta agora: kria un dict ku dadus di 3 ilhas (nomi, populasun, kapital) e printa informason di kada un!
+Tenta gosi: kria un dict ku dadus di 3 ilhas (nomi, populasun, kapital) e printa informason di kada un!
 
 ---
 **B-roll notes**: Animasun di kadérnu ki ta abri → xavi:valor ligadu ku séta → mustra `.get()` vs `[]` → itera ku `.items()`

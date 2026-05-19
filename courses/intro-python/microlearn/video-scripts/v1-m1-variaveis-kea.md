@@ -30,7 +30,7 @@ print(type(altura))  # <class 'float'>
 Variável = nomi ki ta aponta pa un valor. Python ta diskubri tipu automátikamenti — kel é **tipu dinámiku**.
 
 ## 5) CTA
-Tenta agora: kria 3 variáveis sobri bo — nomi, ilha, e idadi — e printa és ku f-string!
+Tenta gosi: kria 3 variáveis sobri bo — nomi, ilha, e idadi — e printa és ku f-string!
 
 ---
 **B-roll notes**: Terminal ku VS Code abertu → skrévi variáveis → roda programa → mustra output ku f-string → mustra `type()` pa kada un

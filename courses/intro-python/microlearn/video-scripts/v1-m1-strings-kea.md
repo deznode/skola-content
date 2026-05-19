@@ -43,7 +43,7 @@ print(f"{idadi=}")
 Pô `f` antes di string, variáveis dentu di `{chaves}` — ka bu mesti más `+` nen `str()`.
 
 ## 5) CTA
-Tenta agora: kria un f-string ki printa bo nomi, idadi e ilha na un frazi!
+Tenta gosi: kria un f-string ki printa bo nomi, idadi e ilha na un frazi!
 
 ---
 **B-roll notes**: Split-screen — kudu skerda ku `+` (rixadu na vermelhu) vs kudu dreitu ku f-string (limpu na verdi) → animasun di `{chaves}` ki ta enxi ku valores

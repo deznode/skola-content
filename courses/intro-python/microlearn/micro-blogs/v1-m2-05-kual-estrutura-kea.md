@@ -24,7 +24,7 @@ ilhas_vizitadu = {"Sal", "Santiago", "Sal", "Fogo"}
 print(ilhas_vizitadu)  # {'Sal', 'Santiago', 'Fogo'}
 ```
 
-**Kumu skoji:**
+**Kumo skoji:**
 - Bo presiza **orden + mudar**? → `list`
 - Bo presiza **orden + ka muda**? → `tuple`
 - Bo presiza **xavi → valor**? → `dict`

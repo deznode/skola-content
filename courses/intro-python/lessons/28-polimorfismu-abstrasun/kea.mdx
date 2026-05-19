@@ -18,7 +18,7 @@ objectives:
 
 Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, e un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene métodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
 
-Agora pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TENE KI toka pelo menus un múzika." El ka ta dize KOMU bo debe toka — el só ta obriga ki bo tene kapasidadi di toka. Isu é abstrasun: **defini un kontratu ki tudu fidju tene ki kunpri**, sem dize ezatamenti komu.
+Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TENE KI toka pelo menus un múzika." El ka ta dize KOMU bo debe toka — el só ta obriga ki bo tene kapasidadi di toka. Isu é abstrasun: **defini un kontratu ki tudu fidju tene ki kunpri**, sem dize ezatamenti komu.
 
 ## Polimorfismu — O ki é?
 
@@ -194,7 +194,7 @@ class Forma(ABC):
 # TypeError: Can't instantiate abstract class Forma with abstract methods area, perimetru
 ```
 
-Agora tudu klasi fidju é OBRIGADU a implementa `area()` i `perimetru()`:
+Gosi tudu klasi fidju é OBRIGADU a implementa `area()` i `perimetru()`:
 
 ```python
 import math
@@ -337,10 +337,10 @@ class MetoduPagamentu(ABC):
 
     def residu(self, montanti):
         """Jera residu di pagamentu."""
-        agora = datetime.now().strftime("%d/%m/%Y %H:%M")
+        gosi = datetime.now().strftime("%d/%m/%Y %H:%M")
         return (
             f"--- RESIDU ---\n"
-            f"Data: {agora}\n"
+            f"Data: {gosi}\n"
             f"Titular: {self.titular}\n"
             f"Métodu: {self.identifikador()}\n"
             f"Montanti: {montanti:,.0f} ECV\n"
@@ -417,7 +417,7 @@ class DinheruMovel(MetoduPagamentu):
         return f"Móvel {self.numeru_telefoni}"
 ```
 
-Agora nôs ta kria un funsan polimórfiku ki ta prosesa kualker tipu di pagamentu:
+Gosi nôs ta kria un funsan polimórfiku ki ta prosesa kualker tipu di pagamentu:
 
 ```python
 def prosesa_pagamentu(metodu, montanti):
@@ -494,7 +494,7 @@ prosesa_pagamentu(djina, 3_200)
 # - Si métodu pode ser erdadu sin muda → métodu normal (konkretu)
 ```
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1 — Ierarakia di Veíkulu:** Kria un klasi abstratu `Veikulu` ku métodus abstratu `ligar()` i `acelera()`. Dipôs kria klasis `Karu`, `Motu` i `Barku` ki ta implementa kes métodus di maneras diferenti. Testa ku un lista di veíkulus.
 

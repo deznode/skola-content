@@ -45,7 +45,7 @@ print(bobi.fala())       # Bobi ta fazi: Au au!
 `class Filhu(Pai)` pa erda. `super().__init__()` pa xama konstrutor di pai. Eransa = reutilizasun másimu!
 
 ## 5) CTA
-Tenta agora: kria un klasi `Veíkulu` e dos filhus — `Karu` e `Motu` — kada un ku si métudu espesiál!
+Tenta gosi: kria un klasi `Veíkulu` e dos filhus — `Karu` e `Motu` — kada un ku si métudu espesiál!
 
 ---
 **B-roll notes**: Diagrama di árvori di família (Pai → Filhus) → kódiku na terminal → mustra ki Gatu tene métodus di Animal + si própirius

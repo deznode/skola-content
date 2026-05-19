@@ -3,7 +3,7 @@ Kontador di Palavra (Ficheru)
 =============================
 Konta frekuensia di palavras lidu di un ficheru di tekstu.
 
-Diferensa di ezersísiu anterior: agora ta le di ficheru, nau di string.
+Diferensa di ezersísiu anterior: gosi ta le di ficheru, nau di string.
 
 Funsionalidadis:
 - Le tekstu di un ficheru

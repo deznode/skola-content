@@ -47,7 +47,7 @@ dividi(10, 0)
 `try` = tenta, `except` = si da erru, `else` = si tudu bon, `finally` = SENPRI roda. Senpri pega exseson espesífiku!
 
 ## 5) CTA
-Tenta agora: skrévi un programa ki pidi un númeru a utilizador e trata ValueError si és skrévi textu!
+Tenta gosi: skrévi un programa ki pidi un númeru a utilizador e trata ValueError si és skrévi textu!
 
 ---
 **B-roll notes**: Animasun di "rede di seguránsa" dibaxu di trapezista → kódiku na terminal → programa ki krasha SIN try → programa ki sobrevive KU try
