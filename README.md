@@ -22,14 +22,6 @@ New content should always use **Course mode**.
 | Course | Lessons | Languages | Description |
 |--------|---------|-----------|-------------|
 | [intro-python](./courses/intro-python/) | 32 | kea | Complete Python introduction (beginner) |
-| [intro-kotlin](./courses/intro-kotlin/) | 1 | kea, pt | Kotlin introduction (in progress) |
-| [jdbc-postgresql](./courses/jdbc-postgresql/) | 8 | kea | Database connectivity with JDBC and PostgreSQL |
-
-### Legacy Tutorials
-
-| Topic | Languages | Description | Notes |
-|-------|-----------|-------------|-------|
-| [jdbc-postgresql](./jdbc-postgresql/) | kea | JDBC + PostgreSQL tutorial and reference | Pending migration to course mode |
 
 ### Blog
 
