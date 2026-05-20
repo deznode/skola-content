@@ -186,7 +186,7 @@ if __name__ == "__main__":
     print("\n--- João devolve 'Arquipélago' ---")
     bib.devolve("Arquipélago")
 
-    # Agora Edna konsigi empresta
+    # Gosi Edna konsigi empresta
     print("\n--- Edna tenta empresta 'Arquipélago' di novu ---")
     bib.empresta("Arquipélago")
 

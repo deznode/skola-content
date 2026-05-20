@@ -9,14 +9,14 @@ lesson: 17
 duration: "20 min"
 objectives:
   - "Skrebe expresoens lambda pa funsoens kurtu di un linja"
-  - "Transforma dadus ku map() aplikandu un funsun a kada elementu"
+  - "Transforma dadus ku map() aplikandu un funsan a kada elementu"
   - "Filtra elementus ku filter() bazadu na un kondisun"
   - "Kombina map() e filter() ku list() pa prosesamentu di dadus"
 ---
 
 # Lambda, Map i Filter
 
-Na lisun anterio, nôs aprende defini funsoens ku `def`. Ma ás bes, bo presiza un funsun mutu simples — un linja só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsoens anónimu ki bo skrebe na un linja. I ku **map()** i **filter()**, bo pode transforma i filtra dadus di lista interu sem skrebe loop manual.
+Na lisun anterio, nôs aprende defini funsoens ku `def`. Ma ás bes, bo presiza un funsan mutu simples — un linja só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsoens anónimu ki bo skrebe na un linja. I ku **map()** i **filter()**, bo pode transforma i filtra dadus di lista interu sem skrebe loop manual.
 
 Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bo tene lista di presu na ECV i bo kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() e filter(), bo faze isu na un linja!
 
@@ -24,7 +24,7 @@ Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bo tene 
 
 ## Lambda — Funsoens Anónimu
 
-Un **lambda** é un funsun sem nomi ki tene un só expresun. Sintaxi:
+Un **lambda** é un funsan sem nomi ki tene un só expresun. Sintaxi:
 
 ```python
 lambda parámetrus: expresun
@@ -73,12 +73,12 @@ for s in studantis:
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Lambda é pa funsoens kurtu i simples. Si bo funsun presiza más di un linja o é komplikadu, uza `def` normal. Kódiku klaru sempri ganha!
+**Dika:** Lambda é pa funsoens kurtu i simples. Si bo funsan presiza más di un linja o é komplikadu, uza `def` normal. Kódiku klaru sempri ganha!
 :::
 
 ## Map — Transforma Tudu Elementus
 
-`map(funsun, iterável)` ta aplika un funsun a **kada elementu** di un iterável (lista, tuple, etc.) e retorna un objetu map. Uza `list()` pa konverte pa lista.
+`map(funsan, iterável)` ta aplika un funsan a **kada elementu** di un iterável (lista, tuple, etc.) e retorna un objetu map. Uza `list()` pa konverte pa lista.
 
 ```python
 # Dobra tudu nùmerus
@@ -105,7 +105,7 @@ print(presus_eur)  # [4.53, 10.88, 31.74, 72.55, 136.04]
 
 ### Map ku Funsoens Djá Eksistenti
 
-Bo ka presiza sempri lambda — bo pode pasa kualker funsun:
+Bo ka presiza sempri lambda — bo pode pasa kualker funsan:
 
 ```python
 # Konverte strings pa maiúskula
@@ -122,7 +122,7 @@ print(sum(numeros_int)) # 100
 
 ### Map ku Vários Iteráveis
 
-`map()` pode resebe más di un iterável — funsun resebe un elementu di kada un:
+`map()` pode resebe más di un iterável — funsan resebe un elementu di kada un:
 
 ```python
 # Soma elementus di duas listas
@@ -167,7 +167,7 @@ for a in apresentasoens:
 
 ## Filter — Selisiona Elementus
 
-`filter(funsun, iterável)` ta mantene SÓ elementus undi funsun retorna `True`. É komu un penera — só kel ki pasa na kondisun ta fica.
+`filter(funsan, iterável)` ta mantene SÓ elementus undi funsan retorna `True`. É komu un penera — só kel ki pasa na kondisun ta fica.
 
 ```python
 # Filtra só nùmerus par
@@ -294,14 +294,14 @@ print(nomis_adultus)  # ['Maria', 'João']
 ## Errus Komun
 
 ```python
-# ERRU 1: Xama funsun ku () dentru di map/filter
+# ERRU 1: Xama funsan ku () dentru di map/filter
 def dobra(x):
     return x * 2
 
-# ❌ ERRADU — ta xama funsun imediatamenti!
+# ❌ ERRADU — ta xama funsan imediatamenti!
 # list(map(dobra(), numeros))  # TypeError!
 
-# ✅ KORETU — pasa funsun SEM ()
+# ✅ KORETU — pasa funsan SEM ()
 list(map(dobra, [1, 2, 3]))  # [2, 4, 6]
 ```
 
@@ -310,7 +310,7 @@ list(map(dobra, [1, 2, 3]))  # [2, 4, 6]
 numeros = [1, 2, 3, 4, 5]
 rezultadu = map(lambda x: x * 2, numeros)
 print(rezultadu)        # <map object at 0x...> ← ka é lista!
-print(list(rezultadu))  # [2, 4, 6, 8, 10] ← agora sin!
+print(list(rezultadu))  # [2, 4, 6, 8, 10] ← gosi sin!
 ```
 
 ```python
@@ -325,7 +325,7 @@ def dobra_i_mostra(x):
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bo pedi rezultadu ku `list()`. Si bo skrebe `map(...)` sem `list()`, nada ta akontese ainda!
+**Dika:** `map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bo pedi rezultadu ku `list()`. Si bo skrebe `map(...)` sem `list()`, nada ta akontese ainda!
 :::
 
 ## Map/Filter vs List Comprehension
@@ -349,10 +349,10 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Uza `map()`/`filter()` kuandu bo djá tene un funsun pronta (komu `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bo kre kódiku más lijível.
+**Dika:** Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (komu `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bo kre kódiku más lijível.
 :::
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1 — Konversor di Moeda:** Uza `map()` pa konverte un lista di presus na ECV pa Euro (taxa: 1 EUR = 110.265 ECV). Arredonda pa 2 kasas desimai.
 
@@ -364,11 +364,11 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 
 ## Rezumu
 
-- **Lambda** é funsun anónimu di un linja: `lambda x: x * 2`
-- **`map(fn, iterável)`** ta aplika funsun a TUDU elementu — transforma lista interu
-- **`filter(fn, iterável)`** ta mantene SÓ elementus undi funsun retorna True
+- **Lambda** é funsan anónimu di un linja: `lambda x: x * 2`
+- **`map(fn, iterável)`** ta aplika funsan a TUDU elementu — transforma lista interu
+- **`filter(fn, iterável)`** ta mantene SÓ elementus undi funsan retorna True
 - **Sempri konverte** ku `list()` — map/filter retorna objetu lazy, ka lista
-- **Ka uza `()`** kuandu pasa funsun pa map/filter — pasa funsun, ka xama-l
+- **Ka uza `()`** kuandu pasa funsan pa map/filter — pasa funsan, ka xama-l
 - **Kombina** map i filter pa pipeline poderozu di prosesamentu di dadus
 - Lambda é pa koza simples; pa lójika komplikadu, uza `def`
 - List comprehension é un alternativa más lijível pa maioria di kazus

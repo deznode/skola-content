@@ -125,7 +125,7 @@ m3-07-ficheru:
 m3-08-venv:
   title: "Virtual Environments na Python — Kada Projetu ku Si Mundu"
   slug: venv-python-ambiente-virtual
-  description: "Aprendi kumu kria i uza virtual environments ku python -m venv. Tutorial na Kriolu."
+  description: "Aprendi kumo kria i uza virtual environments ku python -m venv. Tutorial na Kriolu."
   keywords:
     - python venv
     - python virtual environment
@@ -159,7 +159,7 @@ m4-09-oop-pilaris:
 m4-10-dataclasses:
   title: "Dataclasses na Python — Klasis Simples sin Boilerplate"
   slug: dataclasses-python-simples
-  description: "@dataclass ta elimina boilerplate. Aprendi kumu kria klasis di dadus rápidu na Python. Tutorial na Kriolu."
+  description: "@dataclass ta elimina boilerplate. Aprendi kumo kria klasis di dadus rápidu na Python. Tutorial na Kriolu."
   keywords:
     - python dataclass
     - python dataclasses

@@ -18,7 +18,7 @@ objectives:
 
 Imagina reseta di katchupa. Reseta ta dize ingredientis (midju, feijun, mandioka, lingisa...), kantidadi, e pasus pa prepara. Ma reseta ka é katchupa — é só instruson. Kada bes ki bo sigui reseta i kuzinha, bo ta kria un **katchupa real** — un pratu diferenti, ku si sabor própriu.
 
-Na programasun, **klasi** é komu reseta — un moldi ki ta deskrebe kumu un koisa debe ser. **Objetu** é kel ki bo ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bo pode uza mesmu reseta pa faze katchupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
+Na programasun, **klasi** é komu reseta — un moldi ki ta deskrebe kumo un koisa debe ser. **Objetu** é kel ki bo ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bo pode uza mesmu reseta pa faze katchupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
 
 ## Kria Klasi ku `class`
 
@@ -27,7 +27,7 @@ Pa defini un klasi na Python, bo uza keyword `class` seguidu di nomi (ku **Pasca
 ```python
 # Klasi más simples posível
 class Pesoa:
-    pass  # 'pass' signifika "nada aki por agora"
+    pass  # 'pass' signifika "nada aki por gosi"
 
 # Kria un objetu (instánsia) di klasi Pesoa
 maria = Pesoa()
@@ -66,7 +66,7 @@ print(maria.idadi)   # 25
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeiru, depois `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
+**Dika:** `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeiru, depois `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
 :::
 
 ## `self` — O ki é?
@@ -102,7 +102,7 @@ class Mal:
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `self` é **sempri** primeiru parámetru di tudu métudu dentu di un klasi. Python ta pasa el automátikamenti — bo ka presiza skrebe el kuandu ta xama métudu.
+**Dika:** `self` é **sempri** primeiru parámetru di tudu métudu dentu di un klasi. Python ta pasa el automátikamenti — bo ka presiza skrebe el kuandu ta xama métudu.
 :::
 
 ## Variáveis di Instánsia
@@ -144,7 +144,7 @@ print(cesaria.fans)     # 0
 ```
 
 :::callout{type=tip}
-**💡 Dika:** **Sempri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, o `None`. Defini fora di `__init__` pode kauza `AttributeError` na otrus objetis.
+**Dika:** **Sempri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, o `None`. Defini fora di `__init__` pode kauza `AttributeError` na otrus objetis.
 :::
 
 ## Métodus di Instánsia
@@ -334,7 +334,7 @@ print(f"\n{len(aprovadus)} di {len(turma)} estudantis aprovadu!")
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Klasis é perfeitu pa modela kualker koisa di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asoens** kel koisa tene.
+**Dika:** Klasis é perfeitu pa modela kualker koisa di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asoens** kel koisa tene.
 :::
 
 ## Errus Komunis
@@ -377,7 +377,7 @@ p = Bon("Maria")
 print(p.idadi)  # None (ka da erru!)
 ```
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1 — Klasi Produtu:** Kria un klasi `Produtu` ku atributus `nomi`, `presu` (na ECV), e `stoki`. Adisiona métodus `vende(quantidade)` (ki ta reduz stoki si tene sufisienti) e `repon(quantidade)` (ki ta aumenta stoki). Testa ku produtus di Sukupira.
 
@@ -389,7 +389,7 @@ print(p.idadi)  # None (ka da erru!)
 
 ## Rezumu
 
-- **Klasi** é un moldi (reseta) ki ta deskrebe kumu kria objetis; defini ku `class NomiKlasi:`
+- **Klasi** é un moldi (reseta) ki ta deskrebe kumo kria objetis; defini ku `class NomiKlasi:`
 - **Objetu** é un instánsia real kriadu a parti di klasi (ezemplu: `maria = Pesoa("Maria", "Santiago", 25)`)
 - **`__init__`** é konstrutor ki ta roda automátikamenti kuandu objetu é kriadu; inisializa atributus
 - **`self`** é referénsia pa objetu atuál ("nha") — sempri primeiru parámetru di métodus

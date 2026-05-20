@@ -45,7 +45,7 @@ else:
 `if` = pergunta, `elif` = más perguntas, `else` = "si ninhun da sertu". Senpri termina ku `:` e usa 4 espasus di indentasun!
 
 ## 5) CTA
-Tenta agora: kria un programa ki resebe idadi di un pesoa e diz si é kriansa, adolesenti, ó adultu!
+Tenta gosi: kria un programa ki resebe idadi di un pesoa e diz si é kriansa, adolesenti, ó adultu!
 
 ---
 **B-roll notes**: Diagrama di fluxu animadu → kódiku na terminal → mustra kada kaminhu ku nota diferenti → output muda konfórmi kondisun

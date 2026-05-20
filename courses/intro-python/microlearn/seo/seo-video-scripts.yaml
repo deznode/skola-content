@@ -7,7 +7,7 @@
 m1-variaveis:
   title: "Variáveis na Python — 60 Segundu pa Bo Intendi"
   slug: variaveis-python-60-segundu
-  description: "Aprendi kumu kria variáveis na Python i intendi tipu dinámiku. Tutorial rápidu pa prinsipianti na Kriolu."
+  description: "Aprendi kumo kria variáveis na Python i intendi tipu dinámiku. Tutorial rápidu pa prinsipianti na Kriolu."
   keywords:
     - variáveis python
     - tipu dinámiku python
@@ -41,7 +41,7 @@ m1-strings:
 m1-kondisionais:
   title: "if/elif/else na Python — Fazi Bo Programa Pensa"
   slug: if-elif-else-python-kondisionais
-  description: "Aprendi kumu uza if, elif i else na Python pa fazi programa toma desizun. Tutorial rápidu na Kriolu."
+  description: "Aprendi kumo uza if, elif i else na Python pa fazi programa toma desizun. Tutorial rápidu na Kriolu."
   keywords:
     - python if else
     - kondisionais python
@@ -113,7 +113,7 @@ m2-disionarius:
 m3-funsoens:
   title: "Funsoens na Python — Skrévi Un Bes, Uza Mil Bes"
   slug: funsoens-python-def-return
-  description: "Aprendi kumu kria funsoens na Python ku def, parámetrus i return. Tutorial rápidu na Kriolu."
+  description: "Aprendi kumo kria funsoens na Python ku def, parámetrus i return. Tutorial rápidu na Kriolu."
   keywords:
     - python funsoens
     - python def return
@@ -149,7 +149,7 @@ m3-tratamentu-erru:
 m4-klasis:
   title: "Klasis i Objetis na Python — Kria Bo Própriu Tipu"
   slug: klasis-objetis-python-oop
-  description: "Aprendi kumu kria klasis i objetis na Python. OOP pa prinsipianti na Kriolu."
+  description: "Aprendi kumo kria klasis i objetis na Python. OOP pa prinsipianti na Kriolu."
   keywords:
     - python klasis
     - python oop

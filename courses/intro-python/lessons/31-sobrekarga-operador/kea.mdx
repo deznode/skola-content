@@ -10,7 +10,7 @@ duration: "20 min"
 objectives:
   - "Implementa __add__, __sub__, __mul__, __eq__ pa tipu personalizadu"
   - "Konstrui un klasi Vetor ku suporti kompletu di operadoris"
-  - "Kompriendi kumu Python ta uza métodus mádjiku kuandu bo skrebi +, -, ==, <"
+  - "Kompriendi kumo Python ta uza métodus mádjiku kuandu bo skrebi +, -, ==, <"
 ---
 
 # Sobrekarga di Operador
@@ -54,7 +54,7 @@ Kada operador tene un métodu mádjiku korispondenti. Kuandu bo defini es métod
 | `>=` | `__ge__` | Maior o igual |
 
 :::callout{type=tip}
-**💡 Dika:** Bo ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, e `__str__` — es é ki bo ta uza más freku. Konsulta tabela kuandu presiza otrus.
+**Dika:** Bo ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, e `__str__` — es é ki bo ta uza más freku. Konsulta tabela kuandu presiza otrus.
 :::
 
 ## `__add__` i `__sub__` — Adisun i Subtrasun
@@ -80,7 +80,7 @@ class Pontu:
 ```
 
 ```python
-# Agora operadoris ta funxiona naturalmenti!
+# Gosi operadoris ta funxiona naturalmenti!
 p1 = Pontu(2, 3)
 p2 = Pontu(5, 7)
 
@@ -98,7 +98,7 @@ print(p5)              # Pontu(8, 11)
 Nota ki `__add__` i `__sub__` ta retorna un **novu** objetu `Pontu`. Es é importanti — operador ka deve muda objetis orijinál.
 
 :::callout{type=tip}
-**💡 Dika:** Sempri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
+**Dika:** Sempri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
 :::
 
 ## `__mul__` — Multiplikasun (Eskalar)
@@ -173,18 +173,18 @@ p1 = Pontu(2, 3)
 p2 = Pontu(2, 3)
 p3 = Pontu(10, 10)
 
-print(p1 == p2)    # True — agora ta kompara por valór!
+print(p1 == p2)    # True — gosi ta kompara por valór!
 print(p1 == p3)    # False
 print(p1 < p3)     # True — p1 sta más pertu di orijem
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tambê. Ku es dôs, `sorted()` ta funxiona ku bo objetis automátikamenti!
+**Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tambê. Ku es dôs, `sorted()` ta funxiona ku bo objetis automátikamenti!
 :::
 
 ## Ezemplu Konpletu: Klasi Vetor
 
-Agora vamus kombina tudu num klasi `Vetor2D` kompletu — un vetor matemátiku ku dôs koordenadas:
+Gosi vamus kombina tudu num klasi `Vetor2D` kompletu — un vetor matemátiku ku dôs koordenadas:
 
 ```python
 import math
@@ -336,10 +336,10 @@ print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasun" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasun.
+**Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasun" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasun.
 :::
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1:** Kria un klasi `Temperatura` ku atributu `graus` (na Celsius). Implementa `__add__` (soma graus), `__sub__` (subtrai graus), `__eq__`, `__lt__`, e `__str__` (mostra "Nº°C"). Testa: `Temperatura(30) + Temperatura(5)` deve da `Temperatura(35)`.
 
@@ -361,7 +361,7 @@ print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 - **Sempri retorna novu objetu** — ka muda `self` na `__add__`, `__sub__`, etc.
 - **`isinstance()`** — uza pa verifika tipu antis di opera; retorna `NotImplemented` si tipu ka é kompatível
 - **`__eq__` + `__lt__`** — ku es dôs, `sorted()`, `min()`, `max()` ta funxiona ku bo klasi
-- **Klasi Dineru** i **Klasi Vetor** — ezemplus prátiku di kumu sobrekarga ta faze kódiku más naturál i legível
+- **Klasi Dineru** i **Klasi Vetor** — ezemplus prátiku di kumo sobrekarga ta faze kódiku más naturál i legível
 
 ---
 

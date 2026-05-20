@@ -3,7 +3,7 @@
 **Lingua:** kea (Kabuverdianu) | **Python:** 3.13+ | **Doc version:** 1.0.0 | **Validadu na:** 2026-04-21
 
 > **Pa ken?** Prinsipiantes absolutu — estudantes Kabuverdianu ki sta kumesa programa ku Python.
-> **Kumu uza:** Referensia rápidu pa konsulta durante kursu. Kopia e kola kódikus diretu pa bo editor.
+> **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia e kola kódikus diretu pa bo editor.
 
 ---
 
@@ -36,7 +36,7 @@
 25. [Métodus Mádjiku e Sobrekarga](#25-métodus-mádjiku-e-sobrekarga)
 26. [Dataclasses](#26-dataclasses)
 27. [Komprehensions (Rezumu)](#27-komprehensions-rezumu)
-28. [Errus Komun e Kumu Rezolvé](#28-errus-komun-e-kumu-rezolvé)
+28. [Errus Komun e Kumo Rezolvé](#28-errus-komun-e-kumo-rezolvé)
 
 ---
 
@@ -439,7 +439,7 @@ primeiro, *meiu, ultimu = (1, 2, 3, 4, 5)
 |------------|-----------|
 | Dadus ki ka muda (koordenadas, kores RGB) | Dadus ki muda (tarefas, karrinhu di kompra) |
 | Mais rápidu na memória | Mais métodus disponível |
-| Pode uza kumu xavi di dict | Ka pode uza kumu xavi di dict |
+| Pode uza kumo xavi di dict | Ka pode uza kumo xavi di dict |
 
 ---
 
@@ -639,11 +639,11 @@ soma(3, 4)                     # 7
 ```python
 numeros = [1, 2, 3, 4, 5]
 
-# Aplika funsun a kada elementu
+# Aplika funsan a kada elementu
 kuadradus = list(map(lambda x: x**2, numeros))
 # [1, 4, 9, 16, 25]
 
-# Ku funsun normal
+# Ku funsan normal
 nomis = ["maria", "djon", "ana"]
 maiuskula = list(map(str.upper, nomis))
 # ["MARIA", "DJON", "ANA"]
@@ -721,7 +721,7 @@ for nomi, nota in zip(nomis, notas):
 ### Generator Expression
 
 ```python
-# Kumu list comprehension, ma ku () — lazy, poupa memória
+# Kumo list comprehension, ma ku () — lazy, poupa memória
 kuadradus = (x**2 for x in range(1000000))  # ka aloka tudu na memória
 next(kuadradus)    # 0
 next(kuadradus)    # 1
@@ -755,13 +755,13 @@ next(gen)    # 3
 import math
 math.sqrt(16)                  # 4.0
 
-# Import funsun spesífiku
+# Import funsan spesífiku
 from math import sqrt, pi
 sqrt(25)                       # 5.0
 
 # Import ku alias
 import datetime as dt
-agora = dt.datetime.now()
+gosi = dt.datetime.now()
 ```
 
 ### Stdlib Úteis
@@ -1203,7 +1203,7 @@ class Estudanti:
 
     @property
     def nota(self) -> float:
-        """Getter — asesa kumu atributu, ka kumu métudu."""
+        """Getter — asesa kumo atributu, ka kumo métudu."""
         return self._nota
 
     @nota.setter
@@ -1320,7 +1320,7 @@ print(maria)         # Estudanti(nomi='Maria', idadi=22, nota=17.5)
 ### Opsons Úteis
 
 ```python
-@dataclass(frozen=True)         # imutável (kumu tupla)
+@dataclass(frozen=True)         # imutável (kumo tupla)
 class Puntu:
     x: float
     y: float
@@ -1357,7 +1357,7 @@ class Nota:
 
 ---
 
-## 28. Errus Komun e Kumu Rezolvé
+## 28. Errus Komun e Kumo Rezolvé
 
 | Erru | Kauza | Soluson |
 |------|-------|---------|

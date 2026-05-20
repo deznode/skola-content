@@ -36,7 +36,7 @@ print(aprovadu)
 Lista = kolesoens ki bo podi muda. Índisi kumesa na 0. List comprehension ta kria listas filtradu na un linja só!
 
 ## 5) CTA
-Tenta agora: kria lista ku 5 fruta e uza list comprehension pa filtra só kes ku más di 5 letras!
+Tenta gosi: kria lista ku 5 fruta e uza list comprehension pa filtra só kes ku más di 5 letras!
 
 ---
 **B-roll notes**: Vizualizasun di lista komu kaxas numeradu (0, 1, 2...) → animasun di `append()` ki ta adisiona kaxa → list comprehension ku séta ki ta filtra

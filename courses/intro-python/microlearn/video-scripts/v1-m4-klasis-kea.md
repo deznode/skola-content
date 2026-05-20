@@ -6,7 +6,7 @@ Topic: Python
 Duration/Limit: ~90s
 
 ## 1) Hook
-Klasi é komu reseta di katchupa — moldi ki ta dize kumu fazi. Objetu é katchupa real na bo pratu!
+Klasi é komu reseta di katchupa — moldi ki ta dize kumo fazi. Objetu é katchupa real na bo pratu!
 
 ## 2) Core Concept
 Klasi é moldi ki ta defini atributus (dadus) e métodus (asoens). `__init__` é konstrutor ki ta inisializa atributus. `self` é referénsia pa objetu atual.
@@ -40,7 +40,7 @@ print(djon.é_aprovadu())   # False
 `class` = moldi, `__init__` = konstrutor, `self` = "es objetu aki". Un klasi, vários objetis independentis!
 
 ## 5) CTA
-Tenta agora: kria un klasi `Ilha` ku nomi, populasun e un métudu ki diz si é grandi (> 50,000 habitantis)!
+Tenta gosi: kria un klasi `Ilha` ku nomi, populasun e un métudu ki diz si é grandi (> 50,000 habitantis)!
 
 ---
 **B-roll notes**: Animasun di moldi di biskoitu → vários biskoitus diferentis (objektus) → kódiku na terminal → kria maria e djon → mustra output diferenti pa kada un

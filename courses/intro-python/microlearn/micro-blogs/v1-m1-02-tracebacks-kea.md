@@ -19,7 +19,7 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-**Kumu lé (di baxu pa sima):**
+**Kumo lé (di baxu pa sima):**
 
 1. **Últimu linja** = tipu di erru + mensaji: `TypeError` — ka podi junta str ku int
 2. **Linja ku `^`** = exatamenti undi erru sta (Python 3.11+)

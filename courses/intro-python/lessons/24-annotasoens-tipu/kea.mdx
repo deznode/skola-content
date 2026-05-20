@@ -15,9 +15,9 @@ objectives:
 
 # Annotasoens di Tipu
 
-Kuandu bo ta skrebi un funsun, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez después... e sabi? I bo mesmu, depois di un férias na Sal, bo ta lembra?
+Kuandu bo ta skrebi un funsan, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez después... e sabi? I bo mesmu, depois di un férias na Sal, bo ta lembra?
 
-**Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsun ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
+**Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
 
 ## Primeiru Ezemplu: Antis i Después
 
@@ -39,7 +39,7 @@ def kalkula_total(presus: list[float], diskonto: float) -> float:
     return total - (total * diskonto / 100)
 ```
 
-Agora é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), e funsun ta retorna un float.
+Gosi é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), e funsan ta retorna un float.
 
 ## Annotasoens di Funsun
 
@@ -64,7 +64,7 @@ def mostra_mensajen(mensajen: str) -> None:
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `-> None` signifika ki funsun ka retorna nada (só ta fazi un asun kumu print).
+**Dika:** `-> None` signifika ki funsan ka retorna nada (só ta fazi un asun kumo print).
 :::
 
 ## Annotasoens di Variável
@@ -82,7 +82,7 @@ ta_ativi: bool = True
 rezultadu: float
 ```
 
-Na prátika, pa variáveis simples, type hint é opisionál pamodi tipu ta ser óbviu. É más útil na funsun i kazus más kompleksu.
+Na prátika, pa variáveis simples, type hint é opisionál pamodi tipu ta ser óbviu. É más útil na funsan i kazus más kompleksu.
 
 ## Tipus di Container (Python 3.9+)
 
@@ -138,7 +138,7 @@ print(aprovadus)  # ['Maria', 'Ana']
 
 ## Union: `int | None` (Python 3.10+)
 
-Algunhas vezes, un funsun pode retorna un valór **o** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
+Algunhas vezes, un funsan pode retorna un valór **o** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
 
 ```python
 def buska_estudanti(nomi: str, bazi: dict[str, int]) -> int | None:
@@ -200,7 +200,7 @@ Entun pa ki é ki type hints ta sirbi?
 ### 1. Dokumentasun pa Umanus
 
 ```python
-# Sem hints — ki é ki es funsun ta espera?
+# Sem hints — ki é ki es funsan ta espera?
 def prosesa(dadus, opcoes, callback):
     ...
 
@@ -230,7 +230,7 @@ soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
+**Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
 :::
 
 ## Ezemplu Konpletu: Registu di Estudantis
@@ -289,9 +289,9 @@ relátoriu = relatóriu_klasi(klasi)
 print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
 ```
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Adisiona type hints na es funsun:
+1. **Exersísiu 1:** Adisiona type hints na es funsan:
 ```python
 def area_retangulu(largura, altura):
     return largura * altura
@@ -303,18 +303,18 @@ def buska_ilha(nomis, alvu):
     return None
 ```
 
-2. **Exersísiu 2:** Skrebi un funsun `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), e "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
+2. **Exersísiu 2:** Skrebi un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), e "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
 
-3. **Exersísiu 3:** Kria un funsun `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", e "máxima".
+3. **Exersísiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", e "máxima".
 
 ## Rezumu
 
-- **Annotasoens di funsun:** `def f(param: tipu) -> tipu_retorno:`
+- **Annotasoens di funsan:** `def f(param: tipu) -> tipu_retorno:`
 - **Annotasoens di variável:** `nomi: str = "valór"`
 - **Containers (3.9+):** `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`
 - **Union (3.10+):** `int | None` pa valóris ki pode ser un tipu o `None`
 - **Ka ta muda runtime!** Type hints é pa umanus, IDEs, e ferramentas (mypy)
-- **Kuandu uza:** Sempri na funsun (parâmetrus + retornu); opisionál na variáveis óbvias
+- **Kuandu uza:** Sempri na funsan (parâmetrus + retornu); opisionál na variáveis óbvias
 - **Benefísiu:** Melhor autocomplete, errus deskubridu más sedu, kódiku más lezível
 
 ---

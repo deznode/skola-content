@@ -41,7 +41,7 @@ print(soma_tudu(5, 15))
 `def` pa kria, parámetrus pa resebe dadus, `return` pa devolve resultadu. Funson = reutilizasun di kódiku!
 
 ## 5) CTA
-Tenta agora: kria un funson `kalkula_media()` ki resebe un lista di notis e retorna média!
+Tenta gosi: kria un funson `kalkula_media()` ki resebe un lista di notis e retorna média!
 
 ---
 **B-roll notes**: Animasun di "kaxa" ki ta resebe input e ta sai output → kódiku na terminal → mustra xama ku diferentes argumentus → mustra *args

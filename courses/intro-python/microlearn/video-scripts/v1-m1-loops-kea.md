@@ -46,7 +46,7 @@ while tentativas > 0:
 `for` = kuandu bo sabi kuantu bes repeti. `while` = kuandu bo ka sabi, so kondisun. Nunka skexi `:` e indentasun!
 
 ## 5) CTA
-Tenta agora: uza `for` pa printa tabuada di multiplikasun di 7!
+Tenta gosi: uza `for` pa printa tabuada di multiplikasun di 7!
 
 ---
 **B-roll notes**: Animasun di loop (séta ki ta volta) → kódiku na terminal → output aparese linja a linja → mustra `break` ki ta para loop

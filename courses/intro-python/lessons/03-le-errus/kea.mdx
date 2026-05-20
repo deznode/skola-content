@@ -15,13 +15,13 @@ objectives:
 
 # Lé Errus (Tracebacks)
 
-Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru e rezolve rápidu. Na es lisun, nôs ta aprendi a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal e undi.
+Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru e rezolve rápidu. Na es lisun, nôs ta prende a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal e undi.
 
 Errus ka é sinál di frakasu. É sinál di ki bo ta tenta. Nôs ta kriá djunta, e parti di kria é erá!
 
 ## O ki é un Traceback?
 
-Kuandu Python atxa un problema na bo kódiku, e ta para e mostra un **traceback** — un mensajen ki ta esplika o ki korreu mal e undi. Odja es ezemplu:
+Kuandu Python atxa un problema na bo kódiku, e ta para e mostra un **traceback** — un mensajen ki ta splika o ki korreu mal e undi. Odja es ezemplu:
 
 ```python
 # fixeru: kalkula.py
@@ -48,7 +48,7 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
-Es parsesi komplikadu, ma ka é! Nôs ta aprendi lé el pasu a pasu.
+Es parsesi komplikadu, ma ka é! Nôs ta prende lé el pasu a pasu.
 
 ## Regra di Oru: Lé di Baxu pa Sima
 
@@ -62,7 +62,7 @@ ZeroDivisionError: division by zero
 
 Es linha tene **dôs parti**:
 - **`ZeroDivisionError`** — tipu di erru (nomi di exception)
-- **`division by zero`** — mensajen ki ta esplika problema
+- **`division by zero`** — mensajen ki ta splika problema
 
 Tradusun: "Bo ta tenta dividi pa zero — Python ka pode fazi kel."
 
@@ -88,10 +88,10 @@ Es ta dize-bu:
     rezultadu = kalkula_media(notas_di_ana)
 ```
 
-Es ta mostra ki linha 7 é undi bo txama funsun ki faya. `<module>` signifika ki ta na nível prinsipál di programa (ka dentru di un funsun).
+Es ta mostra ki linha 7 é undi bo txama funsan ki faya. `<module>` signifika ki ta na nível prinsipál di programa (ka dentru di un funsan).
 
 :::callout{type=tip}
-**💡 Dika:** Pensa na traceback manera un pilha di pratus — última pratu (última linha) é undi pratu kibra. Ma bo precisa odja pratus di baxu pa kompriendi pamodi tudu kai.
+**Dika:** Pensa na traceback manera un pilha di pratus — última pratu (última linha) é undi pratu kibra. Ma bo precisa odja pratus di baxu pa kompriendi pamodi tudu kai.
 :::
 
 ## Seta `^` — Bo Melhor Amigu (Python 3.11+)
@@ -159,7 +159,7 @@ SyntaxError: expected ':'
 - Uza `=` (atribuisun) na lugar di `==` (komparasun) na kondisionais
 
 :::callout{type=tip}
-**💡 Dika:** `SyntaxError` é úniku erru ki Python ta atxa **antis** di roda programa. Tudu otru errus ta aparesi kuandu programa ta roda.
+**Dika:** `SyntaxError` é úniku erru ki Python ta atxa **antis** di roda programa. Tudu otru errus ta aparesi kuandu programa ta roda.
 :::
 
 ### 2. `NameError` — Nomi ka Ezisti
@@ -181,7 +181,7 @@ NameError: name 'mensajen' is not defined
 **Kauzas kumun:**
 - Variável ka foi atribuídu (skesi `mensajen = "Ola"`)
 - Erru di ortografia: `mesnajen` na lugar di `mensajen`
-- Uza variável fora di si scope (ex.: dentru di un funsun vs fora)
+- Uza variável fora di si scope (ex.: dentru di un funsan vs fora)
 
 ```python
 # Korresun: defini variável antis di uza
@@ -210,8 +210,8 @@ Seta `^` ta mostra exatamenti undi string ta bate ku int!
 
 **Kauzas kumun:**
 - Junta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
-- Txama algu ki ka é funsun: `x = 5; x()` (TypeError: 'int' is not callable)
-- Manda argumentu eradu pa funsun
+- Txama algu ki ka é funsan: `x = 5; x()` (TypeError: 'int' is not callable)
+- Manda argumentu eradu pa funsan
 
 ```python
 # Korresun: uza f-string
@@ -241,7 +241,7 @@ Lista tene 3 elementus (índisi 0, 1, 2), ma bo ta pidi índisi 3.
 
 **Kauzas kumun:**
 - Skesi ki índisi ta kumesa na **0** (ka na 1)
-- Uza `len(lista)` kumu índisi (último índisi válidu é `len(lista) - 1`)
+- Uza `len(lista)` kumo índisi (último índisi válidu é `len(lista) - 1`)
 - Lista váziu e bo ta tenta asesa kualker índisi
 
 ```python
@@ -345,12 +345,12 @@ print(f"Média di presu: {media} ECV")  # Média di presu: 275.0 ECV
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Na futuru, bo ta aprendi ki `sum(lista_di_presus)` é manera más simples di soma un lista. Ma pa agora, importanti é kompriendi kumu lé errus!
+**Dika:** Na futuru, bo ta prende ki `sum(lista_di_presus)` é manera más simples di soma un lista. Ma pa gosi, importanti é kompriendi kumo lé errus!
 :::
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
-Odja kada traceback e identifika: (a) tipu di erru, (b) undi korreu mal, (c) kumu koriji.
+Odja kada traceback e identifika: (a) tipu di erru, (b) undi korreu mal, (c) kumo koriji.
 
 1. **Exersísiu 1:** Kel ki é problema aki?
 ```
@@ -379,7 +379,7 @@ TypeError: can't multiply sequence by non-int of type 'str'
 - **Seta `^`** (Python 3.11+) ta aponta exatamenti pa parti di kódiku ki faya
 - **5 exceptions más kumun:** `SyntaxError`, `NameError`, `TypeError`, `IndexError`, `KeyError`
 - Sigui **estratéjia di 3 pasus**: Lé → Atxa → Pensa
-- Errus ka é problema — é oportunidadi pa aprendi. Até programadoris ku 20 anus di speriénsia ta atxa errus tudu dia!
+- Errus ka é problema — é oportunidadi pa prende. Até programadoris ku 20 anus di speriénsia ta atxa errus tudu dia!
 
 ---
 

@@ -15,7 +15,7 @@ objectives:
 
 # Testu di Kódiku ku pytest
 
-Imajina ki Carla ta kria un programa pa kalkula presu di katchupa na si restoranti na Mindelo. Programa ta funxiona perfeitu — até ki ela muda un funsun i, sem sabi, kibra kálkulu di diskonto. Klientis ta paga más di ki devia durante un simana interu antis di algen nota!
+Imajina ki Carla ta kria un programa pa kalkula presu di katchupa na si restoranti na Mindelo. Programa ta funxiona perfeitu — até ki ela muda un funsan i, sem sabi, kibra kálkulu di diskonto. Klientis ta paga más di ki devia durante un simana interu antis di algen nota!
 
 **Testus** ta evita es tipo di problema. É kódiku ki ta verifika ki bo otru kódiku ta funxiona koretu — automátikamenti, tudu vez ki bo kre.
 
@@ -23,7 +23,7 @@ Imajina ki Carla ta kria un programa pa kalkula presu di katchupa na si restoran
 
 - **Kaptura bugs** antis di uzuáriu atxa
 - **Konfiansa pa muda kódiku** — si testus ta pasa, nada kibra
-- **Dokumentasun viva** — testus ta mostra kumu funsun deve konportá
+- **Dokumentasun viva** — testus ta mostra kumo funsan deve konportá
 - **Ta poupa tempu** — melhor testu automátiku na 1 segundu ki testu manuál na 5 minutu
 
 ## assert — Funsamentu di Tudu Testu
@@ -56,7 +56,7 @@ pytest --version
 
 ## Primeiru Testu
 
-Vamus kria un funsun i testa el. Primeru, nôs kria un fixeru ku funsun:
+Vamus kria un funsan i testa el. Primeru, nôs kria un fixeru ku funsan:
 
 **`kalkuladora.py`:**
 
@@ -80,7 +80,7 @@ def dividi(a: float, b: float) -> float | None:
     return a / b
 ```
 
-Agora, kria un fixeru di testu. **Regra importanti:** nomi tene ki kumesa ku `test_` o akaba ku `_test.py`:
+Gosi, kria un fixeru di testu. **Regra importanti:** nomi tene ki kumesa ku `test_` o akaba ku `_test.py`:
 
 **`test_kalkuladora.py`:**
 
@@ -175,7 +175,7 @@ pytest -v
 ```
 
 pytest ta mostra:
-- **Undi** fayo (fixeru + funsun di testu)
+- **Undi** fayo (fixeru + funsan di testu)
 - **O ki** esperava (`== 5`)
 - **O ki** resebeu (`6`)
 - **Kemu** ta txama (`soma(2, 3)`)
@@ -306,7 +306,7 @@ pytest test_utils.py -v
 ```
 
 :::callout{type=tip}
-**💡 Dika:** `pytest.raises(ValueError)` é un forma espesiál di testa ki un funsun **deve** lansa un erru. Si funsun ka lansa ValueError, testu fayo!
+**Dika:** `pytest.raises(ValueError)` é un forma espesiál di testa ki un funsan **deve** lansa un erru. Si funsan ka lansa ValueError, testu fayo!
 :::
 
 ## Pensamentu Test-Driven (TDD Leve)
@@ -314,7 +314,7 @@ pytest test_utils.py -v
 TDD signifika skrebi testus **antis** di skrebi kódiku. Siklu é:
 
 ```
-1. SKREBI TESTU  →  (fayo pamodi funsun ka ezisti inda)
+1. SKREBI TESTU  →  (fayo pamodi funsan ka ezisti inda)
 2. IMPLEMENTA    →  (skrebi kódiku mínima pa testu pasa)
 3. VERIFIKA      →  (roda pytest — tudu verdе?)
 4. REPETI        →  (adisiona más testus, melhora kódiku)
@@ -388,7 +388,7 @@ pytest test_validador.py -v
 | Nomi deskritivi | `test_soma_ku_numerus_negativu` |
 
 :::callout{type=tip}
-**💡 Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu melhor ki `test_1`.
+**Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu melhor ki `test_1`.
 :::
 
 ## Struktura di Projetu ku Testus
@@ -417,19 +417,19 @@ nha_projetu/
     └── test_validador.py
 ```
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Skrebi un funsun `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebi 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
+1. **Exersísiu 1:** Skrebi un funsan `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebi 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
 
-2. **Exersísiu 2:** Skrebi testus pa un funsun `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, e string ku un só karáter. Después implementa funsun.
+2. **Exersísiu 2:** Skrebi testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, e string ku un só karáter. Después implementa funsan.
 
-3. **Exersísiu 3 (TDD):** Primeru skrebi testus pa un funsun `klassifika_nota(nota: float) -> str` ki ta retorna:
+3. **Exersísiu 3 (TDD):** Primeru skrebi testus pa un funsan `klassifika_nota(nota: float) -> str` ki ta retorna:
    - "Exselenti" pa nota >= 16
    - "Bon" pa nota >= 12
    - "Sufisienti" pa nota >= 10
    - "Insufisienti" pa nota < 10
 
-   Depois implementa funsun i roda `pytest` pa verifika.
+   Depois implementa funsan i roda `pytest` pa verifika.
 
 4. **Exersísiu 4:** Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa `ValueError` (pamodi nota negativu ka fazi sentidu). Uza `pytest.raises(ValueError)`.
 
@@ -439,9 +439,9 @@ nha_projetu/
 - **pytest** — ferramenta ki ta diskubri i roda tudu funsoens `test_*` automátikamenti
 - **Nomi di ficheru:** `test_*.py` o `*_test.py`; funsoens: `def test_*()`
 - **Roda:** `pytest` (tudu) o `pytest -v` (verbozu ku nomi di kada testu)
-- **`pytest.raises(Error)`** — testa ki un funsun lansa un exsesun espesífiku
+- **`pytest.raises(Error)`** — testa ki un funsan lansa un exsesun espesífiku
 - **Pensamentu TDD:** skrebi testu primeru → implementa → verifika → repeti
-- **Testus é investimentu** — más tempu agora, menus bugs después!
+- **Testus é investimentu** — más tempu gosi, menus bugs después!
 
 ---
 

@@ -26,7 +26,7 @@ def mostra_top_n(frekuensia: dict[str, int], n: int = 5):
 def main():
     tekstu = (
         "Python é un linguajen di programasun sabi. "
-        "Nôs ta aprendi Python pamodi Python ta djuda nôs "
+        "Nôs ta prende Python pamodi Python ta djuda nôs "
         "pa kria programa inkrível. Ku Python nôs ta podi "
         "fazi kualker kuza ki nôs ta imajina."
     )

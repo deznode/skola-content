@@ -67,12 +67,12 @@ for valor in quadradus:
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+**Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
 :::
 
 ## Generator Functions ku `yield`
 
-Pa kria jeneradorus más komplexu, uza un **funsun ku `yield`** na vés di `return`:
+Pa kria jeneradorus más komplexu, uza un **funsan ku `yield`** na vés di `return`:
 
 ```python
 def kontador(maximo):
@@ -92,7 +92,7 @@ for numeru in kontador(5):
 
 | `return` | `yield` |
 |----------|---------|
-| Termina funsun imediatamenti | **Pausa** funsun i devolvi un valór |
+| Termina funsan imediatamenti | **Pausa** funsan i devolvi un valór |
 | Funsun pérdi tudu stadu | Funsun **lembra** undi para |
 | Retorna un valór só | Podi produz múltiplus valóris |
 | Funsun normal | Generator function |
@@ -140,7 +140,7 @@ print(primeru_15)
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
+**Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
 :::
 
 ## Lé Ficheru Grandi Linha pa Linha
@@ -203,7 +203,7 @@ print(total_lista == total_gen)  # True
 ```
 
 :::callout{type=tip}
-**💡 Dika:** Kuandu bo ta pasa un generator diretu pa un funsun kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+**Dika:** Kuandu bo ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
 :::
 
 ## Kuandu Uza Generator vs Lista
@@ -219,7 +219,7 @@ print(total_lista == total_gen)  # True
 | Presiza itera múltiplas vezes | | ✓ |
 | Lista é pikininu (< 1000 elementus) | | ✓ |
 
-## Tenta Agora 🏋️
+## Tenta Gosi 🏋️
 
 1. **Exersísiu 1: Generator di Pares** — Skrévi un generator expression ki produz numeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valóris.
 
@@ -231,8 +231,8 @@ print(total_lista == total_gen)  # True
 
 - **Jeneradorus** ta produz valóris un pa un (lazy evaluation) — sin guarda tudu na memória
 - **Generator expression**: `(expr for item in iterable)` — kómu list comprehension ma ku `()`
-- **Generator function**: funsun ku `yield` na vés di `return`
-- `yield` ta **pausa** funsun i lembra undi el para; `return` ta **termina**
+- **Generator function**: funsan ku `yield` na vés di `return`
+- `yield` ta **pausa** funsan i lembra undi el para; `return` ta **termina**
 - `next()` ta pega prósimu valór; `StopIteration` signifika ki akaba
 - Generators é **una-ves-só** — dipos di iteradu, sta vazio
 - Pa ficheru grandi, generators ta evita karrega tudu na memória
