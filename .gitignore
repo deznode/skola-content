@@ -167,3 +167,4 @@ CLAUDE.local.md
 *.temp
 *.bak
 *.backup
+.scratch
