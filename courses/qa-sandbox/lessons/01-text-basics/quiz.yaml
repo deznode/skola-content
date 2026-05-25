@@ -1,0 +1,22 @@
+# Quiz sidecar for the text-basics lesson. Localized question + option text.
+# Validated by scripts/import-content.ts → emitted into quizzes / quiz_options.
+- question:
+    kea: "Kual valor di `content_type` ki es lison ta uza?"
+    en: "Which `content_type` value does this lesson use?"
+  options:
+    - text: { kea: "TEXT", en: "TEXT" }
+      correct: true
+    - text: { kea: "VIDEO", en: "VIDEO" }
+      correct: false
+    - text: { kea: "MIXED", en: "MIXED" }
+      correct: false
+- question:
+    kea: "Kantu iten ten na lista ordenadu di riba?"
+    en: "How many items are in the ordered list above?"
+  options:
+    - text: { kea: "Dôs", en: "Two" }
+      correct: false
+    - text: { kea: "Três", en: "Three" }
+      correct: true
+    - text: { kea: "Kuatu", en: "Four" }
+      correct: false

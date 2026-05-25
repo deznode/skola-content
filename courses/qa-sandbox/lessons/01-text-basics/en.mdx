@@ -1,0 +1,69 @@
+---
+title: "Text Basics"
+language: en
+courseSlug: qa-sandbox
+lessonSlug: text-basics
+slug: "text-basics"
+module: 1
+lesson: 1
+duration: "8 min"
+objectives:
+  - "Test rendering of headings, lists, tables, and blockquotes"
+  - "Test inline code and a code block with highlight notation"
+  - "Test internal and external links"
+---
+
+This is a **TEXT lesson**. It exercises every Markdown element we support: headings, lists, tables, blockquotes, inline code, and a code block with *highlight* notation.
+
+## Level 2 Heading
+
+Normal text with **bold**, *italic*, and inline code like `print("hello")`.
+
+### Level 3 Heading
+
+An ordered list:
+
+1. First item
+2. Second item
+3. Third item
+
+An unordered list:
+
+- Apple
+- Banana
+- Orange
+
+## Table
+
+| Type | Syntax | Example |
+|------|--------|---------|
+| TEXT | `content_type: TEXT` | This lesson |
+| VIDEO | `content_type: VIDEO` | Next lesson |
+| MIXED | `content_type: MIXED` | Lesson 3 |
+
+## Blockquote
+
+> This is a blockquote. It is used to test rendering of quotes and important notes.
+
+## Code Block with Highlight
+
+```python
+def greeting(name):
+    message = f"Hello, {name}!"  # [!code highlight]
+    return message
+
+print(greeting("World"))
+```
+
+In the block above, the `message` line should be marked with a highlight color.
+
+## Links
+
+- Internal link to the next lesson: [Video Player](/courses/qa-sandbox/lessons/video-player)
+- External link: [Python documentation](https://docs.python.org)
+
+## Quiz
+
+<Quiz position={0} />
+
+<Quiz position={1} />

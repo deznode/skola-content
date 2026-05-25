@@ -1,0 +1,10 @@
+- question:
+    kea: "Kual provider di video es lison ta uza?"
+    en: "Which video provider does this lesson use?"
+  options:
+    - text: { kea: "YouTube", en: "YouTube" }
+      correct: true
+    - text: { kea: "HLS self-hosted", en: "Self-hosted HLS" }
+      correct: false
+    - text: { kea: "Vimeo", en: "Vimeo" }
+      correct: false

@@ -1,0 +1,23 @@
+# Interactive code examples for the code-notations lesson.
+#
+# These are sourced from the `code_examples` DB table — NOT from Markdown
+# fences — and rendered by the <CodeExample position={N}/> marker (1-based)
+# via the InteractiveExample component. Validated + emitted by
+# scripts/import-content.ts. Order here = display order (DB position 0, 1, ...).
+- language: python
+  title: "Highlight + diff (Python)"
+  code: |
+    def proseso(dadus):
+        resultadu = []
+        for item in dadus:
+            valor = item * 2
+            resultadu.append(valor + 1)
+        return resultadu
+- language: javascript
+  title: "Focus (JavaScript)"
+  code: |
+    function setup() {
+      init();
+      loadConfig();
+      start();
+    }

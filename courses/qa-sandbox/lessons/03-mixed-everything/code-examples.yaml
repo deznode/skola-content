@@ -1,0 +1,11 @@
+# Interactive code example for the mixed-everything lesson — exercises the
+# <CodeExample position={1}/> marker (DB-sourced) inside a MIXED layout.
+# Validated + emitted by scripts/import-content.ts.
+- language: python
+  title: "Diff: soma akumulada"
+  code: |
+    def total(itens):
+        soma = 0
+        for x in itens:
+            soma += x
+        return soma

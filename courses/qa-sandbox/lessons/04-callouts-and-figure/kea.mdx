@@ -1,0 +1,64 @@
+---
+title: "Callouts, Figura, i Multi-Linguajen"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: callouts-and-figure
+slug: "callouts-and-figure"
+module: 2
+lesson: 1
+duration: "9 min"
+objectives:
+  - "Testa renderizason di figura (infográfiku) ku lightbox"
+  - "Testa blocos di kódigu na vários linguajens: Python, JavaScript, Bash, SQL"
+  - "Testa tudu três tipu di callout djuntu"
+---
+
+Es lison TEXT ta esersi figura (infográfiku) ku lightbox, multi-linguajen na blocos di kódigu, i tudu três callouts.
+
+## Figura ku Lightbox
+
+<Figure src="../../infographics/sample-diagram.png" caption="Imajen di testi — klika pa abri na lightbox" />
+
+A imajen di riba debe karga atravéz di Velite + o pipeline di otimizason, i klika nel debe abri o lightbox.
+
+## Blocos di Kódigu Multi-Linguajen
+
+```python
+# Python
+numerus = [1, 2, 3]
+total = sum(numerus)
+print(f"Total: {total}")
+```
+
+```javascript
+// JavaScript
+const numbers = [1, 2, 3];
+const total = numbers.reduce((a, b) => a + b, 0);
+console.log(`Total: ${total}`);
+```
+
+```bash
+# Bash
+echo "Total: $((1 + 2 + 3))"
+```
+
+```sql
+-- SQL
+SELECT SUM(valor) AS total FROM numerus;
+```
+
+## Tudu Callouts
+
+:::callout{type=tip}
+Callout di tipu **tip** djuntu ku figura i kódigu.
+:::
+
+:::callout{type=warning}
+Callout di tipu **warning** — verifika a kor di avizu.
+:::
+
+:::callout{type=info}
+Callout di tipu **info** — verifika a kor di informason.
+:::
+
+> Blockquote final pa testa renderizason djuntu ku tudu otru elementu.

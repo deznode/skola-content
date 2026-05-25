@@ -1,0 +1,32 @@
+---
+title: "Video Player (HLS)"
+language: en
+courseSlug: qa-sandbox
+lessonSlug: video-player
+slug: "video-player"
+module: 1
+lesson: 2
+duration: "6 min"
+objectives:
+  - "Test VIDEO lesson rendering with the tabbed layout"
+  - "Test the Vidstack player with an HLS stream"
+  - "Test a quiz inside the content tab"
+---
+
+This is a **VIDEO lesson**. It uses the tabbed layout: video on top, content in a separate tab. The stream is HLS (`.m3u8`), to test Vidstack's adaptive streaming support.
+
+## What to Verify
+
+- The player loads and the video plays
+- Player controls (play, pause, volume, fullscreen) work
+- The content tab shows this text
+- The quiz renders and validates answers server-side
+
+```bash
+# The video URL is set in course.yaml, in the video_url field:
+# video_url: "https://files.vidstack.io/sprite-fight/hls/stream.m3u8"
+```
+
+## Quiz
+
+<Quiz position={0} />

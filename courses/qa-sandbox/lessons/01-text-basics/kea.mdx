@@ -1,0 +1,69 @@
+---
+title: "Bázis di Textu"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: text-basics
+slug: "text-basics"
+module: 1
+lesson: 1
+duration: "8 min"
+objectives:
+  - "Testa renderizason di títulu, lista, tabela, i blockquote"
+  - "Testa kódigu inline i un bloku di kódigu ku notason highlight"
+  - "Testa link internu i link esternu"
+---
+
+Es lison é un **lison di tipu TEXT**. E ta esersi tudu elementu di Markdown ki nu ta suporta: títulus, listas, tabelas, blockquotes, kódigu inline, i un bloku di kódigu ku notason di *highlight*.
+
+## Títulu di Nível 2
+
+Tekstu normal ku **negritu**, *itáliku*, i kódigu inline tipu `print("ola")`.
+
+### Títulu di Nível 3
+
+Un lista ordenadu:
+
+1. Priméru iten
+2. Sigundu item
+3. Terséru item
+
+Un lista nan ordenadu:
+
+- Mason
+- Banana
+- Laranja
+
+## Tabela
+
+| Tipu | Sintaxi | Ezemplu |
+|------|---------|---------|
+| TEXT | `content_type: TEXT` | Es lison |
+| VIDEO | `content_type: VIDEO` | Próssimu lison |
+| MIXED | `content_type: MIXED` | Lison 3 |
+
+## Blockquote
+
+> Es é un blockquote. E ta uza pa testa renderizason di sitasan i nota importanti.
+
+## Bloku di Kódigu ku Highlight
+
+```python
+def saudasan(nomi):
+    mensajen = f"Ola, {nomi}!"  # [!code highlight]
+    return mensajen
+
+print(saudasan("Mundu"))
+```
+
+Na liña di riba, a liña di `mensajen` debe ta marka ku un kor di destake.
+
+## Links
+
+- Link internu pa próssimu lison: [Video Player](/courses/qa-sandbox/lessons/video-player)
+- Link esternu: [Dokumentason di Python](https://docs.python.org)
+
+## Kuiz
+
+<Quiz position={0} />
+
+<Quiz position={1} />

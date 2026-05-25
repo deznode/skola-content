@@ -1,0 +1,63 @@
+---
+title: "Notasons di Kódigu (Highlight + Diff + Focus)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: code-notations
+slug: "code-notations"
+module: 2
+lesson: 2
+duration: "8 min"
+objectives:
+  - "Testa notason highlight, diff, i focus na mesmu bloku"
+  - "Testa kópia di kódigu (copy button)"
+  - "Testa múltiplu kuiz ku kaminhu di resposta serta i errada"
+---
+
+Es lison ta esersi tudu três transformadoris di Shiki ki nu ta suporta: **highlight**, **diff**, i **focus** — algun djuntu na mesmu bloku.
+
+## Highlight + Diff Djuntu
+
+```python
+def proseso(dadus):
+    resultadu = []
+    for item in dadus:
+        valor = item * 2  # [!code highlight]
+        resultadu.append(valor)  # [!code --]
+        resultadu.append(valor + 1)  # [!code ++]
+    return resultadu
+```
+
+A liña di `valor` debe ta destaka; a liña di `append(valor)` debe ta vermedju; a liña di `append(valor + 1)` debe ta verdi.
+
+## Focus
+
+```javascript
+function setup() {
+  init();
+  loadConfig();  // [!code focus]
+  start();
+}
+```
+
+So a liña ku `loadConfig()` debe sta na fokus; o restu debe ta más éskuru/desfokadu.
+
+## Verifika
+
+- O botão di kópia (copy) ta funsiona i ta kopia o kódigu sen o markup di notason
+- O tema klaru i éskuru ta troka kor di sintaxi (dual theme)
+
+## Ezemplu di Kódigu Interativu
+
+Diferenti di blocos di kódigu di Markdown di riba, es ben di base di dadus i ta renderiza ku o komponenti `InteractiveExample` (ku botão di kópia próprhu):
+
+<CodeExample position={1} />
+
+<CodeExample position={2} />
+
+## Kuiz
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />

@@ -1,0 +1,18 @@
+- question:
+    kea: "Na un lison MIXED, undi o video ta parsi?"
+    en: "In a MIXED lesson, where does the video appear?"
+  options:
+    - text: { kea: "Inline, na mesmu fluxu di konteúdu", en: "Inline, in the same content flow" }
+      correct: true
+    - text: { kea: "Na un tab separadu", en: "In a separate tab" }
+      correct: false
+- question:
+    kea: "Kantu tipu di callout es lison ta mostra?"
+    en: "How many callout types does this lesson show?"
+  options:
+    - text: { kea: "Un", en: "One" }
+      correct: false
+    - text: { kea: "Dôs", en: "Two" }
+      correct: false
+    - text: { kea: "Três (tip, warning, info)", en: "Three (tip, warning, info)" }
+      correct: true

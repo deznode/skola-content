@@ -1,0 +1,10 @@
+- question:
+    kea: "Kual formatu di stream es lison ta uza?"
+    en: "Which stream format does this lesson use?"
+  options:
+    - text: { kea: "MP4 self-hosted", en: "Self-hosted MP4" }
+      correct: false
+    - text: { kea: "HLS (.m3u8)", en: "HLS (.m3u8)" }
+      correct: true
+    - text: { kea: "YouTube", en: "YouTube" }
+      correct: false

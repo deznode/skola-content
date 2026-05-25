@@ -1,0 +1,62 @@
+slug: qa-sandbox
+title: "QA Sandbox — Lesson Rendering Test Course"
+level: beginner
+category: programming
+duration_minutes: 60
+instructor: Skola QA
+# Local-only test course. Excluded from default `pnpm gen:catalog` discovery and
+# from the catalog-drift-guard hook, so it never reaches db/migration / prod.
+# Generate locally with:
+#   pnpm gen:catalog --course=qa-sandbox --out=apps/api/src/main/resources/db/seed/dev
+test_only: true
+translations:
+  kea:
+    title: "QA Sandbox — Testi di Renderizason di Lison"
+    description: "Kursu di testi pa esersi tudu sénariu di renderizason di lison: tipus TEXT, VIDEO i MIXED, kódigu ku notason highlight/diff/focus, quiz, callout, figura, i microlearn player."
+    prerequisites: "Nenhun konhesimentu préviu — es é un kursu di testi."
+    outcomes: |
+      Testa renderizason di lison di tipu TEXT, VIDEO, i MIXED
+      Verifika kódigu ku notason highlight, diff, i focus
+      Verifika quiz ku validason di resposta na servidor
+      Verifika callout (tip/warning/info), figura ku lightbox, i microlearn player
+  en:
+    title: "QA Sandbox — Lesson Rendering Test Course"
+    description: "A QA-only course exercising every lesson rendering scenario: TEXT, VIDEO and MIXED layouts, code blocks with highlight/diff/focus notation, quizzes, callouts, figures, and the microlearn player."
+    prerequisites: "None — this is a test course."
+    outcomes: |
+      Exercise TEXT, VIDEO, and MIXED lesson layouts
+      Verify code blocks with highlight, diff, and focus notation
+      Verify quizzes with server-side answer validation
+      Verify callouts (tip/warning/info), figure lightbox, and the microlearn player
+modules:
+  - slug: lesson-types
+    title:
+      kea: "Tipus di Lison"
+      en: "Lesson Types"
+    lessons:
+      - slug: text-basics
+        languages: [kea, en]
+        content_type: TEXT
+      - slug: video-player
+        languages: [kea, en]
+        content_type: VIDEO
+        video_url: "https://files.vidstack.io/sprite-fight/hls/stream.m3u8"
+      - slug: mixed-everything
+        languages: [kea]
+        content_type: MIXED
+        video_url: "https://files.vidstack.io/sprite-fight/720p.mp4"
+  - slug: rich-content
+    title:
+      kea: "Konteúdu Riku"
+      en: "Rich Content"
+    lessons:
+      - slug: callouts-and-figure
+        languages: [kea]
+        content_type: TEXT
+      - slug: code-notations
+        languages: [kea]
+        content_type: TEXT
+      - slug: microlearn-everything
+        languages: [kea]
+        content_type: MIXED
+        video_url: "https://www.youtube.com/watch?v=_cMxraX_5RE"

@@ -1,0 +1,57 @@
+---
+title: "MIXED — Video + Konteúdu"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: mixed-everything
+slug: "mixed-everything"
+module: 1
+lesson: 3
+duration: "10 min"
+objectives:
+  - "Testa lison MIXED: video inline + prosa + kódigu na mesmu fluxu"
+  - "Testa kódigu ku notason diff (++ / --)"
+  - "Testa tudu três tipu di callout: tip, warning, info"
+---
+
+Es é un **lison di tipu MIXED**. O video ta parsi inline (un MP4 self-hosted), siguidu di prosa, kódigu, callouts, i kuiz — tudu na mesmu pájina, sen tabs.
+
+## Kódigu ku Notason Diff
+
+```python
+def total(itens):
+    soma = 0
+    for x in itens:
+        soma = soma + x  # [!code --]
+        soma += x  # [!code ++]
+    return soma
+```
+
+A liña ku `# [!code --]` debe parsi vermedju (removidu), i a liña ku `# [!code ++]` debe parsi verdi (adisionadu).
+
+:::callout{type=tip}
+**Dika:** Es é un callout di tipu `tip`. E debe parsi ku un kor i íkon di dika.
+:::
+
+:::callout{type=warning}
+**Atenson:** Es é un callout di tipu `warning`. E debe parsi ku un kor di avizu.
+:::
+
+:::callout{type=info}
+**Informason:** Es é un callout di tipu `info`. E debe parsi ku un kor di informason.
+:::
+
+## Mas Konteúdu
+
+O fluxu MIXED ta permiti misturá video, tekstu, kódigu, i kuiz na un só pájina kontínua. Es ta diferenti di VIDEO (ki ta uza tabs).
+
+## Ezemplu di Kódigu Interativu
+
+Es bloku ta ben di base di dadus (tabela `code_examples`), nan di Markdown — e ta renderiza ku o komponenti `InteractiveExample`:
+
+<CodeExample position={1} />
+
+## Kuiz
+
+<Quiz position={0} />
+
+<Quiz position={1} />

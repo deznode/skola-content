@@ -1,0 +1,28 @@
+- question:
+    kea: "Kual notason ta marka un liña ku kor di destake (sen muda)?"
+    en: "Which notation marks a line with a highlight color (no change)?"
+  options:
+    - text: { kea: "[!code highlight]", en: "[!code highlight]" }
+      correct: true
+    - text: { kea: "[!code ++]", en: "[!code ++]" }
+      correct: false
+    - text: { kea: "[!code focus]", en: "[!code focus]" }
+      correct: false
+- question:
+    kea: "Kual notason ta marka un liña komu adisionadu (verdi)?"
+    en: "Which notation marks a line as added (green)?"
+  options:
+    - text: { kea: "[!code --]", en: "[!code --]" }
+      correct: false
+    - text: { kea: "[!code ++]", en: "[!code ++]" }
+      correct: true
+- question:
+    kea: "Kual notason ta poi un liña na fokus i ta desfoka o restu?"
+    en: "Which notation focuses one line and dims the rest?"
+  options:
+    - text: { kea: "[!code highlight]", en: "[!code highlight]" }
+      correct: false
+    - text: { kea: "[!code focus]", en: "[!code focus]" }
+      correct: true
+    - text: { kea: "[!code diff]", en: "[!code diff]" }
+      correct: false

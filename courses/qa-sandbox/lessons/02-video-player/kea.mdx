@@ -1,0 +1,32 @@
+---
+title: "Video Player (HLS)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: video-player
+slug: "video-player"
+module: 1
+lesson: 2
+duration: "6 min"
+objectives:
+  - "Testa renderizason di lison di tipu VIDEO ku layout di tabs"
+  - "Testa player Vidstack ku un stream HLS"
+  - "Testa quiz dentu di tab di konteúdu"
+---
+
+Es é un **lison di tipu VIDEO**. E ta uza layout di tabs: video na riba, i konteúdu na tab separadu. O stream é HLS (`.m3u8`), pa testa o suporti di streaming adaptativu di Vidstack.
+
+## O ki pa Verifika
+
+- O player ta karga i o video ta toka
+- Kontrolus di player (play, pausa, volume, fullscreen) ta funsiona
+- Tab di konteúdu ta mostra es tekstu
+- O quiz ta parsi i ta valida resposta na servidor
+
+```bash
+# O video URL é definidu na course.yaml, na o campu video_url:
+# video_url: "https://files.vidstack.io/sprite-fight/hls/stream.m3u8"
+```
+
+## Kuiz
+
+<Quiz position={0} />
