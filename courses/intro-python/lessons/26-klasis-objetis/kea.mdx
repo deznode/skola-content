@@ -14,7 +14,9 @@ objectives:
   - "Kria vários objetis independenti a parti di mesmu klasi"
 ---
 
-Imagina reseta di katchupa. Reseta ta dize ingredientis (midju, feijun, mandioka, lingisa...), kantidadi, e pasus pa prepara. Ma reseta ka é katchupa — é só instruson. Kada bes ki bo sigui reseta i kuzinha, bo ta kria un **katchupa real** — un pratu diferenti, ku si sabor própriu.
+# Klasis i Objetis
+
+Imagina reseta di katchupa. Reseta ta dize ingredientis (midju, feijun, mandioka, lingisa...), kantidadi, i pasus pa prepara. Ma reseta ka é katchupa — é só instruson. Kada bes ki bo sigui reseta i kuzinha, bo ta kria un **katchupa real** — un pratu diferenti, ku si sabor própriu.
 
 Na programasun, **klasi** é komu reseta — un moldi ki ta deskrebe kumo un koisa debe ser. **Objetu** é kel ki bo ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bo pode uza mesmu reseta pa faze katchupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
 
@@ -63,9 +65,7 @@ print(maria.idadi)   # 25
 # TypeError: __init__() missing 3 required positional arguments
 ```
 
-:::callout{type=tip}
-**Dika:** `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeiru, depois `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
-:::
+> **Dika:** `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeiru, dipos `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
 
 ## `self` — O ki é?
 
@@ -99,9 +99,7 @@ class Mal:
 # TypeError: __init__() takes 1 positional argument but 2 were given
 ```
 
-:::callout{type=tip}
-**Dika:** `self` é **sempri** primeiru parámetru di tudu métudu dentu di un klasi. Python ta pasa el automátikamenti — bo ka presiza skrebe el kuandu ta xama métudu.
-:::
+> **Dika:** `self` é **sempri** primeiru parámetru di tudu métudu dentu di un klasi. Python ta pasa el automátikamenti — bo ka presiza skrebe el kuandu ta xama métudu.
 
 ## Variáveis di Instánsia
 
@@ -141,9 +139,7 @@ print(cesaria.albuns)   # []
 print(cesaria.fans)     # 0
 ```
 
-:::callout{type=tip}
-**Dika:** **Sempri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, o `None`. Defini fora di `__init__` pode kauza `AttributeError` na otrus objetis.
-:::
+> **Dika:** **Sempri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, o `None`. Defini fora di `__init__` pode kauza `AttributeError` na otrus objetis.
 
 ## Métodus di Instánsia
 
@@ -209,7 +205,7 @@ print(terenu.deskrebe())    # Retángulu 20x15 (área: 300 m²)
 
 ## Ezemplu Prátiku: Konta Bankáriu
 
-Vamus kria un klasi `KontaBankáriu` konpletu ku depózitu, levantamentu, e estrátu:
+Vamus kria un klasi `KontaBankáriu` konpletu ku depózitu, levantamentu, i estrátu:
 
 ```python
 class KontaBankáriu:
@@ -331,9 +327,7 @@ print(f"\n{len(aprovadus)} di {len(turma)} estudantis aprovadu!")
 # 3 di 5 estudantis aprovadu!
 ```
 
-:::callout{type=tip}
-**Dika:** Klasis é perfeitu pa modela kualker koisa di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asoens** kel koisa tene.
-:::
+> **Dika:** Klasis é perfeitu pa modela kualker koisa di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asoens** kel koisa tene.
 
 ## Errus Komunis
 
@@ -377,13 +371,21 @@ print(p.idadi)  # None (ka da erru!)
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Klasi Produtu:** Kria un klasi `Produtu` ku atributus `nomi`, `presu` (na ECV), e `stoki`. Adisiona métodus `vende(quantidade)` (ki ta reduz stoki si tene sufisienti) e `repon(quantidade)` (ki ta aumenta stoki). Testa ku produtus di Sukupira.
+1. **Exersísiu 1 — Klasi Produtu:** Kria un klasi `Produtu` ku atributus `nomi`, `presu` (na ECV), i `stoki`. Adisiona métodus `vende(quantidade)` (ki ta reduz stoki si tene sufisienti) i `repon(quantidade)` (ki ta aumenta stoki). Testa ku produtus di Sukupira.
 
-2. **Exersísiu 2 — Klasi Restoránti:** Kria un klasi `Restoranti` ku atributus `nomi`, `sidadi`, e `menu` (disionáriu ku nomi di pratu i presu). Adisiona métudu `adisiona_pratu(nomi, presu)`, `mostra_menu()`, e `fazi_pedidu(lista_pratus)` ki retorna total na ECV.
+2. **Exersísiu 2 — Klasi Restoránti:** Kria un klasi `Restoranti` ku atributus `nomi`, `sidadi`, i `menu` (disionáriu ku nomi di pratu i presu). Adisiona métudu `adisiona_pratu(nomi, presu)`, `mostra_menu()`, i `fazi_pedidu(lista_pratus)` ki retorna total na ECV.
 
-3. **Exersísiu 3 — Klasi Jogador:** Kria un klasi `Jogador` ku atributus `nomi`, `ekipa`, `golus` (kumesa na 0), e `jogus` (kumesa na 0). Adisiona métodus `joga(golus_marcadu)` i `média_golus()`. Kria 3 jogadoris i mostra ken ki tene midjor média.
+3. **Exersísiu 3 — Klasi Jogador:** Kria un klasi `Jogador` ku atributus `nomi`, `ekipa`, `golus` (kumesa na 0), i `jogus` (kumesa na 0). Adisiona métodus `joga(golus_marcadu)` i `média_golus()`. Kria 3 jogadoris i mostra ken ki tene midjor média.
 
-4. **Exersísiu 4 — Klasi BibliotekaBásiku:** Kria un klasi `Biblioteka` ku un lista di livrus (kada livru é un disionáriu ku 'títulu', 'autor', 'disponível'). Adisiona métodus `adisiona_livru()`, `empresta_livru(títulu)`, e `devolve_livru(títulu)`. Testa ku livrus di autoris kaboverdianu.
+4. **Exersísiu 4 — Klasi BibliotekaBásiku:** Kria un klasi `Biblioteka` ku un lista di livrus (kada livru é un disionáriu ku 'títulu', 'autor', 'disponível'). Adisiona métodus `adisiona_livru()`, `empresta_livru(títulu)`, i `devolve_livru(títulu)`. Testa ku livrus di autoris kaboverdianu.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -398,4 +400,4 @@ print(p.idadi)  # None (ka da erru!)
 
 ---
 
-**Prósimu lisan:** [Eransa (Simples i Múltiplu)] →
+**Prósimu lisun:** [Eransa (Simples i Múltiplu) →](/courses/intro-python/lessons/eransa)

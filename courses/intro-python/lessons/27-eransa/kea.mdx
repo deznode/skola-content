@@ -14,9 +14,11 @@ objectives:
   - "Uza isinstance() e issubclass() pa verifika tipu di objetu"
 ---
 
+# Eransa (Simples i Múltiplu)
+
 Djina tene olus verdi di si mai i altura di si pai. Ela erda karakterístikas di dos — ka presiza "inventa" olus o altura di zero, es ven di si famía. I Djina inda tene si própriu trabus únikis: si rizu, si manera di fala, si talentu pa toka violun.
 
-Na programasun, **eransa** funsiona mesmu manera. Un klasi filhu ta **erda** tudu atributus i métodus di klasi pai, e ainda pode adisiona si própriu koisa o muda kel ki erda. Isu ta evita repetisun di kódiku i ta kria un ierárkia naturál — mesmu komu árvori genealójika.
+Na programasun, **eransa** funsiona mesmu manera. Un klasi filhu ta **erda** tudu atributus i métodus di klasi pai, i ainda pode adisiona si própriu koisa o muda kel ki erda. Isu ta evita repetisun di kódiku i ta kria un ierárkia naturál — mesmu komu árvori genealójika.
 
 ## Eransa Simples
 
@@ -47,11 +49,11 @@ print(taksi.deskrebe())   # Toyota Hilux (2020)
 print(taksi.marka)        # Toyota
 ```
 
-Mesmu ku `Táksi` tene `pass` (váziu), el erda `__init__`, `liga()`, e `deskrebe()` di `Viatúra`. É komu un fidju ki tene tudu trabus di pai sem faze nada estraordinária.
+Mesmu ku `Táksi` tene `pass` (váziu), el erda `__init__`, `liga()`, i `deskrebe()` di `Viatúra`. É komu un fidju ki tene tudu trabus di pai sem faze nada estraordinária.
 
 ## `super()` — Xama Konstrutor di Pai
 
-Normalmenti, klasi filhu kre **adisiona** atributus novu alémd di kel ki pai dja tene. Pa isu, bo uza `super().__init__()` pa xama konstrutor di pai primeiru, depois adisiona bo koisa:
+Normalmenti, klasi filhu kre **adisiona** atributus novu alémd di kel ki pai dja tene. Pa isu, bo uza `super().__init__()` pa xama konstrutor di pai primeiru, dipos adisiona bo koisa:
 
 ```python
 class Viatúra:
@@ -120,9 +122,7 @@ evu.liga()       # ⚡ BYD Dolphin ta ligá silensiozamenti...
 evu.karega()     # 🔋 BYD Dolphin karegadu! Bateria: 60 kWh
 ```
 
-:::callout{type=tip}
-**Dika:** `super()` ta dize "xama versun di nha pai pa es métudu". Uza `super().__init__()` pa ka repeti kódiku ki pai dja ta faze. Depois, adisiona só kel ki é novu.
-:::
+> **Dika:** `super()` ta dize "xama versun di nha pai pa es métudu". Uza `super().__init__()` pa ka repeti kódiku ki pai dja ta faze. Depois, adisiona só kel ki é novu.
 
 ## Eransa Múltiplu
 
@@ -187,9 +187,7 @@ cesaria.perfil()
 # ========================================
 ```
 
-:::callout{type=tip}
-**Dika:** Pa eransa **simples** (un só pai), uza `super().__init__()`. Pa eransa **múltiplu** (vários pais), uza `Pai.__init__(self, ...)` pa kada pai. É regra di ouru!
-:::
+> **Dika:** Pa eransa **simples** (un só pai), uza `super().__init__()`. Pa eransa **múltiplu** (vários pais), uza `Pai.__init__(self, ...)` pa kada pai. É regra di ouru!
 
 ## Method Resolution Order (MRO)
 
@@ -245,9 +243,7 @@ for klasi in Kaboverdianu.__mro__:
 #   → object
 ```
 
-:::callout{type=tip}
-**Dika:** Si bo ka sabi ki métudu ta ser xamadu, uza `Klasi.__mro__` o `Klasi.mro()` pa ve orden ezata di buska.
-:::
+> **Dika:** Si bo ka sabi ki métudu ta ser xamadu, uza `Klasi.__mro__` o `Klasi.mro()` pa ve orden ezata di buska.
 
 ## `isinstance()` i `issubclass()`
 
@@ -402,13 +398,21 @@ print(f"\nTotal médikus: {len(médikus)}")  # Total médikus: 1
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Ierarkia di Animál:** Kria un klasi bazi `Animál` ku `nomi` i `son`. Depois kria klasis filhu `Katchor`, `Gatu`, e `Galinha`, kada un ku si próriu métudu `fala()` ki ta imprimi si son. Kria un lista ku 5 animáis i fazi tudu fala.
+1. **Exersísiu 1 — Ierarkia di Animál:** Kria un klasi bazi `Animál` ku `nomi` i `son`. Depois kria klasis filhu `Katchor`, `Gatu`, i `Galinha`, kada un ku si próriu métudu `fala()` ki ta imprimi si son. Kria un lista ku 5 animáis i fazi tudu fala.
 
-2. **Exersísiu 2 — Kontis Bankáriu Espesializadu:** A parti di klasi `KontaBankáriu` di lisan anteror, kria `KontaPoupansa` (ku taxa di juros ki ta aplika mensalmenti) e `KontaKorrenti` (ku límiti di dezkobértu). Usa `super().__init__()`.
+2. **Exersísiu 2 — Kontis Bankáriu Espesializadu:** A parti di klasi `KontaBankáriu` di lisun anteror, kria `KontaPoupansa` (ku taxa di juros ki ta aplika mensalmenti) i `KontaKorrenti` (ku límiti di dezkobértu). Usa `super().__init__()`.
 
-3. **Exersísiu 3 — Eransa Múltiplu:** Kria klasi `Estudanti` (ku `nomi`, `kursu`) e `Atleta` (ku `nomi`, `modalidadi`). Depois kria `EstudantiAtleta` ki erda di dos. Testa ku nomes kaboverdianu i verifika ku `isinstance()`.
+3. **Exersísiu 3 — Eransa Múltiplu:** Kria klasi `Estudanti` (ku `nomi`, `kursu`) i `Atleta` (ku `nomi`, `modalidadi`). Depois kria `EstudantiAtleta` ki erda di dos. Testa ku nomes kaboverdianu i verifika ku `isinstance()`.
 
 4. **Exersísiu 4 — MRO Investigasun:** Kria 4 klasis ku eransa múltiplu i uza `.__mro__` pa preve i verifika orden di buska. Kria un métudu `identifika()` na kada klasi i testa kal versun ta ser xamadu.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -424,4 +428,4 @@ print(f"\nTotal médikus: {len(médikus)}")  # Total médikus: 1
 
 ---
 
-**Prósimu lisan:** [Polimorfismu i Abstrasun] →
+**Prósimu lisun:** [Polimorfismu i Abstrasan →](/courses/intro-python/lessons/polimorfismu-abstrasan)

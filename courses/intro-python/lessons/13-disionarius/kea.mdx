@@ -3,7 +3,7 @@ title: "Disionárius i Dict Comprehension"
 language: kea
 courseSlug: intro-python
 lessonSlug: disionarius
-slug: "disionarius-i-dict-comprehension"
+slug: "disionarius"
 module: 2
 lesson: 13
 duration: "30 min"
@@ -14,9 +14,11 @@ objectives:
   - "Skrebi dict comprehensions pa transforma dadus"
 ---
 
+# Disionárius i Dict Comprehension
+
 Imagina un livru di kontatusis: bo ta prokurea nomi di pesoa i enkontra es númeru di telefoni. Na Python, **dictionary** (disionáriu) funxiona ezatamente asim — é un kolesoens di **pares key-value** (xavi-valor).
 
-Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza prokurea rápidamente — perfis di utilizador, inventáriu di loja, konfigurasoens, e más.
+Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza prokurea rápidamente — perfis di utilizador, inventáriu di loja, konfigurasoens, i más.
 
 ## Kria Disionárius
 
@@ -54,9 +56,7 @@ print(dados)  # {'nomi': 'Carla', 'idadi': 20}
 # "Ana" disaparese sen ninhun erru!
 ```
 
-:::callout{type=tip}
-**Dika:** Keys tene ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da erru — kel podi kauza bugs sutíl!
-:::
+> **Dika:** Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da erru — kel podi kauza bugs sutíl!
 
 ## Asesa Valores
 
@@ -81,13 +81,11 @@ print(estudanti.get("email"))         # None (sen erru!)
 print(estudanti.get("email", "N/A"))  # N/A (valor padrun)
 ```
 
-:::callout{type=tip}
-**Dika:** Senpri uza `.get()` kuandu bo ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da erru.
-:::
+> **Dika:** Senpri uza `.get()` kuandu bo ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da erru.
 
 ## Modifika Disionárius
 
-Disionárius é **mutável** — bo podi adisiona, muda, e tira elementus:
+Disionárius é **mutável** — bo podi adisiona, muda, i tira elementus:
 
 ```python
 estudanti = {"nomi": "Lara", "idadi": 21, "ilha": "Sal"}
@@ -179,9 +177,7 @@ print(orijinal["nota"])   # 85 — Ka muda! ✓
 print(kopia_real["nota"]) # 95
 ```
 
-:::callout{type=tip}
-**Dika:** Senpri uza `.copy()` kuandu bo kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
-:::
+> **Dika:** Senpri uza `.copy()` kuandu bo kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
 
 ## Iterasun sobri Disionárius
 
@@ -339,11 +335,9 @@ for letra in palavra:
 print(kontador)  # {'m': 1, 'o': 1, 'r': 1, 'a': 2, 'b': 1, 'e': 1, 'z': 1}
 ```
 
-:::callout{type=tip}
-**Dika:** Padrón `.get(key, 0) + 1` é truqui klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipôs ta soma 1.
-:::
+> **Dika:** Padrón `.get(key, 0) + 1` é truqui klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipôs ta soma 1.
 
-### Merge (Junta) Disionárius
+### Merge (Djunta) Disionárius
 
 ```python
 # Junta disionárius ku ** (unpacking)
@@ -405,23 +399,29 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria un disionáriu `meu_perfil` ku bo nomi, idadi, ilha, e 3 hobis (kumo lista). Adisiona "email" dipôs, atualiza idadi, e mostra tudu pares ku un loop.
+1. **Exersísiu 1:** Kria un disionáriu `meu_perfil` ku bo nomi, idadi, ilha, i 3 hobis (kumo lista). Adisiona "email" dipôs, atualiza idadi, i mostra tudu pares ku un loop.
 
 2. **Exersísiu 2:** Dadu un lista di palavras: `["funana", "morabeza", "cachupa", "grogue", "sodadi", "morabeza", "funana", "funana"]`, kria un disionáriu di frekuénsia ki konta kantu vez kada palavra aparese. Mostra palavra ki más aparese.
 
-3. **Exersísiu 3:** Kria un disionáriu aninhadu ku 3 ilhas, kada un ku "populasun", "area_km2", e "kapital". Uza dict comprehension pa kria novu disionáriu só ku ilhas ki tene populasun asin di 50000. Kalkula densidadi populasional (populasun/area) di kada un.
+3. **Exersísiu 3:** Kria un disionáriu aninhadu ku 3 ilhas, kada un ku "populasun", "area_km2", i "kapital". Uza dict comprehension pa kria novu disionáriu só ku ilhas ki tene populasun asin di 50000. Kalkula densidadi populasional (populasun/area) di kada un.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
 - **Disionáriu** guarda pares **key: value** dentu di `{}`
-- Keys tene ki ser **úniku** i **imutável** — duplikadus ta sobreskrebi silensiosamenti
+- Keys ten ki ser **úniku** i **imutável** — duplikadus ta sobreskrebi silensiosamenti
 - `.get(key, padrun)` é más seguru ki `[]` — ka ta da KeyError
 - **Métodus prinsipal**: `.keys()`, `.values()`, `.items()`, `.copy()`, `.update()`, `.pop()`
 - `=` ta kria **referénsia** (mesmu objetu); `.copy()` ta kria kópia **independenti**
 - **Dict comprehension**: `{key: valor for item in iterável if kondisun}`
 - **Kontador di frekuénsia**: `.get(key, 0) + 1` é padrón klásiku
-- **Merge**: `{**d1, **d2}` ó `d1 | d2` (Python 3.9+) pa junta disionárius
+- **Merge**: `{**d1, **d2}` ó `d1 | d2` (Python 3.9+) pa djunta disionárius
 
 ---
 
-**Prósimu lisan:** [Konjuntus (Sets)] →
+**Prósimu lisun:** [Konjuntus (Sets) →](/courses/intro-python/lessons/konjuntus)

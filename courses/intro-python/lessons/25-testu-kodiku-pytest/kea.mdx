@@ -2,7 +2,7 @@
 title: "Testu di Kódiku ku pytest"
 language: kea
 courseSlug: intro-python
-lessonSlug: testu-kodiku
+lessonSlug: testu-kodiku-pytest
 slug: "testu-kodiku-pytest"
 module: 3
 lesson: 25
@@ -12,6 +12,8 @@ objectives:
   - "Roda testus ku pytest i interpreta rezultadus"
   - "Kompriendi pensamentu test-driven: testu → implementa → verifika"
 ---
+
+# Testu di Kódiku ku pytest
 
 Imajina ki Carla ta kria un programa pa kalkula presu di katchupa na si restoranti na Mindelo. Programa ta funxiona perfeitu — até ki ela muda un funsan i, sem sabi, kibra kálkulu di diskonto. Klientis ta paga más di ki devia durante un simana interu antis di algen nota!
 
@@ -78,7 +80,7 @@ def dividi(a: float, b: float) -> float | None:
     return a / b
 ```
 
-Gosi, kria un fixeru di testu. **Regra importanti:** nomi tene ki kumesa ku `test_` o akaba ku `_test.py`:
+Gosi, kria un fixeru di testu. **Regra importanti:** nomi ten ki kumesa ku `test_` o akaba ku `_test.py`:
 
 **`test_kalkuladora.py`:**
 
@@ -180,7 +182,7 @@ pytest ta mostra:
 
 Es informasun ta leva bo direitamenti pa bug!
 
-## Testa Funsoens di Lisan Anteriu
+## Testa Funsoens di Lisun Anteriu
 
 Vamus testa funsoens ki nôs dja kria na kursу:
 
@@ -303,9 +305,7 @@ pytest test_utils.py -v
 # ... tudu PASSED!
 ```
 
-:::callout{type=tip}
-**Dika:** `pytest.raises(ValueError)` é un forma espesiál di testa ki un funsan **deve** lansa un erru. Si funsan ka lansa ValueError, testu fayo!
-:::
+> **Dika:** `pytest.raises(ValueError)` é un forma espesiál di testa ki un funsan **deve** lansa un erru. Si funsan ka lansa ValueError, testu fayo!
 
 ## Pensamentu Test-Driven (TDD Leve)
 
@@ -385,9 +385,7 @@ pytest test_validador.py -v
 | Funsun di testu kumesa ku `test_` | `def test_soma():` |
 | Nomi deskritivi | `test_soma_ku_numerus_negativu` |
 
-:::callout{type=tip}
-**Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu melhor ki `test_1`.
-:::
+> **Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu melhor ki `test_1`.
 
 ## Struktura di Projetu ku Testus
 
@@ -419,17 +417,25 @@ nha_projetu/
 
 1. **Exersísiu 1:** Skrebi un funsan `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebi 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
 
-2. **Exersísiu 2:** Skrebi testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, e string ku un só karáter. Después implementa funsan.
+2. **Exersísiu 2:** Skrebi testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, i string ku un só karáter. Después implementa funsan.
 
 3. **Exersísiu 3 (TDD):** Primeru skrebi testus pa un funsan `klassifika_nota(nota: float) -> str` ki ta retorna:
    - "Exselenti" pa nota >= 16
    - "Bon" pa nota >= 12
    - "Sufisienti" pa nota >= 10
-   - "Insufisienti" pa nota < 10
+   - "Insufisienti" pa nota `< 10`
 
    Depois implementa funsan i roda `pytest` pa verifika.
 
 4. **Exersísiu 4:** Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa `ValueError` (pamodi nota negativu ka fazi sentidu). Uza `pytest.raises(ValueError)`.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -439,8 +445,8 @@ nha_projetu/
 - **Roda:** `pytest` (tudu) o `pytest -v` (verbozu ku nomi di kada testu)
 - **`pytest.raises(Error)`** — testa ki un funsan lansa un exsesun espesífiku
 - **Pensamentu TDD:** skrebi testu primeru → implementa → verifika → repeti
-- **Testus é investimentu** — más tempu gosi, menus bugs después!
+- **Testus é investimentu** — más tempu gosi, menus bugs dipos!
 
 ---
 
-**Prósimu lisan:** [Klasis i Objetis] →
+**Prósimu lisun:** [Klasis i Objetis →](/courses/intro-python/lessons/klasis-objetis)

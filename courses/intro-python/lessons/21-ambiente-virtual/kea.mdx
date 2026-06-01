@@ -15,7 +15,9 @@ objectives:
   - "Konfigura .gitignore pa ignora .venv/"
 ---
 
-Imajina bo tene dos kuzinha: un pa prepara cachupa i otu pa prepara pastéis. Kada kuzinha tene ses própriu ingredientis i utensilhos — es nau ta mistura. **Ambientis virtual** na Python funsiona exatamenti asim: kada projetu tene ses própriu "kuzinha" ku ses pakotis, sin interferi ku otus projetus.
+# Ambiente Virtual i pip
+
+Imajina bo tene dos kuzinha: un pa prepara cachupa i otu pa prepara pastéis. Kada kuzinha tene ses própriu ingredientis i utensilhos — es ka ta mistura. **Ambientis virtual** na Python funsiona exatamenti asim: kada projetu tene ses própriu "kuzinha" ku ses pakotis, sin interferi ku otus projetus.
 
 ## Pamodi Ambientis Virtual É Esensial?
 
@@ -47,8 +49,8 @@ Sin ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — pa
 **Problemas reaís ki ta kontesi sin venv:**
 
 - Bo atualiza un pakotu pa Projetu B i Projetu A ta kéba
-- Bo nau sabi kual pakotis bo projetu realmenti presiza (tene 200 instaladu global!)
-- Kuandu bo manda projetu pa kolega, el nau konsigi roda pamodi falta pakotis
+- Bo ka sabi kual pakotis bo projetu realmenti presiza (tene 200 instaladu global!)
+- Kuandu bo manda projetu pa kolega, el ka konsigi roda pamodi falta pakotis
 
 ## Fluxu Kompletu: Kria → Ativa → Instala → Freeze
 
@@ -88,9 +90,7 @@ Package    Version
 pip        24.0
 ```
 
-:::callout{type=tip}
-**Dika:** Si bo ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selecioná kómu interpretador Python. Klika "Yes"!
-:::
+> **Dika:** Si bo ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selecioná kómu interpretador Python. Klika "Yes"!
 
 ### Pasu 3: Instala Pakotis
 
@@ -157,13 +157,11 @@ pip install -r requirements.txt
 python main.py
 ```
 
-:::callout{type=tip}
-**Dika:** `pip install -r requirements.txt` ta lé kel ficheru i instala tudu pakotu listadu, ku versaun exatu. É kómu un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
-:::
+> **Dika:** `pip install -r requirements.txt` ta lé kel ficheru i instala tudu pakotu listadu, ku versaun exatu. É kómu un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
 
 ## .gitignore: Nunka Manda .venv pa Git!
 
-Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **nau divi bai pa git**:
+Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka divi bai pa git**:
 
 ```bash
 # .gitignore
@@ -182,8 +180,8 @@ gestor_notas/
 ├── modulus/             ✓ ta bai
 │   ├── __init__.py
 │   └── estudanti.py
-├── .venv/               ✗ NAU ta bai (na .gitignore)
-└── .env                 ✗ NAU ta bai (segredus!)
+├── .venv/               ✗ KA ta bai (na .gitignore)
+└── .env                 ✗ KA ta bai (segredus!)
 ```
 
 ## Errus Komun i Soluson
@@ -253,15 +251,21 @@ deactivate
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Priméru Ambiente** — Kria un pasta `teste_venv/`, kria un ambiente virtual, ativa, instala `requests`, e verifica ku `pip list`. Dipos dezativa.
+1. **Exersísiu 1: Priméru Ambiente** — Kria un pasta `teste_venv/`, kria un ambiente virtual, ativa, instala `requests`, i verifica ku `pip list`. Dipos dezativa.
 
-2. **Exersísiu 2: Partilha Simuladu** — Na pasta di exersísiu 1, fazi `pip freeze > requirements.txt`. Dipos apaga `.venv/`, kria di nóvu, ativa, e instala ku `pip install -r requirements.txt`. Verifica ki tudu sta di volta!
+2. **Exersísiu 2: Partilha Simuladu** — Na pasta di exersísiu 1, fazi `pip freeze > requirements.txt`. Dipos apaga `.venv/`, kria di nóvu, ativa, i instala ku `pip install -r requirements.txt`. Verifica ki tudu sta di volta!
 
 3. **Exersísiu 3: Projetu Kompletu** — Kria un projetu "conversor_moeda" ku:
    - `.venv/` (kreadu ku `python -m venv`)
    - `.gitignore` (ku `.venv/` i `.env`)
    - `requirements.txt` (ku `requests` instaladu)
    - `main.py` ki importa requests i fazi un `print("Projetu prontu!")`
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -277,4 +281,4 @@ deactivate
 
 ---
 
-**Prósimu lisan:** [Operasoens ku Ficheru] →
+**Prósimu lisun:** [Operasoens ku Ficheru →](/courses/intro-python/lessons/operasoens-ficheru)

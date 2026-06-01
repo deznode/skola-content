@@ -14,11 +14,11 @@ objectives:
   - "Kria klasis di exsesun personalizadu pa bo projetu"
 ---
 
-Na lisan 3, nôs prende a **lé** errus. Gosi nôs ta prende a **trata** kes — a fazi programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
+# Tratamentu di Erru
 
-Imajina un kaixa eletrónika na Praia ki ta para tudu vez ki algen ta mete numeru eradu. Kel ka é atxeitável! Programa profisionál tene ki reagí: mostra mensajen klaru, pidi di novu, o sigui ku otru alternativa.
+Na lisun 3, nôs prende a **lé** errus. Gosi nôs ta prende a **trata** kes — a fazi programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
 
-<Figure src="../../infographics/13-try-except-fluxu.png" caption="Fluxu di try / except / else / finally na Python" />
+Imajina un kaixa eletrónika na Praia ki ta para tudu vez ki algen ta mete numeru eradu. Kel ka é atxeitável! Programa profisionál ten ki reagí: mostra mensajen klaru, pidi di novu, o sigui ku otru alternativa.
 
 ## Báziku: try/except
 
@@ -54,13 +54,13 @@ def dividi(a, b):
         print("Erru: ka pode dividi pa zero!")
         return None
     except TypeError:
-        print("Erru: argumеntus tene ki ser numerus!")
+        print("Erru: argumеntus ten ki ser numerus!")
         return None
     return rezultadu
 
 print(dividi(10, 2))    # 5.0
 print(dividi(10, 0))    # Erru: ka pode dividi pa zero! → None
-print(dividi("a", 2))   # Erru: argumеntus tene ki ser numerus! → None
+print(dividi("a", 2))   # Erru: argumеntus ten ki ser numerus! → None
 ```
 
 ### Múltiplu Handlers ku Asеsu a Mensajen
@@ -79,9 +79,7 @@ except Exception as e:
     print(f"Erru inesperadu: {e}")
 ```
 
-:::callout{type=tip}
-**Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
-:::
+> **Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
 
 ## else — Só Roda Si Ka Teve Erru
 
@@ -162,11 +160,11 @@ def lé_konfigurason_melhor(kaminhu):
         return None
 ```
 
-:::callout{type=tip}
-**Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
-:::
+> **Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
 
 ## Fluxu Konpletu: try/except/else/finally
+
+![Fluxu di try / except / else / finally](../../infographics/13-try-except-fluxu.png)
 
 ```python
 def transferi_saldу(konta_origem, konta_destinu, montanti):
@@ -176,7 +174,7 @@ def transferi_saldу(konta_origem, konta_destinu, montanti):
     try:
         # Kódiku ki pode faya
         if montanti <= 0:
-            raise ValueError("Montanti tene ki ser pozitivu!")
+            raise ValueError("Montanti ten ki ser pozitivu!")
         if montanti > konta_origem["saldу"]:
             raise ValueError("Saldу insufisienti!")
 
@@ -215,7 +213,7 @@ def kalkula_média(notas):
     if not notas:
         raise ValueError("Lista di notas ka pode ser váziu!")
     if not all(isinstance(n, (int, float)) for n in notas):
-        raise TypeError("Tudu elementu tene ki ser numeru!")
+        raise TypeError("Tudu elementu ten ki ser numeru!")
     return sum(notas) / len(notas)
 
 # Uza ku try/except
@@ -227,7 +225,7 @@ except ValueError as e:
 try:
     média = kalkula_média([85, 90, "abc", 78])
 except TypeError as e:
-    print(f"Problema: {e}")  # Problema: Tudu elementu tene ki ser numeru!
+    print(f"Problema: {e}")  # Problema: Tudu elementu ten ki ser numeru!
 ```
 
 ### Kuandu Uza `raise`?
@@ -265,6 +263,8 @@ print(estudanti)  # {'nomi': 'Djina', 'idadi': 22}
 ## Exsesoens Personalizadu
 
 Pa projetus grandi, bo pode kria bo própriu klasis di exsesun. Es ta fazi kódiku más klaru i fásil di manté:
+
+> **Forward-ref:** Sintaxi di `class` é o tópiku di **Módulu 4** (lisun 26 +). Pa gosi, só odja ki bo pode kria un tipu novu di erru ku ~3 linha di kódiku — detalhi di klasis ta ben dipôs.
 
 ```python
 # Defini exsesoens personalizadu
@@ -357,7 +357,7 @@ except FileNotFoundError as e:
 
 ## Ierarkia di Exsesoens (Vizun Rápidu)
 
-<Figure src="../../infographics/14-ierarakia-di-exsesun.png" caption="Ierarkia di exsesoens na Python — ValueError, TypeError, i más" />
+![Ierarakia di exsesoens di Python — BaseException, Exception, ValueError, TypeError, etc.](../../infographics/14-ierarakia-di-exsesun.png)
 
 ```
 BaseException
@@ -374,9 +374,7 @@ BaseException
     └── ... (mutu más)
 ```
 
-:::callout{type=tip}
-**Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
-:::
+> **Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
 
 ## Tenta Gosi 🏋️
 
@@ -386,7 +384,15 @@ BaseException
 
 3. **Exersísiu 3:** Kria un exsesun personalizadu `IdadiInváliduError` i un funsan `valida_idadi(idadi)` ki ta lansa el si idadi é negativu o maior ki 150. Testa ku try/except.
 
-4. **Exersísiu 4:** Skrebi un programa ki ta lé un ficheru di notas (un numeru por linha), kaptura `FileNotFoundError` si ficheru ka ezisti, kaptura `ValueError` pa linhas ki ka é numeru, e na final (`else`) mostra média das notas válidus.
+4. **Exersísiu 4:** Skrebi un programa ki ta lé un ficheru di notas (un numeru por linha), kaptura `FileNotFoundError` si ficheru ka ezisti, kaptura `ValueError` pa linhas ki ka é numeru, i na final (`else`) mostra média das notas válidus.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -401,4 +407,4 @@ BaseException
 
 ---
 
-**Prósimu lisan:** [Annotasoens di Tipu] →
+**Prósimu lisun:** [Annotasoens di Tipu →](/courses/intro-python/lessons/annotasoens-tipu)

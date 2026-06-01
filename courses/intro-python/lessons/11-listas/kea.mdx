@@ -3,7 +3,7 @@ title: "Listas i List Comprehension"
 language: kea
 courseSlug: intro-python
 lessonSlug: listas
-slug: "listas-i-list-comprehension"
+slug: "listas"
 module: 2
 lesson: 11
 duration: "30 min"
@@ -14,9 +14,11 @@ objectives:
   - "Evita pitfall di slice assignment ki ta spredi karaktéris"
 ---
 
+# Listas i List Comprehension
+
 Imagina bo tene un lista di ilhas ki bo kre vizita, un lista di presus di merkadu, ó nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesoens di dadus na orden.
 
-Lista é un di estruturas más usadu na Python — é **mutável** (bo podi muda dipôs di kria), **ordenadu** (elementus ta mantene es posisun), e podi guarda **kualker tipu di dadu**.
+Lista é un di estruturas más usadu na Python — é **mutável** (bo podi muda dipôs di kria), **ordenadu** (elementus ta mantene es posisun), i podi guarda **kualker tipu di dadu**.
 
 ## Kria Listas
 
@@ -39,9 +41,7 @@ print(ilhas)   # ['Santiago', 'São Vicente', 'Sal', 'Fogo', 'Santo Antão']
 print(len(ilhas))  # 5
 ```
 
-:::callout{type=tip}
-**Dika:** Lista podi guarda kualker tipu di dadu — strings, númerus, booleans, e até otrus listas!
-:::
+> **Dika:** Lista podi guarda kualker tipu di dadu — strings, númerus, booleans, i até otrus listas!
 
 ## Indexasun: Asesa Elementus
 
@@ -124,9 +124,7 @@ frutas[1:] = ["koku"]
 print(frutas)  # ['manga', 'koku']
 ```
 
-:::callout{type=tip}
-**Dika:** Kuandu uza slice assignment, senpri atribui un **lista**, nunka un string diretu. `frutas[1:] = ["koku"]` é koretu, `frutas[1:] = "koku"` ta spredi karaktéris!
-:::
+> **Dika:** Kuandu uza slice assignment, senpri atribui un **lista**, nunka un string diretu. `frutas[1:] = ["koku"]` é koretu, `frutas[1:] = "koku"` ta spredi karaktéris!
 
 ## Métodus di Lista
 
@@ -196,9 +194,7 @@ print(notis)           # [85, 92, 78, 95, 88] (ka muda!)
 print(notis_ordenadu)  # [78, 85, 88, 92, 95]
 ```
 
-:::callout{type=tip}
-**Dika:** `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bo ka kre perdi lista orijinal.
-:::
+> **Dika:** `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bo ka kre perdi lista orijinal.
 
 ## Otrus Métodus Útil
 
@@ -226,7 +222,7 @@ print(max(notis))    # 95
 
 ## List Comprehension
 
-<Figure src="../../infographics/08-list-comprehension-anatomia.png" caption="Anatomia di list comprehension — sintaxi, ezemplus, i komparasun ku loop normal" />
+![Anatomia di list comprehension: [espresun for item in iterável if kondisun]](../../infographics/08-list-comprehension-anatomia.png)
 
 List comprehension é un manera eleganti i konpaktu di kria listas novas. É un di featuris más sabi di Python:
 
@@ -305,15 +301,24 @@ for linia in tabela:
 
 ```python
 # === Lista di Estudantis di Programasun ===
-estudantis = ["Djina", "Nilton", "Edna", "Kelvin", "Lara", "Nuno"]
-notis = [88, 72, 95, 65, 91, 78]
+# Kada estudanti é un disionáriu {nomi, nota} — nu ta odja disionárius mas detalha na lisun 13.
+# Pa gosi, só odja ki ta permiti agrupa nomi + nota djuntu na mesmu elementu.
+estudantis = [
+    {"nomi": "Djina", "nota": 88},
+    {"nomi": "Nilton", "nota": 72},
+    {"nomi": "Edna", "nota": 95},
+    {"nomi": "Kelvin", "nota": 65},
+    {"nomi": "Lara", "nota": 91},
+    {"nomi": "Nuno", "nota": 78},
+]
 
 # Estudantis ki pasa (nota >= 70)
-aprovadus = [estudantis[i] for i in range(len(estudantis)) if notis[i] >= 70]
+aprovadus = [e["nomi"] for e in estudantis if e["nota"] >= 70]
 print(f"Aprovadus: {aprovadus}")
 # Aprovadus: ['Djina', 'Nilton', 'Edna', 'Lara', 'Nuno']
 
-# Média di turma
+# Extrai só notis pa kalkulus
+notis = [e["nota"] for e in estudantis]
 media = sum(notis) / len(notis)
 print(f"Média di turma: {media:.1f}")  # Média di turma: 81.5
 
@@ -322,12 +327,11 @@ top3_notis = sorted(notis, reverse=True)[:3]
 print(f"Top 3 notis: {top3_notis}")  # Top 3 notis: [95, 91, 88]
 
 # Adisiona novu estudanti
-estudantis.append("Gil")
-notis.append(83)
+estudantis.append({"nomi": "Gil", "nota": 83})
 print(f"Total estudantis: {len(estudantis)}")  # Total estudantis: 7
 
-# Kria lista formatadu
-rezumu = [f"{estudantis[i]}: {notis[i]}" for i in range(len(estudantis))]
+# Kria lista formatadu — list comprehension limpu, sin range(len())
+rezumu = [f"{e['nomi']}: {e['nota']}" for e in estudantis]
 for r in rezumu:
     print(r)
 ```
@@ -345,7 +349,13 @@ for r in rezumu:
    - Kria lista ku presus ku 15% diskóntu
    - Kria lista ku presus konvertidu pa EUR (1 EUR = 110 ECV)
 
-3. **Exersísiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, e kria lista di dias "kenti" (asin di 30 graus).
+3. **Exersísiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, i kria lista di dias "kenti" (asin di 30 graus).
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -354,9 +364,10 @@ for r in rezumu:
 - **Slicing** `[start:stop:step]` ta korta pedasus — stop é exclusivu
 - **Mutabilidadi** signifika ki bo podi muda elementus dipôs di kria
 - **Métodus**: `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`
+- **`sort()` vs `sorted()`**: `lista.sort()` ta muda lista orijinal in-place (retorna `None`); `sorted(lista)` ta retorna un lista nova (orijinal ka muda)
 - **List comprehension**: `[espresun for item in iterável if kondisun]` — manera eleganti di kria listas
 - **KUIDADU**: Slice assignment ku string ta spredi karaktéris — senpri atribui un lista
 
 ---
 
-**Prósimu lisan:** [Tuplas] →
+**Prósimu lisun:** [Tuplas →](/courses/intro-python/lessons/tuplas)

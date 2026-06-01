@@ -15,9 +15,11 @@ objectives:
   - "Intendi dynamic typing — variáveis podi muda di tipu"
 ---
 
-Tudu lingua tene regras. Kriolu tene gramátika, e Python tene **syntax** (sintaxi). Si bo skrebi un frazi ku palavras fora di orden, ninguén ta intendi. Mesmu kuza ku kódiku — si bo ka sigui regras di Python, el ta da erru.
+# Sintaxi i Semantika
 
-Nês lisan, nôs ta prende regras fundamentais di Python: komu skrebi komentárius, pamodi letras maiúskulas e minúskulas importa, e kumo Python uza indentasun pa organiza kódiku.
+Tudu lingua tene regras. Kriolu tene gramátika, i Python tene **syntax** (sintaxi). Si bo skrebi un frazi ku palavras fora di orden, ninguén ta intendi. Mesmu kuza ku kódiku — si bo ka sigui regras di Python, el ta da erru.
+
+Nês lisun, nôs ta prende regras fundamentais di Python: komu skrebi komentárius, pamodi letras maiúskulas i minúskulas importa, i kumo Python uza indentasun pa organiza kódiku.
 
 ## Syntax vs. Semantics
 
@@ -46,9 +48,7 @@ media = (nota1 + nota2) / 3  # Erru di lójika! Devia ser / 2
 print(media)  # 59.0 — resultado eradu, ma Python ka reklama
 ```
 
-:::callout{type=tip}
-**Dika:** Python só ta deteta errus di syntax. Errus di lójika (semantics) é bo responsabilidadi — testa senpri bo kódiku!
-:::
+> **Dika:** Python só ta deteta errus di syntax. Errus di lójika (semantics) é bo responsabilidadi — testa senpri bo kódiku!
 
 ## Komentárius ku `#`
 
@@ -71,19 +71,17 @@ Komentárius é sabi pa:
 - Desativa kódiku temporariamenti (pa testa)
 
 ```python
-# Bo podi desativa un linja di kódiku pon # na frenti
+# Bo podi desativa un linha di kódiku pon # na frenti
 presu = 1500
 # presu = presu * 1.10  # Desativadu — ka ta aplika desconto gosi
 print(f"Presu: {presu} ECV")
 ```
 
-:::callout{type=tip}
-**Dika:** Komentárius sabi ta splika **pamodi**, ka **kuzê**. En vez di `# soma a + b`, skrebi `# kalkula total di venda`.
-:::
+> **Dika:** Komentárius sabi ta splika **pamodi**, ka **kuzê**. En vez di `# soma a + b`, skrebi `# kalkula total di venda`.
 
 ## Case Sensitivity
 
-Python é **case sensitive** — el ta distingui letras maiúskulas di minúskulas. `nomi`, `Nomi` e `NOMI` é **três variáveis diferenti**.
+Python é **case sensitive** — el ta distingui letras maiúskulas di minúskulas. `nomi`, `Nomi` i `NOMI` é **três variáveis diferenti**.
 
 ```python
 nomi = "Maria"
@@ -111,13 +109,11 @@ ativo = True   # Koretu
 # ativo = true  # NameError: name 'true' is not defined
 ```
 
-:::callout{type=tip}
-**Dika:** Na prátika, skrebi variáveis senpri ku letras minúskulas: `nomi`, `idadi`, `nota_final`. É konvensun di Python (PEP 8).
-:::
+> **Dika:** Na prátika, skrebi variáveis senpri ku letras minúskulas: `nomi`, `idadi`, `nota_final`. É konvensun di Python (PEP 8).
 
 ## Indentasun — Blokus di Kódiku
 
-Na otu linguajens (Java, C), bo ta uza `{ }` pa defini blokus di kódiku. Na Python, nôs ta uza **indentasun** — spasus na kumessu di linja.
+Na otu linguajens (Java, C), bo ta uza `{ }` pa defini blokus di kódiku. Na Python, nôs ta uza **indentasun** — spasus na kumessu di linha.
 
 Regra é simples: **4 spasus** pa kada nível di indentasun.
 
@@ -160,19 +156,17 @@ if nota >= 70:
     if nota >= 90:
         print("Exselenti!")     # nível 2 (8 spasus)
     else:
-        print("Bon trabadju!")  # nível 2 (8 spasus)
+        print("Bon trabalhu!")  # nível 2 (8 spasus)
 ```
 
-:::callout{type=tip}
-**Dika:** Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all". Assin bo ta vê si bo indentasun sta koretu.
-:::
+> **Dika:** Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all". Assin bo ta vê si bo indentasun sta koretu.
 
-## Kontinuasun di Linja ku `\`
+## Kontinuasun di Linha ku `\`
 
-Ás vezis un linja di kódiku é mutu longu. Bo podi kebra el ku **backslash** (`\`) pa kontinua na prósimu linja.
+Ás vezis un linha di kódiku é mutu longu. Bo podi kebra el ku **backslash** (`\`) pa kontinua na prósimu linha.
 
 ```python
-# Linja mutu longu — difísil di lê
+# Linha mutu longu — difísil di lê
 total = 100 + 200 + 300 + 400 + 500 + 600 + 700 + 800 + 900 + 1000
 
 # Melhor — uza \ pa kebra
@@ -184,7 +178,7 @@ print(total)  # 5500
 Dentu di parentesis, kolxetis ó xavis, bo ka presiza `\` — Python ta intendi automátikamenti:
 
 ```python
-# Parentesis ta permiti kebra di linja sen \
+# Parentesis ta permiti kebra di linha sen \
 ilhas = (
     "Santiago",
     "São Vicente",
@@ -202,9 +196,7 @@ notus = [
 ]
 ```
 
-:::callout{type=tip}
-**Dika:** Na prátika, é melhor uza parentesis pa kebra linhas longas. É más limpu ki `\`.
-:::
+> **Dika:** Na prátika, é melhor uza parentesis pa kebra linhas longas. É más limpu ki `\`.
 
 ## Dynamic Typing
 
@@ -226,14 +218,14 @@ print(type(valor))  # <class 'bool'>
 
 Mesmu variável `valor` muda di `int` pa `str` pa `float` pa `bool` — Python ka reklama!
 
-Kel é diferenti di linguajens kuma Java ó C++, undi bo tene ki deklara tipu:
+Kel é diferenti di linguajens kuma Java ó C++, undi bo ten ki deklara tipu:
 
 ```python
 # Na Python (dynamic typing):
 nomi = "Ana"          # Python sabi ki é str
 
 # Na Java (static typing) — só pa komparasun:
-# String nomi = "Ana";  // Bo tene ki dizi ki é String
+# String nomi = "Ana";  // Bo ten ki dizi ki é String
 ```
 
 Funson `type()` é bo amigu pa verifica tipu di kualker valor:
@@ -248,9 +240,7 @@ print(type(nomi_pratu))     # <class 'str'>
 print(type(ten_grogue))     # <class 'bool'>
 ```
 
-:::callout{type=tip}
-**Dika:** Dynamic typing ta da liberdadi, ma tanbé responsabilidadi. Tenta ka muda tipu di un variável sen razun — kódiku ta fika konfuzu.
-:::
+> **Dika:** Dynamic typing ta da liberdadi, ma tanbé responsabilidadi. Tenta ka muda tipu di un variável sen razun — kódiku ta fika konfuzu.
 
 ## Errus Komuns di Sintaxi
 
@@ -301,9 +291,9 @@ print("Ola")
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Skrebi un programa ki kria variável `nomi` ku bo nomi, `ilha` ku nomi di un ilha di Kabu Verdi, e `populasun` ku un númeru. Imprimi tudu ku `print()` e testa `type()` di kada un.
+1. **Exersísiu 1:** Skrebi un programa ki kria variável `nomi` ku bo nomi, `ilha` ku nomi di un ilha di Kabu Verdi, i `populasun` ku un númeru. Imprimi tudu ku `print()` i testa `type()` di kada un.
 
-2. **Exersísiu 2:** Skrebi kel kódiku e koriji errus (ten 3 errus!):
+2. **Exersísiu 2:** Skrebi kel kódiku i koriji errus (ten 3 errus!):
 ```python
 Nomi = "Djina"
 if nomi == "Djina":
@@ -311,17 +301,23 @@ print("Ola, Djina!")
    print("Ben-vindu!")
 ```
 
-3. **Exersísiu 3:** Kria un variável `total` ki soma 15 númerus (di 100 a 1500, di 100 en 100). Uza `\` ó parentesis pa kebra linja. Imprimi resultado.
+3. **Exersísiu 3:** Kria un variável `total` ki soma 15 númerus (di 100 a 1500, di 100 en 100). Uza `\` ó parentesis pa kebra linha. Imprimi resultado.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
 - **Syntax** é regras di kumo skrebi kódiku; **semantics** é kuzê ki kódiku signifika
 - **Komentárius** (`#`) ta djuda dokumenta kódiku — Python ta ignora es
-- Python é **case sensitive**: `nomi` e `Nomi` é variáveis diferenti
+- Python é **case sensitive**: `nomi` i `Nomi` é variáveis diferenti
 - **Indentasun** (4 spasus) ta defini blokus di kódiku — ka ten `{ }` na Python
 - Uza `\` ó parentesis pa **kontinua linhas longas**
 - **Dynamic typing**: variáveis podi muda di tipu; uza `type()` pa verifica
 
 ---
 
-**Prósimu lisan:** [Variáveis e Tipu Dinámiku] →
+**Prósimu lisun:** [Variáveis i Tipu Dinámiku →](/courses/intro-python/lessons/variaveis)

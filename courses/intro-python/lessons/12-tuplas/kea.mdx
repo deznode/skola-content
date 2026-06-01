@@ -14,11 +14,11 @@ objectives:
   - "Sabi kuandu uza tuple vs lista"
 ---
 
+# Tuplas
+
 Tuples é "prima" di listas — tanbé ta guarda kolesoens ordenadu di elementus, ma ku un diferensa fundamental: **tuples é imutável**. Una vez ki bo kria un tuple, bo ka podi muda es elementus.
 
-Kel ta parese un limitasun, ma na verdadi é un vantajen: tuples é más rápidu, más seguru, e perfeitu pa dadus ki ka deve muda (kumo koordinadas geográfikas, datas di nasimentu, ó konfigurasoens fixas).
-
-<Figure src="../../infographics/07-mutavel-vs-imutavel.png" caption="Mutavel vs imutavel na Python — kual tipu bo podi muda?" />
+Kel ta parese un limitasun, ma na verdadi é un vantajen: tuples é más rápidu, más seguru, i perfeitu pa dadus ki ka deve muda (kumo koordinadas geográfikas, datas di nasimentu, ó konfigurasoens fixas).
 
 ## Kria Tuples
 
@@ -49,11 +49,11 @@ tupla = tuple(lista)
 print(tupla)  # (1, 2, 3, 4, 5)
 ```
 
-:::callout{type=tip}
-**Dika:** Pa kria tuple ku un só elementu, senpri poe vírgula: `("Sal",)`. Sen vírgula, Python ta trata kumo string dentu di paréntesis.
-:::
+> **Dika:** Pa kria tuple ku un só elementu, senpri poe vírgula: `("Sal",)`. Sen vírgula, Python ta trata kumo string dentu di paréntesis.
 
 ## Imutabilidadi: Ka Podi Muda!
+
+![Tipus mutável (lista, dict, set) vs imutável (tuple, str, int)](../../infographics/07-mutavel-vs-imutavel.png)
 
 Diferensa prinsipal entre tuple i lista: **ka podi muda tuple dipôs di kria**.
 
@@ -179,9 +179,7 @@ print(a)  # Mindelo
 print(b)  # Praia
 ```
 
-:::callout{type=tip}
-**Dika:** Unpacking di tuples é manera más limpu di troka valores di variáveis — ka presiza di variável temporáriu!
-:::
+> **Dika:** Unpacking di tuples é manera más limpu di troka valores di variáveis — ka presiza di variável temporáriu!
 
 ### Star Unpacking (*) — Pega "Restu"
 
@@ -300,11 +298,17 @@ for _, destinu, durasun, presu in voos_praia:
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria un tuple `meu_perfil` ku bo nomi, idadi, ilha, e kursu. Uza unpacking pa atribui kada valor a un variável separadu i imprimi ku f-string.
+1. **Exersísiu 1:** Kria un tuple `meu_perfil` ku bo nomi, idadi, ilha, i kursu. Uza unpacking pa atribui kada valor a un variável separadu i imprimi ku f-string.
 
-2. **Exersísiu 2:** Dadu kel tuple: `dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)`, uza star unpacking pa separa nomi, email, e notas. Kalkula i mostra: média, nota másimu, e nota mínimu.
+2. **Exersísiu 2:** Dadu kel tuple: `dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)`, uza star unpacking pa separa nomi, email, i notas. Kalkula i mostra: média, nota másimu, i nota mínimu.
 
 3. **Exersísiu 3:** Kria un tuple di tuples ku informasun di 4 ilhas: `(nomi, populasun, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Kalkula populasun total i ilha ku más pesoas.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -319,4 +323,4 @@ for _, destinu, durasun, presu in voos_praia:
 
 ---
 
-**Prósimu lisan:** [Disionárius i Dict Comprehension] →
+**Prósimu lisun:** [Disionárius i Dict Comprehension →](/courses/intro-python/lessons/disionarius)

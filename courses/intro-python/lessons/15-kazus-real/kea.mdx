@@ -15,15 +15,15 @@ objectives:
   - "Kombina múltiplu estruturas di dadus pa rezolvi problemas real"
 ---
 
-Nôs dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, e konjuntus. Gosi é óra di pô tudu djuntu! Na kel lisan li, nôs ta rezolvi problemas reais ki bo ta nkontra na dia-a-dia komu programador. Kada ezemplu ta mostra kumé ki bo ta skolhe estrutura sertu pa situasun sertu.
+# Kazus Real ku Estruturas di Dadus
 
-<Figure src="../../infographics/06-4-estruturas-komparasun.png" caption="4 estruturas di dadus di Python: lista, tupla, disionariu, i konjuntu" />
+Nôs dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, i konjuntus. Gosi é óra di pô tudu djuntu! Na kel lisun li, nôs ta rezolvi problemas reais ki bo ta nkontra na dia-a-dia komu programador. Kada ezemplu ta mostra kumé ki bo ta skolhe estrutura sertu pa situasun sertu.
 
-<Figure src="../../infographics/09-kuandu-uza-kual.png" caption="Kual estrutura di dadus bo dibi uza? Guia rapidu di desizun" />
+![Komparasun di 4 estruturas: lista, tuple, disionáriu, konjuntu](../../infographics/06-4-estruturas-komparasun.png)
 
 ## Lista di Tarefa (To-Do List)
 
-Listas é perfeitu pa jestaun di tarefas -- bo podi djunta, elimina, e reorganiza elementus. Nôs ta kria un sistema simples di tarefas:
+Listas é perfeitu pa jestaun di tarefas -- bo podi djunta, elimina, i reorganiza elementus. Nôs ta kria un sistema simples di tarefas:
 
 ```python
 # Sistema di tarefa pa un estudanti na Praia
@@ -72,9 +72,7 @@ urgenti = [tarefa for tarefa, prio in tarefas_ku_prioridadi if prio == "alta"]
 print(f"⚠️ Tarefas urgenti: {urgenti}")
 ```
 
-:::callout{type=tip}
-**Dika:** Listas é ótimus kuandu bo presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasun.
-:::
+> **Dika:** Listas é ótimus kuandu bo presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasun.
 
 ## Nota di Estudanti (Student Grades)
 
@@ -167,7 +165,7 @@ def buska_produktu(inventariu, nomi):
     if produktu:
         print(f"✅ '{nomi}' disponível: {produktu['kantidadi']} {produktu['unidadi']} a {produktu['presu']} ECV")
     else:
-        print(f"❌ '{nomi}' nau ta ezisti na inventáriu")
+        print(f"❌ '{nomi}' ka ta ezisti na inventáriu")
 
 buska_produktu(inventariu, "manga")
 buska_produktu(inventariu, "laranja")
@@ -177,7 +175,7 @@ buska_produktu(inventariu, "laranja")
 # Atualiza stock (venda i repozisun)
 def vendi(inventariu, produktu, kantidadi):
     if produktu not in inventariu:
-        print(f"Erru: '{produktu}' nau ezisti!")
+        print(f"Erru: '{produktu}' ka ezisti!")
         return
     if inventariu[produktu]["kantidadi"] < kantidadi:
         print(f"Erru: Stock insufisiente di '{produktu}'!")
@@ -196,9 +194,7 @@ for prod, info in stock_baxu.items():
     print(f"  {prod}: só {info['kantidadi']} {info['unidadi']} resta!")
 ```
 
-:::callout{type=tip}
-**Dika:** Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` na vés di `KeyError` si produktu nau ezisti.
-:::
+> **Dika:** Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` na vés di `KeyError` si produktu ka ezisti.
 
 ## Removi Duplikadus (Sets + Lists)
 
@@ -271,7 +267,7 @@ Gosi nôs ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolvi un pr
 ```python
 # 🎵 Sistema di Jestaun di Festival di Músika na Praia
 
-# TUPLAS -- informasoens fixu di kada artista (nau ta muda)
+# TUPLAS -- informasoens fixu di kada artista (ka ta muda)
 artistas = [
     ("Cesária Évora", "morna", "São Vicente"),
     ("Gil Semedo", "funana", "Santiago"),
@@ -334,24 +330,30 @@ print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 
 ## Rezumu: Kuandu Skolhe Kual Estrutura
 
+![Decision tree: kual estrutura di dadus uza?](../../infographics/09-kuandu-uza-kual.png)
+
 | Estrutura | Uza Kuandu... | Ezemplu |
 |-----------|--------------|---------|
 | **Lista** | Presiza órdin, modifikasun, repetisun | Tarefas, notas, playlist |
-| **Tupla** | Dadus fixu ki nau ta muda | Koordenadas, registrus, retornu múltiplu |
+| **Tupla** | Dadus fixu ki ka ta muda | Koordenadas, registrus, retornu múltiplu |
 | **Disionáriu** | Mapeia xavi pa valór, busca rápidu | Inventáriu, konfigasoens, kontadoris |
 | **Set** | Elementus úniku, membership testing, operasoens di konjuntus | Deduplikasun, filtragem, komparasun |
 
-:::callout{type=tip}
-**Dika:** Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus podi repeti?" (lista). "Nha dadus nau podi muda?" (tupla). "Nha dadus presiza ser úniku?" (set).
-:::
+> **Dika:** Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus podi repeti?" (lista). "Nha dadus ka podi muda?" (tupla). "Nha dadus presiza ser úniku?" (set).
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Kontrol di Presensia** -- Kria un sistema ondi bo djunta nomi di estudantis ki ta txiga na aula (podi repeti si txiga múltiplu dia). Uza un set pa sabi kuantus estudantis úniku tinha, e un lista pa mante registru kompletu.
+1. **Exersísiu 1: Kontrol di Presensia** -- Kria un sistema ondi bo djunta nomi di estudantis ki ta txiga na aula (podi repeti si txiga múltiplu dia). Uza un set pa sabi kuantus estudantis úniku tinha, i un lista pa mante registru kompletu.
 
 2. **Exersísiu 2: Karrinhu di Konpra** -- Kria un disionáriu pa un merkadu ondi produktus tene presu. Dipos kria un lista (karrinhu) ku produktus ki kliente skolhe. Kalkula total i mostra rezumu di konpra ku kantidadi di kada item.
 
 3. **Exersísiu 3: Komparador di Playlists** -- Dos amigu (Nilton i Edna) tene kada un un lista di músika favoritu. Uza sets pa nkontra: (a) músikas ki ambos ta gosta, (b) músikas ki só Nilton ta gosta, (c) total di músikas úniku entre ambos. Mostra rezultadu organizadu.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -364,4 +366,4 @@ print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 
 ---
 
-**Prósimu lisan:** [Funsoens Báziku] →
+**Prósimu lisun:** [Funsoens Báziku →](/courses/intro-python/lessons/funsoens-baziku)

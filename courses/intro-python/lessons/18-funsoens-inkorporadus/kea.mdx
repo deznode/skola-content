@@ -15,13 +15,15 @@ objectives:
   - "Verifica tipus ku isinstance()"
 ---
 
-Python tene muitísimas funsoens **inkorporadus** (built-in) — funsoens ki djá ben ku linguajen, sem presiza importa nada. Bo djá konhese `print()`, `len()`, `type()`, `int()`, `str()`. Na ês lisan, nôs ta aprende sinku funsoens más ki é ESSENSIAL pa skrebe kódiku Pythonic — kódiku ki é limpu, lijível, e efisienti.
+# Funsoens Inkorporadus Úteis
 
-Es funsoens ta muda manera ki bo ta itera sôbri dadus. Dipôs di ês lisan, bo nunka más ta skrebe `for i in range(len(lista))` — promesa!
+Python tene muitísimas funsoens **inkorporadus** (built-in) — funsoens ki djá ben ku linguajen, sem presiza importa nada. Bo djá konhese `print()`, `len()`, `type()`, `int()`, `str()`. Na ês lisun, nôs ta aprende sinku funsoens más ki é ESSENSIAL pa skrebe kódiku Pythonic — kódiku ki é limpu, lijível, i efisienti.
+
+Es funsoens ta muda manera ki bo ta itera sôbri dadus. Dipôs di ês lisun, bo nunka más ta skrebe `for i in range(len(lista))` — promesa!
 
 ## `enumerate()` — Itera ku Índisi
 
-Kuandu bo presiza índisi e valor ao mesmu tempu, `enumerate()` é maneira koretu di faze na Python.
+Kuandu bo presiza índisi i valor ao mesmu tempu, `enumerate()` é maneira koretu di faze na Python.
 
 ### Problema: Maneira "Ka Pythonic"
 
@@ -90,20 +92,18 @@ print(f"\nBo skolhe: {pratus[eskólha - 1]}")  # Lagosta
 ```
 
 ```python
-# Prosesamentu di ficheru (linja por linja ku nùmeru)
+# Prosesamentu di ficheru (linha por linha ku nùmeru)
 linhas = ["# Títulu", "", "Primeiru parágrafu.", "Segundu parágrafu."]
 
-for num_linja, linja in enumerate(linhas, start=1):
-    if linja.strip():  # ignora linhas vazias
-        print(f"L{num_linja}: {linja}")
+for num_linha, linha in enumerate(linhas, start=1):
+    if linha.strip():  # ignora linhas vazias
+        print(f"L{num_linha}: {linha}")
 # L1: # Títulu
 # L3: Primeiru parágrafu.
 # L4: Segundu parágrafu.
 ```
 
-:::callout{type=tip}
-**Dika:** Sempri ki bo pensa na skrebe `for i in range(len(lista))`, PARA e uza `enumerate()` na bes. É más Pythonic, más lijível, e menus propensu a erru.
-:::
+> **Dika:** Sempri ki bo pensa na skrebe `for i in range(len(lista))`, PARA i uza `enumerate()` na bes. É más Pythonic, más lijível, i menus propensu a erru.
 
 ## `zip()` — Itera na Paralelu
 
@@ -183,9 +183,7 @@ for nomi, nota in zip(nomis, notas):
 # (Pedro e Carla ka aparese!)
 ```
 
-:::callout{type=tip}
-**Dika:** Si bo kre ki `zip()` kontinua até más longu (prixenxe ku un valor padrãu), uza `itertools.zip_longest()` di módulu `itertools`.
-:::
+> **Dika:** Si bo kre ki `zip()` kontinua até más longu (prixenxe ku un valor predefinidu), uza `itertools.zip_longest()` di módulu `itertools`.
 
 ## `sorted()` vs `.sort()`
 
@@ -251,11 +249,9 @@ for pos, s in enumerate(ranking, start=1):
 # 4° Nuno: 12
 ```
 
-:::callout{type=tip}
-**Dika:** Uza `sorted()` kuandu bo kre mantene lista original intaktu. Uza `.sort()` kuandu bo ka presiza original e kre evita kria kópia (más efizienti na memória).
-:::
+> **Dika:** Uza `sorted()` kuandu bo kre mantene lista original intaktu. Uza `.sort()` kuandu bo ka presiza original i kre evita kria kópia (más efizienti na memória).
 
-## `any()` e `all()` — Agregasun Boolean
+## `any()` i `all()` — Agregasun Boolean
 
 Es funsoens ta verifica kondisons sôbri un iterável interu:
 
@@ -424,11 +420,11 @@ for pos, (nomi, nota) in enumerate(ranking, start=1):
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Enumerasun:** Dadu un lista di ilhas `["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]`, uza `enumerate()` pa mostra un menu numeradu. Dipôs, simula un eskólha e mostra: "Bo skolhe: [ilha]".
+1. **Exersísiu 1 — Enumerasun:** Dadu un lista di ilhas `["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]`, uza `enumerate()` pa mostra un menu numeradu. Dipôs, simula un eskólha i mostra: "Bo skolhe: [ilha]".
 
-2. **Exersísiu 2 — Zip di Notas:** Dadu duas listas — `nomis` e `notas` — uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipôs uza `sorted()` ku `key` pa mostra ranking di midjor pa pior.
+2. **Exersísiu 2 — Zip di Notas:** Dadu duas listas — `nomis` i `notas` — uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipôs uza `sorted()` ku `key` pa mostra ranking di midjor pa pior.
 
-3. **Exersísiu 3 — Validador Kompletu:** Skrebe un funsan `valida_lista(dados)` ki resebe un lista e verifica:
+3. **Exersísiu 3 — Validador Kompletu:** Skrebe un funsan `valida_lista(dados)` ki resebe un lista i verifica:
    - `all()`: tudu elementu é nùmeru? (isinstance)
    - `any()`: algun é negativu?
    - Si tudu é nùmeru, retorna `sorted()` di lista; sinon retorna mensajen di erru.
@@ -439,7 +435,15 @@ for pos, (nomi, nota) in enumerate(ranking, start=1):
    presus = [350, 800, 600, 1500]
    kuantidadis = [20, 15, 25, 8]
    ```
-   Uza `zip()` pa kalkula total di kada produtu, `sorted()` pa ordena por total (más altu primeiru), e `enumerate()` pa mostra lista numeradu.
+   Uza `zip()` pa kalkula total di kada produtu, `sorted()` pa ordena por total (más altu primeiru), i `enumerate()` pa mostra lista numeradu.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -450,8 +454,8 @@ for pos, (nomi, nota) in enumerate(ranking, start=1):
 - **`any(iterável)`** — True si ALGUN elementu é True (komu `or` pa lista interu)
 - **`all(iterável)`** — True si TUDU elementu é True (komu `and` pa lista interu)
 - **`isinstance(obj, tipu)`** — verifica tipu di un objetu; preferi sôbri `type() ==`
-- Es funsoens ta torna kódiku más **Pythonic** — limpu, lijível e efizienti
+- Es funsoens ta torna kódiku más **Pythonic** — limpu, lijível i efizienti
 
 ---
 
-**Prósimu lisan:** [Jeneradorus] →
+**Prósimu lisun:** [Jeneradorus →](/courses/intro-python/lessons/jeneradorus)

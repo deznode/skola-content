@@ -1,0 +1,20 @@
+# Interactive code examples for the o-ki-e-python lesson.
+#
+# Sourced from the `code_examples` DB table — NOT from Markdown fences — and
+# rendered by the <CodeExample position={N}/> marker (1-based) via the
+# InteractiveExample component. Validated + emitted by scripts/import-content.ts.
+# Order here = display order (DB position 0, 1, ...).
+- language: python
+  title: "Priméru programa na Python"
+  code: |
+    # Nha priméru programa na Python
+    print("Ola! Ben-vindu a Python!")
+- language: python
+  title: "Saudasun ku f-string"
+  code: |
+    # Sistema simples pa saudasun di turistas
+    turistas = ["Ana", "Pedro", "Carla"]
+    ilha = "Sal"
+
+    for turista in turistas:
+        print(f"Ben-vindu a {ilha}, {turista}! Morabeza!")

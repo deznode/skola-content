@@ -76,7 +76,7 @@ modules:
         languages: [kea]
       - slug: annotasoens-tipu
         languages: [kea]
-      - slug: testu-kodiku
+      - slug: testu-kodiku-pytest
         languages: [kea]
   - slug: programasun-orientadu-a-objetu
     title:
@@ -86,7 +86,7 @@ modules:
         languages: [kea]
       - slug: eransa
         languages: [kea]
-      - slug: polimorfismu-abstrasun
+      - slug: polimorfismu-abstrasan
         languages: [kea]
       - slug: enkapsolamentu-property
         languages: [kea]

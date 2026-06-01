@@ -14,26 +14,26 @@ objectives:
   - "Trabadja ku kaminhu di fixeru uzandu módulu os.path"
 ---
 
-Programas di mundu real precisa guarda dadus — nota di estudantis, lista di klientes, konfigurasun di aplikasun. Tudu es ta vivi na **ficheru** na disku. Na es lisan, nôs ta prende kumo lé, skrebi, e adisiona konteúdu na fixerus uzandu Python.
+# Operasoens ku Ficheru
+
+Programas di mundu real precisa guarda dadus — nota di estudantis, lista di klientes, konfigurasun di aplikasun. Tudu es ta vivi na **ficheru** na disku. Na es lisun, nôs ta prende kumo lé, skrebi, i adisiona konteúdu na fixerus uzandu Python.
 
 Imajina ki bo ta kria un programa pa registra vendas na merkadu di Sukupira na Praia. Kada venda precisa fikа gravadu nun ficheru pa ka perdi kuandu programa fexá!
 
 ## Modus di Ficheru
 
+![Modus di ficheru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-ficheru.png)
+
 Antis di abri un ficheru, bo precisa dizi a Python **o ki bo kre fazi** ku el. Es é modus prinsipais:
 
 | Modu | Signifikadu | Konportamentu |
 |------|-------------|---------------|
-| `'r'` | Read (lé) | Só lé. Ficheru tene ki ezisti |
+| `'r'` | Read (lé) | Só lé. Ficheru ten ki ezisti |
 | `'w'` | Write (skrebi) | Skrebi. **APAGA tudu ki ta existia!** |
 | `'a'` | Append (adisiona) | Adisiona na final. Ka apaga nada |
 | `'w+'` | Write + Read | Skrebi + lé. Apaga i kria novu |
 
-:::callout{type=tip}
-**Dika:** Modu padraun é `'r'`. Si bo ka espesifika nada, Python ta abri pa leitura.
-:::
-
-<Figure src="../../infographics/12-modus-di-ficheru.png" caption="Modus di ficheru na Python: le ('r'), skrebi ('w'), i ajunta ('a')" />
+> **Dika:** Modu padraun é `'r'`. Si bo ka espesifika nada, Python ta abri pa leitura.
 
 ## Abri i Lé Ficheru
 
@@ -66,9 +66,7 @@ with open("ilhas.txt", "r") as ficheru:
     print(linhas)  # ['Santiago\n', 'São Vicente\n', 'Sal\n']
 ```
 
-:::callout{type=tip}
-**Dika:** `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
-:::
+> **Dika:** `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
 
 ## O ki É `with` Statement?
 
@@ -92,7 +90,7 @@ with open("dadus.txt", "r") as ficheru:
 # Aki ficheru dja fexá — mesmu si tinha erru!
 ```
 
-Pensa na `with` manera un guarda ki ta abri porta, dixa bo entra, e ta fexá porta kuandu bo sai — mesmu si bo kai la dentru!
+Pensa na `with` manera un guarda ki ta abri porta, dixa bo entra, i ta fexá porta kuandu bo sai — mesmu si bo kai la dentru!
 
 ## Skrebi na Ficheru
 
@@ -113,9 +111,7 @@ with open("lista_kompras.txt", "w") as ficheru:
     ficheru.write("Lista novu — tudu anteriu ta bai!\n")
 ```
 
-:::callout{type=tip}
-**Dika:** Modu `'w'` é manera "apagador" — e ta limpa tudu i kumesa di novu. Si bo kre mantene o ki dja stá, uza `'a'`!
-:::
+> **Dika:** Modu `'w'` é manera "apagador" — e ta limpa tudu i kumesa di novu. Si bo kre mantene o ki dja stá, uza `'a'`!
 
 ### Modu `'a'` — Adisiona Sen Apaga
 
@@ -140,13 +136,11 @@ with open("ilhas_kv.txt", "w") as ficheru:
     ficheru.writelines(ilhas)
 ```
 
-:::callout{type=tip}
-**Dika:** `writelines()` ka ta adisiona `\n` automátikamenti — bo precisa inkluí na kada string!
-:::
+> **Dika:** `writelines()` ka ta adisiona `\n` automátikamenti — bo precisa inkluí na kada string!
 
 ## Modu `'w+'` — Skrebi i Lé (ku seek)
 
-`'w+'` dixa bo skrebi i depois lé mesmu ficheru. Ma tene un armadilha: después di skrebi, **kursor ta na final** di ficheru. Bo precisa uza `seek(0)` pa volta pa kumesу!
+`'w+'` dixa bo skrebi i dipos lé mesmu ficheru. Ma tene un armadilha: dipos di skrebi, **kursor ta na final** di ficheru. Bo precisa uza `seek(0)` pa volta pa kumesу!
 
 ```python
 with open("notas_maria.txt", "w+") as ficheru:
@@ -269,7 +263,7 @@ with open("ficheru_ki_ka_ezisti.txt", "r") as f:
 # FileNotFoundError: [Errno 2] No such file or directory
 ```
 
-**Soluson:** Verifika antis di abri, o uza try/except (prósimu lisan!):
+**Soluson:** Verifika antis di abri, o uza try/except (prósimu lisun!):
 
 ```python
 import os
@@ -289,7 +283,7 @@ with open("dadus_importanti.txt", "w") as f:
     f.write("Ops...")  # Tudu anteriu ta bai pa sempri!
 ```
 
-**Soluson:** Uza `'a'` pa adisiona, o lé primeru i depois skrebi.
+**Soluson:** Uza `'a'` pa adisiona, o lé primeru i dipos skrebi.
 
 ### 3. Skesi `seek(0)` ku `'w+'`
 
@@ -308,9 +302,15 @@ with open("testu.txt", "w+") as f:
 
 1. **Exersísiu 1:** Kria un programa ki ta skrebi un lista di 5 ilhas di Kabu Verdi nun ficheru txamadu `ilhas.txt` (un ilha por linha). Después lé ficheru i mostra kada ilha ku si número: `1. Santiago`, `2. São Vicente`, etc.
 
-2. **Exersísiu 2:** Kria un "diáriu simples" — programa ki ta pidi uzuáriu pa skrebi un nota (ku `input()`), adisiona na ficheru `diariu.txt` ku modu `'a'`, e depois mostra tudu notas ki dja foi skrebidu.
+2. **Exersísiu 2:** Kria un "diáriu simples" — programa ki ta pidi uzuáriu pa skrebi un nota (ku `input()`), adisiona na ficheru `diariu.txt` ku modu `'a'`, i dipos mostra tudu notas ki dja foi skrebidu.
 
-3. **Exersísiu 3:** Skrebi un programa ki ta lé un ficheru di notas (un número por linha), kalkula média, e skrebi rezultadu nun ficheru novu txamadu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si ficheru di notas ezisti antis di tenta lé.
+3. **Exersísiu 3:** Skrebi un programa ki ta lé un ficheru di notas (un número por linha), kalkula média, i skrebi rezultadu nun ficheru novu txamadu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si ficheru di notas ezisti antis di tenta lé.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -318,10 +318,10 @@ with open("testu.txt", "w+") as f:
 - **Sempri uza `with`** — ta garanti ki ficheru ta fexá mesmu si erru akonteси
 - **Lé:** `read()` (tudu), `readline()` (un linha), `readlines()` (lista), o `for linha in ficheru`
 - **Skrebi:** `write(string)` i `writelines(lista)` — ka ta adisiona `\n` automátikamenti
-- **`seek(0)`** — presiza depois di skrebi ku `'w+'` pa volta pa kumesу
+- **`seek(0)`** — presiza dipos di skrebi ku `'w+'` pa volta pa kumesу
 - **`os.path`** — kria kaminhus kompatível, verifika si ficheru ezisti
 - **Kuidadu ku `'w'`** — ta destrui tudu konteúdu anteriu!
 
 ---
 
-**Prósimu lisan:** [Tratamentu di Erru] →
+**Prósimu lisun:** [Tratamentu di Erru →](/courses/intro-python/lessons/tratamentu-erru)

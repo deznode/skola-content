@@ -13,13 +13,15 @@ objectives:
   - "Kompriendi konvensun dunder (__nomi__) e si signifikadu"
 ---
 
-Imajina ki na Kabo Verdi, kada pesoa tene un "apelidu di kasa" — un nomi karinhozu ki família ta uza — e un nomi kompletu ki ta sai na dokumentus ofisal. Bo avó ta txama-bu "Nené", ma na bilheti di identidadi ta skrebi "Cesária Maria Santos". Dôs forma di identifika mesmu pesoa, ma pa kontextus diferenti.
+# Métodus Mádjiku
+
+Imajina ki na Kabo Verdi, kada pesoa tene un "apelidu di kasa" — un nomi karinhozu ki família ta uza — i un nomi kompletu ki ta sai na dokumentus ofisal. Bo avó ta txama-bu "Nené", ma na bilheti di identidadi ta skrebi "Cesária Maria Santos". Dôs forma di identifika mesmu pesoa, ma pa kontextus diferenti.
 
 Python tene un sistema parésidu. Kada objetu tene **métodus mádjiku** — funsoens espesiál ku nomis sekretu ki Python ta txama automátikamenti na momentus sertus. Es é kuma **superpoderis sekretu** ki bo objetu tene. Bo ka txama es direitamenti — Python ta txama pa bo, na bakstage!
 
 ## O ki é Métodus Mádjiku?
 
-Métodus mádjiku (tambê txamadu **dunder methods**) é funsoens espesiál ki kumesa e akaba ku dôs underscore: `__nomi__`. "Dunder" ben di "**d**ouble **under**score".
+Métodus mádjiku (tambê txamadu **dunder methods**) é funsoens espesiál ki kumesa i akaba ku dôs underscore: `__nomi__`. "Dunder" ben di "**d**ouble **under**score".
 
 ```python
 # Ezemplus di métodus mádjiku
@@ -30,11 +32,9 @@ __len__     # Kuandu len() txama bo objetu
 __add__     # Kuandu uza + ku bo objetu
 ```
 
-Bo djá ta uza un métodus mádjiku desde lisan di Klasis: `__init__`! Kada vez ki bo skrebi `MinhaKlasi()`, Python ta txama `__init__` automátikamenti.
+Bo djá ta uza un métodus mádjiku desde lisun di Klasis: `__init__`! Kada vez ki bo skrebi `MinhaKlasi()`, Python ta txama `__init__` automátikamenti.
 
-:::callout{type=tip}
-**Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu métodus, uza nomis normál.
-:::
+> **Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu métodus, uza nomis normál.
 
 ## `__str__` — Representasun pa Uzuáriu
 
@@ -67,7 +67,7 @@ alunu = Estudanti("Maria", "Python")
 print(alunu)  # Maria — Kursu: Python  ← limpu e klaru!
 ```
 
-`__str__` deve retorna un string **amigável pa uzuáriu** — un textu ki kualker pesoa pode lé e kompriendi.
+`__str__` deve retorna un string **amigável pa uzuáriu** — un textu ki kualker pesoa pode lé i kompriendi.
 
 ```python
 class Prodotu:
@@ -120,11 +120,9 @@ Estudanti(nomi='João', kursu='Data Science')
 João — Kursu: Data Science
 ```
 
-:::callout{type=tip}
-**Dika:** Un bon `__repr__` deve parése ku kódiku ki bo pode kopia e kola pa kria mesmu objetu. Pensa nél kuma "receta pa rekonstrui".
-:::
+> **Dika:** Un bon `__repr__` deve parése ku kódiku ki bo pode kopia i kola pa kria mesmu objetu. Pensa nél kuma "receta pa rekonstrui".
 
-## Diferensa entre `__str__` e `__repr__`
+## Diferensa entre `__str__` i `__repr__`
 
 | | `__str__` | `__repr__` |
 |--|-----------|-----------|
@@ -147,13 +145,11 @@ print(alunusis)
 # [Estudanti(nomi='Maria', kursu='Python'), Estudanti(nomi='Nilton', kursu='Web Dev'), Estudanti(nomi='Ana', kursu='AI')]
 ```
 
-:::callout{type=tip}
-**Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
-:::
+> **Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
 
 ## `dir()` — Deskubri Métodus
 
-`dir()` ta mostra **tudu** métodus e atributus di un objetu. É kuma abri kapota di un karu pa odja tudu pesas:
+`dir()` ta mostra **tudu** métodus i atributus di un objetu. É kuma abri kapota di un karu pa odja tudu pesas:
 
 ```python
 # Odja métodus di un string
@@ -191,13 +187,11 @@ print([m for m in dir(karu) if not m.startswith("_")])
 # ['anda', 'marka']
 ```
 
-:::callout{type=tip}
-**Dika:** Uza `dir()` kuandu bo ka lembra ki métodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
-:::
+> **Dika:** Uza `dir()` kuandu bo ka lembra ki métodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
 
-## `__len__` e `__contains__` — Otru Métodus Mádjiku Útil
+## `__len__` i `__contains__` — Otru Métodus Mádjiku Útil
 
-Alén di `__str__` e `__repr__`, ezisti otru métodus mádjiku ki ta faze bo klasi konporta kuma tipu nativu di Python:
+Alén di `__str__` i `__repr__`, ezisti otru métodus mádjiku ki ta faze bo klasi konporta kuma tipu nativu di Python:
 
 ```python
 class Turma:
@@ -303,29 +297,37 @@ print(metodus)  # ['adisiona_pratu', 'nomi', 'pratus', 'sidadi']
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria un klasi `Livru` ku atributus `titulo`, `autor`, e `pajinas`. Implementa `__str__` (pa mostra "Titulo por Autor") e `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` e `repr()`.
+1. **Exersísiu 1:** Kria un klasi `Livru` ku atributus `titulo`, `autor`, i `pajinas`. Implementa `__str__` (pa mostra "Titulo por Autor") i `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` i `repr()`.
 
-2. **Exersísiu 2:** Kria un klasi `PlaylistMusika` ki ta garda un lista di morna e funana. Implementa:
+2. **Exersísiu 2:** Kria un klasi `PlaylistMusika` ki ta garda un lista di morna i funana. Implementa:
    - `adisiona(musika)` — pa adisiona musika
    - `__len__` — pa `len(playlist)` funxiona
    - `__contains__` — pa `"Sodade" in playlist` funxiona
-   - `__str__` — pa mostra nomi di playlist e kuantus musika tene
+   - `__str__` — pa mostra nomi di playlist i kuantus musika tene
 
-3. **Exersísiu 3:** Uza `dir()` pa deskubri kuantus métodus un disionáriu (`dict`) tene ki ka kumesa ku `_`. Garda na un lista e imprime. Depois, atxa un métodu ki bo ka konhesia e testa-l.
+3. **Exersísiu 3:** Uza `dir()` pa deskubri kuantus métodus un disionáriu (`dict`) tene ki ka kumesa ku `_`. Garda na un lista i imprime. Depois, atxa un métodu ki bo ka konhesia i testa-l.
 
-4. **Exersísiu 4:** Kria un klasi `KontaBankária` ku `__str__` e `__repr__`. `__str__` deve mostra "Konta di [nomi]: [saldo] ECV" e `__repr__` deve mostra tudu informasun pa rekria objetu. Testa inprimindo un lista di 3 kontas (lembra: lista ta uza `__repr__`!).
+4. **Exersísiu 4:** Kria un klasi `KontaBankária` ku `__str__` i `__repr__`. `__str__` deve mostra "Konta di [nomi]: [saldo] ECV" i `__repr__` deve mostra tudu informasun pa rekria objetu. Testa inprimindo un lista di 3 kontas (lembra: lista ta uza `__repr__`!).
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
 - **Métodus mádjiku (dunder)** — funsoens espesiál ku `__nomi__` ki Python ta txama automátikamenti
-- **`__str__`** — representasun amigável pa uzuáriu; `print()` e `str()` ta txama-l
-- **`__repr__`** — representasun teknika pa programador; shell e `repr()` ta txama-l
+- **`__str__`** — representasun amigável pa uzuáriu; `print()` i `str()` ta txama-l
+- **`__repr__`** — representasun teknika pa programador; shell i `repr()` ta txama-l
 - **Si bo só implementa un**, implementa `__repr__` — Python ta uza-l kuma fallback
-- **`dir()`** — mostra tudu métodus e atributus disponível di un objetu
+- **`dir()`** — mostra tudu métodus i atributus disponível di un objetu
 - **`__len__`** — permite uza `len()` ku bo objetu
 - **`__contains__`** — permite uza `in` ku bo objetu
 - **Ka inventa dunder nomis** — `__nomi__` é reservadu pa Python
 
 ---
 
-**Prósimu lisan:** [Sobrekarga di Operador] →
+**Prósimu lisun:** [Sobrekarga di Operador →](/courses/intro-python/lessons/sobrekarga-operador)

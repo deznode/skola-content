@@ -1,4 +1,14 @@
-# Python Cheatsheet — Introdusun Konpletu a Python
+---
+title: Introdusan Konpletu a Python
+slug: intro-python
+courseSlug: intro-python
+language: kea
+version: 1.0.0
+validated_at: 2026-04-21
+trace_id: Skola-course-intro-python-20260420-113000
+---
+
+# Python Cheatsheet — Introdusan Konpletu a Python
 
 **Lingua:** kea (Kabuverdianu) | **Python:** 3.13+ | **Doc version:** 1.0.0 | **Validadu na:** 2026-04-21
 
@@ -31,7 +41,7 @@
 20. [Testu ku pytest](#20-testu-ku-pytest)
 21. [Klasis e Objetis (OOP)](#21-klasis-e-objetis-oop)
 22. [Eransa](#22-eransa)
-23. [Polimorfismu e Abstrasun](#23-polimorfismu-e-abstrasun)
+23. [Polimorfismu i Abstrasan](#23-polimorfismu-i-abstrasan)
 24. [Enkapsolamentu e @property](#24-enkapsolamentu-e-property)
 25. [Métodus Mádjiku e Sobrekarga](#25-métodus-mádjiku-e-sobrekarga)
 26. [Dataclasses](#26-dataclasses)
@@ -66,12 +76,12 @@ pip --version           # pip 24.x
 
 1. Instala extension **ms-python.python**
 2. Abri pasta di projetu → VS Code deteta `.venv` automátiku
-3. Seleta interpreter: klika na versun Python na barra di status
+3. Seleta interpreter: klika na versan Python na barra di status
 
-### Primeiro Programa
+### Primeru Programa
 
 ```python
-print("Ola, Mundu!")     # Bo primeiro programa Python!
+print("Ola, Mundu!")     # Bo primeru programa Python!
 print("Nu ta kria djuntu!")
 ```
 
@@ -125,7 +135,7 @@ print(type(é_estudanti)) # <class 'bool'>
 | `int` | `42`, `-10`, `0` | Kontadoris, idadi, kantidadi |
 | `float` | `3.14`, `-0.5` | Presus, nota, medidas |
 | `str` | `"Maria"`, `'Ola'` | Nomi, textu, mensajen |
-| `bool` | `True`, `False` | Kondison, flag, validason |
+| `bool` | `True`, `False` | Kondisan, flag, validasan |
 
 ---
 
@@ -163,7 +173,7 @@ di Kabu Verdi.
 
 ```python
 nomi = "Amilka"
-nomi[0]       # "A"         — primeiro karakter
+nomi[0]       # "A"         — primeru karakter
 nomi[-1]      # "a"         — últimu karakter
 nomi[1:4]     # "mil"       — di 1 até 3
 nomi[:3]      # "Ami"       — primeru 3
@@ -367,7 +377,7 @@ for n in range(2, 10):
 ```python
 frutas = ["manga", "banana", "papaia", "laranja"]
 
-frutas[0]       # "manga"      — primeiro
+frutas[0]       # "manga"      — primeru
 frutas[-1]      # "laranja"    — últimu
 frutas[1:3]     # ["banana", "papaia"]
 frutas[::-1]    # lista reversu
@@ -377,14 +387,14 @@ frutas[::-1]    # lista reversu
 
 | Métudu | Uson | Ezemplu |
 |--------|------|---------|
-| `.append(x)` | Junta na final | `frutas.append("koko")` |
-| `.insert(i, x)` | Inseri na pozisun | `frutas.insert(0, "melun")` |
-| `.remove(x)` | Tira primeiro x | `frutas.remove("banana")` |
+| `.append(x)` | djunta na final | `frutas.append("koko")` |
+| `.insert(i, x)` | Inseri na pozisan | `frutas.insert(0, "melun")` |
+| `.remove(x)` | Tira primeru x | `frutas.remove("banana")` |
 | `.pop()` | Tira e retorna últimu | `ultimo = frutas.pop()` |
-| `.pop(i)` | Tira na pozisun i | `frutas.pop(0)` |
+| `.pop(i)` | Tira na pozisan i | `frutas.pop(0)` |
 | `.sort()` | Ordena (in-place) | `frutas.sort()` |
 | `.reverse()` | Reversa (in-place) | `frutas.reverse()` |
-| `.index(x)` | Atxa pozisun di x | `frutas.index("manga")` |
+| `.index(x)` | Atxa pozisan di x | `frutas.index("manga")` |
 | `.count(x)` | Konta okurensias | `frutas.count("banana")` |
 | `.clear()` | Limpa tudu | `frutas.clear()` |
 | `len()` | Tamañu | `len(frutas)` |
@@ -429,8 +439,8 @@ koordenadas = 14.9, -23.5     # tupla!
 latitude, longitude = koordenadas
 
 # Star unpacking
-primeiro, *meiu, ultimu = (1, 2, 3, 4, 5)
-# primeiro=1, meiu=[2, 3, 4], ultimu=5
+primeru, *meiu, ultimu = (1, 2, 3, 4, 5)
+# primeru=1, meiu=[2, 3, 4], ultimu=5
 ```
 
 ### Kuandu Uza Tupla vs Lista?
@@ -439,7 +449,7 @@ primeiro, *meiu, ultimu = (1, 2, 3, 4, 5)
 |------------|-----------|
 | Dadus ki ka muda (koordenadas, kores RGB) | Dadus ki muda (tarefas, karrinhu di kompra) |
 | Mais rápidu na memória | Mais métodus disponível |
-| Pode uza kumo xavi di dict | Ka pode uza kumo xavi di dict |
+| Pode uza Kumo xavi di dict | Ka pode uza Kumo xavi di dict |
 
 ---
 
@@ -463,7 +473,7 @@ estudanti.get("email", "N/A")     # "N/A" (sem KeyError)
 
 ```python
 estudanti["nota"] = 18.0          # atualiza
-estudanti["email"] = "amilka@mail.cv"  # junta novu
+estudanti["email"] = "amilka@mail.cv"  # djunta novu
 del estudanti["ilha"]             # elimina
 ```
 
@@ -673,7 +683,7 @@ aprovadus = list(filter(lambda e: e["nota"] >= 14, estudantis))
 
 ## 13. Funsoens Inkorporadus Úteis
 
-| Funsun | Uson | Ezemplu |
+| Funsan | Uson | Ezemplu |
 |--------|------|---------|
 | `enumerate()` | Loop ku índisi | `for i, x in enumerate(lista)` |
 | `zip()` | Itera paralelu | `for n, s in zip(nomis, notas)` |
@@ -864,7 +874,7 @@ with open("saida.txt", "a") as f:
 |------|------|--------------------|
 | `"r"` | Lé | Preserva (default) |
 | `"w"` | Skrevi | **APAGA tudu!** |
-| `"a"` | Junta | Preserva |
+| `"a"` | Djunta | Preserva |
 | `"r+"` | Lé + skrevi | Preserva |
 | `"w+"` | Skrevi + lé | **APAGA tudu!** |
 | `"rb"` / `"wb"` | Binário | Pa imajen, PDF, etc. |
@@ -1134,7 +1144,7 @@ rex = Katxor("Rex", "Djon")
 
 ```python
 def mostra_area(forma):
-    """Funson polimórfiku — aseta kualker forma ku .area()."""
+    """Funsan polimórfiku — aseta kualker forma ku .area()."""
     print(f"Área: {forma.area()}")
 
 class Retangulu:
@@ -1203,7 +1213,7 @@ class Estudanti:
 
     @property
     def nota(self) -> float:
-        """Getter — asesa kumo atributu, ka kumo métudu."""
+        """Getter — asesa Kumo atributu, ka Kumo métudu."""
         return self._nota
 
     @nota.setter
@@ -1218,7 +1228,7 @@ class Estudanti:
     def nomi(self) -> str:
         return self._nomi
 
-# Uzu — paresi atributu, ma tene validasun:
+# Uzu — paresi atributu, ma tene validasan:
 maria = Estudanti("Maria", 16)
 print(maria.nota)        # 16 (getter)
 maria.nota = 18          # (setter — valida)
@@ -1320,7 +1330,7 @@ print(maria)         # Estudanti(nomi='Maria', idadi=22, nota=17.5)
 ### Opsons Úteis
 
 ```python
-@dataclass(frozen=True)         # imutável (kumo tupla)
+@dataclass(frozen=True)         # imutável (Kumo tupla)
 class Puntu:
     x: float
     y: float
@@ -1342,7 +1352,7 @@ class Nota:
 | Set | `{x % 3 for x in range(10)}` | `{0, 1, 2}` |
 | Generator | `(x**2 for x in range(5))` | objeto lazy |
 
-### Ku Kondisun
+### Ku Kondisan
 
 ```python
 # Filtra pares
@@ -1364,7 +1374,7 @@ class Nota:
 | `IndentationError` | Indentasun eradu | Uza 4 espasus (ka tab) |
 | `NameError: name 'x' is not defined` | Variável ka existe | Verifica nomi e eskopiu |
 | `TypeError: can only concatenate str to str` | Mistura tipu | Uza `str()` ou f-string |
-| `TypeError: 'NoneType' object is not subscriptable` | Funsun ka retorna nada | Verifica `return` |
+| `TypeError: 'NoneType' object is not subscriptable` | Funsan ka retorna nada | Verifica `return` |
 | `IndexError: list index out of range` | Índisi fora di lista | Verifica `len()` antis |
 | `KeyError: 'nomi'` | Xavi ka existe na dict | Uza `.get(key, default)` |
 | `ModuleNotFoundError` | Pakoti ka instaladu | `pip install pakoti` (dentu di .venv) |
@@ -1381,7 +1391,7 @@ class Nota:
 | Ordenadu | Sim | Sim | Sim (3.7+) | Nun |
 | Mutável | Sim | Nun | Valoris sim | Sim |
 | Duplikadus | Permiti | Permiti | Xavis úniku | Ka permiti |
-| Indexasun | Pozisun | Pozisun | Xavi | Nun |
+| Indexasun | Pozisan | Pozisan | Xavi | Nun |
 | Comprehension | Sim | Nun | Sim | Sim |
 | Slicing | Sim | Sim | Nun | Nun |
 | Uzu típiku | Koleson ki muda | Dadus fixu | Mapamentu | Valores úniku |
@@ -1393,7 +1403,7 @@ class Nota:
 | Pilar | Mekanismu | Pal ki é |
 |-------|-----------|----------|
 | **Klasis/Objetis** | `class`, `__init__`, `self` | Kria blueprints pa objetis |
-| **Eransa** | `super()`, klasi filhu | Reusa kódiku di klasi pai |
+| **Eransa** | `super()`, klasi fidjo | Reusa kódiku di klasi pai |
 | **Polimorfismu** | Override, ABC | Mesmu métudu, komportamentu diferenti |
 | **Enkapsolamentu** | `_`, `__`, @property | Proteje dadus, kontrola asesu |
 
@@ -1406,6 +1416,6 @@ class Nota:
 * **Python version:** 3.13+
 * **Risku di drift:** Mudansas na PEP 750 (t-strings), novu sintaxi na 3.14+
 * **Revalidasun:**
-  - [ ] Verifica changelog di Python pa novu versun
+  - [ ] Verifica changelog di Python pa novu versan
   - [ ] Roda ezemplus di kódiku
   - [ ] Verifica sintaxi di flag e métudu

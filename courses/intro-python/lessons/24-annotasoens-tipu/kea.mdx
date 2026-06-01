@@ -13,7 +13,9 @@ objectives:
   - "Kompriendi ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
 ---
 
-Kuandu bo ta skrebi un funsan, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez después... e sabi? I bo mesmu, depois di un férias na Sal, bo ta lembra?
+# Annotasoens di Tipu
+
+Kuandu bo ta skrebi un funsan, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bo ta lembra?
 
 **Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
 
@@ -37,7 +39,7 @@ def kalkula_total(presus: list[float], diskonto: float) -> float:
     return total - (total * diskonto / 100)
 ```
 
-Gosi é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), e funsan ta retorna un float.
+Gosi é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), i funsan ta retorna un float.
 
 ## Annotasoens di Funsun
 
@@ -61,13 +63,11 @@ def mostra_mensajen(mensajen: str) -> None:
     print(f"📢 {mensajen}")
 ```
 
-:::callout{type=tip}
-**Dika:** `-> None` signifika ki funsan ka retorna nada (só ta fazi un asun kumo print).
-:::
+> **Dika:** `-> None` signifika ki funsan ka retorna nada (só ta fazi un asun kumo print).
 
 ## Annotasoens di Variável
 
-Bo pode anotar variáveis também:
+Bo pode anotar variáveis tanbé:
 
 ```python
 # Variáveis simples
@@ -182,7 +182,7 @@ def saudason(nomi: str, lingua: str | None = None) -> str:
 
 ## Grandi Segredu: Type Hints Ka Ta Muda NADA na Runtime!
 
-Es é pontu más importanti di es lisan: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
+Es é pontu más importanti di es lisun: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
 
 ```python
 def soma(a: int, b: int) -> int:
@@ -227,9 +227,7 @@ def soma(a: int, b: int) -> int:
 soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
 ```
 
-:::callout{type=tip}
-**Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
-:::
+> **Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
 
 ## Ezemplu Konpletu: Registu di Estudantis
 
@@ -301,9 +299,15 @@ def buska_ilha(nomis, alvu):
     return None
 ```
 
-2. **Exersísiu 2:** Skrebi un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), e "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
+2. **Exersísiu 2:** Skrebi un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), i "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
 
-3. **Exersísiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", e "máxima".
+3. **Exersísiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", i "máxima".
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -311,10 +315,10 @@ def buska_ilha(nomis, alvu):
 - **Annotasoens di variável:** `nomi: str = "valór"`
 - **Containers (3.9+):** `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`
 - **Union (3.10+):** `int | None` pa valóris ki pode ser un tipu o `None`
-- **Ka ta muda runtime!** Type hints é pa umanus, IDEs, e ferramentas (mypy)
+- **Ka ta muda runtime!** Type hints é pa umanus, IDEs, i ferramentas (mypy)
 - **Kuandu uza:** Sempri na funsan (parâmetrus + retornu); opisionál na variáveis óbvias
 - **Benefísiu:** Melhor autocomplete, errus deskubridu más sedu, kódiku más lezível
 
 ---
 
-**Prósimu lisan:** [Testu di Kódiku ku pytest] →
+**Prósimu lisun:** [Testu di Kódiku ku pytest →](/courses/intro-python/lessons/testu-kodiku-pytest)

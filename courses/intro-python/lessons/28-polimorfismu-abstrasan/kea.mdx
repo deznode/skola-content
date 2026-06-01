@@ -1,9 +1,9 @@
 ---
-title: "Polimorfismu i Abstrasun"
+title: "Polimorfismu i Abstrasan"
 language: kea
 courseSlug: intro-python
-lessonSlug: polimorfismu-abstrasun
-slug: "polimorfismu-abstrasun"
+lessonSlug: polimorfismu-abstrasan
+slug: "polimorfismu-abstrasan"
 module: 4
 lesson: 28
 duration: "25 min"
@@ -14,9 +14,11 @@ objectives:
   - "Intende diferensa entre klasi konkretu i klasi abstratu"
 ---
 
-Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, e un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene métodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
+# Polimorfismu i Abstrasan
 
-Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TENE KI toka pelo menus un múzika." El ka ta dize KOMU bo debe toka — el só ta obriga ki bo tene kapasidadi di toka. Isu é abstrasun: **defini un kontratu ki tudu fidju tene ki kunpri**, sem dize ezatamenti komu.
+Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, i un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene métodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
+
+Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TEN KI toka pelo menus un múzika." El ka ta dize KOMU bo debe toka — el só ta obriga ki bo tene kapasidadi di toka. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sem dize ezatamenti komu.
 
 ## Polimorfismu — O ki é?
 
@@ -47,9 +49,7 @@ print(funana.toka())   # 🥁 Tum-tum-taka-taka! (funana animadu)
 print(batuku.toka())   # 👏 Pam-pam-pam! (batuku tradisionál)
 ```
 
-:::callout{type=tip}
-**Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku métodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda komu patu i ta faze kuak komu patu, entun el é patu."
-:::
+> **Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku métodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda komu patu i ta faze kuak komu patu, entun el é patu."
 
 ## Sobreskrebe Métodus (Method Overriding)
 
@@ -62,7 +62,7 @@ class Forma:
         self.nomi = nomi
 
     def area(self):
-        return 0  # Valor padrãu — klasis fidju ta sobreskrebe
+        return 0  # Valor predefinidu — klasis fidju ta sobreskrebe
 
     def deskrebe(self):
         return f"{self.nomi}: área = {self.area():.2f} m²"
@@ -152,9 +152,7 @@ mostra_relatoriu(formas)
 # ========================================
 ```
 
-:::callout{type=tip}
-**Dika:** Funsun `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta xama `.area()` i `.nomi`. Kualker klasi novu ki tene kes métodus ta funsiona sin muda funsan!
-:::
+> **Dika:** Funsun `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta xama `.area()` i `.nomi`. Kualker klasi novu ki tene kes métodus ta funsiona sin muda funsan!
 
 ## Klasi Abstratu ku ABC
 
@@ -173,12 +171,12 @@ class Forma(ABC):
 
     @abstractmethod
     def area(self):
-        """Kada forma TENE KI implementa si própia área."""
+        """Kada forma TEN KI implementa si própia área."""
         pass
 
     @abstractmethod
     def perimetru(self):
-        """Kada forma TENE KI implementa si própiu perímetru."""
+        """Kada forma TEN KI implementa si própiu perímetru."""
         pass
 
     def deskrebe(self):
@@ -236,18 +234,16 @@ class FormaInkompleta(Forma):
 #            with abstract method perimetru
 ```
 
-:::callout{type=tip}
-**Dika:** `@abstractmethod` é komu un kontratu. Bo ta dize: "Kualker klasi ki ta erda di mi TENE KI implementa kes métodus li." Python ta verifica na momentu ki bo tenta kria objetu.
-:::
+> **Dika:** `@abstractmethod` é komu un kontratu. Bo ta dize: "Kualker klasi ki ta erda di mi TEN KI implementa kes métodus li." Python ta verifica na momentu ki bo tenta kria objetu.
 
 ## `@abstractmethod` — Forsa Implementasun
 
 Dekorador `@abstractmethod` ta marka un métodu komu obrigatóriu. Klasi fidju ki ka implementa tudu métodus abstratu **ka pode ser instansiadu**.
 
 Regras importanti:
-1. Klasi tene ki erda di `ABC` (o uza `metaclass=ABCMeta`)
+1. Klasi ten ki erda di `ABC` (o uza `metaclass=ABCMeta`)
 2. Métodus abstratu pode tene un korpu (ma normalmenti é só `pass`)
-3. Klasi fidju TENE KI implementa TUDU métodus abstratu
+3. Klasi fidju TEN KI implementa TUDU métodus abstratu
 4. Bo pode mistra métodus abstratu ku métodus konkretu (normal)
 
 ```python
@@ -357,7 +353,7 @@ class TransferensiaBankaria(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti tene ki ser positivu!")
+            print("Erru: montanti ten ki ser positivu!")
             return False
         print(f"Prosesandu transferénsia di {montanti:,.0f} ECV...")
         print(f"  Banku: {self.banku}")
@@ -378,7 +374,7 @@ class KartunKreditu(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti tene ki ser positivu!")
+            print("Erru: montanti ten ki ser positivu!")
             return False
         if montanti > 500_000:
             print("Erru: límiti di kartun exedidu (máx 500,000 ECV)!")
@@ -400,7 +396,7 @@ class DinheruMovel(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti tene ki ser positivu!")
+            print("Erru: montanti ten ki ser positivu!")
             return False
         if montanti > 100_000:
             print("Erru: límiti di dinheru móvel exedidu (máx 100,000 ECV)!")
@@ -472,15 +468,13 @@ prosesa_pagamentu(djina, 3_200)
 # ...
 ```
 
-:::callout{type=tip}
-**Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta xama `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
-:::
+> **Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta xama `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
 
 ## Kuandu Uza Klasi Abstratu?
 
 | Situasun | Uza klasi abstratu? |
 |----------|---------------------|
-| Tudu fidju TENE KI tene sertu métodu | ✅ Sim — `@abstractmethod` |
+| Tudu fidju TEN KI tene sertu métodu | ✅ Sim — `@abstractmethod` |
 | Bo kre previni instansiasun di pai | ✅ Sim — `ABC` |
 | Fidju pode o ka pode sobreskrebe | ❌ Nau — uza klasi normal |
 | Só un klasi, sem eransa | ❌ Nau — overkill |
@@ -488,7 +482,7 @@ prosesa_pagamentu(djina, 3_200)
 ```python
 # REGRA JERÁL:
 # - Si bo tene 2+ klasis ku MESMU interfasi → pensa na ABC
-# - Si métodu TENE KI ser implementadu na fidju → uza @abstractmethod
+# - Si métodu TEN KI ser implementadu na fidju → uza @abstractmethod
 # - Si métodu pode ser erdadu sin muda → métodu normal (konkretu)
 ```
 
@@ -500,7 +494,15 @@ prosesa_pagamentu(djina, 3_200)
 
 3. **Exersísiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku métodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsan ki ta mostra konversun di 10,000 ECV na tudu moedas.
 
-4. **Exersísiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku métodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) e `FreeLancer` (paga por ora). Kalkula folha di pagamentu total.
+4. **Exersísiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku métodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) i `FreeLancer` (paga por ora). Kalkula folha di pagamentu total.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
@@ -511,8 +513,8 @@ prosesa_pagamentu(djina, 3_200)
 - **`@abstractmethod`** ta forsa klasis fidju a implementa sertu métodus
 - Bo pode mistra métodus abstratu (obrigatóriu) ku métodus konkretu (erdadu)
 - Si un klasi fidju ka implementa tudu métodus abstratu, Python ta da `TypeError`
-- Klasis abstratu é ideál kuandu bo tene 2+ klasis ki TENE KI partilha mesmu interfasi
+- Klasis abstratu é ideál kuandu bo tene 2+ klasis ki TEN KI partilha mesmu interfasi
 
 ---
 
-**Prósimu lisan:** [Enkapsolamentu i @property] →
+**Prósimu lisun:** [Enkapsolamentu i @property →](/courses/intro-python/lessons/enkapsolamentu-property)

@@ -10,20 +10,22 @@ duration: "25 min"
 objectives:
   - "Defini funsoens ku def e uza return pa retorna valoris"
   - "Intende diferensa entre parámetrus e argumentus"
-  - "Uza parámetrus padrãu, *args e **kwargs pa funsoens flexível"
+  - "Uza parámetrus predefinidu, *args e **kwargs pa funsoens flexível"
   - "Dokumenta funsoens ku docstrings"
   - "Skrebe funsoens rekursivas ku kazu bazi"
 ---
 
-Imajina bo ta kuzinha cachupa tudu dia. Kada bes bo tene ki lembra pasu por pasu: korta midju, ferbe feijun, djunta ingredientis... Sería más fásil si bo pudesse dize "faze cachupa" e tudu pasu korre automatikamenti? É exatamenti isu ki funsoens ta faze na programasun — es ta guarda un konjuntu di instrusoens ku un nomi, e bo pode xama-l kuantas bes bo kre.
+# Funsoens Báziku
 
-Funsoens é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisun, e torna programa más fásil pa intende e mantene.
+Imajina bo ta kuzinha cachupa tudu dia. Kada bes bo ten ki lembra pasu por pasu: korta midju, ferbe feijun, djunta ingredientis... Sería más fásil si bo pudesse dize "faze cachupa" i tudu pasu korre automatikamenti? É exatamenti isu ki funsoens ta faze na programasun — es ta guarda un konjuntu di instrusoens ku un nomi, i bo pode xama-l kuantas bes bo kre.
 
-<Figure src="../../infographics/10-anatomia-di-funsan.png" caption="Anatomia di un funsan Python — parametrus, docstring, return, i type hints" />
+Funsoens é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisun, i torna programa más fásil pa intende i mantene.
 
 ## Kria Funsun ku `def`
 
-Pa defini un funsan na Python, bo uza keyword `def`, seguidu di nomi di funsan e paréntesis:
+![Anatomia di funsan: def, parámetrus, docstring, korpu, return](../../infographics/10-anatomia-di-funsan.png)
+
+Pa defini un funsan na Python, bo uza keyword `def`, seguidu di nomi di funsan i paréntesis:
 
 ```python
 # Estrutura báziku di un funsan
@@ -47,11 +49,9 @@ par_o_impar(7)    # 7 é ímpar
 par_o_impar(10)   # 10 é par
 ```
 
-:::callout{type=tip}
-**Dika:** Nomi di funsan debe ser deskritivu e uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjor ki `kt` o `func1`.
-:::
+> **Dika:** Nomi di funsan debe ser deskritivu i uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjor ki `kt` o `func1`.
 
-## Parámetrus e Argumentus
+## Parámetrus i Argumentus
 
 **Parámetrus** é variáveis ki funsan ta resebe (na definisun). **Argumentus** é valoris ki bo ta pasa kuandu bo xama funsan.
 
@@ -75,16 +75,16 @@ kalkula_area(5, 3)    # Área: 15 m²
 kalkula_area(10, 8)   # Área: 80 m²
 ```
 
-## Parámetrus Padrãu (Default Parameters)
+## Parámetrus Predefinidu (Default Parameters)
 
-Bo pode da un valor padrãu a un parámetru. Si ninguén pasa argumentu, Python ta uza valor padrãu.
+Bo pode da un valor predefinidu a un parámetru. Si ninguén pasa argumentu, Python ta uza valor predefinidu.
 
 ```python
 def saudason(nomi="Vizitanti"):
     print(f"Bon dia, {nomi}! Ben-vindu!")
 
 saudason("Ana")      # Bon dia, Ana! Ben-vindu!
-saudason()           # Bon dia, Vizitanti! Ben-vindu! (uza padrãu)
+saudason()           # Bon dia, Vizitanti! Ben-vindu! (uza valor predefinidu)
 ```
 
 ```python
@@ -98,9 +98,7 @@ kalkula_presu(5000, 10)   # Presu final: 4500 ECV (10% diskontu)
 kalkula_presu(5000, 25)   # Presu final: 3750 ECV (25% diskontu)
 ```
 
-:::callout{type=tip}
-**Dika:** Parámetrus ku valor padrãu SEMPRI tene ki ben DIPÔS di parámetrus sem padrãu. `def f(a, b=5)` é koretu. `def f(a=5, b)` ta da erru!
-:::
+> **Dika:** Parámetrus ku valor predefinidu SEMPRI ten ki ben DIPÔS di parámetrus sem valor predefinidu. `def f(a, b=5)` é koretu. `def f(a=5, b)` ta da erru!
 
 ## Return — Retorna Valoris
 
@@ -159,7 +157,7 @@ Docstring é un string di dokumentasun logo na inísiu di funsan. El ta splika k
 def verifica_senha(senha):
     """Verifica si un senha é forti.
 
-    Un senha forti tene ki tene:
+    Un senha forti ten ki tene:
     - Pelo menus 8 karáteris
     - Pelo menus un nùmeru
     - Pelo menus un letra maiúskula
@@ -259,9 +257,7 @@ registra_pedidu("Pedro", "cachupa", "grogue", entrega=True, urgenti=False)
 # Opsoens: {'entrega': True, 'urgenti': False}
 ```
 
-:::callout{type=tip}
-**Dika:** Orden sempri é: parámetrus normais, dipôs `*args`, dipôs `**kwargs`. `def f(a, b, *args, **kwargs)` — nunka inverte!
-:::
+> **Dika:** Orden sempri é: parámetrus normais, dipôs `*args`, dipôs `**kwargs`. `def f(a, b, *args, **kwargs)` — nunka inverte!
 
 ## Ezemplu Prátiku: Karrinhu di Konpras
 
@@ -311,7 +307,7 @@ print(é_palíndromu("A man a plan"))  # False
 
 ## Rekursun — Funsun ki ta Xama Si Mesmu
 
-Un funsan rekursiva é un funsan ki ta xama si mesmu pa resolve un problema. É komu un espelhu dentu di otru espelhu — ma SEMPRI tene ki tene un pontu di paradu (kazu bazi), sinon ta roda pa sempri!
+Un funsan rekursiva é un funsan ki ta xama si mesmu pa resolve un problema. É komu un espelhu dentu di otru espelhu — ma SEMPRI ten ki tene un pontu di paradu (kazu bazi), sinon ta roda pa sempri!
 
 ```python
 # Fatoriál: 5! = 5 × 4 × 3 × 2 × 1 = 120
@@ -366,35 +362,41 @@ kontajen(5)
 # Lansamentu! 🚀
 ```
 
-:::callout{type=tip}
-**Dika:** Sempri pensa na **kazu bazi** primeiru kuandu bo ta skrebe funsan rekursiva. Sem el, programa ta entra na loop infinitu e Python ta da `RecursionError`.
-:::
+> **Dika:** Sempri pensa na **kazu bazi** primeiru kuandu bo ta skrebe funsan rekursiva. Sem el, programa ta entra na loop infinitu i Python ta da `RecursionError`.
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Konversor di Temperatura:** Skrebe un funsan `konverte_temp(temp, di, pa)` ki konverte entre Celsius, Fahrenheit e Kelvin. Ezemplu: `konverte_temp(100, "C", "F")` debe retorna `212.0`.
+1. **Exersísiu 1 — Konversor di Temperatura:** Skrebe un funsan `konverte_temp(temp, di, pa)` ki konverte entre Celsius, Fahrenheit i Kelvin. Ezemplu: `konverte_temp(100, "C", "F")` debe retorna `212.0`.
 
 2. **Exersísiu 2 — Validador di Senha:** Skrebe un funsan `verifica_forsa(senha)` ki retorna "fraku", "médiu" o "forti" bazadu na:
    - Fraku: menus di 6 karáteris
-   - Médiu: 6+ karáteris ku letras e nùmerus
-   - Forti: 8+ karáteris ku maiúskulas, minúskulas, nùmerus e karáteris espesiál
+   - Médiu: 6+ karáteris ku letras i nùmerus
+   - Forti: 8+ karáteris ku maiúskulas, minúskulas, nùmerus i karáteris espesiál
 
 3. **Exersísiu 3 — Soma Rekursiva:** Skrebe un funsan rekursiva `soma_ate(n)` ki retorna soma di tudu nùmerus di 1 até n. Ezemplu: `soma_ate(5)` → 15 (1+2+3+4+5).
 
-4. **Exersísiu 4 — Perfil Flexível:** Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe nomi obrigatóriu e kuantu info adisionál ki utilizador kre (ilha, idadi, profisun, etc.) e retorna un disionáriu kompletu.
+4. **Exersísiu 4 — Perfil Flexível:** Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe nomi obrigatóriu i kuantu info adisionál ki utilizador kre (ilha, idadi, profisun, etc.) i retorna un disionáriu kompletu.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
 
 ## Rezumu
 
 - **`def`** ta defini un funsan; nomi debe ser deskritivu na snake_case
 - **Parámetrus** ta na definisun; **argumentus** ta na xamada
-- **Parámetrus padrãu** ta da valor si ninguén pasa argumentu
+- **Parámetrus predefinidu** ta da valor si ninguén pasa argumentu
 - **`return`** ta manda valor di volta; sem return, funsan retorna `None`
 - **Docstrings** (string na inísiu) ta dokumenta kel ki funsan ta faze
 - **`*args`** ta resebe argumentus pozisionais variáveis (tuple)
 - **`**kwargs`** ta resebe argumentus nomiadu variáveis (dict)
 - **Rekursun** é funsan ki ta xama si mesmu — SEMPRI presiza kazu bazi
-- Funsoens ta torna kódiku más organizadu, reutilizável e fásil di testa
+- Funsoens ta torna kódiku más organizadu, reutilizável i fásil di testa
 
 ---
 
-**Prósimu lisan:** [Lambda, Map e Filter] →
+**Prósimu lisun:** [Lambda, Map i Filter →](/courses/intro-python/lessons/lambda-map-filter)

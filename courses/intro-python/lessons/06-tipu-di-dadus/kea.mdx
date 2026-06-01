@@ -14,13 +14,15 @@ objectives:
   - "Konverti entre tipus pa rezolve errus"
 ---
 
+# Tipu di Dadus
+
 Na mundu real, nôs ta lida ku diferentes tipus di informasun: númerus, textus, sim/nun. Python tanbé tene diferentes **data types** pa representa kada tipu di informasun.
 
-Nês lisan, nôs ta esplora 4 tipus fundamentais di Python — `int`, `float`, `str` e `bool` — e prende kuandu uza kada un e kumo evita errus kuandu mistra es.
+Nês lisun, nôs ta esplora 4 tipus fundamentais di Python — `int`, `float`, `str` i `bool` — i prende kuandu uza kada un i kumo evita errus kuandu mistra es.
 
 ## 4 Tipus Fundamentais
 
-<Figure src="../../infographics/02-tipu-di-dadus-python.png" caption="4 tipu di dadus baziku di Python: int, float, str, i bool" />
+![Sistema di tipus di Python: int, float, str, bool](../../infographics/02-tipu-di-dadus-python.png)
 
 ### Integer (`int`) — Númerus Interus
 
@@ -49,9 +51,7 @@ print(numeru_grandi)           # 1000000000
 print(type(numeru_grandi))     # <class 'int'>
 ```
 
-:::callout{type=tip}
-**Dika:** Bo podi uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
-:::
+> **Dika:** Bo podi uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
 
 ### Float — Númerus Desimais
 
@@ -68,7 +68,7 @@ print(type(presu_cachupa))  # <class 'float'>
 ```
 
 Undi uza `float`:
-- Presus e valores monetárius
+- Presus i valores monetárius
 - Medidas (altura, pezu, distánsia)
 - Resultadus di divisun
 - Kualker valor ki presiza prezisun desimal
@@ -141,13 +141,11 @@ idadi = 20
 print(f"{nomi} tene {idadi} anus")  # Djina tene 20 anus
 ```
 
-:::callout{type=tip}
-**Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasun ku `+`.
-:::
+> **Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasun ku `+`.
 
 ### Boolean (`bool`) — Verdaderu ó Falsu
 
-Só tene 2 valores: `True` ó `False` (ku T e F maiúskulu!).
+Só tene 2 valores: `True` ó `False` (ku T i F maiúskulu!).
 
 ```python
 # Ezemplus di bool
@@ -183,7 +181,7 @@ pasou = nota >= 70
 if pasou:
     print("Parabéns! Bo pasa!")
 else:
-    print("Bo tene ki studia más...")
+    print("Bo ten ki studia más...")
 ```
 
 ## Kuandu Uza Kada Tipu
@@ -260,9 +258,7 @@ print(type(5))      # <class 'int'>
 print(int("5") == 5)  # True
 ```
 
-:::callout{type=tip}
-**Dika:** Kuandu bo enkontra `TypeError`, verifica tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
-:::
+> **Dika:** Kuandu bo enkontra `TypeError`, verifica tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
 
 ## Tabela Rezumu di Konversun
 
@@ -290,9 +286,7 @@ print(bool(""))        # False (string vazio)
 print(bool("Ola"))     # True (kualker string ku konteúdu)
 ```
 
-:::callout{type=tip}
-**Dika:** `int()` ta **trunca** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
-:::
+> **Dika:** `int()` ta **trunca** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
 
 ## Ezemplu Prátiku: Loja di Cachupa
 
@@ -373,22 +367,20 @@ print(isinstance(valor, str))     # False
 print(isinstance(valor, (int, float)))  # True — é int ó float
 ```
 
-:::callout{type=tip}
-**Dika:** `isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
-:::
+> **Dika:** `isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings e mostra tipu di kada un.
+1. **Exersísiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un.
 
 2. **Exersísiu 2:** Skrebi un programa ki perunta utilizador:
    - Nomi di un produtu (string)
    - Presu unitáriu (float)
    - Kantidadi (int)
    
-   Kalkula e mostra: subtotal, taxa di 15%, e total. Formata valores ku 2 kazas desimais.
+   Kalkula i mostra: subtotal, taxa di 15%, i total. Formata valores ku 2 kazas desimais.
 
-3. **Exersísiu 3:** Kria variáveis ku kel valores e tenta operasoens. Prevê kual ta da TypeError e koriji:
+3. **Exersísiu 3:** Kria variáveis ku kel valores i tenta operasoens. Prevê kual ta da TypeError i koriji:
    ```python
    a = "100"
    b = 50
@@ -396,6 +388,12 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
    # Tenta: a + b, a * c, b + c, a + str(b)
    # Kual ta funxiona? Kual ta da erru? Pamodi?
    ```
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -410,4 +408,4 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 
 ---
 
-**Prósimu lisan:** [Strings: Métodus e Formatason] →
+**Prósimu lisun:** [Strings: Métodus i Formatason →](/courses/intro-python/lessons/strings-metodus)
