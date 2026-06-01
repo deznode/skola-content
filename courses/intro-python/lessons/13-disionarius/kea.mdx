@@ -56,7 +56,9 @@ print(dados)  # {'nomi': 'Carla', 'idadi': 20}
 # "Ana" disaparese sen ninhun erru!
 ```
 
-> **Dika:** Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da erru — kel podi kauza bugs sutíl!
+:::callout{type=tip}
+**Dika:** Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da erru — kel podi kauza bugs sutíl!
+:::
 
 ## Asesa Valores
 
@@ -81,7 +83,9 @@ print(estudanti.get("email"))         # None (sen erru!)
 print(estudanti.get("email", "N/A"))  # N/A (valor padrun)
 ```
 
-> **Dika:** Senpri uza `.get()` kuandu bo ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da erru.
+:::callout{type=tip}
+**Dika:** Senpri uza `.get()` kuandu bo ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da erru.
+:::
 
 ## Modifika Disionárius
 
@@ -177,7 +181,9 @@ print(orijinal["nota"])   # 85 — Ka muda! ✓
 print(kopia_real["nota"]) # 95
 ```
 
-> **Dika:** Senpri uza `.copy()` kuandu bo kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
+:::callout{type=tip}
+**Dika:** Senpri uza `.copy()` kuandu bo kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
+:::
 
 ## Iterasun sobri Disionárius
 
@@ -335,7 +341,9 @@ for letra in palavra:
 print(kontador)  # {'m': 1, 'o': 1, 'r': 1, 'a': 2, 'b': 1, 'e': 1, 'z': 1}
 ```
 
-> **Dika:** Padrón `.get(key, 0) + 1` é truqui klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipôs ta soma 1.
+:::callout{type=tip}
+**Dika:** Padrón `.get(key, 0) + 1` é truqui klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipôs ta soma 1.
+:::
 
 ### Merge (Djunta) Disionárius
 

@@ -40,7 +40,9 @@ print(type(vazio_corretu))  # <class 'set'>
 print(type(vazio_eradu))    # <class 'dict'>
 ```
 
-> **Dika:** `{}` ta kria un dicionáriu vazio, NAU un set vazio! Pa kria set vazio, sénpri uza `set()`. É un armadilha komun ki muitius programadoris ta kái.
+:::callout{type=tip}
+**Dika:** `{}` ta kria un dicionáriu vazio, NAU un set vazio! Pa kria set vazio, sénpri uza `set()`. É un armadilha komun ki muitius programadoris ta kái.
+:::
 
 ## Auto-Deduplikasun
 
@@ -99,7 +101,9 @@ tene_spesial = any(c in karakter_spesial for c in password)
 print(f"Password tene karakter spesial: {tene_spesial}")  # True
 ```
 
-> **Dika:** Kuandu bo presiza verifica si un valór ezisti dentru di un kolesun grandi, konverti pa set priméru. Pa 1 milhaun di elementus, set ta responde instantaneamenti, lista ta leva tempu.
+:::callout{type=tip}
+**Dika:** Kuandu bo presiza verifica si un valór ezisti dentru di un kolesun grandi, konverti pa set priméru. Pa 1 milhaun di elementus, set ta responde instantaneamenti, lista ta leva tempu.
+:::
 
 ## Operasoens Matemátiku
 
@@ -169,7 +173,9 @@ frutas.discard("banana")
 print(frutas)  # {'manga', 'laranja'}
 ```
 
-> **Dika:** Uza `.discard()` na vés di `.remove()` kuandu bo ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
+:::callout{type=tip}
+**Dika:** Uza `.discard()` na vés di `.remove()` kuandu bo ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
+:::
 
 ```python
 # Métodus pa operasoens (alternativa a operadoris)
@@ -265,7 +271,9 @@ print(playlist_limpu)
 | Presiza elementus repetidu | | ✓ |
 | Elementus é mutável (listas, dicts) | | ✓ |
 
-> **Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bo ka podi pô listas ó dicionárius dentru di un set.
+:::callout{type=tip}
+**Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bo ka podi pô listas ó dicionárius dentru di un set.
+:::
 
 ```python
 # Kel li ta funsiona

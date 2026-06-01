@@ -53,7 +53,9 @@ Kada operador tene un métodu mádjiku korispondenti. Kuandu bo defini es métod
 | `<=` | `__le__` | Menor o igual |
 | `>=` | `__ge__` | Maior o igual |
 
-> **Dika:** Bo ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, i `__str__` — es é ki bo ta uza más freku. Konsulta tabela kuandu presiza otrus.
+:::callout{type=tip}
+**Dika:** Bo ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, i `__str__` — es é ki bo ta uza más freku. Konsulta tabela kuandu presiza otrus.
+:::
 
 ## `__add__` i `__sub__` — Adisun i Subtrasun
 
@@ -95,7 +97,9 @@ print(p5)              # Pontu(8, 11)
 
 Nota ki `__add__` i `__sub__` ta retorna un **novu** objetu `Pontu`. Es é importanti — operador ka deve muda objetis orijinál.
 
-> **Dika:** Sempri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
+:::callout{type=tip}
+**Dika:** Sempri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
+:::
 
 ## `__mul__` — Multiplikasun (Eskalar)
 
@@ -174,7 +178,9 @@ print(p1 == p3)    # False
 print(p1 < p3)     # True — p1 sta más pertu di orijem
 ```
 
-> **Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tambê. Ku es dôs, `sorted()` ta funxiona ku bo objetis automátikamenti!
+:::callout{type=tip}
+**Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tambê. Ku es dôs, `sorted()` ta funxiona ku bo objetis automátikamenti!
+:::
 
 ## Ezemplu Konpletu: Klasi Vetor
 
@@ -329,7 +335,9 @@ presus = [presu_katchupa, presu_grogue, presu_pastel]
 print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 ```
 
-> **Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasun" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasun.
+:::callout{type=tip}
+**Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasun" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasun.
+:::
 
 ## Tenta Gosi 🏋️
 

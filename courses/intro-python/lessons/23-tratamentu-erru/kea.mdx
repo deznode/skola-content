@@ -79,7 +79,9 @@ except Exception as e:
     print(f"Erru inesperadu: {e}")
 ```
 
-> **Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
+:::callout{type=tip}
+**Dika:** Sempri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika handlers di sima pa baxu — primeiru ki kombina é kel ki ta roda.
+:::
 
 ## else — Só Roda Si Ka Teve Erru
 
@@ -160,7 +162,9 @@ def lé_konfigurason_melhor(kaminhu):
         return None
 ```
 
-> **Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
+:::callout{type=tip}
+**Dika:** `with` ta substitui padrаun `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
+:::
 
 ## Fluxu Konpletu: try/except/else/finally
 
@@ -264,7 +268,9 @@ print(estudanti)  # {'nomi': 'Djina', 'idadi': 22}
 
 Pa projetus grandi, bo pode kria bo própriu klasis di exsesun. Es ta fazi kódiku más klaru i fásil di manté:
 
-> **Forward-ref:** Sintaxi di `class` é o tópiku di **Módulu 4** (lisun 26 +). Pa gosi, só odja ki bo pode kria un tipu novu di erru ku ~3 linha di kódiku — detalhi di klasis ta ben dipôs.
+:::callout{type=info}
+**Forward-ref:** Sintaxi di `class` é o tópiku di **Módulu 4** (lisun 26 +). Pa gosi, só odja ki bo pode kria un tipu novu di erru ku ~3 linha di kódiku — detalhi di klasis ta ben dipôs.
+:::
 
 ```python
 # Defini exsesoens personalizadu
@@ -374,7 +380,9 @@ BaseException
     └── ... (mutu más)
 ```
 
-> **Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
+:::callout{type=tip}
+**Dika:** Sempri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
+:::
 
 ## Tenta Gosi 🏋️
 

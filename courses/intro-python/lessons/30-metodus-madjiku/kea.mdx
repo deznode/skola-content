@@ -34,7 +34,9 @@ __add__     # Kuandu uza + ku bo objetu
 
 Bo djá ta uza un métodus mádjiku desde lisun di Klasis: `__init__`! Kada vez ki bo skrebi `MinhaKlasi()`, Python ta txama `__init__` automátikamenti.
 
-> **Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu métodus, uza nomis normál.
+:::callout{type=tip}
+**Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu métodus, uza nomis normál.
+:::
 
 ## `__str__` — Representasun pa Uzuáriu
 
@@ -120,7 +122,9 @@ Estudanti(nomi='João', kursu='Data Science')
 João — Kursu: Data Science
 ```
 
-> **Dika:** Un bon `__repr__` deve parése ku kódiku ki bo pode kopia i kola pa kria mesmu objetu. Pensa nél kuma "receta pa rekonstrui".
+:::callout{type=tip}
+**Dika:** Un bon `__repr__` deve parése ku kódiku ki bo pode kopia i kola pa kria mesmu objetu. Pensa nél kuma "receta pa rekonstrui".
+:::
 
 ## Diferensa entre `__str__` i `__repr__`
 
@@ -145,7 +149,9 @@ print(alunusis)
 # [Estudanti(nomi='Maria', kursu='Python'), Estudanti(nomi='Nilton', kursu='Web Dev'), Estudanti(nomi='Ana', kursu='AI')]
 ```
 
-> **Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
+:::callout{type=tip}
+**Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
+:::
 
 ## `dir()` — Deskubri Métodus
 
@@ -187,7 +193,9 @@ print([m for m in dir(karu) if not m.startswith("_")])
 # ['anda', 'marka']
 ```
 
-> **Dika:** Uza `dir()` kuandu bo ka lembra ki métodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
+:::callout{type=tip}
+**Dika:** Uza `dir()` kuandu bo ka lembra ki métodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
+:::
 
 ## `__len__` i `__contains__` — Otru Métodus Mádjiku Útil
 

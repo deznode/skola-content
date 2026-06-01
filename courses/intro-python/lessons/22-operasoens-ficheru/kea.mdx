@@ -33,7 +33,9 @@ Antis di abri un ficheru, bo precisa dizi a Python **o ki bo kre fazi** ku el. E
 | `'a'` | Append (adisiona) | Adisiona na final. Ka apaga nada |
 | `'w+'` | Write + Read | Skrebi + lé. Apaga i kria novu |
 
-> **Dika:** Modu padraun é `'r'`. Si bo ka espesifika nada, Python ta abri pa leitura.
+:::callout{type=tip}
+**Dika:** Modu padraun é `'r'`. Si bo ka espesifika nada, Python ta abri pa leitura.
+:::
 
 ## Abri i Lé Ficheru
 
@@ -66,7 +68,9 @@ with open("ilhas.txt", "r") as ficheru:
     print(linhas)  # ['Santiago\n', 'São Vicente\n', 'Sal\n']
 ```
 
-> **Dika:** `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
+:::callout{type=tip}
+**Dika:** `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
+:::
 
 ## O ki É `with` Statement?
 
@@ -111,7 +115,9 @@ with open("lista_kompras.txt", "w") as ficheru:
     ficheru.write("Lista novu — tudu anteriu ta bai!\n")
 ```
 
-> **Dika:** Modu `'w'` é manera "apagador" — e ta limpa tudu i kumesa di novu. Si bo kre mantene o ki dja stá, uza `'a'`!
+:::callout{type=tip}
+**Dika:** Modu `'w'` é manera "apagador" — e ta limpa tudu i kumesa di novu. Si bo kre mantene o ki dja stá, uza `'a'`!
+:::
 
 ### Modu `'a'` — Adisiona Sen Apaga
 
@@ -136,7 +142,9 @@ with open("ilhas_kv.txt", "w") as ficheru:
     ficheru.writelines(ilhas)
 ```
 
-> **Dika:** `writelines()` ka ta adisiona `\n` automátikamenti — bo precisa inkluí na kada string!
+:::callout{type=tip}
+**Dika:** `writelines()` ka ta adisiona `\n` automátikamenti — bo precisa inkluí na kada string!
+:::
 
 ## Modu `'w+'` — Skrebi i Lé (ku seek)
 
