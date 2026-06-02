@@ -17,11 +17,19 @@ objectives:
 
 Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru i rezolve rápidu. Na es lisun, nôs ta prende a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal i undi.
 
-Errus ka é sinál di frakasu. É sinál di ki bo ta tenta. Nôs ta kriá djunta, i parti di kria é erá!
+Erus e ka sinal di frakasu. E sinal di ki bo ta tenta. Nu ta prende djuntu, e erus e parti di prende.
+
+:::callout{type=tip}
+**Es lisan na 3 palavra:** **Lé** → **Atxa** → **Pensa**. Bo ta odja kel padran na fin di lisan. Pa gosi, fixa atensun na es 3 pasus enkuantu nu ta lé exemplus.
+:::
 
 ## O ki é un Traceback?
 
 Kuandu Python atxa un problema na bo kódiku, e ta para i mostra un **traceback** — un mensajen ki ta splika o ki korreu mal i undi. Odja es ezemplu:
+
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa lé **mensajen di erru** — `def`, `return`, `f"..."` i otu kunseitus ta ben más tardi (Módulu 3 i Módulu 1 Lisan 7). Repara na traceback, ka na kódiku.
+:::
 
 ```python
 # fixeru: kalkula.py
@@ -181,7 +189,7 @@ NameError: name 'mensajen' is not defined
 **Kauzas kumun:**
 - Variável ka foi atribuídu (skesi `mensajen = "Ola"`)
 - Erru di ortografia: `mesnajen` na lugar di `mensajen`
-- Uza variável fora di si scope (ex.: dentru di un funsan vs fora)
+- Uza variável fora di se scope (bo ta prende más na Lisan 16)
 
 ```python
 # Korresun: defini variável antis di uza
@@ -212,6 +220,8 @@ Seta `^` ta mostra exatamenti undi string ta bate ku int!
 - Djunta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
 - Txama algu ki ka é funsan: `x = 5; x()` (TypeError: 'int' is not callable)
 - Manda argumentu eradu pa funsan
+
+*(Funsan: bo ta prende más na Lisan 16.)*
 
 ```python
 # Korresun: uza f-string
@@ -305,7 +315,11 @@ Kuandu bo odja un erru, sigui sempri es 3 pasus:
 3. PENSA →  "Pamodi Python ta pensa ki es é un problema?"
 ```
 
-Vamus prátika ku un ezemplu:
+Nu pratika ku un izemplu:
+
+:::callout{type=tip}
+**O ki es kódiku ta tenta fazi:** Soma kuatu presu (350, 200, 150, 400) i kalkula média. Ka preokupa ku `for` i `range` — bo ta prende-s na Lisan 10. Repara na traceback.
+:::
 
 ```python
 # Programa ku erru — bo pode atxa?
@@ -371,7 +385,12 @@ TypeError: can't multiply sequence by non-int of type 'str'
 ```
 *(Dika: `input()` ta retorna sempri un string!)*
 
-3. **Exersísiu 3:** Skrebi un programa ku deliberadamenti ta kauza un `IndexError`. Dipôs koriji el. Ezemplu: kria un lista di 3 fruta i tenta asesa índisi 5.
+3. **Exersísiu 3:** Kel ki é problema aki, i kumo bo ta koriji-l?
+```
+fruta = ["banana", "manga", "papaia"]
+print(fruta[5])
+```
+*(Dika: lista tene 3 elementus — kuantu índisis válidu e tene?)*
 
 <Quiz position={0} />
 

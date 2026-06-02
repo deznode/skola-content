@@ -14,9 +14,13 @@ objectives:
   - "Uza f\"{var=}\" pa debugging rápidul"
 ---
 
-# Strings: Métodus i Formatason
+# Strings: Métodus e Formatason
 
 Na lisun anteriol, bo prende tipu di dadus — i string é un dos ki bo ta uza MA na programasun. Tudu ves ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bo ta uza string. Python tene dezenas di métodus inkorporadu ki ta fasilitá manipulasun di testu. Nês lisun, nôs ta domina kes métodus i prende a formata saída di forma profisional.
+
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa **métodus di string e f-strings**. Bo ta odja `if`, `for`, lista (`[...]`) e disionariu (`{...}`) na alguns izemplus prátiku — kes ta ben más tardi: `if` na Lisan 9, `for` na Lisan 10, lista na Lisan 11, disionariu na Lisan 13, `enumerate()` na Lisan 18. Repara na o ki ta kontise ku string, ka na strutura ki ta envolvi-l.
+:::
 
 ## Métodus di Kazu (Case Methods)
 
@@ -169,6 +173,8 @@ for f in nomis_ficheru:
 print(pa_kada)
 ```
 
+*(Lista, disionariu, `for` e `if` ta ben más tardi — Lisan 9 a 13. Aki, so odja kumo `.endswith()` ta filtra pa extensun.)*
+
 ## Replace
 
 `.replace(antigu, novu)` ta substitui tudu okorensia di un testu por otru.
@@ -294,6 +300,8 @@ for produto in ["Cachupa", "Grogue", "Ponche"]:
 # Grogue          ..... disponível
 # Ponche          ..... disponível
 ```
+
+*(Lista e `for` ta ben más tardi — fixa atensun na `:<15` ki ta alinha testu na 15 karater.)*
 
 ### f-string pa Debugging: `f"{var=}"`
 

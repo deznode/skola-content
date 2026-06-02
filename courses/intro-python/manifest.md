@@ -1,19 +1,20 @@
 # Introdusun Konpletu a Python — Published Assets
 
-**Published:** 2026-04-23
+**Published:** 2026-06-01
 **Source:** topics/intro-python/
 
 ## Files
 
 | File | Type | Count |
 |------|------|-------|
-| course.yaml | Course metadata | 1 |
-| lessons/*/kea.mdx | Lessons (Kriolu) | 32 |
+| course.yaml | Course manifest | 1 |
+| lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 32 |
 | code/start/*.py | Starter code (with TODOs) | 16 |
 | code/final/*.py | Solution code | 16 |
-| infographics/*.png | Infographics | 14 |
-| kea/cheatsheet.md | Cheatsheet (Kriolu) | 1 |
-| microlearn/ | Micro-content (scripts, blogs, SEO, thumbnails) | 34 |
+| infographics/*.png | Infographics | 15 |
+| cheatsheet-kea.md | Cheatsheet (Kriolu) | 1 |
+| microlearn-kea/{unitSlug}/ | Microlearn unit bundles (spec 028) | 1 unit |
+| microlearn/ | Legacy micro-content (scripts, blogs, SEO, thumbnails) | 34 files |
 
 ## Modules
 
@@ -23,5 +24,3 @@
 | Estruturas di Dadus | 5 |
 | Funsoens i Operasoens ku Ficheru | 10 |
 | Programasun Orientadu a Objetu | 7 |
-
-**Total: 114 files**

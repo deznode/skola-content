@@ -16,13 +16,13 @@ objectives:
 
 # Instala Python i Konfigura VS Code
 
-Antis di kumesa programá, nôs precisa prepara nôs ferramentas. É manera un kuzinheru ki ta organiza ingredientis antis di kumesa fazi katchupa — bo precisa tudu na lugar sertu! Na es lisun, nôs ta instala Python, konfigura VS Code, i roda nôs priméru programa.
+Antis di kumesa programá, nu meste prepara nôs ferramentas. É manera un kuzinheru ki ta organiza ingredientis antis di kumesa fazi katchupa — bu presisa tudu na lugar sertu! Na es lisan, nu ta instala Python, konfigura VS Code, kria un virtual environment, i kore nôs priméru programa.
 
 ## Pasu 1: Instala Python
 
 ![Pasus di instalasun di Python na Windows, macOS i Linux](../../infographics/01-instala-python-plataformas.png)
 
-Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** i fazi download di versaun más resenti (Python 3.13+).
+Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** i fazi download di versan más resenti (Python 3.13+).
 
 ### Windows
 
@@ -31,6 +31,10 @@ Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.or
 3. **MUTU IMPORTANTI:** Marka txekbox **"Add python.exe to PATH"** na parti di baxu!
 4. Klika **"Install Now"**
 5. Spera instalasun akaba i klika **"Close"**
+
+:::callout{type=tip}
+**O ki é PATH?** PATH é un lista di pastas undi sistema ta buska programas. Sin Python na PATH, kuandu bo skrebi `python` na terminal, sistema ka ta atxa-l.
+:::
 
 :::callout{type=warning}
 **⚠️ Atensun:** Si bo skesi marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bo dja instala sem marka, roda installer otu ves i skolhi "Modify" → marka "Add to PATH".
@@ -76,7 +80,7 @@ python3 --version
 ```
 
 :::callout{type=tip}
-**Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sem kel pakoti, `python -m venv` ta da erru.
+**Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sen kel pakoti, `python -m venv` ta da erru.
 :::
 
 ## Pasu 2: Instala VS Code
@@ -135,7 +139,7 @@ Un **virtual environment** é un espasu izoladu pa kada projetu Python. Pamodi �
 
 - **Projetu A** precisa di biblioteka versaun 1.0
 - **Projetu B** precisa di mesmu biblioteka ma versaun 2.0
-- Sem virtual environment, un ta kibra otru!
+- Sen virtual environment, un ta kibra otru!
 
 Ku virtual environment, kada projetu tene si própriu "mundu" separadu.
 
@@ -192,7 +196,7 @@ VS Code é intelizenti — kuandu e deteta un pasta `.venv`, e ta propoe automá
 Python 3.13.2 ('.venv')
 ```
 
-Si ka ta mostra, klika na versaun di Python na barra di status i skolhi interpreter ki ta stá dentru di `.venv`.
+Si ka ta mostra, klika na versaun di Python na barra di status i skolhi interpreter (kel programa Python ki ta roda bo kódiku) ki ta stá dentru di `.venv`.
 
 ## Pasu 5: Nha Priméru Programa!
 
@@ -210,6 +214,10 @@ Gosi si! Nôs ta skrebi nôs priméru programa Python.
 ### Skrebi Kódiku
 
 Skrebi es kódiku na fixeru `ola.py`:
+
+:::callout{type=tip}
+**Dika:** Es `f` antis di aspras (`f"..."`) é un **f-string** — e ta permiti po variáveis dentru di tekstu ku `{nomi}`. Bo ta prende más na lisan 7 (Strings).
+:::
 
 ```python
 # Nha priméru programa Python!
@@ -273,19 +281,16 @@ deactivate
 
 ### pip (Instalador di Pakotis)
 
+Un **pakoti** é un biblioteka di kódiku ki otru pesoa skrebi pa bo uza. `pip` é programa ki ta instala-l dentru di bo `.venv`.
+
 ```bash
-# Instala un pakoti
+# Instala un pakoti dentru di bo .venv
 pip install requests
-
-# Odja pakotis instaladu
-pip list
-
-# Salva lista di pakotis (pa partilha ku otru pesoas)
-pip freeze > requirements.txt
-
-# Instala tudu pakotis di un lista
-pip install -r requirements.txt
 ```
+
+:::callout{type=tip}
+**Pa más sobri pip:** Lisan 21 (Ambiente Virtual i pip) ta mostra `pip list`, `pip freeze` i `requirements.txt` ku detalhe.
+:::
 
 ### Roda Programa
 
@@ -332,7 +337,7 @@ João, bo tene 25 anu i bo ta gosta di Katchupa. Sabi!
 
 ## Rezumu
 
-- Instala Python di **python.org** (ka uza Anaconda) — na Windows, sempri marka **"Add to PATH"**
+- Instala Python di **python.org** — na Windows, sempri marka **"Add to PATH"**
 - VS Code ku extensun Python ta da-bu un ambienti profisional grátis
 - **Virtual environment** (`.venv`) izola pakotis di kada projetu — sempri kria un!
 - Fixerus Python tene extensun **`.py`**
@@ -341,4 +346,4 @@ João, bo tene 25 anu i bo ta gosta di Katchupa. Sabi!
 
 ---
 
-**Prósimu lisun:** [Lé Errus (Tracebacks) →](/courses/intro-python/lessons/le-errus)
+**Prósimu lisan:** [Lé Errus (Tracebacks) →](/courses/intro-python/lessons/le-errus)

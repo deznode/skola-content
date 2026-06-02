@@ -94,7 +94,7 @@ print(type(resultado)) # <class 'float'>
 print(0.1 + 0.2)  # 0.30000000000000004 (ka 0.3 ezatu!)
 ```
 
-Kel é un limitasun di kumo komputador ta armazena númerus desimais. Pa maioria di kazus, ka é problema. Pa valores monetárius ezatus, ezisti módulu `decimal`, ma kel é avanasadu.
+Kel é un limitasun di kumo komputador ta armazena númerus desimais. Pa maioria di kazus, ka é problema. Pa valores monetárius ezatus, ezisti módulu `decimal`, ma kel é avansadu.
 
 ### String (`str`) — Textu
 
@@ -147,6 +147,8 @@ print(f"{nomi} tene {idadi} anus")  # Djina tene 20 anus
 **Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasun ku `+`.
 :::
 
+*(F-strings ten más kapasidadi — formatason, debug, ekspresoens dentu. Bo ta prende más na Lisan 7.)*
+
 ### Boolean (`bool`) — Verdaderu ó Falsu
 
 Só tene 2 valores: `True` ó `False` (ku T i F maiúskulu!).
@@ -187,6 +189,8 @@ if pasou:
 else:
     print("Bo ten ki studia más...")
 ```
+
+*(Kondisionais `if`/`else` e operadoris di komparason: bo ta prende más na Lisan 8 e Lisan 9.)*
 
 ## Kuandu Uza Kada Tipu
 
@@ -300,6 +304,10 @@ print(bool("Ola"))     # True (kualker string ku konteúdu)
 
 Vamos kombina tudu tipus na un programa real:
 
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo kuatu tipus (`str`, `float`, `int`, `bool`) ta vivi djuntu na un programa. Operadoris matemátikus (`*`, `+`, `-`), `input()`, e formatason `:.2f` ta ben más tardi (Lisan 7, 8 e 9). Repara na **tipus**, ka na lójika.
+:::
+
 ```python
 # === Loja di Cachupa di Nha Cesária ===
 print("=" * 35)
@@ -379,16 +387,22 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 **Dika:** `isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
 :::
 
+*(Nu ta vorta a `isinstance()` ku más detalji na Lisan 18.)*
+
 ## Tenta Gosi 🏋️
 
 1. **Exersísiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un.
 
-2. **Exersísiu 2:** Skrebi un programa ki perunta utilizador:
-   - Nomi di un produtu (string)
-   - Presu unitáriu (float)
-   - Kantidadi (int)
-   
-   Kalkula i mostra: subtotal, taxa di 15%, i total. Formata valores ku 2 kazas desimais.
+2. **Exersísiu 2 (adibinha kuze e resultado):** Pa kada linha, adibinha kuze Python ta imprimi. Dipôs verifika ku `python`.
+    ```python
+    print(type(42))
+    print(type(42.0))
+    print(type("42"))
+    print(type(True))
+    print(int("42") + 8)
+    print(str(42) + "8")
+    print(int(3.9))
+    ```
 
 3. **Exersísiu 3:** Kria variáveis ku kel valores i tenta operasoens. Prevê kual ta da TypeError i koriji:
    ```python

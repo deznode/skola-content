@@ -30,7 +30,7 @@ Na Python, bo ta kria un variável simplesmente atribuindu un valor ku `=`. Ka p
 nomi = "Amilcar"       # str (textu)
 idadi = 25             # int (númeru interu)
 altura = 1.75          # float (númeru desimal)
-é_estudanti = True     # bool (verdaderu ó falsu)
+estudanti = True       # bool (verdaderu ó falsu)
 ```
 
 Bo podi tanbé atribui vários valores na mesmu linha:
@@ -157,6 +157,10 @@ print(type(True))     # <class 'bool'>
 
 ## Input di Utilizador ku `input()`
 
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Es sesun-li ta uza `f"..."` (f-strings) pa mostra resultadu — bo ta prende-s formalmenti na Lisan 7. Repara na `input()` e na konversun di tipu, ka na f-string sintaxi.
+:::
+
 Funson `input()` ta para programa i spera utilizador skrebi algu. El **senpri ta retorna un string**.
 
 ```python
@@ -244,7 +248,7 @@ print(resultado)  # 3
 
 ### Bool Konversun
 
-Python tene regras simples pa konverti pa `bool`:
+Python tene regras simples pa konverti pa `bool`. Programadoris ta xoma valores ki ta vira `False` di **"falsy"** (vazi, zeru, nada), e valores ki ta vira `True` di **"truthy"** (ten algun kuza dentu).
 
 ```python
 # Valores "falsy" (vira False)
@@ -347,8 +351,15 @@ Tipu di nota: float
 1. **Exersísiu 1:** Kria variáveis pa un pratu di kumida: `nomi_pratu` (string), `presu` (float), `porsun` (int), `disponível` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un ku `type()`.
 
 2. **Exersísiu 2:** Skrebi un programa ki perunta utilizador sê nomi, ilha di origen, i anu di nasimentu. Kalkula idadi (2026 - anu) i imprimi un mensajen sabi kuma: "Ola, João di Santiago! Bo tene 25 anus."
+   *(Es izemplu ta uza subtrasun (`-`) e f-string — bo ta prende-s formalmenti na Lisan 7 e 8. Si ka ten konfortu inda, salta e volta dipôs.)*
 
-3. **Exersísiu 3:** Kria un "konversor di moeda" simples. Perunta utilizador un valor na Eskudu (ECV), konverti pa Euro (1 EUR = 110.265 ECV) i dólar (1 USD = 102.5 ECV). Imprimi resultadus ku 2 kazas desimais uzandu `f"{valor:.2f}"`.
+3. **Exersísiu 3 (adibinha kuze e resultado):** Pa kada linha di kódiku, adibinha tipu di `valor` dipôs di kada operasun. Uza `type()` pa konfirma:
+    ```python
+    valor = input("Skrebi un kuza: ")  # tipu = ?
+    valor = int(valor)                 # tipu = ?
+    valor = float(valor)               # tipu = ?
+    valor = str(valor)                 # tipu = ?
+    ```
 
 <Quiz position={0} />
 

@@ -123,6 +123,10 @@ Na otu linguajens (Java, C), bo ta uza `{ }` pa defini blokus di kódiku. Na Pyt
 
 Regra é simples: **4 spasus** pa kada nível di indentasun.
 
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo indentasun ta defini blokus — `if`, `>=`, e variáveis ta ben más tardi (Módulu 1 Lisan 5, 8 e 9). Repara na spasus, ka na lójika.
+:::
+
 ```python
 idadi = 20
 
@@ -203,6 +207,8 @@ notus = [
     90, 88, 95
 ]
 ```
+
+*(Tupla `(...)` e lista `[...]`: bo ta prende más na Módulu 2, Lisan 11 e 12. Pa gosi, so fixa ki dentru di parentesis Python ka presiza `\`.)*
 
 :::callout{type=tip}
 **Dika:** Na prátika, é melhor uza parentesis pa kebra linhas longas. É más limpu ki `\`.
@@ -303,9 +309,15 @@ print("Ola")
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Skrebi un programa ki kria variável `nomi` ku bo nomi, `ilha` ku nomi di un ilha di Kabu Verdi, i `populasun` ku un númeru. Imprimi tudu ku `print()` i testa `type()` di kada un.
+1. **Exersísiu 1:** Odja kel kódiku. Sen rodá-l, prediz: kel é un `SyntaxError`, un `NameError`, un `IndentationError`, ó el ta funxiona sen erru?
+```python
+nomi = "Cesária"
+NOMI = "Maria"
+print(nomi)
+print(Nomi)
+```
 
-2. **Exersísiu 2:** Skrebi kel kódiku i koriji errus (ten 3 errus!):
+2. **Exersísiu 2:** Skrebi kel kódiku e koriji errus (ten 3 errus!):
 ```python
 Nomi = "Djina"
 if nomi == "Djina":
@@ -313,7 +325,21 @@ print("Ola, Djina!")
    print("Ben-vindu!")
 ```
 
-3. **Exersísiu 3:** Kria un variável `total` ki soma 15 númerus (di 100 a 1500, di 100 en 100). Uza `\` ó parentesis pa kebra linha. Imprimi resultado.
+3. **Exersísiu 3:** Prediz: kal di kes dôs blokus ta da erru, e kal ta funxiona? Splika pamodi.
+
+**Blok A:**
+```python
+total = 100 + 200 + 300 + \
+        400 + 500
+print(total)
+```
+
+**Blok B:**
+```python
+total = 100 + 200 + 300 +
+        400 + 500
+print(total)
+```
 
 <Quiz position={0} />
 
