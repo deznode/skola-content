@@ -1,0 +1,8 @@
+# CodeExample sidecar for the callouts-and-figure parity-fixture lesson (spec 048 T-09).
+# Validated + emitted by scripts/import-content.ts.
+- language: python
+  title: "Tudu kódigus djuntu"
+  code: |
+    numerus = [1, 2, 3]
+    total = sum(numerus)
+    assert total == 6
