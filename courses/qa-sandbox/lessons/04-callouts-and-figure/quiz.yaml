@@ -1,0 +1,12 @@
+# Quiz sidecar for the callouts-and-figure parity-fixture lesson (spec 048 T-09).
+# Validated by scripts/import-content.ts → emitted into quizzes / quiz_options.
+- question:
+    kea: "Kantu callouts diferentes es lison ten?"
+    en: "How many different callouts does this lesson have?"
+  options:
+    - text: { kea: "Dos", en: "Two" }
+      correct: false
+    - text: { kea: "Três", en: "Three" }
+      correct: true
+    - text: { kea: "Kuatu", en: "Four" }
+      correct: false
