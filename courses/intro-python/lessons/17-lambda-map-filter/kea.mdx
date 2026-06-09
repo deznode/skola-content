@@ -8,17 +8,17 @@ module: 3
 lesson: 17
 duration: "20 min"
 objectives:
-  - "Skrebe expresoens lambda pa funsoens kurtu di un linja"
+  - "Skrebe expresoens lambda pa funsoens kurtu di un linha"
   - "Transforma dadus ku map() aplikandu un funsan a kada elementu"
   - "Filtra elementus ku filter() bazadu na un kondisun"
   - "Kombina map() e filter() ku list() pa prosesamentu di dadus"
 ---
 
-Na lisan anterio, nôs aprende defini funsoens ku `def`. Ma ás bes, bo presiza un funsan mutu simples — un linja só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsoens anónimu ki bo skrebe na un linja. I ku **map()** i **filter()**, bo pode transforma i filtra dadus di lista interu sem skrebe loop manual.
+# Lambda, Map i Filter
 
-Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bo tene lista di presu na ECV i bo kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() e filter(), bo faze isu na un linja!
+Na lisun anterio, nôs aprende defini funsoens ku `def`. Ma ás bes, bo presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsoens anónimu ki bo skrebe na un linha. I ku **map()** i **filter()**, bo pode transforma i filtra dadus di lista interu sem skrebe loop manual.
 
-<Figure src="../../infographics/11-lambda-map-filter-pipeline.png" caption="Pipeline di dadus ku lambda, map(), i filter()" />
+Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bo tene lista di presu na ECV i bo kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
 
 ## Lambda — Funsoens Anónimu
 
@@ -71,12 +71,12 @@ for s in studantis:
 ```
 
 :::callout{type=tip}
-**Dika:** Lambda é pa funsoens kurtu i simples. Si bo funsan presiza más di un linja o é komplikadu, uza `def` normal. Kódiku klaru sempri ganha!
+**Dika:** Lambda é pa funsoens kurtu i simples. Si bo funsan presiza más di un linha o é komplikadu, uza `def` normal. Kódiku klaru sempri ganha!
 :::
 
 ## Map — Transforma Tudu Elementus
 
-`map(funsan, iterável)` ta aplika un funsan a **kada elementu** di un iterável (lista, tuple, etc.) e retorna un objetu map. Uza `list()` pa konverte pa lista.
+`map(funsan, iterável)` ta aplika un funsan a **kada elementu** di un iterável (lista, tuple, etc.) i retorna un objetu map. Uza `list()` pa konverte pa lista.
 
 ```python
 # Dobra tudu nùmerus
@@ -248,7 +248,9 @@ for s in xunbadus:
 
 ## Kombina Map i Filter
 
-Podér real ta ben kuandu bo kombina map() e filter() djuntu — primeiru filtra, dipôs transforma (o vice-versa):
+![Pipeline di transformasun ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.png)
+
+Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeiru filtra, dipôs transforma (o vice-versa):
 
 ```python
 # Pega só nùmerus par i kalkula kuadradu
@@ -354,15 +356,23 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 
 1. **Exersísiu 1 — Konversor di Moeda:** Uza `map()` pa konverte un lista di presus na ECV pa Euro (taxa: 1 EUR = 110.265 ECV). Arredonda pa 2 kasas desimai.
 
-2. **Exersísiu 2 — Filtra Studantis:** Dadu un lista di disionárius `[{"nomi": "...", "nota": N}, ...]`, uza `filter()` pa kria duas listas: aprovadus (nota >= 10) e distintu (nota >= 16).
+2. **Exersísiu 2 — Filtra Studantis:** Dadu un lista di disionárius `[{"nomi": "...", "nota": N}, ...]`, uza `filter()` pa kria duas listas: aprovadus (nota >= 10) i distintu (nota >= 16).
 
 3. **Exersísiu 3 — Prosesador di Nomis:** Di un lista di nomis `["maria", "JOÃO", "ana", "PEDRO"]`, uza `map()` pa normaliza tudu pa formato título (primeira letra maiúskula). Dipôs uza `filter()` pa mantene só nomis ku más di 3 letras.
 
 4. **Exersísiu 4 — Pipeline Kompletu:** Di un lista di produtus `[{"nomi": "...", "presu": N, "stoku": N}]`, uza filter() pa pega só produtus na stoku (stoku > 0), dipôs uza map() pa aplika 10% di diskontu na presu di kada un.
 
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
+<Quiz position={3} />
+
 ## Rezumu
 
-- **Lambda** é funsan anónimu di un linja: `lambda x: x * 2`
+- **Lambda** é funsan anónimu di un linha: `lambda x: x * 2`
 - **`map(fn, iterável)`** ta aplika funsan a TUDU elementu — transforma lista interu
 - **`filter(fn, iterável)`** ta mantene SÓ elementus undi funsan retorna True
 - **Sempri konverte** ku `list()` — map/filter retorna objetu lazy, ka lista
@@ -373,4 +383,4 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 
 ---
 
-**Prósimu lisan:** [Funsoens Inkorporadus Úteis] →
+**Prósimu lisun:** [Funsoens Inkorporadus Úteis →](/courses/intro-python/lessons/funsoens-inkorporadus)

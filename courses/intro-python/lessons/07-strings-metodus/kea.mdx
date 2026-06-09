@@ -14,11 +14,17 @@ objectives:
   - "Uza f\"{var=}\" pa debugging rápidul"
 ---
 
-Na lisan anteriol, bo prende tipu di dadus — e string é un dos ki bo ta uza MA na programasun. Tudu ves ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bo ta uza string. Python tene dezenas di métodus inkorporadu ki ta fasilitá manipulasun di testu. Nês lisan, nôs ta domina kes métodus e prende a formata saída di forma profisional.
+# Strings: Métodus e Formatason
+
+Na lisun anteriol, bo prende tipu di dadus — i string é un dos ki bo ta uza MA na programasun. Tudu ves ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bo ta uza string. Python tene dezenas di métodus inkorporadu ki ta fasilitá manipulasun di testu. Nês lisun, nôs ta domina kes métodus i prende a formata saída di forma profisional.
+
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa **métodus di string e f-strings**. Bo ta odja `if`, `for`, lista (`[...]`) e disionariu (`{...}`) na alguns izemplus prátiku — kes ta ben más tardi: `if` na Lisan 9, `for` na Lisan 10, lista na Lisan 11, disionariu na Lisan 13, `enumerate()` na Lisan 18. Repara na o ki ta kontise ku string, ka na strutura ki ta envolvi-l.
+:::
 
 ## Métodus di Kazu (Case Methods)
 
-Python tene métodus pa muda letras pa maiúskula, minúskula, e mais.
+Python tene métodus pa muda letras pa maiúskula, minúskula, i mais.
 
 ```python
 # Métodus di kazu
@@ -49,7 +55,7 @@ saudasan = "ola mundu"
 saudasan.upper()        # retorna "OLA MUNDU" ma ka ta guarda
 print(saudasan)         # "ola mundu" — mesmu koisa!
 
-# Pa guarda, bo tene ki atribui:
+# Pa guarda, bo ten ki atribui:
 saudasan = saudasan.upper()
 print(saudasan)         # "OLA MUNDU"
 ```
@@ -81,9 +87,9 @@ print(f"Email registradu: {email}")
 **Dika:** Bo pode enkadea (chain) vários métodus djuntu: `" OLA ".strip().lower()` ta da `"ola"`. Python ta exekuta di eskérda pa direita.
 :::
 
-## Split e Join
+## Split i Join
 
-`.split()` ta kebra un string na pedasus e ta da un lista. `"sep".join()` ta djunta un lista nun string. Es dois métodus é un par poderoso.
+`.split()` ta kebra un string na pedasus i ta da un lista. `"sep".join()` ta djunta un lista nun string. Es dois métodus é un par poderoso.
 
 ```python
 # .split() — separa string nun lista
@@ -150,7 +156,7 @@ print(ficheru.endswith(".txt"))         # False
 
 ```python
 # Ezemplu prátiku: klasifika ficheru por extensun
-nomis_ficheru = ["foto.jpg", "trabadju.pdf", "musika.mp3", "nota.txt", "video.mp4"]
+nomis_ficheru = ["foto.jpg", "trabalhu.pdf", "musika.mp3", "nota.txt", "video.mp4"]
 
 pa_kada = {"imaji": [], "dokumentu": [], "áudiu": [], "otru": []}
 
@@ -166,6 +172,8 @@ for f in nomis_ficheru:
 
 print(pa_kada)
 ```
+
+*(Lista, disionariu, `for` e `if` ta ben más tardi — Lisan 9 a 13. Aki, so odja kumo `.endswith()` ta filtra pa extensun.)*
 
 ## Replace
 
@@ -265,7 +273,7 @@ print(formatadu)  # "+238 991-23-45"
 
 ## f-strings — Formatason Prinsipal
 
-f-strings é forma prinsipal e modérna pa formata strings na Python. Basta koloka `f` antis di aspas e uza `{}`  pa inseri variáveis o expresoens.
+f-strings é forma prinsipal i modérna pa formata strings na Python. Basta koloka `f` antis di aspas i uza `{}`  pa inseri variáveis o expresoens.
 
 ```python
 # Báziku: f-string
@@ -293,6 +301,8 @@ for produto in ["Cachupa", "Grogue", "Ponche"]:
 # Ponche          ..... disponível
 ```
 
+*(Lista e `for` ta ben más tardi — fixa atensun na `:<15` ki ta alinha testu na 15 karater.)*
+
 ### f-string pa Debugging: `f"{var=}"`
 
 Desde Python 3.8, bo pode uza `=` dentu di f-string pa mostra nomi di variável DJUNTU ku se valor. É fantástiku pa debugging!
@@ -318,7 +328,7 @@ largura = 5
 altura = 3
 area = largura * altura
 
-# Sem f"{=}" — bo tene ki skrebe nomi manualmente
+# Sem f"{=}" — bo ten ki skrebe nomi manualmente
 print(f"largura={largura}, altura={altura}, area={area}")
 
 # Ku f"{=}" — mais rápidul i sem erru
@@ -347,7 +357,7 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo skrebe kódiku novu, SEMPRI uza f-strings. `.format()` e `%` só esisti pa bo pode lê kódiku ki otru pesoas skrebê antis.
+**Dika:** Kuandu bo skrebe kódiku novu, SEMPRI uza f-strings. `.format()` i `%` só esisti pa bo pode lê kódiku ki otru pesoas skrebê antis.
 :::
 
 ## Tenta Gosi 🏋️
@@ -356,14 +366,14 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
    - Mostra na maiúskula ku `.upper()`
    - Mostra na minúskula ku `.lower()`
    - Mostra na formatu título ku `.title()`
-   - Mostra kuantas letras tene (uza `len()` e `.replace(" ", "")` pa tira espasus)
+   - Mostra kuantas letras tene (uza `len()` i `.replace(" ", "")` pa tira espasus)
 
-2. **Exersísiu 2 — Analizador di Frase:** Pedi un frase e mostra:
-   - Kuantas palavras tene (uza `.split()` e `len()`)
+2. **Exersísiu 2 — Analizador di Frase:** Pedi un frase i mostra:
+   - Kuantas palavras tene (uza `.split()` i `len()`)
    - Kuantas ves letra "a" aparese (uza `.count()`)
    - Frase invertida (uza `[::-1]`)
 
-3. **Exersísiu 3 — Formatador di Kontatu:** Kria un programa ki pedi nomi, ilha e telefone, depois mostra un kartu di kontatu formatadu ku f-strings:
+3. **Exersísiu 3 — Formatador di Kontatu:** Kria un programa ki pedi nomi, ilha i telefone, dipos mostra un kartu di kontatu formatadu ku f-strings:
    ```
    ╔══════════════════════════╗
    ║  Nomi: Lara Silva        ║
@@ -371,6 +381,12 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
    ║  Tel:  +238 991-23-45    ║
    ╚══════════════════════════╝
    ```
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -382,8 +398,8 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
 - **Klasifikasun:** `.isdigit()`, `.isalpha()`, `.isalnum()` — verifica konteúdu
 - **Slicing:** `s[start:stop:step]` — `s[::-1]` pa inverte
 - **f-strings:** `f"Ola {nomi}"` — forma prinsipal di formata strings
-- **Debug:** `f"{var=}"` — mostra nomi e valor djuntu (Python 3.8+)
+- **Debug:** `f"{var=}"` — mostra nomi i valor djuntu (Python 3.8+)
 
 ---
 
-**Prósimu lisan:** [Operadoris] →
+**Prósimu lisun:** [Operadoris →](/courses/intro-python/lessons/operadoris)

@@ -15,9 +15,11 @@ objectives:
   - "Konverti entre tipus ku int(), float(), str()"
 ---
 
-Imagina ki bo tene un kaxa. Bo podi pô kualker kuza dentu — un númeru, un nomi, un presu. Kel kaxa é un **variable** na Python. Bo ta da un nomi a kaxa, e Python ta garda valor dentu.
+# Variáveis i Tipu Dinámiku
 
-Nês lisan, nôs ta prende kumo kria variáveis, ki regras di nomi tene, kumo resebe dados di utilizador, e kumo konverti entre tipus diferentes.
+Imagina ki bo tene un kaxa. Bo podi pô kualker kuza dentu — un númeru, un nomi, un presu. Kel kaxa é un **variable** na Python. Bo ta da un nomi a kaxa, i Python ta garda valor dentu.
+
+Nês lisun, nôs ta prende kumo kria variáveis, ki regras di nomi tene, kumo resebe dados di utilizador, i kumo konverti entre tipus diferentes.
 
 ## Kria Variáveis
 
@@ -28,10 +30,10 @@ Na Python, bo ta kria un variável simplesmente atribuindu un valor ku `=`. Ka p
 nomi = "Amilcar"       # str (textu)
 idadi = 25             # int (númeru interu)
 altura = 1.75          # float (númeru desimal)
-é_estudanti = True     # bool (verdaderu ó falsu)
+estudanti = True       # bool (verdaderu ó falsu)
 ```
 
-Bo podi tanbé atribui vários valores na mesmu linja:
+Bo podi tanbé atribui vários valores na mesmu linha:
 
 ```python
 # Atribuisun múltiplu
@@ -155,7 +157,11 @@ print(type(True))     # <class 'bool'>
 
 ## Input di Utilizador ku `input()`
 
-Funson `input()` ta para programa e spera utilizador skrebi algu. El **senpri ta retorna un string**.
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Es sesun-li ta uza `f"..."` (f-strings) pa mostra resultadu — bo ta prende-s formalmenti na Lisan 7. Repara na `input()` e na konversun di tipu, ka na f-string sintaxi.
+:::
+
+Funson `input()` ta para programa i spera utilizador skrebi algu. El **senpri ta retorna un string**.
 
 ```python
 nomi = input("Kual é bo nomi? ")
@@ -168,7 +174,8 @@ Kual é bo nomi? Maria
 Ola, Maria! Ben-vindu!
 ```
 
-**Atensun:** `input()` senpri ta retorna **string**, mesmu si utilizador skrebi un númeru:
+:::callout{type=warning}
+`input()` senpri ta retorna **string**, mesmu si utilizador skrebi un númeru:
 
 ```python
 idadi = input("Kual é bo idadi? ")
@@ -177,8 +184,9 @@ print(type(idadi))  # <class 'str'> — É string!
 # Kel ka ta funxiona kumo bo spera:
 # resultado = idadi + 5  # TypeError: can only concatenate str to str
 ```
+:::
 
-Pa traba ku númerus, bo tene ki **konverti**:
+Pa traba ku númerus, bo ten ki **konverti**:
 
 ```python
 idadi = int(input("Kual é bo idadi? "))
@@ -242,7 +250,7 @@ print(resultado)  # 3
 
 ### Bool Konversun
 
-Python tene regras simples pa konverti pa `bool`:
+Python tene regras simples pa konverti pa `bool`. Programadoris ta xoma valores ki ta vira `False` di **"falsy"** (vazi, zeru, nada), e valores ki ta vira `True` di **"truthy"** (ten algun kuza dentu).
 
 ```python
 # Valores "falsy" (vira False)
@@ -260,7 +268,7 @@ print(bool(0.001))   # True
 
 ## Ezemplu Prátiku: Kalkuladora Simples
 
-Vamos kombina tudu ki nôs prende — `input()`, konversun di tipu, e f-strings:
+Vamos kombina tudu ki nôs prende — `input()`, konversun di tipu, i f-strings:
 
 ```python
 # Kalkuladora simples
@@ -342,16 +350,29 @@ Tipu di nota: float
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria variáveis pa un pratu di kumida: `nomi_pratu` (string), `presu` (float), `porsun` (int), `disponível` (bool). Imprimi tudu ku f-strings e mostra tipu di kada un ku `type()`.
+1. **Exersísiu 1:** Kria variáveis pa un pratu di kumida: `nomi_pratu` (string), `presu` (float), `porsun` (int), `disponível` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un ku `type()`.
 
-2. **Exersísiu 2:** Skrebi un programa ki perunta utilizador sê nomi, ilha di origen, e anu di nasimentu. Kalkula idadi (2026 - anu) e imprimi un mensajen sabi kuma: "Ola, João di Santiago! Bo tene 25 anus."
+2. **Exersísiu 2:** Skrebi un programa ki perunta utilizador sê nomi, ilha di origen, i anu di nasimentu. Kalkula idadi (2026 - anu) i imprimi un mensajen sabi kuma: "Ola, João di Santiago! Bo tene 25 anus."
+   *(Es izemplu ta uza subtrasun (`-`) e f-string — bo ta prende-s formalmenti na Lisan 7 e 8. Si ka ten konfortu inda, salta e volta dipôs.)*
 
-3. **Exersísiu 3:** Kria un "konversor di moeda" simples. Perunta utilizador un valor na Eskudu (ECV), konverti pa Euro (1 EUR = 110.265 ECV) e dólar (1 USD = 102.5 ECV). Imprimi resultadus ku 2 kazas desimais uzandu `f"{valor:.2f}"`.
+3. **Exersísiu 3 (adibinha kuze e resultado):** Pa kada linha di kódiku, adibinha tipu di `valor` dipôs di kada operasun. Uza `type()` pa konfirma:
+    ```python
+    valor = input("Skrebi un kuza: ")  # tipu = ?
+    valor = int(valor)                 # tipu = ?
+    valor = float(valor)               # tipu = ?
+    valor = str(valor)                 # tipu = ?
+    ```
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
 - **Variáveis** é kaxas pa garda dados — kria ku `=` (assignment)
-- **Nomis** devi komesa ku letra ó `_`, uza `snake_case`, e ser deskritivu
+- **Nomis** devi komesa ku letra ó `_`, uza `snake_case`, i ser deskritivu
 - **`type()`** ta mostra tipu di un valor — sabi pa debugging
 - **`input()`** ta resebe textu di utilizador — senpri retorna **string**
 - **Konversun di tipu**: `int()`, `float()`, `str()` pa muda entre tipus
@@ -359,4 +380,4 @@ Tipu di nota: float
 
 ---
 
-**Prósimu lisan:** [Tipu di Dadus] →
+**Prósimu lisun:** [Tipu di Dadus →](/courses/intro-python/lessons/tipu-di-dadus)

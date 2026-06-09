@@ -142,7 +142,7 @@ m3-08-venv:
 m4-09-oop-pilaris:
   title: "4 Pilaris di OOP na Python — Mapa Rápidu"
   slug: 4-pilaris-oop-python
-  description: "Enkapsolamentu, eransa, polimorfismu i abstrasun na Python. Guia OOP na Kriolu pa prinsipianti."
+  description: "Enkapsolamentu, eransa, polimorfismu i abstrasan na Python. Guia OOP na Kriolu pa prinsipianti."
   keywords:
     - python oop
     - python 4 pilaris

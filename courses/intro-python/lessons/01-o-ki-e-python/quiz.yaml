@@ -1,0 +1,39 @@
+# Quiz sidecar for the o-ki-e-python lesson. Localized question + option text.
+# Validated by scripts/import-content.ts → emitted into quizzes / quiz_options.
+# Positions 0, 1, 2 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Em ki anu ki Python foi kriadu?"
+    en: "In what year was Python created?"
+  options:
+    - text: { kea: "1989", en: "1989" }
+      correct: false
+    - text: { kea: "1991", en: "1991" }
+      correct: true
+    - text: { kea: "2000", en: "2000" }
+      correct: false
+    - text: { kea: "2010", en: "2010" }
+      correct: false
+- question:
+    kea: "Pa kuze é ki Python é fundasan modernu na mundu di tek?"
+    en: "What is Python the foundational language for in the modern tech world?"
+  options:
+    - text: { kea: "Dezenvolvimentu di jogus móvel", en: "Mobile game development" }
+      correct: false
+    - text: { kea: "Intelijensia Artifisial i Machine Learning", en: "Artificial Intelligence and Machine Learning" }
+      correct: true
+    - text: { kea: "Sistema operasional", en: "Operating systems" }
+      correct: false
+    - text: { kea: "Konfigurasun di redi", en: "Network configuration" }
+      correct: false
+- question:
+    kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"
+    en: "For tech professionals in Cape Verde, what is Python's main advantage?"
+  options:
+    - text: { kea: "Sé ta funsiona na portugés", en: "Only works in Portuguese" }
+      correct: false
+    - text: { kea: "Ta abri portas pa trabadju remotu ku empresas internasionais", en: "Opens doors for remote work with international companies" }
+      correct: true
+    - text: { kea: "Ten kustu altu di lisensa", en: "Has a high license cost" }
+      correct: false
+    - text: { kea: "Só pa estudantis universitáriu", en: "Only for university students" }
+      correct: false

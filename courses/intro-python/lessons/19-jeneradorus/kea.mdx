@@ -14,6 +14,8 @@ objectives:
   - "Kompara uzu di memória entre listas i jeneradorus"
 ---
 
+# Jeneradorus
+
 Imajina bo tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di una ves, bo komputador podi fika lentu ó krasá. Ma si bo só presiza un valór di kada ves — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valóris un pa un, só kuandu bo pidi.
 
 ## Problema: Listas Grandi ta Kume Memória
@@ -25,7 +27,7 @@ print(f"Lista tene {len(numeros)} elementus")
 # Kel lista ta okupa sérka di 80 MB di memória 😱
 ```
 
-Kuandu bo ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sequénsia infinita — bo nau presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, e pasa pa prósimu.
+Kuandu bo ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sequénsia infinita — bo ka presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
 
 ## Generator Expressions
 
@@ -43,7 +45,7 @@ print(type(gen))    # <class 'generator'>
 ```
 
 ```python
-# Generator nau mostra elementus diretu
+# Generator ka mostra elementus diretu
 gen = (x ** 2 for x in range(5))
 print(gen)  # <generator object <genexpr> at 0x...>
 
@@ -201,7 +203,7 @@ print(total_lista == total_gen)  # True
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bo nau presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+**Dika:** Kuandu bo ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bo ka presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
 :::
 
 ## Kuandu Uza Generator vs Lista
@@ -215,7 +217,7 @@ print(total_lista == total_gen)  # True
 | Presiza asesu aleatoriu (índisi) | | ✓ |
 | Presiza tamanhu (`len()`) | | ✓ |
 | Presiza itera múltiplas vezes | | ✓ |
-| Lista é pikininu (< 1000 elementus) | | ✓ |
+| Lista é pikininu (`< 1000 elementus`) | | ✓ |
 
 ## Tenta Gosi 🏋️
 
@@ -224,6 +226,12 @@ print(total_lista == total_gen)  # True
 2. **Exersísiu 2: Kontador di ECV** — Kria un generator function `moedas_ecv()` ki ta produz valóris di moeda cabo-verdianu: 1, 5, 10, 20, 50, 100. Itera sobri el ku `next()`.
 
 3. **Exersísiu 3: Fibonacci Limitadu** — Modifika generator `fibonacci()` pa aseita un parámetru `limite` i para kuandu valór ta pasa kel limite. Testa ku `limite=100`.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -238,4 +246,4 @@ print(total_lista == total_gen)  # True
 
 ---
 
-**Prósimu lisan:** [Módulus i Pakotis] →
+**Prósimu lisun:** [Módulus i Pakotis →](/courses/intro-python/lessons/modulus-pakotis)

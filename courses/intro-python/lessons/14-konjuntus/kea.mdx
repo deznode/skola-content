@@ -15,6 +15,8 @@ objectives:
   - "Skrévi set comprehension"
 ---
 
+# Konjuntus (Sets)
+
 Na matemátika, un konjuntu é un grupu di elementus úniku -- sin repetisun. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi una ves só, ó kuandu bo presiza verifica rápidu si un elementu ezisti. Nôs ta uza sets pa tudu tipu di koza -- dezdi removi duplikadus te kompara listas di dadus.
 
 ## Kria Sets
@@ -24,14 +26,14 @@ Tene dos maneira di kria un set:
 ```python
 # Ku chaves {}
 ilhas = {"Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"}
-print(ilhas)        # Órdin podi varia! Sets NAU tene órdin garantidu
+print(ilhas)        # Órdin podi varia! Sets KA tene órdin garantidu
 print(type(ilhas))  # <class 'set'>
 
 # Ku set() a partir di un lista
 numeros = set([1, 2, 3, 4, 5])
 print(numeros)  # {1, 2, 3, 4, 5}
 
-# Set vazio -- ATENSUN!
+# Set vazio -- ATENSAN!
 vazio_corretu = set()     # Set vazio ✓
 vazio_eradu = {}          # Kel li é un dict vazio, NAU un set!
 print(type(vazio_corretu))  # <class 'set'>
@@ -82,7 +84,7 @@ ilha = "Sal"
 if ilha in ilhas_ku_aeroportu:
     print(f"{ilha} tene aeroporitu internasional! ✈️")
 else:
-    print(f"{ilha} nau tene aeroporitu internasional.")
+    print(f"{ilha} ka tene aeroporitu internasional.")
 
 # Kompara ku lista -- resultado é igual, ma set é más rápidu
 ilha_lista = ["Santiago", "Sal", "São Vicente", "Boa Vista"]
@@ -160,19 +162,19 @@ print(frutas)  # {'manga', 'papaia', 'banana', 'laranja'}
 frutas.add("manga")
 print(frutas)  # {'manga', 'papaia', 'banana', 'laranja'} -- sin repetisun
 
-# .remove() -- elimina (da erru si nau ezisti!)
+# .remove() -- elimina (da erru si ka ezisti!)
 frutas.remove("papaia")
 print(frutas)  # {'manga', 'banana', 'laranja'}
-# frutas.remove("uva")  # KeyError! 'uva' nau ezisti
+# frutas.remove("uva")  # KeyError! 'uva' ka ezisti
 
-# .discard() -- elimina (NAU da erru si nau ezisti)
+# .discard() -- elimina (KA da erru si ka ezisti)
 frutas.discard("uva")  # Nada ta kontesi, sin erru
 frutas.discard("banana")
 print(frutas)  # {'manga', 'laranja'}
 ```
 
 :::callout{type=tip}
-**Dika:** Uza `.discard()` na vés di `.remove()` kuandu bo nau tene serteza si elementu ezisti. Asim bo programa nau ta krasa ku `KeyError`.
+**Dika:** Uza `.discard()` na vés di `.remove()` kuandu bo ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
 :::
 
 ```python
@@ -194,7 +196,7 @@ print(vogais_nomi.issubset(vogais))  # True -- tudu vogais_nomi sta na vogais
 
 ## Set Comprehension
 
-Mesmu lójika di list comprehension, ma ku chaves `{}`:
+Mesmu lójika di list comprehension, ma ku txaves `{}`:
 
 ```python
 # Numeros par di 0 a 20
@@ -223,7 +225,7 @@ if numeru in quadradus:
     print(f"{numeru} é un quadradu perfeitu!")
 ```
 
-## Padrões Komun: Removi Duplikadus Preservandu Órdin
+## Padrones Komun: Removi Duplikadus Preservandu Órdin
 
 `set()` ta removi duplikadus, ma el ta perdi órdin orijinal. Pa preserva órdin:
 
@@ -270,7 +272,7 @@ print(playlist_limpu)
 | Elementus é mutável (listas, dicts) | | ✓ |
 
 :::callout{type=tip}
-**Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bo nau podi pô listas ó dicionárius dentru di un set.
+**Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bo ka podi pô listas ó dicionárius dentru di un set.
 :::
 
 ```python
@@ -283,11 +285,17 @@ validu = {1, "hello", (1, 2, 3), True}
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Letras Komun** -- Kria dos sets ku letras di dos palavras (por ezemplu, "cachupa" i "funana"). Mostra letras ki ambos ta partilha (intersection) e letras ki só un di es tene (symmetric difference).
+1. **Exersísiu 1: Letras Komun** -- Kria dos sets ku letras di dos palavras (por ezemplu, "cachupa" i "funana"). Mostra letras ki ambos ta partilha (intersection) i letras ki só un di es tene (symmetric difference).
 
 2. **Exersísiu 2: Deduplikador di Emali** -- Tene un lista di emalis ki podi tene duplikadus. Uza set pa removi duplikadus i mostra lista limpu ku total antis i dipos.
 
 3. **Exersísiu 3: Analiza di Playlist** -- Kria dos playlists (sets di nomi di músika). Mostra: (a) tudu músika kombindadu, (b) músika ki sta na ambos playlists, (c) músika ki só sta na playlist 1.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
@@ -303,4 +311,4 @@ validu = {1, "hello", (1, 2, 3), True}
 
 ---
 
-**Prósimu lisan:** [Kazus Real ku Estruturas di Dadus] →
+**Prósimu lisun:** [Kazus Real ku Estruturas di Dadus →](/courses/intro-python/lessons/kazus-real)

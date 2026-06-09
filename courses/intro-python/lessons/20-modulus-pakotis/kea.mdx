@@ -12,10 +12,12 @@ objectives:
   - "Uza pip pa instala pakotis di terseru"
   - "Kria pakotis personalizadu ku __init__.py"
   - "Konhesi módulus prinsipais di standard library"
-  - "Intendi padrãu __name__ == '__main__'"
+  - "Intendi padron __name__ == '__main__'"
 ---
 
-Kuandu bo programa ta krési, bo nau podi pô tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) e **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
+# Módulus i Pakotis
+
+Kuandu bo programa ta krési, bo ka podi pô tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
 
 ## O ki é un Módulu?
 
@@ -31,7 +33,7 @@ print(math.ceil(4.2))   # 5
 print(math.floor(4.8))  # 4
 ```
 
-## Trez Maneira di Importa
+## Tres Maneira di Importa
 
 ### 1. `import modulo` — Importa módulu interu
 
@@ -69,12 +71,12 @@ print(f"Data di oji: {gosi.strftime('%d/%m/%Y')}")
 ```
 
 :::callout{type=tip}
-**Dika:** Evita `from modulo import *` — el ta importa TUDU i bo nau ta sabi di undi kada funsan ben. Kel ta kria konfuzun i bugs difísil di atxa.
+**Dika:** Evita `from modulo import *` — el ta importa TUDU i bo ka ta sabi di undi kada funsan ben. Kel ta kria konfuzun i bugs difísil di atxa.
 :::
 
 ## Standard Library: Módulus ki Dja Ben ku Python
 
-Python tene un "biblioteca padrãu" enormi — módulus ki dja sta instaladu i prontu pa uza:
+Python tene un **standard library** enormi — módulus ki dja sta instaladu i prontu pa uza:
 
 ### `random` — Numeru aleatóriu
 
@@ -112,7 +114,7 @@ print(ficheros)
 if os.path.exists("notas.txt"):
     print("Ficheru ezisti!")
 else:
-    print("Ficheru nau ezisti.")
+    print("Ficheru ka ezisti.")
 
 # Kria pasta nóvu
 os.makedirs("projetu/dadus", exist_ok=True)
@@ -204,7 +206,7 @@ if re.match(r"^[\w.+-]+@[\w-]+\.[\w.]+$", email):
 
 ## Instala Pakotis ku `pip`
 
-Pa pakotis ki **nau sta** na standard library, uza `pip`:
+Pa pakotis ki **ka sta** na standard library, uza `pip`:
 
 ```bash
 # Instala un pakotu
@@ -232,12 +234,12 @@ print(f"Status: {resposta.status_code}")
 ```
 
 :::callout{type=tip}
-**Dika:** Sénpri instala pakotis dentru di un **ambiente virtual** (`.venv`). Nôs ta prende kel na prósimu lisan!
+**Dika:** Sénpri instala pakotis dentru di un **ambiente virtual** (`.venv`). Nôs ta prende kel na prósimu lisun!
 :::
 
 ## Kria Pakotis Personalizadu
 
-Un **pakotu** é un pasta ku un ficheru `__init__.py` (podi ser vazio) e un ó más módulus:
+Un **pakotu** é un pasta ku un ficheru `__init__.py` (podi ser vazio) i un ó más módulus:
 
 ```
 meu_projetu/
@@ -289,7 +291,7 @@ from utilidadis.texto import konta_palavras
 print(konta_palavras("Nu ta kria djuntu"))  # 4
 ```
 
-## Padrãu `__name__ == "__main__"`
+## Padron `__name__ == "__main__"`
 
 Kuandu Python ta roda un ficheru, el ta define `__name__` kómu `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
 
@@ -315,11 +317,11 @@ python kalkuladora.py
 # Saída: "Testandu kalkuladora:" + resultadus
 
 # Si bo importa di otu ficheru:
-# from kalkuladora import soma  -- bloku if NAU ta roda
+# from kalkuladora import soma  -- bloku if KA ta roda
 ```
 
 :::callout{type=tip}
-**Dika:** Kel padrãu é perfeitu pa pô kódiku di testu ó ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kómu módulu.
+**Dika:** Kel padron é perfeitu pa pô kódiku di testu ó ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kómu módulu.
 :::
 
 ## Struktura di un Projetu Real
@@ -330,7 +332,7 @@ Un projetu Python ben organizadu ta parsé ku kel li:
 gestor_notas/
 ├── main.py              # Pontu di entrada
 ├── requirements.txt     # Dependénsia di terseru
-├── .venv/               # Ambiente virtual (NAU ta bai pa git!)
+├── .venv/               # Ambiente virtual (KA ta bai pa git!)
 ├── modulus/
 │   ├── __init__.py
 │   ├── estudanti.py     # Funsun relasionadu ku estudanti
@@ -346,18 +348,24 @@ gestor_notas/
 
 2. **Exersísiu 2: Kria un Módulu** — Kria un ficheru `conversor.py` ku funsoens `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: 1 EUR = 110.265 ECV). Na otu ficheru, importa i testa.
 
-3. **Exersísiu 3: Pakotu di Utilidadis** — Kria un pasta `utils/` ku `__init__.py`, un módulu `validasun.py` (funsan `valida_email(email)`) e un módulu `formatu.py` (funsan `formata_ecv(valor)` ki retorna "1.500$00 ECV"). Importa tudu di `main.py`.
+3. **Exersísiu 3: Pakotu di Utilidadis** — Kria un pasta `utils/` ku `__init__.py`, un módulu `validasun.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki retorna "1.500$00 ECV"). Importa tudu di `main.py`.
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
 - **Módulu** é un ficheru `.py` ku kódiku reutilizável
-- Trez formas di import: `import math`, `from math import sqrt`, `import numpy as np`
+- Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`
 - **Standard library** tene módulus prontu: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`
 - **pip** ta instala pakotis di terseru: `pip install nome_pakotu`
 - **Pakotu** é un pasta ku `__init__.py` + módulus
 - `__name__ == "__main__"` ta permite kódiku ki só roda kuandu ficheru é ezekatadu diretu
-- Organiza projetu na módulus ta fazi kódiku más fásil di lé, mante, e reusa
+- Organiza projetu na módulus ta fazi kódiku más fásil di lé, mante, i reusa
 
 ---
 
-**Prósimu lisan:** [Ambiente Virtual i pip] →
+**Prósimu lisun:** [Ambiente Virtual i pip →](/courses/intro-python/lessons/ambiente-virtual)

@@ -3,7 +3,7 @@ title: "Instala Python e Konfigura VS Code"
 language: kea
 courseSlug: intro-python
 lessonSlug: instala-python
-slug: "instala-python-konfigura-vs-code"
+slug: "instala-python"
 module: 1
 lesson: 2
 duration: "30 min"
@@ -14,41 +14,47 @@ objectives:
   - "Skrebi e roda bo priméru programa Python"
 ---
 
-Antis di kumesa programá, nôs precisa prepara nôs ferramentas. É manera un kuzinheru ki ta organiza ingredientis antis di kumesa fazi katchupa — bo precisa tudu na lugar sertu! Na es lisan, nôs ta instala Python, konfigura VS Code, e roda nôs priméru programa.
+# Instala Python i Konfigura VS Code
+
+Antis di kumesa programá, nu meste prepara nôs ferramentas. É manera un kuzinheru ki ta organiza ingredientis antis di kumesa fazi katchupa — bu meste tudu na lugar sertu! Na es lisan, nu ta instala Python, konfigura VS Code, kria un virtual environment, i kore nôs priméru programa.
 
 ## Pasu 1: Instala Python
 
-<Figure src="../../infographics/01-instala-python-plataformas.png" caption="Pasu a pasu pa instala Python na Windows, macOS, i Linux" />
+![Pasus di instalasan di Python na Windows, macOS i Linux](../../infographics/01-instala-python-plataformas.png)
 
-Python é grátis e disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** e fazi download di versaun más resenti (Python 3.13+).
+Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** i fazi download di versan más resenti (Python 3.13+).
 
 ### Windows
 
-1. Bai na [python.org/downloads](https://www.python.org/downloads/) e klika na **"Download Python 3.13.x"**
+1. Bai na [python.org/downloads](https://www.python.org/downloads/) i klika na **"Download Python 3.13.x"**
 2. Abri fixeru ki bo fazi download (`python-3.13.x-amd64.exe`)
 3. **MUTU IMPORTANTI:** Marka txekbox **"Add python.exe to PATH"** na parti di baxu!
 4. Klika **"Install Now"**
-5. Spera instalasun akaba e klika **"Close"**
+5. Spera instalasan akaba i klika **"Close"**
 
-:::callout{type=warning}
-**⚠️ Atensun:** Si bo skesi marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bo dja instala sem marka, roda installer otu ves e skolhi "Modify" → marka "Add to PATH".
+:::callout{type=tip}
+**O ki é PATH?** PATH é un lista di pastas undi sistema ta buska programas. Sen Python na PATH, te ki bu skrebe `python` na terminal, sistema ka ta atxa-l.
 :::
 
-Pa verifika ki tudu ta funsiona, abri **Command Prompt** (o PowerShell) e skrebi:
+:::callout{type=warning}
+Si bu skise marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bu instala sem marka, kore installer otu bez i skodje "Modify" → marka "Add to PATH".
+:::
+
+Pa verifika ki tudu ta funsiona, abri **Command Prompt** (o PowerShell) i skrebe:
 
 ```bash
 python --version
 ```
 
-Bo debe odja algu manera: `Python 3.13.2`
+Bu debe odja algu manera: `Python 3.13.2`
 
 ### macOS
 
-1. Bai na [python.org/downloads](https://www.python.org/downloads/) e fazi download di fixeru `.pkg` pa macOS
-2. Abri fixeru `.pkg` e sigui instrusun di instalador
-3. Klika **"Install"** e po bo password si pidi
+1. Bai na [python.org/downloads](https://www.python.org/downloads/) i fazi download di fixeru `.pkg` pa macOS
+2. Abri fixeru `.pkg` i sigui instrusun di instalador
+3. Klika **"Install"** i po bu password si pidi
 
-Pa verifika, abri **Terminal** e skrebi:
+Pa verifika, abri **Terminal** i skrebe:
 
 ```bash
 python3 --version
@@ -74,14 +80,14 @@ python3 --version
 ```
 
 :::callout{type=tip}
-**Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sem kel pakoti, `python -m venv` ta da erru.
+**Dika:** Na Linux, é importanti instala tanbe `python3-venv` pamodi e ta permiti bo kria virtual environments. Sen kel pakoti, `python -m venv` ta da erru.
 :::
 
 ## Pasu 2: Instala VS Code
 
 **VS Code** (Visual Studio Code) é un editor di kódiku grátis di Microsoft. É editor más uzadu na mundu, ku suporti exelenti pa Python.
 
-1. Bai na **[code.visualstudio.com](https://code.visualstudio.com/)** e fazi download pa bo sistema
+1. Bai na **[code.visualstudio.com](https://code.visualstudio.com/)** i fazi download pa bo sistema
 2. Instala sigindi instrusun normal (Next → Next → Install)
 3. Abri VS Code
 
@@ -101,7 +107,7 @@ Pa instala:
 4. Skolhi extensun **"Python"** di Microsoft (e ta mostru *ms-python.python*)
 5. Klika **"Install"**
 
-Extensun ta instala automátikamenti **Pylance** (pa autocomplete) e **Python Debugger**.
+Extensun ta instala automátikamenti **Pylance** (pa autocomplete) i **Python Debugger**.
 
 ## Pasu 3: Kria Bo Priméru Projetu
 
@@ -125,7 +131,7 @@ cd meu-priméru-python
 code .
 ```
 
-Es komandu ta abri VS Code ku pasta atual kumo projetu. Si `code` ka ta funsiona, abri VS Code manualmenti e uza **File → Open Folder** pa skolhi bo pasta.
+Es komandu ta abri VS Code ku pasta atual kumo projetu. Si `code` ka ta funsiona, abri VS Code manualmenti i uza **File → Open Folder** pa skolhi bo pasta.
 
 ## Pasu 4: Kria Virtual Environment (.venv)
 
@@ -133,13 +139,13 @@ Un **virtual environment** é un espasu izoladu pa kada projetu Python. Pamodi �
 
 - **Projetu A** precisa di biblioteka versaun 1.0
 - **Projetu B** precisa di mesmu biblioteka ma versaun 2.0
-- Sem virtual environment, un ta kibra otru!
+- Sen virtual environment, un ta kibra otru!
 
 Ku virtual environment, kada projetu tene si própriu "mundu" separadu.
 
 ### Kria .venv
 
-Na terminal di VS Code (abri ku `` Ctrl+` ``), skrebi:
+Na terminal di VS Code (abri ku `` Ctrl+` ``), skrebe:
 
 ```bash
 # Windows
@@ -175,14 +181,14 @@ Kuandu .venv ta ativu, bo ta odja `(.venv)` na kumessu di prompt:
 Kel `(.venv)` ta indika ki tudu pakoti ki bo instala gosi ta bai pa es projetu so, ka pa sistema interu.
 
 :::callout{type=warning}
-**⚠️ Atensun (Windows PowerShell):** Si bo odja erru di "execution policy", roda es komandu primeiru:
+**(Windows PowerShell):** Si bo odja erru di "execution policy", roda es komandu primeiru:
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 Dipôs tenta ativa .venv otu ves.
 :::
 
-### VS Code e .venv
+### VS Code i .venv
 
 VS Code é intelizenti — kuandu e deteta un pasta `.venv`, e ta propoe automátikamenti pa uza kel Python. Odja na barra di status (parti di baxu) — e deve mostru algu manera:
 
@@ -190,11 +196,11 @@ VS Code é intelizenti — kuandu e deteta un pasta `.venv`, e ta propoe automá
 Python 3.13.2 ('.venv')
 ```
 
-Si ka ta mostra, klika na versaun di Python na barra di status e skolhi interpreter ki ta stá dentru di `.venv`.
+Si ka ta mostra, klika na versaun di Python na barra di status i skolhi interpreter (kel programa Python ki ta roda bo kódiku) ki ta stá dentru di `.venv`.
 
 ## Pasu 5: Nha Priméru Programa!
 
-Gosi si! Nôs ta skrebi nôs priméru programa Python.
+Gosi si! Nôs ta skrebe nôs priméru programa Python.
 
 ### Kria Fixeru
 
@@ -208,6 +214,10 @@ Gosi si! Nôs ta skrebi nôs priméru programa Python.
 ### Skrebi Kódiku
 
 Skrebi es kódiku na fixeru `ola.py`:
+
+:::callout{type=tip}
+**Dika:** Es `f` antis di aspras (`f"..."`) é un **f-string** — e ta permiti po variáveis dentru di tekstu ku `{nomi}`. Bo ta prende más na lisan 7 (Strings).
+:::
 
 ```python
 # Nha priméru programa Python!
@@ -247,7 +257,7 @@ São Vicente é un ilha sabi! Morabeza! 🇨🇻
 Nôs ta kriá djunta!
 ```
 
-**Parabéns! Bo dja skrebi e roda bo priméru programa Python!** 🎉
+**Parabéns! Bo dja skrebe i roda bo priméru programa Python!** 🎉
 
 ## Pasu 6: Komandus Esensiais pa Lembra
 
@@ -271,19 +281,16 @@ deactivate
 
 ### pip (Instalador di Pakotis)
 
+Un **pakoti** é un biblioteka di kódiku ki otru pesoa skrebe pa bo uza. `pip` é programa ki ta instala-l dentru di bo `.venv`.
+
 ```bash
-# Instala un pakoti
+# Instala un pakoti dentru di bo .venv
 pip install requests
-
-# Odja pakotis instaladu
-pip list
-
-# Salva lista di pakotis (pa partilha ku otru pesoas)
-pip freeze > requirements.txt
-
-# Instala tudu pakotis di un lista
-pip install -r requirements.txt
 ```
+
+:::callout{type=tip}
+**Pa más sobri pip:** Lisan 21 (Ambiente Virtual i pip) ta mostra `pip list`, `pip freeze` i `requirements.txt` ku detalhe.
+:::
 
 ### Roda Programa
 
@@ -297,7 +304,7 @@ python3 ola.py              # macOS/Linux (fora di .venv)
 **Dika:** Kuandu `.venv` ta ativu, bo pode uza `python` (sem 3) na tudu sistema — virtual environment dja sabi kal versaun pa uza.
 :::
 
-## Errus Kumuns e Soluson
+## Errus Kumuns i Soluson
 
 | Erru | Kauza | Soluson |
 |------|-------|---------|
@@ -309,11 +316,11 @@ python3 ola.py              # macOS/Linux (fora di .venv)
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Instala Python na bo komputador e verifika versaun ku `python --version` (o `python3 --version`). Skrebi ki versaun bo instala.
+1. **Exersísiu 1:** Instala Python na bo komputador i verifika versaun ku `python --version` (o `python3 --version`). Skrebi ki versaun bo instala.
 
-2. **Exersísiu 2:** Kria un pasta novu txamadu `prátika-python`, kria un `.venv` dentru del, e ativa el. Verifika ki `(.venv)` ta aparesi na bo prompt.
+2. **Exersísiu 2:** Kria un pasta novu txamadu `prátika-python`, kria un `.venv` dentru del, i ativa el. Verifika ki `(.venv)` ta aparesi na bo prompt.
 
-3. **Exersísiu 3:** Kria un fixeru `sobri-mi.py` ki ta pergunta 3 kuzas (nomi, idadi, pratu favoritu) e mostra un mensajen personalizadu. Ezemplu di output:
+3. **Exersísiu 3:** Kria un fixeru `sobri-mi.py` ki ta pergunta 3 kuzas (nomi, idadi, pratu favoritu) i mostra un mensajen personalizadu. Ezemplu di output:
 
 ```
 Kel ki é bo nomi? João
@@ -322,15 +329,21 @@ Kel ki é bo pratu favoritu? Katchupa
 João, bo tene 25 anu i bo ta gosta di Katchupa. Sabi!
 ```
 
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
 ## Rezumu
 
-- Instala Python di **python.org** (ka uza Anaconda) — na Windows, sempri marka **"Add to PATH"**
+- Instala Python di **python.org** — na Windows, sempri marka **"Add to PATH"**
 - VS Code ku extensun Python ta da-bu un ambienti profisional grátis
 - **Virtual environment** (`.venv`) izola pakotis di kada projetu — sempri kria un!
 - Fixerus Python tene extensun **`.py`**
 - `python -m venv .venv` kria, `source .venv/bin/activate` (o `.venv\Scripts\activate`) ativa
-- Bo priméru programa uza `input()` pa resebe dadus e `print()` pa mostra rezultadus
+- Bo priméru programa uza `input()` pa resebe dadus i `print()` pa mostra rezultadus
 
 ---
 
-**Prósimu lisan:** [Lé Errus (Tracebacks)] →
+**Prósimu lisan:** [Lé Errus (Tracebacks) →](/courses/intro-python/lessons/le-errus)

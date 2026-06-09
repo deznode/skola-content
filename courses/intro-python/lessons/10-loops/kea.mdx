@@ -16,11 +16,13 @@ objectives:
   - "Konxé enumerate() komu pitu pa Module 3"
 ---
 
-Imajina ki bo ta presiza konta di 1 té 100. Bo ta skrévi `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu ves sin skrévi mesmu koza rapitidu. Na Python, nôs tene dos tipu prinsipál di loop: `for` e `while`. Nôs ta domina ambos na kel lisan li!
+# Loops (for/while)
 
-<Figure src="../../infographics/05-anatomia-di-loop.png" caption="Anatomia di un loop for na Python ku break, continue, i else" />
+Imajina ki bo ta presiza konta di 1 té 100. Bo ta skrévi `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu ves sin skrévi mesmu koza rapitidu. Na Python, nôs tene dos tipu prinsipál di loop: `for` i `while`. Nôs ta domina ambos na kel lisun li!
 
 ## For Loop ku Range()
+
+![Anatomia di for loop ku range, break, continue](../../infographics/05-anatomia-di-loop.png)
 
 `for` loop é forma más komun di repetisun na Python. Funsun `range()` ta jera un sequénsia di numerus pa nôs itera.
 
@@ -38,7 +40,7 @@ for i in range(5):
 for i in range(5):
     print(i)         # 0, 1, 2, 3, 4
 
-# range(start, stop) -- stop nau ta inkluídu!
+# range(start, stop) -- stop ka ta inkluídu!
 for i in range(1, 6):
     print(i)         # 1, 2, 3, 4, 5
 
@@ -52,7 +54,7 @@ for i in range(10, 0, -1):
 ```
 
 :::callout{type=tip}
-**Dika:** `range(stop)` ta kumesa SÉNPRI na 0 e ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 -- sinku numerus, ma nunka txiga na 5!
+**Dika:** `range(stop)` ta kumesa SÉNPRI na 0 i ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 -- sinku numerus, ma nunka txiga na 5!
 :::
 
 Ezemplu prátiku -- kontajen regresivu:
@@ -114,7 +116,7 @@ print(f"Média: {media}")  # Média: 15.4
 
 ## While Loop
 
-`while` loop ta repeti enkuantu kondisun é `True`. Útil kuandu bo nau sabi kuántus ves loop ta presiza kori.
+`while` loop ta repeti enkuantu kondisun é `True`. Útil kuandu bo ka sabi kuántus ves loop ta presiza kori.
 
 ```python
 # Konta di 1 a 5 ku while
@@ -125,7 +127,7 @@ while kontador <= 5:
 ```
 
 :::callout{type=tip}
-**Dika:** Sénpri garanti ki kondisun di `while` ta txiga a `False` na algun momentu. Sin kél, bo ta kria un "loop infinitu" ki nau ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
+**Dika:** Sénpri garanti ki kondisun di `while` ta txiga a `False` na algun momentu. Sin kél, bo ta kria un "loop infinitu" ki ka ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
 :::
 
 Ezemplu prátiku -- jogu di adivinha:
@@ -160,12 +162,12 @@ numeru = -1
 while numeru <= 0:
     numeru = int(input("Inseri un numeru positivu: "))
     if numeru <= 0:
-        print("Kel nau é positivu! Tenta más.")
+        print("Kel ka é positivu! Tenta más.")
 
 print(f"Bo inseri: {numeru}")
 ```
 
-## Break, Continue e Pass
+## Break, Continue i Pass
 
 Python tene 3 instruson spesiál pa kontrola kumé loop ta funsiona:
 
@@ -195,7 +197,7 @@ for nomi in nomis:
 
 ### Continue -- Pula pa Prósimu
 
-`continue` ta pula restu di iterasun atual e ta bai pa prósimu:
+`continue` ta pula restu di iterasun atual i ta bai pa prósimu:
 
 ```python
 # Mostra só numerus ímpar di 1 a 10
@@ -216,9 +218,9 @@ for ilha in ilhas:
     print(f"Ilha: {ilha}")
 ```
 
-### Pass -- Nau Fazi Nada
+### Pass -- Ka Fazi Nada
 
-`pass` é un "placeholder" -- el nau ta fazi nada, ma ta permiti bo tene un bloku vazio sin erru:
+`pass` é un "placeholder" -- el ka ta fazi nada, ma ta permiti bo tene un bloku vazio sin erru:
 
 ```python
 # Placeholder pa kódiku ki bo ta skrévi dipos
@@ -230,7 +232,7 @@ for i in range(10):
 ```
 
 :::callout{type=tip}
-**Dika:** `pass` é útil kuandu bo ta planeja bo programa e bo kre dexa un bloku vazio pa dipos. Sin `pass`, Python ta dá `IndentationError`.
+**Dika:** `pass` é útil kuandu bo ta planeja bo programa i bo kre dexa un bloku vazio pa dipos. Sin `pass`, Python ta dá `IndentationError`.
 :::
 
 ## For-Else: Bloku Else Dipos di Loop
@@ -247,11 +249,11 @@ for n in numerus:
         print(f"Atxa {buska}!")
         break
 else:
-    print(f"{buska} nau sta na lista.")
-# Saída: 7 nau sta na lista.
+    print(f"{buska} ka sta na lista.")
+# Saída: 7 ka sta na lista.
 ```
 
-Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bo nau atxa, `else` ta kori.
+Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bo ka atxa, `else` ta kori.
 
 Ezemplu klásku -- verifikador di numeru primu:
 
@@ -260,11 +262,11 @@ Ezemplu klásku -- verifikador di numeru primu:
 numeru = int(input("Inseri un numeru: "))
 
 if numeru <= 1:
-    print(f"{numeru} nau é primu.")
+    print(f"{numeru} ka é primu.")
 else:
     for i in range(2, numeru):
         if numeru % i == 0:
-            print(f"{numeru} nau é primu (divisível pa {i}).")
+            print(f"{numeru} ka é primu (divisível pa {i}).")
             break
     else:
         print(f"{numeru} é primu! ✨")
@@ -344,7 +346,7 @@ print("-" * 30)
 for num in range(2, 51):
     for i in range(2, num):
         if num % i == 0:
-            break    # Nau é primu
+            break    # Ka é primu
     else:
         print(num, end=" ")
 
@@ -392,10 +394,10 @@ for i in range(1, 31):
 
 ## Pitu di Enumerate() 👀
 
-Kuandu bo ta itera sima un lista e bo presiza tanbe sabé índisi (pozisun), `enumerate()` é bo amigu milhor:
+Kuandu bo ta itera sima un lista i bo presiza tanbe sabé índisi (pozisun), `enumerate()` é bo amigu milhor:
 
 ```python
-# Sin enumerate -- funsiona ma nau é eleganti
+# Sin enumerate -- funsiona ma ka é eleganti
 ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
 
 for i in range(len(ilhas)):
@@ -416,7 +418,7 @@ Ambos ta dá mesmu resultadu:
 ```
 
 :::callout{type=tip}
-**Dika:** `enumerate()` é un funsan inkorporadu ki nôs ta explora na detalhi na Module 3 (Lisan 18: Funsoens Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bo ta itera.
+**Dika:** `enumerate()` é un funsan inkorporadu ki nôs ta explora na detalhi na Module 3 (Lisun 18: Funsoens Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bo ta itera.
 :::
 
 ## Erus Komun ku Loops
@@ -429,7 +431,7 @@ Ambos ta dá mesmu resultadu:
 #     # Skexi: kontador += 1  --> loop ta kori pa sénpri!
 
 # ERRU 2: Off-by-one ku range()
-# range(1, 5) ta dá 1, 2, 3, 4 -- NAU inklui 5!
+# range(1, 5) ta dá 1, 2, 3, 4 -- KA inklui 5!
 # Pa inklui 5: range(1, 6)
 
 # ERRU 3: Modifika lista enkuantu ta itera
@@ -445,7 +447,7 @@ Ambos ta dá mesmu resultadu:
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Tábua di multiplikasun** -- Pidi uzuáriu pa inseri un numeru e mostra tábua di multiplikasun kompletu (di 1 a 10). Formata saída bonitu ku alinhámentu.
+1. **Exersísiu 1: Tábua di multiplikasun** -- Pidi uzuáriu pa inseri un numeru i mostra tábua di multiplikasun kompletu (di 1 a 10). Formata saída bonitu ku alinhámentu.
 
 2. **Exersísiu 2: Atxador di numerus perfeitus** -- Un numeru perfeitu é ki soma di ses divisóris (menus el mesmu) é igual a el. Ezemplu: 6 = 1 + 2 + 3. Atxa tudu numerus perfeitus di 1 a 1000. (Dika: uza loops aninhadu)
 
@@ -456,17 +458,23 @@ Ambos ta dá mesmu resultadu:
    - Si uzuáriu adivinha, mostra kuántus tentativas el uza
    - Si 7 tentativas akaba, mostra numeru sekretu
 
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
+
 ## Rezumu
 
 - `for` loop ta itera sima un sequénsia (numerus, strings, listas)
-- `range(start, stop, step)` ta jera sequénsia di numerus; `stop` NAU ta inkluídu
+- `range(start, stop, step)` ta jera sequénsia di numerus; `stop` KA ta inkluídu
 - `while` loop ta repeti enkuantu kondisun é `True` -- kuidadu ku loops infinitu!
 - `break` ta sai di loop, `continue` ta pula pa prósimu iterasun, `pass` é placeholder
 - `for-else` -- bloku `else` ta kori só si loop termina sin `break`
 - Loops aninhadu: loop di dentru ta kori kompletu pa kada iterasun di loop di fora
-- `enumerate()` ta dá índisi e valór djuntu -- más Pythonic ki `range(len(...))`
+- `enumerate()` ta dá índisi i valór djuntu -- más Pythonic ki `range(len(...))`
 - Sénpri lembra di atualiza variável di kontrol na `while` loop!
 
 ---
 
-**Prósimu lisan:** [Listas e List Comprehension] →
+**Prósimu lisun:** [Listas i List Comprehension →](/courses/intro-python/lessons/listas)

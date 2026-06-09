@@ -3,7 +3,7 @@ title: "Lé Errus (Tracebacks)"
 language: kea
 courseSlug: intro-python
 lessonSlug: le-errus
-slug: "le-errus-tracebacks"
+slug: "le-errus"
 module: 1
 lesson: 3
 duration: "15 min"
@@ -13,13 +13,23 @@ objectives:
   - "Uza seta ^ (caret) di Python 3.11+ pa atxa lokalizasun exatu di erru"
 ---
 
-Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru e rezolve rápidu. Na es lisan, nôs ta prende a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal e undi.
+# Lé Errus (Tracebacks)
 
-Errus ka é sinál di frakasu. É sinál di ki bo ta tenta. Nôs ta kriá djunta, e parti di kria é erá!
+Tudu programador ta atxa errus — disdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi lé** mensajen di erru i rezolve rápidu. Na es lisun, nôs ta prende a lé tracebacks di Python manera un detetivi — di baxu pa sima — pa diskubri exatamenti o ki korreu mal i undi.
+
+Erus e ka sinal di frakasu. E sinal di ki bo ta tenta. Nu ta prende djuntu, e erus e parti di prende.
+
+:::callout{type=tip}
+**Es lisan na 3 palavra:** **Lé** → **Atxa** → **Pensa**. Bo ta odja kel padran na fin di lisan. Pa gosi, fixa atensun na es 3 pasus enkuantu nu ta lé exemplus.
+:::
 
 ## O ki é un Traceback?
 
-Kuandu Python atxa un problema na bo kódiku, e ta para e mostra un **traceback** — un mensajen ki ta splika o ki korreu mal e undi. Odja es ezemplu:
+Kuandu Python atxa un problema na bo kódiku, e ta para i mostra un **traceback** — un mensajen ki ta splika o ki korreu mal i undi. Odja es ezemplu:
+
+:::callout{type=tip}
+**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa lé **mensajen di erru** — `def`, `return`, `f"..."` i otu kunseitus ta ben más tardi (Módulu 3 i Módulu 1 Lisan 7). Repara na traceback, ka na kódiku.
+:::
 
 ```python
 # fixeru: kalkula.py
@@ -131,7 +141,7 @@ Seta `^` ta mostra ki `nomis[5]` é problema — lista so tene 3 elementus (índ
 
 ## 5 Exceptions Más Kumun
 
-Es é errus ki bo ta atxa más frekventi kuandu bo ta kumesa. Konhesi kes e bo ta rezolve problemus mutu más rápidu.
+Es é errus ki bo ta atxa más frekventi kuandu bo ta kumesa. Konhesi kes i bo ta rezolve problemus mutu más rápidu.
 
 ### 1. `SyntaxError` — Erru di Sintaxi
 
@@ -152,7 +162,7 @@ SyntaxError: expected ':'
 ```
 
 **Kauzas kumun:**
-- Skesi `:` después di `if`, `for`, `while`, `def`, `class`
+- Skesi `:` dipos di `if`, `for`, `while`, `def`, `class`
 - Skesi fexá paréntesis `)`, kólxeti `]`, o xavi `}`
 - Uza `=` (atribuisun) na lugar di `==` (komparasun) na kondisionais
 
@@ -179,7 +189,7 @@ NameError: name 'mensajen' is not defined
 **Kauzas kumun:**
 - Variável ka foi atribuídu (skesi `mensajen = "Ola"`)
 - Erru di ortografia: `mesnajen` na lugar di `mensajen`
-- Uza variável fora di si scope (ex.: dentru di un funsan vs fora)
+- Uza variável fora di se scope (bo ta prende más na Lisan 16)
 
 ```python
 # Korresun: defini variável antis di uza
@@ -207,9 +217,11 @@ TypeError: can only concatenate str (not "int") to str
 Seta `^` ta mostra exatamenti undi string ta bate ku int!
 
 **Kauzas kumun:**
-- Junta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
+- Djunta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
 - Txama algu ki ka é funsan: `x = 5; x()` (TypeError: 'int' is not callable)
 - Manda argumentu eradu pa funsan
+
+*(Funsan: bo ta prende más na Lisan 16.)*
 
 ```python
 # Korresun: uza f-string
@@ -240,7 +252,7 @@ Lista tene 3 elementus (índisi 0, 1, 2), ma bo ta pidi índisi 3.
 **Kauzas kumun:**
 - Skesi ki índisi ta kumesa na **0** (ka na 1)
 - Uza `len(lista)` kumo índisi (último índisi válidu é `len(lista) - 1`)
-- Lista váziu e bo ta tenta asesa kualker índisi
+- Lista váziu i bo ta tenta asesa kualker índisi
 
 ```python
 # Korresun: verifika tamañu antis
@@ -303,7 +315,11 @@ Kuandu bo odja un erru, sigui sempri es 3 pasus:
 3. PENSA →  "Pamodi Python ta pensa ki es é un problema?"
 ```
 
-Vamus prátika ku un ezemplu:
+Nu pratika ku un izemplu:
+
+:::callout{type=tip}
+**O ki es kódiku ta tenta fazi:** Soma kuatu presu (350, 200, 150, 400) i kalkula média. Ka preokupa ku `for` i `range` — bo ta prende-s na Lisan 10. Repara na traceback.
+:::
 
 ```python
 # Programa ku erru — bo pode atxa?
@@ -348,7 +364,7 @@ print(f"Média di presu: {media} ECV")  # Média di presu: 275.0 ECV
 
 ## Tenta Gosi 🏋️
 
-Odja kada traceback e identifika: (a) tipu di erru, (b) undi korreu mal, (c) kumo koriji.
+Odja kada traceback i identifika: (a) tipu di erru, (b) undi korreu mal, (c) kumo koriji.
 
 1. **Exersísiu 1:** Kel ki é problema aki?
 ```
@@ -369,11 +385,22 @@ TypeError: can't multiply sequence by non-int of type 'str'
 ```
 *(Dika: `input()` ta retorna sempri un string!)*
 
-3. **Exersísiu 3:** Skrebi un programa ku deliberadamenti ta kauza un `IndexError`. Dipôs koriji el. Ezemplu: kria un lista di 3 fruta e tenta asesa índisi 5.
+3. **Exersísiu 3:** Kel ki é problema aki, i kumo bo ta koriji-l?
+```
+fruta = ["banana", "manga", "papaia"]
+print(fruta[5])
+```
+*(Dika: lista tene 3 elementus — kuantu índisis válidu e tene?)*
+
+<Quiz position={0} />
+
+<Quiz position={1} />
+
+<Quiz position={2} />
 
 ## Rezumu
 
-- **Lé tracebacks di baxu pa sima** — última linha tene tipu di erru e mensajen
+- **Lé tracebacks di baxu pa sima** — última linha tene tipu di erru i mensajen
 - **Seta `^`** (Python 3.11+) ta aponta exatamenti pa parti di kódiku ki faya
 - **5 exceptions más kumun:** `SyntaxError`, `NameError`, `TypeError`, `IndexError`, `KeyError`
 - Sigui **estratéjia di 3 pasus**: Lé → Atxa → Pensa
@@ -381,4 +408,4 @@ TypeError: can't multiply sequence by non-int of type 'str'
 
 ---
 
-**Prósimu lisan:** [Sintaxi e Semantika] →
+**Prósimu lisun:** [Sintaxi i Semantika →](/courses/intro-python/lessons/sintaxi-semantika)
