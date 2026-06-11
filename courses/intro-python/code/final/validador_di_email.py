@@ -8,7 +8,7 @@ import re
 
 
 class EmailInvaliduError(Exception):
-    """Exsesun personalizadu pa email invólidu."""
+    """Exsesan personalizadu pa email invólidu."""
     pass
 
 

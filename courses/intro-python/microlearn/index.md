@@ -33,7 +33,7 @@ Short-form posts (100-250 words) with code-first approach.
 |---|------|-------|--------|
 | 1 | `micro-blogs/v1-m1-01-tipu-di-dadus-kea.md` | 4 Tipu Báziku (int/float/str/bool) | M1 |
 | 2 | `micro-blogs/v1-m1-02-tracebacks-kea.md` | Lé Traceback (errus) | M1 |
-| 3 | `micro-blogs/v1-m1-03-operadoris-kea.md` | Operadoris (aritmétiku/komparasun/lójiku) | M1 |
+| 3 | `micro-blogs/v1-m1-03-operadoris-kea.md` | Operadoris (aritmétiku/komparasan/lójiku) | M1 |
 | 4 | `micro-blogs/v1-m2-04-list-comprehension-kea.md` | List Comprehension | M2 |
 | 5 | `micro-blogs/v1-m2-05-kual-estrutura-kea.md` | Kual Estrutura Uza? (list/tuple/dict/set) | M2 |
 | 6 | `micro-blogs/v1-m3-06-lambda-map-filter-kea.md` | Lambda, Map e Filter | M3 |

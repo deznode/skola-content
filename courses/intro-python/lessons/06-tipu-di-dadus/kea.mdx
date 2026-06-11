@@ -8,17 +8,17 @@ module: 1
 lesson: 6
 duration: "20 min"
 objectives:
-  - "Traba ku int, float, str e bool"
+  - "Traba ku int, float, str i bool"
   - "Intendi kuandu uza kada tipu di dadus"
   - "Evita TypeError kuandu mistra tipus"
-  - "Konverti entre tipus pa rezolve errus"
+  - "Konverti entri tipus pa rezolve erus"
 ---
 
 # Tipu di Dadus
 
-Na mundu real, nôs ta lida ku diferentes tipus di informasun: númerus, textus, sim/nun. Python tanbé tene diferentes **data types** pa representa kada tipu di informasun.
+Na mundu real, nos ta lida ku diferenti tipus di informasan: númerus, textus, sim/nun. Python tanbe tene diferenti **data types** pa representa kada tipu di informasan.
 
-Nês lisun, nôs ta esplora 4 tipus fundamentais di Python — `int`, `float`, `str` i `bool` — i prende kuandu uza kada un i kumo evita errus kuandu mistra es.
+Nes lisan, nos ta esplora 4 tipus fundamentais di Python — `int`, `float`, `str` i `bool` — i prende kuandu uza kada un i kumo evita erus kuandu mistra es.
 
 ## 4 Tipus Fundamentais
 
@@ -30,18 +30,18 @@ Númerus sen puntu desimal: positivu, negativu ó zeru.
 
 ```python
 # Ezemplus di int
-populasun = 600000
+populasan = 600000
 temperatura = -5
 anu = 2026
 zero = 0
 
-print(type(populasun))  # <class 'int'>
+print(type(populasan))  # <class 'int'>
 ```
 
 Undi uza `int`:
 - Kontadoris (kantidadi di estudantis, anus, pájinas)
 - Idadis
-- Indexis (posisun na un lista)
+- Indexis (pozisan na un lista)
 - Kualker númeru ki ka presiza puntu desimal
 
 ```python
@@ -52,7 +52,7 @@ print(type(numeru_grandi))     # <class 'int'>
 ```
 
 :::callout{type=tip}
-**Dika:** Bo podi uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
+**Dika:** Bu pode uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
 :::
 
 ### Float — Númerus Desimais
@@ -61,22 +61,22 @@ Númerus ku puntu desimal.
 
 ```python
 # Ezemplus di float
-presu_cachupa = 350.50
+presu_katxupa = 350.50
 altura = 1.75
 pi = 3.14159
 temperatura = -2.5
 
-print(type(presu_cachupa))  # <class 'float'>
+print(type(presu_katxupa))  # <class 'float'>
 ```
 
 Undi uza `float`:
 - Presus i valores monetárius
 - Medidas (altura, pezu, distánsia)
-- Resultadus di divisun
-- Kualker valor ki presiza prezisun desimal
+- Resultadus di divisan
+- Kualker valor ki presiza prezisan desimal
 
 ```python
-# ATENSAN: Divisun senpri ta retorna float!
+# ATENSAN: Divisan senpri ta retorna float!
 resultado = 10 / 5
 print(resultado)       # 2.0 (ka 2!)
 print(type(resultado)) # <class 'float'>
@@ -88,14 +88,14 @@ print(type(resultado)) # <class 'float'>
 ```
 
 :::callout{type=warning}
-**Kuidadu ku prezisun di float:**
+**Kuidadu ku prezisan di float:**
 
 ```python
-# Float tene limitasoens di prezisun
+# Float tene limitasons di prezisan
 print(0.1 + 0.2)  # 0.30000000000000004 (ka 0.3 ezatu!)
 ```
 
-Kel é un limitasun di kumo komputador ta armazena númerus desimais. Pa maioria di kazus, ka é problema. Pa valores monetárius ezatus, ezisti módulu `decimal`, ma kel é avansadu.
+Kel é un limitasan di kumo komputador ta armazena númerus desimais. Pa maioria di kazus, ka é problema. Pa valores monetárius ezatus, ezisti módulu `decimal`, ma kel é avansadu.
 :::
 
 ### String (`str`) — Textu
@@ -107,12 +107,12 @@ Textu dentu di aspas (simples ó dublu).
 nomi = "Cesária Évora"
 ilha = 'São Vicente'
 mensajen = "Morabeza é alma di Kabu Verdi"
-vazio = ""  # String vazio — tanbé é válidu
+vazio = ""  # String vazio — tanbe é válidu
 
 print(type(nomi))  # <class 'str'>
 ```
 
-Bo podi uza aspas simples (`'`) ó dublu (`"`) — resultado é mesmu:
+Bu pode uza aspas simples (`'`) ó dublu (`"`) — resultado é mesmu:
 
 ```python
 # Tudu kel é válidu
@@ -133,11 +133,11 @@ nomi = "Djina"
 # Komprimantu
 print(len(nomi))  # 5
 
-# Konkatenasun (djunta strings)
-saudason = "Ola, " + nomi + "!"
-print(saudason)  # Ola, Djina!
+# Konkatenasan (djunta strings)
+saudasan = "Ola, " + nomi + "!"
+print(saudasan)  # Ola, Djina!
 
-# Repetisun
+# Repetisan
 print("-" * 30)  # ------------------------------
 
 # f-string (melhor manera di mistra textu ku variáveis)
@@ -146,10 +146,10 @@ print(f"{nomi} tene {idadi} anus")  # Djina tene 20 anus
 ```
 
 :::callout{type=tip}
-**Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasun ku `+`.
+**Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasan ku `+`.
 :::
 
-*(F-strings ten más kapasidadi — formatason, debug, ekspresoens dentu. Bo ta prende más na Lisan 7.)*
+*(F-strings ten más kapasidadi — formatasan, debug, ekspresons dentu. Bu ta prende más na Lisan 7.)*
 
 ### Boolean (`bool`) — Verdaderu ó Falsu
 
@@ -164,7 +164,7 @@ ta_xobi = True
 print(type(é_estudanti))  # <class 'bool'>
 ```
 
-Booleans ta sai naturalmenti di **komparasoens**:
+Booleans ta sai naturalmenti di **komparasons**:
 
 ```python
 idadi = 20
@@ -192,11 +192,11 @@ else:
     print("Bo ten ki studia más...")
 ```
 
-*(Kondisionais `if`/`else` e operadoris di komparason: bo ta prende más na Lisan 8 e Lisan 9.)*
+*(Kondisionais `if`/`else` i operadoris di komparasan: bu ta prende más na Lisan 8 i Lisan 9.)*
 
 ## Kuandu Uza Kada Tipu
 
-| Situasun | Tipu | Ezemplu |
+| Situasan | Tipu | Izemplu |
 |----------|------|---------|
 | Kontador, kantidadi, idadi | `int` | `estudantis = 45` |
 | Presu, medida, persentajen | `float` | `presu = 149.99` |
@@ -222,9 +222,9 @@ print(f"Kréditus: {kreditusECV} ECV")
 
 ## TypeError: Kuandu Tipus Ka Ta Kombina
 
-Un di errus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta fazi un operasun ku tipus inkompatíveis.
+Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze un operasan ku tipus inkompatíveis.
 
-### Erru #1: Soma di String ku Númeru
+### Eru #1: Soma di String ku Númeru
 
 ```python
 nomi = "Maria"
@@ -242,7 +242,7 @@ mensajen = f"{nomi} tene {idadi} anus"
 print(mensajen)  # Maria tene 25 anus
 ```
 
-### Erru #2: Operasun Matemátika ku String
+### Eru #2: Operasan Matemátika ku String
 
 ```python
 presu = "350"    # É string, ka int!
@@ -256,7 +256,7 @@ total = float(presu) * taxa
 print(f"Taxa: {total} ECV")  # Taxa: 52.5 ECV
 ```
 
-### Erru #3: Komparasun di Tipus Diferentes
+### Eru #3: Komparasan di Tipus Diferenti
 
 ```python
 # String "5" ka é mesmu ki int 5
@@ -269,10 +269,10 @@ print(int("5") == 5)  # True
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo enkontra `TypeError`, verifica tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
+**Dika:** Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
 :::
 
-## Tabela Rezumu di Konversun
+## Tabela Rezumu di Konversan
 
 ```python
 # int() — pa interu
@@ -299,26 +299,26 @@ print(bool("Ola"))     # True (kualker string ku konteúdu)
 ```
 
 :::callout{type=tip}
-**Dika:** `int()` ta **trunca** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
+**Dika:** `int()` ta **trunka** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
 :::
 
-## Ezemplu Prátiku: Loja di Cachupa
+## Izemplu Prátiku: Loja di Katxupa
 
 Vamos kombina tudu tipus na un programa real:
 
 :::callout{type=tip}
-**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo kuatu tipus (`str`, `float`, `int`, `bool`) ta vivi djuntu na un programa. Operadoris matemátikus (`*`, `+`, `-`), `input()`, e formatason `:.2f` ta ben más tardi (Lisan 7, 8 e 9). Repara na **tipus**, ka na lójika.
+**Ka preokupa si bu ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo kuatu tipus (`str`, `float`, `int`, `bool`) ta vivi djuntu na un programa. Operadoris matemátikus (`*`, `+`, `-`), `input()`, i formatasan `:.2f` ta ben más tardi (Lisan 7, 8 i 9). Repara na **tipus**, ka na lójika.
 :::
 
 ```python
-# === Loja di Cachupa di Nha Cesária ===
+# === Loja di Katxupa di Nha Cesária ===
 print("=" * 35)
-print("  Loja di Cachupa di Nha Cesária")
+print("  Loja di Katxupa di Nha Cesária")
 print("=" * 35)
 print()
 
 # Dadus di pratu (diferentes tipus)
-nomi_pratu = "Cachupa Rica"           # str
+nomi_pratu = "Katxupa Rica"           # str
 presu_unitáriu = 450.00               # float
 porsun_disponível = 12                # int
 é_spesialidadi = True                 # bool
@@ -326,12 +326,12 @@ porsun_disponível = 12                # int
 # Mostra menu
 print(f"Pratu: {nomi_pratu}")
 print(f"Presu: {presu_unitáriu} ECV")
-print(f"Disponível: {porsun_disponível} porsoens")
+print(f"Disponível: {porsun_disponível} porsons")
 print(f"Spesialidadi di kaza: {'Sim' if é_spesialidadi else 'Nun'}")
 print()
 
 # Resebe pedidu
-kantidadi = int(input("Kantu porsun bo kre? "))
+kantidadi = int(input("Kantu porsan bo kre? "))
 
 # Kalkula
 subtotal = presu_unitáriu * kantidadi
@@ -346,33 +346,33 @@ print(f"Pratu: {nomi_pratu} x{kantidadi}")
 print(f"Subtotal: {subtotal:.2f} ECV")
 print(f"Taxa (15%): {taxa:.2f} ECV")
 print(f"Total: {total:.2f} ECV")
-print(f"Porsoens ki resta: {porsun_resta}")
+print(f"Porsons ki resta: {porsun_resta}")
 ```
 
 Kuandu bo roda:
 ```
 ===================================
-  Loja di Cachupa di Nha Cesária
+  Loja di Katxupa di Nha Cesária
 ===================================
 
-Pratu: Cachupa Rica
+Pratu: Katxupa Rica
 Presu: 450.0 ECV
-Disponível: 12 porsoens
+Disponível: 12 porsons
 Spesialidadi di kaza: Sim
 
-Kantu porsun bo kre? 3
+Kantu porsan bo kre? 3
 
 --- Rezumu di Pedidu ---
-Pratu: Cachupa Rica x3
+Pratu: Katxupa Rica x3
 Subtotal: 1350.00 ECV
 Taxa (15%): 202.50 ECV
 Total: 1552.50 ECV
-Porsoens ki resta: 9
+Porsons ki resta: 9
 ```
 
-## Verifikasun Rápida di Tipus
+## Verifikasan Rápida di Tipus
 
-Kel é un truqui útil — uza `isinstance()` pa verifica si un valor é di un sertu tipu:
+Kel é un truki útil — uza `isinstance()` pa verifika si un valor é di un sertu tipu:
 
 ```python
 valor = 42
@@ -381,7 +381,7 @@ print(isinstance(valor, int))     # True
 print(isinstance(valor, float))   # False
 print(isinstance(valor, str))     # False
 
-# Verifica vários tipus di un vez
+# Verifica vários tipus di un bez
 print(isinstance(valor, (int, float)))  # True — é int ó float
 ```
 
@@ -393,9 +393,9 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un.
+1. **Izersisiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un.
 
-2. **Exersísiu 2 (adibinha kuze e resultado):** Pa kada linha, adibinha kuze Python ta imprimi. Dipôs verifika ku `python`.
+2. **Izersisiu 2 (adibinha kuze i resultado):** Pa kada linha, adibinha kuze Python ta imprimi. Dipos verifika ku `python`.
     ```python
     print(type(42))
     print(type(42.0))
@@ -406,13 +406,13 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
     print(int(3.9))
     ```
 
-3. **Exersísiu 3:** Kria variáveis ku kel valores i tenta operasoens. Prevê kual ta da TypeError i koriji:
+3. **Izersisiu 3:** Kria variáveis ku kel valores i tenta operasons. Preve kual ta da TypeError i koriji:
    ```python
    a = "100"
    b = 50
    c = 2.5
    # Tenta: a + b, a * c, b + c, a + str(b)
-   # Kual ta funxiona? Kual ta da erru? Pamodi?
+   # Kual ta funsiona? Kual ta da eru? Pamodi?
    ```
 
 <Quiz position={0} />
@@ -426,12 +426,12 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 - **`int`** — númerus interus (idadi, kontador, anu)
 - **`float`** — númerus desimais (presu, altura, nota)
 - **`str`** — textu (nomi, mensajen, ilha)
-- **`bool`** — `True` ó `False` (komparasoens, kondisun)
+- **`bool`** — `True` ó `False` (komparasons, kondisan)
 - **TypeError** ta aparese kuandu bo mistra tipus inkompatíveis
-- Uza **`int()`**, **`float()`**, **`str()`** pa konverti entre tipus
-- **f-strings** é melhor manera di mistra textu ku variáveis — evita TypeError
-- Divisun (`/`) senpri ta retorna **float**, mesmu ku númerus interus
+- Uza **`int()`**, **`float()`**, **`str()`** pa konverti entri tipus
+- **f-strings** é midjór manera di mistra textu ku variáveis — evita TypeError
+- Divisan (`/`) senpri ta retorna **float**, mesmu ku númerus interus
 
 ---
 
-**Prósimu lisun:** [Strings: Métodus i Formatason →](/courses/intro-python/lessons/strings-metodus)
+**Prósimu lisan:** [Strings: Metodus i Formatasan →](/courses/intro-python/lessons/strings-metodus)

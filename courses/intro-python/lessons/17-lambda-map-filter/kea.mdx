@@ -8,28 +8,28 @@ module: 3
 lesson: 17
 duration: "20 min"
 objectives:
-  - "Skrebe expresoens lambda pa funsoens kurtu di un linha"
+  - "Skrebe expresons lambda pa funsons kurtu di un linha"
   - "Transforma dadus ku map() aplikandu un funsan a kada elementu"
-  - "Filtra elementus ku filter() bazadu na un kondisun"
-  - "Kombina map() e filter() ku list() pa prosesamentu di dadus"
+  - "Filtra elementus ku filter() bazadu na un kondisan"
+  - "Kombina map() i filter() ku list() pa prosesamentu di dadus"
 ---
 
 # Lambda, Map i Filter
 
-Na lisun anterio, nôs aprende defini funsoens ku `def`. Ma ás bes, bo presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsoens anónimu ki bo skrebe na un linha. I ku **map()** i **filter()**, bo pode transforma i filtra dadus di lista interu sem skrebe loop manual.
+Na lisan anterio, nos aprende defini funsons ku `def`. Ma ás bez, bo presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsons anónimu ki bo skrebe na un linha. I ku **map()** i **filter()**, bu pode transforma i filtra dadus di lista interu sen skrebe loop manual.
 
-Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bo tene lista di presu na ECV i bo kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
+Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bu tene lista di presu na ECV i bu kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
 
-## Lambda — Funsoens Anónimu
+## Lambda — Funsons Anónimu
 
-Un **lambda** é un funsan sem nomi ki tene un só expresun. Sintaxi:
+Un **lambda** é un funsan sen nomi ki tene un só expresan. Sintaxi:
 
 ```python
-lambda parámetrus: expresun
+lambda parámetrus: expresan
 ```
 
 ```python
-# Funsun normal vs lambda
+# Funsan normal vs lambda
 def soma(a, b):
     return a + b
 
@@ -63,7 +63,7 @@ studantis = [
     {"nomi": "Gil", "nota": 16},
 ]
 
-# Ordena por nota (di menor pa maior)
+# Ordena pa nota (di menor pa maior)
 studantis.sort(key=lambda s: s["nota"])
 for s in studantis:
     print(f"  {s['nomi']}: {s['nota']}")
@@ -71,7 +71,7 @@ for s in studantis:
 ```
 
 :::callout{type=tip}
-**Dika:** Lambda é pa funsoens kurtu i simples. Si bo funsan presiza más di un linha o é komplikadu, uza `def` normal. Kódiku klaru sempri ganha!
+**Dika:** Lambda é pa funsons kurtu i simples. Si bo funsan presiza más di un linha o é komplikadu, uza `def` normal. Kódiku klaru senpri ganha!
 :::
 
 ## Map — Transforma Tudu Elementus
@@ -101,9 +101,9 @@ presus_eur = list(map(lambda p: round(p / taxa, 2), presus_ecv))
 print(presus_eur)  # [4.53, 10.88, 31.74, 72.55, 136.04]
 ```
 
-### Map ku Funsoens Djá Eksistenti
+### Map ku Funsons Djá Eksistenti
 
-Bo ka presiza sempri lambda — bo pode pasa kualker funsan:
+Bu ka presiza senpri lambda — bu pode pasa kualker funsan:
 
 ```python
 # Konverte strings pa maiúskula
@@ -138,7 +138,7 @@ print(medias)  # [14.5, 16.5, 13.0, 17.0]
 ### Map na Disionárius
 
 ```python
-# Estraí informasun espesífiku di lista di disionárius
+# Estraí informasan espesífiku di lista di disionárius
 pesoas = [
     {"nomi": "Maria", "idadi": 28, "ilha": "Santiago"},
     {"nomi": "João", "idadi": 35, "ilha": "São Vicente"},
@@ -150,12 +150,12 @@ pesoas = [
 nomis = list(map(lambda p: p["nomi"], pesoas))
 print(nomis)  # ['Maria', 'João', 'Lara', 'Nuno']
 
-# Kria frázi di apresentasun
-apresentasoens = list(map(
+# Kria frázi di apresentasan
+apresentasons = list(map(
     lambda p: f"{p['nomi']} di {p['ilha']} ({p['idadi']} anu)",
     pesoas
 ))
-for a in apresentasoens:
+for a in apresentasons:
     print(a)
 # Maria di Santiago (28 anu)
 # João di São Vicente (35 anu)
@@ -165,7 +165,7 @@ for a in apresentasoens:
 
 ## Filter — Selisiona Elementus
 
-`filter(funsan, iterável)` ta mantene SÓ elementus undi funsan retorna `True`. É komu un penera — só kel ki pasa na kondisun ta fica.
+`filter(funsan, iterável)` ta mantene SÓ elementus undi funsan retorna `True`. É kumo un penera — só kel ki pasa na kondisan ta fika.
 
 ```python
 # Filtra só nùmerus par
@@ -187,9 +187,9 @@ print(baratus)  # [250, 450]
 
 ```python
 # Filtra palavras ku más di 5 letras
-palavras = ["morabeza", "sol", "funana", "mar", "grogue", "cachupa", "oi"]
+palavras = ["morabeza", "sol", "funana", "mar", "grogu", "katxupa", "oi"]
 longas = list(filter(lambda p: len(p) > 5, palavras))
-print(longas)  # ['morabeza', 'funana', 'grogue', 'cachupa']
+print(longas)  # ['morabeza', 'funana', 'grogu', 'katxupa']
 ```
 
 ### Filter ku Kondisons Komplexu
@@ -248,9 +248,9 @@ for s in xunbadus:
 
 ## Kombina Map i Filter
 
-![Pipeline di transformasun ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.png)
+![Pipeline di transformasan ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.png)
 
-Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeiru filtra, dipôs transforma (o vice-versa):
+Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeru filtra, dipos transforma (o vice-versa):
 
 ```python
 # Pega só nùmerus par i kalkula kuadradu
@@ -291,22 +291,22 @@ nomis_adultus = list(map(
 print(nomis_adultus)  # ['Maria', 'João']
 ```
 
-## Errus Komun
+## Erus Komun
 
 ```python
-# ERRU 1: Xama funsan ku () dentru di map/filter
+# ERU 1: Txoma funsan ku () dentu di map/filter
 def dobra(x):
     return x * 2
 
-# ❌ ERRADU — ta xama funsan imediatamenti!
+# ❌ ERRADU — ta txoma funsan imediatamenti!
 # list(map(dobra(), numeros))  # TypeError!
 
-# ✅ KORETU — pasa funsan SEM ()
+# ✅ KORETU — pasa funsan SEN ()
 list(map(dobra, [1, 2, 3]))  # [2, 4, 6]
 ```
 
 ```python
-# ERRU 2: Skese di konverte pa list()
+# ERU 2: Skese di konverte pa list()
 numeros = [1, 2, 3, 4, 5]
 rezultadu = map(lambda x: x * 2, numeros)
 print(rezultadu)        # <map object at 0x...> ← ka é lista!
@@ -314,7 +314,7 @@ print(list(rezultadu))  # [2, 4, 6, 8, 10] ← gosi sin!
 ```
 
 ```python
-# ERRU 3: Lambda ku más di un expresun
+# ERU 3: Lambda ku más di un expresan
 # ❌ Lambda ka permite vários statements
 # dobra = lambda x: print(x); return x * 2  # SyntaxError!
 
@@ -325,12 +325,12 @@ def dobra_i_mostra(x):
 ```
 
 :::callout{type=tip}
-**Dika:** `map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bo pedi rezultadu ku `list()`. Si bo skrebe `map(...)` sem `list()`, nada ta akontese ainda!
+**Dika:** `map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bo pedi rezultadu ku `list()`. Si bo skrebe `map(...)` sen `list()`, nada ka ta akontese ainda!
 :::
 
 ## Map/Filter vs List Comprehension
 
-Python tene un alternativa ki é mutas bes más lijível — **list comprehension**. Bo vai aprende-l na detalhe más tardi, ma ê un konparasun rápidu:
+Python tene un alternativa ki é mutas bez más lijível — **list comprehension**. Bo vai aprende-l na detalhe más tardi, ma é un konparasan rápidu:
 
 ```python
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -349,18 +349,18 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 ```
 
 :::callout{type=tip}
-**Dika:** Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (komu `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bo kre kódiku más lijível.
+**Dika:** Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (kumo `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bu kre kódiku más lijível.
 :::
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Konversor di Moeda:** Uza `map()` pa konverte un lista di presus na ECV pa Euro (taxa: 1 EUR = 110.265 ECV). Arredonda pa 2 kasas desimai.
+1. **Izersisiu 1 — Konversor di Moeda:** Uza `map()` pa konverte un lista di presus na ECV pa Euro (taxa: 1 EUR = 110.265 ECV). Arredonda pa 2 kasas desimai.
 
-2. **Exersísiu 2 — Filtra Studantis:** Dadu un lista di disionárius `[{"nomi": "...", "nota": N}, ...]`, uza `filter()` pa kria duas listas: aprovadus (nota >= 10) i distintu (nota >= 16).
+2. **Izersisiu 2 — Filtra Studantis:** Dadu un lista di disionárius `[{"nomi": "...", "nota": N}, ...]`, uza `filter()` pa kria duas listas: aprovadus (nota >= 10) i distintu (nota >= 16).
 
-3. **Exersísiu 3 — Prosesador di Nomis:** Di un lista di nomis `["maria", "JOÃO", "ana", "PEDRO"]`, uza `map()` pa normaliza tudu pa formato título (primeira letra maiúskula). Dipôs uza `filter()` pa mantene só nomis ku más di 3 letras.
+3. **Izersisiu 3 — Prosesador di Nomis:** Di un lista di nomis `["maria", "JOÃO", "ana", "PEDRO"]`, uza `map()` pa normaliza tudu pa formato título (primeira letra maiúskula). Dipos uza `filter()` pa mantene só nomis ku más di 3 letras.
 
-4. **Exersísiu 4 — Pipeline Kompletu:** Di un lista di produtus `[{"nomi": "...", "presu": N, "stoku": N}]`, uza filter() pa pega só produtus na stoku (stoku > 0), dipôs uza map() pa aplika 10% di diskontu na presu di kada un.
+4. **Izersisiu 4 — Pipeline Kompletu:** Di un lista di produtus `[{"nomi": "...", "presu": N, "stoku": N}]`, uza filter() pa pega só produtus na stoku (stoku > 0), dipos uza map() pa aplika 10% di diskontu na presu di kada un.
 
 <Quiz position={0} />
 
@@ -375,12 +375,12 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 - **Lambda** é funsan anónimu di un linha: `lambda x: x * 2`
 - **`map(fn, iterável)`** ta aplika funsan a TUDU elementu — transforma lista interu
 - **`filter(fn, iterável)`** ta mantene SÓ elementus undi funsan retorna True
-- **Sempri konverte** ku `list()` — map/filter retorna objetu lazy, ka lista
-- **Ka uza `()`** kuandu pasa funsan pa map/filter — pasa funsan, ka xama-l
+- **Senpri konverte** ku `list()` — map/filter retorna objetu lazy, ka lista
+- **Ka uza `()`** kuandu pasa funsan pa map/filter — pasa funsan, ka txoma-l
 - **Kombina** map i filter pa pipeline poderozu di prosesamentu di dadus
 - Lambda é pa koza simples; pa lójika komplikadu, uza `def`
 - List comprehension é un alternativa más lijível pa maioria di kazus
 
 ---
 
-**Prósimu lisun:** [Funsoens Inkorporadus Úteis →](/courses/intro-python/lessons/funsoens-inkorporadus)
+**Prósimu lisan:** [Funsons Inkorporadus Úteis →](/courses/intro-python/lessons/funsoens-inkorporadus)

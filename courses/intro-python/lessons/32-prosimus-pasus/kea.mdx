@@ -16,19 +16,19 @@ objectives:
 
 **Parabéns! Bo txiga na final di kursu!** 🎉
 
-Di primeiru `print("Ola Mundu!")` até klasis ku métodus mádjiku i sobrekarga di operador — bo feze un viaji inkrível. Bo kumesa sem sabe nada di programasun, i gosi bo ta skrebi kódiku ku variáveis, loops, funsoens, i klasis. Es é un konquista real, i bo deve sinti orgulhu.
+Di primeru `print("Ola Mundu!")` até klasis ku metodus majiku i sobrekarga di operador — bo feze un viaji inkrível. Bo kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bo deve sinti orgulhu.
 
-Antis di nôs fexá, tene un últimu ferramenta poderoza ki ta faze bo vida kumo programador mutu más fásil: **dataclasses**. Depois, nôs ta olha pa futuru — o ki bo pode aprende dipos.
+Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bo vida kumo programador mutu más fásil: **dataclasses**. Depois, nos ta olha pa futuru — o ki bu pode aprende dipos.
 
 ## `@dataclass` — Klasis Mais Simples
 
-Kuandu bo kria un klasi ki prinsipal trabadju é garda dadus (kuma Estudanti, Prodotu, Kontatu), bo ta skrebi sempri mesmu kódiku repetitivu: `__init__`, `__repr__`, `__eq__`...
+Kuandu bo kria un klasi ki prinsipal trabadju é garda dadus (kuma Estudanti, Produtu, Kontatu), bu ta skrebe senpri mesmu kódiku repetitivu: `__init__`, `__repr__`, `__eq__`...
 
-Python tene un atalhu: `@dataclass` ta jera tudu es métodus automátikamenti!
+Python tene un atalhu: `@dataclass` ta jera tudu es metodus automátikamenti!
 
 ### Klasi Normal vs @dataclass
 
-**Sem dataclass (manéra tradisionál):**
+**Sen dataclass (manéra tradisionál):**
 
 ```python
 class Estudanti:
@@ -70,14 +70,14 @@ print(maria)  # Estudanti(nomi='Maria', idadi=22, kursu='Python')
 
 # __eq__ jeradu automátikamenti
 maria2 = Estudanti("Maria", 22, "Python")
-print(maria == maria2)  # True — kompara por valór!
+print(maria == maria2)  # True — kompara pa valór!
 ```
 
 :::callout{type=tip}
-**Dika:** `@dataclass` é perfetu pa klasis ki prinsipal objetivu é "garda dadus". Si bo klasi tene mutu lójika kompleksu, klasi tradisionál pode ser melhor.
+**Dika:** `@dataclass` é perfetu pa klasis ki prinsipal objetivu é "garda dadus". Si bo klasi tene mutu lójika kompleksu, klasi tradisionál pode ser midjór.
 :::
 
-## Opsoens di @dataclass
+## Opsons di @dataclass
 
 ### Valoris Padrón
 
@@ -85,20 +85,20 @@ print(maria == maria2)  # True — kompara por valór!
 from dataclasses import dataclass
 
 @dataclass
-class Prodotu:
+class Produtu:
     nomi: str
     presu: float
     kuantidadi: int = 1         # Valór padrón
     disponível: bool = True     # Valór padrón
 
-# Pode omiti parâmetrus ku valór padrón
-katchupa = Prodotu("Katchupa", 350)
-print(katchupa)
-# Prodotu(nomi='Katchupa', presu=350, kuantidadi=1, disponível=True)
+# Pode omiti parámetrus ku valór padrón
+katxupa = Produtu("Katxupa", 350)
+print(katxupa)
+# Produtu(nomi='Katxupa', presu=350, kuantidadi=1, disponível=True)
 
-grogue = Prodotu("Grogue di Santo Antão", 800, kuantidadi=6)
-print(grogue)
-# Prodotu(nomi='Grogue di Santo Antão', presu=800, kuantidadi=6, disponível=True)
+grogu = Produtu("Grogu di Santo Antão", 800, kuantidadi=6)
+print(grogu)
+# Produtu(nomi='Grogu di Santo Antão', presu=800, kuantidadi=6, disponível=True)
 ```
 
 ### frozen — Objetu ki Ka Pode Muda
@@ -119,12 +119,12 @@ print(praia)  # Koordenada(latitude=14.9195, longitude=-23.5087)
 try:
     praia.latitude = 0.0
 except AttributeError as e:
-    print(f"Erru: {e}")  # Erru: cannot assign to field 'latitude'
+    print(f"Eru: {e}")  # Eru: cannot assign to field 'latitude'
 ```
 
-### Adisiona Bo Propriu Métodus
+### Adisiona Bo Propriu Metodus
 
-`@dataclass` ka ta impedi-bu di adisiona métodus personalizadu:
+`@dataclass` ka ta impedi-bu di adisiona metodus personalizadu:
 
 ```python
 from dataclasses import dataclass
@@ -132,37 +132,37 @@ from dataclasses import dataclass
 @dataclass
 class Ilha:
     nomi: str
-    populasun: int
+    populasan: int
     area_km2: float
 
     def densidadi(self):
-        """Pesoas por km²"""
-        return round(self.populasun / self.area_km2, 1)
+        """Pesoas pa km²"""
+        return round(self.populasan / self.area_km2, 1)
 
     def __str__(self):
-        """Override __str__ jeradu pa versun más bonitu"""
-        return f"🏝️ {self.nomi} — {self.populasun:,} abitantis"
+        """Override __str__ jeradu pa versan más bonitu"""
+        return f"🏝️ {self.nomi} — {self.populasan:,} abitantis"
 
 santiago = Ilha("Santiago", 313_912, 991)
 sal = Ilha("Sal", 42_827, 216)
 
 print(santiago)                # 🏝️ Santiago — 313,912 abitantis
 print(f"Densidadi: {santiago.densidadi()} pesoas/km²")  # Densidadi: 316.8 pesoas/km²
-print(repr(santiago))          # Ilha(nomi='Santiago', populasun=313912, area_km2=991)
+print(repr(santiago))          # Ilha(nomi='Santiago', populasan=313912, area_km2=991)
 ```
 
-Otru opsoens útil: `order=True` (permite `sorted()` automátiku) i `field(default_factory=list)` pa valoris padrón mutável.
+Otru opsons útil: `order=True` (permite `sorted()` automátiku) i `field(default_factory=list)` pa valoris padrón mutável.
 
 ## O ki Aprende Dipos?
 
-Bo gosi tene un bazi sólidu di Python. Axi sta sinku kaminhu ki bo pode sigui:
+Bo gosi tene un bazi sólidu di Python. Axi sta sinku kaminhu ki bu pode sigi:
 
-| | Área | Ferramentas | Ezemplu |
+| | Área | Ferramentas | Izemplu |
 |--|------|------------|---------|
 | 🌐 | **Dezenvolvimentu Web** | Flask, Django, FastAPI | Kria websites i APIs |
 | 📊 | **Data Science** | pandas, numpy, matplotlib | Analiza dadus, kria gráfikus |
 | 🤖 | **Intelijensia Artifisial** | scikit-learn, PyTorch, LangChain | Machine learning, LLMs |
-| ⚡ | **Automasun** | BeautifulSoup, Selenium, bots | Web scraping, scripts, bots |
+| ⚡ | **Automasan** | BeautifulSoup, Selenium, bots | Web scraping, scripts, bots |
 | 📱 | **Mobile i Desktop** | Kivy, PyQt, Flet | Apps grafiku |
 
 ```python
@@ -172,23 +172,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def ola():
-    return "Ola Kabo Verdi! 🇨🇻"
+    return "Ola Kabu Verdi! 🇨🇻"
 ```
 
 :::callout{type=tip}
-**Dika:** Ka tenta aprende tudu di un vez! Skolhe **un** kaminhu ki ta interesa-bu i mergulha fundu. Bo pode sempri voltar i aprende otrus dipos.
+**Dika:** Ka tenta aprende tudu di un bez! Skolhe **un** kaminhu ki ta interesa-bu i mergulha fundu. Bu pode senpri voltar i aprende otus dipos.
 :::
 
-## Projetu Final Sujeridu: Jestaun di Kontatu
+## Projetu Final Sujeridu: Jestan di Kontatu
 
 Pa prátika tudu ki bo prende na es kursu, kria un **Jestor di Kontatu** na terminál. Es projetu ta uza:
 
 - **Klasis i dataclasses** — `Kontatu`, `JestorKontatu`
 - **Listas i disionárius** — garda kontatus
-- **Funsoens** — adisiona, buska, elimina
+- **Funsons** — adisiona, buska, elimina
 - **Fixerus** — salva i karga di JSON
-- **Tratamentu di erru** — try/except pa entradas inválidu
-- **Métodus mádjiku** — `__str__`, `__repr__`, `__len__`
+- **Tratamentu di eru** — try/except pa entradas inválidu
+- **Metodus majiku** — `__str__`, `__repr__`, `__len__`
 
 ```python
 from dataclasses import dataclass, field
@@ -234,23 +234,23 @@ for k in jestor.buska("maria"):
     print(k)  # 📇 Maria Santos — 991-2345 (Mindelo)
 ```
 
-Es é un ponto di partida — bo pode kontinua adisionando funsoens kuma salva na fixeru JSON, menu interativu, edita kontatu, i mais!
+Es é un ponto di partida — bu pode kontinua ta adisiona funsons kuma salva na fixeru JSON, menu interativu, edita kontatu, i mais!
 
 ## Parabéns — Bo É un Programador! 🎉
 
-Bo acaba di kompleta **Introdusun Konpletu a Python**. Vamus olha pa trás pa tudu ki bo prende:
+Bo kaba di kompleta **Introdusan Konpletu a Python**. Nu ta olha pa trás pa tudu ki bo prende:
 
 **Módulu 1 — Fundamentus:** Variáveis, tipu di dadus, strings, operadoris, kondisionais, loops
 
 **Módulu 2 — Estruturas di Dadus:** Listas, tuplas, disionárius, konjuntus
 
-**Módulu 3 — Funsoens i Fixerus:** Funsoens, lambda, modulus, ambientis virtual, fixerus, tratamentu di erru, annotasoens di tipu, testus
+**Módulu 3 — Funsons i Fixerus:** Funsons, lambda, modulus, ambientis virtual, fixerus, tratamentu di eru, annotasons di tipu, testus
 
-**Módulu 4 — OOP:** Klasis, eransa, polimorfismu, enkapsolamentu, abstrasan, métodus mádjiku, sobrekarga di operador, dataclasses
+**Módulu 4 — OOP:** Klasis, eransa, polimorfismu, enkapsolamentu, abstrasan, metodus majiku, sobrekarga di operador, dataclasses
 
-**Es é un bazi real.** Ku es konhesimentu, bo pode kumesa kualker kaminhu na programasun — web, data science, AI, automasun. Bo ka é un "prinsipianti" más — bo é un **programador**.
+**Es é un bazi real.** Ku es konhesimentu, bu pode kumesa kualker kaminhu na programasan — web, data science, AI, automasan. Bu ka é un "prinsipianti" más — bo é un **programador**.
 
-Na komunidadi tékniku di Kabo Verdi, nôs ta krese djuntu. Kada linha di kódiku ki bo skrebi é un pasu pa un futuru melhor — pa bo i pa nôs tera.
+Na komunidadi tékniku di Kabu Verdi, nos ta krese djuntu. Kada linha di kódiku ki bo skrebe é un pasu pa un futuru midjór — pa bo i pa nos tera.
 
 **Nu ta kria djuntu!** 🇨🇻
 
@@ -258,7 +258,7 @@ Na komunidadi tékniku di Kabo Verdi, nôs ta krese djuntu. Kada linha di kódik
 
 - **`@dataclass`** — dekorador ki ta jera `__init__`, `__repr__`, `__eq__` automátikamenti
 - **Menus kódiku** — trés linhas na lugar di 12+ pa klasis di dadus
-- **Opsoens:** `frozen=True` (imutável), `order=True` (komparável), valoris padrón
-- **Pode adisiona métodus** — `@dataclass` ka ta limita; bo pode override `__str__` i adisiona lójika
-- **Dipos di es kursu:** Web (Flask/Django/FastAPI), Data Science (pandas), AI (PyTorch), Automasun, Mobile
+- **Opsons:** `frozen=True` (imutável), `order=True` (komparável), valoris padrón
+- **Pode adisiona metodus** — `@dataclass` ka ta limita; bu pode override `__str__` i adisiona lójika
+- **Dipos di es kursu:** Web (Flask/Django/FastAPI), Data Science (pandas), AI (PyTorch), Automasan, Mobile
 - **Projetu sujeridu:** Jestor di Kontatu ki uza tudu konseitus di kursu

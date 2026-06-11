@@ -39,7 +39,7 @@ m1-02-tracebacks:
 m1-03-operadoris:
   title: "Operadoris di Python — Más ki Soma i Subtrasun"
   slug: operadoris-python-aritmétiku-lójiku
-  description: "Operadoris aritmétiku, komparasun i lójiku na Python. Referénsia rápidu pa prinsipianti na Kriolu."
+  description: "Operadoris aritmétiku, komparasan i lójiku na Python. Referénsia rápidu pa prinsipianti na Kriolu."
   keywords:
     - python operadoris
     - python aritmétiku
@@ -54,8 +54,8 @@ m1-03-operadoris:
     - operators
 
 m2-04-list-comprehension:
-  title: "List Comprehension na Python — Kria Lista na Un Linja Só"
-  slug: list-comprehension-python-un-linja
+  title: "List Comprehension na Python — Kria Lista na Un Linha Só"
+  slug: list-comprehension-python-un-linha
   description: "Transforma for loops na list comprehensions eleganti. Tutorial rápidu na Kriolu pa prinsipianti."
   keywords:
     - python list comprehension
@@ -89,7 +89,7 @@ m2-05-kual-estrutura:
     - data-structures
 
 m3-06-lambda-map-filter:
-  title: "Lambda, Map i Filter — Transforma Dadus na Un Linja"
+  title: "Lambda, Map i Filter — Transforma Dadus na Un Linha"
   slug: lambda-map-filter-python
   description: "Aprendi lambda, map() i filter() na Python pa transforma i filtra dadus. Tutorial na Kriolu."
   keywords:

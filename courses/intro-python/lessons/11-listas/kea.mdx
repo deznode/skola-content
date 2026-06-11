@@ -8,17 +8,17 @@ module: 2
 lesson: 11
 duration: "30 min"
 objectives:
-  - "Kria listas i asesa elementus ku indexasun i slicing"
-  - "Modifika listas ku métodus append, insert, remove, pop, sort"
-  - "Skrebi list comprehensions ku kondison"
+  - "Kria listas i asesa elementus ku indexasan i slicing"
+  - "Modifika listas ku metodus append, insert, remove, pop, sort"
+  - "Skrebe list comprehensions ku kondison"
   - "Evita pitfall di slice assignment ki ta spredi karaktéris"
 ---
 
 # Listas i List Comprehension
 
-Imagina bo tene un lista di ilhas ki bo kre vizita, un lista di presus di merkadu, ó nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesoens di dadus na orden.
+Imagina bu tene un lista di ilhas ki bu kre vizita, un lista di presus di merkadu, ó nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesons di dadus na orden.
 
-Lista é un di estruturas más usadu na Python — é **mutável** (bo podi muda dipôs di kria), **ordenadu** (elementus ta mantene es posisun), i podi guarda **kualker tipu di dadu**.
+Lista é un di estruturas más usadu na Python — é **mutável** (bu pode muda dipos di kria), **ordenadu** (elementus ta mantene es pozisan), i pode guarda **kualker tipu di dadu**.
 
 ## Kria Listas
 
@@ -42,29 +42,29 @@ print(len(ilhas))  # 5
 ```
 
 :::callout{type=tip}
-**Dika:** Lista podi guarda kualker tipu di dadu — strings, númerus, booleans, i até otrus listas!
+**Dika:** Lista pode guarda kualker tipu di dadu — strings, númerus, booleans, i até otus listas!
 :::
 
-## Indexasun: Asesa Elementus
+## Indexasan: Asesa Elementus
 
-Kada elementu na lista tene un **index** (posisun). Python ta kumesa konta na **0**:
+Kada elementu na lista tene un **index** (pozisan). Python ta kumesa konta na **0**:
 
 ```python
 ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
 
-# Indexasun positiva (di frenti pa trás)
+# Indexasan positiva (di frenti pa trás)
 print(ilhas[0])   # Santiago (primeiru)
 print(ilhas[1])   # São Vicente (segundu)
 print(ilhas[4])   # Santo Antão (últimu)
 
-# Indexasun negativa (di trás pa frenti)
+# Indexasan negativa (di trás pa frenti)
 print(ilhas[-1])  # Santo Antão (últimu)
 print(ilhas[-2])  # Fogo (penúltimu)
 print(ilhas[-5])  # Santiago (primeiru)
 ```
 
 ```python
-# ERRU KOMUN: Index fora di ranja
+# ERU KOMUN: Index fora di ranja
 # print(ilhas[5])  # IndexError: list index out of range
 # Lista tene 5 elementus, entun indexis válidu é 0 a 4
 ```
@@ -97,7 +97,7 @@ print(f"Top 3 notis: {top_3}")  # Top 3 notis: [95, 92, 91]
 
 ## Mutabilidadi: Muda Elementus
 
-Diferenti di strings i tuples, listas é **mutável** — bo podi muda es dipôs di kria:
+Diferenti di strings i tuples, listas é **mutável** — bu pode muda es dipos di kria:
 
 ```python
 frutas = ["manga", "papaia", "banana", "laranja"]
@@ -130,22 +130,22 @@ print(frutas)  # ['manga', 'koku']
 **Dika:** Kuandu uza slice assignment, senpri atribui un **lista**, nunka un string diretu. `frutas[1:] = ["koku"]` é koretu, `frutas[1:] = "koku"` ta spredi karaktéris!
 :::
 
-## Métodus di Lista
+## Metodus di Lista
 
-Listas tene vários métodus útil pa manipulasun:
+Listas tene vários metodus útil pa manipulasan:
 
 ### Adisiona Elementus
 
 ```python
-pratus = ["cachupa", "katxupa guisadu"]
+pratus = ["katxupa", "katxupa guisadu"]
 
 # append() — adisiona na final
 pratus.append("buzio grelhadu")
-print(pratus)  # ['cachupa', 'katxupa guisadu', 'buzio grelhadu']
+print(pratus)  # ['katxupa', 'katxupa guisadu', 'buzio grelhadu']
 
-# insert(posisun, valor) — adisiona na posisun spesífiku
+# insert(pozisan, valor) — adisiona na pozisan spesífiku
 pratus.insert(1, "pastéis di atum")
-print(pratus)  # ['cachupa', 'pastéis di atum', 'katxupa guisadu', 'buzio grelhadu']
+print(pratus)  # ['katxupa', 'pastéis di atum', 'katxupa guisadu', 'buzio grelhadu']
 ```
 
 ### Remove Elementus
@@ -157,7 +157,7 @@ ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Sal"]
 ilhas.remove("Sal")
 print(ilhas)  # ['Santiago', 'São Vicente', 'Fogo', 'Sal']
 
-# pop() — tira i retorna últimu (ó na posisun dadu)
+# pop() — tira i retorna últimu (ó na pozisan dadu)
 ultimu = ilhas.pop()
 print(ultimu)  # Sal
 print(ilhas)   # ['Santiago', 'São Vicente', 'Fogo']
@@ -199,19 +199,19 @@ print(notis_ordenadu)  # [78, 85, 88, 92, 95]
 ```
 
 :::callout{type=tip}
-**Dika:** `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bo ka kre perdi lista orijinal.
+**Dika:** `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bu ka kre perdi lista orijinal.
 :::
 
-## Otrus Métodus Útil
+## Otus Metodus Útil
 
 ```python
 notis = [85, 92, 78, 95, 88, 92, 85]
 
-# count() — konta kantu vez un valor aparese
+# count() — konta kantu bez un valor aparese
 print(notis.count(92))   # 2
 print(notis.count(100))  # 0
 
-# index() — enkontra posisun di primeiru okorrénsia
+# index() — enkontra pozisan di primeiru okorrénsia
 print(notis.index(95))   # 3
 print(notis.index(85))   # 0 (primeiru, ka últimu)
 
@@ -219,7 +219,7 @@ print(notis.index(85))   # 0 (primeiru, ka últimu)
 print(92 in notis)   # True
 print(100 in notis)  # False
 
-# Funsoens built-in ku listas
+# Funsons built-in ku listas
 print(len(notis))    # 7
 print(sum(notis))    # 615
 print(min(notis))    # 78
@@ -228,7 +228,7 @@ print(max(notis))    # 95
 
 ## List Comprehension
 
-![Anatomia di list comprehension: [espresun for item in iterável if kondisun]](../../infographics/08-list-comprehension-anatomia.png)
+![Anatomia di list comprehension: [espresan for item in iterável if kondisan]](../../infographics/08-list-comprehension-anatomia.png)
 
 List comprehension é un manera eleganti i konpaktu di kria listas novas. É un di featuris más sabi di Python:
 
@@ -246,9 +246,9 @@ quadradus = [n ** 2 for n in range(1, 6)]
 print(quadradus)  # [1, 4, 9, 16, 25]
 ```
 
-Estrutura: `[espresun for variável in iterável]`
+Estrutura: `[espresan for variável in iterável]`
 
-### Ku Kondisun (Filtru)
+### Ku Kondisan (Filtru)
 
 ```python
 # Só númerus par
@@ -266,7 +266,7 @@ ilhas_kurtu = [ilha for ilha in ilhas if len(ilha) < 5]
 print(ilhas_kurtu)  # ['Sal', 'Fogo', 'Maio']
 ```
 
-### Ku Transformasun
+### Ku Transformasan
 
 ```python
 # Maiúskulu
@@ -292,7 +292,7 @@ koordinadas = [[x, y] for x in range(1, 4) for y in range(1, 4)]
 print(koordinadas)
 # [[1,1], [1,2], [1,3], [2,1], [2,2], [2,3], [3,1], [3,2], [3,3]]
 
-# Tabela di multiplikasun (1-5)
+# Tabela di multiplikasan (1-5)
 tabela = [[i * j for j in range(1, 6)] for i in range(1, 6)]
 for linia in tabela:
     print(linia)
@@ -303,11 +303,11 @@ for linia in tabela:
 # [5, 10, 15, 20, 25]
 ```
 
-## Ezemplu Prátiku: Jestaun di Turma
+## Izemplu Prátiku: Jestan di Turma
 
 ```python
-# === Lista di Estudantis di Programasun ===
-# Kada estudanti é un disionáriu {nomi, nota} — nu ta odja disionárius mas detalha na lisun 13.
+# === Lista di Estudantis di Programasan ===
+# Kada estudanti é un disionáriu {nomi, nota} — nu ta odja disionárius mas detalha na lisan 13.
 # Pa gosi, só odja ki ta permiti agrupa nomi + nota djuntu na mesmu elementu.
 estudantis = [
     {"nomi": "Djina", "nota": 88},
@@ -336,7 +336,7 @@ print(f"Top 3 notis: {top3_notis}")  # Top 3 notis: [95, 91, 88]
 estudantis.append({"nomi": "Gil", "nota": 83})
 print(f"Total estudantis: {len(estudantis)}")  # Total estudantis: 7
 
-# Kria lista formatadu — list comprehension limpu, sin range(len())
+# Kria lista formatadu — list comprehension limpu, sen range(len())
 rezumu = [f"{e['nomi']}: {e['nota']}" for e in estudantis]
 for r in rezumu:
     print(r)
@@ -344,18 +344,18 @@ for r in rezumu:
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria un lista `kompras` ku 5 ítens di merkadu. Dipôs:
+1. **Izersisiu 1:** Kria un lista `kompras` ku 5 ítens di merkadu. Dipos:
    - Adisiona 2 ítens más ku `append()`
-   - Inseri "banana" na posisun 2
+   - Inseri "banana" na pozisan 2
    - Remove últimu íten ku `pop()`
    - Mostra lista final i kantu ítens tene
 
-2. **Exersísiu 2:** Dadu un lista di presus na ECV: `[250, 500, 180, 750, 320, 90, 450]`, uza list comprehension pa:
+2. **Izersisiu 2:** Dadu un lista di presus na ECV: `[250, 500, 180, 750, 320, 90, 450]`, uza list comprehension pa:
    - Kria lista só ku presus asin di 300 ECV
    - Kria lista ku presus ku 15% diskóntu
    - Kria lista ku presus konvertidu pa EUR (1 EUR = 110 ECV)
 
-3. **Exersísiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, i kria lista di dias "kenti" (asin di 30 graus).
+3. **Izersisiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, i kria lista di dias "kenti" (asin di 30 graus).
 
 <Quiz position={0} />
 
@@ -365,15 +365,15 @@ for r in rezumu:
 
 ## Rezumu
 
-- **Lista** é kolesoens ordenadu i mutável ki uza `[]`
-- **Indexasun** ta kumesa na 0; indexis negativus konta di trás pa frenti
-- **Slicing** `[start:stop:step]` ta korta pedasus — stop é exclusivu
-- **Mutabilidadi** signifika ki bo podi muda elementus dipôs di kria
-- **Métodus**: `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`
+- **Lista** é kolesons ordenadu i mutável ki uza `[]`
+- **Indexasan** ta kumesa na 0; indexis negativus konta di trás pa frenti
+- **Slicing** `[start:stop:step]` ta korta pedasus — stop é eksklusivu
+- **Mutabilidadi** signifika ki bu pode muda elementus dipos di kria
+- **Metodus**: `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`
 - **`sort()` vs `sorted()`**: `lista.sort()` ta muda lista orijinal in-place (retorna `None`); `sorted(lista)` ta retorna un lista nova (orijinal ka muda)
-- **List comprehension**: `[espresun for item in iterável if kondisun]` — manera eleganti di kria listas
+- **List comprehension**: `[espresan for item in iterável if kondisan]` — manera eleganti di kria listas
 - **KUIDADU**: Slice assignment ku string ta spredi karaktéris — senpri atribui un lista
 
 ---
 
-**Prósimu lisun:** [Tuplas →](/courses/intro-python/lessons/tuplas)
+**Prósimu lisan:** [Tuplas →](/courses/intro-python/lessons/tuplas)

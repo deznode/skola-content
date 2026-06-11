@@ -8,39 +8,39 @@ module: 3
 lesson: 25
 duration: "15 min"
 objectives:
-  - "Skrebi funsoens di testu ku assert pa verifika konportamentu di kódiku"
+  - "Skrebe funsons di testu ku assert pa verifika konportamentu di kódiku"
   - "Roda testus ku pytest i interpreta rezultadus"
   - "Kompriendi pensamentu test-driven: testu → implementa → verifika"
 ---
 
 # Testu di Kódiku ku pytest
 
-Imajina ki Carla ta kria un programa pa kalkula presu di katchupa na si restoranti na Mindelo. Programa ta funxiona perfeitu — até ki ela muda un funsan i, sem sabi, kibra kálkulu di diskonto. Klientis ta paga más di ki devia durante un simana interu antis di algen nota!
+Imajina ki Carla ta kria un programa pa kalkula presu di katxupa na si restoranti na Mindelo. Programa ta funsiona perfeitu — até ki ela muda un funsan i, sen sabi, kebra kálkulu di diskonto. Klientis ta paga más di ki devia durante un semana interu antis di algen nota!
 
-**Testus** ta evita es tipo di problema. É kódiku ki ta verifika ki bo otru kódiku ta funxiona koretu — automátikamenti, tudu vez ki bo kre.
+**Testus** ta evita es tipo di problema. É kódiku ki ta verifika ki bo otru kódiku ta funsiona koretu — automátikamenti, tudu bez ki bu kre.
 
 ## Pamodi Testa?
 
 - **Kaptura bugs** antis di uzuáriu atxa
-- **Konfiansa pa muda kódiku** — si testus ta pasa, nada kibra
-- **Dokumentasun viva** — testus ta mostra kumo funsan deve konportá
-- **Ta poupa tempu** — melhor testu automátiku na 1 segundu ki testu manuál na 5 minutu
+- **Konfiansa pa muda kódiku** — si testus ta pasa, nada ka ta kebra
+- **Dokumentasan viva** — testus ta mostra kumo funsan deve konportá
+- **Ta poupa tempu** — midjór testu automátiku na 1 segundu ki testu manuál na 5 minutu
 
 ## assert — Funsamentu di Tudu Testu
 
-`assert` ta verifika ki un kondisun é verdadeiru. Si ka é, Python ta lansa `AssertionError`:
+`assert` ta verifika ki un kondisan é verdadeiru. Si ka é, Python ta lansa `AssertionError`:
 
 ```python
 # assert básiku
-assert 2 + 2 == 4          # Pasa — nada akonteси
+assert 2 + 2 == 4          # Pasa — nada akontesi
 assert "ola".upper() == "OLA"  # Pasa
 
 # Kuandu assert faya:
 assert 2 + 2 == 5          # AssertionError!
-assert 2 + 2 == 5, "Matimátika kibra!"  # AssertionError: Matimátika kibra!
+assert 2 + 2 == 5, "Matimátika kebra!"  # AssertionError: Matimátika kebra!
 ```
 
-`assert` é simples: si kondisun é `True`, tudu ben. Si é `False`, testu fayo.
+`assert` é simples: si kondisan é `True`, tudu ben. Si é `False`, testu fayo.
 
 ## Instala pytest
 
@@ -54,15 +54,15 @@ pip install pytest
 pytest --version
 ```
 
-## Primeiru Testu
+## Primeru Testu
 
-Vamus kria un funsan i testa el. Primeru, nôs kria un fixeru ku funsan:
+Nu ta kria un funsan i testa el. Primeru, nos kria un fixeru ku funsan:
 
 **`kalkuladora.py`:**
 
 ```python
 def soma(a: float, b: float) -> float:
-    """Soma dôs numerus"""
+    """Soma dos numerus"""
     return a + b
 
 def subtrai(a: float, b: float) -> float:
@@ -70,11 +70,11 @@ def subtrai(a: float, b: float) -> float:
     return a - b
 
 def multiplika(a: float, b: float) -> float:
-    """Multiplika dôs numerus"""
+    """Multiplika dos numerus"""
     return a * b
 
 def dividi(a: float, b: float) -> float | None:
-    """Dividi a por b. Retorna None si b é zero."""
+    """Dividi a pa b. Retorna None si b é zero."""
     if b == 0:
         return None
     return a / b
@@ -130,7 +130,7 @@ pytest
 # ==================== 7 passed in 0.01s ====================
 ```
 
-Kada `.` é un testu ki pasa. Si un fayo, pytest ta mostra `F` i esplikasun detalhadu.
+Kada `.` é un testu ki pasa. Si un fayo, pytest ta mostra `F` i esplikasan detalhadu.
 
 ### Modu Verbozu
 
@@ -149,7 +149,7 @@ pytest -v
 
 ## Kuandu Testu Fayo
 
-Vamus introduzi un bug pa odja o ki akonteси:
+Nu ta introduzi un bug pa odja o ki akontesi:
 
 ```python
 # Bug proposital na kalkuladora.py
@@ -178,13 +178,13 @@ pytest ta mostra:
 - **Undi** fayo (fixeru + funsan di testu)
 - **O ki** esperava (`== 5`)
 - **O ki** resebeu (`6`)
-- **Kemu** ta txama (`soma(2, 3)`)
+- **Kemu** ta txoma (`soma(2, 3)`)
 
-Es informasun ta leva bo direitamenti pa bug!
+Es informasan ta leva bo direitamenti pa bug!
 
-## Testa Funsoens di Lisun Anteriu
+## Testa Funsons di Lisan Anteriu
 
-Vamus testa funsoens ki nôs dja kria na kursу:
+Nu ta testa funsons ki nos dja kria na kursu:
 
 **`utils.py`:**
 
@@ -306,23 +306,23 @@ pytest test_utils.py -v
 ```
 
 :::callout{type=tip}
-**Dika:** `pytest.raises(ValueError)` é un forma espesiál di testa ki un funsan **deve** lansa un erru. Si funsan ka lansa ValueError, testu fayo!
+**Dika:** `pytest.raises(ValueError)` é un forma spesiál di testa ki un funsan **deve** lansa un eru. Si funsan ka lansa ValueError, testu fayo!
 :::
 
 ## Pensamentu Test-Driven (TDD Leve)
 
-TDD signifika skrebi testus **antis** di skrebi kódiku. Siklu é:
+TDD signifika skrebe testus **antis** di skrebe kódiku. Siklu é:
 
 ```
 1. SKREBI TESTU  →  (fayo pamodi funsan ka ezisti inda)
 2. IMPLEMENTA    →  (skrebi kódiku mínima pa testu pasa)
-3. VERIFIKA      →  (roda pytest — tudu verdе?)
+3. VERIFIKA      →  (roda pytest — tudu verde?)
 4. REPETI        →  (adisiona más testus, melhora kódiku)
 ```
 
-### Ezemplu: Validador di Email (TDD)
+### Izemplu: Validador di Email (TDD)
 
-**Pasu 1 — Skrebi testus primeru:**
+**Pasu 1 — Skrebe testus primeru:**
 
 ```python
 # test_validador.py
@@ -355,7 +355,7 @@ pytest test_validador.py
 ```python
 # validador.py
 def valida_email(email: str) -> bool:
-    """Validasun básiku di email"""
+    """Validasan básiku di email"""
     if not email or " " in email:
         return False
     if "@" not in email:
@@ -378,17 +378,17 @@ pytest test_validador.py -v
 # tudu PASSED! ✓
 ```
 
-## Konvensoens di Nomi pa Testu
+## Konvensons di Nomi pa Testu
 
-| Regra | Ezemplu |
+| Regra | Izemplu |
 |-------|---------|
 | Fixeru kumesa ku `test_` | `test_kalkuladora.py` |
 | O fixeru akaba ku `_test.py` | `kalkuladora_test.py` |
-| Funsun di testu kumesa ku `test_` | `def test_soma():` |
+| Funsan di testu kumesa ku `test_` | `def test_soma():` |
 | Nomi deskritivi | `test_soma_ku_numerus_negativu` |
 
 :::callout{type=tip}
-**Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu melhor ki `test_1`.
+**Dika:** Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.
 :::
 
 ## Struktura di Projetu ku Testus
@@ -403,7 +403,7 @@ nha_projetu/
 └── test_validador.py
 ```
 
-Pa projetиs más grandi, testus pode fikа na un pasta separadu:
+Pa projetis más grandi, testus pode fika na un pasta separadu:
 
 ```
 nha_projetu/
@@ -419,11 +419,11 @@ nha_projetu/
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Skrebi un funsan `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebi 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
+1. **Izersisiu 1:** Skrebe un funsan `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebe 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
 
-2. **Exersísiu 2:** Skrebi testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, i string ku un só karáter. Después implementa funsan.
+2. **Izersisiu 2:** Skrebe testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, i string ku un só karáter. Después implementa funsan.
 
-3. **Exersísiu 3 (TDD):** Primeru skrebi testus pa un funsan `klassifika_nota(nota: float) -> str` ki ta retorna:
+3. **Izersisiu 3 (TDD):** Primeru skrebe testus pa un funsan `klassifika_nota(nota: float) -> str` ki ta retorna:
    - "Exselenti" pa nota >= 16
    - "Bon" pa nota >= 12
    - "Sufisienti" pa nota >= 10
@@ -431,7 +431,7 @@ nha_projetu/
 
    Depois implementa funsan i roda `pytest` pa verifika.
 
-4. **Exersísiu 4:** Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa `ValueError` (pamodi nota negativu ka fazi sentidu). Uza `pytest.raises(ValueError)`.
+4. **Izersisiu 4:** Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa `ValueError` (pamodi nota negativu ka faze sentidu). Uza `pytest.raises(ValueError)`.
 
 <Quiz position={0} />
 
@@ -443,14 +443,14 @@ nha_projetu/
 
 ## Rezumu
 
-- **assert** — verifika ki un kondisun é verdadeiru; si ka é, testu fayo
-- **pytest** — ferramenta ki ta diskubri i roda tudu funsoens `test_*` automátikamenti
-- **Nomi di ficheru:** `test_*.py` o `*_test.py`; funsoens: `def test_*()`
+- **assert** — verifika ki un kondisan é verdadeiru; si ka é, testu fayo
+- **pytest** — ferramenta ki ta diskubri i roda tudu funsons `test_*` automátikamenti
+- **Nomi di ficheru:** `test_*.py` o `*_test.py`; funsons: `def test_*()`
 - **Roda:** `pytest` (tudu) o `pytest -v` (verbozu ku nomi di kada testu)
-- **`pytest.raises(Error)`** — testa ki un funsan lansa un exsesun espesífiku
-- **Pensamentu TDD:** skrebi testu primeru → implementa → verifika → repeti
+- **`pytest.raises(Error)`** — testa ki un funsan lansa un exsesan espesífiku
+- **Pensamentu TDD:** skrebe testu primeru → implementa → verifika → repeti
 - **Testus é investimentu** — más tempu gosi, menus bugs dipos!
 
 ---
 
-**Prósimu lisun:** [Klasis i Objetis →](/courses/intro-python/lessons/klasis-objetis)
+**Prósimu lisan:** [Klasis i Objetis →](/courses/intro-python/lessons/klasis-objetis)

@@ -17,7 +17,7 @@ kuadradu = 5 ** 2         # 25 (poténsia)
 ```
 
 ```python
-# KOMPARASUN — kompara (retorna True/False)
+# KOMPARASAN — kompara (retorna True/False)
 idadi = 20
 print(idadi >= 18)    # True
 print(idadi == 25)    # False

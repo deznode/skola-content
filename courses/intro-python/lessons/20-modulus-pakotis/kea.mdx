@@ -8,20 +8,20 @@ module: 3
 lesson: 20
 duration: "20 min"
 objectives:
-  - "Importa módulus built-in ku import, from...import, e alias"
+  - "Importa módulus built-in ku import, from...import, i alias"
   - "Uza pip pa instala pakotis di terseru"
   - "Kria pakotis personalizadu ku __init__.py"
-  - "Konhesi módulus prinsipais di standard library"
+  - "Konxe módulus prinsipais di standard library"
   - "Intendi padron __name__ == '__main__'"
 ---
 
 # Módulus i Pakotis
 
-Kuandu bo programa ta krési, bo ka podi pô tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
+Kuandu bo programa ta krési, bu ka pode po tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
 
 ## O ki é un Módulu?
 
-Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsoens, klasis, ó variáveis. Kuandu bo fazi `import`, bo ta trazi kel kódiku pa bo programa.
+Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ó variáveis. Kuandu bo faze `import`, bu ta trazi kel kódiku pa bo programa.
 
 ```python
 # Python tene muitius módulus built-in prontu pa uza
@@ -50,7 +50,7 @@ print(resultado)  # 120
 ```python
 from math import sqrt, pi, pow
 
-# Uza diretu sin prefixu
+# Uza diretu sen prefixu
 print(sqrt(25))     # 5.0
 print(pi)           # 3.14159...
 print(pow(2, 10))   # 1024.0
@@ -71,7 +71,7 @@ print(f"Data di oji: {gosi.strftime('%d/%m/%Y')}")
 ```
 
 :::callout{type=tip}
-**Dika:** Evita `from modulo import *` — el ta importa TUDU i bo ka ta sabi di undi kada funsan ben. Kel ta kria konfuzun i bugs difísil di atxa.
+**Dika:** Evita `from modulo import *` — el ta importa TUDU i bu ka ta sabi di undi kada funsan ben. Kel ta kria konfuzun i bugs difísil di atxa.
 :::
 
 ## Standard Library: Módulus ki Dja Ben ku Python
@@ -159,7 +159,7 @@ aniversáriu = datetime.strptime("15/01/1973", "%d/%m/%Y")
 print(f"Dia: {aniversáriu.day}, Mes: {aniversáriu.month}")
 ```
 
-### `csv` — Lé i skrévi CSV
+### `csv` — Ler i skrebe CSV
 
 ```python
 import csv
@@ -167,7 +167,7 @@ import csv
 # Skrévi un CSV
 vendas = [
     ["produto", "prasu", "kuantidadi"],
-    ["Grogue", "500 ECV", "10"],
+    ["Grogu", "500 ECV", "10"],
     ["Ponche", "300 ECV", "25"],
     ["Mel di kana", "200 ECV", "15"],
 ]
@@ -176,14 +176,14 @@ with open("vendas.csv", "w", newline="") as f:
     escritor = csv.writer(f)
     escritor.writerows(vendas)
 
-# Lé un CSV
+# Ler un CSV
 with open("vendas.csv", "r") as f:
     leitor = csv.reader(f)
     for linha in leitor:
         print(linha)
 ```
 
-### `re` — Expresoens regularis
+### `re` — Expresons regularis
 
 ```python
 import re
@@ -221,7 +221,7 @@ pip install requests flask pandas
 # Mostra pakotis instaladu
 pip list
 
-# Mostra informasun di un pakotu
+# Mostra informasan di un pakotu
 pip show requests
 ```
 
@@ -234,12 +234,12 @@ print(f"Status: {resposta.status_code}")
 ```
 
 :::callout{type=tip}
-**Dika:** Sénpri instala pakotis dentru di un **ambiente virtual** (`.venv`). Nôs ta prende kel na prósimu lisun!
+**Dika:** Senpri instala pakotis dentu di un **ambiente virtual** (`.venv`). Nos ta prende kel na prósimu lisan!
 :::
 
 ## Kria Pakotis Personalizadu
 
-Un **pakotu** é un pasta ku un ficheru `__init__.py` (podi ser vazio) i un ó más módulus:
+Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ó más módulus:
 
 ```
 meu_projetu/
@@ -305,7 +305,7 @@ def subtrai(a, b):
 
 # Kel bloku só ta roda si kel ficheru é ezekatadu diretu
 if __name__ == "__main__":
-    # Kódiku di testu / demonstrasun
+    # Kódiku di testu / demonstrasan
     print("Testandu kalkuladora:")
     print(f"5 + 3 = {soma(5, 3)}")
     print(f"10 - 4 = {subtrai(10, 4)}")
@@ -321,7 +321,7 @@ python kalkuladora.py
 ```
 
 :::callout{type=tip}
-**Dika:** Kel padron é perfeitu pa pô kódiku di testu ó ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kómu módulu.
+**Dika:** Kel padron é perfeitu pa po kódiku di testu ó ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kómu módulu.
 :::
 
 ## Struktura di un Projetu Real
@@ -335,8 +335,8 @@ gestor_notas/
 ├── .venv/               # Ambiente virtual (KA ta bai pa git!)
 ├── modulus/
 │   ├── __init__.py
-│   ├── estudanti.py     # Funsun relasionadu ku estudanti
-│   ├── nota.py          # Funsun relasionadu ku nota
+│   ├── estudanti.py     # Funsan relasionadu ku estudanti
+│   ├── nota.py          # Funsan relasionadu ku nota
 │   └── relatoriu.py     # Jera relatórius
 └── dadus/
     └── notas.csv        # Ficheru di dadus
@@ -344,11 +344,11 @@ gestor_notas/
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Esplora Standard Library** — Importa `random` i skrévi un programa ki sorteia 5 numeru di loteria (entre 1 i 49, sin repetisun). Dika: uza `random.sample()`.
+1. **Izersisiu 1: Esplora Standard Library** — Importa `random` i skrebe un programa ki sorteia 5 numeru di loteria (entri 1 i 49, sen repetisan). Dika: uza `random.sample()`.
 
-2. **Exersísiu 2: Kria un Módulu** — Kria un ficheru `conversor.py` ku funsoens `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: 1 EUR = 110.265 ECV). Na otu ficheru, importa i testa.
+2. **Izersisiu 2: Kria un Módulu** — Kria un ficheru `conversor.py` ku funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: 1 EUR = 110.265 ECV). Na otu ficheru, importa i testa.
 
-3. **Exersísiu 3: Pakotu di Utilidadis** — Kria un pasta `utils/` ku `__init__.py`, un módulu `validasun.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki retorna "1.500$00 ECV"). Importa tudu di `main.py`.
+3. **Izersisiu 3: Pakotu di Utilidadis** — Kria un pasta `utils/` ku `__init__.py`, un módulu `validasan.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki retorna "1.500$00 ECV"). Importa tudu di `main.py`.
 
 <Quiz position={0} />
 
@@ -364,8 +364,8 @@ gestor_notas/
 - **pip** ta instala pakotis di terseru: `pip install nome_pakotu`
 - **Pakotu** é un pasta ku `__init__.py` + módulus
 - `__name__ == "__main__"` ta permite kódiku ki só roda kuandu ficheru é ezekatadu diretu
-- Organiza projetu na módulus ta fazi kódiku más fásil di lé, mante, i reusa
+- Organiza projetu na módulus ta faze kódiku más fásil di ler, mante, i reusa
 
 ---
 
-**Prósimu lisun:** [Ambiente Virtual i pip →](/courses/intro-python/lessons/ambiente-virtual)
+**Prósimu lisan:** [Ambiente Virtual i pip →](/courses/intro-python/lessons/ambiente-virtual)

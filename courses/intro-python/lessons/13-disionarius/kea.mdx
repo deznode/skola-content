@@ -10,15 +10,15 @@ duration: "30 min"
 objectives:
   - "Kria disionárius i asesa valores ku .get()"
   - "Itera sobri disionárius ku .items(), .keys(), .values()"
-  - "Intendi diferensa entre referénsia i .copy()"
-  - "Skrebi dict comprehensions pa transforma dadus"
+  - "Intendi diferensa entri referénsia i .copy()"
+  - "Skrebe dict comprehensions pa transforma dadus"
 ---
 
 # Disionárius i Dict Comprehension
 
-Imagina un livru di kontatusis: bo ta prokurea nomi di pesoa i enkontra es númeru di telefoni. Na Python, **dictionary** (disionáriu) funxiona ezatamente asim — é un kolesoens di **pares key-value** (xavi-valor).
+Imagina un livru di kontatusis: bu ta prokurea nomi di pesoa i enkontra es númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamente asim — é un kolesons di **pares key-value** (xavi-valor).
 
-Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza prokurea rápidamente — perfis di utilizador, inventáriu di loja, konfigurasoens, i más.
+Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza prokurea rápidamente — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
 
 ## Kria Disionárius
 
@@ -53,11 +53,11 @@ print(pessoa)  # {'nomi': 'Nilton', 'idadi': 25, 'sidadi': 'Mindelo'}
 # Keys duplikadu — últimu ta ganha (sen avizu!)
 dados = {"nomi": "Ana", "idadi": 20, "nomi": "Carla"}
 print(dados)  # {'nomi': 'Carla', 'idadi': 20}
-# "Ana" disaparese sen ninhun erru!
+# "Ana" disaparese sen ninhun eru!
 ```
 
 :::callout{type=tip}
-**Dika:** Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da erru — kel podi kauza bugs sutíl!
+**Dika:** Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da eru — kel pode kauza bugs sutíl!
 :::
 
 ## Asesa Valores
@@ -79,17 +79,17 @@ print(estudanti["média"])   # 91.0
 
 # .get() — retorna None (ó valor padrun) si key ka ezisti
 print(estudanti.get("nomi"))          # Kelvin
-print(estudanti.get("email"))         # None (sen erru!)
+print(estudanti.get("email"))         # None (sen eru!)
 print(estudanti.get("email", "N/A"))  # N/A (valor padrun)
 ```
 
 :::callout{type=tip}
-**Dika:** Senpri uza `.get()` kuandu bo ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da erru.
+**Dika:** Senpri uza `.get()` kuandu bu ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da eru.
 :::
 
 ## Modifika Disionárius
 
-Disionárius é **mutável** — bo podi adisiona, muda, i tira elementus:
+Disionárius é **mutável** — bu pode adisiona, muda, i tira elementus:
 
 ```python
 estudanti = {"nomi": "Lara", "idadi": 21, "ilha": "Sal"}
@@ -120,13 +120,13 @@ print(estudanti)
 # {'nomi': 'Lara', 'idadi': 22, 'ilha': 'Sal', 'média': 88.5, 'anu': 3}
 ```
 
-## Métodus Prinsipal
+## Metodus Prinsipal
 
 ### .keys(), .values(), .items()
 
 ```python
 pratu = {
-    "nomi": "Cachupa Rica",
+    "nomi": "Katxupa Rica",
     "presu": 450,
     "ingredientis": 12,
     "disponível": True
@@ -138,14 +138,14 @@ print(pratu.keys())
 
 # .values() — tudu valores
 print(pratu.values())
-# dict_values(['Cachupa Rica', 450, 12, True])
+# dict_values(['Katxupa Rica', 450, 12, True])
 
 # .items() — tudu pares (key, value) kumo tuples
 print(pratu.items())
-# dict_items([('nomi', 'Cachupa Rica'), ('presu', 450), ('ingredientis', 12), ('disponível', True)])
+# dict_items([('nomi', 'Katxupa Rica'), ('presu', 450), ('ingredientis', 12), ('disponível', True)])
 ```
 
-### Verifica si Key Ezisti
+### Verifika si Key Ezisti
 
 ```python
 estudanti = {"nomi": "Pedro", "idadi": 24, "ilha": "Santiago"}
@@ -159,9 +159,9 @@ print("Pedro" in estudanti)    # False — 'in' ta verifica KEYS, ka valores!
 print("Pedro" in estudanti.values())  # True
 ```
 
-## PITFALL: Referénsia vs Cópia
+## PITFALL: Referénsia vs Kópia
 
-Kel é un di errus más perigozu — kuandu bo "kopia" un disionáriu ku `=`, ka é kópia real!
+Kel é un di erus más perigozu — kuandu bo "kopia" un disionáriu ku `=`, ka é kópia real!
 
 ```python
 # PROBLEMA: = ta kria REFERÉNSIA (mesmu objetu!)
@@ -169,7 +169,7 @@ orijinal = {"nomi": "Nuno", "nota": 85}
 kopia_falsa = orijinal  # Ka é kópia! É mesmu objetu!
 
 kopia_falsa["nota"] = 95
-print(orijinal["nota"])    # 95 — MUDA tanbé! 😱
+print(orijinal["nota"])    # 95 — MUDA tanbe! 😱
 print(kopia_falsa["nota"]) # 95
 
 # SOLUSON: .copy() ta kria kópia independenti
@@ -182,10 +182,10 @@ print(kopia_real["nota"]) # 95
 ```
 
 :::callout{type=tip}
-**Dika:** Senpri uza `.copy()` kuandu bo kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
+**Dika:** Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
 :::
 
-## Iterasun sobri Disionárius
+## Iterasan sobri Disionárius
 
 ```python
 estudanti = {
@@ -217,11 +217,11 @@ for key, valor in estudanti.items():
 ```python
 # Ezemplu prátiku: Menu di restauranti
 menu = {
-    "Cachupa Rica": 450,
+    "Katxupa Rica": 450,
     "Buzio Grelhadu": 600,
     "Pastéis di Atum": 200,
     "Lagosta": 1500,
-    "Grogue": 150
+    "Grogu": 150
 }
 
 print("=== Menu ===")
@@ -235,7 +235,7 @@ print(f"\nTotal (tudu): {total} ECV")
 
 ## Disionárius Aninhadu (Nested)
 
-Disionárius podi kontene otrus disionárius — perfeitu pa dadus kompleksu:
+Disionárius pode kontene otus disionárius — perfeitu pa dadus kompleksu:
 
 ```python
 turma = {
@@ -289,7 +289,7 @@ print(quadradus)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
 Estrutura: `{key_expr: value_expr for item in iterável}`
 
-### Ku Kondisun
+### Ku Kondisan
 
 ```python
 # Só pares
@@ -306,14 +306,14 @@ print(aprovadus)  # {'Djina': 85, 'Edna': 95, 'Lara': 91}
 
 ```python
 # Konverti presus di ECV pa EUR
-presus_ecv = {"cachupa": 450, "buzio": 600, "grogue": 150}
+presus_ecv = {"katxupa": 450, "buzio": 600, "grogu": 150}
 presus_eur = {pratu: round(presu / 110, 2) for pratu, presu in presus_ecv.items()}
-print(presus_eur)  # {'cachupa': 4.09, 'buzio': 5.45, 'grogue': 1.36}
+print(presus_eur)  # {'katxupa': 4.09, 'buzio': 5.45, 'grogu': 1.36}
 
 # Kria disionáriu di komprimantu di palavras
-palavras = ["morabeza", "funana", "cachupa", "grogue", "sodadi"]
+palavras = ["morabeza", "funana", "katxupa", "grogu", "sodadi"]
 tamanhu = {p: len(p) for p in palavras}
-print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'cachupa': 7, 'grogue': 6, 'sodadi': 6}
+print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'katxupa': 7, 'grogu': 6, 'sodadi': 6}
 ```
 
 ## Padruns Útil ku Disionárius
@@ -321,7 +321,7 @@ print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'cachupa': 7, 'grogue': 6, 'sodad
 ### Kontador di Frekuénsia
 
 ```python
-# Konta kantu vez kada ilha aparese
+# Konta kantu bez kada ilha aparese
 vizitas = ["Sal", "Santiago", "Sal", "Fogo", "Santiago", "Sal", "Fogo"]
 
 frekuénsia = {}
@@ -342,7 +342,7 @@ print(kontador)  # {'m': 1, 'o': 1, 'r': 1, 'a': 2, 'b': 1, 'e': 1, 'z': 1}
 ```
 
 :::callout{type=tip}
-**Dika:** Padrón `.get(key, 0) + 1` é truqui klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipôs ta soma 1.
+**Dika:** Padrón `.get(key, 0) + 1` é truki klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipos ta soma 1.
 :::
 
 ### Merge (Djunta) Disionárius
@@ -373,7 +373,7 @@ mergedu = d1 | d2
 print(mergedu)  # {'a': 1, 'b': 3, 'c': 4}
 ```
 
-## Ezemplu Prátiku: Loja di Merkadu
+## Izemplu Prátiku: Loja di Merkadu
 
 ```python
 # === Sistema di Inventáriu di Merkadu ===
@@ -407,11 +407,11 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Kria un disionáriu `meu_perfil` ku bo nomi, idadi, ilha, i 3 hobis (kumo lista). Adisiona "email" dipôs, atualiza idadi, i mostra tudu pares ku un loop.
+1. **Izersisiu 1:** Kria un disionáriu `meu_perfil` ku bo nomi, idadi, ilha, i 3 hobis (kumo lista). Adisiona "email" dipos, atualiza idadi, i mostra tudu pares ku un loop.
 
-2. **Exersísiu 2:** Dadu un lista di palavras: `["funana", "morabeza", "cachupa", "grogue", "sodadi", "morabeza", "funana", "funana"]`, kria un disionáriu di frekuénsia ki konta kantu vez kada palavra aparese. Mostra palavra ki más aparese.
+2. **Izersisiu 2:** Dadu un lista di palavras: `["funana", "morabeza", "katxupa", "grogu", "sodadi", "morabeza", "funana", "funana"]`, kria un disionáriu di frekuénsia ki konta kantu bez kada palavra aparese. Mostra palavra ki más aparese.
 
-3. **Exersísiu 3:** Kria un disionáriu aninhadu ku 3 ilhas, kada un ku "populasun", "area_km2", i "kapital". Uza dict comprehension pa kria novu disionáriu só ku ilhas ki tene populasun asin di 50000. Kalkula densidadi populasional (populasun/area) di kada un.
+3. **Izersisiu 3:** Kria un disionáriu aninhadu ku 3 ilhas, kada un ku "populasan", "area_km2", i "kapital". Uza dict comprehension pa kria novu disionáriu só ku ilhas ki tene populasan asin di 50000. Kalkula densidadi populasional (populasan/area) di kada un.
 
 <Quiz position={0} />
 
@@ -424,12 +424,12 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 - **Disionáriu** guarda pares **key: value** dentu di `{}`
 - Keys ten ki ser **úniku** i **imutável** — duplikadus ta sobreskrebi silensiosamenti
 - `.get(key, padrun)` é más seguru ki `[]` — ka ta da KeyError
-- **Métodus prinsipal**: `.keys()`, `.values()`, `.items()`, `.copy()`, `.update()`, `.pop()`
+- **Metodus prinsipal**: `.keys()`, `.values()`, `.items()`, `.copy()`, `.update()`, `.pop()`
 - `=` ta kria **referénsia** (mesmu objetu); `.copy()` ta kria kópia **independenti**
-- **Dict comprehension**: `{key: valor for item in iterável if kondisun}`
+- **Dict comprehension**: `{key: valor for item in iterável if kondisan}`
 - **Kontador di frekuénsia**: `.get(key, 0) + 1` é padrón klásiku
 - **Merge**: `{**d1, **d2}` ó `d1 | d2` (Python 3.9+) pa djunta disionárius
 
 ---
 
-**Prósimu lisun:** [Konjuntus (Sets) →](/courses/intro-python/lessons/konjuntus)
+**Prósimu lisan:** [Konjuntus (Sets) →](/courses/intro-python/lessons/konjuntus)

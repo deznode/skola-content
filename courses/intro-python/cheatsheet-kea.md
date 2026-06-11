@@ -213,7 +213,7 @@ print(f"{nota=}")                    # "nota=18.5"
 | `%` | Módulu (restu) | `10 % 3` | `1` |
 | `**` | Exponensiasun | `2 ** 5` | `32` |
 
-### Komparasun
+### Komparasan
 
 | Operador | Signifikadu | Ezemplu | Resultadu |
 |----------|-------------|---------|-----------|
@@ -915,9 +915,9 @@ finally:
     print("Fin di operasun")          # SENPRI roda
 ```
 
-### Exsesoens Komun
+### Exsesons Komun
 
-| Exsesun | Kuandu Acontesi |
+| Exsesan | Kuandu Acontesi |
 |---------|-----------------|
 | `SyntaxError` | Kódiku mal skrevedu |
 | `NameError` | Variável ka existe |
@@ -929,7 +929,7 @@ finally:
 | `ZeroDivisionError` | Divizun pa zeru |
 | `AttributeError` | Métudu/atributu ka existe |
 
-### raise — Lansa Exsesun
+### raise — Lansa Exsesan
 
 ```python
 def saka_dineru(balansa, montanti):
@@ -938,7 +938,7 @@ def saka_dineru(balansa, montanti):
     return balansa - montanti
 ```
 
-### Exsesun Personalizadu
+### Exsesan Personalizadu
 
 ```python
 class SaldoInsufisentiError(Exception):
@@ -1380,7 +1380,7 @@ class Nota:
 | `ModuleNotFoundError` | Pakoti ka instaladu | `pip install pakoti` (dentu di .venv) |
 | `FileNotFoundError` | Ficheru ka existe | Verifica kaminhu ku `os.path.exists()` |
 | `def f(x, data=[])` | Default mutável partilhadu | Uza `data=None`, dps `data = data or []` |
-| `except:` (sem tipu) | Kapta tudu inkluindu Ctrl+C | SENPRI kapta exsesun spesífiku |
+| `except:` (sem tipu) | Kapta tudu inkluindu Ctrl+C | SENPRI kapta exsesan spesífiku |
 
 ---
 

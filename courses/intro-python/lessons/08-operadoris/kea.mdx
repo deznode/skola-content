@@ -9,57 +9,57 @@ lesson: 8
 duration: "20 min"
 objectives:
   - "Uza operadoris aritmétiku (+, -, *, /, //, %, **) pa faze kálkulus"
-  - "Kompara valoris ku operadoris di komparasun (==, !=, >, <, >=, <=)"
+  - "Kompara valoris ku operadoris di komparasan (==, !=, >, <, >=, <=)"
   - "Kombina kondisons ku operadoris lójiku (and, or, not)"
-  - "Intende presedensia di operadoris e armadilhas komun"
+  - "Intende presedensia di operadoris i armadilhas komun"
 ---
 
 # Operadoris
 
-Operadoris é sinais ki ta dize Python pa faze un operasun ku valoris. Kuandu bo skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na ês lisun, nôs ta prende três tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasun (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bo ta uza na tudu programa ki bo skrebe.
+Operadoris é sinais ki ta dize Python pa faze un operasan ku valoris. Kuandu bo skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na es lisan, nos ta prende tres tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasan (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bu ta uza na tudu programa ki bo skrebe.
 
 ## Operadoris Aritmétiku
 
-Es operadoris ta faze kálkulus matemátiku. Si bo sabe matemátika báziku, bo djá konhese maioria.
+Es operadoris ta faze kálkulus matemátiku. Si bo sabe matemátika báziku, bo djá konxe maioria.
 
 ```python
-# Adisun i Subtrasun
+# Adisan i Subtrasan
 print(10 + 5)    # 15
 print(10 - 3)    # 7
 
-# Multiplikasun
+# Multiplikasan
 print(4 * 3)     # 12
 
-# Divisun (SEMPRI retorna float!)
+# Divisan (SENPRI retorna float!)
 print(10 / 5)    # 2.0  ← nota: 2.0, KA 2!
 print(7 / 2)     # 3.5
 ```
 
 :::callout{type=tip}
-**Dika:** Divisun ku `/` SEMPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadilha komun!
+**Dika:** Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadilha komun!
 :::
 
 ```python
-# Divisun Interu (floor division) — tira parti desimal
+# Divisan Interu (floor division) — tira parti desimal
 print(7 // 2)    # 3  (ka 3.5 — tira desimal)
 print(10 // 3)   # 3
 print(21 // 5)   # 4
 
-# Módulu (restu di divisun)
+# Módulu (restu di divisan)
 print(10 % 3)    # 1  (10 ÷ 3 = 3 restu 1)
-print(15 % 5)    # 0  (divisun exata — sem restu)
+print(15 % 5)    # 0  (divisan exata — sen restu)
 print(7 % 2)     # 1  (ímpar: restu é 1)
 ```
 
 ```python
-# Esponensasun (potensia)
+# Esponensasan (potensia)
 print(2 ** 3)    # 8   (2 × 2 × 2)
 print(5 ** 2)    # 25  (5 × 5)
 print(10 ** 0)   # 1   (kualker nùmeru elevadu a 0 é 1)
 print(9 ** 0.5)  # 3.0 (rais kuadrada!)
 ```
 
-### Ezemplu Prátiku: Kalkula Troku ku Eskudu
+### Izemplu Prátiku: Kalkula Troku ku Eskudu
 
 ```python
 # Kalkula troku na loja
@@ -75,7 +75,7 @@ restu = troku % 100          # 50 ECV sobra
 print(f"{notas_100} nota(s) di 100 ECV i {restu} ECV na moeda")
 ```
 
-### Ezemplu Prátiku: Konversor di Moeda
+### Izemplu Prátiku: Konversor di Moeda
 
 ```python
 # Konversor Eskudu → Euro
@@ -100,12 +100,12 @@ else:
 # 17 é ímpar
 ```
 
-### Operadoris di Atribuisun Konposta
+### Operadoris di Atribuisan Konposta
 
-Bo pode kombina operadoris aritmétiku ku atribuisun pa atalhu.
+Bu pode kombina operadoris aritmétiku ku atribuisan pa atalhu.
 
 ```python
-# Atalhu: operador + atribuisun
+# Atalhu: operador + atribuisan
 saldo = 1000
 
 saldo += 500   # mesmu ki: saldo = saldo + 500
@@ -131,9 +131,9 @@ print(saldo)   # 866
 | `x %= 3` | `x = x % 3` |
 | `x **= 2` | `x = x ** 2` |
 
-## Operadoris di Komparasun
+## Operadoris di Komparasan
 
-Es operadoris ta kompara dois valoris i ta retorna `True` o `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bo ta prende na prósimu lisun.
+Es operadoris ta kompara dois valoris i ta retorna `True` o `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bu ta prende na prósimu lisan.
 
 ```python
 # Igual i Diferenti
@@ -150,18 +150,18 @@ print(10 <= 9)    # False  (menor O igual)
 ```
 
 :::callout{type=tip}
-**Dika:** Ka konfundi `=` (atribuisun) ku `==` (komparasun)! `x = 5` ta guarda valor 5 na `x`. `x == 5` ta pergunta "x é igual a 5?".
+**Dika:** Ka konfundi `=` (atribuisan) ku `==` (komparasan)! `x = 5` ta guarda valor 5 na `x`. `x == 5` ta pergunta "x é igual a 5?".
 :::
 
 ```python
-# Komparasun di strings — é CASE SENSITIVE!
+# Komparasan di strings — é CASE SENSITIVE!
 print("Praia" == "Praia")    # True
 print("Praia" == "praia")    # False! (P maiúskula ≠ p minúskula)
 print("Praia".lower() == "praia".lower())  # True (soluson!)
 ```
 
 ```python
-# Komparasun ku variáveis
+# Komparasan ku variáveis
 idadi_joao = 25
 idadi_ana = 30
 
@@ -170,7 +170,7 @@ print(f"Ana é más velhu ki João? {idadi_ana > idadi_joao}")    # True
 print(f"Es tene mesmu idadi? {idadi_joao == idadi_ana}")       # False
 ```
 
-### Ezemplu Prátiku: Verifikasun di Idadi
+### Izemplu Prátiku: Verifikasan di Idadi
 
 ```python
 # Verifica si pesoa pode vota (>= 18 anu)
@@ -183,7 +183,7 @@ print(f"{nomi} pode vota? {pode_vota}")  # Nilton pode vota? False
 
 ## Operadoris Lójiku
 
-Operadoris lójiku ta kombina vários kondisons. Pensa es komu "e", "o", "ka" na Kriolu.
+Operadoris lójiku ta kombina vários kondisons. Pensa es kumo "i", "ó", "ka" na Kriolu.
 
 ### `and` — AMBOS ten ki ser True
 
@@ -199,7 +199,7 @@ print(idadi >= 30 and tene_bilheti)  # False (25 ka >= 30)
 ### `or` — ALGUN ten ki ser True
 
 ```python
-# or: pelo menus UN kondisun ten ki ser verdaderu
+# or: pelo menus UN kondisan ten ki ser verdaderu
 é_studanti = False
 é_idosu = True
 
@@ -221,7 +221,7 @@ print(not loja_aberta)  # True
 ### Kombina Tudu Djuntu
 
 ```python
-# Ezemplu kompletu: validasun di bilheti
+# Ezemplu kompletu: validasan di bilheti
 idadi = 22
 é_studanti = True
 tene_dinheru = True
@@ -232,7 +232,7 @@ print(f"Pode entra? {pode_entra}")  # True
 ```
 
 ```python
-# Ezemplu prátiku: validasun di senha
+# Ezemplu prátiku: validasan di senha
 senha = "Py2026!"
 
 tene_tamanhu = len(senha) >= 6
@@ -245,7 +245,7 @@ print(f"Senha forte? {senha_forte}")  # True
 
 ## Tabela di Verdadi (Truth Table)
 
-Pa intende `and`, `or`, i `not`, ê tabela ta ajuda:
+Pa intende `and`, `or`, i `not`, es tabela ta ajuda:
 
 ```python
 # Tabela di verdadi pa 'and'
@@ -267,14 +267,14 @@ print(not True)    # False
 print(not False)   # True
 ```
 
-## Presedensia di Operadoris (Orden di Exekusun)
+## Presedensia di Operadoris (Orden di Exekusan)
 
 ![Presedensia di operadoris di Python](../../infographics/03-operador-precedensia.png)
 
-Python ta sigi un orden espesífiku kuandu tene vários operadoris na mesmu expresun. É igualzinhu ki matemátika — multiplikasun antis di adisun.
+Python ta sigi un orden espesífiku kuandu tene vários operadoris na mesmu expresan. É igualzinhu ki matemátika — multiplikasan antis di adisan.
 
 ```python
-# Sem paréntesis: Python sigi presedensia
+# Sen paréntesis: Python sigi presedensia
 resultado = 2 + 3 * 4
 print(resultado)  # 14 (ka 20! — * antis di +)
 
@@ -285,22 +285,22 @@ print(resultado)  # 20
 
 **Orden di presedensia (di más altu pa más baixu):**
 
-| Priuridad | Operador | Descrisun |
+| Priuridad | Operador | Deskrisan |
 |-----------|----------|-----------|
-| 1 (más altu) | `**` | Esponensasun |
-| 2 | `not` | Negasun lójika |
-| 3 | `*`, `/`, `//`, `%` | Multiplikasun, divisun, módulu |
-| 4 | `+`, `-` | Adisun, subtrasun |
-| 5 | `==`, `!=`, `>`, `<`, `>=`, `<=` | Komparasun |
+| 1 (más altu) | `**` | Esponensasan |
+| 2 | `not` | Negasan lójika |
+| 3 | `*`, `/`, `//`, `%` | Multiplikasan, divisan, módulu |
+| 4 | `+`, `-` | Adisan, subtrasan |
+| 5 | `==`, `!=`, `>`, `<`, `>=`, `<=` | Komparasan |
 | 6 | `and` | E lójiku |
 | 7 (más baixu) | `or` | Ou lójiku |
 
 ```python
 # Ezemplu di presedensia
 resultado = 2 ** 3 + 4 * 2 - 1
-# Pasu 1: 2 ** 3 = 8       (esponensasun primeiru)
-# Pasu 2: 4 * 2 = 8        (multiplikasun)
-# Pasu 3: 8 + 8 - 1 = 15   (adisun i subtrasun)
+# Pasu 1: 2 ** 3 = 8       (esponensasan primeiru)
+# Pasu 2: 4 * 2 = 8        (multiplikasan)
+# Pasu 3: 8 + 8 - 1 = 15   (adisan i subtrasan)
 print(resultado)  # 15
 ```
 
@@ -311,36 +311,36 @@ print(resultado)  # 15
 ## Armadilhas Komun
 
 ```python
-# ARMADILHA 1: / sempri retorna float
+# ARMADILHA 1: / senpri retorna float
 print(type(10 / 5))   # <class 'float'> — 2.0, ka 2!
 print(type(10 // 5))  # <class 'int'>   — 2 (si bo kre interu, uza //)
 
 # ARMADILHA 2: = vs ==
-x = 5      # atribuisun (guarda valor)
-x == 5     # komparasun (pergunta si é igual) → True
+x = 5      # atribuisan (guarda valor)
+x == 5     # komparasan (pergunta si é igual) → True
 
-# ARMADILHA 3: komparasun di string é case-sensitive
+# ARMADILHA 3: komparasan di string é case-sensitive
 nomi = "Pedro"
 print(nomi == "pedro")  # False!
 print(nomi.lower() == "pedro")  # True (soluson)
 
-# ARMADILHA 4: divisun interu ku negativus
+# ARMADILHA 4: divisan interu ku negativus
 print(7 // 2)    #  3  ← normal
 print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
 ```
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Kalkuladora di Troku:** Pedi utilizador pa skrebe presu di un produtu i kuantu el pagá. Kalkula troku, kuantas notas di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda.
+1. **Izersisiu 1 — Kalkuladora di Troku:** Pedi utilizador pa skrebe presu di un produtu i kuantu el pagá. Kalkula troku, kuantas notas di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda.
 
-2. **Exersísiu 2 — Verifikador di Idadi:** Pedi nomi i idadi di un pesoa. Mostra si el pode:
+2. **Izersisiu 2 — Verifikador di Idadi:** Pedi nomi i idadi di un pesoa. Mostra si el pode:
    - Vota (>= 18)
    - Konduz karu (>= 18)
    - Bebe alkól (>= 18)
    - Aposenta (>= 65)
-   Uza operadoris di komparasun i f-strings pa tudu.
+   Uza operadoris di komparasan i f-strings pa tudu.
 
-3. **Exersísiu 3 — Kalkuladora di IMC:** Pedi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra kategoria:
+3. **Izersisiu 3 — Kalkuladora di IMC:** Pedi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra kategoria:
    - `IMC < 18.5`: "Abaixu di pezu"
    - `18.5 <= IMC < 25`: "Pezu normal"
    - `25 <= IMC < 30`: "Subrepézu"
@@ -354,14 +354,14 @@ print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
 
 ## Rezumu
 
-- **Aritmétiku:** `+`, `-`, `*` funsiona komu esperadu; `/` SEMPRI retorna float; `//` pa divisun interu; `%` pa restu; `**` pa potensia
-- **Atribuisun konposta:** `+=`, `-=`, `*=` é atalhu pa `x = x op valor`
-- **Komparasun:** `==` (igual), `!=` (diferenti), `>`, `<`, `>=`, `<=` — tudu retorna True/False
+- **Aritmétiku:** `+`, `-`, `*` funsiona kumo esperadu; `/` SENPRI retorna float; `//` pa divisan interu; `%` pa restu; `**` pa potensia
+- **Atribuisan konposta:** `+=`, `-=`, `*=` é atalhu pa `x = x op valor`
+- **Komparasan:** `==` (igual), `!=` (diferenti), `>`, `<`, `>=`, `<=` — tudu retorna True/False
 - **Lójiku:** `and` (ambos True), `or` (algun True), `not` (inverte)
-- **Presedensia:** `**` > `not` > `* / // %` > `+ -` > komparasun > `and` > `or`
-- **Ka konfundi** `=` (atribuisun) ku `==` (komparasun)
+- **Presedensia:** `**` > `not` > `* / // %` > `+ -` > komparasan > `and` > `or`
+- **Ka konfundi** `=` (atribuisan) ku `==` (komparasan)
 - **Na dúvida, uza paréntesis** pa torna kódiku más klaru
 
 ---
 
-**Prósimu lisun:** [Kondisionais (if/elif/else) →](/courses/intro-python/lessons/kondisionais)
+**Prósimu lisan:** [Kondisionais (if/elif/else) →](/courses/intro-python/lessons/kondisionais)

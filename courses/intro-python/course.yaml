@@ -1,20 +1,20 @@
 slug: intro-python
-title: Introdusun Konpletu a Python
+title: Introdusan Konpletu a Python
 level: beginner
 category: programming
 duration_minutes: 480
 instructor: Joaquim Costa
 translations:
   kea:
-    title: "Introdusun Konpletu a Python"
-    description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasun, estruturas di dadus, funsoens, ficheru, e programasun orientadu a objetu.
+    title: "Introdusan Konpletu a Python"
+    description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasan, estruturas di dadus, funsoens, ficheru, i programasan orientadu a objetu.
     prerequisites: Nenhum konhesimentu préviu nesesáriu
     outcomes: |
       Kria programas ku Python di zero
-      Komprendi variáveis, tipu di dadus, e operadoris
-      Uza listas, tuplas, disionárius, e konjuntus
-      Skrebi funsoens e trabadja ku ficheru
-      Implementa klasis e objetus ku OOP
+      Komprendi variáveis, tipu di dadus, i operadoris
+      Uza listas, tuplas, disionárius, i konjuntus
+      Skrebi funsoens i trabadja ku ficheru
+      Implementa klasis i objetus ku OOP
 modules:
   - slug: fundamentus-di-python
     title:
@@ -24,7 +24,7 @@ modules:
         languages: [kea]
       - slug: instala-python
         languages: [kea]
-      - slug: le-errus
+      - slug: ler-erus
         languages: [kea]
       - slug: sintaxi-semantika
         languages: [kea]
@@ -72,7 +72,7 @@ modules:
         languages: [kea]
       - slug: operasoens-ficheru
         languages: [kea]
-      - slug: tratamentu-erru
+      - slug: tratamentu-eru
         languages: [kea]
       - slug: annotasoens-tipu
         languages: [kea]
@@ -80,7 +80,7 @@ modules:
         languages: [kea]
   - slug: programasun-orientadu-a-objetu
     title:
-      kea: Programasun Orientadu a Objetu
+      kea: Programasan Orientadu a Objetu
     lessons:
       - slug: klasis-objetis
         languages: [kea]
@@ -90,7 +90,7 @@ modules:
         languages: [kea]
       - slug: enkapsolamentu-property
         languages: [kea]
-      - slug: metodus-madjiku
+      - slug: metodus-majiku
         languages: [kea]
       - slug: sobrekarga-operador
         languages: [kea]

@@ -1,5 +1,5 @@
 ---
-title: "Annotasoens di Tipu"
+title: "Annotasons di Tipu"
 language: kea
 courseSlug: intro-python
 lessonSlug: annotasoens-tipu
@@ -8,20 +8,20 @@ module: 3
 lesson: 24
 duration: "15 min"
 objectives:
-  - "Adisiona type hints na funsoens i variáveis pa dokumenta tipu di dadus"
+  - "Adisiona type hints na funsons i variáveis pa dokumenta tipu di dadus"
   - "Uza sintaxi int | None (Python 3.10+) pa valóris opisionais"
   - "Kompriendi ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
 ---
 
-# Annotasoens di Tipu
+# Annotasons di Tipu
 
-Kuandu bo ta skrebi un funsan, bo sabi ki tipu di dadus e ta espera i ki tipu e ta retorna. Ma un otru programador ki ta lé bo kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bo ta lembra?
+Kuandu bu ta skrebe un funsan, bo sabi ki tipu di dadus el ta espera i ki tipu el ta retorna. Ma un otru programador ki ta ler bo kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bu ta lembra?
 
 **Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
 
-## Primeiru Ezemplu: Antis i Después
+## Primeru Izemplu: Antis i Después
 
-**Sem type hints:**
+**Sen type hints:**
 
 ```python
 def kalkula_total(presus, diskonto):
@@ -29,7 +29,7 @@ def kalkula_total(presus, diskonto):
     return total - (total * diskonto / 100)
 ```
 
-Perguntas ki leitor ta fazi: `presus` é un lista? Di ints o floats? `diskonto` é persentajen (0-100) o frasun (0-1)? O ki ta retorna?
+Perguntas ki leitor ta faze: `presus` é un lista? Di ints o floats? `diskonto` é persentajen (0-100) o frasan (0-1)? O ki ta retorna?
 
 **Ku type hints:**
 
@@ -41,17 +41,17 @@ def kalkula_total(presus: list[float], diskonto: float) -> float:
 
 Gosi é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), i funsan ta retorna un float.
 
-## Annotasoens di Funsun
+## Annotasons di Funsan
 
-Sintaxi é simples: `parâmetru: tipu` i `-> tipu_retorno`:
+Sintaxi é simples: `parámetru: tipu` i `-> tipu_retorno`:
 
 ```python
-def saudason(nomi: str) -> str:
-    """Retorna un saudason personalizadu"""
+def saudasan(nomi: str) -> str:
+    """Retorna un saudasan personalizadu"""
     return f"Ola, {nomi}! Bon dia!"
 
 def soma(a: int, b: int) -> int:
-    """Soma dôs numerus interu"""
+    """Soma dos numerus interu"""
     return a + b
 
 def é_maior_di_idadi(idadi: int) -> bool:
@@ -59,17 +59,17 @@ def é_maior_di_idadi(idadi: int) -> bool:
     return idadi >= 18
 
 def mostra_mensajen(mensajen: str) -> None:
-    """Funsun ki ka retorna nada (None)"""
+    """Funsan ki ka retorna nada (None)"""
     print(f"📢 {mensajen}")
 ```
 
 :::callout{type=tip}
-**Dika:** `-> None` signifika ki funsan ka retorna nada (só ta fazi un asun kumo print).
+**Dika:** `-> None` signifika ki funsan ka retorna nada (só ta faze un asan kumo print).
 :::
 
-## Annotasoens di Variável
+## Annotasons di Variável
 
-Bo pode anotar variáveis tanbé:
+Bu pode anotar variáveis tanbe:
 
 ```python
 # Variáveis simples
@@ -78,7 +78,7 @@ idadi: int = 28
 saltu: float = 85000.50
 ta_ativi: bool = True
 
-# Sem valór inisiál (só deklarasun di tipu)
+# Sen valór inisiál (só deklarasan di tipu)
 rezultadu: float
 ```
 
@@ -86,7 +86,7 @@ Na prátika, pa variáveis simples, type hint é opisionál pamodi tipu ta ser �
 
 ## Tipus di Container (Python 3.9+)
 
-Disdi Python 3.9, bo pode uza tipus di container diretamenti (antis, presizava `from typing import List`):
+Dezdi Python 3.9, bu pode uza tipus di container diretamenti (antis, presizava `from typing import List`):
 
 ```python
 # Lista di strings
@@ -96,7 +96,7 @@ ilhas: list[str] = ["Santiago", "São Vicente", "Sal", "Fogo"]
 notas: list[float] = [85.5, 92.0, 78.3, 90.1]
 
 # Disionáriu: xavi é string, valór é int
-populasun: dict[str, int] = {
+populasan: dict[str, int] = {
     "Praia": 159_050,
     "Mindelo": 70_468,
     "Santa Maria": 25_765,
@@ -106,10 +106,10 @@ populasun: dict[str, int] = {
 koordenadas: tuple[float, float] = (14.9333, -23.5133)  # Praia
 
 # Set di strings
-lingua_ofisial: set[str] = {"português", "kriolu"}
+lingua_ofisial: set[str] = {"portugues", "kriolu"}
 ```
 
-### Funsun ku Containers
+### Funsan ku Containers
 
 ```python
 def média_notas(notas: list[float]) -> float:
@@ -142,7 +142,7 @@ Algunhas vezes, un funsan pode retorna un valór **o** `None` (kuandu ka tene re
 
 ```python
 def buska_estudanti(nomi: str, bazi: dict[str, int]) -> int | None:
-    """Buska nota di estudanti. Retorna None si ka atxа."""
+    """Buska nota di estudanti. Retorna None si ka atxa."""
     return bazi.get(nomi)
 
 # Rezultadu pode ser int o None
@@ -166,15 +166,15 @@ def konverti_pa_numeru(tekstu: str) -> float | None:
         return None
 
 def buska_presu(prudotu: str) -> int | str:
-    """Retorna presu o mensajen di erru"""
-    presus = {"katchupa": 250, "grogue": 500, "ponche": 300}
+    """Retorna presu o mensajen di eru"""
+    presus = {"katxupa": 250, "grogu": 500, "ponche": 300}
     if prudotu in presus:
         return presus[prudotu]
     return f"Prudotu '{prudotu}' ka foi atxadu"
 
-# Parâmetru opisionál ku valór padraun
-def saudason(nomi: str, lingua: str | None = None) -> str:
-    """Sauda na lingua espesifikadu o padraun (kriolu)"""
+# Parámetru opisionál ku valór padran
+def saudasan(nomi: str, lingua: str | None = None) -> str:
+    """Sauda na lingua espesifikadu o padran (kriolu)"""
     if lingua == "pt":
         return f"Olá, {nomi}!"
     elif lingua == "en":
@@ -184,23 +184,23 @@ def saudason(nomi: str, lingua: str | None = None) -> str:
 
 ## Grandi Segredu: Type Hints Ka Ta Muda NADA na Runtime!
 
-Es é pontu más importanti di es lisun: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
+Es é pontu más importanti di es lisan: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
 
 ```python
 def soma(a: int, b: int) -> int:
     return a + b
 
-# Python ka ta dа erru — mesmu ku tipus eradu!
-rezultadu = soma("Ola", "Mundu")  # Funxiona! Retorna "OlaMundu"
+# Python ka ta da eru — mesmu ku tipus eradu!
+rezultadu = soma("Ola", "Mundu")  # Funsiona! Retorna "OlaMundu"
 print(rezultadu)  # OlaMundu
 ```
 
 Entun pa ki é ki type hints ta sirbi?
 
-### 1. Dokumentasun pa Umanus
+### 1. Dokumentasan pa Umanus
 
 ```python
-# Sem hints — ki é ki es funsan ta espera?
+# Sen hints — ki é ki es funsan ta espera?
 def prosesa(dadus, opcoes, callback):
     ...
 
@@ -211,12 +211,12 @@ def prosesa(dadus: list[dict], opcoes: dict[str, bool], callback: callable) -> b
 
 ### 2. IDE Autocomplete
 
-Kuandu bo skrebi `nomi: str = "Maria"`, bo IDE (VS Code) ta sabi ki `nomi` é string i ta sugerir tudu métodus di string (`.upper()`, `.split()`, etc.) automátikamenti!
+Kuandu bo skrebe `nomi: str = "Maria"`, bo IDE (VS Code) ta sabi ki `nomi` é string i ta sugerir tudu metodus di string (`.upper()`, `.split()`, etc.) automátikamenti!
 
 ### 3. Ferramenta di Análizi (mypy)
 
 ```bash
-# mypy ta verifika type hints sem roda programa
+# mypy ta verifika type hints sen roda programa
 pip install mypy
 mypy nha_programa.py
 ```
@@ -230,10 +230,10 @@ soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
 ```
 
 :::callout{type=tip}
-**Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bo ta leva multa!
+**Dika:** Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bu ta leva multa!
 :::
 
-## Ezemplu Konpletu: Registu di Estudantis
+## Izemplu Konpletu: Registu di Estudantis
 
 ```python
 def kria_estudanti(
@@ -251,7 +251,7 @@ def kria_estudanti(
     }
 
 def klasifika(nota: float) -> str:
-    """Retorna klasifikasun bazеadu na nota (0-20)"""
+    """Retorna klasifikasan bazeadu na nota (0-20)"""
     if nota >= 16:
         return "Exselenti"
     elif nota >= 14:
@@ -282,7 +282,7 @@ klasi: list[dict] = [
     kria_estudanti("Edna", 20, "Informátika", 17.5),
     kria_estudanti("Gil", 22, "Informátika", 14.0),
     kria_estudanti("Lara", 19, "Informátika", 11.5),
-    kria_estudanti("Nuno", 21, "Informátika"),  # Inda sem nota
+    kria_estudanti("Nuno", 21, "Informátika"),  # Inda sen nota
 ]
 
 relátoriu = relatóriu_klasi(klasi)
@@ -291,7 +291,7 @@ print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Adisiona type hints na es funsan:
+1. **Izersisiu 1:** Adisiona type hints na es funsan:
 ```python
 def area_retangulu(largura, altura):
     return largura * altura
@@ -303,9 +303,9 @@ def buska_ilha(nomis, alvu):
     return None
 ```
 
-2. **Exersísiu 2:** Skrebi un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entre "C" (Celsius), "F" (Fahrenheit), i "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
+2. **Izersisiu 2:** Skrebe un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entri "C" (Celsius), "F" (Fahrenheit), i "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
 
-3. **Exersísiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", i "máxima".
+3. **Izersisiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", i "máxima".
 
 <Quiz position={0} />
 
@@ -315,14 +315,14 @@ def buska_ilha(nomis, alvu):
 
 ## Rezumu
 
-- **Annotasoens di funsan:** `def f(param: tipu) -> tipu_retorno:`
-- **Annotasoens di variável:** `nomi: str = "valór"`
+- **Annotasons di funsan:** `def f(param: tipu) -> tipu_retorno:`
+- **Annotasons di variável:** `nomi: str = "valór"`
 - **Containers (3.9+):** `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`
 - **Union (3.10+):** `int | None` pa valóris ki pode ser un tipu o `None`
 - **Ka ta muda runtime!** Type hints é pa umanus, IDEs, i ferramentas (mypy)
-- **Kuandu uza:** Sempri na funsan (parâmetrus + retornu); opisionál na variáveis óbvias
-- **Benefísiu:** Melhor autocomplete, errus deskubridu más sedu, kódiku más lezível
+- **Kuandu uza:** Senpri na funsan (parámetrus + retornu); opisionál na variáveis óbvias
+- **Benefísiu:** Midjór autocomplete, erus deskubridu más sedu, kódiku más lezível
 
 ---
 
-**Prósimu lisun:** [Testu di Kódiku ku pytest →](/courses/intro-python/lessons/testu-kodiku-pytest)
+**Prósimu lisan:** [Testu di Kódiku ku pytest →](/courses/intro-python/lessons/testu-kodiku-pytest)

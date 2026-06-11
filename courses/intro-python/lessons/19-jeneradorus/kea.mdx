@@ -9,25 +9,25 @@ lesson: 19
 duration: "15 min"
 objectives:
   - "Intendi lazy evaluation i pamodi el ta puopa memória"
-  - "Skrévi generator expressions ku sintaxi (x for x in ...)"
+  - "Skrebe generator expressions ku sintaxi (x for x in ...)"
   - "Kria generator functions ku yield"
-  - "Kompara uzu di memória entre listas i jeneradorus"
+  - "Kompara uzu di memória entri listas i jeneradorus"
 ---
 
 # Jeneradorus
 
-Imajina bo tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di una ves, bo komputador podi fika lentu ó krasá. Ma si bo só presiza un valór di kada ves — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valóris un pa un, só kuandu bo pidi.
+Imajina bu tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di un bez, bo komputador pode fika lentu ó krasá. Ma si bo só presiza un valór di kada bez — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valóris un pa un, só kuandu bo pidi.
 
 ## Problema: Listas Grandi ta Kume Memória
 
 ```python
-# Kel li ta kria 10 milhoens di numeru na memória di una ves!
+# Kel li ta kria 10 milhoens di numeru na memória di un bez!
 numeros = [x * 2 for x in range(10_000_000)]
 print(f"Lista tene {len(numeros)} elementus")
 # Kel lista ta okupa sérka di 80 MB di memória 😱
 ```
 
-Kuandu bo ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sequénsia infinita — bo ka presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
+Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sekuénsia infinita — bu ka presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
 
 ## Generator Expressions
 
@@ -37,7 +37,7 @@ Un **generator expression** é kómu un list comprehension, ma ku paréntesis `(
 # List comprehension -- kria tudu na memória
 lista = [x * 2 for x in range(10_000_000)]
 
-# Generator expression -- kria um di kada ves
+# Generator expression -- kria um di kada bez
 gen = (x * 2 for x in range(10_000_000))
 
 print(type(lista))  # <class 'list'>
@@ -67,7 +67,7 @@ for valor in quadradus:
 ```
 
 :::callout{type=tip}
-**Dika:** Generator só podi ser iteradu **una ves**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+**Dika:** Generator só pode ser iteradu **un bez**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
 :::
 
 ## Generator Functions ku `yield`
@@ -76,7 +76,7 @@ Pa kria jeneradorus más komplexu, uza un **funsan ku `yield`** na vés di `retu
 
 ```python
 def kontador(maximo):
-    """Konta di 1 te másimu, un di kada ves."""
+    """Konta di 1 te másimu, un di kada bez."""
     n = 1
     while n <= maximo:
         yield n
@@ -93,13 +93,13 @@ for numeru in kontador(5):
 | `return` | `yield` |
 |----------|---------|
 | Termina funsan imediatamenti | **Pausa** funsan i devolvi un valór |
-| Funsun pérdi tudu stadu | Funsun **lembra** undi para |
-| Retorna un valór só | Podi produz múltiplus valóris |
-| Funsun normal | Generator function |
+| Funsan pérdi tudu stadu | Funsan **lembra** undi para |
+| Retorna un valór só | Pode produz múltiplus valóris |
+| Funsan normal | Generator function |
 
 ```python
 def saudason_ilhas():
-    """Generator ki produz saudason pa kada ilha."""
+    """Generator ki produz saudasan pa kada ilha."""
     ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
     for ilha in ilhas:
         yield f"Morabeza di {ilha}! 🏝️"
@@ -111,9 +111,9 @@ print(next(gen))  # Morabeza di São Vicente! 🏝️
 # ... el ta kontinua di undi el para
 ```
 
-## Sequénsia di Fibonacci ku Generator
+## Sekuénsia di Fibonacci ku Generator
 
-Un ezemplu klássiku: sequénsia di Fibonacci (kada numeru é soma di dos anterioris):
+Un izemplu klássiku: sekuénsia di Fibonacci (kada numeru é soma di dos anterioris):
 
 ```python
 def fibonacci():
@@ -140,39 +140,39 @@ print(primeru_15)
 ```
 
 :::callout{type=tip}
-**Dika:** Un generator ku `while True` ta produz valóris pa sénpri — el é **infinitu**. Bo ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentru di un loop.
+**Dika:** Un generator ku `while True` ta produz valóris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentu di un loop.
 :::
 
-## Lé Ficheru Grandi Linha pa Linha
+## Ler Ficheru Grandi Linha pa Linha
 
-Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sin karrega tudu na memória:
+Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sen karrega tudu na memória:
 
 ```python
 def le_linhas(kaminu_ficheru):
-    """Generator ki lé ficheru linha pa linha."""
+    """Generator ki ler ficheru linha pa linha."""
     with open(kaminu_ficheru, "r") as f:
         for linha in f:
             yield linha.strip()
 
-# Prosesa un ficheru grandi sin gasta memória
+# Prosesa un ficheru grandi sen gasta memória
 for linha in le_linhas("vendas_2024.csv"):
     if "Santiago" in linha:
         print(linha)
 ```
 
 ```python
-# Kompara: lé tudu di una ves (perigózu pa ficheru grandi!)
+# Kompara: ler tudu di un bez (perigózu pa ficheru grandi!)
 # linhas = open("ficheru_enormi.txt").readlines()  # Tudu na memória!
 
-# Ku generator: só un linha di kada ves na memória
+# Ku generator: só un linha di kada bez na memória
 def filtra_linhas(ficheru, palavra):
     """Filtra linhas ki kontene un palavra."""
     for linha in le_linhas(ficheru):
         if palavra.lower() in linha.lower():
             yield linha
 
-# Ezemplu: buska tudu linhas ku "cachupa" na un ficheru di receitas
-for resultado in filtra_linhas("receitas.txt", "cachupa"):
+# Ezemplu: buska tudu linhas ku "katxupa" na un ficheru di receitas
+for resultado in filtra_linhas("receitas.txt", "katxupa"):
     print(resultado)
 ```
 
@@ -191,11 +191,11 @@ print(f"Generator: {sys.getsizeof(gen):,} bytes")  # ≈ 200 bytes!
 ```
 
 ```python
-# Ezemplu prátiku: soma di 1 milhaun di numeru
+# Ezemplu prátiku: soma di 1 milhan di numeru
 # Ku lista (uza memória)
 total_lista = sum([x for x in range(1_000_000)])
 
-# Ku generator (kvazi sin memória) -- más efizienti!
+# Ku generator (kvazi sen memória) -- más efizienti!
 total_gen = sum(x for x in range(1_000_000))
 
 # Resultado é igual, ma generator ta uza muitísimu menus memória
@@ -203,17 +203,17 @@ print(total_lista == total_gen)  # True
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bo ka presiza paréntesis extru: `sum(x for x in range(10))` — sem `[]`!
+**Dika:** Kuandu bu ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bu ka presiza paréntesis extru: `sum(x for x in range(10))` — sen `[]`!
 :::
 
 ## Kuandu Uza Generator vs Lista
 
-| Situasun | Uza Generator | Uza Lista |
+| Situasan | Uza Generator | Uza Lista |
 |----------|---------------|-----------|
 | Dadus é muitiu grandi (milhoens) | ✓ | |
-| Só presiza itera una ves | ✓ | |
+| Só presiza itera un bez | ✓ | |
 | Prosesa stream di dadus (ficheru, rede) | ✓ | |
-| Sequénsia infinita | ✓ | |
+| Sekuénsia infinita | ✓ | |
 | Presiza asesu aleatoriu (índisi) | | ✓ |
 | Presiza tamanhu (`len()`) | | ✓ |
 | Presiza itera múltiplas vezes | | ✓ |
@@ -221,11 +221,11 @@ print(total_lista == total_gen)  # True
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Generator di Pares** — Skrévi un generator expression ki produz numeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valóris.
+1. **Izersisiu 1: Generator di Pares** — Skrebe un generator expression ki produz numeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valóris.
 
-2. **Exersísiu 2: Kontador di ECV** — Kria un generator function `moedas_ecv()` ki ta produz valóris di moeda cabo-verdianu: 1, 5, 10, 20, 50, 100. Itera sobri el ku `next()`.
+2. **Izersisiu 2: Kontador di ECV** — Kria un generator function `moedas_ecv()` ki ta produz valóris di moeda cabo-verdianu: 1, 5, 10, 20, 50, 100. Itera sobri el ku `next()`.
 
-3. **Exersísiu 3: Fibonacci Limitadu** — Modifika generator `fibonacci()` pa aseita un parámetru `limite` i para kuandu valór ta pasa kel limite. Testa ku `limite=100`.
+3. **Izersisiu 3: Fibonacci Limitadu** — Modifika generator `fibonacci()` pa aseita un parámetru `limite` i para kuandu valór ta pasa kel limite. Testa ku `limite=100`.
 
 <Quiz position={0} />
 
@@ -235,15 +235,15 @@ print(total_lista == total_gen)  # True
 
 ## Rezumu
 
-- **Jeneradorus** ta produz valóris un pa un (lazy evaluation) — sin guarda tudu na memória
+- **Jeneradorus** ta produz valóris un pa un (lazy evaluation) — sen guarda tudu na memória
 - **Generator expression**: `(expr for item in iterable)` — kómu list comprehension ma ku `()`
 - **Generator function**: funsan ku `yield` na vés di `return`
 - `yield` ta **pausa** funsan i lembra undi el para; `return` ta **termina**
 - `next()` ta pega prósimu valór; `StopIteration` signifika ki akaba
-- Generators é **una-ves-só** — dipos di iteradu, sta vazio
+- Generators é **un-bez-só** — dipos di iteradu, sta vazio
 - Pa ficheru grandi, generators ta evita karrega tudu na memória
 - Uza generator kuandu dadus é grandi ó infinitu; uza lista kuandu presiza asesu aleatoriu ó reuzu
 
 ---
 
-**Prósimu lisun:** [Módulus i Pakotis →](/courses/intro-python/lessons/modulus-pakotis)
+**Prósimu lisan:** [Módulus i Pakotis →](/courses/intro-python/lessons/modulus-pakotis)

@@ -9,24 +9,24 @@ lesson: 9
 duration: "25 min"
 objectives:
   - "Uza if/else pa toma desizun na kódiku"
-  - "Skrévi kadeia if/elif/else pa klasifika valóris"
+  - "Skrebe kadeia if/elif/else pa klasifika valóris"
   - "Kria kondisionais aninhadu pa lójika kompleksu"
   - "Konstrui un kalkuladora simples ku kondisionais"
-  - "Konxé match/case komu alternativa modernu (Python 3.10+)"
+  - "Konxé match/case kumo alternativa modernu (Python 3.10+)"
 ---
 
 # Kondisionais (if/elif/else)
 
-Na vida real, nôs ta toma desizun a tudu momentu: "Si sta txobê, nha ta léba garda-txuva. Si nau, nha ta bai sin el." Programas ta funsiona mesmu maneira -- és ta presiza toma desizun baseadu na kondisaun. Na Python, nôs ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigui. Dipos di kel lisun li, bo ta sabi fazi bo programa pensa i disidi!
+Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, nha ta lerba garda-txuva. Si nau, nha ta bai sen el." Programas ta funsiona mesmu maneira -- és ta presiza toma desizun baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
 
 ## If i Else Báziku
 
-![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizaun.png)
+![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizan.png)
 
-Estrutura `if` ta verifica un kondisun. Si kondisun é `True`, Python ta izekuta bloku di kódiku dentru. Si é `False`, el ta pula pa `else`.
+Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta bloku di kódiku dentu. Si é `False`, el ta pula pa `else`.
 
 ```python
-# Verifikasun simples di idadi
+# Verifikasan simples di idadi
 idadi = 18
 
 if idadi >= 18:
@@ -37,18 +37,18 @@ else:
 
 **Kumé ki funsiona:**
 
-1. Python ta avalia kondisun `idadi >= 18`
-2. Si é `True` -- izekuta priméru bloku (dipos di `if`)
+1. Python ta avalia kondisan `idadi >= 18`
+2. Si é `True` -- izekuta primeru bloku (dipos di `if`)
 3. Si é `False` -- izekuta bloku `else`
 
 :::callout{type=tip}
-**Dika:** Nunka skexi dois-pontus `:` dipos di `if` i `else`. Python ta uza indentasun (4 espasu) pa sabi ki kódiku ta pertensi a kál bloku.
+**Dika:** Nunka skexi dois-pontus `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabi ki kódiku ta pertensi a kál bloku.
 :::
 
 Ma uzus simples:
 
 ```python
-# Verifikasun di senhu
+# Verifikasan di senhu
 temperatura = 35
 
 if temperatura > 30:
@@ -58,7 +58,7 @@ else:
 ```
 
 ```python
-# Verifikasun di sáldu
+# Verifikasan di sáldu
 saldu = 1500  # Eskudu (ECV)
 
 if saldu >= 1000:
@@ -69,10 +69,10 @@ else:
 
 ## Kadeia If/Elif/Else
 
-Kuandu bo tene más ki dos opsaun, bo ta uza `elif` (ki é "else if" abreviadu). Python ta verifica kada kondisun di riba pa baxu i ta izekuta priméru ki é `True`.
+Kuandu bu tene más ki dos opsan, bu ta uza `elif` (ki é "else if" abreviadu). Python ta verifika kada kondisan di riba pa baxu i ta izekuta primeru ki é `True`.
 
 ```python
-# Klasifikasun di idadi
+# Klasifikasan di idadi
 idadi = 15
 
 if idadi < 13:
@@ -85,20 +85,20 @@ else:
     print("Bo é terseiru idadi.")
 ```
 
-Kel ezemplu li ta funsiona pa kualker idadi:
+Kel izemplu li ta funsiona pa kualker idadi:
 - `idadi = 8` -- "Bo é kriansa."
 - `idadi = 15` -- "Bo é adolesenti."
 - `idadi = 30` -- "Bo é adultu."
 - `idadi = 70` -- "Bo é terseiru idadi."
 
 :::callout{type=tip}
-**Dika:** Órdin ta importa! Python ta para na priméru kondisun ki é `True`. Si bo pô `idadi < 65` primeru, un kriansa di 8 anu ta kái nkel bloku pamodi `8 < 65` tanbe é `True`.
+**Dika:** Órdin ta importa! Python ta para na primeru kondisan ki é `True`. Si bo po `idadi < 65` primeru, un kriansa di 8 anu ta kái nkel bloku pamodi `8 < 65` tanbe é `True`.
 :::
 
-Ma un ezemplu prátiku -- klasifikasun di nota:
+Ma un izemplu prátiku -- klasifikasan di nota:
 
 ```python
-# Klasifikasun di nota di skola
+# Klasifikasan di nota di skola
 nota = float(input("Inseri bo nota (0-20): "))
 
 if nota >= 17:
@@ -115,7 +115,7 @@ else:
 
 ## Kondisionais Aninhadu
 
-Bo podi pô un `if` dentru di otu `if`. Es ta txomá "kondisionais aninhadu" (nested conditionals). Útil kuandu bo presiza verifica más ki un koza di ves.
+Bu pode po un `if` dentu di otu `if`. Es ta txomá "kondisionais aninhadu" (nested conditionals). Útil kuandu bo presiza verifika más ki un koza di bez.
 
 ```python
 # Verifica si numeru é par/ímpar i positivu/negativu
@@ -138,10 +138,10 @@ else:
 ```
 
 :::callout{type=tip}
-**Dika:** Kuidadu ku kondisionais aninhadu demás! Si bo tene más di 3 nivéis, programa ta fika difísil di lé. Más tardi nôs ta prende formas di simplifika.
+**Dika:** Kuidadu ku kondisionais aninhadu demás! Si bu tene más di 3 nivéis, programa ta fika difísil di ler. Más tardi nos ta prende formas di simplifika.
 :::
 
-## Ezemplu Prátiku: Verifikador di Anu Bisextu
+## Izemplu Prátiku: Verifikador di Anu Bisextu
 
 Un anu é bisextu si:
 - É divisível pa 4 **I**
@@ -169,7 +169,7 @@ Testa ku anus diferenti:
 - `2000` -- bisextu (divisível pa 400)
 - `2023` -- NAU bisextu (nau divisível pa 4)
 
-Bo tanbe podi skrévi mesmu lójika na un linha ku operadoris `and` i `or`:
+Bo tanbe pode skrebe mesmu lójika na un linha ku operadoris `and` i `or`:
 
 ```python
 # Versan simplifikadu ku operadoris lójiku
@@ -183,41 +183,41 @@ else:
 
 ## Kalkuladora Simples
 
-Gosi nôs ta djunta tudu ki nôs ta prende pa kria un kalkuladora:
+Gosi nos ta djunta tudu ki nos ta prende pa kria un kalkuladora:
 
 ```python
 # Kalkuladora simples
 print("=== Kalkuladora di Kabu Verdi ===")
-num1 = float(input("Priméru numeru: "))
+num1 = float(input("Primeru numeru: "))
 num2 = float(input("Sigundu numeru: "))
-operasun = input("Operasun (+, -, *, /): ")
+operasan = input("Operasan (+, -, *, /): ")
 
-if operasun == "+":
+if operasan == "+":
     resultadu = num1 + num2
     print(f"{num1} + {num2} = {resultadu}")
-elif operasun == "-":
+elif operasan == "-":
     resultadu = num1 - num2
     print(f"{num1} - {num2} = {resultadu}")
-elif operasun == "*":
+elif operasan == "*":
     resultadu = num1 * num2
     print(f"{num1} * {num2} = {resultadu}")
-elif operasun == "/":
+elif operasan == "/":
     if num2 != 0:
         resultadu = num1 / num2
         print(f"{num1} / {num2} = {resultadu}")
     else:
-        print("Erru: Ka podi dividi pa zeru!")
+        print("Eru: Ka podi dividi pa zeru!")
 else:
-    print(f"Operasun '{operasun}' ka é válidu. Uza +, -, * ó /.")
+    print(f"Operasan '{operasan}' ka é válidu. Uza +, -, * ó /.")
 ```
 
 :::callout{type=tip}
-**Dika:** Nota kumé ki nôs pô un `if` dentru di `elif operasun == "/"` pa verifica si `num2` é zeru. Divizun pa zeru ta kauza `ZeroDivisionError` na Python!
+**Dika:** Nota kumé ki nos po un `if` dentu di `elif operasan == "/"` pa verifika si `num2` é zeru. Divizun pa zeru ta kauza `ZeroDivisionError` na Python!
 :::
 
 ## Kondisionais na Un Linha (Ternary Operator)
 
-Pa kondisionais simples, Python ta permiti skrévi tudu na un linha só:
+Pa kondisionais simples, Python ta permiti skrebe tudu na un linha só:
 
 ```python
 # Forma normal
@@ -235,8 +235,8 @@ print(f"Bo é {status}.")
 ```python
 # Más ezemplus
 nomi = "Maria"
-saudason = f"Bon dia, {nomi}!" if idadi >= 18 else f"Ola, {nomi}!"
-print(saudason)
+saudasan = f"Bon dia, {nomi}!" if idadi >= 18 else f"Ola, {nomi}!"
+print(saudasan)
 ```
 
 :::callout{type=tip}
@@ -245,10 +245,10 @@ print(saudason)
 
 ## Kondisionais ku Operadoris Lójiku
 
-Bo podi kombina kondisun ku `and`, `or` i `not`:
+Bu pode kombina kondisan ku `and`, `or` i `not`:
 
 ```python
-# Verifikasun pa entra na diskoteka
+# Verifikasan pa entra na diskoteka
 idadi = 20
 tene_bilheti = True
 
@@ -259,7 +259,7 @@ else:
 ```
 
 ```python
-# Verifikasun di disku na menu
+# Verifikasan di disku na menu
 presu = 450  # ECV
 é_pratu_dia = True
 
@@ -270,11 +270,11 @@ else:
 ```
 
 ```python
-# Verifikasun di temperatura pa viaja pa Sal
+# Verifikasan di temperatura pa viaja pa Sal
 temperatura = 28
-sta_txobê = False
+sta_txobe = False
 
-if temperatura > 25 and not sta_txobê:
+if temperatura > 25 and not sta_txobe:
     print("Dia perfeitu pa bai praia na Sal! 🏖️")
 else:
     print("Talves oxi ka é milhor dia.")
@@ -282,64 +282,64 @@ else:
 
 ## Pitu di Match/Case (Python 3.10+)
 
-Dezdi Python 3.10, tene un alternativa modernu pa kadeia di `if/elif` -- `match/case`. É más limpu kuandu bo ta kompara un valór ku txeu opsaun:
+Dezdi Python 3.10, tene un alternativa modernu pa kadeia di `if/elif` -- `match/case`. É más limpu kuandu bu ta kompara un valór ku txeu opsan:
 
 ```python
 # Kalkuladora ku match/case (Python 3.10+)
-operasun = input("Operasun (+, -, *, /): ")
+operasan = input("Operasan (+, -, *, /): ")
 
-match operasun:
+match operasan:
     case "+":
-        print("Adisun")
+        print("Adisan")
     case "-":
-        print("Subtrasun")
+        print("Subtrasan")
     case "*":
-        print("Multiplikasun")
+        print("Multiplikasan")
     case "/":
         print("Divizun")
     case _:
-        print("Operasun diskonxidu!")
+        print("Operasan diskonxidu!")
 ```
 
-`case _` é komu `else` -- el ta apanha tudu ki ka kombina ku kazus anterióris.
+`case _` é kumo `else` -- el ta apanha tudu ki ka kombina ku kazus anterióris.
 
 ```python
-# Klasifikasun di dia di simana
-dia = input("Dia di simana: ").lower()
+# Klasifikasan di dia di semana
+dia = input("Dia di semana: ").lower()
 
 match dia:
     case "sigunda" | "tersa" | "kuarta" | "kinta" | "sesta":
         print("Dia di trabadju! 💼")
     case "sábadu" | "dumingu":
-        print("Fin di simana! 🎉")
+        print("Fin di semana! 🎉")
     case _:
-        print("Kel ka é un dia di simana válidu.")
+        print("Kel ka é un dia di semana válidu.")
 ```
 
 :::callout{type=tip}
-**Dika:** `match/case` é opsional -- `if/elif/else` ta funsiona sénpri. Ma `match/case` é más eleganti kuandu bo tene txeu opsaun pa kompara. Nôs ta uza más di el na Module 2 ku estruturas di dadus.
+**Dika:** `match/case` é opsional -- `if/elif/else` ta funsiona senpri. Ma `match/case` é más eleganti kuandu bu tene txeu opsan pa kompara. Nos ta uza más di el na Module 2 ku estruturas di dadus.
 :::
 
 ## Erus Komun ku Kondisionais
 
 ```python
-# ERRU 1: Uza = na vés di ==
-# if idadi = 18:    # SyntaxError! = é atribuisun
-if idadi == 18:      # == é komparasun ✓
+# ERU 1: Uza = na vés di ==
+# if idadi = 18:    # SyntaxError! = é atribuisan
+if idadi == 18:      # == é komparasan ✓
     print("18 anus!")
 
-# ERRU 2: Skexi dois-pontus
+# ERU 2: Skexi dois-pontus
 # if idadi >= 18     # SyntaxError! Falta ':'
 if idadi >= 18:      # ✓
     print("Adultu")
 
-# ERRU 3: Indentasun inkorretu
+# ERU 3: Indentasan inkorretu
 # if idadi >= 18:
 # print("Adultu")    # IndentationError! Falta espasu
 if idadi >= 18:
-    print("Adultu")  # 4 espasu di indentasun ✓
+    print("Adultu")  # 4 espasu di indentasan ✓
 
-# ERRU 4: Kompara tipu diferenti
+# ERU 4: Kompara tipu diferenti
 # if "18" == 18:     # False! string ka é igual a int
 if int("18") == 18:  # True ✓
     print("Igual!")
@@ -347,15 +347,15 @@ if int("18") == 18:  # True ✓
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1: Klassifikador di IMC** -- Pidi uzuáriu pa inseri pezu (kg) i altura (m). Kalkula IMC (pezu / altura ** 2) i mostra klasifikasun:
+1. **Izersisiu 1: Klassifikador di IMC** -- Pidi uzuáriu pa inseri pezu (kg) i altura (m). Kalkula IMC (pezu / altura ** 2) i mostra klasifikasan:
    - Menor ki 18.5: "Baxu pezu"
    - 18.5 a 24.9: "Pezu normal"
    - 25.0 a 29.9: "Sobrepezu"
    - 30 ó más: "Obezidadi"
 
-2. **Exersísiu 2: Konversor di moeda** -- Kria un programa ki konverti entre Eskudu (ECV), Euro (EUR) i Dólar (USD). Pidi montanti i moeda di orijin, dipos mostra valór na kes otu dos moedas. (1 EUR = 110 ECV, 1 USD = 100 ECV)
+2. **Izersisiu 2: Konversor di moeda** -- Kria un programa ki konverti entri Eskudu (ECV), Euro (EUR) i Dólar (USD). Pidi montanti i moeda di orijin, dipos mostra valór na kes otu dos moedas. (1 EUR = 110 ECV, 1 USD = 100 ECV)
 
-3. **Exersísiu 3: Klasifikador di triángulu** -- Pidi 3 ladus di un triángulu. Priméru, verifica si ladus ta forma un triángulu válidu (soma di kualker dos ladus ten ki ser maior ki terseiru). Dipos, klasifika:
+3. **Izersisiu 3: Klasifikador di triángulu** -- Pidi 3 ladus di un triángulu. Primeru, verifika si ladus ta forma un triángulu válidu (soma di kualker dos ladus ten ki ser maior ki terseiru). Dipos, klasifika:
    - Ekiáteru (3 ladus igual)
    - Isóseles (2 ladus igual)
    - Eskalenu (tudu diferenti)
@@ -368,15 +368,15 @@ if int("18") == 18:  # True ✓
 
 ## Rezumu
 
-- `if` ta verifica un kondisun i izekuta bloku si é `True`
-- `elif` ta djunta kondisun adisional (podi tene txeu `elif`)
-- `else` ta apanha tudu ki ka kombina ku kondisaun anterióris
+- `if` ta verifika un kondisan i izekuta bloku si é `True`
+- `elif` ta djunta kondisan adisional (pode tene txeu `elif`)
+- `else` ta apanha tudu ki ka kombina ku kondisan anterióris
 - Kondisionais aninhadu ta permiti lójika más kompleksu, ma kuidadu ku profundidadi
-- Operadoris lójiku (`and`, `or`, `not`) ta kombina kondisaun
-- Ternary operator (`valór if kondisun else otu_valór`) é útil pa kazus simples
+- Operadoris lójiku (`and`, `or`, `not`) ta kombina kondisan
+- Ternary operator (`valór if kondisan else otu_valór`) é útil pa kazus simples
 - `match/case` (Python 3.10+) é un alternativa modernu pa kadeia di `if/elif`
-- Sénpri uza `==` pa komparasun, nunka `=`
+- Senpri uza `==` pa komparasan, nunka `=`
 
 ---
 
-**Prósimu lisun:** [Loops (for/while) →](/courses/intro-python/lessons/loops)
+**Prósimu lisan:** [Loops (for/while) →](/courses/intro-python/lessons/loops)

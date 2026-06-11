@@ -1,5 +1,5 @@
 ---
-title: "Sintaxi e Semantika"
+title: "Sintaxi i Semantika"
 language: kea
 courseSlug: intro-python
 lessonSlug: sintaxi-semantika
@@ -8,26 +8,26 @@ module: 1
 lesson: 4
 duration: "20 min"
 objectives:
-  - "Skrebi komentárius pa dokumenta kódiku"
-  - "Intendi ki Python é case sensitive"
-  - "Uza indentasun koretamenti pa defini blokus di kódiku"
+  - "Skrebe komentárius pa dokumenta kódiku"
+  - "Intende ki Python é case sensitive"
+  - "Uza indentasan koretamenti pa defini blokus di kódiku"
   - "Kontinua linhas longas ku backslash (\\)"
-  - "Intendi dynamic typing — variáveis podi muda di tipu"
+  - "Intende dynamic typing — variáveis pode muda di tipu"
 ---
 
 # Sintaxi i Semantika
 
-Tudu lingua tene regras. Kriolu tene gramátika, i Python tene **syntax** (sintaxi). Si bo skrebi un frazi ku palavras fora di orden, ninguén ta intendi. Mesmu kuza ku kódiku — si bo ka sigui regras di Python, el ta da erru.
+Tudu lingua tene regras. Kriolu tene gramátika, i Python tene **syntax** (sintaxi). Si bo skrebe un frazi ku palavras fora di orden, ninguén ta intende. Mesmu kuza ku kódiku — si bu ka sigi regras di Python, el ta da eru.
 
-Nês lisun, nôs ta prende regras fundamentais di Python: komu skrebi komentárius, pamodi letras maiúskulas i minúskulas importa, i kumo Python uza indentasun pa organiza kódiku.
+Nes lisan, nu ta prende regras fundamentais di Python: kumo skrebe komentárius, pamodi letras maiúskulas i minúskulas importa, i kumo Python uza indentasan pa organiza kódiku.
 
 ## Syntax vs. Semantics
 
-**Syntax** é regras di kumo bo skrebi kódiku. **Semantics** é signifikadu di kódiku — kuzê ki el ta fazi kuandu bo roda.
+**Syntax** é regras di kumo bo skrebe kódiku. **Semantics** é signifikadu di kódiku — kuze ki el ta faze kuandu bo roda.
 
 Pensa assin:
 - **Syntax** = gramátika di kriolu ("Nha nomi é Maria" — regra di frazi)
-- **Semantics** = signifikadu ("Maria é nha nomi" — nôs ta intendi)
+- **Semantics** = signifikadu ("Maria é nha nomi" — nu ta intende)
 
 ```python
 # Syntax koretu, semantics koretu
@@ -37,24 +37,24 @@ print("Ola, Mundu!")  # Ta imprimi: Ola, Mundu!
 # print("Ola, Mundu!"  # SyntaxError: falta parentesis di fitxa
 ```
 
-Si bo skrebi kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda kualker kuza. Si syntax sta koretu ma kódiku ta fazi algu diferenti di ki bo kria, kel é un problema di **semantics**.
+Si bo skrebe kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda kualker kuza. Si syntax sta koretu ma kódiku ta faze algu diferenti di ki bo kria, kel é un problema di **semantics**.
 
 ```python
 # Syntax koretu, ma semantics eradu
-# Bo kria kalkula média, ma bo dividi pa 3 en vez di 2
+# Bo kria kalkula média, ma bo dividi pa 3 en bez di 2
 nota1 = 85
 nota2 = 92
-media = (nota1 + nota2) / 3  # Erru di lójika! Devia ser / 2
+media = (nota1 + nota2) / 3  # Eru di lójika! Devia ser / 2
 print(media)  # 59.0 — resultado eradu, ma Python ka reklama
 ```
 
 :::callout{type=tip}
-**Dika:** Python só ta deteta errus di syntax. Errus di lójika (semantics) é bo responsabilidadi — testa senpri bo kódiku!
+**Dika:** Python só ta deteta erus di syntax. Erus di lójika (semantics) é bo responsabilidadi — testa senpri bo kódiku!
 :::
 
 ## Komentárius ku `#`
 
-Komentárius é notus ki bo skrebi pa bo mesmu ó pa otu programadoris. Python ta ignora tudu kuza dipôs di `#`.
+Komentárius é notus ki bo skrebe pa bo mesmu ó pa otu programadoris. Python ta ignora tudu kuza dipos di `#`.
 
 ```python
 # Kel é un komentáriu — Python ta ignora kel
@@ -68,8 +68,8 @@ print(f"Média di {nomi}: {media}")
 ```
 
 Komentárius é sabi pa:
-- Splika pamodi bo skrebi kódiku di un sertu manera
-- Djuda otu pesoas (ó bo futuru!) intendi bo kódiku
+- Splika pamodi bo skrebe kódiku di un sertu manera
+- Djuda otu pesoas (ó bo futuru!) intende bo kódiku
 - Desativa kódiku temporariamenti (pa testa)
 
 ```python
@@ -80,12 +80,12 @@ print(f"Presu: {presu} ECV")
 ```
 
 :::callout{type=tip}
-**Dika:** Komentárius sabi ta splika **pamodi**, ka **kuzê**. En vez di `# soma a + b`, skrebi `# kalkula total di venda`.
+**Dika:** Komentárius sabi ta splika **pamodi**, ka **kuze**. En bez di `# soma a + b`, skrebe `# kalkula total di venda`.
 :::
 
 ## Case Sensitivity
 
-Python é **case sensitive** — el ta distingui letras maiúskulas di minúskulas. `nomi`, `Nomi` i `NOMI` é **três variáveis diferenti**.
+Python é **case sensitive** — el ta distingui letras maiúskulas di minúskulas. `nomi`, `Nomi` i `NOMI` é **trez variáveis diferenti**.
 
 ```python
 nomi = "Maria"
@@ -100,10 +100,10 @@ print(NOMI)  # Pedro
 Kel é importanti pamodi:
 
 ```python
-# print() funxiona — é funson built-in
+# print() funsiona — é funson built-in
 print("Ola!")
 
-# Print() ka funxiona — P maiúskulu
+# Print() ka funsiona — P maiúskulu
 # Print("Ola!")  # NameError: name 'Print' is not defined
 ```
 
@@ -114,17 +114,17 @@ ativo = True   # Koretu
 ```
 
 :::callout{type=tip}
-**Dika:** Na prátika, skrebi variáveis senpri ku letras minúskulas: `nomi`, `idadi`, `nota_final`. É konvensun di Python (PEP 8).
+**Dika:** Na prátika, skrebe variáveis senpri ku letras minúskulas: `nomi`, `idadi`, `nota_final`. É konvensan di Python (PEP 8).
 :::
 
-## Indentasun — Blokus di Kódiku
+## Indentasan — Blokus di Kódiku
 
-Na otu linguajens (Java, C), bo ta uza `{ }` pa defini blokus di kódiku. Na Python, nôs ta uza **indentasun** — spasus na kumessu di linha.
+Na otu linguajens (Java, C), bu ta uza `{ }` pa defini blokus di kódiku. Na Python, nu ta uza **indentasan** — spasus na kumessu di linha.
 
-Regra é simples: **4 spasus** pa kada nível di indentasun.
+Regra é simples: **4 spasus** pa kada nível di indentasan.
 
 :::callout{type=tip}
-**Ka preokupa si bo ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo indentasun ta defini blokus — `if`, `>=`, e variáveis ta ben más tardi (Módulu 1 Lisan 5, 8 e 9). Repara na spasus, ka na lójika.
+**Ka preokupa si bu ka kompriende tudu kódiku gosi.** Lisan-li é so pa odja kumo indentasan ta defini blokus — `if`, `>=`, i variáveis ta ben más tardi (Módulu 1 Lisan 5, 8 i 9). Repara na spasus, ka na lójika.
 :::
 
 ```python
@@ -134,7 +134,7 @@ if idadi >= 18:
     print("Bo é adultu")      # 4 spasus — dentu di if
     print("Bo podi vota")     # 4 spasus — inda dentu di if
 
-print("Programa termina")     # Sen indentasun — fora di if
+print("Programa termina")     # Sen indentasan — fora di if
 ```
 
 Kuandu bo roda kel kódiku ku `idadi = 20`:
@@ -149,14 +149,14 @@ Kuandu bo roda ku `idadi = 15`:
 Programa termina
 ```
 
-Si bo skesi indentasun, Python ta da erru:
+Si bo skesi indentasan, Python ta da eru:
 
 ```python
 if idadi >= 18:
 print("Bo é adultu")  # IndentationError: expected an indented block
 ```
 
-Indentasun tanbé ta funxiona ku vários níveis:
+Indentasan tanbe ta funsiona ku vários níveis:
 
 ```python
 nota = 85
@@ -170,15 +170,15 @@ if nota >= 70:
 ```
 
 :::callout{type=tip}
-**Dika:** Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all". Assin bo ta vê si bo indentasun sta koretu.
+**Dika:** Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all". Assin bu ta odja si bo indentasan sta koretu.
 :::
 
-## Kontinuasun di Linha ku `\`
+## Kontinuasan di Linha ku `\`
 
-Ás vezis un linha di kódiku é mutu longu. Bo podi kebra el ku **backslash** (`\`) pa kontinua na prósimu linha.
+Ás vezis un linha di kódiku é mutu longu. Bu pode kebra el ku **backslash** (`\`) pa kontinua na prósimu linha.
 
 ```python
-# Linha mutu longu — difísil di lê
+# Linha mutu longu — difísil di le
 total = 100 + 200 + 300 + 400 + 500 + 600 + 700 + 800 + 900 + 1000
 
 # Melhor — uza \ pa kebra
@@ -187,7 +187,7 @@ total = 100 + 200 + 300 + 400 + 500 + \
 print(total)  # 5500
 ```
 
-Dentu di parentesis, kolxetis ó xavis, bo ka presiza `\` — Python ta intendi automátikamenti:
+Dentu di parentesis, kolxetis ó xavis, bu ka presiza `\` — Python ta intende automátikamenti:
 
 ```python
 # Parentesis ta permiti kebra di linha sen \
@@ -208,15 +208,15 @@ notus = [
 ]
 ```
 
-*(Tupla `(...)` e lista `[...]`: bo ta prende más na Módulu 2, Lisan 11 e 12. Pa gosi, so fixa ki dentru di parentesis Python ka presiza `\`.)*
+*(Tupla `(...)` i lista `[...]`: bu ta prende más na Módulu 2, Lisan 11 i 12. Pa gosi, so fixa ki dentu di parentesis Python ka presiza `\`.)*
 
 :::callout{type=tip}
-**Dika:** Na prátika, é melhor uza parentesis pa kebra linhas longas. É más limpu ki `\`.
+**Dika:** Na prátika, é midjór uza parentesis pa kebra linhas longas. É más limpu ki `\`.
 :::
 
 ## Dynamic Typing
 
-Na Python, bo ka presiza deklara tipu di un variável. Python ta diskubri tipu automátikamenti — kel ta txama **dynamic typing**.
+Na Python, bu ka presiza deklara tipu di un variável. Python ta diskubri tipu automátikamenti — kel ta txoma **dynamic typing**.
 
 ```python
 valor = 10
@@ -234,40 +234,40 @@ print(type(valor))  # <class 'bool'>
 
 Mesmu variável `valor` muda di `int` pa `str` pa `float` pa `bool` — Python ka reklama!
 
-Kel é diferenti di linguajens kuma Java ó C++, undi bo ten ki deklara tipu:
+Kel é diferenti di linguajens kumo Java ó C++, undi bu ten ki deklara tipu:
 
 ```python
 # Na Python (dynamic typing):
 nomi = "Ana"          # Python sabi ki é str
 
-# Na Java (static typing) — só pa komparasun:
+# Na Java (static typing) — só pa komparasan:
 # String nomi = "Ana";  // Bo ten ki dizi ki é String
 ```
 
-Funson `type()` é bo amigu pa verifica tipu di kualker valor:
+Funsan `type()` é bo amigu pa verifika tipu di kualker valor:
 
 ```python
-presu_cachupa = 350
-nomi_pratu = "Cachupa Guisada"
-ten_grogue = True
+presu_katxupa = 350
+nomi_pratu = "Katxupa Guisada"
+ten_grogu = True
 
-print(type(presu_cachupa))  # <class 'int'>
+print(type(presu_katxupa))  # <class 'int'>
 print(type(nomi_pratu))     # <class 'str'>
-print(type(ten_grogue))     # <class 'bool'>
+print(type(ten_grogu))     # <class 'bool'>
 ```
 
 :::callout{type=tip}
-**Dika:** Dynamic typing ta da liberdadi, ma tanbé responsabilidadi. Tenta ka muda tipu di un variável sen razun — kódiku ta fika konfuzu.
+**Dika:** Dynamic typing ta da liberdadi, ma tanbe responsabilidadi. Tenta ka muda tipu di un variável sen razun — kódiku ta fika konfuzu.
 :::
 
-## Errus Komuns di Sintaxi
+## Erus Komuns di Sintaxi
 
-Kel é errus ki tudu prinsipianti ta enkontra. Ka ten problemas — é normal!
+Kel é erus ki tudu prinsipianti ta enkontra. Ka ten problemas — é normal!
 
 ### 1. IndentationError
 
 ```python
-# ERADU — falta indentasun dipôs di if
+# ERADU — falta indentasan dipos di if
 if True:
 print("Ola")  # IndentationError!
 
@@ -297,7 +297,7 @@ mensajen = "Ola!"
 print(mensajen)
 ```
 
-### 4. Case sensitivity na funsoens
+### 4. Case sensitivity na funsons
 
 ```python
 # ERADU
@@ -309,7 +309,7 @@ print("Ola")
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1:** Odja kel kódiku. Sen rodá-l, prediz: kel é un `SyntaxError`, un `NameError`, un `IndentationError`, ó el ta funxiona sen erru?
+1. **Izersisiu 1:** Odja kel kódiku. Sen rodá-l, prediz: kel é un `SyntaxError`, un `NameError`, un `IndentationError`, ó el ta funsiona sen eru?
 ```python
 nomi = "Cesária"
 NOMI = "Maria"
@@ -317,7 +317,7 @@ print(nomi)
 print(Nomi)
 ```
 
-2. **Exersísiu 2:** Skrebi kel kódiku e koriji errus (ten 3 errus!):
+2. **Izersisiu 2:** Skrebe kel kódiku i koriji erus (ten 3 erus!):
 ```python
 Nomi = "Djina"
 if nomi == "Djina":
@@ -325,7 +325,7 @@ print("Ola, Djina!")
    print("Ben-vindu!")
 ```
 
-3. **Exersísiu 3:** Prediz: kal di kes dôs blokus ta da erru, e kal ta funxiona? Splika pamodi.
+3. **Izersisiu 3:** Prediz: kal di kes dos blokus ta da eru, i kal ta funsiona? Splika pamodi.
 
 **Blok A:**
 ```python
@@ -349,13 +349,13 @@ print(total)
 
 ## Rezumu
 
-- **Syntax** é regras di kumo skrebi kódiku; **semantics** é kuzê ki kódiku signifika
+- **Syntax** é regras di kumo skrebe kódiku; **semantics** é kuze ki kódiku signifika
 - **Komentárius** (`#`) ta djuda dokumenta kódiku — Python ta ignora es
 - Python é **case sensitive**: `nomi` i `Nomi` é variáveis diferenti
-- **Indentasun** (4 spasus) ta defini blokus di kódiku — ka ten `{ }` na Python
+- **Indentasan** (4 spasus) ta defini blokus di kódiku — ka ten `{ }` na Python
 - Uza `\` ó parentesis pa **kontinua linhas longas**
-- **Dynamic typing**: variáveis podi muda di tipu; uza `type()` pa verifica
+- **Dynamic typing**: variáveis pode muda di tipu; uza `type()` pa verifika
 
 ---
 
-**Prósimu lisun:** [Variáveis i Tipu Dinámiku →](/courses/intro-python/lessons/variaveis)
+**Prósimu lisan:** [Variáveis i Tipu Dinámiku →](/courses/intro-python/lessons/variaveis)

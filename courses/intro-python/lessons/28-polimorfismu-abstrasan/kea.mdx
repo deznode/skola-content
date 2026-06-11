@@ -8,24 +8,24 @@ module: 4
 lesson: 28
 duration: "25 min"
 objectives:
-  - "Sobreskrebe métodus na klasis fidju pa konportamentu diferenti"
-  - "Skrebe funsoens polimórfikus ki ta aseta kualker tipu di objetu"
-  - "Uza ABC i @abstractmethod pa forsa implementasun na subklasis"
-  - "Intende diferensa entre klasi konkretu i klasi abstratu"
+  - "Sobreskrebe metodus na klasis fidju pa konportamentu diferenti"
+  - "Skrebe funsons polimórfikus ki ta aseta kualker tipu di objetu"
+  - "Uza ABC i @abstractmethod pa forsa implementasan na subklasis"
+  - "Intende diferensa entri klasi konkretu i klasi abstratu"
 ---
 
 # Polimorfismu i Abstrasan
 
-Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, i un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene métodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
+Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, i un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene metodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
 
-Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TEN KI toka pelo menus un múzika." El ka ta dize KOMU bo debe toka — el só ta obriga ki bo tene kapasidadi di toka. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sem dize ezatamenti komu.
+Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TEN KI toka pelo menus un múzika." El ka ta dize KUMO bu debe toka — el só ta obriga ki bu tene kapasidadi di toka. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sen dize ezatamenti kumo.
 
 ## Polimorfismu — O ki é?
 
-Palavra "polimorfismu" ben di gregu: **poly** (txeu) + **morphe** (forma). Na programasun, signifika ki **mesmu métodu pode tene konportamentu diferenti dependendu di klasi ki ta xama-l**.
+Palavra "polimorfismu" ben di gregu: **poly** (txeu) + **morphe** (forma). Na programasan, signifika ki **mesmu metodu pode tene konportamentu diferenti dependendu di klasi ki ta txoma-l**.
 
 ```python
-# Klasis diferenti ku mesmu métodu
+# Klasis diferenti ku mesmu metodu
 class Morna:
     def toka(self):
         return "🎵 Sodadi, sodadi... (morna suavi)"
@@ -43,19 +43,19 @@ morna = Morna()
 funana = Funana()
 batuku = Batuku()
 
-# Tudu tene métodu toka(), ma kada un toka diferenti
+# Tudu tene metodu toka(), ma kada un toka diferenti
 print(morna.toka())    # 🎵 Sodadi, sodadi... (morna suavi)
 print(funana.toka())   # 🥁 Tum-tum-taka-taka! (funana animadu)
 print(batuku.toka())   # 👏 Pam-pam-pam! (batuku tradisionál)
 ```
 
 :::callout{type=tip}
-**Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku métodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda komu patu i ta faze kuak komu patu, entun el é patu."
+**Dika:** Polimorfismu ka presiza eransa! Na Python, kualker objetu ku metodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda kumo patu i ta faze kuak kumo patu, entun el é patu."
 :::
 
-## Sobreskrebe Métodus (Method Overriding)
+## Sobreskrebe Metodus (Method Overriding)
 
-Kuandu un klasi fidju ta redefini un métodu ki dja esisti na klasi pai, isu ta txoma **method overriding**. Klasi fidju ta "sobreskrebe" konportamentu di pai ku si própia versun.
+Kuandu un klasi fidju ta redefini un metodu ki dja esisti na klasi pai, isu ta txoma **method overriding**. Klasi fidju ta "sobreskrebe" konportamentu di pai ku si própia versan.
 
 ```python
 # Klasi pai — Forma jeométriku
@@ -76,7 +76,7 @@ class Retangulu(Forma):
         self.largura = largura
         self.konprimentu = konprimentu
 
-    def area(self):  # Sobreskrebe métodu di pai
+    def area(self):  # Sobreskrebe metodu di pai
         return self.largura * self.konprimentu
 
 # Klasi fidju — Sírkulu (rotunda na Praia)
@@ -85,7 +85,7 @@ class Sirkulu(Forma):
         super().__init__("Sírkulu")
         self.raiu = raiu
 
-    def area(self):  # Sobreskrebe métodu di pai
+    def area(self):  # Sobreskrebe metodu di pai
         import math
         return math.pi * self.raiu ** 2
 
@@ -96,7 +96,7 @@ class Triangulu(Forma):
         self.bazi = bazi
         self.altura = altura
 
-    def area(self):  # Sobreskrebe métodu di pai
+    def area(self):  # Sobreskrebe metodu di pai
         return (self.bazi * self.altura) / 2
 ```
 
@@ -111,14 +111,14 @@ print(rotunda.deskrebe())  # Sírkulu: área = 201.06 m²
 print(telha.deskrebe())    # Triángulu: área = 12.00 m²
 ```
 
-Nota ki `deskrebe()` ta xama `self.area()` — i Python ta xama versun koretu pa kada tipu di forma. Isu é polimorfismu na asun!
+Nota ki `deskrebe()` ta txoma `self.area()` — i Python ta txoma versan koretu pa kada tipu di forma. Isu é polimorfismu na asan!
 
-## Funsun Polimórfiku
+## Funsan Polimórfiku
 
-Un funsan polimórfiku é un funsan ki ta aseta kualker objetu, dezdi ki el tene métodus nesesáriu. El ka liga pa tipu konkrétu — el só ta uza interfasi.
+Un funsan polimórfiku é un funsan ki ta aseta kualker objetu, dezdi ki el tene metodus nesesáriu. El ka liga pa tipu konkrétu — el só ta uza interfasi.
 
 ```python
-# Funsun ki ta aseta KUALKER forma
+# Funsan ki ta aseta KUALKER forma
 def mostra_relatoriu(formas):
     """Mostra relatóriu di área di tudu formas."""
     print("=" * 40)
@@ -155,12 +155,12 @@ mostra_relatoriu(formas)
 ```
 
 :::callout{type=tip}
-**Dika:** Funsun `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta xama `.area()` i `.nomi`. Kualker klasi novu ki tene kes métodus ta funsiona sin muda funsan!
+**Dika:** Funsan `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta txoma `.area()` i `.nomi`. Kualker klasi novu ki tene kes metodus ta funsiona sen muda funsan!
 :::
 
 ## Klasi Abstratu ku ABC
 
-Na ezemplu anteror, `Forma` pai tene un métodu `area()` ki retorna `0`. Problema: algen pode kria un `Forma()` diretu sin sobreskrebe `area()` — i el ta funsiona, ma ka ta faze sentidu.
+Na izemplu anteror, `Forma` pai tene un metodu `area()` ki retorna `0`. Problema: algen pode kria un `Forma()` diretu sen sobreskrebe `area()` — i el ta funsiona, ma ka ta faze sentidu.
 
 **Klasi abstratu** resolve isu. El é un klasi ki **ka pode ser instansiadu diretamenti** — el só esisti pa ser pai di otru klasis.
 
@@ -184,12 +184,12 @@ class Forma(ABC):
         pass
 
     def deskrebe(self):
-        """Métodu konkretu — tudu fidju ta erda isu."""
+        """Metodu konkretu — tudu fidju ta erda isu."""
         return f"{self.nomi}: área={self.area():.2f}m², perímetru={self.perimetru():.2f}m"
 ```
 
 ```python
-# Tenta kria Forma diretu — ERRU!
+# Tenta kria Forma diretu — ERU!
 # forma = Forma("Genériku")
 # TypeError: Can't instantiate abstract class Forma with abstract methods area, perimetru
 ```
@@ -224,7 +224,7 @@ class Sirkulu(Forma):
 ```
 
 ```python
-# Si bo skexi implementa un métodu abstratu — ERRU!
+# Si bo skexi implementa un metodu abstratu — ERU!
 class FormaInkompleta(Forma):
     def __init__(self):
         super().__init__("Inkompleta")
@@ -239,18 +239,18 @@ class FormaInkompleta(Forma):
 ```
 
 :::callout{type=tip}
-**Dika:** `@abstractmethod` é komu un kontratu. Bo ta dize: "Kualker klasi ki ta erda di mi TEN KI implementa kes métodus li." Python ta verifica na momentu ki bo tenta kria objetu.
+**Dika:** `@abstractmethod` é kumo un kontratu. Bu ta dize: "Kualker klasi ki ta erda di mi TEN KI implementa kes metodus li." Python ta verifika na momentu ki bo tenta kria objetu.
 :::
 
-## `@abstractmethod` — Forsa Implementasun
+## `@abstractmethod` — Forsa Implementasan
 
-Dekorador `@abstractmethod` ta marka un métodu komu obrigatóriu. Klasi fidju ki ka implementa tudu métodus abstratu **ka pode ser instansiadu**.
+Dekorador `@abstractmethod` ta marka un metodu kumo obrigatóriu. Klasi fidju ki ka implementa tudu metodus abstratu **ka pode ser instansiadu**.
 
 Regras importanti:
 1. Klasi ten ki erda di `ABC` (o uza `metaclass=ABCMeta`)
-2. Métodus abstratu pode tene un korpu (ma normalmenti é só `pass`)
-3. Klasi fidju TEN KI implementa TUDU métodus abstratu
-4. Bo pode mistra métodus abstratu ku métodus konkretu (normal)
+2. Metodus abstratu pode tene un korpu (ma normalmenti é só `pass`)
+3. Klasi fidju TEN KI implementa TUDU metodus abstratu
+4. Bu pode mistra metodus abstratu ku metodus konkretu (normal)
 
 ```python
 from abc import ABC, abstractmethod
@@ -270,7 +270,7 @@ class Animal(ABC):
         """Kada animál ta movimenta di si manera."""
         pass
 
-    # Métodu konkretu — tudu animál ta erda
+    # Metodu konkretu — tudu animál ta erda
     def apresenta(self):
         return f"{self.nomi} di {self.ilha}"
 
@@ -311,16 +311,16 @@ for animal in animais:
 # Atun di Sal: Blub blub! 🐟 — Ta nada
 ```
 
-## Ezemplu Prátiku: Sistema di Pagamentu
+## Izemplu Prátiku: Sistema di Pagamentu
 
-Na Kabu Verdi, pésuas ta paga di maneras diferenti: transferénsia bankáriu, kartun di kréditu, o dinheru móvel. Nôs ta kria un sistema polimórfiku ki ta prosesa kualker tipu di pagamentu.
+Na Kabu Verdi, pésuas ta paga di maneras diferenti: transferénsia bankáriu, kartun di kréditu, o dinheru móvel. Nos ta kria un sistema polimórfiku ki ta prosesa kualker tipu di pagamentu.
 
 ```python
 from abc import ABC, abstractmethod
 from datetime import datetime
 
 class MetoduPagamentu(ABC):
-    """Klasi abstratu pa tudu métodu di pagamentu."""
+    """Klasi abstratu pa tudu metodu di pagamentu."""
 
     def __init__(self, titular):
         self.titular = titular
@@ -332,7 +332,7 @@ class MetoduPagamentu(ABC):
 
     @abstractmethod
     def identifikador(self):
-        """Retorna identifikador úniku di métodu."""
+        """Retorna identifikador úniku di metodu."""
         pass
 
     def residu(self, montanti):
@@ -342,7 +342,7 @@ class MetoduPagamentu(ABC):
             f"--- RESIDU ---\n"
             f"Data: {gosi}\n"
             f"Titular: {self.titular}\n"
-            f"Métodu: {self.identifikador()}\n"
+            f"Metodu: {self.identifikador()}\n"
             f"Montanti: {montanti:,.0f} ECV\n"
             f"--------------"
         )
@@ -359,7 +359,7 @@ class TransferensiaBankaria(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti ten ki ser positivu!")
+            print("Eru: montanti ten ki ser positivu!")
             return False
         print(f"Prosesandu transferénsia di {montanti:,.0f} ECV...")
         print(f"  Banku: {self.banku}")
@@ -380,10 +380,10 @@ class KartunKreditu(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti ten ki ser positivu!")
+            print("Eru: montanti ten ki ser positivu!")
             return False
         if montanti > 500_000:
-            print("Erru: límiti di kartun exedidu (máx 500,000 ECV)!")
+            print("Eru: límiti di kartun exedidu (máx 500,000 ECV)!")
             return False
         print(f"Prosesandu pagamentu di kartun di {montanti:,.0f} ECV...")
         print(f"  Kartun: **** **** **** {self.ultimus_4}")
@@ -402,14 +402,14 @@ class DinheruMovel(MetoduPagamentu):
 
     def prosesa(self, montanti):
         if montanti <= 0:
-            print("Erru: montanti ten ki ser positivu!")
+            print("Eru: montanti ten ki ser positivu!")
             return False
         if montanti > 100_000:
-            print("Erru: límiti di dinheru móvel exedidu (máx 100,000 ECV)!")
+            print("Eru: límiti di dinheru móvel exedidu (máx 100,000 ECV)!")
             return False
         print(f"Prosesandu pagamentu móvel di {montanti:,.0f} ECV...")
         print(f"  Telefoni: {self.numeru_telefoni}")
-        print("  Kódiku di konfirmasun mandadu pa SMS! 📱")
+        print("  Kódiku di konfirmasan mandadu pa SMS! 📱")
         print("  Pagamentu konfirmadu! ✅")
         return True
 
@@ -417,11 +417,11 @@ class DinheruMovel(MetoduPagamentu):
         return f"Móvel {self.numeru_telefoni}"
 ```
 
-Gosi nôs ta kria un funsan polimórfiku ki ta prosesa kualker tipu di pagamentu:
+Gosi nos ta kria un funsan polimórfiku ki ta prosesa kualker tipu di pagamentu:
 
 ```python
 def prosesa_pagamentu(metodu, montanti):
-    """Funsun polimórfiku — ta aseta KUALKER métodu di pagamentu."""
+    """Funsan polimórfiku — ta aseta KUALKER metodu di pagamentu."""
     print(f"\n💰 Pagamentu di {montanti:,.0f} ECV pa {metodu.titular}")
     print("=" * 40)
 
@@ -434,7 +434,7 @@ def prosesa_pagamentu(metodu, montanti):
 ```
 
 ```python
-# Kliantis diferenti ku métodus diferenti
+# Kliantis diferenti ku metodus diferenti
 ana = TransferensiaBankaria("Ana Sousa", "BCA", "001-2345678")
 joao = KartunKreditu("João Lima", "4532789012345678")
 djina = DinheruMovel("Djina Lopes", "+238 991 2345")
@@ -450,7 +450,7 @@ prosesa_pagamentu(ana, 25_000)
 # --- RESIDU ---
 # Data: 20/04/2026 14:30
 # Titular: Ana Sousa
-# Métodu: Transferénsia — BCA
+# Metodu: Transferénsia — BCA
 # Montanti: 25,000 ECV
 # --------------
 
@@ -468,41 +468,41 @@ prosesa_pagamentu(djina, 3_200)
 # ========================================
 # Prosesandu pagamentu móvel di 3,200 ECV...
 #   Telefoni: +238 991 2345
-#   Kódiku di konfirmasun mandadu pa SMS! 📱
+#   Kódiku di konfirmasan mandadu pa SMS! 📱
 #   Pagamentu konfirmadu! ✅
 # --- RESIDU ---
 # ...
 ```
 
 :::callout{type=tip}
-**Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta xama `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
+**Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta txoma `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
 :::
 
 ## Kuandu Uza Klasi Abstratu?
 
-| Situasun | Uza klasi abstratu? |
+| Situasan | Uza klasi abstratu? |
 |----------|---------------------|
-| Tudu fidju TEN KI tene sertu métodu | ✅ Sim — `@abstractmethod` |
-| Bo kre previni instansiasun di pai | ✅ Sim — `ABC` |
+| Tudu fidju TEN KI tene sertu metodu | ✅ Sim — `@abstractmethod` |
+| Bu kre previni instansiasan di pai | ✅ Sim — `ABC` |
 | Fidju pode o ka pode sobreskrebe | ❌ Nau — uza klasi normal |
-| Só un klasi, sem eransa | ❌ Nau — overkill |
+| Só un klasi, sen eransa | ❌ Nau — overkill |
 
 ```python
 # REGRA JERÁL:
 # - Si bo tene 2+ klasis ku MESMU interfasi → pensa na ABC
-# - Si métodu TEN KI ser implementadu na fidju → uza @abstractmethod
-# - Si métodu pode ser erdadu sin muda → métodu normal (konkretu)
+# - Si metodu TEN KI ser implementadu na fidju → uza @abstractmethod
+# - Si metodu pode ser erdadu sen muda → metodu normal (konkretu)
 ```
 
 ## Tenta Gosi 🏋️
 
-1. **Exersísiu 1 — Ierarakia di Veíkulu:** Kria un klasi abstratu `Veikulu` ku métodus abstratu `ligar()` i `acelera()`. Dipôs kria klasis `Karu`, `Motu` i `Barku` ki ta implementa kes métodus di maneras diferenti. Testa ku un lista di veíkulus.
+1. **Izersisiu 1 — Ierarkia di Veíkulu:** Kria un klasi abstratu `Veikulu` ku metodus abstratu `ligar()` i `acelera()`. Dipos kria klasis `Karu`, `Motu` i `Barku` ki ta implementa kes metodus di maneras diferenti. Testa ku un lista di veíkulus.
 
-2. **Exersísiu 2 — Sistema di Notifikasun:** Kria un klasi abstratu `Notifikasun` ku métodu abstratu `manda(mensajen)`. Kria klasis `Email`, `SMS` i `WhatsApp` ki ta manda notifikasun di maneras diferenti. Skrebe un funsan `manda_pa_tudu(notifikadoris, mensajen)` ki ta uza polimorfismu.
+2. **Izersisiu 2 — Sistema di Notifikasan:** Kria un klasi abstratu `Notifikasan` ku metodu abstratu `manda(mensajen)`. Kria klasis `Email`, `SMS` i `WhatsApp` ki ta manda notifikasan di maneras diferenti. Skrebe un funsan `manda_pa_tudu(notifikadoris, mensajen)` ki ta uza polimorfismu.
 
-3. **Exersísiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku métodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsan ki ta mostra konversun di 10,000 ECV na tudu moedas.
+3. **Izersisiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku metodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsan ki ta mostra konversan di 10,000 ECV na tudu moedas.
 
-4. **Exersísiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku métodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) i `FreeLancer` (paga por ora). Kalkula folha di pagamentu total.
+4. **Izersisiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku metodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) i `FreeLancer` (paga pa ora). Kalkula folha di pagamentu total.
 
 <Quiz position={0} />
 
@@ -514,15 +514,15 @@ prosesa_pagamentu(djina, 3_200)
 
 ## Rezumu
 
-- **Polimorfismu** signifika "txeu formas" — mesmu métodu ta konporta diferenti dependendu di klasi
-- **Method overriding** é kuandu klasi fidju ta redefini un métodu di klasi pai
-- **Funsun polimórfiku** ta aseta kualker objetu ku interfasi koretu (duck typing)
+- **Polimorfismu** signifika "txeu formas" — mesmu metodu ta konporta diferenti dependendu di klasi
+- **Method overriding** é kuandu klasi fidju ta redefini un metodu di klasi pai
+- **Funsan polimórfiku** ta aseta kualker objetu ku interfasi koretu (duck typing)
 - **`ABC`** (Abstract Base Class) ta kria klasis ki **ka pode ser instansiadu diretamenti**
-- **`@abstractmethod`** ta forsa klasis fidju a implementa sertu métodus
-- Bo pode mistra métodus abstratu (obrigatóriu) ku métodus konkretu (erdadu)
-- Si un klasi fidju ka implementa tudu métodus abstratu, Python ta da `TypeError`
-- Klasis abstratu é ideál kuandu bo tene 2+ klasis ki TEN KI partilha mesmu interfasi
+- **`@abstractmethod`** ta forsa klasis fidju a implementa sertu metodus
+- Bu pode mistra metodus abstratu (obrigatóriu) ku metodus konkretu (erdadu)
+- Si un klasi fidju ka implementa tudu metodus abstratu, Python ta da `TypeError`
+- Klasis abstratu é ideál kuandu bu tene 2+ klasis ki TEN KI partilha mesmu interfasi
 
 ---
 
-**Prósimu lisun:** [Enkapsolamentu i @property →](/courses/intro-python/lessons/enkapsolamentu-property)
+**Prósimu lisan:** [Enkapsolamentu i @property →](/courses/intro-python/lessons/enkapsolamentu-property)
