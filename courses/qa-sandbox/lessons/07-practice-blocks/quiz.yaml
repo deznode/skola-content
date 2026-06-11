@@ -1,0 +1,44 @@
+- question:
+    kea: "Kual bloku ki ta kaptura un erru kuandu el akontese?"
+  options:
+    - text: { kea: "except" }
+      correct: true
+    - text: { kea: "try" }
+      correct: false
+    - text: { kea: "finally" }
+      correct: false
+    - text: { kea: "else" }
+      correct: false
+- question:
+    kea: "Kual bloku ki ta sempri roda, ku erru o sen erru (limpeza)?"
+  options:
+    - text: { kea: "finally" }
+      correct: true
+    - text: { kea: "except" }
+      correct: false
+    - text: { kea: "else" }
+      correct: false
+    - text: { kea: "try" }
+      correct: false
+- question:
+    kea: "Kual palavra-xavi ki nu ta uza pa lansa un exsesun nos própi?"
+  options:
+    - text: { kea: "raise" }
+      correct: true
+    - text: { kea: "throw" }
+      correct: false
+    - text: { kea: "catch" }
+      correct: false
+    - text: { kea: "panic" }
+      correct: false
+- question:
+    kea: "Kual bloku ki ta roda SÓ kuandu try ka teve nenhun erru?"
+  options:
+    - text: { kea: "else" }
+      correct: true
+    - text: { kea: "finally" }
+      correct: false
+    - text: { kea: "except" }
+      correct: false
+    - text: { kea: "raise" }
+      correct: false

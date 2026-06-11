@@ -60,3 +60,11 @@ modules:
         languages: [kea]
         content_type: MIXED
         video_url: "https://www.youtube.com/watch?v=_cMxraX_5RE"
+  - slug: practice-blocks
+    title:
+      kea: "Blóku di Prátika"
+      en: "Practice Blocks"
+    lessons:
+      - slug: practice-blocks
+        languages: [kea]
+        content_type: TEXT

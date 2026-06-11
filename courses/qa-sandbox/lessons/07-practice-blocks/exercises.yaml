@@ -1,0 +1,106 @@
+- slug: dividi-seguru
+  language: python
+  kind: code
+  title: { kea: "Funsan dividi_seguru" }
+  prompt: { kea: "Skrebi un funsan `dividi_seguru(a, b)` ki ta retorna `a / b`. Si `b` é zero, retorna \"Ka pode dividi pa zero\". Si `a` o `b` ka é numeru, retorna \"Argumentus inválidus\"." }
+  hint: { kea: "Poi `a / b` déntu di un `try`, dipôs kaptura `ZeroDivisionError` i `TypeError` separadu." }
+  starterCode: |
+    def dividi_seguru(a, b):
+        # Bu kódiku li
+        pass
+  solutionCode: |
+    def dividi_seguru(a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return "Ka pode dividi pa zero"
+        except TypeError:
+            return "Argumentus inválidus"
+- slug: validason-idadi
+  language: python
+  title: { kea: "Validason di idadi ku loop" }
+  prompt: { kea: "Kria un programa ki ta pidi idadi ku `input()`. Si ka é numeru, pidi di novu (loop `while` ku try/except). Para só kuandu uzuáriu mete un numeru entre 1 i 120." }
+  starterCode: |
+    # Pidi idadi ku validason
+  solutionCode: |
+    while True:
+        try:
+            idadi = int(input("Mete bu idadi: "))
+            if 1 <= idadi <= 120:
+                print(f"Obrigadu! Bu tene {idadi} anu.")
+                break
+            print("Mete un numeru entre 1 i 120.")
+        except ValueError:
+            print("Izu ka é un numeru. Tenta di novu.")
+- slug: exsesun-personalizadu
+  language: python
+  title: { kea: "Exsesun personalizadu" }
+  prompt: { kea: "Kria un exsesun `IdadiInvaliduError` i un funsan `valida_idadi(idadi)` ki ta `raise` el si idadi é negativu o maior ki 150." }
+  starterCode: |
+    class IdadiInvaliduError(Exception):
+        pass
+
+    def valida_idadi(idadi):
+        # Bu kódiku li
+        pass
+  solutionCode: |
+    class IdadiInvaliduError(Exception):
+        pass
+
+    def valida_idadi(idadi):
+        if idadi < 0 or idadi > 150:
+            raise IdadiInvaliduError(f"Idadi inválidu: {idadi}")
+        return idadi
+
+    try:
+        valida_idadi(200)
+    except IdadiInvaliduError as e:
+        print(f"Erru: {e}")
+- slug: le-notas
+  language: python
+  title: { kea: "Lé notas di un ficheru" }
+  prompt: { kea: "Lé un ficheru di notas (un numeru por linha) ku `open()`. Kaptura `FileNotFoundError`, kaptura `ValueError` pa linhas ki ka é numeru, i na `else` mostra média di notas válidu." }
+  starterCode: |
+    # Lé notas di un ficheru
+  solutionCode: |
+    total, kontu = 0, 0
+    try:
+        with open("notas.txt") as f:
+            for linha in f:
+                try:
+                    total += float(linha)
+                    kontu += 1
+                except ValueError:
+                    continue
+    except FileNotFoundError:
+        print("Ficheru ka ezisti.")
+    else:
+        media = total / kontu if kontu else 0
+        print(f"Média: {media:.2f}")
+- slug: prepara-ambiente
+  language: bash
+  kind: setup
+  title: { kea: "Prepara bu ambiente Python" }
+  prompt: { kea: "Instala Python 3.12+, kria un ambiente virtual i konfirma versan." }
+  command: |
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python --version
+  expectedOutput: |
+    (.venv) $ python --version
+    Python 3.12.3
+- slug: splora-tratamentu-erru
+  language: python
+  kind: explore
+  title: { kea: "Splora kódiku real di otrus" }
+  prompt: { kea: "Antis di skrebi, odja modu ki otrus ta organiza tratamentu di errus na proyetus real." }
+  resources:
+    kea:
+      - { label: "Python Tutor — vizualiza ezekusan", url: "https://pythontutor.com" }
+      - { label: "GitHub Trending — Python", url: "https://github.com/trending/python" }
+- slug: refleta-aprendizajen
+  language: python
+  kind: reflect
+  title: { kea: "Skrebi 3 kuza ki bu prende" }
+  prompt: { kea: "Sen kódiku — pensa. Skrebi tres kuza ki fika klaru pa bo sobri tratamentu di erru." }
+  notePlaceholder: { kea: "Skrebe li tres kuza ki bu prende..." }

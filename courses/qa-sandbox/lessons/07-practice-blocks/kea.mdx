@@ -1,0 +1,43 @@
+---
+title: "Blóku di Prátika (Tenta Gosi + QuizSet + Rezumu)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: practice-blocks
+slug: "practice-blocks"
+module: 3
+lesson: 1
+duration: "10 min"
+objectives:
+  - "Testa renderizason di blóku Tenta Gosi ku exersísius di base di dadus"
+  - "Testa QuizSet stepper ku kuatu kuiz"
+  - "Testa blóku Rezumu ku itens di kódigu i regra di oru"
+---
+
+Es lison ta esersi três blóku novu: **Tenta Gosi** (exersísius di prátika ki ta ben di base di dadus), **QuizSet** (un stepper ku vários kuiz), i **Rezumu** (resumu di pontu xavi). El ta uza tratamentu di erru na Python — `try`, `except`, `else`, `finally`, i `raise` — komo asuntu.
+
+## Tratamentu di Erru na Python
+
+Kuandu un programa ta da erru, Python ta lansa un *exsesun*. Ku `try`/`except` nu pode kaptura es erru i raji di forma siguru, en ves di krasha tudu programa.
+
+## Tenta Gosi
+<TentaGosi />
+
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
+
+## Un Pergunta Só
+<QuizSet>
+  <Quiz position={0} />
+</QuizSet>
+
+## Rezumu
+<KeyTakeaways>
+  <RezumuItem term="try/except" code>tenta kódiku i kaptura erru si akontese</RezumuItem>
+  <RezumuItem term="else" code>só roda si ka teve erru</RezumuItem>
+  <RezumuItem term="finally" code>sempri roda — limpeza</RezumuItem>
+  <RezumuItem>Python ta kaptura só o tipu di exsesun ki bu nomeia — kualker otru ta kontinua pa riba.</RezumuItem>
+  <RezumuItem term="Regra di oru" variant="gold">kaptura espesífiku — ka kaptura tudu ku `except:` sem tipu</RezumuItem>
+  <RezumuItem term="Errus kumuns" variant="warning">`except: pass` ta sköndé bugs — nunka inora un erru sen razon</RezumuItem>
+  <RezumuItem term="Pista" variant="tip">na produsan, uza `logging.exception()` envês di `print` pa registra errus</RezumuItem>
+</KeyTakeaways>
