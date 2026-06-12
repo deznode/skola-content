@@ -1,6 +1,7 @@
-# Quiz sidecar for the o-ki-e-python lesson. Localized question + option text.
-# Validated by scripts/import-content.ts → emitted into quizzes / quiz_options.
-# Positions 0, 1, 2 correspond to <Quiz position={N}/> markers in kea.mdx.
+# Quiz sidecar (draft source) for lesson m1-01 "O ki é Python".
+# Draft-canonical per ADR-0026. Publish copies this to
+# content/courses/intro-python/lessons/01-o-ki-e-python/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
 - question:
     kea: "Em ki anu ki Python foi kriadu?"
     en: "In what year was Python created?"
@@ -23,13 +24,13 @@
       correct: true
     - text: { kea: "Sistema operasional", en: "Operating systems" }
       correct: false
-    - text: { kea: "Konfigurasun di redi", en: "Network configuration" }
+    - text: { kea: "Konfigurasan di redi", en: "Network configuration" }
       correct: false
 - question:
     kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"
     en: "For tech professionals in Cape Verde, what is Python's main advantage?"
   options:
-    - text: { kea: "Sé ta funsiona na portugés", en: "Only works in Portuguese" }
+    - text: { kea: "El ta funsiona so na portugés", en: "Only works in Portuguese" }
       correct: false
     - text: { kea: "Ta abri portas pa trabadju remotu ku empresas internasionais", en: "Opens doors for remote work with international companies" }
       correct: true

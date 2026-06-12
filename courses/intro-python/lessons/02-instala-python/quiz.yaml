@@ -1,0 +1,40 @@
+# THROWAWAY PLACEHOLDER quiz (spec 040 gap-finding) — NOT for commit.
+# Derived from this lesson's existing prose so <QuizSet> has data to render.
+# Real Kriolu quiz content must come from the content pipeline / Kriolu audit.
+# Positions 0, 1, 2 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Na Windows, kuze ki bu meste sempri marka kuandu bu ta instala Python?"
+    en: "On Windows, what must you always check when installing Python?"
+  options:
+    - text: { kea: "\"Add to PATH\"", en: "\"Add to PATH\"" }
+      correct: true
+    - text: { kea: "\"Install for all users\"", en: "\"Install for all users\"" }
+      correct: false
+    - text: { kea: "\"Dizativa antivírus\"", en: "\"Disable antivirus\"" }
+      correct: false
+    - text: { kea: "\"Add to Desktop\"", en: "\"Add to Desktop\"" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi un virtual environment (.venv)?"
+    en: "What is a virtual environment (.venv) for?"
+  options:
+    - text: { kea: "Izola pakotis di kada projetu", en: "Isolates each project's packages" }
+      correct: true
+    - text: { kea: "Aselera kódiku Python", en: "Speeds up Python code" }
+      correct: false
+    - text: { kea: "Traduzi kódiku pa portugés", en: "Translates code to Portuguese" }
+      correct: false
+    - text: { kea: "Kria backup di fixerus", en: "Creates file backups" }
+      correct: false
+- question:
+    kea: "Ki komandu ta kria un virtual environment?"
+    en: "Which command creates a virtual environment?"
+  options:
+    - text: { kea: "python -m venv .venv", en: "python -m venv .venv" }
+      correct: true
+    - text: { kea: "python create venv", en: "python create venv" }
+      correct: false
+    - text: { kea: "pip install venv", en: "pip install venv" }
+      correct: false
+    - text: { kea: "venv new .venv", en: "venv new .venv" }
+      correct: false

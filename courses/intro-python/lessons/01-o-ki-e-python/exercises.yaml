@@ -1,0 +1,39 @@
+# Exercises sidecar (draft source) for lesson m1-01 "O ki é Python".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/01-o-ki-e-python/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+- slug: kore-primeru-programa
+  language: python
+  kind: code
+  title: { kea: "Kore bu primeru programa" }
+  prompt:
+    kea: "Sen instala nada, bu pode kore Python diretu na navegador. Vizita un sandbox online (por izemplu [Python Tutor](https://pythontutor.com/python-compiler.html) o [Programiz](https://www.programiz.com/python-programming/online-compiler/)), skrebe kel linha li i klika **Run**. Bu ta odja `Ola! Ben-vindu a Python!` aparesi na tela. **Parabens — bu kaba di kore bu primeru programa Python!**"
+  starterCode: |
+    print("Ola! Ben-vindu a Python!")
+- slug: splora-python-org
+  language: python
+  kind: explore
+  title: { kea: "Splora python.org" }
+  prompt:
+    kea: "Vizita [python.org](https://www.python.org) i skrebe na un papél (nota) trez kuzas ki txoma-bu atensan sobri Python."
+  resources:
+    kea:
+      - { label: "python.org — sítiu ofisial", url: "https://www.python.org" }
+- slug: pensa-un-problema
+  language: python
+  kind: reflect
+  title: { kea: "Pensa na un problema" }
+  prompt:
+    kea: "Pensa na un problema na bu dia-a-dia ki bu ta gosta di rezolvi ku programasan (organiza bu lista di kompras, kalkulá gastos di mes, o kontrola stok di un loja). Skrebe un frazi ku kel problema."
+  notePlaceholder:
+    kea: "Skrebe li kel problema ki bu kre rezolvi ku programasan..."
+- slug: splora-github-trending
+  language: python
+  kind: explore
+  title: { kea: "Splora projetus real" }
+  prompt:
+    kea: "Vizita [GitHub Trending - Python](https://github.com/trending/python) i odja 3 projetus popularis. Bu ka presiza kompriende kódiku — só odja tipu di projetus ki sta kriadu ku Python."
+  resources:
+    kea:
+      - { label: "GitHub Trending — Python", url: "https://github.com/trending/python" }
