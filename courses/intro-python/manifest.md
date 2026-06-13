@@ -9,8 +9,8 @@
 |------|------|-------|
 | course.yaml | Course manifest | 1 |
 | lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 32 |
-| lessons/{NN}-{slug}/quiz.yaml | Lesson quiz sidecars | 1 |
-| lessons/{NN}-{slug}/exercises.yaml | Lesson exercise sidecars | 1 |
+| lessons/{NN}-{slug}/quiz.yaml | Lesson quiz sidecars | 2 |
+| lessons/{NN}-{slug}/exercises.yaml | Lesson exercise sidecars | 2 |
 | code/start/ | Starter code | 16 files |
 | code/final/ | Solution code | 16 files |
 | infographics/* | Infographics (PNG) | 15 |

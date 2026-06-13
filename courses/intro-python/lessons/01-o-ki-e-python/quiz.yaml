@@ -3,16 +3,16 @@
 # content/courses/intro-python/lessons/01-o-ki-e-python/quiz.yaml; positions
 # 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
 - question:
-    kea: "Em ki anu ki Python foi kriadu?"
-    en: "In what year was Python created?"
+    kea: "Kual di kes karakterístika li é un di razons ki ta faze Python tan popular?"
+    en: "Which of these is one of the reasons Python is so popular?"
   options:
-    - text: { kea: "1989", en: "1989" }
+    - text: { kea: "El ta funsiona só na Windows", en: "It only runs on Windows" }
       correct: false
-    - text: { kea: "1991", en: "1991" }
+    - text: { kea: "Sintaxi faxi di ler, ki ta paresi ku inglés simples", en: "Easy-to-read syntax, close to plain English" }
       correct: true
-    - text: { kea: "2000", en: "2000" }
+    - text: { kea: "El ka ten bibliotekas", en: "It has no libraries" }
       correct: false
-    - text: { kea: "2010", en: "2010" }
+    - text: { kea: "É karu pa instala", en: "It is expensive to install" }
       correct: false
 - question:
     kea: "Pa kuze é ki Python é fundasan modernu na mundu di tek?"

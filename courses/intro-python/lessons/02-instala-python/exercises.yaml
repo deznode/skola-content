@@ -1,0 +1,39 @@
+# Exercises sidecar (draft source) for lesson m1-02 "Instala Python i Konfigura VS Code".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/02-instala-python/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# MIGRATED VERBATIM from the inline "## Tenta Gosi 🏋️" section of the lesson MDX
+# (Izersisiu 1/2/3) — content-team prose preserved as-authored. The MDX section
+# was replaced with <TentaGosi /> in the same change.
+- slug: instala-i-verifika-versan
+  language: python
+  kind: setup
+  title: { kea: "Instala i verifika versan" }
+  prompt:
+    kea: "Instala Python na bu komputador i verifika versan ku `python --version` (o `python3 --version`). Skrebe ki versan bu instala."
+- slug: kria-i-ativa-venv
+  language: python
+  kind: setup
+  title: { kea: "Kria i ativa un .venv" }
+  prompt:
+    kea: "Kria un pasta novu txomadu `pratika-python`, kria un `.venv` dentu del, i ativa el. Verifika ki `(.venv)` ta aparesi na bu prompt."
+- slug: programa-sobri-mi
+  language: python
+  kind: code
+  title: { kea: "Skrebe sobri-mi.py" }
+  prompt:
+    kea: |
+      Kria un fixeru `sobri-mi.py` ki ta pergunta 3 kuzas (nomi, idadi, pratu favoritu) i mostra un mensajen personalizadu. Izemplu di output:
+
+      ```
+      Kumo é bu nomi? João
+      Kuantu anu bu ten? 25
+      Kual é bu pratu favoritu? Katxupa
+      João, bu ten 25 anu i bu ta gosta di Katxupa. Sabi!
+      ```
+  starterCode: |
+    # sobri-mi.py
+    # Uza input() pa pergunta nomi, idadi i pratu favoritu
+    # Dipos uza print() ku f-string pa mostra un mensajen personalizadu

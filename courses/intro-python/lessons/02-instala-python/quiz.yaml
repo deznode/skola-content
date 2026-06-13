@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-02 "Instala Python i Konfigura VS Code".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/02-instala-python/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Na Windows, pamodi é importanti marka \"Add python.exe to PATH\" duranti instalasan di Python?"
+  options:
+    - text: { kea: "Sen el, sistema ka ta atxa `python` kuandu bu skrebe-l na terminal" }
+      correct: true
+    - text: { kea: "Pa instala VS Code automátikamenti" }
+      correct: false
+    - text: { kea: "Pa kria un virtual environment automátikamenti" }
+      correct: false
+    - text: { kea: "Pa faze download di Python más rápidu" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi un virtual environment (`.venv`)?"
+  options:
+    - text: { kea: "Pa izola pakotis di kada projetu, asi un projetu ka ta kebra otu" }
+      correct: true
+    - text: { kea: "Pa faze Python kore más rápidu" }
+      correct: false
+    - text: { kea: "Pa traduzi kódiku pa otus línguas" }
+      correct: false
+    - text: { kea: "Pa substitui VS Code" }
+      correct: false
+- question:
+    kea: "Kumo bu ta sabe ki bu virtual environment ta ativu na terminal?"
+  options:
+    - text: { kea: "Kuandu `(.venv)` ta aparesi na kumesu di prompt" }
+      correct: true
+    - text: { kea: "Kuandu VS Code ta fitxa" }
+      correct: false
+    - text: { kea: "Kuandu `python --version` ta da eru" }
+      correct: false
+    - text: { kea: "Kuandu pasta `.venv` ta dizaparesi" }
+      correct: false
