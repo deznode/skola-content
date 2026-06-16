@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-30 "Metodus Majiku".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/30-metodus-majiku/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kal é a diferensa entri `__str__` i `__repr__`?"
+  options:
+    - text: { kea: "`__str__` é a vizun amigável pa o utilizador (`print()`); `__repr__` é a vizun teknika pa o programador (shell, debug)" }
+      correct: true
+    - text: { kea: "`__str__` é pa o programador; `__repr__` é pa o utilizador" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza" }
+      correct: false
+    - text: { kea: "`__str__` ta retorna un númeru; `__repr__` un string" }
+      correct: false
+- question:
+    kea: "O ki é os metodus majiku (dunder methods) kumo `__str__` o `__len__`?"
+  options:
+    - text: { kea: "Funsons spesiál ku `__nomi__` ki Python ta txoma **automátikamenti** na momentus sertus — bu ka txoma-s diretu" }
+      correct: true
+    - text: { kea: "Metodus ki bu ten ki txoma manualmenti senpri" }
+      correct: false
+    - text: { kea: "Metodus privadu ki só a klasi pode uza" }
+      correct: false
+    - text: { kea: "Nomis ki bu pode inventa livremente pa o bu kódiku" }
+      correct: false
+- question:
+    kea: "Bu tene un klasi ku `__str__` i `__repr__`, i bu faze `print([obj1, obj2])`. Kal é ki Python ta uza pa kada elementu?"
+  options:
+    - text: { kea: "`__repr__` — un lista ta uza o `__repr__` di os se elementu, ka o `__str__`" }
+      correct: true
+    - text: { kea: "`__str__` — senpri o `__str__` dentu di un lista" }
+      correct: false
+    - text: { kea: "Os dos a o mesmu tempu" }
+      correct: false
+    - text: { kea: "Nenhun — ta mostra o enderésu di memória" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi a funsan `dir(obj)`?"
+  options:
+    - text: { kea: "Ta mostra tudu os metodu i atributu di un objetu — útil pa deskubri o ki un objetu pode faze" }
+      correct: true
+    - text: { kea: "Ta apaga tudu os atributu di o objetu" }
+      correct: false
+    - text: { kea: "Ta mostra só o valor di o objetu" }
+      correct: false
+    - text: { kea: "Ta kria un novu diretóriu na o disku" }
+      correct: false

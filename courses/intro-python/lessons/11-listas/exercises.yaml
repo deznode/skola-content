@@ -1,0 +1,128 @@
+# Exercises sidecar (draft source) for lesson m2-11 "Listas i List Comprehension".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/11-listas/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-append-none` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: manipula-lista-kompras
+  language: python
+  kind: code
+  title: { kea: "Manipula un lista di kompras" }
+  prompt:
+    kea: "Kria un lista `kompras` ku 5 íten di merkadu. Dipos adisiona 2 íten ku `.append()`, inseri `\"banana\"` na pozisan 2 ku `.insert()`, tira o últimu íten ku `.pop()`, i mostra a lista final i kuantu íten el tene."
+  hint:
+    kea: "`.append(x)` ta po na fin; `.insert(2, \"banana\")` ta po na índisi 2; `.pop()` (sen argumentu) ta tira o últimu. Pa konta os íten, uza `len(kompras)`."
+  starterCode: |
+    # kompras.py
+    kompras = ["arrós", "fijon", "azeti", "atum", "sebola"]
+
+    # TODO: append 2 íten
+    # TODO: insert "banana" na pozisan 2
+    # TODO: pop o últimu íten
+    # TODO: mostra a lista final i len()
+  solutionCode: |
+    # kompras.py
+    kompras = ["arrós", "fijon", "azeti", "atum", "sebola"]
+
+    kompras.append("pan")
+    kompras.append("leti")
+    kompras.insert(2, "banana")
+    kompras.pop()
+
+    print(kompras)
+    print(f"Total di íten: {len(kompras)}")
+- slug: comprehensions-di-presus
+  language: python
+  kind: code
+  title: { kea: "List comprehensions ku presus" }
+  prompt:
+    kea: "Dadu `presus = [250, 500, 180, 750, 320, 90, 450]` (ECV), uza list comprehension pa kria tres listas: só os presus asima di `300`, os presus ku 15% di diskontu, i os presus konvertidu pa EUR (`1 EUR = 110 ECV`)."
+  hint:
+    kea: "Filtru: `[p for p in presus if p > 300]`. Transformasan: `[p * 0.85 for p in presus]` pa o diskontu. Konversan: `[round(p / 110, 2) for p in presus]`."
+  starterCode: |
+    # presus.py
+    presus = [250, 500, 180, 750, 320, 90, 450]
+
+    # TODO: presus asima di 300
+    # TODO: presus ku 15% di diskontu (p * 0.85)
+    # TODO: presus en EUR (p / 110, arredondadu)
+  solutionCode: |
+    # presus.py
+    presus = [250, 500, 180, 750, 320, 90, 450]
+
+    asima_300 = [p for p in presus if p > 300]
+    ku_diskontu = [round(p * 0.85, 2) for p in presus]
+    en_eur = [round(p / 110, 2) for p in presus]
+
+    print(f"Asima di 300: {asima_300}")
+    print(f"Ku diskontu:  {ku_diskontu}")
+    print(f"En EUR:       {en_eur}")
+- slug: analiza-temperaturas
+  language: python
+  kind: code
+  title: { kea: "Analiza temperaturas di a semana" }
+  prompt:
+    kea: "Ku `temperaturas = [28, 31, 25, 33, 29, 35, 27]` (na Praia), kalkula a média, o máksimu i o mínimu, i kria un lista ku os dias \"kenti\" (asima di `30` grau) uzandu list comprehension."
+  hint:
+    kea: "Uza as funsons inkorporadu: `sum(temperaturas) / len(temperaturas)` pa a média, `max(...)` i `min(...)`. Pa os dias kenti: `[t for t in temperaturas if t > 30]`."
+  starterCode: |
+    # temp.py
+    temperaturas = [28, 31, 25, 33, 29, 35, 27]
+
+    # TODO: média, máksimu, mínimu
+    # TODO: lista di dias kenti (> 30)
+  solutionCode: |
+    # temp.py
+    temperaturas = [28, 31, 25, 33, 29, 35, 27]
+
+    media = sum(temperaturas) / len(temperaturas)
+    kenti = [t for t in temperaturas if t > 30]
+
+    print(f"Média: {media:.1f}°C")
+    print(f"Máksimu: {max(temperaturas)}°C, Mínimu: {min(temperaturas)}°C")
+    print(f"Dias kenti (>30): {kenti}")
+- slug: koriji-append-none
+  language: python
+  kind: debug
+  file: kompras.py
+  title: { kea: "Koriji un .append() ki ta da None" }
+  prompt:
+    kea: "Es programa debe djunta `\"leti\"` na lista `kompras`, ma dipos `kompras` ta fika `None`. Diskubri pamodi i koriji-l."
+  hint:
+    kea: "`.append()` ta muda a lista na lugar i ta retorna `None` — anton `kompras = kompras.append(\"leti\")` ta po `kompras` igual a `None`. Txoma `kompras.append(\"leti\")` sen o `kompras =`."
+  starterCode: |
+    # kompras.py — pamodi ki "kompras" ta fika None? Koriji-l.
+    kompras = ["arrós", "fijon"]
+    kompras = kompras.append("leti")
+    print(kompras)   # ta imprimi None
+  solutionCode: |
+    # kompras.py — .append() ta muda na lugar i ta retorna None
+    kompras = ["arrós", "fijon"]
+    kompras.append("leti")
+    print(kompras)   # ['arrós', 'fijon', 'leti']
+- slug: splora-metodus-lista
+  language: python
+  kind: explore
+  title: { kea: "Splora tudu os metodus di lista" }
+  prompt:
+    kea: "Lista tene más metodus alén di es (kumo `.extend()`, `.copy()`, `.sort(key=...)`). Odja a dokumentason ofisial pa odja o ki más izisti i kumo ordena ku un xavi personalizadu."
+  resources:
+    kea:
+      - { label: "Python docs — More on Lists (metodus)", url: "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" }
+      - { label: "Python docs — List Comprehensions", url: "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" }
+- slug: refleta-sort-vs-sorted
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `.sort()` versus `sorted()`" }
+  prompt:
+    kea: "`lista.sort()` ta muda a lista orijinal (in-place) i ta retorna `None`; `sorted(lista)` ta da un lista nova i ka ta toka na orijinal. Skrebe nun kazu undi bu ta uza kada un, i o ki ta kontise si bu faze `x = lista.sort()`."
+  notePlaceholder:
+    kea: "Kazu pa .sort(): …   ·   Kazu pa sorted(): …   ·   O ki `x = lista.sort()` ta da (i pamodi): …"

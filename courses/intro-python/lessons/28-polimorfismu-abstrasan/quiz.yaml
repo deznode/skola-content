@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-28 "Polimorfismu i Abstrasan".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/28-polimorfismu-abstrasan/quiz.yaml;
+# positions 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki ta signifika **polimorfismu** na programasan?"
+  options:
+    - text: { kea: "Mesmu metodu (mesmu nomi) pode tene komportamentu diferenti dependendu di a klasi ki ta txoma-l" }
+      correct: true
+    - text: { kea: "Un klasi ki ka pode tene atributu" }
+      correct: false
+    - text: { kea: "Un funsan ki ta retorna senpri o mesmu valor" }
+      correct: false
+    - text: { kea: "Un klasi ku txeu konstrutor" }
+      correct: false
+- question:
+    kea: "O ki ta kontise si bu tenta kria un objetu di un klasi abstratu (`ABC`) diretu?"
+  options:
+    - text: { kea: "Un `TypeError` — un klasi abstratu ka pode ser instansiadu; el só ta sirbi kumo pai" }
+      correct: true
+    - text: { kea: "Ta funsiona normal, kumo kualker klasi" }
+      correct: false
+    - text: { kea: "Ta kria un objetu vaziu" }
+      correct: false
+    - text: { kea: "Python ta inora os metodu abstratu" }
+      correct: false
+- question:
+    kea: "Un funsan `mostra_relatoriu(formas)` só ta txoma `forma.area()`. O ki ta kontise si bu djunta un novu tipu di forma ku un metodu `area()`?"
+  options:
+    - text: { kea: "Ta funsiona sen mudá a funsan — el só ta uza a interfasi (`.area()`), ka o tipu konkretu" }
+      correct: true
+    - text: { kea: "Bu ten ki riskrebe a funsan pa kada novu tipu" }
+      correct: false
+    - text: { kea: "Ta da un eru pamodi a funsan ka konxe o novu tipu" }
+      correct: false
+    - text: { kea: "O novu tipu ten ki erda di tudu os otu" }
+      correct: false
+- question:
+    kea: "Un klasi filhu di un `ABC` ka implementa un di os metodu `@abstractmethod`. O ki ta kontise?"
+  options:
+    - text: { kea: "Ka pode ser instansiadu — Python ta da `TypeError` kuandu bu tenta kria un objetu del" }
+      correct: true
+    - text: { kea: "Ta funsiona, ma o metodu ka ta faze nada" }
+      correct: false
+    - text: { kea: "Python ta kopia o metodu di o pai automátikamenti" }
+      correct: false
+    - text: { kea: "Ka ten problema — os metodu abstratu é opsional" }
+      correct: false

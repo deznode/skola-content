@@ -41,7 +41,7 @@ print(type(vazio_eradu))    # <class 'dict'>
 ```
 
 :::callout{type=tip}
-**Dika:** `{}` ta kria un disionáriu vazio, NAU un set vazio! Pa kria set vazio, senpri uza `set()`. É un armadilha komun ki muitius programadoris ta kái.
+**Dika:** `{}` ta kria un disionáriu vazio, NAU un set vazio! Pa kria set vazio, senpri uza `set()`. Txeu programadoris ta kái nes armadidja.
 :::
 
 ## Auto-Deduplikasan
@@ -174,7 +174,7 @@ print(frutas)  # {'manga', 'laranja'}
 ```
 
 :::callout{type=tip}
-**Dika:** Uza `.discard()` na vés di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
+**Dika:** Uza `.discard()` en bez di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
 :::
 
 ```python
@@ -283,32 +283,20 @@ validu = {1, "hello", (1, 2, 3), True}
 # invalidu = {[1, 2], {"a": 1}}  # TypeError: unhashable type: 'list'
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Letras Komun** -- Kria dos sets ku letras di dos palavras (pa izemplu, "katxupa" i "funana"). Mostra letras ki ambos ta partilha (intersection) i letras ki só un di es tene (symmetric difference).
-
-2. **Izersisiu 2: Deduplikador di Emali** -- Tene un lista di emalis ki pode tene duplikadus. Uza set pa removi duplikadus i mostra lista limpu ku total antis i dipos.
-
-3. **Izersisiu 3: Analiza di Playlist** -- Kria dos playlists (sets di nomi di músika). Mostra: (a) tudu músika kombindadu, (b) músika ki sta na ambos playlists, (c) músika ki só sta na playlist 1.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- Sets é kolesan di elementus **úniku** i **sen órdin**
-- Kria ku `{elementus}` ó `set()` -- nunka `{}` pa set vazio
-- Auto-deduplikasan: elementus repetidu ta desaparesi automatikamenti
-- Membership testing (`in`) é **O(1)** -- muitísimu más rápidu ki listas
-- Operasons matemátiku: `|` (union), `&` (intersection), `-` (difference), `^` (symmetric difference)
-- `.add()` pa djunta, `.discard()` pa elimina sen eru
-- Set comprehension: `{expr for item in iterable if condition}`
-- Pa removi duplikadus preservandu órdin: uza un set auxiliar ó `dict.fromkeys()`
-- Sets só ta aseita elementus imutável (hashable)
-
----
-
-**Prósimu lisan:** [Kazus Real ku Estruturas di Dadus →](/courses/intro-python/lessons/kazus-real)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu presiza elementus **úniku** o un buska `in` super rápidu nun kolesan grandi, uza un set — a buska é O(1), muitu más rápidu ki na lista (O(n)).</RezumuItem>
+  <RezumuItem term="Set">Un kolesan di elementus **úniku** i **sen orden** — auto-deduplikasan: os repetidu ta desaparese sózin.</RezumuItem>
+  <RezumuItem term="Operasons">`|` (union), `&` (intersection), `-` (difference), `^` (symmetric difference).</RezumuItem>
+  <RezumuItem term="Metodus">`.add()` pa djunta; `.discard()` pa tira sen eru (`.remove()` ta da `KeyError` si ka izisti).</RezumuItem>
+  <RezumuItem term="Comprehension">`{expr for item in iterável if kondisan}` — i `dict.fromkeys()` pa dedup preservandu orden.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`{}` ta kria un **disionáriu** vazio, ka un set — uza `set()`. I set só ta seita elementus imutável (hashable) — ka lista nen dict.</RezumuItem>
+</KeyTakeaways>

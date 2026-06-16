@@ -18,7 +18,7 @@ objectives:
 
 Pensa na un kuzinha di restoranti na Mindelo. Klientis ta senta na sala, ta odjá menu i ta faze pedidu — isu é **públiku**. Garsons ta entra na kuzinha pa buska pratus i ta komuniká ku xefi — es tene asésu **protejidu**. Ma reseita sekretu di katxupa di xefi? Kel só xefi ta sabi — é **privadu**. Ninguén ka pode txiga diretamenti na reseita — si bu kre sabi ingredientis, bu ten ki pidi xefi (el ta disidi si ta fala o nau).
 
-Na programasan, enkapsolamentu é mesmu ideia: **kontrola ken ki pode asésa i modifika dadus di un objetu**. Em vés di dexa tudu abertu, bu ta proteje partis sensíveis i ta fornese maneiras kontroladu di asésa-l.
+Na programasan, enkapsolamentu é mesmu ideia: **kontrola ken ki pode asésa i modifika dadus di un objetu**. En bez di dexa tudu abertu, bu ta proteje partis sensíveis i ta fornese maneiras kontroladu di asésa-l.
 
 ## Asésu Públiku, Protejidu i Privadu
 
@@ -149,7 +149,7 @@ class Produtu:
 # Uza — limpu i eleganti!
 kaxtelu = Produtu("Kaxtelu di Fera", 250)
 
-# Asésa komu atributu (sen paréntesis!)
+# Asésa kumo atributu (sen paréntesis!)
 print(kaxtelu.nomi)    # Kaxtelu di Fera
 print(kaxtelu.presu)   # 250
 
@@ -161,12 +161,12 @@ Kompara ku maneira tradisionál:
 
 ```python
 # ANTIS (tradisionál):
-print(kaxtelu.get_presu())    # Txoma komu funsan
-kaxtelu.set_presu(300)        # Txoma komu funsan
+print(kaxtelu.get_presu())    # Txoma kumo funsan
+kaxtelu.set_presu(300)        # Txoma kumo funsan
 
 # AGORA (ku @property):
-print(kaxtelu.presu)          # Asésa komu atributu ✨
-# kaxtelu.presu = 300         # Atribui komu atributu (si tene setter)
+print(kaxtelu.presu)          # Asésa kumo atributu ✨
+# kaxtelu.presu = 300         # Atribui kumo atributu (si tene setter)
 ```
 
 :::callout{type=tip}
@@ -446,47 +446,24 @@ class Pesoal_V2:
         self.__nomi = valor
 
 p = Pesoal_V2("Edna")
-print(p.nomi)           # Edna (komu atributu!)
+print(p.nomi)           # Edna (kumo atributu!)
 p.nomi = "Ivete"        # Limpu i naturál!
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Temperatura Seguru:** Kria un klasi `Termometru` ku un atributu privadu `__temperatura` (na Celsius). Djunta `@property` pa ler temperatura i un setter ki valida ki temperatura ka pode ser menus ki -273.15°C (zeru absolutu). Djunta un property kalkuladu `fahrenheit` ki ta konverte automatikamenti.
-
-2. **Izersisiu 2 — Perfil di Estudanti:** Kria un klasi `Estudanti` ku:
-   - `nomi` (públiku)
-   - `_idadi` (protejidu, ku setter ki valida ki idadi é entri 5 i 100)
-   - `__notas` (privadu, lista di notas)
-   - Property `media` ki ta kalkula média di notas
-   - Metodu `djunta_nota(nota)` ki valida ki nota é entri 0 i 20
-   Testa ku estudantis: Kelvin di Praia i Carla di Mindelo.
-
-3. **Izersisiu 3 — Inventáriu di Loja:** Kria un klasi `Produtu` ku nomi (públiku), `__presu` (privadu ku validasan), i `__stoki` (privadu). Djunta metodus `vende(kuantidadi)` i `repon(kuantidadi)` ku validasan. Kria un klasi `Loja` ku lista privadu di produtus i metodu pa mostra inventáriu. Simula un loja na Sukupira.
-
-4. **Izersisiu 4 — Senha Seguru:** Kria un klasi `Utilizador` ku `nomi` (públiku) i `__senha` (privadu). Property `senha` debe retorna `"********"` (maskáru). Setter debe validar ki senha novu tene pelo menus 8 karáteris, un maiúskula, un minúskula i un nùmeru. Djunta metodu `verifica_senha(tentativa)` ki retorna `True` o `False`.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Enkapsolamentu** ta kontrola asésu a dadus di un objetu — proteje kontra modifikasan asidentál
-- **Públiku** (`self.nomi`) — kualker un pode asésa i muda
-- **Protejidu** (`self._nomi`) — konvensan: só klasi i fidju debe uza (Python ka forsa)
-- **Privadu** (`self.__nomi`) — Python ta aplika name mangling (`_Klasi__nomi`)
-- **Name mangling** ka é seguránsa — é protesan kontra eru asidentál
-- **`@property`** ta transforma un metodu na un atributu di só leitura
-- **`@nomi.setter`** ta permiti modifikasan ku validasan
-- **Property kalkuladu** (sen setter) é perfeitu pa valoris derivadu ki ta rekalkula automatikamenti
-- `@property` é maneira Pythonic — más limpu ki getters/setters tradisionál
-- **Defensive copy** (retorna `.copy()`) ta previni modifikasan estranu di dados internu
-
----
-
-**Prósimu lisan:** [Metodus Majiku →](/courses/intro-python/lessons/metodus-majiku)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Uza `@property` + `@nomi.setter` pa proteje os dadus: bu ta asésa kumo atributu (`obj.presu`), ma un funsan ku **validasan** ta kore pa trás.</RezumuItem>
+  <RezumuItem term="Niveis di asésu">Públiku (`self.nomi`), protejidu (`self._nomi` — só konvensan), privadu (`self.__nomi` — name mangling).</RezumuItem>
+  <RezumuItem term="Name mangling">`self.__saldu` ta vira `_Klasi__saldu` — protesan kontra eru asidentál, ka seguránsa real.</RezumuItem>
+  <RezumuItem term="@property">Ta transforma un metodu nun atributu di só-leitura; `@nomi.setter` ta permiti mudansa ku validasan.</RezumuItem>
+  <RezumuItem term="Property kalkuladu">Sen setter, é perfeitu pa valor derivadu (`area`, `fahrenheit`) ki ta rekalkula sózin.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">**Defensive copy** — retorna `self.__lista.copy()` nun getter pa evita ki algen modifika a lista interna di fora.</RezumuItem>
+</KeyTakeaways>

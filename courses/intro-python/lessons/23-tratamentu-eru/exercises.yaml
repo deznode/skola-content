@@ -1,0 +1,186 @@
+# Exercises sidecar (draft source) for lesson m3-23 "Tratamentu di Eru".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/23-tratamentu-eru/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-except-eradu` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: dividi-seguru
+  language: python
+  kind: code
+  title: { kea: "Divizan seguru ku try/except" }
+  prompt:
+    kea: "Skrebe un funsan `dividi_seguru(a, b)` ki ta retorna `a / b`. Si `b` é zero, retorna `\"Ka pode dividi pa zero\"`; si `a` o `b` ka é númeru, retorna `\"Argumentus inválidus\"`. Uza try/except ku exseson espesífiku."
+  hint:
+    kea: "Kaptura `ZeroDivisionError` pa o zero i `TypeError` pa os tipu eradu — kada un nun `except` separadu. Po o `return a / b` dentu di o `try`."
+  starterCode: |
+    # divizan.py
+    def dividi_seguru(a, b):
+        # TODO: try a / b; except ZeroDivisionError; except TypeError
+        ...
+
+    print(dividi_seguru(10, 2))    # 5.0
+    print(dividi_seguru(10, 0))    # Ka pode dividi pa zero
+    print(dividi_seguru("a", 2))   # Argumentus inválidus
+  solutionCode: |
+    # divizan.py
+    def dividi_seguru(a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return "Ka pode dividi pa zero"
+        except TypeError:
+            return "Argumentus inválidus"
+
+    print(dividi_seguru(10, 2))    # 5.0
+    print(dividi_seguru(10, 0))    # Ka pode dividi pa zero
+    print(dividi_seguru("a", 2))   # Argumentus inválidus
+- slug: pidi-idadi-loop
+  language: python
+  kind: code
+  title: { kea: "Pidi idadi ku validasan" }
+  prompt:
+    kea: "Skrebe un programa ki ta pidi a idadi ku `input()`. Si o utilizador mete algu ki ka é un númeru, pidi di nóvu (un loop `while` ku try/except). Só para kuandu el mete un númeru válidu entri 1 i 120."
+  hint:
+    kea: "Po o `int(input(...))` dentu di un `try`; o `except ValueError:` ta apanha o textu ki ka é númeru. Uza `while True:` i `break` kuandu a idadi sta entri 1 i 120."
+  starterCode: |
+    # idadi.py
+    while True:
+        try:
+            # TODO: pidi a idadi i konverti ku int()
+            # TODO: si 1 <= idadi <= 120, break; senan avisa
+            ...
+        except ValueError:
+            print("Kel ka é un númeru! Tenta di nóvu.")
+  solutionCode: |
+    # idadi.py
+    while True:
+        try:
+            idadi = int(input("Bu idadi? "))
+            if 1 <= idadi <= 120:
+                print(f"Obrigadu! Bu ten {idadi} anu.")
+                break
+            print("A idadi ten ki sta entri 1 i 120.")
+        except ValueError:
+            print("Kel ka é un númeru! Tenta di nóvu.")
+- slug: exseson-personalizadu
+  language: python
+  kind: code
+  title: { kea: "Exseson personalizadu" }
+  prompt:
+    kea: "Kria un exseson personalizadu `IdadiInvaliduError` i un funsan `valida_idadi(idadi)` ki ta lansa-l (`raise`) si a idadi é negativu o maior ki 150. Testa-l ku try/except."
+  hint:
+    kea: "Pa kria a exseson: `class IdadiInvaliduError(Exception): pass` (3 linha — a sintaxi di klasi ta ben na Módulu 4). Dentu di a funsan, `raise IdadiInvaliduError(\"...\")` si a kondisan ka é válidu."
+  starterCode: |
+    # valida.py
+    class IdadiInvaliduError(Exception):
+        pass
+
+    def valida_idadi(idadi):
+        # TODO: raise IdadiInvaliduError si idadi < 0 o > 150
+        ...
+
+    # TODO: testa ku try/except
+  solutionCode: |
+    # valida.py
+    class IdadiInvaliduError(Exception):
+        pass
+
+    def valida_idadi(idadi):
+        if idadi < 0 or idadi > 150:
+            raise IdadiInvaliduError(f"Idadi {idadi} ka é válidu (0-150).")
+        return idadi
+
+    try:
+        valida_idadi(200)
+    except IdadiInvaliduError as e:
+        print(f"Problema: {e}")   # Problema: Idadi 200 ka é válidu (0-150).
+- slug: media-ficheru-protejidu
+  language: python
+  kind: code
+  title: { kea: "Média di ficheru ku tratamentu" }
+  prompt:
+    kea: "Skrebe un programa ki lé un ficheru di notas (un númeru pa linha), kaptura `FileNotFoundError` si o ficheru ka izisti, kaptura `ValueError` pa as linha ki ka é númeru, i na fin (`else`) mostra a média das notas válidu."
+  hint:
+    kea: "Po o `open(...)` dentu di o `try`; o `except FileNotFoundError:` pa o ficheru ki ka izisti. Dentu di o loop, un `try/except ValueError` pa pula as linha ki ka é númeru. O `else` di o `try` di fora ta kalkula a média."
+  starterCode: |
+    # media.py
+    try:
+        notas = []
+        with open("notas.txt", "r") as f:
+            for linha in f:
+                # TODO: try float(linha); except ValueError -> pula
+                ...
+    except FileNotFoundError:
+        print("O ficheru notas.txt ka izisti.")
+    else:
+        # TODO: mostra a média das notas válidu
+        ...
+  solutionCode: |
+    # media.py
+    try:
+        notas = []
+        with open("notas.txt", "r") as f:
+            for linha in f:
+                linha = linha.strip()
+                if not linha:
+                    continue
+                try:
+                    notas.append(float(linha))
+                except ValueError:
+                    print(f"Avizu: '{linha}' ka é un númeru — puladu.")
+    except FileNotFoundError:
+        print("O ficheru notas.txt ka izisti.")
+    else:
+        if notas:
+            print(f"Média: {sum(notas) / len(notas):.1f}")
+        else:
+            print("Sen notas válidu.")
+- slug: koriji-except-eradu
+  language: python
+  kind: debug
+  file: dividi.py
+  title: { kea: "Koriji un except ku o tipu eradu" }
+  prompt:
+    kea: "Es programa ta tenta protejé a divizan ku `try/except`, ma el inda ta kebra ku un `ZeroDivisionError`. O `except` sta ku o tipu eradu. Koriji-l."
+  hint:
+    kea: "O kódiku ta kaptura `ValueError`, ma `10 / 0` ta lansa `ZeroDivisionError` — un tipu diferenti, anton o `except` ka ta apanha-l. Troka `except ValueError` pa `except ZeroDivisionError`."
+  starterCode: |
+    # dividi.py — o except ta apanha o tipu eradu; el inda ta kebra. Koriji-l.
+    try:
+        rezultadu = 10 / 0
+        print(rezultadu)
+    except ValueError:
+        print("Ka pode dividi pa zero!")
+  solutionCode: |
+    # dividi.py — kaptura o tipu di eru ki ralmenti ta kontise
+    try:
+        rezultadu = 10 / 0
+        print(rezultadu)
+    except ZeroDivisionError:
+        print("Ka pode dividi pa zero!")
+- slug: splora-ierarkia-exsesons
+  language: python
+  kind: explore
+  title: { kea: "Splora a ierarkia di exsesons" }
+  prompt:
+    kea: "Tudu os eru di Python ta erda di `Exception` (i `BaseException`). Konxe a ierarkia ta djuda-bu kaptura o nível sertu. Odja a árvure ofisial di exseption inkorporadu."
+  resources:
+    kea:
+      - { label: "Python docs — Built-in Exceptions", url: "https://docs.python.org/3/library/exceptions.html" }
+      - { label: "Python docs — Errors and Exceptions (tutorial)", url: "https://docs.python.org/3/tutorial/errors.html" }
+- slug: refleta-except-espesifiku
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri kaptura espesífiku" }
+  prompt:
+    kea: "A regra di oru é kaptura exseson espesífiku (`ValueError`, `ZeroDivisionError`), ka un `except:` solu. Pensa nun programa ki bu kreba protejé. Skrebe ki exsesons espesífiku bu ta kaptura, i o ki ta pode kontise si bu uza un `except:` jenériku ki apanha tudu."
+  notePlaceholder:
+    kea: "Programa: …   ·   Exsesons espesífiku: …   ·   Riskus di un except: jenériku: …"

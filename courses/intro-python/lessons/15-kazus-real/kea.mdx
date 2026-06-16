@@ -41,7 +41,7 @@ for i, tarefa in enumerate(tarefas, 1):
 ```
 
 ```python
-# Marka tarefa komu konpletadu (elimina)
+# Marka tarefa kumo konpletadu (elimina)
 tarefa_feitu = "Kunpra material pa skola"
 if tarefa_feitu in tarefas:
     tarefas.remove(tarefa_feitu)
@@ -115,7 +115,7 @@ for materia, nota in zip(nomis_materia, notas_maria):
 
 # Konta kuantus é "Bon" ó milhor
 aprovadu = sum(1 for nota in notas_maria if nota >= 10)
-print(f"\nMaérias aprovadu: {aprovadu}/{len(notas_maria)}")
+print(f"\nMatérias aprovadu: {aprovadu}/{len(notas_maria)}")
 ```
 
 ```python
@@ -197,7 +197,7 @@ for prod, info in stock_baxu.items():
 ```
 
 :::callout{type=tip}
-**Dika:** Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` na vés di `KeyError` si produktu ka ezisti.
+**Dika:** Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` en bez di `KeyError` si produktu ka ezisti.
 :::
 
 ## Removi Duplikadus (Sets + Lists)
@@ -347,29 +347,20 @@ print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 **Dika:** Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" (lista). "Nha dadus ka pode muda?" (tupla). "Nha dadus presiza ser úniku?" (set).
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Kontrol di Presensia** -- Kria un sistema ondi bo djunta nomi di estudantis ki ta txiga na aula (pode repeti si txiga múltiplu dia). Uza un set pa sabi kuantus estudantis úniku tinha, i un lista pa mante registru kompletu.
-
-2. **Izersisiu 2: Karrinhu di Konpra** -- Kria un disionáriu pa un merkadu ondi produktus tene presu. Dipos kria un lista (karrinhu) ku produktus ki kliente skolhe. Kalkula total i mostra rezumu di konpra ku kantidadi di kada item.
-
-3. **Izersisiu 3: Komparador di Playlists** -- Dos amigu (Nilton i Edna) tene kada un un lista di músika favoritu. Uza sets pa nkontra: (a) músikas ki ambos ta gosta, (b) músikas ki só Nilton ta gosta, (c) total di músikas úniku entri ambos. Mostra rezultadu organizadu.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- Listas é ideal pa dadus ordanadu ku modifikasan (tarefas, notas, registrus)
-- Funsons built-in (`sum`, `max`, `min`, `sorted`, `len`) ta funsiona perfeitamenti ku listas
-- Disionárius é milhor pa mapea xavi-valór (inventáriu, konfigurasan)
-- Sets ta resolve elegantimenti problemas di duplikasan i pertensa
-- Problemas real normalmenti ta presia **kombinasan** di múltiplu estruturas
-- Skolhe estrutura sertu ta faze kódiku más simples, rápidu i fásil di mante
-
----
-
-**Prósimu lisan:** [Funsons Báziku →](/courses/intro-python/lessons/funsoens-baziku)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Skodje a estrutura sertu ta faze o kódiku más simples i rápidu. Na dúvida: "Tene nomi?" → dict; "pode repeti + orden?" → lista; "ka muda?" → tuple; "presiza ser úniku?" → set.</RezumuItem>
+  <RezumuItem term="Lista">Ideal pa dadus **ordenadu** ku modifikasan — tarefas, notas, registrus. Ta kombina ku `sum`, `max`, `min`, `sorted`, `len`.</RezumuItem>
+  <RezumuItem term="Disionáriu">A midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>
+  <RezumuItem term="Set">Ta rezolve elegante os problema di duplikasan i pertensa.</RezumuItem>
+  <RezumuItem>Os problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa o ki el ta faze midjór.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`zip()` ta perkore dos lista djuntu (`for materia, nota in zip(...)`), i `collections.Counter` ta konta frekuénsia diretu.</RezumuItem>
+</KeyTakeaways>

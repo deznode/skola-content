@@ -1,0 +1,136 @@
+# Exercises sidecar (draft source) for lesson m3-18 "Funsons Inkorporadus Úteis".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/18-funsoens-inkorporadus/exercises.yaml,
+# where scripts/import-content.ts emits it into the `exercises` table;
+# <TentaGosi/> renders them in display order. Keep `slug` stable.
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks; Izersisiu 4's data block is moved into starterCode).
+# Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: enumerate-menu
+  language: python
+  kind: code
+  title: { kea: "Menu numeradu ku enumerate()" }
+  prompt:
+    kea: "Dadu a lista `[\"Santiago\", \"Fogo\", \"Sal\", \"Boa Vista\", \"Santo Antão\"]`, uza `enumerate()` pa mostra un menu numeradu (kumesandu na 1). Dipos simula un eskolha i mostra `Bu skodje: [ilha]`."
+  hint:
+    kea: "`for num, ilha in enumerate(ilhas, start=1):` ta da o índisi (kumesandu na 1) i o valor djuntu. Pa a eskolha, lenbra ki a lista kumesa na índisi 0, anton `ilhas[eskolha - 1]`."
+  starterCode: |
+    # menu.py
+    ilhas = ["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]
+
+    # TODO: enumerate pa mostra o menu numeradu (start=1)
+    # TODO: simula un eskolha i mostra a ilha
+    eskolha = 3
+  solutionCode: |
+    # menu.py
+    ilhas = ["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]
+
+    for num, ilha in enumerate(ilhas, start=1):
+        print(f"{num}. {ilha}")
+
+    eskolha = 3
+    print(f"Bu skodje: {ilhas[eskolha - 1]}")   # Bu skodje: Sal
+- slug: zip-ranking
+  language: python
+  kind: code
+  title: { kea: "Ranking ku zip() i sorted()" }
+  prompt:
+    kea: "Dadu dos lista (`nomis` i `notas`), uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipos uza `sorted()` ku `key` pa mostra o ranking di midjór pa pior."
+  hint:
+    kea: "`dict(zip(nomis, notas))` ta kria o disionáriu. Pa o ranking: `sorted(d.items(), key=lambda x: x[1], reverse=True)` ta ordena os par pa nota, di o más altu."
+  starterCode: |
+    # ranking.py
+    nomis = ["Kelvin", "Edna", "Nilton", "Carla"]
+    notas = [15, 18, 12, 16]
+
+    # TODO: dict ku zip()
+    # TODO: ranking ku sorted(key=..., reverse=True)
+  solutionCode: |
+    # ranking.py
+    nomis = ["Kelvin", "Edna", "Nilton", "Carla"]
+    notas = [15, 18, 12, 16]
+
+    d = dict(zip(nomis, notas))
+
+    ranking = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    for pos, (nomi, nota) in enumerate(ranking, start=1):
+        print(f"{pos}° {nomi}: {nota}")
+- slug: valida-lista-any-all
+  language: python
+  kind: code
+  title: { kea: "Validador ku any() i all()" }
+  prompt:
+    kea: "Skrebe un funsan `valida_lista(dados)` ki uza `all()` pa verifika si tudu elementu é un númeru (`isinstance`), i `any()` pa verifika si algun é negativu. Si tudu é númeru, retorna a lista `sorted()`; senan retorna un mensajen di eru."
+  hint:
+    kea: "`all(isinstance(x, (int, float)) for x in dados)` ta da `True` si tudu é númeru. `any(x < 0 for x in dados)` ta deteta negativu. Uza `isinstance(x, (int, float))` pa seita int i float."
+  starterCode: |
+    # valida.py
+    def valida_lista(dados):
+        # TODO: all() — tudu é númeru?
+        # TODO: si sin, retorna sorted(dados); senan un mensajen di eru
+        ...
+
+    print(valida_lista([5, 2, 8, 1]))
+    print(valida_lista([5, "oi", 8]))
+  solutionCode: |
+    # valida.py
+    def valida_lista(dados):
+        if not all(isinstance(x, (int, float)) for x in dados):
+            return "Eru: nem tudu elementu é un númeru."
+        tene_negativu = any(x < 0 for x in dados)
+        rezultadu = sorted(dados)
+        return f"{rezultadu} (tene negativu: {tene_negativu})"
+
+    print(valida_lista([5, 2, 8, 1]))    # [1, 2, 5, 8] (tene negativu: False)
+    print(valida_lista([5, "oi", 8]))    # Eru: nem tudu elementu é un númeru.
+- slug: relatoriu-di-vendas
+  language: python
+  kind: code
+  title: { kea: "Relatóriu di vendas" }
+  prompt:
+    kea: "Ku as tres lista na o kódiku inisial (produtu, presu, kuantidadi), uza `zip()` pa kalkula o total di kada produtu (presu × kuantidadi), `sorted()` pa ordena pa total (más altu primeru) i `enumerate()` pa mostra un lista numeradu."
+  hint:
+    kea: "Ku `zip(produtus, presus, kuantidadis)` bu pega os tres djuntu nun loop. Kria un lista di `(nomi, total)`, ordena ku `sorted(..., key=lambda x: x[1], reverse=True)`, i numera ku `enumerate(..., start=1)`."
+  starterCode: |
+    # vendas.py
+    produtus = ["Katxupa", "Grogu", "Ponche", "Morabeza T-shirt"]
+    presus = [350, 800, 600, 1500]
+    kuantidadis = [20, 15, 25, 8]
+
+    # TODO: zip pa kalkula total di kada produtu
+    # TODO: sorted pa total (reverse) + enumerate pa numerá
+  solutionCode: |
+    # vendas.py
+    produtus = ["Katxupa", "Grogu", "Ponche", "Morabeza T-shirt"]
+    presus = [350, 800, 600, 1500]
+    kuantidadis = [20, 15, 25, 8]
+
+    totais = [(nomi, p * q) for nomi, p, q in zip(produtus, presus, kuantidadis)]
+    ranking = sorted(totais, key=lambda x: x[1], reverse=True)
+
+    for pos, (nomi, total) in enumerate(ranking, start=1):
+        print(f"{pos}. {nomi}: {total} ECV")
+- slug: splora-builtins
+  language: python
+  kind: explore
+  title: { kea: "Splora as funsons inkorporadu" }
+  prompt:
+    kea: "Python tene dezenas di funsan inkorporadu alén di es — `min`, `max`, `sum`, `reversed`, `abs`, `round`. Odja a lista ofisial pa odja tudu o ki bu tene a dispozisan sen importa nada."
+  resources:
+    kea:
+      - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }
+      - { label: "Real Python — Python enumerate()", url: "https://realpython.com/python-enumerate/" }
+- slug: refleta-pythonic
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri kódiku Pythonic" }
+  prompt:
+    kea: "`for i in range(len(lista))` ta funsiona, ma `enumerate()` é más Pythonic. Pensa nun loop ki bu dja skrebe ku `range(len(...))`. Skrebe kumo bu ta riskrebe-l ku `enumerate()` o `zip()`, i pamodi é más kraru."
+  notePlaceholder:
+    kea: "Loop antigu (range(len)): …   ·   Versan ku enumerate/zip: …   ·   Pamodi é midjór: …"

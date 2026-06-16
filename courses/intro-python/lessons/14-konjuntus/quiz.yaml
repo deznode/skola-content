@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m2-14 "Konjuntus (Sets)".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/14-konjuntus/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki ta kria `vazio = {}` na Python?"
+  options:
+    - text: { kea: "Un **disionáriu** vazio, ka un set — pa un set vazio uza `set()`" }
+      correct: true
+    - text: { kea: "Un set vazio" }
+      correct: false
+    - text: { kea: "Un lista vazia" }
+      correct: false
+    - text: { kea: "Un `SyntaxError` — `{}` ka é válidu sózin" }
+      correct: false
+- question:
+    kea: "Ku `a = {1, 2, 3}` i `b = {2, 3, 4}`, o ki ta da `a & b`?"
+  options:
+    - text: { kea: "`{2, 3}` — o `&` (intersection) ta da os elementus ki ta sta na os **dos** sets" }
+      correct: true
+    - text: { kea: "`{1, 2, 3, 4}` — tudu os elementus" }
+      correct: false
+    - text: { kea: "`{1}` — só o ki ta sta na `a`" }
+      correct: false
+    - text: { kea: "`{1, 4}` — o ki ka ta sta na os dos" }
+      correct: false
+- question:
+    kea: "Pamodi un buska `x in meu_set` é más rápidu ki `x in minha_lista` pa kolesons grandi?"
+  options:
+    - text: { kea: "Set ta uza hashing — a buska é O(1) (tempu konstanti); na lista é O(n) (ta verifika kada elementu)" }
+      correct: true
+    - text: { kea: "Set é senpre más pikinin ki lista" }
+      correct: false
+    - text: { kea: "Lista ka ta suporta o operador `in`" }
+      correct: false
+    - text: { kea: "Es é igual — ka ten diferensa di velosidadi" }
+      correct: false

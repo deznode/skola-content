@@ -1,0 +1,189 @@
+# Exercises sidecar (draft source) for lesson m4-30 "Metodus Majiku".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/30-metodus-majiku/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: livru-str-repr
+  language: python
+  kind: code
+  title: { kea: "Klasi Livru ku __str__ i __repr__" }
+  prompt:
+    kea: "Kria un klasi `Livru` ku os atributu `titulo`, `autor` i `pajinas`. Implementa `__str__` (pa mostra `\"Titulo di Autor\"`) i `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` i `repr()`."
+  hint:
+    kea: "`__str__` ta retorna un string amigável pa o utilizador; `__repr__` ta retorna un string ki ta parese ku o kódiku pa rekria o objetu. Os dos ta resebe `self` i ta retorna un string."
+  starterCode: |
+    # livru.py
+    class Livru:
+        def __init__(self, titulo, autor, pajinas):
+            ...  # TODO
+
+        def __str__(self):
+            ...  # TODO: "Titulo di Autor"
+
+        def __repr__(self):
+            ...  # TODO: Livru(titulo='...', ...)
+
+    l = Livru("Chiquinho", "Baltasar Lopes", 220)
+    print(l)        # Chiquinho di Baltasar Lopes
+    print(repr(l))  # Livru(titulo='Chiquinho', autor='Baltasar Lopes', pajinas=220)
+  solutionCode: |
+    # livru.py
+    class Livru:
+        def __init__(self, titulo, autor, pajinas):
+            self.titulo = titulo
+            self.autor = autor
+            self.pajinas = pajinas
+
+        def __str__(self):
+            return f"{self.titulo} di {self.autor}"
+
+        def __repr__(self):
+            return f"Livru(titulo='{self.titulo}', autor='{self.autor}', pajinas={self.pajinas})"
+
+    l = Livru("Chiquinho", "Baltasar Lopes", 220)
+    print(l)        # Chiquinho di Baltasar Lopes
+    print(repr(l))  # Livru(titulo='Chiquinho', autor='Baltasar Lopes', pajinas=220)
+- slug: playlist-musika-dunder
+  language: python
+  kind: code
+  title: { kea: "PlaylistMusika ku dunder methods" }
+  prompt:
+    kea: "Kria un klasi `PlaylistMusika` ki ta gerda un lista di múzika. Implementa `adisiona(musika)`, `__len__` (pa `len(playlist)`), `__contains__` (pa `\"Sodade\" in playlist`) i `__str__` (pa mostra o nomi i kuantas múzika tene)."
+  hint:
+    kea: "`__len__` ta retorna `len(self.musikas)`. `__contains__(self, musika)` ta retorna `musika in self.musikas`. Asin o `len()` i o `in` ta funsiona diretu ku o bu objetu."
+  starterCode: |
+    # playlist.py
+    class PlaylistMusika:
+        def __init__(self, nomi):
+            self.nomi = nomi
+            self.musikas = []
+
+        def adisiona(self, musika):
+            ...
+
+        def __len__(self):
+            ...
+
+        def __contains__(self, musika):
+            ...
+
+        def __str__(self):
+            ...
+  solutionCode: |
+    # playlist.py
+    class PlaylistMusika:
+        def __init__(self, nomi):
+            self.nomi = nomi
+            self.musikas = []
+
+        def adisiona(self, musika):
+            self.musikas.append(musika)
+
+        def __len__(self):
+            return len(self.musikas)
+
+        def __contains__(self, musika):
+            return musika in self.musikas
+
+        def __str__(self):
+            return f"Playlist {self.nomi} ({len(self)} múzika)"
+
+    p = PlaylistMusika("Mornas")
+    p.adisiona("Sodade"); p.adisiona("Petit Pays")
+    print(len(p))              # 2
+    print("Sodade" in p)       # True
+    print(p)                   # Playlist Mornas (2 múzika)
+- slug: dir-disionariu
+  language: python
+  kind: code
+  title: { kea: "Deskubri os metodu di un dict ku dir()" }
+  prompt:
+    kea: "Uza `dir()` pa deskubri os metodu di un disionáriu (`dict`) ki **ka** kumesa ku `_`. Gerda-s nun lista i imprimi-s. Dipos skodje un metodu ki bu inda ka konxe i testa-l."
+  hint:
+    kea: "`dir({})` ta da tudu os atributu (inkluindu os dunder). Filtra ku un list comprehension: `[m for m in dir({}) if not m.startswith(\"_\")]`. Dipos testa un kumo `{}.setdefault` o `{}.popitem`."
+  starterCode: |
+    # dir_dict.py
+    # TODO: lista di metodu di dict ki ka kumesa ku _
+    metodus =
+    print(metodus)
+    # TODO: testa un metodu ki bu ka konxe
+  solutionCode: |
+    # dir_dict.py
+    metodus = [m for m in dir({}) if not m.startswith("_")]
+    print(metodus)
+    # ['clear', 'copy', 'fromkeys', 'get', 'items', 'keys',
+    #  'pop', 'popitem', 'setdefault', 'update', 'values']
+
+    # testa setdefault — ta po un valor só si a xavi ka izisti
+    d = {"a": 1}
+    print(d.setdefault("b", 2))   # 2 (kriadu)
+    print(d.setdefault("a", 9))   # 1 (dja izistia)
+- slug: konta-bankaria-repr
+  language: python
+  kind: code
+  title: { kea: "KontaBankaria — lista ta uza __repr__" }
+  prompt:
+    kea: "Kria un klasi `KontaBankaria` ku `__str__` (`\"Konta di [nomi]: [saldu] ECV\"`) i `__repr__` (ku tudu a informason pa rekria o objetu). Imprimi un **lista** di 3 konta — lenbra ki a lista ta uza `__repr__`!"
+  hint:
+    kea: "Kuandu bu faze `print([konta1, konta2])`, Python ta txoma o `__repr__` di kada elementu, ka o `__str__`. Pa odja o `__str__`, bu ten ki `print(konta)` direta."
+  starterCode: |
+    # konta.py
+    class KontaBankaria:
+        def __init__(self, nomi, saldu):
+            self.nomi = nomi
+            self.saldu = saldu
+
+        def __str__(self):
+            ...
+
+        def __repr__(self):
+            ...
+
+    kontas = [KontaBankaria("Tóni", 5000), KontaBankaria("Ana", 12000)]
+    # TODO: imprimi a lista (ta uza __repr__) i un konta (ta uza __str__)
+  solutionCode: |
+    # konta.py
+    class KontaBankaria:
+        def __init__(self, nomi, saldu):
+            self.nomi = nomi
+            self.saldu = saldu
+
+        def __str__(self):
+            return f"Konta di {self.nomi}: {self.saldu} ECV"
+
+        def __repr__(self):
+            return f"KontaBankaria(nomi='{self.nomi}', saldu={self.saldu})"
+
+    kontas = [
+        KontaBankaria("Tóni", 5000),
+        KontaBankaria("Ana", 12000),
+        KontaBankaria("Dadi", 8000),
+    ]
+    print(kontas)       # [KontaBankaria(nomi='Tóni', saldu=5000), ...]  ← __repr__
+    print(kontas[0])    # Konta di Tóni: 5000 ECV                          ← __str__
+- slug: splora-dunder-methods
+  language: python
+  kind: explore
+  title: { kea: "Splora más metodus majiku" }
+  prompt:
+    kea: "Alén di `__str__`, `__len__` i `__contains__`, Python ten dezenas di dunder methods — `__getitem__` (`obj[i]`), `__bool__` (`if obj:`), `__eq__` (`==`). Odja o \"data model\" ofisial pa odja tudu."
+  resources:
+    kea:
+      - { label: "Python docs — Data model (special methods)", url: "https://docs.python.org/3/reference/datamodel.html#special-method-names" }
+      - { label: "Real Python — Python's __str__() vs __repr__()", url: "https://realpython.com/python-repr-vs-str/" }
+- slug: refleta-str-vs-repr
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri __str__ versus __repr__" }
+  prompt:
+    kea: "`__str__` é pa o utilizador (bonitu); `__repr__` é pa o programador (detalhadu, pa rekria o objetu). Pensa nun klasi ki bu kreba kria. Skrebe o ki o `__str__` ta mostra i o ki o `__repr__` ta mostra, i pamodi un lista di objetu ta uza o `__repr__`."
+  notePlaceholder:
+    kea: "Klasi: …   ·   __str__ (pa utilizador): …   ·   __repr__ (pa programador): …"

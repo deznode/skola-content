@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m3-19 "Jeneradorus".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/19-jeneradorus/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kal é a diferensa entri `[x*2 for x in range(5)]` i `(x*2 for x in range(5))`?"
+  options:
+    - text: { kea: "Os kolxetis `[]` ta kria un **lista** (tudu na memória); os paréntesis `()` ta kria un **generator** (lazy, un valor di kada bez)" }
+      correct: true
+    - text: { kea: "Es é igual — os dos ta kria un lista" }
+      correct: false
+    - text: { kea: "`()` ta kria un tuple kompletu na memória" }
+      correct: false
+    - text: { kea: "`[]` é más lentu ki `()`, ma da o mesmu objetu" }
+      correct: false
+- question:
+    kea: "Nun funsan, kal é a diferensa entri `yield` i `return`?"
+  options:
+    - text: { kea: "`yield` ta **pauza** a funsan i ta lenbra undi el para (pode produz txeu valor); `return` ta **termina** a funsan" }
+      correct: true
+    - text: { kea: "`yield` ta termina a funsan; `return` ta pauza-l" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza" }
+      correct: false
+    - text: { kea: "`yield` só pode ser uzadu un bez pa funsan" }
+      correct: false
+- question:
+    kea: "Bu itera un generator interu nun `for` loop, dipos bu tenta itera-l di nóvu. O ki ta kontise?"
+  options:
+    - text: { kea: "O sigundu loop ka ta produz nada — un generator é **un-bez-só**; pa itera di nóvu, kria un novu generator" }
+      correct: true
+    - text: { kea: "O sigundu loop ta rekomesa di o iníisu automátikamenti" }
+      correct: false
+    - text: { kea: "Python ta da un `StopIteration` na o primeru loop" }
+      correct: false
+    - text: { kea: "O generator ta dobra os valor na sigundu pasada" }
+      correct: false

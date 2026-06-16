@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m3-20 "Módulus i Pakotis".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/20-modulus-pakotis/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Dipos di `from math import sqrt`, kumo bu ta txoma a funsan?"
+  options:
+    - text: { kea: "`sqrt(25)` — diretu, sen o prefixu `math.`" }
+      correct: true
+    - text: { kea: "`math.sqrt(25)` — senpri ku o prefixu" }
+      correct: false
+    - text: { kea: "`import.sqrt(25)`" }
+      correct: false
+    - text: { kea: "`from.sqrt(25)`" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi o bloku `if __name__ == \"__main__\":`?"
+  options:
+    - text: { kea: "O kódiku dentu del só ta kore kuandu o ficheru é izekutadu **diretu**, ka kuandu é importadu kumo módulu" }
+      correct: true
+    - text: { kea: "Ta marka a primeru funsan ki Python ta txoma" }
+      correct: false
+    - text: { kea: "Ta importa tudu os módulu nesesáriu" }
+      correct: false
+    - text: { kea: "Ta da un nomi a o programa prinsipal" }
+      correct: false
+- question:
+    kea: "Bu kre uza un pakotu ki **ka ta** na standard library (p.ex. `requests`). O ki bu ta faze?"
+  options:
+    - text: { kea: "Instala-l ku `pip install requests`, dipos `import requests` na o kódiku" }
+      correct: true
+    - text: { kea: "`import requests` diretu — tudu pakotu ben ku Python" }
+      correct: false
+    - text: { kea: "Kopia o kódiku di `requests` pa o bu ficheru" }
+      correct: false
+    - text: { kea: "Ka ten manera — só os módulu di standard library pode ser uzadu" }
+      correct: false

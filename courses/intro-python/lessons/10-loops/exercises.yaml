@@ -1,0 +1,126 @@
+# Exercises sidecar (draft source) for lesson m1-10 "Loops (for/while)".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/10-loops/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-range-off-by-one` —
+# a broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: tabua-di-multiplikasan
+  language: python
+  kind: code
+  title: { kea: "Tábua di multiplikasan" }
+  prompt:
+    kea: "Pidi un númeru i mostra a se tábua di multiplikasan kompletu (di 1 a 10) ku un `for` loop. Formata kada linha bonitu, p.ex. `7 x 3 = 21`."
+  hint:
+    kea: "Konverti o input ku `int()`. Uza `for j in range(1, 11):` (1 a 10 — lenbra ki `stop` ka ta entra, anton é `11`). Dentu di o loop, un f-string: `print(f\"{num} x {j} = {num * j}\")`."
+  starterCode: |
+    # tabua.py
+    num = int(input("Ki tábua? "))
+
+    # TODO: for j di 1 a 10, imprimi "num x j = num*j"
+  solutionCode: |
+    # tabua.py
+    num = int(input("Ki tábua? "))
+
+    for j in range(1, 11):
+        print(f"{num} x {j:>2} = {num * j}")
+- slug: atxador-numerus-perfeitu
+  language: python
+  kind: code
+  title: { kea: "Atxador di númerus perfeitu" }
+  prompt:
+    kea: "Un númeru perfeitu é ki a soma di se divizoris (menus el mesmu) é igual a el — p.ex. `6 = 1 + 2 + 3`. Atxa i mostra tudu os númerus perfeitu di 1 a 1000 ku loops aninhadu."
+  hint:
+    kea: "Pa kada `num` di 1 a 1000, soma se divizoris: un loop di dentu `for d in range(1, num):` ki djunta `d` a `soma` kuandu `num % d == 0`. Si na fin `soma == num`, num é perfeitu."
+  starterCode: |
+    # perfeitu.py
+    for num in range(1, 1001):
+        soma = 0
+        # TODO: soma os divizoris di num (di 1 a num-1)
+        # TODO: si soma == num, imprimi num
+  solutionCode: |
+    # perfeitu.py
+    for num in range(1, 1001):
+        soma = 0
+        for d in range(1, num):
+            if num % d == 0:
+                soma += d
+        if soma == num:
+            print(f"{num} é perfeitu")
+    # Saída: 6, 28, 496
+- slug: jogu-di-adivinha
+  language: python
+  kind: code
+  title: { kea: "Jogu di adivinha avansadu" }
+  prompt:
+    kea: "Kria un jogu: o komputador ta skodje un númeru aleatóriu di 1 a 100, i o utilizador tene un máksimu di 7 tentativa. A kada palpiti mostra \"Más altu!\" o \"Más baxu!\". Si el adivinha, mostra kuantas tentativa el uza; si os 7 akaba, mostra o númeru sekretu."
+  hint:
+    kea: "`import random` i `random.randint(1, 100)`. Uza un `for tentativa in range(1, 8):` (7 tentativa). Dentu, kompara o palpiti ku o sekretu i da a dika. Un `break` kuandu el adivinha; un `else:` di o `for` ta kore só si os 7 akaba sen `break` — perfeitu pa mostra o sekretu."
+  starterCode: |
+    # jogu.py
+    import random
+    sekretu = random.randint(1, 100)
+
+    # TODO: for tentativa di 1 a 7
+    #   - pidi un palpiti
+    #   - si sertu: parabén + break
+    #   - senan: dika "Más altu/baxu"
+    # TODO: for-else — si akaba sen adivinha, mostra o sekretu
+  solutionCode: |
+    # jogu.py
+    import random
+    sekretu = random.randint(1, 100)
+
+    for tentativa in range(1, 8):
+        palpiti = int(input(f"Tentativa {tentativa}/7 — bu palpiti? "))
+        if palpiti == sekretu:
+            print(f"Parabén! Bu adivinha na {tentativa} tentativa(s)! 🎉")
+            break
+        elif palpiti < sekretu:
+            print("Más altu!")
+        else:
+            print("Más baxu!")
+    else:
+        print(f"Akaba as tentativa! O númeru era {sekretu}.")
+- slug: koriji-range-off-by-one
+  language: python
+  kind: debug
+  file: kontajen.py
+  title: { kea: "Koriji un off-by-one na range()" }
+  prompt:
+    kea: "Es loop debe imprimi os númerus di **1 a 10**, ma el ta para na **9**. O `range` sta ku o `stop` eradu. Koriji-l pa el txiga te 10."
+  hint:
+    kea: "Na `range(start, stop)`, o `stop` **ka ta entra** na loop — `range(1, 10)` ta para na 9. Pa inklui o 10, o `stop` ten ki ser `11`."
+  starterCode: |
+    # kontajen.py — es ta imprimi 1 a 9, ma nu kre 1 a 10. Koriji-l.
+    for i in range(1, 10):
+        print(i)
+  solutionCode: |
+    # kontajen.py — o stop ka ta entra, nton uza 11 pa txiga te 10
+    for i in range(1, 11):
+        print(i)
+- slug: splora-teknikas-loop
+  language: python
+  kind: explore
+  title: { kea: "Splora teknikas di loop (enumerate, zip, itertools)" }
+  prompt:
+    kea: "Alén di `range()`, Python tene ferramentas kumo `enumerate()` (índisi + valor), `zip()` (dos lista djuntu) i o módulu `itertools`. Odja a dokumentason — bu ta volta a `enumerate()` na Lisan 18."
+  resources:
+    kea:
+      - { label: "Python docs — enumerate()", url: "https://docs.python.org/3/library/functions.html#enumerate" }
+      - { label: "Real Python — Python for Loops", url: "https://realpython.com/python-for-loop/" }
+- slug: refleta-loop-infinitu
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri loops infinitu i for vs while" }
+  prompt:
+    kea: "Un `while` ki nunka ta txiga a `False` é un loop infinitu. Pensa nun kazu undi bu ta uza `while` (ka sabe kuantas bez) i otu undi bu ta uza `for` (sabe kuantas bez). Skrebe kumo bu ta garanti ki o `while` ta para."
+  notePlaceholder:
+    kea: "Kazu pa while: …   ·   Kazu pa for: …   ·   Kumo garanti ki o while ta para: …"

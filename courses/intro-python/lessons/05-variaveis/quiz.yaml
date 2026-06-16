@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-05 "Variáveis i Tipu Dinámiku".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/05-variaveis/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Bu skrebe `idadi = input(\"Bu idadi? \")` i utilizador ta skrebe `25`. Ki tipu é `idadi`?"
+  options:
+    - text: { kea: "`str` — `input()` ta retorna senpri un string, mesmu kuandu utilizador ta skrebe un númeru" }
+      correct: true
+    - text: { kea: "`int` — Python ta diskubri ki é un númeru" }
+      correct: false
+    - text: { kea: "`float` — tudu númeru di `input()` é desimal" }
+      correct: false
+    - text: { kea: "Ta dependi di o ki utilizador skrebe" }
+      correct: false
+- question:
+    kea: "Kal di es nomis di variável é **eradu** na Python?"
+  options:
+    - text: { kea: "`2nomi` — un nomi ka pode kumesa ku un númeru" }
+      correct: true
+    - text: { kea: "`nomi_kompletu` — snake_case é koretu" }
+      correct: false
+    - text: { kea: "`_idadi` — kumesa ku underscore é permitidu" }
+      correct: false
+    - text: { kea: "`nota1` — letra primeru, númeru dipos é OK" }
+      correct: false
+- question:
+    kea: "O ki ta kontise kuandu bu kore `int(\"Maria\")`?"
+  options:
+    - text: { kea: "Un `ValueError` — `\"Maria\"` ka pode ser konvertidu pa un interu" }
+      correct: true
+    - text: { kea: "Ta retorna `0` pa string ki ka é númeru" }
+      correct: false
+    - text: { kea: "Ta retorna o tamañu di string: `5`" }
+      correct: false
+    - text: { kea: "Un `TypeError` — `int()` ka ta seita strings" }
+      correct: false

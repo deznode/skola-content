@@ -16,7 +16,7 @@ objectives:
 
 # Strings: Metodus i Formatasan
 
-Na lisan anteriol, bo prende tipu di dadus — i string é un dos ki bu ta uza MA na programasan. Tudu bez ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bu ta uza string. Python tene dezenas di metodus inkorporadu ki ta fasilitá manipulasan di testu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
+Na lisan anteriol, bo prende tipu di dadus — i string é un di kes tipu ki bu ta uza más na programasan. Tudu bez ki bo trabadja ku nomi, mensaji, enderesu, o kualker testu, bu ta uza string. Python tene dezenas di metodus inkorporadu ki ta fasilitá manipulasan di testu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
 
 :::callout{type=tip}
 **Ka preokupa si bu ka kompriendi tudu kódiku gosi.** Lisan-li é so pa **metodus di string i f-strings**. Bu ta odja `if`, `for`, lista (`[...]`) i disionariu (`{...}`) na alguns izemplus prátiku — kes ta ben más tardi: `if` na Lisan 9, `for` na Lisan 10, lista na Lisan 11, disionariu na Lisan 13, `enumerate()` na Lisan 18. Repara na o ki ta kontise ku string, ka na strutura ki ta envolvi-l.
@@ -182,8 +182,8 @@ print(pa_kada)
 ```python
 # .replace(antigu, novu)
 frase = "Python é difísil, Python é konplexu"
-nova_frase = frase.replace("difísil", "fásil")
-print(nova_frase)  # "Python é fásil, Python é konplexu"
+nova_frase = frase.replace("difísil", "fáxi")
+print(nova_frase)  # "Python é fáxi, Python é konplexu"
 
 # Substitui tudu okorensia
 frase2 = "Ola Mundu, Ola Python"
@@ -360,46 +360,20 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
 **Dika:** Kuandu bo skrebe kódiku novu, SENPRI uza f-strings. `.format()` i `%` só esisti pa bu pode ler kódiku ki otru pesoas skrebe antis.
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Prosesador di Nomi:** Pedi utilizador pa skrebe se nomi kompletu ku `input()`. Depois:
-   - Mostra na maiúskula ku `.upper()`
-   - Mostra na minúskula ku `.lower()`
-   - Mostra na formatu título ku `.title()`
-   - Mostra kuantas letras tene (uza `len()` i `.replace(" ", "")` pa tira espasus)
-
-2. **Izersisiu 2 — Analizador di Frase:** Pedi un frase i mostra:
-   - Kuantas palavras tene (uza `.split()` i `len()`)
-   - Kuantas bez letra "a" aparese (uza `.count()`)
-   - Frase invertida (uza `[::-1]`)
-
-3. **Izersisiu 3 — Formatador di Kontatu:** Kria un programa ki pedi nomi, ilha i telefone, dipos mostra un kartu di kontatu formatadu ku f-strings:
-   ```
-   ╔══════════════════════════╗
-   ║  Nomi: Lara Silva        ║
-   ║  Ilha: São Vicente       ║
-   ║  Tel:  +238 991-23-45    ║
-   ╚══════════════════════════╝
-   ```
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Metodus di kazu:** `.upper()`, `.lower()`, `.capitalize()`, `.title()` — muda letras ma ka altera string original
-- **Limpa espasu:** `.strip()`, `.lstrip()`, `.rstrip()` — esensial pa input di utilizador
-- **Split/Join:** `.split()` ta kebra string pa lista; `"sep".join()` ta djunta lista pa string
-- **Buska:** `.find()` (retorna -1), `.index()` (da eru), `.count()`, `.startswith()`, `.endswith()`
-- **Replace:** `.replace(antigu, novu)` — substitui tudu okorensia
-- **Klasifikasan:** `.isdigit()`, `.isalpha()`, `.isalnum()` — verifika konteúdu
-- **Slicing:** `s[start:stop:step]` — `s[::-1]` pa inverte
-- **f-strings:** `f"Ola {nomi}"` — forma prinsipal di formata strings
-- **Debug:** `f"{var=}"` — mostra nomi i valor djuntu (Python 3.8+)
-
----
-
-**Prósimu lisan:** [Operadoris →](/courses/intro-python/lessons/operadoris)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">String é **imutável** — metodus kumo `.upper()` o `.replace()` ka ta muda o original; es ta retorna un string novu ki bu ten ki garda (`nomi = nomi.upper()`).</RezumuItem>
+  <RezumuItem term="Kazu i limpeza">`.upper()`, `.lower()`, `.title()` pa muda kazu; `.strip()` pa tira spasus — esensial pa input di utilizador.</RezumuItem>
+  <RezumuItem term="Split/Join">`.split()` ta kebra string pa lista; `"sep".join()` ta djunta lista pa string.</RezumuItem>
+  <RezumuItem term="Slicing">`s[start:stop:step]` ta korta un parti; `s[::-1]` ta inverti.</RezumuItem>
+  <RezumuItem term="f-strings">`f"Ola {nomi}"` é a forma prinsipal di formata; `f"{var=}"` ta mostra nomi i valor djuntu pa debugging (3.8+).</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`.index()` ta lansa `ValueError` kuandu ka ta atxa — uza `.find()` (ta da `-1`) si bu ka kre o eru. I ka skese di **garda** o rezultadu di un metodu.</RezumuItem>
+</KeyTakeaways>

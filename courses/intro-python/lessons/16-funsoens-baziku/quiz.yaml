@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m3-16 "Funsons Báziku".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/16-funsoens-baziku/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers in kea.mdx (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Un funsan ta uza `print(a + b)` ma sen `return`. O ki ta da `x = funsan(3, 4)`?"
+  options:
+    - text: { kea: "`x` ta vira `None` — a funsan ta mostra `7` na ekran, ma ka ta **retorna** nada" }
+      correct: true
+    - text: { kea: "`x` ta vira `7` — `print` i `return` é a mesmu kuza" }
+      correct: false
+    - text: { kea: "Un eru — funsan ten ki tene `return`" }
+      correct: false
+    - text: { kea: "`x` ta vira `\"7\"` (un string)" }
+      correct: false
+- question:
+    kea: "Pamodi `def f(a=5, b)` ta da un eru?"
+  options:
+    - text: { kea: "Un parámetru ku valor predefinidu ten ki ben **dipos** di os sen valor predefinidu — `def f(b, a=5)` é koretu" }
+      correct: true
+    - text: { kea: "Pamodi `a` ka pode ser igual a `5`" }
+      correct: false
+    - text: { kea: "Pamodi un funsan só pode tene un parámetru predefinidu" }
+      correct: false
+    - text: { kea: "Ka ten eru — `def f(a=5, b)` é válidu" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri `*args` i `**kwargs`?"
+  options:
+    - text: { kea: "`*args` ta apanha os argumentu pozisionál kumo un tuple; `**kwargs` ta apanha os nomiadu kumo un disionáriu" }
+      correct: true
+    - text: { kea: "`*args` é pa strings; `**kwargs` é pa númerus" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza, ku nomi diferenti" }
+      correct: false
+    - text: { kea: "`*args` ta apanha un dict; `**kwargs` ta apanha un tuple" }
+      correct: false
+- question:
+    kea: "O ki é **obrigatóriu** nun funsan rekursiva pa el ka kore pa senpri?"
+  options:
+    - text: { kea: "Un **kazu bazi** — un kondisan ki ta para a rekursan; sen el, Python ta da `RecursionError`" }
+      correct: true
+    - text: { kea: "Un loop `while` dentu di a funsan" }
+      correct: false
+    - text: { kea: "Un parámetru `*args`" }
+      correct: false
+    - text: { kea: "Pelu menus dos `return`" }
+      correct: false

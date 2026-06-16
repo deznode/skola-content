@@ -1,0 +1,168 @@
+# Exercises sidecar (draft source) for lesson m3-16 "Funsons Báziku".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/16-funsoens-baziku/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-return-em-falta` —
+# a broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: konverte-temperatura
+  language: python
+  kind: code
+  title: { kea: "Konversor di temperatura" }
+  prompt:
+    kea: "Skrebe un funsan `konverte_temp(temp, di, pa)` ki konverte entri Celsius, Fahrenheit i Kelvin. P.ex. `konverte_temp(100, \"C\", \"F\")` debe retorna `212.0`."
+  hint:
+    kea: "Konverti primeru pa Celsius kumo \"piví\", dipos di Celsius pa o destinu. `C→F`: `c * 9/5 + 32`; `C→K`: `c + 273.15`. Uza `if`/`elif` pa o `di` i pa o `pa`, i `return` o rezultadu."
+  starterCode: |
+    # temp.py
+    def konverte_temp(temp, di, pa):
+        # TODO: konverti `temp` di `di` pa `pa` (C, F, K)
+        ...
+
+    print(konverte_temp(100, "C", "F"))   # 212.0
+  solutionCode: |
+    # temp.py
+    def konverte_temp(temp, di, pa):
+        # 1) pa Celsius
+        if di == "C":
+            c = temp
+        elif di == "F":
+            c = (temp - 32) * 5 / 9
+        else:  # K
+            c = temp - 273.15
+        # 2) di Celsius pa destinu
+        if pa == "C":
+            return round(c, 2)
+        elif pa == "F":
+            return round(c * 9 / 5 + 32, 2)
+        else:  # K
+            return round(c + 273.15, 2)
+
+    print(konverte_temp(100, "C", "F"))   # 212.0
+    print(konverte_temp(0, "C", "K"))     # 273.15
+- slug: verifika-forsa-senha
+  language: python
+  kind: code
+  title: { kea: "Validador di forsa di senha" }
+  prompt:
+    kea: "Skrebe un funsan `verifika_forsa(senha)` ki retorna `\"fraku\"` (menus di 6 karater), `\"médiu\"` (6+ ku letra i númeru) o `\"forti\"` (8+ ku maiúskula, minúskula, númeru i karater spesiál)."
+  hint:
+    kea: "Uza `any(c.isdigit() for c in senha)`, `any(c.isupper() ...)`, `any(c.islower() ...)` i `any(c in \"!@#$%...\" ...)` pa testa. Verifika o kazu **forti** primeru, dipos o **médiu**, senan **fraku**."
+  starterCode: |
+    # senha.py
+    def verifika_forsa(senha):
+        # TODO: retorna "fraku", "médiu" o "forti"
+        ...
+
+    print(verifika_forsa("abc"))         # fraku
+    print(verifika_forsa("Pr@ia2026!"))  # forti
+  solutionCode: |
+    # senha.py
+    def verifika_forsa(senha):
+        ten_num = any(c.isdigit() for c in senha)
+        ten_mai = any(c.isupper() for c in senha)
+        ten_min = any(c.islower() for c in senha)
+        ten_esp = any(c in "!@#$%^&*()_+-=" for c in senha)
+
+        if len(senha) >= 8 and ten_num and ten_mai and ten_min and ten_esp:
+            return "forti"
+        if len(senha) >= 6 and ten_num and (ten_mai or ten_min):
+            return "médiu"
+        return "fraku"
+
+    print(verifika_forsa("abc"))         # fraku
+    print(verifika_forsa("Pr@ia2026!"))  # forti
+- slug: soma-rekursiva
+  language: python
+  kind: code
+  title: { kea: "Soma rekursiva" }
+  prompt:
+    kea: "Skrebe un funsan **rekursiva** `soma_ate(n)` ki retorna a soma di tudu os númeru di 1 até n. P.ex. `soma_ate(5)` → `15` (1+2+3+4+5)."
+  hint:
+    kea: "Pensa na o **kazu bazi** primeru: `soma_ate(1)` é `1` (o `soma_ate(0)` é `0`). O kazu rekursivu: `n + soma_ate(n - 1)`. Sen o kazu bazi, Python ta da `RecursionError`."
+  starterCode: |
+    # soma.py
+    def soma_ate(n):
+        # TODO: kazu bazi + kazu rekursivu
+        ...
+
+    print(soma_ate(5))   # 15
+  solutionCode: |
+    # soma.py
+    def soma_ate(n):
+        if n <= 0:          # kazu bazi
+            return 0
+        return n + soma_ate(n - 1)   # kazu rekursivu
+
+    print(soma_ate(5))    # 15
+    print(soma_ate(10))   # 55
+- slug: kria-perfil-flexivel
+  language: python
+  kind: code
+  title: { kea: "Perfil flexível ku **kwargs" }
+  prompt:
+    kea: "Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe un `nomi` obrigatóriu i kuantu info adisionál ki o utilizador kre (ilha, idadi, profisan…), i retorna un disionáriu kompletu."
+  hint:
+    kea: "`**info` ta apanha os argumentu nomiadu kumo un disionáriu. Kria un dict ku o nomi i dipos djunta o restu: `perfil = {\"nomi\": nomi}` i `perfil.update(info)` (o `{\"nomi\": nomi, **info}`)."
+  starterCode: |
+    # perfil.py
+    def kria_perfil(nomi, **info):
+        # TODO: retorna un dict ku o nomi + tudu o info
+        ...
+
+    print(kria_perfil("Tóni", ilha="Santiago", idadi=24))
+  solutionCode: |
+    # perfil.py
+    def kria_perfil(nomi, **info):
+        return {"nomi": nomi, **info}
+
+    print(kria_perfil("Tóni", ilha="Santiago", idadi=24))
+    # {'nomi': 'Tóni', 'ilha': 'Santiago', 'idadi': 24}
+- slug: koriji-return-em-falta
+  language: python
+  kind: debug
+  file: dobru.py
+  title: { kea: "Koriji un return ki sta en falta" }
+  prompt:
+    kea: "A funsan `dobru` debe devolve o dobru di un númeru, ma `print(rezultadu)` ta mostra `None`. O kódiku ka ta da eru. Diskubri pamodi i koriji-l."
+  hint:
+    kea: "Un funsan sen `return` ta devolve `None` automátikamenti. A linha `n * 2` ta kalkula o valor ma ka ta devolve-l — meste un `return` na frenti."
+  starterCode: |
+    # dobru.py — pamodi ki "rezultadu" ta sai None? Koriji a funsan.
+    def dobru(n):
+        n * 2
+
+    rezultadu = dobru(5)
+    print(rezultadu)   # ta imprimi None, ka 10
+  solutionCode: |
+    # dobru.py — sen "return", a funsan ta devolve None
+    def dobru(n):
+        return n * 2
+
+    rezultadu = dobru(5)
+    print(rezultadu)   # 10
+- slug: splora-funsoens-args
+  language: python
+  kind: explore
+  title: { kea: "Splora parámetrus di funsan" }
+  prompt:
+    kea: "Python tene regras ríkas pa parámetrus — keyword-only (`*`), positional-only (`/`), i o módulu `functools` pa funsons avansadu. Odja a dokumentason pa intende a orden i as opsons."
+  resources:
+    kea:
+      - { label: "Python docs — Defining Functions (tutorial)", url: "https://docs.python.org/3/tutorial/controlflow.html#defining-functions" }
+      - { label: "Real Python — Defining Your Own Python Function", url: "https://realpython.com/defining-your-own-python-function/" }
+- slug: refleta-return-vs-print
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `return` versus `print`" }
+  prompt:
+    kea: "`print()` ta mostra un valor na ekran; `return` ta manda-l di volta pa ken txoma a funsan (pa uza-l más tardi). Skrebe o ki ta kontise si bu uza `print` undi bu devia uza `return`, i pamodi un funsan ki só ta `print` ta retorna `None`."
+  notePlaceholder:
+    kea: "Kazu pa return: …   ·   Kazu pa print: …   ·   O ki `x = funsan_ku_print()` ta da (i pamodi): …"

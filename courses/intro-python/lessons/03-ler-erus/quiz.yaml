@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-03 "Lé Errus (Tracebacks)".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/03-ler-erus/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kuandu bu ta lé un traceback, pa undi bu debe kumesa lé pa atxa o ki koreu mal?"
+  options:
+    - text: { kea: "Pa última linha — la ki ta sta tipu di eru i mensajen" }
+      correct: true
+    - text: { kea: "Pa primeru linha, `Traceback (most recent call last)`" }
+      correct: false
+    - text: { kea: "Pa linha di meiu, undi sta nomi di fixeru" }
+      correct: false
+    - text: { kea: "Ka ten ordi — kada traceback é diferenti" }
+      correct: false
+- question:
+    kea: "Dezdi Python 3.11, pa kuze ki ta sirbi a seta `^` (caret) na un traceback?"
+  options:
+    - text: { kea: "Ta aponta exatamenti pa parti di kódiku ki ta kauza problema" }
+      correct: true
+    - text: { kea: "Ta mostra kuantu linha di kódiku ten na fixeru" }
+      correct: false
+    - text: { kea: "Ta indika ki versan di Python sta uzadu" }
+      correct: false
+    - text: { kea: "Ta marka undi programa kaba di kore ku susesu" }
+      correct: false
+- question:
+    kea: "Bu ta odja `KeyError: 'nota'` kuandu bu ta kore bu programa. O ki ta kauza es eru?"
+  options:
+    - text: { kea: "Bu ta buska un xavi ki ka ezisti na un disionáriu" }
+      correct: true
+    - text: { kea: "Bu ta tenta dividi un númeru pa zero" }
+      correct: false
+    - text: { kea: "Bu ta uza un variável ki inda ka foi kriadu" }
+      correct: false
+    - text: { kea: "Bu ta asesa un índisi fora di rangu na un lista" }
+      correct: false

@@ -13,27 +13,43 @@
   title: { kea: "Instala i verifika versan" }
   prompt:
     kea: "Instala Python na bu komputador i verifika versan ku `python --version` (o `python3 --version`). Skrebe ki versan bu instala."
+  # `command`/`expectedOutput` are shell snippets — NOT localized (V19 importer).
+  # macOS/Linux form is canonical; Windows (`python --version`) stays in the prompt.
+  command: |
+    python3 --version
+  expectedOutput: |
+    Python 3.13.2
 - slug: kria-i-ativa-venv
   language: python
   kind: setup
   title: { kea: "Kria i ativa un .venv" }
   prompt:
     kea: "Kria un pasta novu txomadu `pratika-python`, kria un `.venv` dentu del, i ativa el. Verifika ki `(.venv)` ta aparesi na bu prompt."
+  command: |
+    mkdir pratika-python
+    cd pratika-python
+    python3 -m venv .venv
+    source .venv/bin/activate
+  expectedOutput: |
+    (.venv) $ python --version
+    Python 3.13.2
 - slug: programa-sobri-mi
   language: python
   kind: code
   title: { kea: "Skrebe sobri-mi.py" }
   prompt:
-    kea: |
-      Kria un fixeru `sobri-mi.py` ki ta pergunta 3 kuzas (nomi, idadi, pratu favoritu) i mostra un mensajen personalizadu. Izemplu di output:
-
-      ```
-      Kumo é bu nomi? João
-      Kuantu anu bu ten? 25
-      Kual é bu pratu favoritu? Katxupa
-      João, bu ten 25 anu i bu ta gosta di Katxupa. Sabi!
-      ```
+    kea: "Kria un fixeru `sobri-mi.py` ki ta pergunta 3 kuzas — nomi, idadi i pratu favoritu — i dipos mostra un mensajen personalizadu. P.ex., pa `João`, `25` i `Katxupa`, programa debe mostra: `João, bu ten 25 anu i bu ta gosta di Katxupa. Sabi!`"
+  # `hint` IS localized (language→string map); `solutionCode` is a plain snippet.
+  hint:
+    kea: "Txoma `input()` tres bez pa resebe nomi, idadi i pratu — kada un na si própriu variável. Dipos uza un `print()` so, ku un f-string `f\"...\"`, pa po kes variável dentu di mensajen ku `{nomi}`, `{idadi}` i `{pratu}`."
   starterCode: |
     # sobri-mi.py
     # Uza input() pa pergunta nomi, idadi i pratu favoritu
     # Dipos uza print() ku f-string pa mostra un mensajen personalizadu
+  solutionCode: |
+    # sobri-mi.py
+    nomi = input("Kumo é bu nomi? ")
+    idadi = input("Kuantu anu bu ten? ")
+    pratu = input("Kual é bu pratu favoritu? ")
+
+    print(f"{nomi}, bu ten {idadi} anu i bu ta gosta di {pratu}. Sabi!")

@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m3-17 "Lambda, Map i Filter".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/17-lambda-map-filter/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers in kea.mdx (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki é un `lambda` na Python?"
+  options:
+    - text: { kea: "Un funsan anónimu (sen nomi) di un só espresan — `lambda x: x * 2`" }
+      correct: true
+    - text: { kea: "Un tipu di loop ki ta repeti un espresan" }
+      correct: false
+    - text: { kea: "Un funsan ki ten ki tene pelu menus 3 linha" }
+      correct: false
+    - text: { kea: "Un módulu di Python pa matemátika" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri `map()` i `filter()`?"
+  options:
+    - text: { kea: "`map()` ta **transforma** kada elementu; `filter()` ta **selesiona** só os elementu undi a funsan ta da `True`" }
+      correct: true
+    - text: { kea: "`map()` ta selesiona; `filter()` ta transforma" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza" }
+      correct: false
+    - text: { kea: "`map()` só ta funsiona ku númerus; `filter()` só ku strings" }
+      correct: false
+- question:
+    kea: "Bu kore `r = map(lambda x: x * 2, [1, 2, 3])` i `print(r)`. O ki ta parese?"
+  options:
+    - text: { kea: "Un objetu map (`<map object at ...>`) — `map()` é lazy; uza `list(r)` pa odja `[2, 4, 6]`" }
+      correct: true
+    - text: { kea: "`[2, 4, 6]` diretu" }
+      correct: false
+    - text: { kea: "`[1, 2, 3]` — sen mudansa" }
+      correct: false
+    - text: { kea: "Un `TypeError`" }
+      correct: false
+- question:
+    kea: "Kumo bu ta pasa a funsan `dobra` pa `map()`?"
+  options:
+    - text: { kea: "`map(dobra, lista)` — sen os paréntesis; `dobra()` ta txoma-l imediatamenti i ta da un eru" }
+      correct: true
+    - text: { kea: "`map(dobra(), lista)` — ku os paréntesis" }
+      correct: false
+    - text: { kea: "`map(lista, dobra)` — a lista primeru" }
+      correct: false
+    - text: { kea: "`dobra.map(lista)`" }
+      correct: false

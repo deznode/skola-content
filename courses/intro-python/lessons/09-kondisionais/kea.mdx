@@ -42,7 +42,7 @@ else:
 3. Si é `False` -- izekuta bloku `else`
 
 :::callout{type=tip}
-**Dika:** Nunka skexi dois-pontus `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabi ki kódiku ta pertensi a kál bloku.
+**Dika:** Nunka skise `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabe ki kódiku ta pertensi a kál bloku.
 :::
 
 Ma uzus simples:
@@ -323,12 +323,12 @@ match dia:
 ## Erus Komun ku Kondisionais
 
 ```python
-# ERU 1: Uza = na vés di ==
+# ERU 1: Uza = en bez di ==
 # if idadi = 18:    # SyntaxError! = é atribuisan
 if idadi == 18:      # == é komparasan ✓
     print("18 anus!")
 
-# ERU 2: Skexi dois-pontus
+# ERU 2: Skise ':'
 # if idadi >= 18     # SyntaxError! Falta ':'
 if idadi >= 18:      # ✓
     print("Adultu")
@@ -345,38 +345,20 @@ if int("18") == 18:  # True ✓
     print("Igual!")
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Klassifikador di IMC** -- Pidi uzuáriu pa inseri pezu (kg) i altura (m). Kalkula IMC (pezu / altura ** 2) i mostra klasifikasan:
-   - Menor ki 18.5: "Baxu pezu"
-   - 18.5 a 24.9: "Pezu normal"
-   - 25.0 a 29.9: "Sobrepezu"
-   - 30 ó más: "Obezidadi"
-
-2. **Izersisiu 2: Konversor di moeda** -- Kria un programa ki konverti entri Eskudu (ECV), Euro (EUR) i Dólar (USD). Pidi montanti i moeda di orijin, dipos mostra valór na kes otu dos moedas. (1 EUR = 110 ECV, 1 USD = 100 ECV)
-
-3. **Izersisiu 3: Klasifikador di triángulu** -- Pidi 3 ladus di un triángulu. Primeru, verifika si ladus ta forma un triángulu válidu (soma di kualker dos ladus ten ki ser maior ki terseiru). Dipos, klasifika:
-   - Ekiáteru (3 ladus igual)
-   - Isóseles (2 ladus igual)
-   - Eskalenu (tudu diferenti)
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- `if` ta verifika un kondisan i izekuta bloku si é `True`
-- `elif` ta djunta kondisan adisional (pode tene txeu `elif`)
-- `else` ta apanha tudu ki ka kombina ku kondisan anterióris
-- Kondisionais aninhadu ta permiti lójika más kompleksu, ma kuidadu ku profundidadi
-- Operadoris lójiku (`and`, `or`, `not`) ta kombina kondisan
-- Ternary operator (`valór if kondisan else otu_valór`) é útil pa kazus simples
-- `match/case` (Python 3.10+) é un alternativa modernu pa kadeia di `if/elif`
-- Senpri uza `==` pa komparasan, nunka `=`
-
----
-
-**Prósimu lisan:** [Loops (for/while) →](/courses/intro-python/lessons/loops)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">A **orden** ta importa — Python ta para na primeru kondisan ki é `True`. Po as kondisons más estrita antis di as más larga.</RezumuItem>
+  <RezumuItem term="if / elif / else">`if` ta verifika un kondisan; `elif` ta djunta más opsons; `else` ta apanha tudu o restu.</RezumuItem>
+  <RezumuItem term="Aninhadu">Bu pode po un `if` dentu di otu pa lójika kompleksu — ma kuidadu ku profundidadi (más di 3 nível ta fika difísil di ler).</RezumuItem>
+  <RezumuItem term="Ternary">`valor if kondisan else otu_valor` é útil pa kazus simples nun linha.</RezumuItem>
+  <RezumuItem term="match/case">Python 3.10+ — un alternativa eleganti pa kadeia di `if`/`elif` ku txeu opsan; `case _` é kumo `else`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka skese o `:` dipos di `if`/`elif`/`else`, indenta ku 4 spasus, i uza senpri `==` (ka `=`) pa komparasan.</RezumuItem>
+</KeyTakeaways>

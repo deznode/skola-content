@@ -1,0 +1,266 @@
+# Exercises sidecar (draft source) for lesson m4-29 "Enkapsolamentu i @property".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/29-enkapsolamentu-property/exercises.yaml,
+# where scripts/import-content.ts emits it into the `exercises` table;
+# <TentaGosi/> renders them in display order. Keep `slug` stable.
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: termometru-seguru
+  language: python
+  kind: code
+  title: { kea: "Termómetru seguru ku @property" }
+  prompt:
+    kea: "Kria un klasi `Termómetru` ku un atributu privadu `__temperatura` (Celsius). Djunta un `@property` pa lé-l i un setter ki valida ki el ka pode ser menus ki `-273.15` (zeru absolutu). Djunta un property kalkuladu `fahrenheit`."
+  hint:
+    kea: "O setter `@temperatura.setter` ta `raise ValueError` si o valor é < -273.15, senan guarda na `self.__temperatura`. O `fahrenheit` é un property só-leitura: `return self.__temperatura * 9/5 + 32`."
+  starterCode: |
+    # termometru.py
+    class Termómetru:
+        def __init__(self, temperatura):
+            self.temperatura = temperatura   # ta uza o setter
+
+        @property
+        def temperatura(self):
+            ...
+
+        @temperatura.setter
+        def temperatura(self, valor):
+            ...  # TODO: valida >= -273.15
+
+        @property
+        def fahrenheit(self):
+            ...  # TODO: kalkula
+  solutionCode: |
+    # termometru.py
+    class Termómetru:
+        def __init__(self, temperatura):
+            self.temperatura = temperatura
+
+        @property
+        def temperatura(self):
+            return self.__temperatura
+
+        @temperatura.setter
+        def temperatura(self, valor):
+            if valor < -273.15:
+                raise ValueError("Abaxu di o zeru absolutu!")
+            self.__temperatura = valor
+
+        @property
+        def fahrenheit(self):
+            return self.__temperatura * 9 / 5 + 32
+
+    t = Termómetru(25)
+    print(t.fahrenheit)   # 77.0
+    t.temperatura = 30
+    print(t.fahrenheit)   # 86.0
+- slug: perfil-estudanti-property
+  language: python
+  kind: code
+  title: { kea: "Perfil di estudanti enkapsuladu" }
+  prompt:
+    kea: "Kria un klasi `Estudanti` ku `nomi` (públiku), `_idadi` (protejidu, ku setter ki valida 5–100), `__notas` (privadu, lista), un property `media` ki ta kalkula a média, i un metodu `djunta_nota(nota)` ki valida ki a nota é entri 0 i 20."
+  hint:
+    kea: "O setter di `idadi` ta `raise ValueError` fora di o rangu. `djunta_nota` ta `self.__notas.append(nota)` si 0 ≤ nota ≤ 20. O property `media` ta kuida di a lista vaziu: `sum(...)/len(...) if self.__notas else 0`."
+  starterCode: |
+    # estudanti.py
+    class Estudanti:
+        def __init__(self, nomi, idadi):
+            self.nomi = nomi
+            self.idadi = idadi      # ta uza o setter
+            self.__notas = []
+
+        @property
+        def idadi(self):
+            ...
+
+        @idadi.setter
+        def idadi(self, valor):
+            ...  # TODO: valida 5–100
+
+        def djunta_nota(self, nota):
+            ...  # TODO: valida 0–20
+
+        @property
+        def media(self):
+            ...
+  solutionCode: |
+    # estudanti.py
+    class Estudanti:
+        def __init__(self, nomi, idadi):
+            self.nomi = nomi
+            self.idadi = idadi
+            self.__notas = []
+
+        @property
+        def idadi(self):
+            return self._idadi
+
+        @idadi.setter
+        def idadi(self, valor):
+            if not 5 <= valor <= 100:
+                raise ValueError("Idadi ten ki sta entri 5 i 100.")
+            self._idadi = valor
+
+        def djunta_nota(self, nota):
+            if not 0 <= nota <= 20:
+                raise ValueError("Nota ten ki sta entri 0 i 20.")
+            self.__notas.append(nota)
+
+        @property
+        def media(self):
+            return sum(self.__notas) / len(self.__notas) if self.__notas else 0
+
+    kelvin = Estudanti("Kelvin", 20)
+    kelvin.djunta_nota(16); kelvin.djunta_nota(14)
+    print(kelvin.media)   # 15.0
+- slug: inventariu-loja-privadu
+  language: python
+  kind: code
+  title: { kea: "Inventáriu di loja enkapsuladu" }
+  prompt:
+    kea: "Kria un klasi `Produtu` ku `nomi` (públiku), `__presu` i `__stoki` (privadu ku validasan), i os metodu `vende(kantidadi)` i `repon(kantidadi)`. Dipos kria un klasi `Loja` ku un lista privadu di produtu i un metodu pa mostra o inventáriu."
+  hint:
+    kea: "Uza `@property` pa `presu` i `stoki` ku setters ki rejeita valor negativu. `vende` ta reduzi `__stoki` si tene sufisienti. `Loja` ta gerda os produtu nun `self.__produtus = []` ku un metodu `adisiona` i `mostra_inventáriu`."
+  starterCode: |
+    # loja.py
+    class Produtu:
+        def __init__(self, nomi, presu, stoki):
+            self.nomi = nomi
+            self.presu = presu
+            self.stoki = stoki
+
+        @property
+        def presu(self): ...
+        @presu.setter
+        def presu(self, v): ...   # TODO: rejeita negativu
+
+        @property
+        def stoki(self): ...
+        @stoki.setter
+        def stoki(self, v): ...
+
+        def vende(self, kantidadi): ...
+        def repon(self, kantidadi): ...
+
+    # TODO: klasi Loja ku lista privadu di produtu
+  solutionCode: |
+    # loja.py
+    class Produtu:
+        def __init__(self, nomi, presu, stoki):
+            self.nomi = nomi
+            self.presu = presu
+            self.stoki = stoki
+
+        @property
+        def presu(self):
+            return self.__presu
+        @presu.setter
+        def presu(self, v):
+            if v < 0:
+                raise ValueError("Presu ka pode ser negativu!")
+            self.__presu = v
+
+        @property
+        def stoki(self):
+            return self.__stoki
+        @stoki.setter
+        def stoki(self, v):
+            if v < 0:
+                raise ValueError("Stoki ka pode ser negativu!")
+            self.__stoki = v
+
+        def vende(self, kantidadi):
+            if kantidadi <= self.__stoki:
+                self.stoki = self.__stoki - kantidadi
+
+        def repon(self, kantidadi):
+            self.stoki = self.__stoki + kantidadi
+
+    class Loja:
+        def __init__(self):
+            self.__produtus = []
+        def adisiona(self, produtu):
+            self.__produtus.append(produtu)
+        def mostra_inventáriu(self):
+            for p in self.__produtus:
+                print(f"{p.nomi}: {p.presu} ECV | stoki {p.stoki}")
+
+    loja = Loja()
+    loja.adisiona(Produtu("Grogu", 500, 10))
+    loja.mostra_inventáriu()
+- slug: utilizador-senha-seguru
+  language: python
+  kind: code
+  title: { kea: "Utilizador ku senha seguru" }
+  prompt:
+    kea: "Kria un klasi `Utilizador` ku `nomi` (públiku) i `__senha` (privadu). O property `senha` debe retorna `\"********\"` (maskáru). O setter debe validar ki a senha tene 8+ karater, un maiúskula, un minúskula i un númeru. Djunta un metodu `verifica_senha(tentativa)` ki ta da `True`/`False`."
+  hint:
+    kea: "O getter di `senha` ta retorna senpri `\"********\"`, nunka a senha real. O setter ta uza `any(c.isupper() ...)` etc. pa validar. `verifica_senha` ta kompara `tentativa == self.__senha`."
+  starterCode: |
+    # utilizador.py
+    class Utilizador:
+        def __init__(self, nomi, senha):
+            self.nomi = nomi
+            self.senha = senha   # ta uza o setter
+
+        @property
+        def senha(self):
+            ...  # TODO: retorna maskáru
+
+        @senha.setter
+        def senha(self, valor):
+            ...  # TODO: valida 8+, maiúskula, minúskula, númeru
+
+        def verifica_senha(self, tentativa):
+            ...
+  solutionCode: |
+    # utilizador.py
+    class Utilizador:
+        def __init__(self, nomi, senha):
+            self.nomi = nomi
+            self.senha = senha
+
+        @property
+        def senha(self):
+            return "********"
+
+        @senha.setter
+        def senha(self, valor):
+            if (len(valor) < 8
+                    or not any(c.isupper() for c in valor)
+                    or not any(c.islower() for c in valor)
+                    or not any(c.isdigit() for c in valor)):
+                raise ValueError("Senha fraku: meste 8+, maiúskula, minúskula i númeru.")
+            self.__senha = valor
+
+        def verifica_senha(self, tentativa):
+            return tentativa == self.__senha
+
+    u = Utilizador("Tóni", "Praia2026")
+    print(u.senha)                        # ********
+    print(u.verifica_senha("Praia2026"))  # True
+- slug: splora-property-dataclass
+  language: python
+  kind: explore
+  title: { kea: "Splora property i __slots__" }
+  prompt:
+    kea: "`@property` é a baz, ma Python ten más — `property()` kumo funsan, `__slots__` pa limita os atributu, i validason na dataclasses. Odja a dokumentason pa odja as opsons di enkapsolamentu."
+  resources:
+    kea:
+      - { label: "Python docs — property()", url: "https://docs.python.org/3/library/functions.html#property" }
+      - { label: "Real Python — Python's property(): Add Managed Attributes", url: "https://realpython.com/python-property/" }
+- slug: refleta-enkapsolamentu
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri enkapsolamentu" }
+  prompt:
+    kea: "Enkapsolamentu ta kontrola ken pode lé i mudá os dadus di un objetu. Pensa nun klasi ku un atributu sensível (saldu, senha, temperatura). Skrebe pamodi bu ta faze-l privadu (`__`), i ki validason o maskaramentu un `@property` ta djunta."
+  notePlaceholder:
+    kea: "Atributu sensível: …   ·   Pamodi privadu: …   ·   Validason/maskaramentu na o property: …"

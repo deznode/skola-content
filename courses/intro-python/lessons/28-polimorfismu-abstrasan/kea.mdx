@@ -155,7 +155,7 @@ mostra_relatoriu(formas)
 ```
 
 :::callout{type=tip}
-**Dika:** Funsan `mostra_relatoriu()` ka sabi nada sobri Retángulu, Sírkulu o Triángulu. El só ta txoma `.area()` i `.nomi`. Kualker klasi novu ki tene kes metodus ta funsiona sen muda funsan!
+**Dika:** Funsan `mostra_relatoriu()` ka sabe nada sobri Retángulu, Sírkulu o Triángulu. El só ta txoma `.area()` i `.nomi`. Kualker klasi novu ki tene kes metodus ta funsiona sen muda funsan!
 :::
 
 ## Klasi Abstratu ku ABC
@@ -224,14 +224,14 @@ class Sirkulu(Forma):
 ```
 
 ```python
-# Si bo skexi implementa un metodu abstratu — ERU!
+# Si bo skise implementa un metodu abstratu — ERU!
 class FormaInkompleta(Forma):
     def __init__(self):
         super().__init__("Inkompleta")
 
     def area(self):
         return 0
-    # Skexi perimetru()!
+    # Skise perimetru()!
 
 # f = FormaInkompleta()
 # TypeError: Can't instantiate abstract class FormaInkompleta
@@ -475,7 +475,7 @@ prosesa_pagamentu(djina, 3_200)
 ```
 
 :::callout{type=tip}
-**Dika:** `prosesa_pagamentu()` ka sabi nada sobri transferénsia, kartun o dinheru móvel. El só ta txoma `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
+**Dika:** `prosesa_pagamentu()` ka sabe nada sobri transferénsia, kartun o dinheru móvel. El só ta txoma `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
 :::
 
 ## Kuandu Uza Klasi Abstratu?
@@ -494,35 +494,20 @@ prosesa_pagamentu(djina, 3_200)
 # - Si metodu pode ser erdadu sen muda → metodu normal (konkretu)
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Ierarkia di Veíkulu:** Kria un klasi abstratu `Veikulu` ku metodus abstratu `ligar()` i `acelera()`. Dipos kria klasis `Karu`, `Motu` i `Barku` ki ta implementa kes metodus di maneras diferenti. Testa ku un lista di veíkulus.
-
-2. **Izersisiu 2 — Sistema di Notifikasan:** Kria un klasi abstratu `Notifikasan` ku metodu abstratu `manda(mensajen)`. Kria klasis `Email`, `SMS` i `WhatsApp` ki ta manda notifikasan di maneras diferenti. Skrebe un funsan `manda_pa_tudu(notifikadoris, mensajen)` ki ta uza polimorfismu.
-
-3. **Izersisiu 3 — Konversor di Moeda:** Kria un klasi abstratu `Konversor` ku metodu abstratu `konverte(montanti)`. Kria klasis `ECV_pa_EUR`, `ECV_pa_USD` i `ECV_pa_BRL` ku taxas diferenti. Skrebe un funsan ki ta mostra konversan di 10,000 ECV na tudu moedas.
-
-4. **Izersisiu 4 — Empregadus di Restoranti:** Kria un klasi abstratu `Empregadu` ku metodu abstratu `kalkula_saláriu()`. Kria klasis `Xefi` (saláriu fixu), `Garson` (saláriu + gorjetas) i `FreeLancer` (paga pa ora). Kalkula folha di pagamentu total.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Polimorfismu** signifika "txeu formas" — mesmu metodu ta konporta diferenti dependendu di klasi
-- **Method overriding** é kuandu klasi fidju ta redefini un metodu di klasi pai
-- **Funsan polimórfiku** ta aseta kualker objetu ku interfasi koretu (duck typing)
-- **`ABC`** (Abstract Base Class) ta kria klasis ki **ka pode ser instansiadu diretamenti**
-- **`@abstractmethod`** ta forsa klasis fidju a implementa sertu metodus
-- Bu pode mistra metodus abstratu (obrigatóriu) ku metodus konkretu (erdadu)
-- Si un klasi fidju ka implementa tudu metodus abstratu, Python ta da `TypeError`
-- Klasis abstratu é ideál kuandu bu tene 2+ klasis ki TEN KI partilha mesmu interfasi
-
----
-
-**Prósimu lisan:** [Enkapsolamentu i @property →](/courses/intro-python/lessons/enkapsolamentu-property)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Un funsan polimórfiku ka liga pa o tipu konkretu — el só ta uza a interfasi. Djunta un novu tipu ku o mesmu metodu i a funsan ka muda.</RezumuItem>
+  <RezumuItem term="Polimorfismu">"Txeu formas" — mesmu metodu, komportamentu diferenti dependendu di a klasi (duck typing, sen meste eransa).</RezumuItem>
+  <RezumuItem term="Overriding">A klasi filhu ta redefini un metodu di o pai pa mudá o komportamentu erdadu.</RezumuItem>
+  <RezumuItem term="ABC">`ABC` ta kria klasis ki **ka pode ser instansiadu** diretu — só ta sirbi kumo pai.</RezumuItem>
+  <RezumuItem term="@abstractmethod">Ta forsa as klasi filhu a implementa sertus metodu — pode misturá ku metodus konkretu erdadu.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Si un filhu ka implementa **tudu** os metodu abstratu, Python ta da `TypeError` kuandu bu tenta kria un objetu del.</RezumuItem>
+</KeyTakeaways>

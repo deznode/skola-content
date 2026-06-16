@@ -352,35 +352,20 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 **Dika:** Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (kumo `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bu kre kódiku más lijível.
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Konversor di Moeda:** Uza `map()` pa konverte un lista di presus na ECV pa Euro (taxa: 1 EUR = 110.265 ECV). Arredonda pa 2 kasas desimai.
-
-2. **Izersisiu 2 — Filtra Studantis:** Dadu un lista di disionárius `[{"nomi": "...", "nota": N}, ...]`, uza `filter()` pa kria duas listas: aprovadus (nota >= 10) i distintu (nota >= 16).
-
-3. **Izersisiu 3 — Prosesador di Nomis:** Di un lista di nomis `["maria", "JOÃO", "ana", "PEDRO"]`, uza `map()` pa normaliza tudu pa formato título (primeira letra maiúskula). Dipos uza `filter()` pa mantene só nomis ku más di 3 letras.
-
-4. **Izersisiu 4 — Pipeline Kompletu:** Di un lista di produtus `[{"nomi": "...", "presu": N, "stoku": N}]`, uza filter() pa pega só produtus na stoku (stoku > 0), dipos uza map() pa aplika 10% di diskontu na presu di kada un.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Lambda** é funsan anónimu di un linha: `lambda x: x * 2`
-- **`map(fn, iterável)`** ta aplika funsan a TUDU elementu — transforma lista interu
-- **`filter(fn, iterável)`** ta mantene SÓ elementus undi funsan retorna True
-- **Senpri konverte** ku `list()` — map/filter retorna objetu lazy, ka lista
-- **Ka uza `()`** kuandu pasa funsan pa map/filter — pasa funsan, ka txoma-l
-- **Kombina** map i filter pa pipeline poderozu di prosesamentu di dadus
-- Lambda é pa koza simples; pa lójika komplikadu, uza `def`
-- List comprehension é un alternativa más lijível pa maioria di kazus
-
----
-
-**Prósimu lisan:** [Funsons Inkorporadus Úteis →](/courses/intro-python/lessons/funsoens-inkorporadus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`map()` i `filter()` ta da objetus **lazy** — senpri konverti ku `list()` pa odja o rezultadu, senan bu ta odja só `<map object ...>`.</RezumuItem>
+  <RezumuItem term="Lambda">Un funsan anónimu di un linha: `lambda x: x * 2` — pa koza kurtu; pa lójika komplikadu, uza `def`.</RezumuItem>
+  <RezumuItem term="map">`map(fn, iterável)` ta aplika a funsan a **tudu** elementu — transforma a lista interu.</RezumuItem>
+  <RezumuItem term="filter">`filter(fn, iterável)` ta mante **só** os elementu undi a funsan ta da `True`.</RezumuItem>
+  <RezumuItem term="Kombina">Filtra dipos transforma (o vice-versa) pa un pipeline poderozu di prosesamentu di dadus.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka pasa a funsan ku `()` — `map(dobra, ...)`, ka `map(dobra(), ...)`. I list comprehension é txeu bez más lijível ki `map`/`filter` ku lambda.</RezumuItem>
+</KeyTakeaways>

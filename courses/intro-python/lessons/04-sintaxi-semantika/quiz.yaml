@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-04 "Sintaxi i Semantika".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/04-sintaxi-semantika/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kal é a diferensa entri **syntax** i **semantics**?"
+  options:
+    - text: { kea: "Syntax é a regra di kumo bu skrebe kódiku; semantics é o ki kódiku ta signifika kuandu el ta kore" }
+      correct: true
+    - text: { kea: "Syntax é o ki kódiku ta faze; semantics é kumo bu skrebe-l" }
+      correct: false
+    - text: { kea: "Syntax i semantics é dos nomi pa mesmu kuza" }
+      correct: false
+    - text: { kea: "Syntax é pa Python 3; semantics é pa Python 2" }
+      correct: false
+- question:
+    kea: "Bu skrebe `Print(\"Ola\")` ku P maiúskulu. O ki ta kontise?"
+  options:
+    - text: { kea: "Un `NameError` — Python é case sensitive, i `Print` ka é mesmu kuza ki `print`" }
+      correct: true
+    - text: { kea: "Nada — Python ka ta liga pa maiúskulu o minúskulu" }
+      correct: false
+    - text: { kea: "Un `SyntaxError` antis di programa kore" }
+      correct: false
+    - text: { kea: "Ta imprimi `Ola` na maiúskulu: `OLA`" }
+      correct: false
+- question:
+    kea: "Na Python, kumo bu ta defini un bloku di kódiku (p.ex. o ki sta dentu di un `if`)?"
+  options:
+    - text: { kea: "Ku **indentasan** — 4 spasus pa kada nível" }
+      correct: true
+    - text: { kea: "Ku xavis `{ }` enrodu di o bloku" }
+      correct: false
+    - text: { kea: "Ku un `;` na fin di kada linha" }
+      correct: false
+    - text: { kea: "Ku a palavra `end` pa marka o fin di bloku" }
+      correct: false

@@ -8,8 +8,12 @@
   kind: code
   title: { kea: "Kore bu primeru programa" }
   prompt:
-    kea: "Sen instala nada, bu pode kore Python diretu na navegador. Vizita un sandbox online (por izemplu [Python Tutor](https://pythontutor.com/python-compiler.html) o [Programiz](https://www.programiz.com/python-programming/online-compiler/)), skrebe kel linha li i klika **Run**. Bu ta odja `Ola! Ben-vindu a Python!` aparesi na tela. **Parabens — bu kaba di kore bu primeru programa Python!**"
+    kea: "Sen instala nada, bu pode kore Python diretu na navegador. Vizita un sandbox online (por izemplu [Python Tutor](https://pythontutor.com/python-compiler.html) o [Programiz](https://www.programiz.com/python-programming/online-compiler/)), skrebe un programa ki ta mostra `Ola! Ben-vindu a Python!` na tela, i klika **Run**. **Parabens — bu kaba di kore bu primeru programa Python!**"
+  hint:
+    kea: "Uza funsan `print()` pa mostra testu na tela. Mensajen ta ba dentu di aspas, sima `print(\"...\")`."
   starterCode: |
+    # Skrebe li bu primeru linha di Python
+  solutionCode: |
     print("Ola! Ben-vindu a Python!")
 - slug: splora-python-org
   language: python
@@ -33,7 +37,7 @@
   kind: explore
   title: { kea: "Splora projetus real" }
   prompt:
-    kea: "Vizita [GitHub Trending - Python](https://github.com/trending/python) i odja 3 projetus popularis. Bu ka presiza kompriende kódiku — só odja tipu di projetus ki sta kriadu ku Python."
+    kea: "Vizita [GitHub Trending — Python](https://github.com/trending/python) i odja 3 projetus popularis. Bu ka presiza kompriende kódiku — só odja tipu di projetus ki sta kriadu ku Python."
   resources:
     kea:
       - { label: "GitHub Trending — Python", url: "https://github.com/trending/python" }

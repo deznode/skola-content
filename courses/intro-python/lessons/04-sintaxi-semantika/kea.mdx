@@ -17,7 +17,7 @@ objectives:
 
 # Sintaxi i Semantika
 
-Tudu lingua tene regras. Kriolu tene gramátika, i Python tene **syntax** (sintaxi). Si bo skrebe un frazi ku palavras fora di orden, ninguén ta intende. Mesmu kuza ku kódiku — si bu ka sigi regras di Python, el ta da eru.
+Tudu lingua tene regras. Kriolu tene gramátika, i Python tene **syntax** (sintaxi). Si bo skrebe un frazi ku palavras fora di orden, ningen ka ta intende. Mesmu kuza ku kódiku — si bu ka sigi regras di Python, el ta da eru.
 
 Nes lisan, nu ta prende regras fundamentais di Python: kumo skrebe komentárius, pamodi letras maiúskulas i minúskulas importa, i kumo Python uza indentasan pa organiza kódiku.
 
@@ -149,7 +149,7 @@ Kuandu bo roda ku `idadi = 15`:
 Programa termina
 ```
 
-Si bo skesi indentasan, Python ta da eru:
+Si bo skise indentasan, Python ta da eru:
 
 ```python
 if idadi >= 18:
@@ -307,55 +307,20 @@ Print("Ola")  # NameError: name 'Print' is not defined
 print("Ola")
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Odja kel kódiku. Sen rodá-l, prediz: kel é un `SyntaxError`, un `NameError`, un `IndentationError`, ó el ta funsiona sen eru?
-```python
-nomi = "Cesária"
-NOMI = "Maria"
-print(nomi)
-print(Nomi)
-```
-
-2. **Izersisiu 2:** Skrebe kel kódiku i koriji erus (ten 3 erus!):
-```python
-Nomi = "Djina"
-if nomi == "Djina":
-print("Ola, Djina!")
-   print("Ben-vindu!")
-```
-
-3. **Izersisiu 3:** Prediz: kal di kes dos blokus ta da eru, i kal ta funsiona? Splika pamodi.
-
-**Blok A:**
-```python
-total = 100 + 200 + 300 + \
-        400 + 500
-print(total)
-```
-
-**Blok B:**
-```python
-total = 100 + 200 + 300 +
-        400 + 500
-print(total)
-```
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Syntax** é regras di kumo skrebe kódiku; **semantics** é kuze ki kódiku signifika
-- **Komentárius** (`#`) ta djuda dokumenta kódiku — Python ta ignora es
-- Python é **case sensitive**: `nomi` i `Nomi` é variáveis diferenti
-- **Indentasan** (4 spasus) ta defini blokus di kódiku — ka ten `{ }` na Python
-- Uza `\` ó parentesis pa **kontinua linhas longas**
-- **Dynamic typing**: variáveis pode muda di tipu; uza `type()` pa verifika
-
----
-
-**Prósimu lisan:** [Variáveis i Tipu Dinámiku →](/courses/intro-python/lessons/variaveis)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Python ta deteta só erus di **syntax**; erus di **semantics** (lójika) é bu responsabilidadi — testa senpri bu kódiku.</RezumuItem>
+  <RezumuItem term="Komentárius">`#` ta dokumenta kódiku — Python ta ignora tudu o ki ben dipos del. Splika **pamodi**, ka **kuze**.</RezumuItem>
+  <RezumuItem term="Case sensitivity">`nomi`, `Nomi` i `NOMI` é tres variáveis diferenti — i `print` ka é `Print`.</RezumuItem>
+  <RezumuItem term="Indentasan">**4 spasus** pa kada nível ta defini blokus di kódiku — ka ten `{ }` na Python.</RezumuItem>
+  <RezumuItem>Pa **kontinua linhas longas**, uza `\` o (midjór) paréntesis. Ku **dynamic typing**, variáveis pode muda di tipu — uza `type()` pa verifika.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`IndentationError` (spasus eradu), `SyntaxError` (paréntesis ki falta) i `NameError` (nomi ku case eradu) é o ki bu ta atxa más na kumesu.</RezumuItem>
+</KeyTakeaways>

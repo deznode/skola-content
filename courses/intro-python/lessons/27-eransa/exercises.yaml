@@ -1,0 +1,214 @@
+# Exercises sidecar (draft source) for lesson m4-27 "Eransa (Simples i Múltiplu)".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/27-eransa/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: ierarkia-di-animal
+  language: python
+  kind: code
+  title: { kea: "Ierarkia di Animál" }
+  prompt:
+    kea: "Kria un klasi bazi `Animál` ku `nomi` i `son`. Dipos kria as klasi filhu `Katxor`, `Gatu` i `Galinha`, kada un ku se própriu metodu `fala()` ki ta imprimi o son. Kria un lista ku 5 animál i faze tudu fala."
+  hint:
+    kea: "A klasi filhu ta erda di `Animál`: `class Katxor(Animál):`. Kada filhu pode definí `fala()` ki uza `self.son`. Un loop sobri a lista ta txoma `a.fala()` pa kada un — kada objetu ta uza a se versan."
+  starterCode: |
+    # animais.py
+    class Animál:
+        def __init__(self, nomi, son):
+            self.nomi = nomi
+            self.son = son
+
+    class Katxor(Animál):
+        def fala(self):
+            ...  # TODO: imprimi o son
+
+    # TODO: Gatu, Galinha; lista di 5; tudu fala
+  solutionCode: |
+    # animais.py
+    class Animál:
+        def __init__(self, nomi, son):
+            self.nomi = nomi
+            self.son = son
+
+    class Katxor(Animál):
+        def fala(self):
+            print(f"{self.nomi}: {self.son}")
+
+    class Gatu(Animál):
+        def fala(self):
+            print(f"{self.nomi}: {self.son}")
+
+    class Galinha(Animál):
+        def fala(self):
+            print(f"{self.nomi}: {self.son}")
+
+    animais = [
+        Katxor("Bobi", "Au au"),
+        Gatu("Mimi", "Miau"),
+        Galinha("Pita", "Kó kó ró kó"),
+        Katxor("Rex", "Au"),
+        Gatu("Felix", "Miau miau"),
+    ]
+    for a in animais:
+        a.fala()
+- slug: kontas-espesializadu
+  language: python
+  kind: code
+  title: { kea: "Kontas bankáriu espesializadu" }
+  prompt:
+    kea: "A partir di un klasi `KontaBankáriu` (ku `titulár` i `saldu`), kria `KontaPoupansa` (ku un taxa di juros ki un metodu `aplika_juros()` ta aplika) i `KontaKorrenti` (ku un `limiti_dezkobertu`). Uza `super().__init__()`."
+  hint:
+    kea: "Na o filhu, txoma `super().__init__(titulár, saldu)` primeru, dipos guarda os atributu novu. `aplika_juros` ta faze `self.saldu += self.saldu * self.taxa`. O `KontaKorrenti` pode levanta até `saldu + limiti_dezkobertu`."
+  starterCode: |
+    # kontas.py
+    class KontaBankáriu:
+        def __init__(self, titulár, saldu=0):
+            self.titulár = titulár
+            self.saldu = saldu
+
+    class KontaPoupansa(KontaBankáriu):
+        def __init__(self, titulár, saldu, taxa):
+            ...  # TODO: super() + taxa
+
+        def aplika_juros(self):
+            ...
+
+    # TODO: KontaKorrenti ku limiti_dezkobertu
+  solutionCode: |
+    # kontas.py
+    class KontaBankáriu:
+        def __init__(self, titulár, saldu=0):
+            self.titulár = titulár
+            self.saldu = saldu
+
+    class KontaPoupansa(KontaBankáriu):
+        def __init__(self, titulár, saldu, taxa):
+            super().__init__(titulár, saldu)
+            self.taxa = taxa
+
+        def aplika_juros(self):
+            self.saldu += self.saldu * self.taxa
+            print(f"Juros aplikadu. Saldu: {self.saldu:.0f} ECV")
+
+    class KontaKorrenti(KontaBankáriu):
+        def __init__(self, titulár, saldu, limiti_dezkobertu):
+            super().__init__(titulár, saldu)
+            self.limiti_dezkobertu = limiti_dezkobertu
+
+        def levanta(self, montanti):
+            if montanti <= self.saldu + self.limiti_dezkobertu:
+                self.saldu -= montanti
+                print(f"Levantadu. Saldu: {self.saldu} ECV")
+            else:
+                print("Limiti di dezkobertu ultrapasadu!")
+
+    p = KontaPoupansa("Tóni", 10000, 0.02)
+    p.aplika_juros()   # Saldu: 10200 ECV
+- slug: eransa-multiplu
+  language: python
+  kind: code
+  title: { kea: "Eransa múltiplu — EstudantiAtleta" }
+  prompt:
+    kea: "Kria as klasi `Estudanti` (ku `nomi`, `kursu`) i `Atleta` (ku `nomi`, `modalidadi`). Dipos kria `EstudantiAtleta` ki erda di os dos. Testa-l i verifika ku `isinstance()`."
+  hint:
+    kea: "Pa eransa **múltiplu**, na o `__init__` di o filhu uza txomada **direta** a kada pai: `Estudanti.__init__(self, nomi, kursu)` i `Atleta.__init__(self, nomi, modalidadi)` (ka `super()`). `isinstance(ea, Estudanti)` ta da `True`."
+  starterCode: |
+    # estudanti_atleta.py
+    class Estudanti:
+        def __init__(self, nomi, kursu):
+            self.nomi = nomi
+            self.kursu = kursu
+
+    class Atleta:
+        def __init__(self, nomi, modalidadi):
+            self.nomi = nomi
+            self.modalidadi = modalidadi
+
+    class EstudantiAtleta(Estudanti, Atleta):
+        def __init__(self, nomi, kursu, modalidadi):
+            ...  # TODO: txomada direta a kada pai
+  solutionCode: |
+    # estudanti_atleta.py
+    class Estudanti:
+        def __init__(self, nomi, kursu):
+            self.nomi = nomi
+            self.kursu = kursu
+
+    class Atleta:
+        def __init__(self, nomi, modalidadi):
+            self.nomi = nomi
+            self.modalidadi = modalidadi
+
+    class EstudantiAtleta(Estudanti, Atleta):
+        def __init__(self, nomi, kursu, modalidadi):
+            Estudanti.__init__(self, nomi, kursu)
+            Atleta.__init__(self, nomi, modalidadi)
+
+    ea = EstudantiAtleta("Djina", "Informátika", "Atletismu")
+    print(ea.kursu, "/", ea.modalidadi)
+    print(isinstance(ea, Estudanti))   # True
+    print(isinstance(ea, Atleta))      # True
+- slug: mro-investigasan
+  language: python
+  kind: code
+  title: { kea: "Investiga o MRO" }
+  prompt:
+    kea: "Kria 4 klasi ku eransa múltiplu (`A`, `B(A)`, `C(A)`, `D(B, C)`), kada un ku un metodu `identifika()`. Uza `D.__mro__` pa preve i verifika a orden di buska, i odja kal versan di `identifika()` ki é txomadu."
+  hint:
+    kea: "O MRO di `D(B, C)` é `D → B → C → A → object` (skerda pa direita). Si `D` ka definí `identifika()`, Python ta uza a primeru ki el atxa na o MRO — a versan di `B`. `print(D.__mro__)` ta mostra a orden ezata."
+  starterCode: |
+    # mro.py
+    class A:
+        def identifika(self):
+            return "A"
+
+    class B(A):
+        def identifika(self):
+            return "B"
+
+    # TODO: C(A), D(B, C); odja D.__mro__ i D().identifika()
+  solutionCode: |
+    # mro.py
+    class A:
+        def identifika(self):
+            return "A"
+
+    class B(A):
+        def identifika(self):
+            return "B"
+
+    class C(A):
+        def identifika(self):
+            return "C"
+
+    class D(B, C):
+        pass
+
+    print([k.__name__ for k in D.__mro__])  # ['D', 'B', 'C', 'A', 'object']
+    print(D().identifika())                 # B  (primeru na o MRO)
+- slug: splora-abc-mixins
+  language: python
+  kind: explore
+  title: { kea: "Splora abstract base classes i mixins" }
+  prompt:
+    kea: "Eransa múltiplu ta abri porta pa **mixins** (klasis ki ta da só un kapasidadi) i **abstract base classes** (`abc`) ki ta forsa as filhu a implementa sertus metodu. Odja a dokumentason."
+  resources:
+    kea:
+      - { label: "Python docs — abc (Abstract Base Classes)", url: "https://docs.python.org/3/library/abc.html" }
+      - { label: "Python docs — Inheritance (tutorial)", url: "https://docs.python.org/3/tutorial/classes.html#inheritance" }
+- slug: refleta-super
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `super()` i sobreskrita" }
+  prompt:
+    kea: "`super().__init__()` ta dexa o filhu reuza o kódiku di o pai sen repeti-l. Pensa nun par di klasi (pai i filhu) ki bu kreba kria. Skrebe o ki o pai ta da, o ki o filhu ta adisiona, i un metodu ki o filhu ta **sobreskrebe** pa mudá o komportamentu."
+  notePlaceholder:
+    kea: "Pai: …   ·   Filhu (o ki adisiona): …   ·   Metodu sobreskrebedu: …"

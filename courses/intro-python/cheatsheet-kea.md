@@ -29,15 +29,15 @@ trace_id: Skola-course-intro-python-20260420-113000
 8. [Tuplas](#8-tuplas)
 9. [Disionárius](#9-disionárius)
 10. [Konjuntus (Sets)](#10-konjuntus-sets)
-11. [Funsoens](#11-funsoens)
+11. [Funsons](#11-funsoens)
 12. [Lambda, Map e Filter](#12-lambda-map-e-filter)
-13. [Funsoens Inkorporadus Úteis](#13-funsoens-inkorporadus-úteis)
+13. [Funsons Inkorporadus Úteis](#13-funsoens-inkorporadus-úteis)
 14. [Jeneradorus](#14-jeneradorus)
 15. [Módulus e Pakotis](#15-módulus-e-pakotis)
 16. [Ambiente Virtual e pip](#16-ambiente-virtual-e-pip)
-17. [Operasoens ku Ficheru](#17-operasoens-ku-ficheru)
+17. [Operasons ku Ficheru](#17-operasoens-ku-ficheru)
 18. [Tratamentu di Erru](#18-tratamentu-di-erru)
-19. [Annotasoens di Tipu](#19-annotasoens-di-tipu)
+19. [Annotasons di Tipu](#19-annotasoens-di-tipu)
 20. [Testu ku pytest](#20-testu-ku-pytest)
 21. [Klasis e Objetis (OOP)](#21-klasis-e-objetis-oop)
 22. [Eransa](#22-eransa)
@@ -58,14 +58,14 @@ trace_id: Skola-course-intro-python-20260420-113000
 # Windows: Bai python.org → Download → IMPORTANTE: Marka "Add python.exe to PATH"!
 
 # macOS: Bai python.org → Download .pkg
-# (Ka uza Homebrew — e tene problemas ku upgrades silensiozu)
+# (Ka uza Homebrew — i tene problemas ku upgrades silensiozu)
 
 # Linux (Ubuntu/Debian):
 sudo apt update
 sudo apt install python3 python3-venv python3-pip
 ```
 
-### Verifica Instalasun
+### Verifika Instalasun
 
 ```bash
 python --version        # Python 3.13.x
@@ -120,7 +120,7 @@ textu = str(25)              # "25"
 idadi = int(input("Bo idadi: "))
 ```
 
-### type() — Verifica Tipu
+### type() — Verifika Tipu
 
 ```python
 print(type(nomi))        # <class 'str'>
@@ -130,7 +130,7 @@ print(type(é_estudanti)) # <class 'bool'>
 
 ### 4 Tipus Báziku
 
-| Tipu | Ezemplu | Uzu |
+| Tipu | Izemplu | Uzu |
 |------|---------|-----|
 | `int` | `42`, `-10`, `0` | Kontadoris, idadi, kantidadi |
 | `float` | `3.14`, `-0.5` | Presus, nota, medidas |
@@ -154,7 +154,7 @@ di Kabu Verdi.
 
 ### Métodus di String
 
-| Métudu | Ezemplu | Resultadu |
+| Métudu | Izemplu | Resultadu |
 |--------|---------|-----------|
 | `.upper()` | `"djon".upper()` | `"DJON"` |
 | `.lower()` | `"DJON".lower()` | `"djon"` |
@@ -188,7 +188,7 @@ nomi = "Maria"
 idadi = 22
 print(f"Nha nomi é {nomi} e N tene {idadi} anu.")
 
-# Expresoens dentu di {}
+# Expresons dentu di {}
 presu = 150.5
 print(f"Presu: {presu:.2f} ECV")   # "Presu: 150.50 ECV"
 
@@ -203,7 +203,7 @@ print(f"{nota=}")                    # "nota=18.5"
 
 ### Aritmetiku
 
-| Operador | Nomi | Ezemplu | Resultadu |
+| Operador | Nomi | Izemplu | Resultadu |
 |----------|------|---------|-----------|
 | `+` | Adisun | `10 + 3` | `13` |
 | `-` | Subtrasun | `10 - 3` | `7` |
@@ -215,7 +215,7 @@ print(f"{nota=}")                    # "nota=18.5"
 
 ### Komparasan
 
-| Operador | Signifikadu | Ezemplu | Resultadu |
+| Operador | Signifikadu | Izemplu | Resultadu |
 |----------|-------------|---------|-----------|
 | `==` | Igual | `5 == 5` | `True` |
 | `!=` | Diferenti | `5 != 3` | `True` |
@@ -226,7 +226,7 @@ print(f"{nota=}")                    # "nota=18.5"
 
 ### Lójiku
 
-| Operador | Signifikadu | Ezemplu | Resultadu |
+| Operador | Signifikadu | Izemplu | Resultadu |
 |----------|-------------|---------|-----------|
 | `and` | I (ambos True) | `True and False` | `False` |
 | `or` | Ou (un True txega) | `True or False` | `True` |
@@ -333,7 +333,7 @@ for ilha in ilhas:
 kontador = 0
 while kontador < 5:
     print(kontador)
-    kontador += 1            # Ka skexi inkrementa!
+    kontador += 1            # Ka skise inkrementa!
 ```
 
 ### break, continue, pass
@@ -385,7 +385,7 @@ frutas[::-1]    # lista reversu
 
 ### Métodus di Lista
 
-| Métudu | Uson | Ezemplu |
+| Métudu | Uson | Izemplu |
 |--------|------|---------|
 | `.append(x)` | djunta na final | `frutas.append("koko")` |
 | `.insert(i, x)` | Inseri na pozisan | `frutas.insert(0, "melun")` |
@@ -397,7 +397,7 @@ frutas[::-1]    # lista reversu
 | `.index(x)` | Atxa pozisan di x | `frutas.index("manga")` |
 | `.count(x)` | Konta okurensias | `frutas.count("banana")` |
 | `.clear()` | Limpa tudu | `frutas.clear()` |
-| `len()` | Tamañu | `len(frutas)` |
+| `len()` | Tamanhu | `len(frutas)` |
 
 ### List Comprehension
 
@@ -530,7 +530,7 @@ di_lista = set([1, 2, 2, 3, 3])    # {1, 2, 3} — auto-deduplika
 vaziu = set()                        # KA {}  (es é dict vaziu!)
 ```
 
-### Operasoens Prinsipal
+### Operasons Prinsipal
 
 ```python
 ilhas.add("Brava")                   # junta
@@ -539,7 +539,7 @@ ilhas.discard("Sal")                 # tira (sem error si ka existe)
 "Santiago" in ilhas                  # True — verifikasun rápidu O(1)
 ```
 
-### Operasoens Matemátiku
+### Operasons Matemátiku
 
 ```python
 a = {1, 2, 3, 4}
@@ -566,7 +566,7 @@ pares = {x for x in range(20) if x % 2 == 0}
 
 ---
 
-## 11. Funsoens
+## 11. Funsons
 
 ### Defini e Txama
 
@@ -677,21 +677,21 @@ estudantis = [
 aprovadus = list(filter(lambda e: e["nota"] >= 14, estudantis))
 ```
 
-> **Dika:** `map()` e `filter()` retorna objetus lazy — uza `list()` pa vê resultadus.
+> **Dika:** `map()` e `filter()` retorna objetus lazy — uza `list()` pa ve resultadus.
 
 ---
 
-## 13. Funsoens Inkorporadus Úteis
+## 13. Funsons Inkorporadus Úteis
 
-| Funsan | Uson | Ezemplu |
+| Funsan | Uson | Izemplu |
 |--------|------|---------|
 | `enumerate()` | Loop ku índisi | `for i, x in enumerate(lista)` |
 | `zip()` | Itera paralelu | `for n, s in zip(nomis, notas)` |
 | `sorted()` | Lista ordenadu (novu) | `sorted(lista, reverse=True)` |
 | `any()` | Algun True? | `any(n > 10 for n in nums)` |
 | `all()` | Tudu True? | `all(n > 0 for n in nums)` |
-| `isinstance()` | Verifica tipu | `isinstance(x, int)` |
-| `len()` | Tamañu | `len("Maria")` → `5` |
+| `isinstance()` | Verifika tipu | `isinstance(x, int)` |
+| `len()` | Tamanhu | `len("Maria")` → `5` |
 | `sum()` | Soma | `sum([1, 2, 3])` → `6` |
 | `min()` / `max()` | Mínimu / Máximu | `max([4, 7, 2])` → `7` |
 | `abs()` | Valor absolutu | `abs(-5)` → `5` |
@@ -743,7 +743,7 @@ next(kuadradus)    # 1
 def kontador_infinitu(inicio=0):
     n = inicio
     while True:
-        yield n           # "pausa" e retorna valor
+        yield n           # "pausa" i retorna valor
         n += 1
 
 gen = kontador_infinitu(1)
@@ -752,7 +752,7 @@ next(gen)    # 2
 next(gen)    # 3
 ```
 
-> **Kuandu uza?** Kuandu bo tene dadus GRANDI ki ka kabe na memória, ou kuandu bo presis procesá un elementu di kada ves.
+> **Kuandu uza?** Kuandu bo tene dadus GRANDI ki ka kabe na memória, ou kuandu bo presis prosesá un elementu di kada bez.
 
 ---
 
@@ -776,7 +776,7 @@ gosi = dt.datetime.now()
 
 ### Stdlib Úteis
 
-| Módulu | Uson | Ezemplu |
+| Módulu | Uson | Izemplu |
 |--------|------|---------|
 | `math` | Matemátika | `math.sqrt(16)`, `math.pi` |
 | `random` | Alatóriu | `random.randint(1, 10)`, `random.choice(lista)` |
@@ -841,7 +841,7 @@ pip install -r requirements.txt
 
 ---
 
-## 17. Operasoens ku Ficheru
+## 17. Operasons ku Ficheru
 
 ### Lé Ficheru
 
@@ -917,7 +917,7 @@ finally:
 
 ### Exsesons Komun
 
-| Exsesan | Kuandu Acontesi |
+| Exsesan | Kuandu Akontesi |
 |---------|-----------------|
 | `SyntaxError` | Kódiku mal skrevedu |
 | `NameError` | Variável ka existe |
@@ -966,7 +966,7 @@ ZeroDivisionError: division by zero            ← O KI acontesi
 
 ---
 
-## 19. Annotasoens di Tipu
+## 19. Annotasons di Tipu
 
 ### Báziku
 
@@ -978,7 +978,7 @@ nota: float = 17.5
 ativu: bool = True
 ```
 
-### Funsoens
+### Funsons
 
 ```python
 def saudason(nomi: str) -> str:
@@ -1002,7 +1002,7 @@ def kontador(textu: str) -> dict[str, int]:
     ...
 ```
 
-> **IMPORTANTE:** Type hints é pa **umanus e feramentas** (IDE, mypy) — Python ka verifica na runtime!
+> **IMPORTANTE:** Type hints é pa **umanus e feramentas** (IDE, mypy) — Python ka verifika na runtime!
 
 ---
 
@@ -1039,7 +1039,7 @@ pytest test_matematika.py   # ficheru spesífiku
 pytest -v                   # verbose — mostra kada testu
 ```
 
-> **Filosofia:** Skrevi testu PRIMERU, implementa DIPÓS, verifica SENPRI.
+> **Filosofia:** Skrevi testu PRIMERU, implementa DIPÓS, verifika SENPRI.
 
 ---
 
@@ -1241,12 +1241,12 @@ maria.nota = 18          # (setter — valida)
 
 ### Métodus Mádjiku Prinsipal
 
-| Métudu | Kuandu Roda | Ezemplu |
+| Métudu | Kuandu Roda | Izemplu |
 |--------|-------------|---------|
 | `__init__` | Kria objetu | `obj = Klasi(...)` |
 | `__str__` | `print(obj)`, `str(obj)` | Saída pa umanu |
 | `__repr__` | `repr(obj)`, terminal | Saída pa developer |
-| `__len__` | `len(obj)` | Tamañu |
+| `__len__` | `len(obj)` | Tamanhu |
 | `__getitem__` | `obj[i]` | Indexasun |
 | `__contains__` | `x in obj` | Membership |
 | `__eq__` | `obj1 == obj2` | Igualdadi |
@@ -1255,7 +1255,7 @@ maria.nota = 18          # (setter — valida)
 | `__sub__` | `obj1 - obj2` | Subtrasun |
 | `__mul__` | `obj1 * obj2` | Multiplikasun |
 
-### Sobrekarga di Operador — Ezemplu Kompletu
+### Sobrekarga di Operador — Izemplu Kompletu
 
 ```python
 class Vetor:
@@ -1372,13 +1372,13 @@ class Nota:
 | Erru | Kauza | Soluson |
 |------|-------|---------|
 | `IndentationError` | Indentasun eradu | Uza 4 espasus (ka tab) |
-| `NameError: name 'x' is not defined` | Variável ka existe | Verifica nomi e eskopiu |
+| `NameError: name 'x' is not defined` | Variável ka existe | Verifika nomi e eskopiu |
 | `TypeError: can only concatenate str to str` | Mistura tipu | Uza `str()` ou f-string |
-| `TypeError: 'NoneType' object is not subscriptable` | Funsan ka retorna nada | Verifica `return` |
-| `IndexError: list index out of range` | Índisi fora di lista | Verifica `len()` antis |
+| `TypeError: 'NoneType' object is not subscriptable` | Funsan ka retorna nada | Verifika `return` |
+| `IndexError: list index out of range` | Índisi fora di lista | Verifika `len()` antis |
 | `KeyError: 'nomi'` | Xavi ka existe na dict | Uza `.get(key, default)` |
 | `ModuleNotFoundError` | Pakoti ka instaladu | `pip install pakoti` (dentu di .venv) |
-| `FileNotFoundError` | Ficheru ka existe | Verifica kaminhu ku `os.path.exists()` |
+| `FileNotFoundError` | Ficheru ka existe | Verifika kaminhu ku `os.path.exists()` |
 | `def f(x, data=[])` | Default mutável partilhadu | Uza `data=None`, dps `data = data or []` |
 | `except:` (sem tipu) | Kapta tudu inkluindu Ctrl+C | SENPRI kapta exsesan spesífiku |
 
@@ -1416,6 +1416,6 @@ class Nota:
 * **Python version:** 3.13+
 * **Risku di drift:** Mudansas na PEP 750 (t-strings), novu sintaxi na 3.14+
 * **Revalidasun:**
-  - [ ] Verifica changelog di Python pa novu versan
+  - [ ] Verifika changelog di Python pa novu versan
   - [ ] Roda ezemplus di kódiku
-  - [ ] Verifica sintaxi di flag e métudu
+  - [ ] Verifika sintaxi di flag e métudu

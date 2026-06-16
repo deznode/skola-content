@@ -187,7 +187,7 @@ print(b)  # Praia
 
 ### Star Unpacking (*) — Pega "Restu"
 
-Kuandu bu ka sabi ezatamente kantu elementus tene, uza `*` pa pega restu:
+Kuandu bu ka sabe ezatamente kantu elementus tene, uza `*` pa pega restu:
 
 ```python
 numeros = (1, 2, 3, 4, 5, 6, 7, 8)
@@ -300,31 +300,20 @@ for _, destinu, durasan, presu in voos_praia:
     print(f"  → {destinu}: {durasan}min, {presu} ECV")
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un tuple `meu_perfil` ku bo nomi, idadi, ilha, i kursu. Uza unpacking pa atribui kada valor a un variável separadu i imprimi ku f-string.
-
-2. **Izersisiu 2:** Dadu kel tuple: `dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)`, uza star unpacking pa separa nomi, email, i notas. Kalkula i mostra: média, nota másimu, i nota mínimu.
-
-3. **Izersisiu 3:** Kria un tuple di tuples ku informasan di 4 ilhas: `(nomi, populasan, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Kalkula populasan total i ilha ku más pesoas.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Tuple** é kolesons ordenadu i **imutável** ki uza `()`
-- **Imutável** signifika ki ka pode muda, adisiona, ó remove elementus
-- Só tene 2 metodus: `.count()` i `.index()`
-- **Packing**: Python ta kria tuple automátikamente kuandu separa valores ku vírgula
-- **Unpacking**: `nomi, idadi, ilha = pessoa` — atribui kada elementu a variáveis
-- **Star unpacking**: `primeiru, *restu, ultimu = dados` — `*` ta pega restu kumo lista
-- Tuples é **más rápidu** ki listas i pode ser **keys di disionáriu**
-- Uza tuples pa dadus ki ka deve muda; listas pa kolesons dinámikus
-
----
-
-**Prósimu lisan:** [Disionárius i Dict Comprehension →](/courses/intro-python/lessons/disionarius)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Uza tuple pa dadus ki **ka deve muda** (koordenadas, datas, konfigurasons); uza lista pa kolesons ki ta kresi o diminui.</RezumuItem>
+  <RezumuItem term="Tuple">Un kolesan **ordenadu** i **imutável** ku `()` — só ten 2 metodu, `.count()` i `.index()`.</RezumuItem>
+  <RezumuItem term="Packing">Python ta kria un tuple sózin kuandu bu separa valores ku vírgula (`p = "Ana", 25`).</RezumuItem>
+  <RezumuItem term="Unpacking">`nomi, idadi, ilha = pessoa` ta atribui kada elementu a un variável — i `a, b = b, a` ta troka valores sen variável temporáriu.</RezumuItem>
+  <RezumuItem term="Star unpacking">`primeiru, *restu = dados` — o `*` ta apanha o restu kumo un **lista**.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Tuple di un só elementu **presiza** vírgula: `("Sal",)`, ka `("Sal")`. I tenta muda un tuple ta da `TypeError`.</RezumuItem>
+</KeyTakeaways>

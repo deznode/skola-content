@@ -1,0 +1,96 @@
+# Exercises sidecar (draft source) for lesson m1-03 "Lé Errus (Tracebacks)".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/03-ler-erus/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3 — diagnose a traceback)
+# use the `debug` exercise kind (V20): the BROKEN program is shown INLINE,
+# read-only, with its filename in the panel titlebar (`file`), so the learner
+# reads the bug before fixing it; the fix is the revealed `solutionCode`. The
+# inline panel keeps its own titlebar copy button, so the learner can still copy
+# the starter to run it. Prompts stay INLINE-only (the prompt renderer,
+# learning-content-core/inline-markdown.tsx, supports inline `code`/**bold**/
+# [links] but NOT multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1 (v1-m1-01) + L2 (v1-m1-02): `title`/`prompt`/`hint`/
+# `notePlaceholder` are localized ({kea:...}); `resources` is localized too
+# ({kea:[{label,url}]}); `starterCode`/`solutionCode` are plain snippets.
+- slug: koriji-nameerror
+  language: python
+  kind: debug
+  file: nomi.py
+  title: { kea: "Koriji un NameError" }
+  prompt:
+    kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja o traceback, i koriji-l pa el imprimi `Ola, Tóni`."
+  hint:
+    kea: "Lé última linha: `name 'nomi' is not defined`. A variável `nomi` ka foi kriadu antis di uza-l na `print`. Defini-l primeru — por izemplu `nomi = \"Tóni\"` o `nomi = input(\"Bu nomi? \")`."
+  starterCode: |
+    # nomi.py — es programa ta da un NameError. Koriji-l.
+    print("Ola, " + nomi)
+  solutionCode: |
+    # Defini a variável antis di uza-l
+    nomi = "Tóni"
+    print("Ola, " + nomi)   # Ola, Tóni
+- slug: koriji-typeerror
+  language: python
+  kind: debug
+  file: loja.py
+  title: { kea: "Koriji un TypeError" }
+  prompt:
+    kea: "Es programa ta da un `TypeError`. **Dika:** `input()` ta retorna senpri un string! Koriji-l pa el kalkula o presu total."
+  hint:
+    kea: "Lé última linha: `can't multiply sequence by non-int`. Tantu `presu` kumo `kantidadi` ben di `input()`, nton es é **strings**, ka númerus. Konverti kada un ku `int(...)` antis di multiplika."
+  starterCode: |
+    # loja.py — es programa ta da un TypeError. Koriji-l.
+    presu = input("Presu di un item? ")
+    kantidadi = input("Kantu? ")
+    presu_total = presu * kantidadi
+    print(f"Total: {presu_total} ECV")
+  solutionCode: |
+    # Konverti string pa int antis di kalkula
+    presu = int(input("Presu di un item? "))
+    kantidadi = int(input("Kantu? "))
+    presu_total = presu * kantidadi
+    print(f"Total: {presu_total} ECV")
+- slug: koriji-indexerror
+  language: python
+  kind: debug
+  file: fruta.py
+  title: { kea: "Koriji un IndexError" }
+  prompt:
+    kea: "Es programa ta da un `IndexError`: a lista `fruta` ten 3 elementus, ma `print(fruta[5])` ta pidi índisi 5. Koriji-l pa el imprimi un fruta ki ezisti na lista."
+  hint:
+    kea: "Lista ten 3 elementus, nton índisis válidu é só `0`, `1` i `2` — ka `3`, `4` o `5`. Lenbra: índisi ta kumesa na 0, i último índisi válidu é `len(fruta) - 1`."
+  starterCode: |
+    # fruta.py — es programa ta da un IndexError. Koriji-l.
+    fruta = ["banana", "manga", "papaia"]
+    print(fruta[5])
+  solutionCode: |
+    fruta = ["banana", "manga", "papaia"]
+    print(fruta[2])   # "papaia" — último índisi válidu é len(fruta) - 1
+
+    # Manera más seguru: verifika tamañu antis di asesa
+    indisi = 5
+    if indisi < len(fruta):
+        print(fruta[indisi])
+    else:
+        print(f"Índisi {indisi} ka ezisti! Lista so ten {len(fruta)} elementus.")
+- slug: splora-exceptions-python
+  language: python
+  kind: explore
+  title: { kea: "Splora lista ofisial di exceptions" }
+  prompt:
+    kea: "Python ten mutu más tipus di eru ki es 5. Ka meste dekora-s — só sabe undi buska. Odja dokumentason ofisial pa odja árvuri kompletu di exceptions."
+  resources:
+    kea:
+      - { label: "Python docs — Built-in Exceptions", url: "https://docs.python.org/3/library/exceptions.html" }
+      - { label: "Python docs — Errors and Exceptions (tutorial)", url: "https://docs.python.org/3/tutorial/errors.html" }
+- slug: refleta-erus-ki-bu-atxa
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri un eru ki bu atxa" }
+  prompt:
+    kea: "Pensa na un eru ki bu dja atxa na es lisan (o un di es 5: `SyntaxError`, `NameError`, `TypeError`, `IndexError`, `KeyError`). Skrebe ki tipu di eru era i kumo bu ta aplika **Ler → Atxa → Pensa** pa diagnostika-l."
+  notePlaceholder:
+    kea: "Eru: …   ·   Ler (última linha): …   ·   Atxa (undi): …   ·   Pensa (pamodi): …"

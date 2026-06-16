@@ -1,0 +1,105 @@
+# Exercises sidecar (draft source) for lesson m2-14 "Konjuntus (Sets)".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/14-konjuntus/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: letras-komun
+  language: python
+  kind: code
+  title: { kea: "Letras komun entri dos palavra" }
+  prompt:
+    kea: "Kria dos set ku as letra di dos palavra (p.ex. `\"katxupa\"` i `\"funana\"`). Mostra as letra ki os dos ta partilha (intersection `&`) i as letra ki só un di es tene (symmetric difference `^`)."
+  hint:
+    kea: "`set(\"katxupa\")` ta da un set di letra úniku. O `&` ta da o ki ta sta na os dos; o `^` ta da o ki ta sta nun o notu, ma **ka** na os dos."
+  starterCode: |
+    # letras.py
+    a = set("katxupa")
+    b = set("funana")
+
+    # TODO: letras komun (a & b)
+    # TODO: letras só nun di es (a ^ b)
+  solutionCode: |
+    # letras.py
+    a = set("katxupa")
+    b = set("funana")
+
+    print(f"Komun (&): {a & b}")
+    print(f"Só nun (^): {a ^ b}")
+- slug: deduplikador-di-email
+  language: python
+  kind: code
+  title: { kea: "Deduplikador di email" }
+  prompt:
+    kea: "Tene un lista di email ki pode tene duplikadu. Uza un `set` pa tira os duplikadu, i mostra kuantu email tinha antis i kuantu fika dipos di limpa."
+  hint:
+    kea: "`set(emails)` ta tira os duplikadu automátikamenti. Konta ku `len()` antis (na lista) i dipos (na set). Pa volta a un lista: `list(set(emails))`."
+  starterCode: |
+    # email.py
+    emails = [
+        "ana@cv.edu", "toni@cv.edu", "ana@cv.edu",
+        "kelvin@cv.edu", "toni@cv.edu", "edna@cv.edu",
+    ]
+
+    # TODO: tira os duplikadu ku un set
+    # TODO: mostra total antis i dipos
+  solutionCode: |
+    # email.py
+    emails = [
+        "ana@cv.edu", "toni@cv.edu", "ana@cv.edu",
+        "kelvin@cv.edu", "toni@cv.edu", "edna@cv.edu",
+    ]
+
+    unikus = set(emails)
+    print(f"Antis: {len(emails)} email")
+    print(f"Dipos: {len(unikus)} úniku")
+    print(unikus)
+- slug: analiza-playlist
+  language: python
+  kind: code
+  title: { kea: "Analiza di playlist" }
+  prompt:
+    kea: "Kria dos playlist kumo set di nomi di múzika. Mostra: tudu as múzika kombinadu (union `|`), as múzika ki ta sta na os dos (intersection `&`), i as múzika ki só ta sta na a playlist 1 (difference `-`)."
+  hint:
+    kea: "`p1 | p2` é o union (tudu); `p1 & p2` é a intersection (na os dos); `p1 - p2` é o ki ta sta na `p1` ma **ka** na `p2`."
+  starterCode: |
+    # playlist.py
+    p1 = {"Sodade", "Petit Pays", "Nha Cretcheu", "Tunuka"}
+    p2 = {"Petit Pays", "Tunuka", "Bna", "Nôs Morna"}
+
+    # TODO: union (tudu)
+    # TODO: intersection (na os dos)
+    # TODO: só na p1
+  solutionCode: |
+    # playlist.py
+    p1 = {"Sodade", "Petit Pays", "Nha Cretcheu", "Tunuka"}
+    p2 = {"Petit Pays", "Tunuka", "Bna", "Nôs Morna"}
+
+    print(f"Tudu (|):      {p1 | p2}")
+    print(f"Na os dos (&): {p1 & p2}")
+    print(f"Só na p1 (-):  {p1 - p2}")
+- slug: splora-frozenset
+  language: python
+  kind: explore
+  title: { kea: "Splora frozenset i operasons di set" }
+  prompt:
+    kea: "Set é mutável, ma `frozenset` é a versan imutável — bu pode uza-l kumo xavi di disionáriu o elementu di otu set. Odja a dokumentason di os tipu set."
+  resources:
+    kea:
+      - { label: "Python docs — Set Types (set, frozenset)", url: "https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset" }
+      - { label: "Python docs — Sets (tutorial)", url: "https://docs.python.org/3/tutorial/datastructures.html#sets" }
+- slug: refleta-set-vs-lista
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri set versus lista" }
+  prompt:
+    kea: "Set ta da elementus úniku i un buska `in` super rápidu (O(1)), ma ka ten orden nen índisi. Pensa nun kazu ki bu ta uza set (p.ex. verifika si un utilizador dja vota) i otu undi bu **ka** pode (p.ex. un fila ku orden). Skrebe pamodi."
+  notePlaceholder:
+    kea: "Kazu pa set: …   ·   Kazu undi set ka ta sirbi: …   ·   Pamodi (úniku? orden? buska?): …"

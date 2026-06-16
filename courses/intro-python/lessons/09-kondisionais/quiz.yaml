@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-09 "Kondisionais (if/elif/else)".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/09-kondisionais/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Nun kadeia `if`/`elif`/`else`, kuantu blokus Python ta izekuta?"
+  options:
+    - text: { kea: "Un só — o primeru ku kondisan `True`; dipos el ta sai di a kadeia" }
+      correct: true
+    - text: { kea: "Tudu blokus ku kondisan `True`" }
+      correct: false
+    - text: { kea: "Tudu blokus, di riba pa baxu, senpri" }
+      correct: false
+    - text: { kea: "Só o bloku `else`, si el izisti" }
+      correct: false
+- question:
+    kea: "O ki ta faze `status = \"adultu\" if idadi >= 18 else \"menor\"`?"
+  options:
+    - text: { kea: "Ta da `\"adultu\"` a `status` si `idadi >= 18`, senan `\"menor\"` — é un ternary operator (if nun linha)" }
+      correct: true
+    - text: { kea: "Un `SyntaxError` — `if` ka pode sta na un linha" }
+      correct: false
+    - text: { kea: "Ta imprimi `\"adultu\"` o `\"menor\"` diretu na ekran" }
+      correct: false
+    - text: { kea: "Ta da senpri `\"adultu\"` a `status`" }
+      correct: false
+- question:
+    kea: "Nun `match`/`case`, pa kuze ki ta sirbi `case _:`?"
+  options:
+    - text: { kea: "É kumo o `else` — el ta apanha tudu valor ki ka kombina ku os otus `case`" }
+      correct: true
+    - text: { kea: "Ta kombina só ku o valor `_` (underscore literál)" }
+      correct: false
+    - text: { kea: "Ta marka o fin di o bloku `match`" }
+      correct: false
+    - text: { kea: "Ta repeti o primeru `case`" }
+      correct: false

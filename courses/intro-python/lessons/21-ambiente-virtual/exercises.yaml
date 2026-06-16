@@ -1,0 +1,86 @@
+# Exercises sidecar (draft source) for lesson m3-21 "Ambiente Virtual i pip".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/21-ambiente-virtual/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) are terminal workflows,
+# so they map to the `setup` kind: an always-visible `command` block plus an
+# optional `expectedOutput` ("Bu ta odja isi"). `command`/`expectedOutput` are
+# PLAIN shell snippets (NOT localized — V19 importer); macOS/Linux form is
+# canonical, Windows variants stay in the prompt. Prompts stay INLINE-only
+# (inline-markdown.tsx — no multi-line fenced blocks). Plus one `explore` +
+# one `reflect`. (Same shape as L2's setup drills.)
+- slug: kria-primeru-venv
+  language: python
+  kind: setup
+  title: { kea: "Kria bu primeru ambiente virtual" }
+  prompt:
+    kea: "Kria un pasta `teste_venv`, kria un ambiente virtual dentu del, ativa-l, instala `requests`, i verifika ku `pip list`. Na Windows, ativa ku `.venv\\Scripts\\activate`."
+  command: |
+    mkdir teste_venv
+    cd teste_venv
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install requests
+    pip list
+  expectedOutput: |
+    (.venv) $ pip list
+    Package            Version
+    ------------------ ---------
+    certifi            2024.2.2
+    charset-normalizer 3.3.2
+    idna               3.6
+    requests           2.31.0
+    urllib3            2.2.1
+- slug: freeze-i-restaura
+  language: python
+  kind: setup
+  title: { kea: "Freeze i restaura ku requirements.txt" }
+  prompt:
+    kea: "Na mesmu pasta, faze `pip freeze > requirements.txt`. Dipos apaga `.venv`, kria-l di nóvu, ativa, i restaura tudu ku `pip install -r requirements.txt`. Verifika ki tudu sta di volta."
+  command: |
+    pip freeze > requirements.txt
+    deactivate
+    rm -rf .venv
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+  expectedOutput: |
+    Successfully installed certifi-2024.2.2 charset-normalizer-3.3.2 idna-3.6 requests-2.31.0 urllib3-2.2.1
+- slug: projetu-kompletu-venv
+  language: python
+  kind: setup
+  title: { kea: "Projetu kompletu ku .gitignore" }
+  prompt:
+    kea: "Kria un projetu `conversor_moeda` ku un `.venv`, un `.gitignore` (ku `.venv/` i `.env`), un `requirements.txt` (ku `requests`) i un `main.py`. Lenbra: o `.venv` **nunka** ta bai pa git."
+  command: |
+    mkdir conversor_moeda && cd conversor_moeda
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install requests
+    pip freeze > requirements.txt
+    printf ".venv/\n.env\n__pycache__/\n" > .gitignore
+    echo 'import requests' > main.py
+    echo 'print("Projetu prontu!")' >> main.py
+    python main.py
+  expectedOutput: |
+    Projetu prontu!
+- slug: splora-uv-pip-tools
+  language: python
+  kind: explore
+  title: { kea: "Splora ferramentas modernu (uv, pip-tools)" }
+  prompt:
+    kea: "`venv` + `pip` é o padron, ma ferramentas modernu kumo `uv` (super rápidu) i `pip-tools` ta jeri dependénsia di forma más robustu. Odja a dokumentason pa konxe as opsons."
+  resources:
+    kea:
+      - { label: "Python docs — venv (Virtual Environments)", url: "https://docs.python.org/3/library/venv.html" }
+      - { label: "uv — An extremely fast Python package manager", url: "https://docs.astral.sh/uv/" }
+- slug: refleta-pamodi-venv
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri pamodi venv é esensiál" }
+  prompt:
+    kea: "Sen un ambiente virtual, tudu pakotu ta bai pa un lugar global partilhadu. Pensa nun kazu di dos projetu ki presiza versan diferenti di mesmu pakotu (p.ex. requests 2.28 vs 2.31). Skrebe o ki ta kontise sen venv, i kumo o venv ta rezolve-l."
+  notePlaceholder:
+    kea: "Problema sen venv: …   ·   Kumo venv ta rezolve: …   ·   Pamodi requirements.txt ta djuda partilha: …"

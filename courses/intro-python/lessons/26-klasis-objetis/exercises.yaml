@@ -1,0 +1,247 @@
+# Exercises sidecar (draft source) for lesson m4-26 "Klasis i Objetis".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/26-klasis-objetis/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-self-em-falta` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: klasi-produtu
+  language: python
+  kind: code
+  title: { kea: "Klasi Produtu" }
+  prompt:
+    kea: "Kria un klasi `Produtu` ku os atributu `nomi`, `presu` (ECV) i `stoki`. Adisiona os metodu `vende(kantidadi)` (ta reduzi o stoki si tene sufisienti) i `repon(kantidadi)` (ta aumenta o stoki)."
+  hint:
+    kea: "Inisializa tudu na `__init__(self, nomi, presu, stoki)`. Na `vende`, verifika `if kantidadi <= self.stoki:` antis di faze `self.stoki -= kantidadi`. Ka skese o `self` kumo primeru parámetru di kada metodu."
+  starterCode: |
+    # produtu.py
+    class Produtu:
+        def __init__(self, nomi, presu, stoki):
+            ...  # TODO: guarda os atributu
+
+        def vende(self, kantidadi):
+            ...  # TODO: reduzi o stoki si tene sufisienti
+
+        def repon(self, kantidadi):
+            ...  # TODO: aumenta o stoki
+  solutionCode: |
+    # produtu.py
+    class Produtu:
+        def __init__(self, nomi, presu, stoki):
+            self.nomi = nomi
+            self.presu = presu
+            self.stoki = stoki
+
+        def vende(self, kantidadi):
+            if kantidadi > self.stoki:
+                print(f"Stoki insufisienti di {self.nomi}!")
+                return
+            self.stoki -= kantidadi
+            print(f"Vendidu {kantidadi} {self.nomi}. Stoki: {self.stoki}")
+
+        def repon(self, kantidadi):
+            self.stoki += kantidadi
+            print(f"Reponedu. Stoki di {self.nomi}: {self.stoki}")
+
+    grogu = Produtu("Grogu", 500, 10)
+    grogu.vende(3)    # Stoki: 7
+    grogu.repon(5)    # Stoki: 12
+- slug: klasi-restoranti
+  language: python
+  kind: code
+  title: { kea: "Klasi Restoranti" }
+  prompt:
+    kea: "Kria un klasi `Restoranti` ku os atributu `nomi`, `sidadi` i `menu` (un disionáriu pratu→presu). Adisiona `adisiona_pratu(nomi, presu)`, `mostra_menu()` i `fazi_pedidu(lista_pratu)` ki ta retorna o total na ECV."
+  hint:
+    kea: "Inisializa `self.menu = {}` na `__init__`. Na `adisiona_pratu`, `self.menu[nomi] = presu`. Na `fazi_pedidu`, soma `self.menu[p]` pa kada pratu na a lista (uza `.get()` pa pratu ki ka izisti)."
+  starterCode: |
+    # restoranti.py
+    class Restoranti:
+        def __init__(self, nomi, sidadi):
+            ...  # TODO: nomi, sidadi, menu vaziu
+
+        def adisiona_pratu(self, nomi, presu):
+            ...
+
+        def mostra_menu(self):
+            ...
+
+        def fazi_pedidu(self, lista_pratu):
+            ...  # TODO: retorna o total
+  solutionCode: |
+    # restoranti.py
+    class Restoranti:
+        def __init__(self, nomi, sidadi):
+            self.nomi = nomi
+            self.sidadi = sidadi
+            self.menu = {}
+
+        def adisiona_pratu(self, nomi, presu):
+            self.menu[nomi] = presu
+
+        def mostra_menu(self):
+            print(f"--- {self.nomi} ({self.sidadi}) ---")
+            for pratu, presu in self.menu.items():
+                print(f"  {pratu}: {presu} ECV")
+
+        def fazi_pedidu(self, lista_pratu):
+            return sum(self.menu.get(p, 0) for p in lista_pratu)
+
+    r = Restoranti("Kasa Nha Tóni", "Mindelo")
+    r.adisiona_pratu("Katxupa", 350)
+    r.adisiona_pratu("Grogu", 500)
+    print(r.fazi_pedidu(["Katxupa", "Grogu"]))   # 850
+- slug: klasi-jogador
+  language: python
+  kind: code
+  title: { kea: "Klasi Jogador" }
+  prompt:
+    kea: "Kria un klasi `Jogador` ku os atributu `nomi`, `ekipa`, `golus` (kumesa na 0) i `jogus` (kumesa na 0). Adisiona `joga(golus_markadu)` i `media_golus()`. Kria 3 jogador i mostra ken ki tene a midjór média."
+  hint:
+    kea: "Na `joga`, `self.jogus += 1` i `self.golus += golus_markadu`. Na `media_golus`, kuidadu ku divizan pa zero: `self.golus / self.jogus if self.jogus else 0`. Pa o midjór, `max(jogadoris, key=lambda j: j.media_golus())`."
+  starterCode: |
+    # jogador.py
+    class Jogador:
+        def __init__(self, nomi, ekipa):
+            ...  # TODO: nomi, ekipa, golus=0, jogus=0
+
+        def joga(self, golus_markadu):
+            ...
+
+        def media_golus(self):
+            ...
+  solutionCode: |
+    # jogador.py
+    class Jogador:
+        def __init__(self, nomi, ekipa):
+            self.nomi = nomi
+            self.ekipa = ekipa
+            self.golus = 0
+            self.jogus = 0
+
+        def joga(self, golus_markadu):
+            self.jogus += 1
+            self.golus += golus_markadu
+
+        def media_golus(self):
+            return self.golus / self.jogus if self.jogus else 0
+
+    a = Jogador("Tóni", "Sporting"); a.joga(2); a.joga(1)
+    b = Jogador("Lela", "Mindelense"); b.joga(3); b.joga(0)
+    c = Jogador("Dadi", "Académica"); c.joga(1); c.joga(1)
+
+    midjór = max([a, b, c], key=lambda j: j.media_golus())
+    print(f"Midjór média: {midjór.nomi} ({midjór.media_golus():.1f})")
+- slug: klasi-biblioteka
+  language: python
+  kind: code
+  title: { kea: "Klasi Biblioteka" }
+  prompt:
+    kea: "Kria un klasi `Biblioteka` ku un lista di livru (kada livru un disionáriu ku `\"títulu\"`, `\"autor\"`, `\"disponível\"`). Adisiona `adisiona_livru(títulu, autor)`, `empresta_livru(títulu)` i `devolve_livru(títulu)`."
+  hint:
+    kea: "Inisializa `self.livrus = []`. Pa `empresta`, atxa o livru pa títulu i po `\"disponível\" = False` (si dja sta emprestadu, avisa). `devolve` ta faze o kontráriu. Un loop sobri `self.livrus` ta atxa o sertu."
+  starterCode: |
+    # biblioteka.py
+    class Biblioteka:
+        def __init__(self):
+            self.livrus = []
+
+        def adisiona_livru(self, títulu, autor):
+            ...
+
+        def empresta_livru(self, títulu):
+            ...
+
+        def devolve_livru(self, títulu):
+            ...
+  solutionCode: |
+    # biblioteka.py
+    class Biblioteka:
+        def __init__(self):
+            self.livrus = []
+
+        def adisiona_livru(self, títulu, autor):
+            self.livrus.append({"títulu": títulu, "autor": autor, "disponível": True})
+
+        def _atxa(self, títulu):
+            for livru in self.livrus:
+                if livru["títulu"] == títulu:
+                    return livru
+            return None
+
+        def empresta_livru(self, títulu):
+            livru = self._atxa(títulu)
+            if livru and livru["disponível"]:
+                livru["disponível"] = False
+                print(f"'{títulu}' emprestadu.")
+            else:
+                print(f"'{títulu}' ka sta disponível.")
+
+        def devolve_livru(self, títulu):
+            livru = self._atxa(títulu)
+            if livru:
+                livru["disponível"] = True
+                print(f"'{títulu}' devolvedu.")
+
+    b = Biblioteka()
+    b.adisiona_livru("Chiquinho", "Baltasar Lopes")
+    b.empresta_livru("Chiquinho")   # emprestadu
+    b.devolve_livru("Chiquinho")    # devolvedu
+- slug: koriji-self-em-falta
+  language: python
+  kind: debug
+  file: konta.py
+  title: { kea: "Koriji un self ki sta en falta" }
+  prompt:
+    kea: "O metodu `deposita` ta da un `NameError: name 'saldu' is not defined`. Falta a referénsia pa o objetu atuál. Koriji-l pa o saldu atualiza pa 150."
+  hint:
+    kea: "Dentu di un metodu, os atributu di o objetu ten ki ser asesadu ku `self.` — `self.saldu`, ka `saldu` solu. Uza `self.saldu += montanti`."
+  starterCode: |
+    # konta.py — es ta da un NameError. Koriji-l.
+    class Konta:
+        def __init__(self, saldu):
+            self.saldu = saldu
+
+        def deposita(self, montanti):
+            saldu = saldu + montanti   # NameError: saldu
+
+    k = Konta(100)
+    k.deposita(50)
+    print(k.saldu)
+  solutionCode: |
+    # konta.py — os atributu di o objetu ta uzadu ku self.
+    class Konta:
+        def __init__(self, saldu):
+            self.saldu = saldu
+
+        def deposita(self, montanti):
+            self.saldu += montanti
+
+    k = Konta(100)
+    k.deposita(50)
+    print(k.saldu)   # 150
+- slug: splora-dataclasses
+  language: python
+  kind: explore
+  title: { kea: "Splora @dataclass" }
+  prompt:
+    kea: "Skrebe `__init__` pa kada klasi é repetitivu. O dekorador `@dataclass` ta jeri-l sózin a partir di os atributu. Odja a dokumentason — un atadju poderozu pa klasis ki só ta gerda dadus."
+  resources:
+    kea:
+      - { label: "Python docs — dataclasses", url: "https://docs.python.org/3/library/dataclasses.html" }
+      - { label: "Python docs — Classes (tutorial)", url: "https://docs.python.org/3/tutorial/classes.html" }
+- slug: refleta-self
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `self`" }
+  prompt:
+    kea: "`self` é a referénsia pa o objetu atuál — kumo dize \"nha\". Pensa nun klasi ki bu kreba kria (p.ex. un karu, un konta, un estudanti). Skrebe ki atributu (`self.x`) i ki metodu el ta tene, i pamodi kada objetu ten ki tene se própriu kópia di os atributu."
+  notePlaceholder:
+    kea: "Klasi: …   ·   Atributu (self.x): …   ·   Metodu: …   ·   Pamodi kada objetu é independenti: …"

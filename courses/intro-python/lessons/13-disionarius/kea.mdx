@@ -16,9 +16,9 @@ objectives:
 
 # Disionárius i Dict Comprehension
 
-Imagina un livru di kontatusis: bu ta prokurea nomi di pesoa i enkontra es númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamente asim — é un kolesons di **pares key-value** (xavi-valor).
+Imagina un livru di kontatusis: bu ta buska un nomi i logu bu ta atxa se númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamente asim — é un kolesons di **pares key-value** (xavi-valor).
 
-Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza prokurea rápidamente — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
+Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
 
 ## Kria Disionárius
 
@@ -405,31 +405,20 @@ presu_mediu = sum(d["presu"] for d in inventáriu.values()) / len(inventáriu)
 print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un disionáriu `meu_perfil` ku bo nomi, idadi, ilha, i 3 hobis (kumo lista). Adisiona "email" dipos, atualiza idadi, i mostra tudu pares ku un loop.
-
-2. **Izersisiu 2:** Dadu un lista di palavras: `["funana", "morabeza", "katxupa", "grogu", "sodadi", "morabeza", "funana", "funana"]`, kria un disionáriu di frekuénsia ki konta kantu bez kada palavra aparese. Mostra palavra ki más aparese.
-
-3. **Izersisiu 3:** Kria un disionáriu aninhadu ku 3 ilhas, kada un ku "populasan", "area_km2", i "kapital". Uza dict comprehension pa kria novu disionáriu só ku ilhas ki tene populasan asin di 50000. Kalkula densidadi populasional (populasan/area) di kada un.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Disionáriu** guarda pares **key: value** dentu di `{}`
-- Keys ten ki ser **úniku** i **imutável** — duplikadus ta sobreskrebi silensiosamenti
-- `.get(key, padrun)` é más seguru ki `[]` — ka ta da KeyError
-- **Metodus prinsipal**: `.keys()`, `.values()`, `.items()`, `.copy()`, `.update()`, `.pop()`
-- `=` ta kria **referénsia** (mesmu objetu); `.copy()` ta kria kópia **independenti**
-- **Dict comprehension**: `{key: valor for item in iterável if kondisan}`
-- **Kontador di frekuénsia**: `.get(key, 0) + 1` é padrón klásiku
-- **Merge**: `{**d1, **d2}` ó `d1 | d2` (Python 3.9+) pa djunta disionárius
-
----
-
-**Prósimu lisan:** [Konjuntus (Sets) →](/courses/intro-python/lessons/konjuntus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Uza `.get(key, padron)` en bez di `[]` kuandu bu ka ten serteza ki a xavi izisti — `[]` ta da `KeyError`, `.get()` ta da un valor padron sen kebra o programa.</RezumuItem>
+  <RezumuItem term="Disionáriu">Ta gerda pares **key: value** dentu di `{}`. As xavi ten ki ser **úniku** i **imutável**.</RezumuItem>
+  <RezumuItem term="Metodus">`.keys()`, `.values()`, `.items()` (pa iterá), más `.update()`, `.pop()`, `.copy()`.</RezumuItem>
+  <RezumuItem term="Comprehension">`{key: valor for item in iterável if kondisan}` pa transforma o filtra dadus.</RezumuItem>
+  <RezumuItem term="Frekuénsia / merge">`frek.get(k, 0) + 1` pa konta; `{**d1, **d2}` o `d1 | d2` (3.9+) pa djunta disionárius.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`=` ta kria un **referénsia** a o mesmu objetu (uza `.copy()` pa un kópia real), i xavi duplikadu ta sobreskrebi silensiozu — o últimu ta ganha.</RezumuItem>
+</KeyTakeaways>

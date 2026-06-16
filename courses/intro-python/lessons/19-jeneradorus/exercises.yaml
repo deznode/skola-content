@@ -1,0 +1,108 @@
+# Exercises sidecar (draft source) for lesson m3-19 "Jeneradorus".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/19-jeneradorus/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: generator-di-pares
+  language: python
+  kind: code
+  title: { kea: "Generator expression di pares" }
+  prompt:
+    kea: "Skrebe un **generator expression** ki ta produz os númeru par di 0 a 50. Uza un `for` loop pa imprimi tudu os valor."
+  hint:
+    kea: "Un generator expression é kumo un list comprehension, ma ku paréntesis `()`: `(x for x in range(0, 51) if x % 2 == 0)`. Dipos `for v in gen: print(v)`."
+  starterCode: |
+    # pares.py
+    # TODO: generator expression di pares di 0 a 50
+    pares =
+
+    # TODO: imprimi ku un for loop
+  solutionCode: |
+    # pares.py
+    pares = (x for x in range(0, 51) if x % 2 == 0)
+
+    for v in pares:
+        print(v, end=" ")
+    # 0 2 4 6 ... 50
+- slug: moedas-ecv
+  language: python
+  kind: code
+  title: { kea: "Generator function di moedas ECV" }
+  prompt:
+    kea: "Kria un **generator function** `moedas_ecv()` ki ta produz os valor di moeda kabu-verdianu: 1, 5, 10, 20, 50, 100 (un di kada bez ku `yield`). Itera sobri el ku `next()`."
+  hint:
+    kea: "Dentu di a funsan, `for v in [1, 5, 10, 20, 50, 100]: yield v`. O `yield` ta pauza a funsan i ta devolvi un valor; kada `next()` ta kontinua undi el para."
+  starterCode: |
+    # moedas.py
+    def moedas_ecv():
+        # TODO: yield kada valor di moeda
+        ...
+
+    gen = moedas_ecv()
+    print(next(gen))   # 1
+    print(next(gen))   # 5
+  solutionCode: |
+    # moedas.py
+    def moedas_ecv():
+        for v in [1, 5, 10, 20, 50, 100]:
+            yield v
+
+    gen = moedas_ecv()
+    print(next(gen))   # 1
+    print(next(gen))   # 5
+    print(next(gen))   # 10
+
+    # o ku un loop:
+    for moeda in moedas_ecv():
+        print(moeda, end=" ")   # 1 5 10 20 50 100
+- slug: fibonacci-limitadu
+  language: python
+  kind: code
+  title: { kea: "Fibonacci limitadu" }
+  prompt:
+    kea: "Skrebe un generator function `fibonacci(limite)` ki ta produz a sekuénsia di Fibonacci i ta para kuandu o valor ta pasa o `limite`. Testa-l ku `limite=100`."
+  hint:
+    kea: "Kumesa ku `a, b = 0, 1`. Nun `while a <= limite:` faze `yield a` i dipos `a, b = b, a + b`. O `while` ku a kondisan ta para sózin kuandu o valor pasa o limite."
+  starterCode: |
+    # fib.py
+    def fibonacci(limite):
+        # TODO: yield a, dipos a, b = b, a + b — para na limite
+        ...
+
+    print(list(fibonacci(100)))
+  solutionCode: |
+    # fib.py
+    def fibonacci(limite):
+        a, b = 0, 1
+        while a <= limite:
+            yield a
+            a, b = b, a + b
+
+    print(list(fibonacci(100)))
+    # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+- slug: splora-itertools
+  language: python
+  kind: explore
+  title: { kea: "Splora itertools" }
+  prompt:
+    kea: "O módulu `itertools` tene ferramentas poderozu pa traba ku jeneradorus i sekuénsia — `islice` (limita un generator infinitu), `count`, `cycle`, `chain`. Odja a dokumentason."
+  resources:
+    kea:
+      - { label: "Python docs — itertools", url: "https://docs.python.org/3/library/itertools.html" }
+      - { label: "Python docs — Generators (tutorial)", url: "https://docs.python.org/3/tutorial/classes.html#generators" }
+- slug: refleta-generator-vs-lista
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri generator versus lista" }
+  prompt:
+    kea: "Generator ta produz valor un pa un (puopa memória), ma só pode ser iteradu un bez i ka ten `len()` nen índisi. Pensa nun kazu di dadus grandi (un ficheru, un sekuénsia infinita). Skrebe pamodi un generator é midjór la, i undi un lista sería nesesáriu."
+  notePlaceholder:
+    kea: "Kazu pa generator: …   ·   Kazu undi meste lista: …   ·   Pamodi (memória? un-bez-só? índisi?): …"

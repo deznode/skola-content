@@ -114,7 +114,7 @@ prosesa_nota("25")     # Nota 25.0 fora di rangu (0-20)!
 # MODU ERADU — tudu na try ta maská erus
 try:
     nota = float(tekstu)
-    # Si es linha ta da eru, bo ka sabi si é di float() o di otru koza
+    # Si es linha ta da eru, bo ka sabe si é di float() o di otru koza
     guarda_na_bazi(nota)
 except ValueError:
     print("Eru!")  # Undi exatamenti?
@@ -266,7 +266,7 @@ print(estudanti)  # {'nomi': 'Djina', 'idadi': 22}
 
 ## Exsesons Personalizadu
 
-Pa projetus grandi, bu pode kria bo própriu klasis di exsesan. Es ta faze kódiku más klaru i fásil di manté:
+Pa projetus grandi, bu pode kria bo própriu klasis di exsesan. Es ta faze kódiku más klaru i fáxi di manté:
 
 :::callout{type=info}
 **Forward-ref:** Sintaxi di `class` é o tópiku di **Módulu 4** (lisan 26 +). Pa gosi, só odja ki bu pode kria un tipu novu di eru ku ~3 linha di kódiku — detalhi di klasis ta ben dipos.
@@ -384,35 +384,20 @@ BaseException
 **Dika:** Senpri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `KeyboardInterrupt` i `SystemExit` ki bo normalmenti ka kre kaptura.
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Skrebe un funsan `dividi_seguru(a, b)` ki ta retorna rezultadu di `a / b`. Si `b` é zero, retorna mensajen "Ka pode dividi pa zero". Si `a` o `b` ka é numeru, retorna "Argumentus inválidus". Uza try/except.
-
-2. **Izersisiu 2:** Kria un programa ki ta pidi uzuáriu pa mete si idadi (ku `input()`). Si uzuáriu mete algu ki ka é numeru, programa ta pidi di novu (uza un loop `while` ku try/except). Só para kuandu uzuáriu mete un numeru válidu entri 1 i 120.
-
-3. **Izersisiu 3:** Kria un exsesan personalizadu `IdadiInváliduError` i un funsan `valida_idadi(idadi)` ki ta lansa el si idadi é negativu o maior ki 150. Testa ku try/except.
-
-4. **Izersisiu 4:** Skrebe un programa ki ta ler un ficheru di notas (un numeru pa linha), kaptura `FileNotFoundError` si ficheru ka ezisti, kaptura `ValueError` pa linhas ki ka é numeru, i na final (`else`) mostra média das notas válidus.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **`try/except`** — tenta kódiku i kaptura eru si akontesi
-- **Exsesons espesífiku primeru** — `ValueError`, `TypeError`, etc. antis di `Exception`
-- **`else`** — só roda si `try` ka teve nenhun eru (mantene kódiku separadu)
-- **`finally`** — SENPRI roda (limpeza: fexá ficheru, fexá koneksan)
-- **`raise`** — lansa eru di bo própriu kódiku pa sinaliza problemus
-- **Exsesons personalizadu** — `class MeuError(Exception)` pa erus espesífiku di bo projetu
-- **`as e`** — asesa mensajen i atributus di exsesan
-- **Regra di oru:** kaptura espesífiku, ka kaptura tudu ku `except:` sen tipu
-
----
-
-**Prósimu lisan:** [Annotasons di Tipu →](/courses/intro-python/lessons/annotasoens-tipu)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Kaptura exseson **espesífiku** (`ValueError`, `ZeroDivisionError`…), ka un `except:` solu — asin bu sabe exatamenti o ki koreu mal.</RezumuItem>
+  <RezumuItem term="try / except">Tenta un kódiku i kaptura o eru si el akontese — po os espesífiku primeru, `Exception` na o fin.</RezumuItem>
+  <RezumuItem term="else / finally">`else` só ta kore si o `try` ka teve eru; `finally` ta kore **senpri** (limpeza: fexa ficheru, libera rekursu).</RezumuItem>
+  <RezumuItem term="raise">Ta lansa un eru di o bu própriu kódiku — pa sinaliza un argumentu inválidu o un kondisan di negósiu ki ka é satisfeitu.</RezumuItem>
+  <RezumuItem term="Personalizadu">`class MeuError(Exception)` ta da un tipu di eru spesífiku di o bu projetu. `as e` ta da asesu a mensajen i atributus.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka po tudu o kódiku dentu di o `try` — só o ki **pode** faya; o restu na o `else`, senan bu ta maská di undi o eru ben.</RezumuItem>
+</KeyTakeaways>

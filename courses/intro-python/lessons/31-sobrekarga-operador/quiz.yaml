@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-31 "Sobrekarga di Operador".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/31-sobrekarga-operador/quiz.yaml;
+# positions 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kuandu bu skrebe `a + b`, ki metodu majiku Python ta txoma pa trás?"
+  options:
+    - text: { kea: "`a.__add__(b)` — o operador `+` ta txoma o metodu `__add__`" }
+      correct: true
+    - text: { kea: "`a.__sum__(b)`" }
+      correct: false
+    - text: { kea: "`a.add(b)`" }
+      correct: false
+    - text: { kea: "`a.__plus__(b)`" }
+      correct: false
+- question:
+    kea: "O ki un `__add__` debe retorna?"
+  options:
+    - text: { kea: "Un **novu** objetu ku o rezultadu — ka debe muda `self` (mesmu manera ki `3 + 5` ka ta muda o `3`)" }
+      correct: true
+    - text: { kea: "`None` — el só ta muda `self` na lugar" }
+      correct: false
+    - text: { kea: "Un string ku o rezultadu" }
+      correct: false
+    - text: { kea: "`True` o `False`" }
+      correct: false
+- question:
+    kea: "Bu kria dos objetu `Pontu(2, 3)` i `Pontu(2, 3)` **sen** definí `__eq__`. O ki ta da `p1 == p2`?"
+  options:
+    - text: { kea: "`False` — sen `__eq__`, Python ta kompara pa identidadi (mesmu objetu na memória), ka pa valor" }
+      correct: true
+    - text: { kea: "`True` — Python ta kompara os atributu sózin" }
+      correct: false
+    - text: { kea: "Un `TypeError`" }
+      correct: false
+    - text: { kea: "`None`" }
+      correct: false
+- question:
+    kea: "Si bu definí `__eq__` i `__lt__` na o bu klasi, ki funsons inkorporadu ta pasa a funsiona ku os bu objetu?"
+  options:
+    - text: { kea: "`sorted()`, `min()` i `max()` — es ta uza `<` pa ordena/kompara" }
+      correct: true
+    - text: { kea: "Só `print()`" }
+      correct: false
+    - text: { kea: "Nenhun — es funsons ka ta funsiona ku klasis personalizadu" }
+      correct: false
+    - text: { kea: "`len()` i `sum()`" }
+      correct: false

@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m3-24 "Annotasons di Tipu".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/24-annotasoens-tipu/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Bu tene `def soma(a: int, b: int) -> int:` i bu kore `soma(\"Ola\", \"Mundu\")`. O ki ta kontise?"
+  options:
+    - text: { kea: "Ta funsiona i ta da `\"OlaMundu\"` — type hints é sujestoens, Python ka ta verifika-s na runtime" }
+      correct: true
+    - text: { kea: "Un `TypeError` — Python ta obriga os tipu" }
+      correct: false
+    - text: { kea: "Un `ValueError` — as strings ka pode ser somadu" }
+      correct: false
+    - text: { kea: "O programa ka ta kompila" }
+      correct: false
+- question:
+    kea: "O ki ta signifika o tipu di retornu `int | None`?"
+  options:
+    - text: { kea: "A funsan pode retorna un `int` **o** `None` (p.ex. kuandu ka atxa un rezultadu)" }
+      correct: true
+    - text: { kea: "A funsan ta retorna senpri os dos, int i None" }
+      correct: false
+    - text: { kea: "O `|` é un operador bit-a-bit, ka un tipu" }
+      correct: false
+    - text: { kea: "A funsan ta retorna un int dividi pa None" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi os type hints, si es ka ta muda nada na runtime?"
+  options:
+    - text: { kea: "Pa dokumenta o kódiku pa umanus, pa midjór autocomplete na o IDE, i pa ferramentas kumo `mypy` deteta erus sen kore o programa" }
+      correct: true
+    - text: { kea: "Pa faze o programa kore más rápidu" }
+      correct: false
+    - text: { kea: "Pa obriga os tipu i da `TypeError` si es ka bate" }
+      correct: false
+    - text: { kea: "Ka ta sirbi pa nada — es é só dekorativu" }
+      correct: false

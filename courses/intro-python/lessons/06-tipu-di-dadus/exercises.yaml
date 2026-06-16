@@ -1,0 +1,122 @@
+# Exercises sidecar (draft source) for lesson m1-06 "Tipu di Dadus".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/06-tipu-di-dadus/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# exercises: `starterCode` is a copyable scaffold/snippet; the answer is the
+# revealed `solutionCode`. Izersisiu 3 (`koriji-typeerror-mistura`) uses the
+# `debug` kind (V20) — the broken program shown INLINE, read-only, with its
+# filename in the titlebar (`file`), so the learner reads the TypeError before
+# fixing it. Prompts stay INLINE-only (inline-markdown.tsx — no multi-line
+# fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized ({kea:[{label,url}]}); `starterCode`/
+# `solutionCode` plain snippets.
+- slug: variaveis-di-un-voo
+  language: python
+  kind: code
+  title: { kea: "Variáveis pa un voo inter-ilhas" }
+  prompt:
+    kea: "Kria kuatu variável pa un voo inter-ilhas — `destinu` (str), `distansia_km` (float), `nru_pasajeru` (int) i `voo_diretu` (bool). Imprimi kada un ku un f-string, i mostra se tipu ku `type()`."
+  hint:
+    kea: "Skodje o literál sertu: string ku aspas (`\"Sal\"`), float ku ponto (`227.0`), int sen ponto (`48`), bool ku `True`/`False`. Dipos `print(f\"...{destinu}...\")` i `print(type(distansia_km))`."
+  starterCode: |
+    # voo.py — kria as variáveis i imprimi-s
+    destinu =        # str, p.ex. "Sal"
+    distansia_km =   # float, p.ex. 227.0
+    nru_pasajeru =   # int, p.ex. 48
+    voo_diretu =     # bool, True o False
+
+    # TODO: imprimi kada variável ku un f-string
+    # TODO: imprimi o tipu di kada un ku type()
+  solutionCode: |
+    # voo.py
+    destinu = "Sal"
+    distansia_km = 227.0
+    nru_pasajeru = 48
+    voo_diretu = True
+
+    print(f"Destinu: {destinu}")
+    print(f"Distánsia: {distansia_km} km")
+    print(f"Pasajerus: {nru_pasajeru}")
+    print(f"Voo diretu: {voo_diretu}")
+
+    print(type(destinu))        # <class 'str'>
+    print(type(distansia_km))   # <class 'float'>
+    print(type(nru_pasajeru))   # <class 'int'>
+    print(type(voo_diretu))     # <class 'bool'>
+- slug: adivinha-saida-tipus
+  language: python
+  kind: code
+  title: { kea: "Adivinha o ki kada linha ta imprimi" }
+  prompt:
+    kea: "Pa kada linha, adivinha o ki Python ta imprimi (o tipu o o valor). Dipos kore o kódiku pa konfirma si bu staba sertu."
+  hint:
+    kea: "Lenbra: `type()` ta da `<class '...'>`. `int(\"42\") + 8` ta soma dos interu. `str(42) + \"8\"` ta **konkatena** dos string. I `int(3.9)` ta **trunka** (korta o desimal), ka arredonda."
+  starterCode: |
+    # adivinha.py — adivinha kada saída, dipos kore pa konfirma
+    print(type(42))
+    print(type(42.0))
+    print(type("42"))
+    print(type(True))
+    print(int("42") + 8)
+    print(str(42) + "8")
+    print(int(3.9))
+  solutionCode: |
+    print(type(42))         # <class 'int'>
+    print(type(42.0))       # <class 'float'>
+    print(type("42"))       # <class 'str'>
+    print(type(True))       # <class 'bool'>
+    print(int("42") + 8)    # 50  (int + int)
+    print(str(42) + "8")    # 428 (string + string — konkatenasan)
+    print(int(3.9))         # 3   (trunka, ka arredonda)
+- slug: koriji-typeerror-mistura
+  language: python
+  kind: debug
+  file: tipos.py
+  title: { kea: "Preve i koriji TypeError" }
+  prompt:
+    kea: "Ku `a = \"100\"`, `b = 50` i `c = 2.5`, dos di es operasons ta da `TypeError` i dos ta funsiona. Kore o kódiku pa odja kal, i koriji as ki faya pa kada un da un rezultadu numériku."
+  hint:
+    kea: "`a` é un **string** (`\"100\"`), ka un númeru. `a + b` (str + int) i `a * c` (str × float) ta da `TypeError`. `b + c` (int + float) ta funsiona, i `a + str(b)` é dos string — ta konkatena. Pa kalkula ku `a`, konverti-l primeru ku `int(a)` o `float(a)`."
+  starterCode: |
+    # tipos.py — kal ta funsiona? kal ta da TypeError? koriji as ki faya.
+    a = "100"
+    b = 50
+    c = 2.5
+
+    print(a + b)        # ?
+    print(a * c)        # ?
+    print(b + c)        # ?
+    print(a + str(b))   # ?
+  solutionCode: |
+    a = "100"
+    b = 50
+    c = 2.5
+
+    # a + b  i  a * c  ta da TypeError — `a` é string. Konverti primeru:
+    print(int(a) + b)       # 150   (int + int)
+    print(float(a) * c)     # 250.0 (float × float)
+    print(b + c)            # 52.5  (int + float — dja funsiona)
+    print(a + str(b))       # 10050 (string + string — konkatenasan)
+- slug: splora-tipus-numerikus
+  language: python
+  kind: explore
+  title: { kea: "Splora os tipus numérikus di Python" }
+  prompt:
+    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i o módulu `decimal` pa dinheru ezatu). Odja a dokumentason pa odja o ki más izisti — ka meste dekora, só sabe undi buska."
+  resources:
+    kea:
+      - { label: "Python docs — Numeric Types (int, float, complex)", url: "https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" }
+      - { label: "Python docs — decimal (presizan ezatu pa dinheru)", url: "https://docs.python.org/3/library/decimal.html" }
+- slug: refleta-typeerror
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri un TypeError ki bu pode atxa" }
+  prompt:
+    kea: "Pensa na un programa ki ta mistura textu ku númerus (p.ex. mostra un presu nun mensajen). Skrebe undi un `TypeError` ta pode parese, i kal di as dos solusons (konverti ku `str()`/`int()` o uza un f-string) bu ta skodje i pamodi."
+  notePlaceholder:
+    kea: "Programa: …   ·   Undi TypeError ta parese: …   ·   Soluson skodjedu (str()/int() o f-string): …"

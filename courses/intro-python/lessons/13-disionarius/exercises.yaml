@@ -1,0 +1,141 @@
+# Exercises sidecar (draft source) for lesson m2-13 "Disionárius i Dict Comprehension".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/13-disionarius/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-keyerror` — a broken
+# program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: manipula-perfil-disionariu
+  language: python
+  kind: code
+  title: { kea: "Manipula un perfil (disionáriu)" }
+  prompt:
+    kea: "Kria un disionáriu `meu_perfil` ku nomi, idadi, ilha i 3 hobi (kumo un lista). Dipos adisiona un `\"email\"`, atualiza a `idadi`, i mostra tudu os par ku un loop `.items()`."
+  hint:
+    kea: "Pa adisiona o atualiza: `perfil[\"email\"] = ...` i `perfil[\"idadi\"] = ...`. Pa mostra os par, `for xavi, valor in meu_perfil.items(): print(...)`."
+  starterCode: |
+    # perfil.py
+    meu_perfil = {
+        "nomi": "Tóni",
+        "idadi": 23,
+        "ilha": "Santiago",
+        "hobi": ["futebol", "leitura", "kuzinha"],
+    }
+
+    # TODO: adisiona "email"
+    # TODO: atualiza a idadi
+    # TODO: mostra tudu os par ku .items()
+  solutionCode: |
+    # perfil.py
+    meu_perfil = {
+        "nomi": "Tóni",
+        "idadi": 23,
+        "ilha": "Santiago",
+        "hobi": ["futebol", "leitura", "kuzinha"],
+    }
+
+    meu_perfil["email"] = "toni@email.cv"
+    meu_perfil["idadi"] = 24
+
+    for xavi, valor in meu_perfil.items():
+        print(f"{xavi}: {valor}")
+- slug: kontador-di-frekuensia
+  language: python
+  kind: code
+  title: { kea: "Kontador di frekuénsia" }
+  prompt:
+    kea: "Ku a lista `[\"funana\", \"morabeza\", \"katxupa\", \"grogu\", \"sodadi\", \"morabeza\", \"funana\", \"funana\"]`, kria un disionáriu di frekuénsia ki ta konta kuantas bez kada palavra ta parese. Dipos mostra a palavra ki más ta parese."
+  hint:
+    kea: "O padron klásiku é `frek[p] = frek.get(p, 0) + 1` dentu di un loop — `.get(p, 0)` ta da `0` si a palavra inda ka ta na disionáriu. Pa a más frekuenti: `max(frek, key=frek.get)`."
+  starterCode: |
+    # frekuensia.py
+    palavras = ["funana", "morabeza", "katxupa", "grogu", "sodadi", "morabeza", "funana", "funana"]
+
+    frek = {}
+    # TODO: konta kada palavra ku frek.get(p, 0) + 1
+    # TODO: mostra o disionáriu i a palavra ki más ta parese
+  solutionCode: |
+    # frekuensia.py
+    palavras = ["funana", "morabeza", "katxupa", "grogu", "sodadi", "morabeza", "funana", "funana"]
+
+    frek = {}
+    for p in palavras:
+        frek[p] = frek.get(p, 0) + 1
+
+    print(frek)
+    mais = max(frek, key=frek.get)
+    print(f"Más frekuenti: {mais} ({frek[mais]} bes)")
+- slug: disionariu-aninhadu-ilhas
+  language: python
+  kind: code
+  title: { kea: "Disionáriu aninhadu di ilhas" }
+  prompt:
+    kea: "Kria un disionáriu aninhadu ku 3 ilha, kada un ku `\"populasan\"`, `\"area_km2\"` i `\"kapital\"`. Uza dict comprehension pa kria un disionáriu novu só ku as ilha di populasan asima di `50000`. Pa kada un, kalkula a densidadi (populasan / area)."
+  hint:
+    kea: "Dict comprehension ku filtru: `{nomi: d for nomi, d in ilhas.items() if d[\"populasan\"] > 50000}`. Pa a densidadi, asesa os kampu aninhadu: `d[\"populasan\"] / d[\"area_km2\"]`."
+  starterCode: |
+    # ilhas.py
+    ilhas = {
+        "Santiago": {"populasan": 294000, "area_km2": 991, "kapital": "Praia"},
+        "São Vicente": {"populasan": 81000, "area_km2": 227, "kapital": "Mindelo"},
+        "Brava": {"populasan": 6000, "area_km2": 64, "kapital": "Nova Sintra"},
+    }
+
+    # TODO: dict comprehension — só ilhas ku populasan > 50000
+    # TODO: kalkula densidadi (populasan / area) di kada un
+  solutionCode: |
+    # ilhas.py
+    ilhas = {
+        "Santiago": {"populasan": 294000, "area_km2": 991, "kapital": "Praia"},
+        "São Vicente": {"populasan": 81000, "area_km2": 227, "kapital": "Mindelo"},
+        "Brava": {"populasan": 6000, "area_km2": 64, "kapital": "Nova Sintra"},
+    }
+
+    grandes = {nomi: d for nomi, d in ilhas.items() if d["populasan"] > 50000}
+
+    for nomi, d in grandes.items():
+        densidadi = d["populasan"] / d["area_km2"]
+        print(f"{nomi} ({d['kapital']}): {densidadi:.0f} pesoa/km²")
+- slug: koriji-keyerror
+  language: python
+  kind: debug
+  file: perfil.py
+  title: { kea: "Koriji un KeyError" }
+  prompt:
+    kea: "Es programa ta da un `KeyError: 'idadi'` pamodi a xavi `\"idadi\"` ka ezisti na disionáriu. Koriji-l pa el ka kebra mésmu kuandu a xavi ka sta la."
+  hint:
+    kea: "`perfil[\"idadi\"]` ta lansa `KeyError` si a xavi ka ezisti. Uza `perfil.get(\"idadi\", padron)` — el ta da un valor padron envês di kebra."
+  starterCode: |
+    # perfil.py — es programa ta da un KeyError. Koriji-l.
+    perfil = {"nomi": "Tóni", "ilha": "Fogo"}
+    print(f"{perfil['nomi']} ten {perfil['idadi']} anu")
+  solutionCode: |
+    # perfil.py — .get() ta da un padron sen kebra kuandu a xavi ka ezisti
+    perfil = {"nomi": "Tóni", "ilha": "Fogo"}
+    idadi = perfil.get("idadi", "idadi diskoñesidu")
+    print(f"{perfil['nomi']} ten {idadi} anu")
+- slug: splora-collections
+  language: python
+  kind: explore
+  title: { kea: "Splora collections (Counter, defaultdict)" }
+  prompt:
+    kea: "O padron `.get(k, 0) + 1` pa konta é tan kumun ki Python ten un atadju: `collections.Counter`. I `defaultdict` ta evita o `KeyError`. Odja a dokumentason di o módulu `collections`."
+  resources:
+    kea:
+      - { label: "Python docs — collections.Counter", url: "https://docs.python.org/3/library/collections.html#collections.Counter" }
+      - { label: "Python docs — Dictionaries (tutorial)", url: "https://docs.python.org/3/tutorial/datastructures.html#dictionaries" }
+- slug: refleta-get-vs-kolxetis
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `.get()` versus `[]`" }
+  prompt:
+    kea: "`d[\"xavi\"]` ta da `KeyError` si a xavi ka izisti; `d.get(\"xavi\", padron)` ta da un valor padron sen eru. Pensa nun programa ki ta lé dadus di utilizador (p.ex. un formulário ku kampu opsionál). Skrebe undi bu ta uza `.get()` i pamodi."
+  notePlaceholder:
+    kea: "Kampu opsionál: …   ·   Pamodi `.get()` é más seguru: …   ·   Valor padron skodjedu: …"

@@ -1,0 +1,125 @@
+# Exercises sidecar (draft source) for lesson m3-24 "Annotasons di Tipu".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/24-annotasoens-tipu/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode` (Izersisiu 1's fenced functions become the starter).
+# Prompts stay INLINE-only (inline-markdown.tsx — no multi-line fenced blocks).
+# Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: adisiona-type-hints
+  language: python
+  kind: code
+  title: { kea: "Adisiona type hints" }
+  prompt:
+    kea: "Adisiona type hints na as dos funsan na o kódiku inisial. `area_retangulu` ta resebe dos número i ta da un número; `buska_ilha` ta resebe un lista di string i un string, i ta da un string **o** `None`."
+  hint:
+    kea: "Sintaxi: `param: tipu` i `-> tipu_retorno`. Pa `area_retangulu(largura: float, altura: float) -> float`. Pa `buska_ilha(nomis: list[str], alvu: str) -> str | None` (el pode retorna `None`)."
+  starterCode: |
+    # hints.py — adisiona os type hints
+    def area_retangulu(largura, altura):
+        return largura * altura
+
+    def buska_ilha(nomis, alvu):
+        for nomi in nomis:
+            if nomi.lower() == alvu.lower():
+                return nomi
+        return None
+  solutionCode: |
+    # hints.py
+    def area_retangulu(largura: float, altura: float) -> float:
+        return largura * altura
+
+    def buska_ilha(nomis: list[str], alvu: str) -> str | None:
+        for nomi in nomis:
+            if nomi.lower() == alvu.lower():
+                return nomi
+        return None
+- slug: konverti-temperatura-hints
+  language: python
+  kind: code
+  title: { kea: "Konversor di temperatura tipadu" }
+  prompt:
+    kea: "Skrebe un funsan `konverti_temperatura(valor: float, di: str, pa: str) -> float | None` ki ta konverti entri `\"C\"` (Celsius), `\"F\"` (Fahrenheit) i `\"K\"` (Kelvin). Retorna `None` si un unidadi ka é rekonxedu."
+  hint:
+    kea: "Konverti primeru pa Celsius, dipos di Celsius pa o destinu. Si o `di` o o `pa` ka é `\"C\"`, `\"F\"` o `\"K\"`, retorna `None`. O tipu di retornu `float | None` ta avisa ki pode ser un float o `None`."
+  starterCode: |
+    # temp.py
+    def konverti_temperatura(valor: float, di: str, pa: str) -> float | None:
+        # TODO: pa Celsius, dipos pa destinu; None si unidadi diskonxedu
+        ...
+
+    print(konverti_temperatura(100, "C", "F"))   # 212.0
+    print(konverti_temperatura(100, "C", "X"))   # None
+  solutionCode: |
+    # temp.py
+    def konverti_temperatura(valor: float, di: str, pa: str) -> float | None:
+        if di == "C":
+            c = valor
+        elif di == "F":
+            c = (valor - 32) * 5 / 9
+        elif di == "K":
+            c = valor - 273.15
+        else:
+            return None
+
+        if pa == "C":
+            return round(c, 2)
+        elif pa == "F":
+            return round(c * 9 / 5 + 32, 2)
+        elif pa == "K":
+            return round(c + 273.15, 2)
+        return None
+
+    print(konverti_temperatura(100, "C", "F"))   # 212.0
+    print(konverti_temperatura(100, "C", "X"))   # None
+- slug: estatistikas-tipadu
+  language: python
+  kind: code
+  title: { kea: "Estatístikas tipadu" }
+  prompt:
+    kea: "Kria un funsan `estatistikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku `\"soma\"`, `\"média\"`, `\"mínima\"` i `\"máksima\"`."
+  hint:
+    kea: "Uza as funsons inkorporadu: `sum(numerus)`, `sum(...)/len(...)`, `min(numerus)`, `max(numerus)`. O tipu di retornu `dict[str, float]` ta dize ki as xavi é string i os valor é float."
+  starterCode: |
+    # stats.py
+    def estatistikas(numerus: list[int | float]) -> dict[str, float]:
+        # TODO: retorna {"soma":..., "média":..., "mínima":..., "máksima":...}
+        ...
+
+    print(estatistikas([10, 5, 20, 15]))
+  solutionCode: |
+    # stats.py
+    def estatistikas(numerus: list[int | float]) -> dict[str, float]:
+        return {
+            "soma": sum(numerus),
+            "média": sum(numerus) / len(numerus),
+            "mínima": min(numerus),
+            "máksima": max(numerus),
+        }
+
+    print(estatistikas([10, 5, 20, 15]))
+    # {'soma': 50, 'média': 12.5, 'mínima': 5, 'máksima': 20}
+- slug: splora-mypy-typing
+  language: python
+  kind: explore
+  title: { kea: "Splora mypy i o módulu typing" }
+  prompt:
+    kea: "Type hints brilha kuandu un ferramenta kumo `mypy` ta verifika-s sen kore o programa. O módulu `typing` (i `mypy`) ten más ferramentas — `Optional`, `Callable`, `Any`. Odja a dokumentason."
+  resources:
+    kea:
+      - { label: "mypy — Optional static type checker for Python", url: "https://mypy.readthedocs.io/en/stable/" }
+      - { label: "Python docs — typing (Support for type hints)", url: "https://docs.python.org/3/library/typing.html" }
+- slug: refleta-type-hints-runtime
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri type hints na runtime" }
+  prompt:
+    kea: "Type hints é **sujestoens**, ka regras — Python ka ta verifika-s kuandu o programa ta kore (`soma(\"a\", \"b\")` ta funsiona inda). Skrebe pa kuze ki es ta sirbi (umanus, IDE, mypy), i pamodi es inda ta vale a pena mesmu sen muda o runtime."
+  notePlaceholder:
+    kea: "O ki type hints ta faze (i ka faze): …   ·   Pa kuze ki es ta sirbi: …   ·   Pamodi vale a pena: …"

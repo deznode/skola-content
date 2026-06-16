@@ -1,0 +1,108 @@
+# Exercises sidecar (draft source) for lesson m3-22 "Operasons ku Ficheru".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/22-operasoens-ficheru/exercises.yaml,
+# where scripts/import-content.ts emits it into the `exercises` table;
+# <TentaGosi/> renders them in display order. Keep `slug` stable.
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: skrebe-i-le-ilhas
+  language: python
+  kind: code
+  title: { kea: "Skrebe i lé un ficheru di ilhas" }
+  prompt:
+    kea: "Skrebe un lista di 5 ilha nun ficheru `ilhas.txt` (un ilha pa linha). Dipos lé o ficheru i mostra kada ilha ku se númeru: `1. Santiago`, `2. São Vicente`…"
+  hint:
+    kea: "Pa skrebe, abri ku modu `\"w\"` i faze `f.write(ilha + \"\\n\")` pa kada un. Pa lé numerizadu, `with open(\"ilhas.txt\") as f:` i `for i, linha in enumerate(f, 1): print(f\"{i}. {linha.strip()}\")`. Senpri uza `with`."
+  starterCode: |
+    # ilhas.py
+    ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Brava"]
+
+    # TODO: skrebe kada ilha nun linha di ilhas.txt (modu "w")
+    # TODO: lé o ficheru i mostra ku númeru (enumerate)
+  solutionCode: |
+    # ilhas.py
+    ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Brava"]
+
+    with open("ilhas.txt", "w") as f:
+        for ilha in ilhas:
+            f.write(ilha + "\n")
+
+    with open("ilhas.txt", "r") as f:
+        for i, linha in enumerate(f, start=1):
+            print(f"{i}. {linha.strip()}")
+- slug: diariu-simples
+  language: python
+  kind: code
+  title: { kea: "Diáriu simples (append)" }
+  prompt:
+    kea: "Kria un \"diáriu\": pidi un nota ku `input()`, adisiona-l a o ficheru `diariu.txt` ku modu `\"a\"`, i dipos mostra tudu as nota ki dja foi skrebedu."
+  hint:
+    kea: "O modu `\"a\"` (append) ta po na fin sen apaga o ki dja sta la — `\"w\"` apaga tudu! Dipos di skrebe, abri ku `\"r\"` i perkore as linha pa mostra-s."
+  starterCode: |
+    # diariu.py
+    nota = input("Skrebe un nota: ")
+
+    # TODO: adisiona a nota a diariu.txt (modu "a")
+    # TODO: mostra tudu as nota
+  solutionCode: |
+    # diariu.py
+    nota = input("Skrebe un nota: ")
+
+    with open("diariu.txt", "a") as f:
+        f.write(nota + "\n")
+
+    print("--- Bu diáriu ---")
+    with open("diariu.txt", "r") as f:
+        for linha in f:
+            print(f"  {linha.strip()}")
+- slug: kalkula-media-ficheru
+  language: python
+  kind: code
+  title: { kea: "Kalkula média di un ficheru" }
+  prompt:
+    kea: "Lé un ficheru `notas.txt` (un númeru pa linha), kalkula a média, i skrebe o rezultadu nun ficheru novu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si o ficheru di notas izisti antis di tenta lé-l."
+  hint:
+    kea: "`import os` i `if os.path.exists(\"notas.txt\"):`. Lé as linha, konverti kada un ku `float(linha)`, soma i divide pa a kuantidadi. Dipos abri `rezultadu.txt` ku `\"w\"` pa skrebe a média."
+  starterCode: |
+    # media.py
+    import os
+
+    # TODO: si notas.txt izisti, lé os númeru i kalkula a média
+    # TODO: skrebe a média na rezultadu.txt; senan, avisa
+  solutionCode: |
+    # media.py
+    import os
+
+    if os.path.exists("notas.txt"):
+        with open("notas.txt", "r") as f:
+            notas = [float(linha) for linha in f if linha.strip()]
+        media = sum(notas) / len(notas)
+        with open("rezultadu.txt", "w") as f:
+            f.write(f"Média: {media:.1f}\n")
+        print(f"Média {media:.1f} skrebedu na rezultadu.txt")
+    else:
+        print("O ficheru notas.txt inda ka izisti.")
+- slug: splora-pathlib
+  language: python
+  kind: explore
+  title: { kea: "Splora pathlib (kaminhus modernu)" }
+  prompt:
+    kea: "`os.path` ta funsiona, ma o módulu modernu `pathlib` ta da un manera más limpu di traba ku kaminhus i ficheru (`Path(\"dadus\") / \"notas.txt\"`). Odja a dokumentason."
+  resources:
+    kea:
+      - { label: "Python docs — pathlib (Object-oriented filesystem paths)", url: "https://docs.python.org/3/library/pathlib.html" }
+      - { label: "Python docs — Reading and Writing Files (tutorial)", url: "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files" }
+- slug: refleta-with-statement
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri o `with` statement" }
+  prompt:
+    kea: "O `with open(...) as f:` ta fexa o ficheru automátikamenti, mesmu si un eru akontese. Pensa nun programa ki abri un ficheru sen `with` (`f = open(...)`). Skrebe o ki ta pode kontise si un eru akontese antis di `f.close()`, i pamodi o `with` é más siguru."
+  notePlaceholder:
+    kea: "Sen with (risku): …   ·   Ku with (siguru): …   ·   Pamodi: …"

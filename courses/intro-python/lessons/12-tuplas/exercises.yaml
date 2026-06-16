@@ -1,0 +1,131 @@
+# Exercises sidecar (draft source) for lesson m2-12 "Tuplas".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/12-tuplas/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-tuple-imutavel` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: unpacking-di-perfil
+  language: python
+  kind: code
+  title: { kea: "Unpacking di un perfil" }
+  prompt:
+    kea: "Kria un tuple `meu_perfil` ku nomi, idadi, ilha i kursu. Uza **unpacking** pa atribui kada valor a un variável separadu, i imprimi-s ku un f-string."
+  hint:
+    kea: "Pa unpacking, o nu di variável na eskerda ten ki bate ku o nu di elementu na tuple: `nomi, idadi, ilha, kursu = meu_perfil`. Dipos po-s nun f-string."
+  starterCode: |
+    # perfil.py
+    meu_perfil = ("Tóni", 23, "Santiago", "Informátika")
+
+    # TODO: unpacking pa nomi, idadi, ilha, kursu
+    # TODO: imprimi ku un f-string
+  solutionCode: |
+    # perfil.py
+    meu_perfil = ("Tóni", 23, "Santiago", "Informátika")
+
+    nomi, idadi, ilha, kursu = meu_perfil
+    print(f"{nomi}, {idadi} anu, di {ilha}, ta studa {kursu}.")
+- slug: star-unpacking-notas
+  language: python
+  kind: code
+  title: { kea: "Star unpacking di notas" }
+  prompt:
+    kea: "Ku `dados = (\"Amilcar\", \"amilcar@cv.edu\", 88, 75, 92, 85, 79, 96)`, uza **star unpacking** pa separa o nomi, o email i tudu as notas nun lista. Dipos kalkula i mostra a média, a nota máksimu i a mínimu."
+  hint:
+    kea: "`nomi, email, *notas = dados` — o `*notas` ta apanha tudu o restu kumo un lista. Dipos `sum(notas) / len(notas)`, `max(notas)` i `min(notas)`."
+  starterCode: |
+    # notas.py
+    dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)
+
+    # TODO: nomi, email, *notas = dados
+    # TODO: média, máksimu, mínimu
+  solutionCode: |
+    # notas.py
+    dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)
+
+    nomi, email, *notas = dados
+
+    print(f"Estudanti: {nomi} ({email})")
+    print(f"Notas: {notas}")
+    print(f"Média: {sum(notas) / len(notas):.1f}")
+    print(f"Máksimu: {max(notas)}, Mínimu: {min(notas)}")
+- slug: tuple-di-ilhas
+  language: python
+  kind: code
+  title: { kea: "Tuple di tuples — ilhas" }
+  prompt:
+    kea: "Kria un tuple di tuples ku informasan di 4 ilha, kada un `(nomi, populasan, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Dipos kalkula a populasan total i atxa a ilha ku más pesoa."
+  hint:
+    kea: "Itera ku unpacking diretu: `for nomi, pop, area in ilhas:`. Pa o total, soma as populasan nun loop o ku un comprehension `sum(p for _, p, _ in ilhas)`. Pa a ilha ku más pesoa, `max(ilhas, key=lambda i: i[1])`."
+  starterCode: |
+    # ilhas.py
+    ilhas = (
+        ("Santiago", 294000, 991),
+        ("São Vicente", 81000, 227),
+        ("Sal", 39000, 216),
+        ("Fogo", 36000, 476),
+    )
+
+    # TODO: itera ku unpacking i mostra kada ilha
+    # TODO: populasan total i ilha ku más pesoa
+  solutionCode: |
+    # ilhas.py
+    ilhas = (
+        ("Santiago", 294000, 991),
+        ("São Vicente", 81000, 227),
+        ("Sal", 39000, 216),
+        ("Fogo", 36000, 476),
+    )
+
+    for nomi, pop, area in ilhas:
+        print(f"{nomi:<14} {pop:>7} pesoa  {area} km²")
+
+    total = sum(pop for _, pop, _ in ilhas)
+    maior = max(ilhas, key=lambda i: i[1])
+
+    print(f"Populasan total: {total}")
+    print(f"Más pesoa: {maior[0]} ({maior[1]})")
+- slug: koriji-tuple-imutavel
+  language: python
+  kind: debug
+  file: ponto.py
+  title: { kea: "Koriji un tuple imutável" }
+  prompt:
+    kea: "Es programa ta da un `TypeError` kuandu el tenta muda o primeru valor di o tuple `ponto`. Tuples é **imutável**! Koriji-l pa `ponto` fika `(5, 4)`."
+  hint:
+    kea: "`ponto[0] = 5` ta da `TypeError: 'tuple' object does not support item assignment`. Un tuple ka pode ser mudadu — kria un tuple novu: `ponto = (5, ponto[1])` (o `(5, 4)`)."
+  starterCode: |
+    # ponto.py — es programa ta da un TypeError. Koriji-l.
+    ponto = (3, 4)
+    ponto[0] = 5
+    print(ponto)
+  solutionCode: |
+    # ponto.py — tuples é imutável; kria un tuple novu
+    ponto = (3, 4)
+    ponto = (5, ponto[1])
+    print(ponto)   # (5, 4)
+- slug: splora-namedtuple
+  language: python
+  kind: explore
+  title: { kea: "Splora namedtuple" }
+  prompt:
+    kea: "Kuandu un tuple ten txeu kampu, é fásil skese o ki é `v[3]`. `collections.namedtuple` ta dexa-bu da nomi a kada kampu (`voo.presu` en bez di `voo[3]`). Odja a dokumentason."
+  resources:
+    kea:
+      - { label: "Python docs — collections.namedtuple", url: "https://docs.python.org/3/library/collections.html#collections.namedtuple" }
+      - { label: "Python docs — Tuples and Sequences", url: "https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences" }
+- slug: refleta-tuple-vs-lista
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri tuple versus lista" }
+  prompt:
+    kea: "Tuple é imutável i más rápidu; lista é mutável i ten más metodus. Pensa nun par di dadus di o mundu real (p.ex. koordenadas di un lugar, o un karrinhu di kompras). Skrebe kal bu ta gerda nun tuple i kal nun lista, i pamodi."
+  notePlaceholder:
+    kea: "Dadu pa tuple (imutável): …   ·   Dadu pa lista (mutável): …   ·   Pamodi: …"

@@ -248,7 +248,7 @@ for klasi in Kaboverdianu.__mro__:
 ```
 
 :::callout{type=tip}
-**Dika:** Si bu ka sabi ki métudu ta ser txomadu, uza `Klasi.__mro__` o `Klasi.mro()` pa ve orden ezata di buska.
+**Dika:** Si bu ka sabe ki métudu ta ser txomadu, uza `Klasi.__mro__` o `Klasi.mro()` pa ve orden ezata di buska.
 :::
 
 ## `isinstance()` i `issubclass()`
@@ -402,36 +402,20 @@ médikus = [t for t in trabadjoris if isinstance(t, Médiku)]
 print(f"\nTotal médikus: {len(médikus)}")  # Total médikus: 1
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Ierarkia di Animál:** Kria un klasi bazi `Animál` ku `nomi` i `son`. Depois kria klasis filhu `Katchor`, `Gatu`, i `Galinha`, kada un ku si próriu métudu `fala()` ki ta imprimi si son. Kria un lista ku 5 animáis i faze tudu fala.
-
-2. **Izersisiu 2 — Kontis Bankáriu Espesializadu:** A parti di klasi `KontaBankáriu` di lisan anteror, kria `KontaPoupansa` (ku taxa di juros ki ta aplika mensalmenti) i `KontaKorrenti` (ku límiti di dezkobértu). Usa `super().__init__()`.
-
-3. **Izersisiu 3 — Eransa Múltiplu:** Kria klasi `Estudanti` (ku `nomi`, `kursu`) i `Atleta` (ku `nomi`, `modalidadi`). Depois kria `EstudantiAtleta` ki erda di dos. Testa ku nomes kaboverdianu i verifika ku `isinstance()`.
-
-4. **Izersisiu 4 — MRO Investigasan:** Kria 4 klasis ku eransa múltiplu i uza `.__mro__` pa preve i verifika orden di buska. Kria un métudu `identifika()` na kada klasi i testa kal versan ta ser txomadu.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Eransa** ta permiti un klasi filhu riuza kódiku di klasi pai sen repetisan
-- **Eransa simples:** `class Filhu(Pai):` — erda tudu atributus i metodus di un pai
-- **`super().__init__()`** ta txoma konstrutor di pai — uza pa eransa simples
-- **Eransa múltiplu:** `class Filhu(Pai1, Pai2):` — erda di vários pais
-- **Pa eransa múltiplu**, uza `Pai.__init__(self, ...)` diretamenti pa kada pai
-- **MRO** (Method Resolution Order) ta determina orden di buska: filhu → pais (skerda pa direita) → avós
-- **`isinstance(obj, Klasi)`** — verifika si objetu é instánsia di un klasi (inklui erdansa)
-- **`issubclass(KlasiFidju, KlasiPai)`** — verifika si un klasi é filhu di otru
-- **Sobreskrebe metodus** na klasi filhu pa muda konportamentu erdadu
-
----
-
-**Prósimu lisan:** [Polimorfismu i Abstrasan →](/courses/intro-python/lessons/polimorfismu-abstrasan)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Pa eransa **simples** (un pai), uza `super().__init__()`; pa eransa **múltiplu** (vários pai), uza `Pai.__init__(self, ...)` direta pa kada pai.</RezumuItem>
+  <RezumuItem term="Eransa">`class Filhu(Pai):` ta erda tudu os atributu i metodu di o pai — reuza kódiku sen repetisan.</RezumuItem>
+  <RezumuItem term="super()">Ta txoma o konstrutor (o un metodu) di o pai — bu adisiona só o ki é novu.</RezumuItem>
+  <RezumuItem term="MRO">Method Resolution Order ta determina a orden di buska: filhu → pai (skerda pa direita) → avós. `Klasi.__mro__` ta mostra-l.</RezumuItem>
+  <RezumuItem term="isinstance / issubclass">`isinstance(obj, Klasi)` (inklui eransa); `issubclass(Filhu, Pai)`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Bu pode **sobreskrebe** un metodu na o filhu pa mudá o komportamentu erdadu — i txoma a versan di o pai ku `super().metodu()`.</RezumuItem>
+</KeyTakeaways>

@@ -1,0 +1,145 @@
+# Exercises sidecar (draft source) for lesson m1-05 "Variáveis i Tipu Dinámiku".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/05-variaveis/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) are reframed as
+# interactive `code` exercises: `starterCode` is a copyable TODO scaffold; the
+# answer is the revealed `solutionCode`. Prompts stay INLINE-only (no multi-line
+# fenced blocks — the prompt renderer is inline-markdown.tsx). Plus one `debug`
+# drill (`koriji-troka-variaveis` — a broken program shown inline to fix), one
+# `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized ({kea:[{label,url}]}); `starterCode`/
+# `solutionCode` plain snippets.
+- slug: kria-variaveis-pratu
+  language: python
+  kind: code
+  title: { kea: "Kria variáveis pa un pratu" }
+  prompt:
+    kea: "Kria kuatu variável pa un pratu di kumida — `nomi_pratu` (string), `presu` (float), `porsan` (int) i `disponivel` (bool). Imprimi kada un ku un f-string, i mostra se tipu ku `type()`."
+  hint:
+    kea: "Skodje o literál sertu pa kada tipu: string ku aspas (`\"Katxupa\"`), float ku ponto (`350.0`), int sen ponto (`2`), bool ku `True`/`False`. Dipos uza `print(f\"...{nomi_pratu}...\")` i `print(type(presu))`."
+  starterCode: |
+    # pratu.py — kria as variáveis i imprimi-s
+    nomi_pratu =   # string, p.ex. "Katxupa"
+    presu =        # float, p.ex. 350.0
+    porsan =       # int, p.ex. 2
+    disponivel =   # bool, True o False
+
+    # TODO: imprimi kada variável ku un f-string
+    # TODO: imprimi o tipu di kada un ku type()
+  solutionCode: |
+    # pratu.py
+    nomi_pratu = "Katxupa"
+    presu = 350.0
+    porsan = 2
+    disponivel = True
+
+    print(f"Pratu: {nomi_pratu}")
+    print(f"Presu: {presu} ECV")
+    print(f"Porsan: {porsan}")
+    print(f"Disponível: {disponivel}")
+
+    print(type(nomi_pratu))   # <class 'str'>
+    print(type(presu))        # <class 'float'>
+    print(type(porsan))       # <class 'int'>
+    print(type(disponivel))   # <class 'bool'>
+- slug: kalkula-idadi
+  language: python
+  kind: code
+  title: { kea: "Kalkula idadi a partir di anu di nasimentu" }
+  prompt:
+    kea: "Skrebe un programa ki ta pergunta nomi, ilha i anu di nasimentu, kalkula idadi (`2026 - anu`) i imprimi un mensajen sabi kumo `Ola, Tóni di Santiago! Bu ten 25 anu.`"
+  hint:
+    kea: "Lenbra: `input()` senpri ta retorna string! Pa kalkula `2026 - anu`, konverti o anu ku `int(input(...))` primeru. O nomi i a ilha pode fika kumo string. Po tudu djuntu na un f-string."
+  starterCode: |
+    # idadi.py
+    nomi = input("Bu nomi? ")
+    ilha = input("Bu ilha? ")
+    # TODO: pidi o anu di nasimentu i konverti-l pa int
+    anu =
+
+    # TODO: kalkula idadi (2026 - anu)
+    # TODO: imprimi a mensajen ku un f-string
+  solutionCode: |
+    # idadi.py
+    nomi = input("Bu nomi? ")
+    ilha = input("Bu ilha? ")
+    anu = int(input("Anu di nasimentu? "))
+
+    idadi = 2026 - anu
+    print(f"Ola, {nomi} di {ilha}! Bu ten {idadi} anu.")
+- slug: adivinha-tipu-konversan
+  language: python
+  kind: code
+  title: { kea: "Adivinha o tipu dipos di kada konversan" }
+  prompt:
+    kea: "Pa kada linha, adivinha o tipu di `valor` dipos di kada konversan. Dipos kore o kódiku ku `type()` na kada pasu pa konfirma si bu staba sertu."
+  hint:
+    kea: "`input()` ta da senpri `str`. Dipos `int(valor)` ta da `int`, `float(valor)` ta da `float`, i `str(valor)` ta volta pa `str`. Po un `print(type(valor))` dipos di kada linha pa odja a mudansa."
+  starterCode: |
+    # tipus.py — adivinha o tipu, dipos po type() pa konfirma
+    valor = input("Skrebe un kuza: ")   # tipu = ?
+    valor = int(valor)                  # tipu = ?
+    valor = float(valor)                # tipu = ?
+    valor = str(valor)                  # tipu = ?
+  solutionCode: |
+    # tipus.py
+    valor = input("Skrebe un kuza: ")   # str — input() ta da senpri string
+    print(type(valor))                  # <class 'str'>
+
+    valor = int(valor)                  # int
+    print(type(valor))                  # <class 'int'>
+
+    valor = float(valor)                # float
+    print(type(valor))                  # <class 'float'>
+
+    valor = str(valor)                  # str — di volta pa string
+    print(type(valor))                  # <class 'str'>
+- slug: koriji-troka-variaveis
+  language: python
+  kind: debug
+  file: troka.py
+  title: { kea: "Koriji un troka di variáveis" }
+  prompt:
+    kea: "Es programa debe troka os valoris di `a` i `b` (`a` fika ku 20, `b` ku 10), ma na fin os dos ta fika `20`. Diskubri pamodi i koriji-l."
+  hint:
+    kea: "`a = b` ta po `a` igual a 20, ma gosi o valor antigu di `a` (10) sta perdidu — `b = a` ta kopia `20` di volta. Uza un variável temporáriu, o o atadju di Python: `a, b = b, a`."
+  starterCode: |
+    # troka.py — debe troka a i b, ma os dos ta fika 20. Koriji-l.
+    a = 10
+    b = 20
+
+    a = b
+    b = a
+
+    print(f"a = {a}, b = {b}")   # debe ser a = 20, b = 10
+  solutionCode: |
+    # troka.py — atadju di Python pa troka sen perde valor
+    a = 10
+    b = 20
+
+    a, b = b, a
+
+    print(f"a = {a}, b = {b}")   # a = 20, b = 10
+- slug: splora-funsoens-konversan
+  language: python
+  kind: explore
+  title: { kea: "Splora as funsons di konversan" }
+  prompt:
+    kea: "`int()`, `float()`, `str()` i `bool()` é só algun di as funsons inkorporadu di Python. Odja a lista ofisial pa odja o ki más izisti — ka meste dekora-s, só sabe undi buska."
+  resources:
+    kea:
+      - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }
+      - { label: "Real Python — Basic Data Types in Python", url: "https://realpython.com/python-data-types/" }
+- slug: refleta-input-string
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri input() i konversan" }
+  prompt:
+    kea: "`input()` ta retorna senpri string. Pensa na un programa ki bu kreba faze ki ta pidi un númeru pa utilizador. Skrebe undi bu ta presizaba `int()` o `float()`, i o ki ta kontise si bu skese di konverti."
+  notePlaceholder:
+    kea: "Programa: …   ·   Undi meste konverti: …   ·   Eru si skese (TypeError? ValueError?): …"

@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m3-23 "Tratamentu di Eru".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/23-tratamentu-eru/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Pa kuze ki ta sirbi o bloku `try`/`except`?"
+  options:
+    - text: { kea: "Pa tenta un kódiku i, si el da un eru, trata-l grasiozamenti en bez di o programa para" }
+      correct: true
+    - text: { kea: "Pa repeti un kódiku até el funsiona" }
+      correct: false
+    - text: { kea: "Pa konverti un valor di un tipu pa otu" }
+      correct: false
+    - text: { kea: "Pa definí un funsan nova" }
+      correct: false
+- question:
+    kea: "Na ki orden bu debe po os `except`?"
+  options:
+    - text: { kea: "Os más espesífiku primeru (`ValueError`, `ZeroDivisionError`), i `Exception` (catch-all) na o fin" }
+      correct: true
+    - text: { kea: "`Exception` primeru, dipos os espesífiku" }
+      correct: false
+    - text: { kea: "A orden ka ta importa" }
+      correct: false
+    - text: { kea: "Os más kurtu primeru" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri o bloku `else` i o `finally` nun try/except?"
+  options:
+    - text: { kea: "`else` só ta kore si o `try` ka teve eru; `finally` ta kore **senpri** (ku eru o sen eru)" }
+      correct: true
+    - text: { kea: "`else` ta kore senpri; `finally` só si teve eru" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza" }
+      correct: false
+    - text: { kea: "`else` ta kore si teve eru; `finally` si ka teve" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi o `raise`?"
+  options:
+    - text: { kea: "Pa **lansa** un eru di propósitu na o bu kódiku — p.ex. sinaliza un argumentu inválidu o un kondisan di negósiu ki ka é satisfeitu" }
+      correct: true
+    - text: { kea: "Pa kaptura un eru i ignora-l" }
+      correct: false
+    - text: { kea: "Pa rekomesa o programa di o iníisu" }
+      correct: false
+    - text: { kea: "Pa konverti un eru nun avizu" }
+      correct: false

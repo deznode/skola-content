@@ -1,0 +1,144 @@
+# Exercises sidecar (draft source) for lesson m1-08 "Operadoris".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/08-operadoris/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-precedencia` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: kalkuladora-di-troku
+  language: python
+  kind: code
+  title: { kea: "Kalkuladora di troku" }
+  prompt:
+    kea: "Pidi o presu di un produtu i kuantu o klienti pagá. Kalkula o troku, i dipos kuantas nota di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda. Uza `//` (divisan interu) i `%` (restu)."
+  hint:
+    kea: "`troku = pagamentu - presu`. Pa kontar as nota di 200: `troku // 200`; o ki sobra: `troku % 200`. Dipos repeti pa as nota di 100 sobri o restu. Lenbra konverti o `input()` ku `int()`."
+  starterCode: |
+    # troku.py
+    presu = int(input("Presu? "))
+    pagamentu = int(input("Pagamentu? "))
+
+    # TODO: kalkula o troku
+    # TODO: kuantas nota di 200, di 100, i kuantu sobra na moeda
+  solutionCode: |
+    # troku.py
+    presu = int(input("Presu? "))
+    pagamentu = int(input("Pagamentu? "))
+
+    troku = pagamentu - presu
+    notas_200 = troku // 200
+    restu = troku % 200
+    notas_100 = restu // 100
+    moeda = restu % 100
+
+    print(f"Troku: {troku} ECV")
+    print(f"{notas_200} nota(s) di 200, {notas_100} nota(s) di 100, i {moeda} ECV na moeda")
+- slug: verifikador-di-idadi
+  language: python
+  kind: code
+  title: { kea: "Verifikador di idadi" }
+  prompt:
+    kea: "Pidi o nomi i a idadi di un pesoa. Uza operadoris di komparasan pa mostra si el pode vota (`>= 18`), konduz (`>= 18`) i aposenta (`>= 65`). Mostra kada rezultadu (`True`/`False`) ku un f-string."
+  hint:
+    kea: "Un komparasan kumo `idadi >= 18` ta da diretu un boolean (`True`/`False`) — bu pode garda-l nun variável (`pode_vota = idadi >= 18`) i mostra-l nun f-string. Konverti a idadi ku `int(input(...))`."
+  starterCode: |
+    # idadi.py
+    nomi = input("Nomi? ")
+    idadi = int(input("Idadi? "))
+
+    # TODO: pode vota? konduz? aposenta? (komparasons)
+    # TODO: mostra kada un ku un f-string
+  solutionCode: |
+    # idadi.py
+    nomi = input("Nomi? ")
+    idadi = int(input("Idadi? "))
+
+    pode_vota = idadi >= 18
+    pode_konduz = idadi >= 18
+    pode_aposenta = idadi >= 65
+
+    print(f"{nomi} pode vota? {pode_vota}")
+    print(f"{nomi} pode konduz? {pode_konduz}")
+    print(f"{nomi} pode aposenta? {pode_aposenta}")
+- slug: kalkuladora-imc
+  language: python
+  kind: code
+  title: { kea: "Kalkuladora di IMC" }
+  prompt:
+    kea: "Pidi o pezu (kg) i a altura (m). Kalkula o IMC ku `pezu / altura ** 2` i mostra a kategoria: abaxu di `18.5` é \"Abaxu di pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", i `30` o más é \"Obezidadi\"."
+  hint:
+    kea: "Konverti os dos input ku `float(...)`. O `**` (esponensasan) ta kore antis di `/`, anton `pezu / altura ** 2` ta kalkula `altura ** 2` primeru. Pa skodje a kategoria, uza `if`/`elif`/`else` (un previu di Lisan 9). Bu pode enkadea komparasons: `18.5 <= imc < 25`."
+  starterCode: |
+    # imc.py
+    pezu = float(input("Pezu (kg)? "))
+    altura = float(input("Altura (m)? "))
+
+    # TODO: kalkula o IMC (pezu / altura ** 2)
+    # TODO: mostra a kategoria
+  solutionCode: |
+    # imc.py
+    pezu = float(input("Pezu (kg)? "))
+    altura = float(input("Altura (m)? "))
+
+    imc = pezu / altura ** 2
+
+    if imc < 18.5:
+        kategoria = "Abaxu di pezu"
+    elif imc < 25:
+        kategoria = "Pezu normal"
+    elif imc < 30:
+        kategoria = "Subrepezu"
+    else:
+        kategoria = "Obezidadi"
+
+    print(f"IMC: {imc:.1f} — {kategoria}")
+- slug: koriji-precedencia
+  language: python
+  kind: debug
+  file: media.py
+  title: { kea: "Koriji a presedensia di operadoris" }
+  prompt:
+    kea: "Es programa debe kalkula a média di tres nota (debe ser `80.0`), ma `media` ta sai mutu altu. O problema é a presedensia di os operadoris. Koriji-l."
+  hint:
+    kea: "Na `nota1 + nota2 + nota3 / 3`, o `/` ta kore **antis** di o `+`, anton só `nota3` ta ser divididu pa 3. Po as somas dentu di parêntesis: `(nota1 + nota2 + nota3) / 3`."
+  starterCode: |
+    # media.py — a média ta sai mutu altu. Koriji a presedensia.
+    nota1 = 80
+    nota2 = 90
+    nota3 = 70
+
+    media = nota1 + nota2 + nota3 / 3
+    print(f"Média: {media}")   # debe ser 80.0
+  solutionCode: |
+    # media.py — parêntesis pa soma antis di dividi
+    nota1 = 80
+    nota2 = 90
+    nota3 = 70
+
+    media = (nota1 + nota2 + nota3) / 3
+    print(f"Média: {media}")   # 80.0
+- slug: splora-operadoris
+  language: python
+  kind: explore
+  title: { kea: "Splora a tabela kompletu di operadoris" }
+  prompt:
+    kea: "Python tene más operadoris alén di es (kumo os bit-a-bit `&`, `|`, `<<`). Odja a tabela ofisial di presedensia pa odja a orden ezatu — un referensia útil kuandu un espresan ka ta da o ki bu spera."
+  resources:
+    kea:
+      - { label: "Python docs — Operator precedence", url: "https://docs.python.org/3/reference/expressions.html#operator-precedence" }
+      - { label: "Python docs — Boolean operations (and, or, not)", url: "https://docs.python.org/3/reference/expressions.html#boolean-operations" }
+- slug: refleta-igual-vs-igualigual
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `=` versus `==`" }
+  prompt:
+    kea: "Un di os errus más kumuns é konfundi `=` (atribuisan — garda un valor) ku `==` (komparasan — pergunta si é igual). Skrebe un izemplu di kada un, i o ki ta kontise si bu troka un pa otu nun kondisan."
+  notePlaceholder:
+    kea: "`=` (atribuisan): …   ·   `==` (komparasan): …   ·   O ki ta kontise si troka: …"

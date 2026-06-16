@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m3-18 "Funsons Inkorporadus Úteis".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/18-funsoens-inkorporadus/quiz.yaml;
+# positions 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Bu kre o índisi i o valor a o mesmu tempu nun loop. Ki funsan é a forma Pythonic?"
+  options:
+    - text: { kea: "`enumerate(lista)` — ta da o índisi i o valor djuntu, sen meste `range(len(lista))`" }
+      correct: true
+    - text: { kea: "`range(len(lista))` i dipos `lista[i]`" }
+      correct: false
+    - text: { kea: "`zip(lista)`" }
+      correct: false
+    - text: { kea: "`sorted(lista)`" }
+      correct: false
+- question:
+    kea: "Bu faze `zip()` di dos lista di tamañu diferenti (un ku 5, otu ku 3). O ki ta kontise?"
+  options:
+    - text: { kea: "`zip()` ta para kuandu o más kurtu akaba — só 3 par" }
+      correct: true
+    - text: { kea: "Ta da un `ValueError` — as lista ten ki tene mesmu tamañu" }
+      correct: false
+    - text: { kea: "Ta prixinxe os ki falta ku `None`" }
+      correct: false
+    - text: { kea: "Ta da 5 par, ku os úlimu repetidu" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri `any()` i `all()`?"
+  options:
+    - text: { kea: "`any()` ta da `True` si **algun** elementu é `True`; `all()` só si **tudu** é `True`" }
+      correct: true
+    - text: { kea: "`any()` só si tudu é `True`; `all()` si algun é `True`" }
+      correct: false
+    - text: { kea: "Es é a mesmu kuza" }
+      correct: false
+    - text: { kea: "`any()` ta konta os `True`; `all()` ta konta os `False`" }
+      correct: false
+- question:
+    kea: "Pamodi `isinstance(valor, int)` é preferidu sobri `type(valor) == int`?"
+  options:
+    - text: { kea: "`isinstance()` ta rekonxe subtipus (hereditariedadi) — p.ex. `isinstance(True, int)` é `True`, ma `type(True) == int` é `False`" }
+      correct: true
+    - text: { kea: "`isinstance()` é más rápidu, ma da o mesmu rezultadu" }
+      correct: false
+    - text: { kea: "`type()` ka ta funsiona ku números" }
+      correct: false
+    - text: { kea: "Ka ten diferensa — es é igual" }
+      correct: false

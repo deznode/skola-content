@@ -417,40 +417,20 @@ nha_projetu/
     └── test_validador.py
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Skrebe un funsan `é_par(n: int) -> bool` ki ta retorna `True` si numeru é par. Depois skrebe 3 testus pa el (par, ímpar, zero). Roda ku `pytest`.
-
-2. **Izersisiu 2:** Skrebe testus pa un funsan `inverte_string(s: str) -> str` ki ta retorna string invertidu. Testa ku string normál, string váziu, i string ku un só karáter. Después implementa funsan.
-
-3. **Izersisiu 3 (TDD):** Primeru skrebe testus pa un funsan `klassifika_nota(nota: float) -> str` ki ta retorna:
-   - "Exselenti" pa nota >= 16
-   - "Bon" pa nota >= 12
-   - "Sufisienti" pa nota >= 10
-   - "Insufisienti" pa nota `< 10`
-
-   Depois implementa funsan i roda `pytest` pa verifika.
-
-4. **Izersisiu 4:** Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa `ValueError` (pamodi nota negativu ka faze sentidu). Uza `pytest.raises(ValueError)`.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **assert** — verifika ki un kondisan é verdadeiru; si ka é, testu fayo
-- **pytest** — ferramenta ki ta diskubri i roda tudu funsons `test_*` automátikamenti
-- **Nomi di ficheru:** `test_*.py` o `*_test.py`; funsons: `def test_*()`
-- **Roda:** `pytest` (tudu) o `pytest -v` (verbozu ku nomi di kada testu)
-- **`pytest.raises(Error)`** — testa ki un funsan lansa un exsesan espesífiku
-- **Pensamentu TDD:** skrebe testu primeru → implementa → verifika → repeti
-- **Testus é investimentu** — más tempu gosi, menus bugs dipos!
-
----
-
-**Prósimu lisan:** [Klasis i Objetis →](/courses/intro-python/lessons/klasis-objetis)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Testus é un investimentu — más tempu gosi, mutu menus bugs dipos. Si os testu ta pasa, bu pode muda o kódiku ku konfiansa.</RezumuItem>
+  <RezumuItem term="assert">Ta verifika ki un kondisan é verdaderu; si ka é, ta lansa `AssertionError` i o testu faya.</RezumuItem>
+  <RezumuItem term="pytest">Ta diskubri i kore tudu as funsan `test_*` sózin. Ficheru `test_*.py`; funsan `def test_*()`. Roda ku `pytest` o `pytest -v`.</RezumuItem>
+  <RezumuItem term="pytest.raises">`with pytest.raises(Error):` ta testa ki un funsan **deve** lansa un exseson espesífiku.</RezumuItem>
+  <RezumuItem term="TDD">Skrebe o testu primeru → implementa o mínimu pa pasa → verifika → repeti.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Nomi di testu deskritivu ta sirbi kumo dokumentason: `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.</RezumuItem>
+</KeyTakeaways>

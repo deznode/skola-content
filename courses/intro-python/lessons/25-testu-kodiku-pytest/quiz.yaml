@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m3-25 "Testu di Kódiku ku pytest".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/25-testu-kodiku-pytest/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki ta kontise kuandu un `assert` faya (a kondisan é `False`)?"
+  options:
+    - text: { kea: "Python ta lansa un `AssertionError` — o testu faya" }
+      correct: true
+    - text: { kea: "Nada — `assert` ta ignora a kondisan" }
+      correct: false
+    - text: { kea: "O programa ta kontinua, ma ku un avizu" }
+      correct: false
+    - text: { kea: "Ta retorna `False` di a funsan" }
+      correct: false
+- question:
+    kea: "Kumo pytest ta diskubri os testu na un ficheru?"
+  options:
+    - text: { kea: "O ficheru kumesa ku `test_` (o akaba ku `_test.py`) i as funsan kumesa ku `test_`" }
+      correct: true
+    - text: { kea: "Tudu funsan na o ficheru é un testu" }
+      correct: false
+    - text: { kea: "Só as funsan ku un dekorador `@test`" }
+      correct: false
+    - text: { kea: "Bu ten ki lista kada testu nun ficheru de konfigurason" }
+      correct: false
+- question:
+    kea: "Kumo bu ta testa ki un funsan **deve** lansa un `ValueError`?"
+  options:
+    - text: { kea: "Ku `with pytest.raises(ValueError): funsan(...)` — o testu ta pasa só si o eru é lansadu" }
+      correct: true
+    - text: { kea: "Ku `assert funsan(...) == ValueError`" }
+      correct: false
+    - text: { kea: "Ku un `try`/`except` dentu di o testu" }
+      correct: false
+    - text: { kea: "Ka ten manera di testa erus ku pytest" }
+      correct: false
+- question:
+    kea: "Na o pensamentu TDD (Test-Driven Development), ki ordi bu ta sigi?"
+  options:
+    - text: { kea: "Skrebe o testu primeru (el ta faya), dipos implementa o kódiku mínimu pa pasa, dipos verifika i repeti" }
+      correct: true
+    - text: { kea: "Skrebe tudu o kódiku primeru, dipos os testu na o fin" }
+      correct: false
+    - text: { kea: "Skrebe só o kódiku — TDD ka ta uza testu" }
+      correct: false
+    - text: { kea: "Roda o programa manualmenti antis di kada mudansa" }
+      correct: false

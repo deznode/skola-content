@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m3-21 "Ambiente Virtual i pip".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/21-ambiente-virtual/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Pa kuze ki ta sirbi un ambiente virtual (`.venv`)?"
+  options:
+    - text: { kea: "Ta izola os pakotu di kada projetu — kada projetu tene se própriu versan, sen interferi ku os otus" }
+      correct: true
+    - text: { kea: "Ta faze o kódiku kore más rápidu" }
+      correct: false
+    - text: { kea: "Ta instala Python na o komputador" }
+      correct: false
+    - text: { kea: "Ta konekta o projetu a a internet" }
+      correct: false
+- question:
+    kea: "Kumo bu ta salva i dipos restaura a lista di pakotu di un projetu?"
+  options:
+    - text: { kea: "`pip freeze > requirements.txt` pa salva; `pip install -r requirements.txt` pa restaura" }
+      correct: true
+    - text: { kea: "`pip save` pa salva; `pip load` pa restaura" }
+      correct: false
+    - text: { kea: "Kopia a pasta `.venv/` pa o git" }
+      correct: false
+    - text: { kea: "`pip list > requirements.txt` pa salva; `pip get` pa restaura" }
+      correct: false
+- question:
+    kea: "Pamodi a pasta `.venv/` ka devia bai pa git?"
+  options:
+    - text: { kea: "El tene miláris di ficheru, é spesífiku pa kada komputador, i pode ser rekriadu di `requirements.txt` — anton ta na `.gitignore`" }
+      correct: true
+    - text: { kea: "Pamodi el tene o kódiku sekretu di o projetu" }
+      correct: false
+    - text: { kea: "Pamodi git ka ta seita pasta ku ponto na nomi" }
+      correct: false
+    - text: { kea: "El devia bai pa git senpri — é importante partilha-l" }
+      correct: false

@@ -19,7 +19,7 @@ Kuandu bu ta skrebe un funsan, bo sabi ki tipu di dadus el ta espera i ki tipu e
 
 **Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
 
-## Primeru Izemplu: Antis i Después
+## Primeru Izemplu: Antis i Dipós
 
 **Sen type hints:**
 
@@ -289,40 +289,19 @@ relátoriu = relatóriu_klasi(klasi)
 print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Adisiona type hints na es funsan:
-```python
-def area_retangulu(largura, altura):
-    return largura * altura
-
-def buska_ilha(nomis, alvu):
-    for nomi in nomis:
-        if nomi.lower() == alvu.lower():
-            return nomi
-    return None
-```
-
-2. **Izersisiu 2:** Skrebe un funsan `konverti_temperatura(valór: float, di: str, pa: str) -> float | None` ki ta konverti entri "C" (Celsius), "F" (Fahrenheit), i "K" (Kelvin). Retorna `None` si unidadi ka é rekonsidu.
-
-3. **Izersisiu 3:** Kria un funsan `estatístikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku "soma", "média", "mínima", i "máxima".
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Annotasons di funsan:** `def f(param: tipu) -> tipu_retorno:`
-- **Annotasons di variável:** `nomi: str = "valór"`
-- **Containers (3.9+):** `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`
-- **Union (3.10+):** `int | None` pa valóris ki pode ser un tipu o `None`
-- **Ka ta muda runtime!** Type hints é pa umanus, IDEs, i ferramentas (mypy)
-- **Kuandu uza:** Senpri na funsan (parámetrus + retornu); opisionál na variáveis óbvias
-- **Benefísiu:** Midjór autocomplete, erus deskubridu más sedu, kódiku más lezível
-
----
-
-**Prósimu lisan:** [Testu di Kódiku ku pytest →](/courses/intro-python/lessons/testu-kodiku-pytest)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Type hints é **sujestoens, ka regras** — Python ka ta verifika-s na runtime. Es ta sirbi pa umanus, IDEs (autocomplete) i ferramentas kumo `mypy`.</RezumuItem>
+  <RezumuItem term="Funsan">`def f(param: tipu) -> tipu_retorno:`. `-> None` pa funsan ki ka retorna nada.</RezumuItem>
+  <RezumuItem term="Containers">Dezdi 3.9: `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`.</RezumuItem>
+  <RezumuItem term="Union">Dezdi 3.10: `int | None` pa un valor ki pode ser un tipu **o** `None`.</RezumuItem>
+  <RezumuItem>Uza-s senpri na funsan (parámetrus + retornu); opsional na variável óbviu. Benefísiu: midjór autocomplete, erus atxadu más sedu, kódiku más lijível.</RezumuItem>
+</KeyTakeaways>

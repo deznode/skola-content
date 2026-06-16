@@ -24,7 +24,7 @@ Kuandu bo programa ta krési, bu ka pode po tudu na un ficheru só. Python ta pe
 Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ó variáveis. Kuandu bo faze `import`, bu ta trazi kel kódiku pa bo programa.
 
 ```python
-# Python tene muitius módulus built-in prontu pa uza
+# Python tene txeu módulus built-in prontu pa uza
 import math
 
 print(math.sqrt(16))    # 4.0
@@ -342,30 +342,20 @@ gestor_notas/
     └── notas.csv        # Ficheru di dadus
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Esplora Standard Library** — Importa `random` i skrebe un programa ki sorteia 5 numeru di loteria (entri 1 i 49, sen repetisan). Dika: uza `random.sample()`.
-
-2. **Izersisiu 2: Kria un Módulu** — Kria un ficheru `conversor.py` ku funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: 1 EUR = 110.265 ECV). Na otu ficheru, importa i testa.
-
-3. **Izersisiu 3: Pakotu di Utilidadis** — Kria un pasta `utils/` ku `__init__.py`, un módulu `validasan.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki retorna "1.500$00 ECV"). Importa tudu di `main.py`.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Módulu** é un ficheru `.py` ku kódiku reutilizável
-- Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`
-- **Standard library** tene módulus prontu: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`
-- **pip** ta instala pakotis di terseru: `pip install nome_pakotu`
-- **Pakotu** é un pasta ku `__init__.py` + módulus
-- `__name__ == "__main__"` ta permite kódiku ki só roda kuandu ficheru é ezekatadu diretu
-- Organiza projetu na módulus ta faze kódiku más fásil di ler, mante, i reusa
-
----
-
-**Prósimu lisan:** [Ambiente Virtual i pip →](/courses/intro-python/lessons/ambiente-virtual)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Organiza o projetu na módulus i pakotis ta faze o kódiku más fáxi di ler, mante i reuza — ka po tudu nun ficheru só.</RezumuItem>
+  <RezumuItem term="Módulu">Un ficheru `.py` ku kódiku reutilizável. Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`.</RezumuItem>
+  <RezumuItem term="Standard library">Módulus prontu ki ben ku Python: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`.</RezumuItem>
+  <RezumuItem term="pip">`pip install nome_pakotu` pa pakotis di terseru ki ka ben ku Python.</RezumuItem>
+  <RezumuItem term="Pakotu">Un pasta ku un `__init__.py` + un o más módulu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`if __name__ == "__main__":` ta dexa kódiku ki só ta kore kuandu o ficheru é izekutadu diretu — perfeitu pa testes ki ka devia kore na o import. I evita `from módulu import *`.</RezumuItem>
+</KeyTakeaways>

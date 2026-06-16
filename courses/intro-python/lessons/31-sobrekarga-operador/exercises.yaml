@@ -1,0 +1,196 @@
+# Exercises sidecar (draft source) for lesson m4-31 "Sobrekarga di Operador".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/31-sobrekarga-operador/exercises.yaml,
+# where scripts/import-content.ts emits it into the `exercises` table;
+# <TentaGosi/> renders them in display order. Keep `slug` stable.
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: klasi-temperatura
+  language: python
+  kind: code
+  title: { kea: "Klasi Temperatura ku operadoris" }
+  prompt:
+    kea: "Kria un klasi `Temperatura` ku o atributu `graus` (Celsius). Implementa `__add__`, `__sub__`, `__eq__`, `__lt__` i `__str__` (mostra `\"Nº°C\"`). Testa: `Temperatura(30) + Temperatura(5)` debe da `Temperatura(35)`."
+  hint:
+    kea: "`__add__(self, otru)` ta retorna un **novu** `Temperatura(self.graus + otru.graus)` — ka muda `self`. `__eq__` ta kompara `self.graus == otru.graus`. `__lt__` ta uza `<`."
+  starterCode: |
+    # temperatura.py
+    class Temperatura:
+        def __init__(self, graus):
+            self.graus = graus
+
+        def __add__(self, otru):
+            ...
+        def __sub__(self, otru):
+            ...
+        def __eq__(self, otru):
+            ...
+        def __lt__(self, otru):
+            ...
+        def __str__(self):
+            ...
+  solutionCode: |
+    # temperatura.py
+    class Temperatura:
+        def __init__(self, graus):
+            self.graus = graus
+
+        def __add__(self, otru):
+            return Temperatura(self.graus + otru.graus)
+        def __sub__(self, otru):
+            return Temperatura(self.graus - otru.graus)
+        def __eq__(self, otru):
+            return self.graus == otru.graus
+        def __lt__(self, otru):
+            return self.graus < otru.graus
+        def __str__(self):
+            return f"{self.graus}°C"
+
+    print(Temperatura(30) + Temperatura(5))   # 35°C
+- slug: klasi-korida
+  language: python
+  kind: code
+  title: { kea: "Klasi Korida (taksi)" }
+  prompt:
+    kea: "Kria un klasi `Korida` pa un servisu di taksi na Praia, ku `distansia` (km) i `presu_por_km` (ECV). Implementa `__add__` (soma as distansia, média di presu), `__mul__` (multiplika a distansia pa un fator), `__eq__`, `__str__` (`\"Korida: Nkm — N ECV\"`) i un metodu `total()` (distansia × presu_por_km)."
+  hint:
+    kea: "`__add__` ta retorna un `Korida` nova ku `self.distansia + otru.distansia` i a média di os presu. `__mul__(self, fator)` ta multiplika a distansia. `total()` ta da `self.distansia * self.presu_por_km`."
+  starterCode: |
+    # korida.py
+    class Korida:
+        def __init__(self, distansia, presu_por_km):
+            self.distansia = distansia
+            self.presu_por_km = presu_por_km
+
+        def __add__(self, otru):
+            ...
+        def __mul__(self, fator):
+            ...
+        def __eq__(self, otru):
+            ...
+        def total(self):
+            ...
+        def __str__(self):
+            ...
+  solutionCode: |
+    # korida.py
+    class Korida:
+        def __init__(self, distansia, presu_por_km):
+            self.distansia = distansia
+            self.presu_por_km = presu_por_km
+
+        def __add__(self, otru):
+            media_presu = (self.presu_por_km + otru.presu_por_km) / 2
+            return Korida(self.distansia + otru.distansia, media_presu)
+        def __mul__(self, fator):
+            return Korida(self.distansia * fator, self.presu_por_km)
+        def __eq__(self, otru):
+            return (self.distansia == otru.distansia
+                    and self.presu_por_km == otru.presu_por_km)
+        def total(self):
+            return self.distansia * self.presu_por_km
+        def __str__(self):
+            return f"Korida: {self.distansia}km — {self.total()} ECV"
+
+    print(Korida(5, 100) + Korida(3, 120))   # Korida: 8km — 880.0 ECV
+- slug: dineru-divisan
+  language: python
+  kind: code
+  title: { kea: "Extende Dineru ku __truediv__" }
+  prompt:
+    kea: "Extende a klasi `Dineru` (ku `montanti` na ECV) pa suporta a divisan `__truediv__`: `Dineru(1000) / 4` debe da `Dineru(250)`. Testa ku o izemplu di dividi un konta di restoranti entri amigu."
+  hint:
+    kea: "`__truediv__(self, divisor)` ta retorna un `Dineru(self.montanti / divisor)`. Verifika ku `isinstance(divisor, (int, float))`; senan, `return NotImplemented`."
+  starterCode: |
+    # dineru.py
+    class Dineru:
+        def __init__(self, montanti):
+            self.montanti = round(montanti, 2)
+
+        def __truediv__(self, divisor):
+            ...  # TODO
+
+        def __str__(self):
+            return f"{self.montanti:,.2f} ECV"
+
+    konta = Dineru(1000)
+    print(konta / 4)   # 250.00 ECV
+  solutionCode: |
+    # dineru.py
+    class Dineru:
+        def __init__(self, montanti):
+            self.montanti = round(montanti, 2)
+
+        def __truediv__(self, divisor):
+            if isinstance(divisor, (int, float)):
+                return Dineru(self.montanti / divisor)
+            return NotImplemented
+
+        def __str__(self):
+            return f"{self.montanti:,.2f} ECV"
+
+    konta = Dineru(3200)
+    por_amigu = konta / 4
+    print(f"Kada un paga: {por_amigu}")   # Kada un paga: 800.00 ECV
+- slug: klasi-nota-komparasan
+  language: python
+  kind: code
+  title: { kea: "Klasi Nota ku komparasan kompletu" }
+  prompt:
+    kea: "Kria un klasi `Nota` (0–20) i implementa tudu os operador di komparasan (`__eq__`, `__lt__`, `__gt__`, `__le__`, `__ge__`). Kria un lista di 5 nota i uza `sorted()`, `min()` i `max()` ku es."
+  hint:
+    kea: "Kada operador ta kompara `self.valor` ku `otru.valor`. Ku `__eq__` i `__lt__` (i os otu), `sorted()`, `min()` i `max()` ta funsiona sózin ku os objetu. Djunta un `__repr__` pa odja os rezultadu."
+  starterCode: |
+    # nota.py
+    class Nota:
+        def __init__(self, valor):
+            self.valor = valor
+
+        def __eq__(self, o): ...
+        def __lt__(self, o): ...
+        def __gt__(self, o): ...
+        def __le__(self, o): ...
+        def __ge__(self, o): ...
+        def __repr__(self):
+            return f"Nota({self.valor})"
+  solutionCode: |
+    # nota.py
+    class Nota:
+        def __init__(self, valor):
+            self.valor = valor
+
+        def __eq__(self, o): return self.valor == o.valor
+        def __lt__(self, o): return self.valor < o.valor
+        def __gt__(self, o): return self.valor > o.valor
+        def __le__(self, o): return self.valor <= o.valor
+        def __ge__(self, o): return self.valor >= o.valor
+        def __repr__(self):
+            return f"Nota({self.valor})"
+
+    notas = [Nota(14), Nota(8), Nota(19), Nota(11), Nota(16)]
+    print(sorted(notas))   # [Nota(8), Nota(11), Nota(14), Nota(16), Nota(19)]
+    print(min(notas), max(notas))   # Nota(8) Nota(19)
+- slug: splora-functools-total-ordering
+  language: python
+  kind: explore
+  title: { kea: "Splora functools.total_ordering" }
+  prompt:
+    kea: "Implementa os 6 operador di komparasan é repetitivu. O dekorador `@functools.total_ordering` ta jeri os restu a partir di só `__eq__` i `__lt__`. Odja a dokumentason — un atadju sabi."
+  resources:
+    kea:
+      - { label: "Python docs — functools.total_ordering", url: "https://docs.python.org/3/library/functools.html#functools.total_ordering" }
+      - { label: "Python docs — Data model: emulating numeric types", url: "https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types" }
+- slug: refleta-sobrekarga
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri sobrekarga di operador" }
+  prompt:
+    kea: "Sobrekarga di operador ta dexa o kódiku más naturál (`presu1 + presu2` en bez di un metodu). Pensa nun tipu di o mundu real (diñeru, vetor, tempu). Skrebe ki operador ta faze sentidu pa el (`+`? `==`? `<`?), i pamodi un `__add__` debe retorna un **novu** objetu."
+  notePlaceholder:
+    kea: "Tipu: …   ·   Operador ki faze sentidu: …   ·   Pamodi retorna novu objetu (ka muda self): …"

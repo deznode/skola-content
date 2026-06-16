@@ -1,0 +1,157 @@
+# Exercises sidecar (draft source) for lesson m1-09 "Kondisionais (if/elif/else)".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/09-kondisionais/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `debug` drill (`koriji-orden-elif` — a
+# broken program shown inline to fix), one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: klasifikador-imc
+  language: python
+  kind: code
+  title: { kea: "Klasifikador di IMC" }
+  prompt:
+    kea: "Pidi o pezu (kg) i a altura (m). Kalkula o IMC (`pezu / altura ** 2`) i mostra a klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` o más é \"Obezidadi\"."
+  hint:
+    kea: "Konverti os dos input ku `float()`. Pa as kategorias, testa di o más baxu pa o más altu — `if imc < 18.5:` ... `elif imc < 25:` ... `elif imc < 30:` ... `else:`. A orden ta importa: o primeru `True` ta ganha."
+  starterCode: |
+    # imc.py
+    pezu = float(input("Pezu (kg)? "))
+    altura = float(input("Altura (m)? "))
+
+    # TODO: kalkula o IMC
+    # TODO: mostra a klasifikasan ku if/elif/else
+  solutionCode: |
+    # imc.py
+    pezu = float(input("Pezu (kg)? "))
+    altura = float(input("Altura (m)? "))
+
+    imc = pezu / altura ** 2
+
+    if imc < 18.5:
+        kategoria = "Baxu pezu"
+    elif imc < 25:
+        kategoria = "Pezu normal"
+    elif imc < 30:
+        kategoria = "Subrepezu"
+    else:
+        kategoria = "Obezidadi"
+
+    print(f"IMC: {imc:.1f} — {kategoria}")
+- slug: konversor-di-moeda
+  language: python
+  kind: code
+  title: { kea: "Konversor di moeda" }
+  prompt:
+    kea: "Pidi un montanti i a moeda di orijen (`ECV`, `EUR` o `USD`), i mostra o valor na as otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje o kálkulu ku `if`/`elif`/`else` sigundu a moeda."
+  hint:
+    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa as otas. Si a moeda é `EUR`, o montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa o `else`, mostra ki a moeda ka é válidu."
+  starterCode: |
+    # moeda.py
+    montanti = float(input("Montanti? "))
+    moeda = input("Moeda di orijen (ECV/EUR/USD)? ").upper()
+
+    # TODO: konverti pa as otas dos moedas ku if/elif/else
+  solutionCode: |
+    # moeda.py
+    montanti = float(input("Montanti? "))
+    moeda = input("Moeda di orijen (ECV/EUR/USD)? ").upper()
+
+    if moeda == "ECV":
+        print(f"{montanti} ECV = {montanti / 110:.2f} EUR = {montanti / 100:.2f} USD")
+    elif moeda == "EUR":
+        ecv = montanti * 110
+        print(f"{montanti} EUR = {ecv:.2f} ECV = {ecv / 100:.2f} USD")
+    elif moeda == "USD":
+        ecv = montanti * 100
+        print(f"{montanti} USD = {ecv:.2f} ECV = {ecv / 110:.2f} EUR")
+    else:
+        print(f"Moeda '{moeda}' ka é válidu. Uza ECV, EUR o USD.")
+- slug: klasifikador-triangulu
+  language: python
+  kind: code
+  title: { kea: "Klasifikador di triángulu" }
+  prompt:
+    kea: "Pidi os 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki o terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) o \"Eskalenu\" (tudu diferenti)."
+  hint:
+    kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu o un `else` pa o kazu inválidu."
+  starterCode: |
+    # triangulu.py
+    a = float(input("Ladu 1? "))
+    b = float(input("Ladu 2? "))
+    c = float(input("Ladu 3? "))
+
+    # TODO: verifika si é un triángulu válidu
+    # TODO: si sin, klasifika (ekiláteru / isóseles / eskalenu)
+  solutionCode: |
+    # triangulu.py
+    a = float(input("Ladu 1? "))
+    b = float(input("Ladu 2? "))
+    c = float(input("Ladu 3? "))
+
+    if a + b > c and a + c > b and b + c > a:
+        if a == b == c:
+            print("Ekiláteru — 3 ladu igual")
+        elif a == b or b == c or a == c:
+            print("Isóseles — 2 ladu igual")
+        else:
+            print("Eskalenu — tudu ladu diferenti")
+    else:
+        print("Es ladu ka ta forma un triángulu válidu.")
+- slug: koriji-orden-elif
+  language: python
+  kind: debug
+  file: nota.py
+  title: { kea: "Koriji a orden di os elif" }
+  prompt:
+    kea: "Es klasifikador di nota ta sai senpri `Reprovadu`, mésmu pa `nota = 85`. O kódiku ka ta da eru — ma a lójika sta mal. Diskubri pamodi i koriji a orden di os `elif`."
+  hint:
+    kea: "Python ta para na primeru kondisan ki é `True`. `nota >= 0` é `True` pa kuazi tudu nota, nton el ta ganha senpri i os otus `elif` nunka ta kore. Po as kondisan di a más estrita (`>= 70`) pa a más larga (`>= 0`)."
+  starterCode: |
+    # nota.py — es ta sai senpri "Reprovadu". Koriji a orden.
+    nota = 85
+
+    if nota >= 0:
+        print("Reprovadu")
+    elif nota >= 50:
+        print("Sufisienti")
+    elif nota >= 70:
+        print("Bon")
+    else:
+        print("Nota inválidu")
+  solutionCode: |
+    # nota.py — testa di a kondisan más estrita pa a más larga
+    nota = 85
+
+    if nota >= 70:
+        print("Bon")
+    elif nota >= 50:
+        print("Sufisienti")
+    elif nota >= 0:
+        print("Reprovadu")
+    else:
+        print("Nota inválidu")
+- slug: splora-match-case
+  language: python
+  kind: explore
+  title: { kea: "Splora match/case (Python 3.10+)" }
+  prompt:
+    kea: "`match`/`case` é un alternativa modernu pa kadeia di `if`/`elif` kuandu bu ta kompara un valor ku txeu opsan. Odja a dokumentason pa odja o ki más el pode faze (kumo kombina padrons ku `|`)."
+  resources:
+    kea:
+      - { label: "Python docs — match statements (tutorial)", url: "https://docs.python.org/3/tutorial/controlflow.html#match-statements" }
+      - { label: "PEP 636 — Structural Pattern Matching: Tutorial", url: "https://peps.python.org/pep-0636/" }
+- slug: refleta-orden-elif
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri a orden di os `elif`" }
+  prompt:
+    kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe o ki ta kontise si bu po a kondisan más larga (`< 65`) antis di a más estrita (`< 13`)."
+  notePlaceholder:
+    kea: "Kadeia: …   ·   Orden koretu: …   ·   O ki ta kontise si troka a orden: …"

@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m2-11 "Listas i List Comprehension".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/11-listas/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kal é a diferensa entri `lista.sort()` i `sorted(lista)`?"
+  options:
+    - text: { kea: "`.sort()` ta ordena a lista orijinal in-place (ta retorna `None`); `sorted()` ta retorna un lista nova sen toka na orijinal" }
+      correct: true
+    - text: { kea: "Es é igual — os dos ta retorna un lista nova" }
+      correct: false
+    - text: { kea: "`.sort()` ta retorna un lista nova; `sorted()` ta muda a orijinal" }
+      correct: false
+    - text: { kea: "`sorted()` só ta funsiona ku númerus" }
+      correct: false
+- question:
+    kea: "O ki ta da `[n for n in range(1, 11) if n % 2 == 0]`?"
+  options:
+    - text: { kea: "`[2, 4, 6, 8, 10]` — só os númerus par di 1 a 10" }
+      correct: true
+    - text: { kea: "`[1, 3, 5, 7, 9]` — só os ímpar" }
+      correct: false
+    - text: { kea: "`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` — tudu os númerus" }
+      correct: false
+    - text: { kea: "`[2, 4, 6, 8, 10, 12]` — par di 1 a 11" }
+      correct: false
+- question:
+    kea: "Bu tene `frutas = [\"manga\", \"papaia\"]` i bu kore `frutas[1:] = \"koku\"`. O ki ta kontise?"
+  options:
+    - text: { kea: "`frutas` ta vira `[\"manga\", \"k\", \"o\", \"k\", \"u\"]` — slice assignment ku string ta spredi os karater; uza `[\"koku\"]`" }
+      correct: true
+    - text: { kea: "`frutas` ta vira `[\"manga\", \"koku\"]` — funsiona normal" }
+      correct: false
+    - text: { kea: "Un `TypeError` — ka pode atribui un string a un slice" }
+      correct: false
+    - text: { kea: "Nada ta muda — string é imutável" }
+      correct: false

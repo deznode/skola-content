@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-08 "Operadoris".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/08-operadoris/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki ta da `7 // 2`?"
+  options:
+    - text: { kea: "`3` — `//` é divisan interu, ta tira a parti desimal" }
+      correct: true
+    - text: { kea: "`3.5` — divisan normal" }
+      correct: false
+    - text: { kea: "`1` — `//` ta da o restu" }
+      correct: false
+    - text: { kea: "`4` — ta arredonda pa riba" }
+      correct: false
+- question:
+    kea: "O ki ta imprimi `print(2 + 3 * 4)`?"
+  options:
+    - text: { kea: "`14` — a multiplikasan `*` ta kore antis di a adisan `+` (presedensia)" }
+      correct: true
+    - text: { kea: "`20` — Python ta kalkula di eskerda pa direita: `(2 + 3) * 4`" }
+      correct: false
+    - text: { kea: "`24` — tudu multiplikadu" }
+      correct: false
+    - text: { kea: "`9` — só a adisan" }
+      correct: false
+- question:
+    kea: "Ku o operador `and`, kuandu é ki o rezultadu é `True`?"
+  options:
+    - text: { kea: "Só kuandu **os dos** kondisons é `True`" }
+      correct: true
+    - text: { kea: "Kuandu **pelu menus un** kondisan é `True`" }
+      correct: false
+    - text: { kea: "Senpri — `and` ta da senpri `True`" }
+      correct: false
+    - text: { kea: "Só kuandu os dos kondisons é `False`" }
+      correct: false

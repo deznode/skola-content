@@ -110,7 +110,7 @@ x = 350
 n = "Katxupa"
 t = x * 2
 
-# SABI — klaru i fásil di intendi
+# SABI — klaru i fáxi di intendi
 presu_katxupa = 350
 nomi_pratu = "Katxupa"
 total = presu_katxupa * 2
@@ -268,7 +268,7 @@ print(bool(0.001))   # True
 
 ## Izemplu Prátiku: Kalkuladora Simples
 
-Vamos kombina tudu ki nos prende — `input()`, konversan di tipu, i f-strings:
+Nu ta kombina tudu ki nos prende — `input()`, konversan di tipu, i f-strings:
 
 ```python
 # Kalkuladora simples
@@ -348,36 +348,20 @@ Tipu di idadi: int
 Tipu di nota: float
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria variáveis pa un pratu di kumida: `nomi_pratu` (string), `presu` (float), `porsan` (int), `disponível` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un ku `type()`.
-
-2. **Izersisiu 2:** Skrebe un programa ki perunta utilizador se nomi, ilha di origen, i anu di nasimentu. Kalkula idadi (2026 - anu) i imprimi un mensajen sabi kumo: "Ola, João di Santiago! Bu tene 25 anus."
-   *(Es izemplu ta uza subtrasan (`-`) i f-string — bu ta prende-l formalmenti na Lisan 7 i 8. Si ka ten konfortu inda, salta i volta dipos.)*
-
-3. **Izersisiu 3 (adibinha kuze i rezultadu):** Pa kada linha di kódiku, adibinha tipu di `valor` dipos di kada operasan. Uza `type()` pa konfirma:
-    ```python
-    valor = input("Skrebi un kuza: ")  # tipu = ?
-    valor = int(valor)                 # tipu = ?
-    valor = float(valor)               # tipu = ?
-    valor = str(valor)                 # tipu = ?
-    ```
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Variáveis** é kaxas pa garda dados — kria ku `=` (assignment)
-- **Nomis** devi kumesa ku letra ó `_`, uza `snake_case`, i ser deskritivu
-- **`type()`** ta mostra tipu di un valor — sabi pa debugging
-- **`input()`** ta resebe textu di utilizador — senpri retorna **string**
-- **Konversan di tipu**: `int()`, `float()`, `str()` pa muda entri tipus
-- **ValueError** ta aparese kuandu konversan ka é posível (ex: `int("Maria")`)
-
----
-
-**Prósimu lisan:** [Tipu di Dadus →](/courses/intro-python/lessons/tipu-di-dadus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`input()` ta retorna **senpri** un string — si bu kre un númeru, konverti ku `int()` o `float()` antis di kalkula.</RezumuItem>
+  <RezumuItem term="Variáveis">Kaxas pa garda dados — kria ku `=`. Python ta diskubri o tipu sózin (dynamic typing).</RezumuItem>
+  <RezumuItem term="Nomis">Devi kumesa ku letra o `_`, uza `snake_case`, i ser **deskritivu** (`presu_katxupa`, ka `x`).</RezumuItem>
+  <RezumuItem term="type()">Ta mostra o tipu di un valor — un ferramenta sabi pa debugging.</RezumuItem>
+  <RezumuItem term="Konversan">`int()`, `float()`, `str()`, `bool()` ta muda entri tipus.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`ValueError` ta parese kuandu a konversan ka é posível (`int("Maria")`); `TypeError` kuandu bu ta mistura tipus (`"25" + 5`).</RezumuItem>
+</KeyTakeaways>

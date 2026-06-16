@@ -304,7 +304,7 @@ print(bool("Ola"))     # True (kualker string ku konteúdu)
 
 ## Izemplu Prátiku: Loja di Katxupa
 
-Vamos kombina tudu tipus na un programa real:
+Nu ta kombina tudu tipus na un programa real:
 
 :::callout{type=tip}
 **Ka preokupa si bu ka kompriendi tudu kódiku gosi.** Lisan-li é so pa odja kumo kuatu tipus (`str`, `float`, `int`, `bool`) ta vivi djuntu na un programa. Operadoris matemátikus (`*`, `+`, `-`), `input()`, i formatasan `:.2f` ta ben más tardi (Lisan 7, 8 i 9). Repara na **tipus**, ka na lójika.
@@ -391,47 +391,20 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 
 *(Nu ta vorta a `isinstance()` ku más detalji na Lisan 18.)*
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria variáveis pa un voo inter-ilhas: `destinu` (str), `distánsia_km` (float), `nru_pasajeru` (int), `voo_diretu` (bool). Imprimi tudu ku f-strings i mostra tipu di kada un.
-
-2. **Izersisiu 2 (adibinha kuze i resultado):** Pa kada linha, adibinha kuze Python ta imprimi. Dipos verifika ku `python`.
-    ```python
-    print(type(42))
-    print(type(42.0))
-    print(type("42"))
-    print(type(True))
-    print(int("42") + 8)
-    print(str(42) + "8")
-    print(int(3.9))
-    ```
-
-3. **Izersisiu 3:** Kria variáveis ku kel valores i tenta operasons. Preve kual ta da TypeError i koriji:
-   ```python
-   a = "100"
-   b = 50
-   c = 2.5
-   # Tenta: a + b, a * c, b + c, a + str(b)
-   # Kual ta funsiona? Kual ta da eru? Pamodi?
-   ```
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **`int`** — númerus interus (idadi, kontador, anu)
-- **`float`** — númerus desimais (presu, altura, nota)
-- **`str`** — textu (nomi, mensajen, ilha)
-- **`bool`** — `True` ó `False` (komparasons, kondisan)
-- **TypeError** ta aparese kuandu bo mistra tipus inkompatíveis
-- Uza **`int()`**, **`float()`**, **`str()`** pa konverti entri tipus
-- **f-strings** é midjór manera di mistra textu ku variáveis — evita TypeError
-- Divisan (`/`) senpri ta retorna **float**, mesmu ku númerus interus
-
----
-
-**Prósimu lisan:** [Strings: Metodus i Formatasan →](/courses/intro-python/lessons/strings-metodus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika os tipus ku `type()` — kuazi senpri a soluson é konverti un valor ku `int()`, `float()` o `str()`.</RezumuItem>
+  <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é os tipus fundamentais.</RezumuItem>
+  <RezumuItem term="f-strings">A midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>
+  <RezumuItem>A divisan `/` ta retorna **senpri** float — `10 / 5` é `2.0`, ka `2`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`TypeError` ta parese kuandu bu ta mistura tipus inkompatíveis (`"Maria" + 25`). I `int(3.9)` ta **trunka** pa `3` — pa arredonda, uza `round()`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`isinstance(valor, int)` é más profisional ki `type(valor) == int` pa verifika tipu — bu ta volta a el na Lisan 18.</RezumuItem>
+</KeyTakeaways>

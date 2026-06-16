@@ -17,9 +17,9 @@ objectives:
 
 # Funsons Báziku
 
-Imajina bu ta kuzinha katxupa tudu dia. Kada bez bu ten ki lembra pasu pa pasu: korta midju, ferbe feijun, djunta ingredientis... Sería más fásil si bo pudesse dize "faze katxupa" i tudu pasu korre automatikamenti? É exatamenti isu ki funsons ta faze na programasan — es ta guarda un konjuntu di instrusons ku un nomi, i bu pode txoma-l kuantas bez bu kre.
+Imajina bu ta kuzinha katxupa tudu dia. Kada bez bu ten ki lembra pasu pa pasu: korta midju, ferbe feijun, djunta ingredientis... Ka ta ser más fáxi si bu podia dize "faze katxupa" i tudu pasu ta korri automatikamenti? É exatamenti isu ki funsons ta faze na programasan — es ta guarda un konjuntu di instrusons ku un nomi, i bu pode txoma-l kuantas bez bu kre.
 
-Funsons é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisan, i torna programa más fásil pa intende i mantene.
+Funsons é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisan, i torna programa más fáxi pa intende i mantene.
 
 ## Kria Funsan ku `def`
 
@@ -79,7 +79,7 @@ kalkula_area(10, 8)   # Área: 80 m²
 
 ## Parámetrus Predefinidu (Default Parameters)
 
-Bu pode da un valor predefinidu a un parámetru. Si ninguén pasa argumentu, Python ta uza valor predefinidu.
+Bu pode da un valor predefinidu a un parámetru. Si ningen ka pasa argumentu, Python ta uza kel valor predefinidu.
 
 ```python
 def saudasan(nomi="Vizitanti"):
@@ -335,7 +335,7 @@ print(fatoriál(10))  # 3628800
 ```
 
 ```python
-# Komu rekursan ta funsiona pasu a pasu:
+# Kumo rekursan ta funsiona pasu a pasu:
 # fatoriál(4)
 #   → 4 * fatoriál(3)
 #       → 3 * fatoriál(2)
@@ -372,39 +372,20 @@ kontajen(5)
 **Dika:** Senpri pensa na **kazu bazi** primeru kuandu bu ta skrebe funsan rekursiva. Sen el, programa ta entra na loop infinitu i Python ta da `RecursionError`.
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Konversor di Temperatura:** Skrebe un funsan `konverte_temp(temp, di, pa)` ki konverte entri Celsius, Fahrenheit i Kelvin. Izemplu: `konverte_temp(100, "C", "F")` debe retorna `212.0`.
-
-2. **Izersisiu 2 — Validador di Senha:** Skrebe un funsan `verifica_forsa(senha)` ki retorna "fraku", "médiu" o "forti" bazadu na:
-   - Fraku: menus di 6 karáteris
-   - Médiu: 6+ karáteris ku letras i nùmerus
-   - Forti: 8+ karáteris ku maiúskulas, minúskulas, nùmerus i karáteris spesiál
-
-3. **Izersisiu 3 — Soma Rekursiva:** Skrebe un funsan rekursiva `soma_ate(n)` ki retorna soma di tudu nùmerus di 1 até n. Izemplu: `soma_ate(5)` → 15 (1+2+3+4+5).
-
-4. **Izersisiu 4 — Perfil Flexível:** Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe nomi obrigatóriu i kuantu info adisionál ki utilizador kre (ilha, idadi, profisan, etc.) i retorna un disionáriu kompletu.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **`def`** ta defini un funsan; nomi debe ser deskritivu na snake_case
-- **Parámetrus** ta na definisan; **argumentus** ta na txomada
-- **Parámetrus predefinidu** ta da valor si ninguén pasa argumentu
-- **`return`** ta manda valor di volta; sen return, funsan retorna `None`
-- **Docstrings** (string na inísiu) ta dokumenta kel ki funsan ta faze
-- **`*args`** ta resebe argumentus pozisionais variáveis (tuple)
-- **`**kwargs`** ta resebe argumentus nomiadu variáveis (dict)
-- **Rekursan** é funsan ki ta txoma si mesmu — SENPRI presiza kazu bazi
-- Funsons ta torna kódiku más organizadu, reutilizável i fásil di testa
-
----
-
-**Prósimu lisan:** [Lambda, Map i Filter →](/courses/intro-python/lessons/lambda-map-filter)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`return` ta manda un valor di volta pa uza más tardi; `print` só ta mostra na ekran. Un funsan sen `return` ta retorna `None`.</RezumuItem>
+  <RezumuItem term="def">Ta defini un funsan — nomi deskritivu na snake_case. Parámetrus ta na definisan; argumentus ta na txomada.</RezumuItem>
+  <RezumuItem term="Predefinidu">Un parámetru ku valor predefinidu ta da un valor si ningen ka pasa argumentu — i ten ki ben **dipos** di os sen valor predefinidu.</RezumuItem>
+  <RezumuItem term="*args / **kwargs">`*args` ta apanha argumentu pozisionál (tuple); `**kwargs` ta apanha nomiadu (dict). Orden: normais → `*args` → `**kwargs`.</RezumuItem>
+  <RezumuItem term="Docstrings">Un string na iníisu di a funsan ta dokumenta o ki el ta faze — `help(funsan)` ta mostra-l.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Un funsan rekursiva **senpri** presiza un kazu bazi — sen el, Python ta da `RecursionError`.</RezumuItem>
+</KeyTakeaways>

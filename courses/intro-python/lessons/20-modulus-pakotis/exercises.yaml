@@ -1,0 +1,125 @@
+# Exercises sidecar (draft source) for lesson m3-20 "Módulus i Pakotis".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/20-modulus-pakotis/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode` (multi-file packages are shown with filename comments).
+# Prompts stay INLINE-only (inline-markdown.tsx — no multi-line fenced blocks).
+# Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: random-loteria
+  language: python
+  kind: code
+  title: { kea: "Sorteador di loteria ku random" }
+  prompt:
+    kea: "Importa `random` i skrebe un programa ki ta sorteia 5 númeru di loteria (entri 1 i 49, **sen** repetisan). Dika: uza `random.sample()`."
+  hint:
+    kea: "`random.sample(populasan, k)` ta skodje `k` elementu úniku sen repeti. `random.sample(range(1, 50), 5)` ta da 5 númeru entri 1 i 49. (`random.randint` pode repeti — sample é midjór aki.)"
+  starterCode: |
+    # loteria.py
+    import random
+
+    # TODO: sorteia 5 númeru úniku entri 1 i 49
+  solutionCode: |
+    # loteria.py
+    import random
+
+    numerus = random.sample(range(1, 50), 5)
+    numerus.sort()
+    print(f"Os númeru di oji: {numerus}")
+- slug: kria-modulu-conversor
+  language: python
+  kind: code
+  title: { kea: "Kria un módulu conversor" }
+  prompt:
+    kea: "Kria un ficheru `conversor.py` ku as funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu ficheru, importa-s i testa."
+  hint:
+    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Arredonda o rezultadu ku `round(..., 2)`."
+  starterCode: |
+    # conversor.py
+    TAXA = 110.265
+
+    def ecv_pa_euro(montanti):
+        ...  # TODO
+
+    def euro_pa_ecv(montanti):
+        ...  # TODO
+
+    # --- main.py (otu ficheru) ---
+    # from conversor import ecv_pa_euro, euro_pa_ecv
+  solutionCode: |
+    # conversor.py
+    TAXA = 110.265
+
+    def ecv_pa_euro(montanti):
+        return round(montanti / TAXA, 2)
+
+    def euro_pa_ecv(montanti):
+        return round(montanti * TAXA, 2)
+
+    # --- main.py (otu ficheru) ---
+    # from conversor import ecv_pa_euro, euro_pa_ecv
+    # print(ecv_pa_euro(5000))   # 45.34
+    # print(euro_pa_ecv(45))     # 4961.93
+- slug: pakotu-utils
+  language: python
+  kind: code
+  title: { kea: "Pakotu di utilidadis" }
+  prompt:
+    kea: "Kria un pasta `utils/` ku un `__init__.py`, un módulu `validasan.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki ta retorna p.ex. `\"1.500$00 ECV\"`). Importa tudu di `main.py`."
+  hint:
+    kea: "O `__init__.py` pode importa as funsons: `from .validasan import valida_email`. Pa o email, un check simples: `\"@\" in email and \".\" in email`. Pa o formatu ECV, o `$` ta separa os escudos di os centavos."
+  starterCode: |
+    # utils/validasan.py
+    def valida_email(email):
+        ...  # TODO
+
+    # utils/formatu.py
+    def formata_ecv(valor):
+        ...  # TODO
+
+    # utils/__init__.py
+    # from .validasan import valida_email
+    # from .formatu import formata_ecv
+  solutionCode: |
+    # utils/validasan.py
+    def valida_email(email):
+        return "@" in email and "." in email.split("@")[-1]
+
+    # utils/formatu.py
+    def formata_ecv(valor):
+        escudos = int(valor)
+        sentavus = round((valor - escudos) * 100)
+        return f"{escudos:,}$".replace(",", ".") + f"{sentavus:02d} ECV"
+
+    # utils/__init__.py
+    # from .validasan import valida_email
+    # from .formatu import formata_ecv
+
+    # --- main.py ---
+    # from utils import valida_email, formata_ecv
+    # print(valida_email("ana@cv.edu"))   # True
+    # print(formata_ecv(1500))            # 1.500$00 ECV
+- slug: splora-standard-library
+  language: python
+  kind: explore
+  title: { kea: "Splora a standard library" }
+  prompt:
+    kea: "A standard library di Python é enormi — `math`, `random`, `os`, `json`, `csv`, `datetime`, `re` é só un prova. Odja a referensia ofisial pa odja tudu o ki ben ku Python sen instala nada."
+  resources:
+    kea:
+      - { label: "Python docs — The Python Standard Library", url: "https://docs.python.org/3/library/" }
+      - { label: "Python docs — Modules (tutorial)", url: "https://docs.python.org/3/tutorial/modules.html" }
+- slug: refleta-name-main
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri `__name__ == \"__main__\"`" }
+  prompt:
+    kea: "O bloku `if __name__ == \"__main__\":` só ta kore kuandu o ficheru é izekutadu diretu, ka kuandu é importadu. Pensa nun módulu ki bu kreba kria (p.ex. o `conversor.py`). Skrebe o ki bu ta po dentu di kel bloku, i pamodi el ka devia kore na o import."
+  notePlaceholder:
+    kea: "Módulu: …   ·   O ki ta entra na o bloku __main__: …   ·   Pamodi ka devia kore na import: …"

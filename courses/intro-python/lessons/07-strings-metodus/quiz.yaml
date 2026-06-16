@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-07 "Strings: Metodus i Formatasan".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/07-strings-metodus/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Bu tene `saudasan = \"ola\"` i bu kore `saudasan.upper()`. Dipos, `print(saudasan)` ta mostra o ki?"
+  options:
+    - text: { kea: "`ola` — string é imutável; `.upper()` ta retorna un string novu, ma ka ta muda o original" }
+      correct: true
+    - text: { kea: "`OLA` — `.upper()` ta muda a variável na lugar" }
+      correct: false
+    - text: { kea: "Un eru — ka pode txoma `.upper()` sen garda o rezultadu" }
+      correct: false
+    - text: { kea: "`Ola` — só a primeru letra ta vira maiúskula" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri `.find(\"x\")` i `.index(\"x\")` kuandu `\"x\"` **ka ta atxa** na string?"
+  options:
+    - text: { kea: "`.find()` ta retorna `-1`; `.index()` ta lansa un `ValueError`" }
+      correct: true
+    - text: { kea: "Os dos ta retorna `-1`" }
+      correct: false
+    - text: { kea: "Os dos ta lansa un `ValueError`" }
+      correct: false
+    - text: { kea: "`.find()` ta lansa un eru; `.index()` ta retorna `0`" }
+      correct: false
+- question:
+    kea: "O ki ta da `\"Edna\"[::-1]`?"
+  options:
+    - text: { kea: "`\"andE\"` — o step `-1` ta inverti a string" }
+      correct: true
+    - text: { kea: "`\"Edna\"` — sen mudansa" }
+      correct: false
+    - text: { kea: "`\"E\"` — só o primeru karáter" }
+      correct: false
+    - text: { kea: "Un `IndexError` — `-1` é fora di rangu" }
+      correct: false

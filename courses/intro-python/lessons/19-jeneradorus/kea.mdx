@@ -31,7 +31,7 @@ Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, 
 
 ## Generator Expressions
 
-Un **generator expression** é kómu un list comprehension, ma ku paréntesis `()` na vés di brackets `[]`:
+Un **generator expression** é kómu un list comprehension, ma ku paréntesis `()` en bez di brackets `[]`:
 
 ```python
 # List comprehension -- kria tudu na memória
@@ -72,7 +72,7 @@ for valor in quadradus:
 
 ## Generator Functions ku `yield`
 
-Pa kria jeneradorus más komplexu, uza un **funsan ku `yield`** na vés di `return`:
+Pa kria jeneradorus más komplexu, uza un **funsan ku `yield`** en bez di `return`:
 
 ```python
 def kontador(maximo):
@@ -219,31 +219,20 @@ print(total_lista == total_gen)  # True
 | Presiza itera múltiplas vezes | | ✓ |
 | Lista é pikininu (`< 1000 elementus`) | | ✓ |
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Generator di Pares** — Skrebe un generator expression ki produz numeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valóris.
-
-2. **Izersisiu 2: Kontador di ECV** — Kria un generator function `moedas_ecv()` ki ta produz valóris di moeda cabo-verdianu: 1, 5, 10, 20, 50, 100. Itera sobri el ku `next()`.
-
-3. **Izersisiu 3: Fibonacci Limitadu** — Modifika generator `fibonacci()` pa aseita un parámetru `limite` i para kuandu valór ta pasa kel limite. Testa ku `limite=100`.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Jeneradorus** ta produz valóris un pa un (lazy evaluation) — sen guarda tudu na memória
-- **Generator expression**: `(expr for item in iterable)` — kómu list comprehension ma ku `()`
-- **Generator function**: funsan ku `yield` na vés di `return`
-- `yield` ta **pausa** funsan i lembra undi el para; `return` ta **termina**
-- `next()` ta pega prósimu valór; `StopIteration` signifika ki akaba
-- Generators é **un-bez-só** — dipos di iteradu, sta vazio
-- Pa ficheru grandi, generators ta evita karrega tudu na memória
-- Uza generator kuandu dadus é grandi ó infinitu; uza lista kuandu presiza asesu aleatoriu ó reuzu
-
----
-
-**Prósimu lisan:** [Módulus i Pakotis →](/courses/intro-python/lessons/modulus-pakotis)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Uza un generator kuandu os dadus é grandi o infinitu, o kuandu bu só presiza itera un bez — el ta produz valor un pa un sen gerda tudu na memória.</RezumuItem>
+  <RezumuItem term="Generator expression">`(expr for item in iterável)` — kumo un list comprehension, ma ku `()`.</RezumuItem>
+  <RezumuItem term="Generator function">Un funsan ku `yield` en bez di `return` — `yield` ta **pauza** i lenbra undi el para.</RezumuItem>
+  <RezumuItem term="next()">Ta pega o prósimu valor; `StopIteration` ta signifika ki akaba (o `for` ta trata-l sózin).</RezumuItem>
+  <RezumuItem>Pa ler un ficheru grandi linha pa linha, un generator ta evita karega tudu na memória.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Generator é **un-bez-só** — dipos di iteradu, sta vazio. Ka ten `len()` nen índisi; pa isu, uza un lista.</RezumuItem>
+</KeyTakeaways>

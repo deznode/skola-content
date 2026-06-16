@@ -342,38 +342,20 @@ for r in rezumu:
     print(r)
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un lista `kompras` ku 5 ítens di merkadu. Dipos:
-   - Adisiona 2 ítens más ku `append()`
-   - Inseri "banana" na pozisan 2
-   - Remove últimu íten ku `pop()`
-   - Mostra lista final i kantu ítens tene
-
-2. **Izersisiu 2:** Dadu un lista di presus na ECV: `[250, 500, 180, 750, 320, 90, 450]`, uza list comprehension pa:
-   - Kria lista só ku presus asin di 300 ECV
-   - Kria lista ku presus ku 15% diskóntu
-   - Kria lista ku presus konvertidu pa EUR (1 EUR = 110 ECV)
-
-3. **Izersisiu 3:** Kria un lista `temperaturas` ku valores `[28, 31, 25, 33, 29, 35, 27]` (temperaturas di semana na Praia). Kalkula: média, másimu, mínimu, i kria lista di dias "kenti" (asin di 30 graus).
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Lista** é kolesons ordenadu i mutável ki uza `[]`
-- **Indexasan** ta kumesa na 0; indexis negativus konta di trás pa frenti
-- **Slicing** `[start:stop:step]` ta korta pedasus — stop é eksklusivu
-- **Mutabilidadi** signifika ki bu pode muda elementus dipos di kria
-- **Metodus**: `append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`
-- **`sort()` vs `sorted()`**: `lista.sort()` ta muda lista orijinal in-place (retorna `None`); `sorted(lista)` ta retorna un lista nova (orijinal ka muda)
-- **List comprehension**: `[espresan for item in iterável if kondisan]` — manera eleganti di kria listas
-- **KUIDADU**: Slice assignment ku string ta spredi karaktéris — senpri atribui un lista
-
----
-
-**Prósimu lisan:** [Tuplas →](/courses/intro-python/lessons/tuplas)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`.sort()` ta muda a lista orijinal in-place (i ta retorna `None`); `sorted()` ta da un lista nova. Uza `sorted()` kuandu bu ka kre perde a orijinal.</RezumuItem>
+  <RezumuItem term="Lista">Un kolesan **ordenadu** i **mutável** ku `[]` — pode gerda kualker tipu.</RezumuItem>
+  <RezumuItem term="Indexasan / slicing">Índisi ta kumesa na 0; índisi negativu ta konta di trás; `[start:stop:step]` ta korta (`stop` eksklusivu).</RezumuItem>
+  <RezumuItem term="Metodus">`append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`.</RezumuItem>
+  <RezumuItem term="Comprehension">`[espresan for item in iterável if kondisan]` — a manera eleganti di kria listas.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`IndexError` (índisi fora di rangu) i o pitfall di slice assignment ku string — `frutas[1:] = "koku"` ta spredi os karater; senpri atribui un **lista**.</RezumuItem>
+</KeyTakeaways>

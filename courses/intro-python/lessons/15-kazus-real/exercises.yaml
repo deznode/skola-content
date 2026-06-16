@@ -1,0 +1,111 @@
+# Exercises sidecar (draft source) for lesson m2-15 "Kazus Real ku Estruturas di Dadus".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/15-kazus-real/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1/2/3) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode`. Prompts stay INLINE-only (inline-markdown.tsx — no
+# multi-line fenced blocks). Plus one `explore` + one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: kontrol-di-presensia
+  language: python
+  kind: code
+  title: { kea: "Kontrol di presensia" }
+  prompt:
+    kea: "Kria un sistema undi bu djunta o nomi di estudanti ki ta txiga na aula (pode repeti si txiga txeu dia). Uza un **lista** pa mante o registru kompletu i un **set** pa sabe kuantu estudanti **úniku** tinha."
+  hint:
+    kea: "Adisiona kada txigada a a lista ku `.append()`. Pa os úniku, `set(registru)` ta tira os repetidu — `len(set(registru))` é o nu di estudanti distintu."
+  starterCode: |
+    # presensia.py
+    registru = []
+
+    # Simula txigadas (algun estudanti ta txiga txeu dia)
+    for nomi in ["Tóni", "Ana", "Tóni", "Kelvin", "Ana", "Tóni"]:
+        registru.append(nomi)
+
+    # TODO: total di txigadas (lista) i estudanti úniku (set)
+  solutionCode: |
+    # presensia.py
+    registru = []
+
+    for nomi in ["Tóni", "Ana", "Tóni", "Kelvin", "Ana", "Tóni"]:
+        registru.append(nomi)
+
+    unikus = set(registru)
+    print(f"Total txigadas: {len(registru)}")
+    print(f"Estudanti úniku: {len(unikus)} — {unikus}")
+- slug: karrinhu-di-konpra
+  language: python
+  kind: code
+  title: { kea: "Karrinhu di konpra" }
+  prompt:
+    kea: "Kria un **disionáriu** di presus pa un merkadu. Dipos kria un **lista** (karrinhu) ku os produtu ki o klienti skodje (pode repeti). Kalkula o total i mostra un rezumu ku a kantidadi di kada produtu."
+  hint:
+    kea: "Pa o total, soma `presus[p]` pa kada `p` na karrinhu. Pa a kantidadi di kada produtu, uza o padron di frekuénsia ku un disionáriu: `konta[p] = konta.get(p, 0) + 1` (Lisan 13)."
+  starterCode: |
+    # karrinhu.py
+    presus = {"banana": 50, "atum": 350, "pan": 30, "leti": 90}
+    karrinhu = ["banana", "atum", "banana", "pan", "banana"]
+
+    # TODO: total a pagar
+    # TODO: kantidadi di kada produtu (frekuénsia)
+  solutionCode: |
+    # karrinhu.py
+    presus = {"banana": 50, "atum": 350, "pan": 30, "leti": 90}
+    karrinhu = ["banana", "atum", "banana", "pan", "banana"]
+
+    total = sum(presus[p] for p in karrinhu)
+
+    konta = {}
+    for p in karrinhu:
+        konta[p] = konta.get(p, 0) + 1
+
+    print("--- Rezumu di konpra ---")
+    for p, q in konta.items():
+        print(f"  {p} x{q} = {presus[p] * q} ECV")
+    print(f"Total: {total} ECV")
+- slug: komparador-di-playlists
+  language: python
+  kind: code
+  title: { kea: "Komparador di playlists" }
+  prompt:
+    kea: "Dos amigu (Nilton i Edna) tene kada un un lista di múzika favoritu. Uza **sets** pa atxa: as múzika ki os dos ta gosta, as múzika ki só Nilton ta gosta, i o total di múzika úniku entri os dos."
+  hint:
+    kea: "Konverti as lista pa set primeru. `nilton & edna` é o ki os dos ta gosta; `nilton - edna` é só Nilton; `len(nilton | edna)` é o total úniku."
+  starterCode: |
+    # playlists.py
+    nilton = ["Sodade", "Petit Pays", "Tunuka", "Nha Cretcheu"]
+    edna = ["Petit Pays", "Bna", "Tunuka", "Nôs Morna"]
+
+    # TODO: konverti pa set
+    # TODO: os dos ta gosta (&), só Nilton (-), total úniku (|)
+  solutionCode: |
+    # playlists.py
+    nilton = set(["Sodade", "Petit Pays", "Tunuka", "Nha Cretcheu"])
+    edna = set(["Petit Pays", "Bna", "Tunuka", "Nôs Morna"])
+
+    print(f"Os dos ta gosta: {nilton & edna}")
+    print(f"Só Nilton: {nilton - edna}")
+    print(f"Total úniku: {len(nilton | edna)}")
+- slug: splora-eskolha-estrutura
+  language: python
+  kind: explore
+  title: { kea: "Splora kumo skodje a estrutura sertu" }
+  prompt:
+    kea: "A diferensa entri lista, tuple, dict i set ta determina o ki é fásil (i rápidu) faze. Odja un komparason di os tipu inkorporadu i o módulu `collections` pa estruturas más spesializadu."
+  resources:
+    kea:
+      - { label: "Python docs — Data Structures (tutorial)", url: "https://docs.python.org/3/tutorial/datastructures.html" }
+      - { label: "Python docs — collections (deque, Counter, OrderedDict)", url: "https://docs.python.org/3/library/collections.html" }
+- slug: refleta-eskolha-estrutura
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri skodje a estrutura" }
+  prompt:
+    kea: "Un boa heurístika: \"O dadu tene nomi?\" → dict; \"pode repeti i orden ta importa?\" → lista; \"ka pode muda?\" → tuple; \"presiza ser úniku?\" → set. Pensa nun programa ki bu kreba faze i skrebe ki estrutura bu ta skodje pa kada parti del."
+  notePlaceholder:
+    kea: "Programa: …   ·   Parti ku dict/lista/tuple/set: …   ·   Pamodi: …"

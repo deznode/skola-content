@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m2-13 "Disionárius i Dict Comprehension".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/13-disionarius/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kal é a diferensa entri `d[\"email\"]` i `d.get(\"email\")` kuandu a xavi `\"email\"` **ka izisti**?"
+  options:
+    - text: { kea: "`d[\"email\"]` ta lansa un `KeyError`; `d.get(\"email\")` ta da `None` (o un valor padron) sen eru" }
+      correct: true
+    - text: { kea: "Os dos ta da `None`" }
+      correct: false
+    - text: { kea: "Os dos ta lansa un `KeyError`" }
+      correct: false
+    - text: { kea: "`d.get(\"email\")` ta kria a xavi automátikamenti" }
+      correct: false
+- question:
+    kea: "Bu kore `kopia = orijinal` (os dos disionáriu) i dipos `kopia[\"nota\"] = 95`. O ki ta kontise ku `orijinal`?"
+  options:
+    - text: { kea: "`orijinal[\"nota\"]` tanbe ta vira `95` — `=` ta kria un **referénsia** a o mesmu objetu, ka un kópia. Uza `.copy()` pa un kópia independenti" }
+      correct: true
+    - text: { kea: "`orijinal` ka ta muda — `=` ta kria senpri un kópia" }
+      correct: false
+    - text: { kea: "Un eru — ka pode kopia un disionáriu ku `=`" }
+      correct: false
+    - text: { kea: "Só `kopia` ta muda, ma `orijinal` ta da `KeyError`" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi o padron `frek[k] = frek.get(k, 0) + 1`?"
+  options:
+    - text: { kea: "Pa konta frekuénsia — `.get(k, 0)` ta da `0` si a xavi inda ka izisti, dipos ta soma 1" }
+      correct: true
+    - text: { kea: "Pa apaga a xavi `k` di o disionáriu" }
+      correct: false
+    - text: { kea: "Pa kopia o disionáriu `frek`" }
+      correct: false
+    - text: { kea: "Pa verifika si `k` é un xavi válidu" }
+      correct: false

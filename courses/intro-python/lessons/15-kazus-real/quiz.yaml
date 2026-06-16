@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m2-15 "Kazus Real ku Estruturas di Dadus".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/15-kazus-real/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Bu kre gerda un inventáriu undi kada produtu ta mapia pa se presu i stoki. Kal estrutura é a midjór?"
+  options:
+    - text: { kea: "Disionáriu — ta mapia un xavi (nomi di produtu) pa un valor, ku buska rápidu" }
+      correct: true
+    - text: { kea: "Lista — só ta gerda valores na orden" }
+      correct: false
+    - text: { kea: "Tuple — pamodi os presus ka ta muda" }
+      correct: false
+    - text: { kea: "Set — pa garanti ki os produtu é úniku" }
+      correct: false
+- question:
+    kea: "Bu tene un lista di email ku duplikadu i bu kre só os úniku. Ki estrutura ta rezolvi-l más fásil?"
+  options:
+    - text: { kea: "Set — `set(emails)` ta tira os duplikadu automátikamenti" }
+      correct: true
+    - text: { kea: "Tuple — pamodi é imutável" }
+      correct: false
+    - text: { kea: "Otu lista — kopiandu un pa un" }
+      correct: false
+    - text: { kea: "Disionáriu — ku os email kumo valores" }
+      correct: false
+- question:
+    kea: "Pa un to-do list undi a orden ta importa i bu ta djunta i tira tarefa, ki estrutura bu ta skodje?"
+  options:
+    - text: { kea: "Lista — ta mante a orden i ta dexa `.append()`, `.insert()` i `.remove()`" }
+      correct: true
+    - text: { kea: "Set — pamodi é más rápidu" }
+      correct: false
+    - text: { kea: "Tuple — pamodi é más siguru" }
+      correct: false
+    - text: { kea: "Disionáriu — ku índisis kumo xavi" }
+      correct: false

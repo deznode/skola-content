@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-26 "Klasis i Objetis".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/26-klasis-objetis/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Pa kuze ki ta sirbi o metodu `__init__` nun klasi?"
+  options:
+    - text: { kea: "É o konstrutor — ta kore automátikamenti kuandu un objetu novu é kriadu, pa inisializa os se atributu" }
+      correct: true
+    - text: { kea: "Ta apaga o objetu di a memória" }
+      correct: false
+    - text: { kea: "Ta imprimi o objetu na ekran" }
+      correct: false
+    - text: { kea: "É a primeru funsan ki bu ten ki txoma manualmenti" }
+      correct: false
+- question:
+    kea: "O ki é `self` nun metodu di klasi?"
+  options:
+    - text: { kea: "Un referénsia pa o objetu atuál (\"nha\") — Python ta pasa-l automátikamenti kumo primeru parámetru" }
+      correct: true
+    - text: { kea: "O nomi di a klasi" }
+      correct: false
+    - text: { kea: "Un variável global partilhadu pa tudu os objetu" }
+      correct: false
+    - text: { kea: "Un palavra opsional ki bu pode tira" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri un **klasi** i un **objetu**?"
+  options:
+    - text: { kea: "A klasi é o moldi (a reseta); o objetu é un instánsia real kriadu a partir di a klasi (o pratu)" }
+      correct: true
+    - text: { kea: "Es é a mesmu kuza ku nomi diferenti" }
+      correct: false
+    - text: { kea: "O objetu é o moldi; a klasi é a instánsia" }
+      correct: false
+    - text: { kea: "Un klasi só pode kria un objetu" }
+      correct: false
+- question:
+    kea: "Pamodi é midjór definí tudu os atributu dentu di `__init__`?"
+  options:
+    - text: { kea: "Pa garanti ki kada objetu ten os atributu dezdi o iníisu — definí-s fora pode kauza `AttributeError`" }
+      correct: true
+    - text: { kea: "Pamodi `__init__` é o úniku lugar undi `self` izisti" }
+      correct: false
+    - text: { kea: "Pa faze o objetu kore más rápidu" }
+      correct: false
+    - text: { kea: "Ka ten razan — pode ser na kualker lugar" }
+      correct: false

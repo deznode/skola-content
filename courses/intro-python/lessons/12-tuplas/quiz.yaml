@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m2-12 "Tuplas".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/12-tuplas/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Kumo bu ta kria un tuple ku **un só** elementu?"
+  options:
+    - text: { kea: "Ku un vírgula: `(\"Sal\",)` — sen a vírgula, `(\"Sal\")` é só un string" }
+      correct: true
+    - text: { kea: "`(\"Sal\")` — os paréntesis djá ta basta" }
+      correct: false
+    - text: { kea: "`[\"Sal\"]` — ku kolxetis" }
+      correct: false
+    - text: { kea: "`tuple(\"Sal\")` é a úniku manera" }
+      correct: false
+- question:
+    kea: "Bu tene `ilhas = (\"Santiago\", \"Sal\")` i bu tenta `ilhas[0] = \"Maio\"`. O ki ta kontise?"
+  options:
+    - text: { kea: "Un `TypeError` — tuple é **imutável**, ka pode muda se elementus" }
+      correct: true
+    - text: { kea: "`ilhas` ta vira `(\"Maio\", \"Sal\")` — funsiona normal" }
+      correct: false
+    - text: { kea: "Un `IndexError` — `0` é fora di rangu" }
+      correct: false
+    - text: { kea: "Nada — Python ta ignora a atribuisan" }
+      correct: false
+- question:
+    kea: "Dipos di `primeiru, *restu = (1, 2, 3, 4)`, o ki é `restu`?"
+  options:
+    - text: { kea: "`[2, 3, 4]` — o `*` ta apanha o restu kumo un **lista**" }
+      correct: true
+    - text: { kea: "`(2, 3, 4)` — un tuple" }
+      correct: false
+    - text: { kea: "`2` — só o sigundu elementu" }
+      correct: false
+    - text: { kea: "Un eru — `*` ka pode sta na unpacking" }
+      correct: false

@@ -18,7 +18,7 @@ objectives:
 
 # Loops (for/while)
 
-Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu bez sen skrebe mesmu koza rapitidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
+Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu bez sen skrebe mesmu koza repetidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
 
 ## For Loop ku Range()
 
@@ -116,7 +116,7 @@ print(f"Média: {media}")  # Média: 15.4
 
 ## While Loop
 
-`while` loop ta repeti enkuantu kondisan é `True`. Útil kuandu bu ka sabi kuántus bez loop ta presiza kori.
+`while` loop ta repeti enkuantu kondisan é `True`. Útil kuandu bu ka sabe kuántus bez loop ta presiza kori.
 
 ```python
 # Konta di 1 a 5 ku while
@@ -392,7 +392,7 @@ for i in range(1, 31):
         print(i)
 ```
 
-## Pitu di Enumerate() 👀
+## Pitu di Enumerate()
 
 Kuandu bu ta itera sima un lista i bo presiza tanbe sabé índisi (pozisan), `enumerate()` é bo amigu milhor:
 
@@ -424,11 +424,11 @@ Ambos ta dá mesmu resultadu:
 ## Erus Komun ku Loops
 
 ```python
-# ERU 1: Loop infinitu (skexi atualiza variável)
+# ERU 1: Loop infinitu (skise atualiza variável)
 # kontador = 0
 # while kontador < 5:
 #     print(kontador)
-#     # Skexi: kontador += 1  --> loop ta kori pa senpri!
+#     # Skise: kontador += 1  --> loop ta kori pa senpri!
 
 # ERU 2: Off-by-one ku range()
 # range(1, 5) ta dá 1, 2, 3, 4 -- KA inklui 5!
@@ -440,41 +440,26 @@ Ambos ta dá mesmu resultadu:
 #     if nomi == "Ana":
 #         nomis.remove(nomi)  # PERIGOZU! Ta kauza bugs
 
-# ERU 4: Uza = na vés di == na kondisan
+# ERU 4: Uza = en bez di == na kondisan
 # while kontador = 5:    # SyntaxError!
 # while kontador == 5:   # Korretu ✓
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1: Tábua di multiplikasan** -- Pidi uzuáriu pa inseri un numeru i mostra tábua di multiplikasan kompletu (di 1 a 10). Formata saída bonitu ku alinhámentu.
-
-2. **Izersisiu 2: Atxador di numerus perfeitus** -- Un numeru perfeitu é ki soma di ses divisóris (menus el mesmu) é igual a el. Izemplu: 6 = 1 + 2 + 3. Atxa tudu numerus perfeitus di 1 a 1000. (Dika: uza loops aninhadu)
-
-3. **Izersisiu 3: Jogu di adivinha avansadu** -- Kria un jogu undi:
-   - Komputador ta skolhi numeru aleatóriu di 1 a 100
-   - Uzuáriu tene mássimu 7 tentativas
-   - Programa ta dá dika "Más altu!" ó "Más baxu!"
-   - Si uzuáriu adivinha, mostra kuántus tentativas el uza
-   - Si 7 tentativas akaba, mostra numeru sekretu
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- `for` loop ta itera sima un sekuénsia (numerus, strings, listas)
-- `range(start, stop, step)` ta jera sekuénsia di numerus; `stop` KA ta inkluídu
-- `while` loop ta repeti enkuantu kondisan é `True` -- kuidadu ku loops infinitu!
-- `break` ta sai di loop, `continue` ta pula pa prósimu iterasan, `pass` é placeholder
-- `for-else` -- bloku `else` ta kori só si loop termina sen `break`
-- Loops aninhadu: loop di dentu ta kori kompletu pa kada iterasan di loop di fora
-- `enumerate()` ta dá índisi i valór djuntu -- más Pythonic ki `range(len(...))`
-- Senpri lembra di atualiza variável di kontrol na `while` loop!
-
----
-
-**Prósimu lisan:** [Listas i List Comprehension →](/courses/intro-python/lessons/listas)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Nun `while` loop, garanti senpri ki a kondisan ta txiga a `False` — atualiza a variável di kontrol, senan bu ta kria un **loop infinitu**.</RezumuItem>
+  <RezumuItem term="for + range">`for` ta itera sima un sekuénsia; `range(start, stop, step)` ta jera númerus i o `stop` **ka** ta entra.</RezumuItem>
+  <RezumuItem term="while">Ta repeti enkuantu a kondisan é `True` — bon kuandu bu ka sabe kuantas bez.</RezumuItem>
+  <RezumuItem term="break / continue / pass">`break` ta sai di o loop; `continue` ta pula pa a prósima iterasan; `pass` é un placeholder ki ka ta faze nada.</RezumuItem>
+  <RezumuItem term="for-else">O `else` di un `for` ta kore só si o loop termina **sen** `break` — perfeitu pa buskas.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Off-by-one ku `range()` (`range(1, 5)` ka inklui `5`), loop infinitu na `while`, i modifika un lista enkuantu bu ta itera-l.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`enumerate()` ta da índisi i valor djuntu — más Pythonic ki `range(len(...))`. Bu ta volta a el na Lisan 18.</RezumuItem>
+</KeyTakeaways>

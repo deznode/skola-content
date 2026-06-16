@@ -339,38 +339,20 @@ print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 **Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasan" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasan.
 :::
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un klasi `Temperatura` ku atributu `graus` (na Celsius). Implementa `__add__` (soma graus), `__sub__` (subtrai graus), `__eq__`, `__lt__`, i `__str__` (mostra "Nº°C"). Testa: `Temperatura(30) + Temperatura(5)` deve da `Temperatura(35)`.
-
-2. **Izersisiu 2:** Kria un klasi `Korida` pa um servisiu di hifo (taksi) na Praia. Korida tene `distansia` (km) i `presu_por_km` (ECV). Implementa:
-   - `__add__` — soma dos koridas (distansia total, média di presu)
-   - `__mul__` — multiplika distansia pa un fator
-   - `__eq__` — dos koridas é igual si distansia i presu é igual
-   - `__str__` — mostra "Korida: Nkm — N ECV"
-   - Metodu `total()` ki ta retorna presu total (distansia * presu_por_km)
-
-3. **Izersisiu 3:** Extende klasi `Dineru` pa suporta `__truediv__` (divisan). `Dineru(1000) / 4` deve retorna `Dineru(250)`. Testa ku esemplu di dividi un konta di restoranti entri amigus.
-
-4. **Izersisiu 4:** Kria un klasi `Nota` pa nota di estudanti (0-20). Implementa tudu operadoris di komparasan (`__eq__`, `__lt__`, `__gt__`, `__le__`, `__ge__`). Kria un lista di 5 notas i uza `sorted()`, `min()`, i `max()` ku es.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Sobrekarga di operador** — ensina Python o ki `+`, `-`, `*`, `==` signifika pa bo klasi
-- **Kada operador** tene un metodu majiku korispondenti (`+` → `__add__`, `==` → `__eq__`)
-- **Senpri retorna novu objetu** — ka muda `self` na `__add__`, `__sub__`, etc.
-- **`isinstance()`** — uza pa verifika tipu antis di opera; retorna `NotImplemented` si tipu ka é kompatível
-- **`__eq__` + `__lt__`** — ku es dos, `sorted()`, `min()`, `max()` ta funsiona ku bo klasi
-- **Klasi Dineru** i **Klasi Vetor** — ezemplus prátiku di kumo sobrekarga ta faze kódiku más naturál i legível
-
----
-
-**Prósimu lisan:** [Prosimus Pasus: Dataclasses i Alén →](/courses/intro-python/lessons/prosimus-pasus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`__add__`, `__sub__`, `__mul__` debe retorna senpri un **novu** objetu — ka muda `self` (mesmu manera ki `3 + 5` ka ta muda o `3`).</RezumuItem>
+  <RezumuItem term="Sobrekarga">Ta enxina Python o ki `+`, `-`, `*`, `==` ta signifika pa a bu klasi.</RezumuItem>
+  <RezumuItem term="Metodus">Kada operador tene un dunder korespondenti: `+` → `__add__`, `==` → `__eq__`, `<` → `__lt__`.</RezumuItem>
+  <RezumuItem term="__eq__ + __lt__">Ku es dos, `sorted()`, `min()` i `max()` ta funsiona sózin ku os bu objetu.</RezumuItem>
+  <RezumuItem>Sen `__eq__`, `==` ta kompara pa **identidadi** (mesmu objetu na memória), ka pa valor.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Uza `isinstance()` pa verifika o tipu antis di opera, i `return NotImplemented` kuandu os tipu ka é kompatível — Python ta lansa `TypeError` sózin.</RezumuItem>
+</KeyTakeaways>

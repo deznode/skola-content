@@ -11,7 +11,7 @@ objectives:
   - "Uza operadoris aritmétiku (+, -, *, /, //, %, **) pa faze kálkulus"
   - "Kompara valoris ku operadoris di komparasan (==, !=, >, <, >=, <=)"
   - "Kombina kondisons ku operadoris lójiku (and, or, not)"
-  - "Intende presedensia di operadoris i armadilhas komun"
+  - "Intende presedensia di operadoris i armadidjas komun"
 ---
 
 # Operadoris
@@ -36,7 +36,7 @@ print(7 / 2)     # 3.5
 ```
 
 :::callout{type=tip}
-**Dika:** Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadilha komun!
+**Dika:** Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadidja komun!
 :::
 
 ```python
@@ -329,39 +329,20 @@ print(7 // 2)    #  3  ← normal
 print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Kalkuladora di Troku:** Pedi utilizador pa skrebe presu di un produtu i kuantu el pagá. Kalkula troku, kuantas notas di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda.
-
-2. **Izersisiu 2 — Verifikador di Idadi:** Pedi nomi i idadi di un pesoa. Mostra si el pode:
-   - Vota (>= 18)
-   - Konduz karu (>= 18)
-   - Bebe alkól (>= 18)
-   - Aposenta (>= 65)
-   Uza operadoris di komparasan i f-strings pa tudu.
-
-3. **Izersisiu 3 — Kalkuladora di IMC:** Pedi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra kategoria:
-   - `IMC < 18.5`: "Abaixu di pezu"
-   - `18.5 <= IMC < 25`: "Pezu normal"
-   - `25 <= IMC < 30`: "Subrepézu"
-   - `IMC >= 30`: "Obezidadi"
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Aritmétiku:** `+`, `-`, `*` funsiona kumo esperadu; `/` SENPRI retorna float; `//` pa divisan interu; `%` pa restu; `**` pa potensia
-- **Atribuisan konposta:** `+=`, `-=`, `*=` é atalhu pa `x = x op valor`
-- **Komparasan:** `==` (igual), `!=` (diferenti), `>`, `<`, `>=`, `<=` — tudu retorna True/False
-- **Lójiku:** `and` (ambos True), `or` (algun True), `not` (inverte)
-- **Presedensia:** `**` > `not` > `* / // %` > `+ -` > komparasan > `and` > `or`
-- **Ka konfundi** `=` (atribuisan) ku `==` (komparasan)
-- **Na dúvida, uza paréntesis** pa torna kódiku más klaru
-
----
-
-**Prósimu lisan:** [Kondisionais (if/elif/else) →](/courses/intro-python/lessons/kondisionais)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Na dúvida sobri a orden, uza **paréntesis** — `(2 + 3) * 4` é más klaru ki konfia na presedensia. Kódiku klaru ganha di kódiku kurtu.</RezumuItem>
+  <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é o restu; `**` é potensia.</RezumuItem>
+  <RezumuItem term="Komparasan">`==`, `!=`, `>`, `<`, `>=`, `<=` ta da senpri `True`/`False`.</RezumuItem>
+  <RezumuItem term="Lójiku">`and` (os dos `True`), `or` (algun `True`), `not` (inverti).</RezumuItem>
+  <RezumuItem term="Presedensia">`**` > `not` > `* / // %` > `+ -` > komparasan > `and` > `or`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka konfundi `=` (atribuisan) ku `==` (komparasan). I komparasan di string é **case-sensitive** — `"Pedro" == "pedro"` é `False`.</RezumuItem>
+</KeyTakeaways>

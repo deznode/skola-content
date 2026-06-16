@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-06 "Tipu di Dadus".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/06-tipu-di-dadus/quiz.yaml; positions
+# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "O ki é o tipu di `10 / 5` na Python?"
+  options:
+    - text: { kea: "`float` — a divisan `/` ta retorna **senpri** float, anton `10 / 5` é `2.0`" }
+      correct: true
+    - text: { kea: "`int` — dos interu ta da senpri un interu" }
+      correct: false
+    - text: { kea: "`str` — o rezultadu ten ki ser konvertidu" }
+      correct: false
+    - text: { kea: "Ta dependi: `2` é int, `2.0` é float" }
+      correct: false
+- question:
+    kea: "Bu tene `presu = \"350\"` (un string) i bu kore `presu * 0.15`. O ki ta kontise?"
+  options:
+    - text: { kea: "Un `TypeError` — ka pode multiplika un string pa un float; konverti ku `float(presu)` primeru" }
+      correct: true
+    - text: { kea: "Ta da `52.5`, pamodi Python ta konverti automátikamenti" }
+      correct: false
+    - text: { kea: "Ta repeti a string 0.15 bez" }
+      correct: false
+    - text: { kea: "Un `ValueError` — o presu ka é válidu" }
+      correct: false
+- question:
+    kea: "O ki ta da `int(3.9)`?"
+  options:
+    - text: { kea: "`3` — `int()` ta **trunka** (korta a parti desimal), ka ta arredonda" }
+      correct: true
+    - text: { kea: "`4` — `int()` ta arredonda pa interu más prósimu" }
+      correct: false
+    - text: { kea: "`3.9` — ka ta muda nada" }
+      correct: false
+    - text: { kea: "Un eru — `int()` ka ta seita float" }
+      correct: false

@@ -1,0 +1,165 @@
+# Exercises sidecar (draft source) for lesson m3-25 "Testu di Kódiku ku pytest".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/intro-python/lessons/25-testu-kodiku-pytest/exercises.yaml,
+# where scripts/import-content.ts emits it into the `exercises` table;
+# <TentaGosi/> renders them in display order. Keep `slug` stable.
+#
+# The inline "## Tenta Gosi 🏋️" drills (Izersisiu 1-4) become interactive
+# `code` exercises: `starterCode` is a copyable scaffold; the answer is the
+# revealed `solutionCode` (function + its pytest tests). Prompts stay INLINE-only
+# (inline-markdown.tsx — no multi-line fenced blocks). Plus one `explore` +
+# one `reflect`.
+#
+# Shapes follow L1/L2/L3: `title`/`prompt`/`hint`/`notePlaceholder` localized
+# ({kea:...}); `resources` localized; `starterCode`/`solutionCode` plain snippets.
+- slug: testa-e-par
+  language: python
+  kind: code
+  title: { kea: "Funsan é_par i os se testu" }
+  prompt:
+    kea: "Skrebe un funsan `é_par(n: int) -> bool` ki ta da `True` si o númeru é par. Dipos skrebe 3 funsan di testu (par, ímpar, zero) ku `assert`. Roda ku `pytest`."
+  hint:
+    kea: "`return n % 2 == 0`. Kada testu é un funsan ku nomi ki kumesa ku `test_`: `def test_par(): assert é_par(4) is True`. Zero é par (`é_par(0)` é `True`)."
+  starterCode: |
+    # par.py
+    def é_par(n: int) -> bool:
+        ...  # TODO
+
+    # test_par.py
+    # TODO: 3 testu — par, ímpar, zero
+  solutionCode: |
+    # par.py
+    def é_par(n: int) -> bool:
+        return n % 2 == 0
+
+    # test_par.py
+    def test_par():
+        assert é_par(4) is True
+
+    def test_impar():
+        assert é_par(7) is False
+
+    def test_zero():
+        assert é_par(0) is True
+    # Roda ku: pytest -v
+- slug: testa-inverte-string
+  language: python
+  kind: code
+  title: { kea: "Testu pa inverte_string" }
+  prompt:
+    kea: "Skrebe testus pa un funsan `inverte_string(s: str) -> str` ki ta da a string invertidu. Testa ku un string normal, un string vaziu i un string ku un só karater. Dipos implementa a funsan."
+  hint:
+    kea: "Implementason: `return s[::-1]`. Os testu: `assert inverte_string(\"abc\") == \"cba\"`, `assert inverte_string(\"\") == \"\"`, `assert inverte_string(\"x\") == \"x\"`."
+  starterCode: |
+    # inverte.py
+    def inverte_string(s: str) -> str:
+        ...  # TODO
+
+    # test_inverte.py
+    # TODO: testu normal, vaziu, un karater
+  solutionCode: |
+    # inverte.py
+    def inverte_string(s: str) -> str:
+        return s[::-1]
+
+    # test_inverte.py
+    def test_normal():
+        assert inverte_string("morabeza") == "azebarom"
+
+    def test_vaziu():
+        assert inverte_string("") == ""
+
+    def test_un_karater():
+        assert inverte_string("x") == "x"
+- slug: tdd-klassifika-nota
+  language: python
+  kind: code
+  title: { kea: "TDD — klassifika_nota" }
+  prompt:
+    kea: "Pratika TDD: primeru skrebe os testu pa `klassifika_nota(nota: float) -> str` (\"Exselenti\" si `>= 16`, \"Bon\" si `>= 12`, \"Sufisienti\" si `>= 10`, \"Insufisienti\" si `< 10`). Dipos implementa a funsan i roda `pytest`."
+  hint:
+    kea: "Skrebe os `assert` primeru (es ta faya pamodi a funsan inda ka izisti). Dipos implementa ku `if`/`elif` di o más altu pa o más baxu — a orden ta importa, kumo na Lisan 9."
+  starterCode: |
+    # nota.py
+    def klassifika_nota(nota: float) -> str:
+        ...  # TODO (implementa dipos di skrebe os testu)
+
+    # test_nota.py
+    # TODO: testu pa kada kategoria (16+, 12+, 10+, <10)
+  solutionCode: |
+    # nota.py
+    def klassifika_nota(nota: float) -> str:
+        if nota >= 16:
+            return "Exselenti"
+        elif nota >= 12:
+            return "Bon"
+        elif nota >= 10:
+            return "Sufisienti"
+        return "Insufisienti"
+
+    # test_nota.py
+    def test_exselenti():
+        assert klassifika_nota(18) == "Exselenti"
+
+    def test_bon():
+        assert klassifika_nota(13) == "Bon"
+
+    def test_sufisienti():
+        assert klassifika_nota(10) == "Sufisienti"
+
+    def test_insufisienti():
+        assert klassifika_nota(7) == "Insufisienti"
+- slug: testa-raises-valueerror
+  language: python
+  kind: code
+  title: { kea: "Testa ki un funsan lansa un eru" }
+  prompt:
+    kea: "Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa un `ValueError` (pamodi un nota negativu ka faze sentidu). Uza `pytest.raises(ValueError)`. Atualiza a funsan pa lansa o eru."
+  hint:
+    kea: "Na a funsan, `if nota < 0: raise ValueError(...)`. Na o testu: `with pytest.raises(ValueError): klassifika_nota(-1)`. Ka skese o `import pytest`."
+  starterCode: |
+    # nota.py — atualiza pa rejeita nota negativu
+    def klassifika_nota(nota: float) -> str:
+        # TODO: raise ValueError si nota < 0
+        ...
+
+    # test_nota.py
+    import pytest
+    # TODO: testa ki klassifika_nota(-1) ta lansa ValueError
+  solutionCode: |
+    # nota.py
+    def klassifika_nota(nota: float) -> str:
+        if nota < 0:
+            raise ValueError("Nota ka pode ser negativu!")
+        if nota >= 16:
+            return "Exselenti"
+        elif nota >= 12:
+            return "Bon"
+        elif nota >= 10:
+            return "Sufisienti"
+        return "Insufisienti"
+
+    # test_nota.py
+    import pytest
+
+    def test_nota_negativu_da_eru():
+        with pytest.raises(ValueError):
+            klassifika_nota(-1)
+- slug: splora-pytest-fixtures
+  language: python
+  kind: explore
+  title: { kea: "Splora pytest (fixtures, parametrize)" }
+  prompt:
+    kea: "pytest ten ferramentas poderozu alén di `assert` — `@pytest.fixture` (preparason partilhadu), `@pytest.mark.parametrize` (kore un testu ku txeu input). Odja a dokumentason pa odja kumo skrebe testu más limpu."
+  resources:
+    kea:
+      - { label: "pytest — Get Started", url: "https://docs.pytest.org/en/stable/getting-started.html" }
+      - { label: "Real Python — Effective Python Testing With pytest", url: "https://realpython.com/pytest-python-testing/" }
+- slug: refleta-tdd
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri o pensamentu TDD" }
+  prompt:
+    kea: "TDD é skrebe o testu **antis** di o kódiku: testu → implementa → verifika → repeti. Pensa nun funsan ki bu kreba skrebe. Skrebe ki testu bu ta skrebe primeru, i kumo es ta djuda-bu pensa na os kazu di borda (vaziu, negativu, zero) antis di kodifika."
+  notePlaceholder:
+    kea: "Funsan: …   ·   Testu ki skrebe primeru: …   ·   Kazu di borda ki TDD ta faze-bu pensa: …"

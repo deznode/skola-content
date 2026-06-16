@@ -424,44 +424,20 @@ for pos, (nomi, nota) in enumerate(ranking, start=1):
     print(f"  {pos}° {nomi}: {nota}")
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1 — Enumerasan:** Dadu un lista di ilhas `["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]`, uza `enumerate()` pa mostra un menu numeradu. Dipos, simula un eskólha i mostra: "Bo skolhe: [ilha]".
-
-2. **Izersisiu 2 — Zip di Notas:** Dadu duas listas — `nomis` i `notas` — uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipos uza `sorted()` ku `key` pa mostra ranking di midjor pa pior.
-
-3. **Izersisiu 3 — Validador Kompletu:** Skrebe un funsan `valida_lista(dados)` ki resebe un lista i verifika:
-   - `all()`: tudu elementu é nùmeru? (isinstance)
-   - `any()`: algun é negativu?
-   - Si tudu é nùmeru, retorna `sorted()` di lista; sinon retorna mensajen di eru.
-
-4. **Izersisiu 4 — Relatóriu di Vendas:** Dadu:
-   ```python
-   produtus = ["Katxupa", "Grogu", "Ponche", "Morabeza T-shirt"]
-   presus = [350, 800, 600, 1500]
-   kuantidadis = [20, 15, 25, 8]
-   ```
-   Uza `zip()` pa kalkula total di kada produtu, `sorted()` pa ordena pa total (más altu primeru), i `enumerate()` pa mostra lista numeradu.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **`enumerate(iterável, start=0)`** — itera ku índisi + valor; substitui `range(len())`
-- **`zip(iter1, iter2, ...)`** — itera sobri vários iteráveis na paralelu; para na más kurtu
-- **`sorted(iterável, key=, reverse=)`** — retorna NOVA lista ordenadu; original ka muda
-- **`.sort()`** — ordena lista IN-PLACE; retorna None; SÓ funsiona na listas
-- **`any(iterável)`** — True si ALGUN elementu é True (kumo `or` pa lista interu)
-- **`all(iterável)`** — True si TUDU elementu é True (kumo `and` pa lista interu)
-- **`isinstance(obj, tipu)`** — verifika tipu di un objetu; preferi sobri `type() ==`
-- Es funsons ta torna kódiku más **Pythonic** — limpu, lijível i efizienti
-
----
-
-**Prósimu lisan:** [Jeneradorus →](/courses/intro-python/lessons/jeneradorus)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri ki bu pensa na skrebe `for i in range(len(lista))`, para i uza `enumerate()` — más Pythonic, más lijível, menus eru.</RezumuItem>
+  <RezumuItem term="enumerate">`enumerate(iterável, start=0)` ta da índisi + valor djuntu.</RezumuItem>
+  <RezumuItem term="zip">`zip(iter1, iter2, ...)` ta itera sobri vários iterável na paralelu — i ta para na o más kurtu.</RezumuItem>
+  <RezumuItem term="any / all">`any()` é `True` si **algun** elementu é `True`; `all()` só si **tudu** é `True`.</RezumuItem>
+  <RezumuItem term="isinstance">`isinstance(obj, tipu)` ta verifika tipu i ta rekonxe subtipus — preferi-l sobri `type() ==`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`sorted(iterável, key=, reverse=)` ta da un lista nova (orijinal intaktu); `.sort()` ta ordena in-place i ta da `None`.</RezumuItem>
+</KeyTakeaways>

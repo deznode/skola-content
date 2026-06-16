@@ -1,0 +1,42 @@
+# Quiz sidecar (draft source) for lesson m1-10 "Loops (for/while)".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/10-loops/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 3 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Ki númerus `range(1, 6)` ta jera?"
+  options:
+    - text: { kea: "`1, 2, 3, 4, 5` — o `stop` (`6`) **ka** ta entra" }
+      correct: true
+    - text: { kea: "`1, 2, 3, 4, 5, 6` — os dos limiti ta entra" }
+      correct: false
+    - text: { kea: "`0, 1, 2, 3, 4, 5` — ta kumesa senpri na 0" }
+      correct: false
+    - text: { kea: "`2, 3, 4, 5, 6` — o `start` ka ta entra" }
+      correct: false
+- question:
+    kea: "Kal é a diferensa entri `break` i `continue`?"
+  options:
+    - text: { kea: "`break` ta sai di o loop interu; `continue` ta pula só o restu di a iterasan atual i ta bai pa a prósima" }
+      correct: true
+    - text: { kea: "`break` ta pula un iterasan; `continue` ta sai di o loop" }
+      correct: false
+    - text: { kea: "Os dos ta sai di o loop, ma `continue` é más rápidu" }
+      correct: false
+    - text: { kea: "`break` ta pausa o loop; `continue` ta rekomesa-l di o iníisu" }
+      correct: false
+- question:
+    kea: "Nun `while` loop, o ki ta kontise si bu skese di atualiza a variável di kontrol (p.ex. `kontador += 1`)?"
+  options:
+    - text: { kea: "Un loop infinitu — a kondisan ta fika senpri `True` i o loop ka ta para nunka" }
+      correct: true
+    - text: { kea: "O loop ta kore un bez só i para" }
+      correct: false
+    - text: { kea: "Python ta da un `SyntaxError` antis di kore" }
+      correct: false
+    - text: { kea: "O loop ta atualiza a variável automátikamenti" }
+      correct: false

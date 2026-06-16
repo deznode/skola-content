@@ -303,39 +303,20 @@ metodus = [m for m in dir(lugar) if not m.startswith("_")]
 print(metodus)  # ['adisiona_pratu', 'nomi', 'pratus', 'sidadi']
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un klasi `Livru` ku atributus `titulo`, `autor`, i `pajinas`. Implementa `__str__` (pa mostra "Titulo di Autor") i `__repr__` (pa mostra `Livru(titulo='...', autor='...', pajinas=N)`). Testa ku `print()` i `repr()`.
-
-2. **Izersisiu 2:** Kria un klasi `PlaylistMusika` ki ta garda un lista di morna i funana. Implementa:
-   - `adisiona(musika)` — pa adisiona musika
-   - `__len__` — pa `len(playlist)` funsiona
-   - `__contains__` — pa `"Sodade" in playlist` funsiona
-   - `__str__` — pa mostra nomi di playlist i kuantus musika tene
-
-3. **Izersisiu 3:** Uza `dir()` pa deskubri kuantus metodus un disionáriu (`dict`) tene ki ka kumesa ku `_`. Garda na un lista i imprime. Dipos, atxa un metodu ki bu ka konxe i testa-l.
-
-4. **Izersisiu 4:** Kria un klasi `KontaBankaria` ku `__str__` i `__repr__`. `__str__` deve mostra "Konta di [nomi]: [saldu] ECV" i `__repr__` deve mostra tudu informasan pa rekria objetu. Testa: imprimi un lista di 3 kontas (lembra: lista ta uza `__repr__`!).
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
-
-<Quiz position={3} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
 
 ## Rezumu
-
-- **Metodus majiku (dunder)** — funsons spesiál ku `__nomi__` ki Python ta txoma automátikamenti
-- **`__str__`** — representasan amigável pa uzuáriu; `print()` i `str()` ta txoma-l
-- **`__repr__`** — representasan teknika pa programador; shell i `repr()` ta txoma-l
-- **Si bo só implementa un**, implementa `__repr__` — Python ta uza-l kuma fallback
-- **`dir()`** — mostra tudu metodus i atributus disponível di un objetu
-- **`__len__`** — permite uza `len()` ku bo objetu
-- **`__contains__`** — permite uza `in` ku bo objetu
-- **Ka inventa dunder nomis** — `__nomi__` é reservadu pa Python
-
----
-
-**Prósimu lisan:** [Sobrekarga di Operador →](/courses/intro-python/lessons/sobrekarga-operador)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Si bu só implementa un, implementa `__repr__` — Python ta uza-l kumo fallback kuandu `__str__` ka izisti, i un lista ta uza-l pa os se elementu.</RezumuItem>
+  <RezumuItem term="Dunder methods">Funsons spesiál ku `__nomi__` ki Python ta txoma automátikamenti — bu ka txoma-s diretu.</RezumuItem>
+  <RezumuItem term="__str__">Vizun amigável pa o utilizador — `print()` i `str()` ta txoma-l.</RezumuItem>
+  <RezumuItem term="__repr__">Vizun teknika pa o programador — o shell i `repr()` ta txoma-l; debe parese ku o kódiku pa rekria o objetu.</RezumuItem>
+  <RezumuItem term="dir() / __len__ / __contains__">`dir(obj)` ta mostra tudu os metodu; `__len__` ta dexa `len(obj)`; `__contains__` ta dexa `x in obj`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka inventa os bu própriu dunder nomis (`__nha_metodu__`) — `__nomi__` é reservadu pa Python.</RezumuItem>
+</KeyTakeaways>

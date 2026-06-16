@@ -82,7 +82,7 @@ with open("ilhas.txt", "r") as ficheru:
 # PERIGO: si eru akontesi antis di .close(), ficheru fika abertu!
 ficheru = open("dadus.txt", "r")
 konteúdu = ficheru.read()
-ficheru.close()  # Si skesi es linha, ficheru fika abertu na memória
+ficheru.close()  # Si skise es linha, ficheru fika abertu na memória
 ```
 
 **Ku `with` (senpri uza es!):**
@@ -148,7 +148,7 @@ with open("ilhas_kv.txt", "w") as ficheru:
 
 ## Modu `'w+'` — Skrebe i Ler (ku seek)
 
-`'w+'` dixa bo skrebe i dipos ler mesmu ficheru. Ma tene un armadilha: dipos di skrebe, **kursor ta na final** di ficheru. Bo presiza uza `seek(0)` pa volta pa kumesu!
+`'w+'` dixa bo skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bo presiza uza `seek(0)` pa volta pa kumesu!
 
 ```python
 with open("notas_maria.txt", "w+") as ficheru:
@@ -293,7 +293,7 @@ with open("dadus_importanti.txt", "w") as f:
 
 **Soluson:** Uza `'a'` pa adisiona, o ler primeru i dipos skrebe.
 
-### 3. Skesi `seek(0)` ku `'w+'`
+### 3. Skise `seek(0)` ku `'w+'`
 
 ```python
 with open("testu.txt", "w+") as f:
@@ -306,30 +306,20 @@ with open("testu.txt", "w+") as f:
     print(f.read())  # 'Ola Mundu!'
 ```
 
-## Tenta Gosi 🏋️
+## Tenta Gosi
+<TentaGosi />
 
-1. **Izersisiu 1:** Kria un programa ki ta skrebe un lista di 5 ilhas di Kabu Verdi nun ficheru txomadu `ilhas.txt` (un ilha pa linha). Después ler ficheru i mostra kada ilha ku si número: `1. Santiago`, `2. São Vicente`, etc.
-
-2. **Izersisiu 2:** Kria un "diáriu simples" — programa ki ta pidi uzuáriu pa skrebe un nota (ku `input()`), adisiona na ficheru `diariu.txt` ku modu `'a'`, i dipos mostra tudu notas ki dja foi skrebidu.
-
-3. **Izersisiu 3:** Skrebe un programa ki ta ler un ficheru di notas (un número pa linha), kalkula média, i skrebe rezultadu nun ficheru novu txomadu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si ficheru di notas ezisti antis di tenta ler.
-
-<Quiz position={0} />
-
-<Quiz position={1} />
-
-<Quiz position={2} />
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+</QuizSet>
 
 ## Rezumu
-
-- **Modus prinsipais:** `'r'` (ler), `'w'` (skrebe — apaga!), `'a'` (adisiona), `'w+'` (skrebe + ler)
-- **Senpri uza `with`** — ta garanti ki ficheru ta fexá mesmu si eru akontesi
-- **Ler:** `read()` (tudu), `readline()` (un linha), `readlines()` (lista), o `for linha in ficheru`
-- **Skrebe:** `write(string)` i `writelines(lista)` — ka ta adisiona `\n` automátikamenti
-- **`seek(0)`** — presiza dipos di skrebe ku `'w+'` pa volta pa kumesu
-- **`os.path`** — kria kaminhus kompatível, verifika si ficheru ezisti
-- **Kuidadu ku `'w'`** — ta destrui tudu konteúdu anteriu!
-
----
-
-**Prósimu lisan:** [Tratamentu di Eru →](/courses/intro-python/lessons/tratamentu-eru)
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa o ficheru automátikamenti, mesmu si un eru akontese.</RezumuItem>
+  <RezumuItem term="Modus">`"r"` (lé), `"w"` (skrebe — **apaga** tudu!), `"a"` (adisiona na fin), `"w+"` (skrebe + lé).</RezumuItem>
+  <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), o `for linha in ficheru` (linha pa linha — midjór pa ficheru grandi).</RezumuItem>
+  <RezumuItem term="Skrebe">`write(string)` i `writelines(lista)` — ka ta po `\n` sózin, bu ten ki inkluí-l.</RezumuItem>
+  <RezumuItem term="os.path">`os.path.join()` pa kaminhus kompatível, `os.path.exists()` pa verifika si un ficheru izisti.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Modu `"w"` ta **destrui** tudu o konteúdu anteriu — uza `"a"` si bu kre mante-l. I `"r"` nun ficheru ki ka izisti ta da `FileNotFoundError`.</RezumuItem>
+</KeyTakeaways>
