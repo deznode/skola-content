@@ -68,3 +68,11 @@ modules:
       - slug: practice-blocks
         languages: [kea]
         content_type: TEXT
+  - slug: unified-design
+    title:
+      kea: "Stilu Unifikadu"
+      en: "Unified Design"
+    lessons:
+      - slug: unified-design-showcase
+        languages: [kea]
+        content_type: TEXT

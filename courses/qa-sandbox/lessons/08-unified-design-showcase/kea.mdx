@@ -1,0 +1,81 @@
+---
+title: "Stilu Unifikadu (showHeader + SectionHeading + ConceptDiagram)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: unified-design-showcase
+slug: "unified-design-showcase"
+module: 4
+lesson: 1
+duration: "8 min"
+objectives:
+  - "Testa barra di asentu di 4px na tudu kuatu blóku (Tenta Gosi, QuizSet, Rezumu, ConceptDiagram)"
+  - "Testa prop showHeader={false} ku SectionHeading pa stilu di títulu di pájina"
+  - "Testa ConceptDiagram data-driven ku íkones di marka"
+---
+
+Es lison ta mostra **dos stilu di títulu** pa kada blóku di lison, i modu ki es ta uza dentu di un pájina real.
+
+Kada blóku ten un **barra di asentu di 4px** na topu (kor pa tipu) ki ta sempri parse — é o sinal "un sistema só". I kada blóku ten un prop `showHeader`:
+
+- `showHeader` (padrón, `true`) → o blóku ta mostra se própi kabeçálu (íkon + título).
+- `showHeader={false}` → kabeçálu skondidu; uza un `<SectionHeading>` pa riba en ves.
+
+## Stilu 1 — Kabeçálu própi (standalone)
+
+Sen `<SectionHeading>`, ku o kabeçálu interno di kada blóku. Repara na barra di asentu **azul** na topu di `ConceptDiagram`:
+
+<ConceptDiagram
+  eyebrow="Undi el ta brilha"
+  title="Undi Python ta domina"
+  headerIcon="compass"
+  areas={[
+    { label: "Web", sub: "Django, FastAPI", icon: "globe", color: "#0077b6" },
+    { label: "AI", sub: "PyTorch, TensorFlow", icon: "brain", color: "#0f766e" },
+    { label: "Dadus", sub: "Pandas, NumPy", icon: "chart", color: "#b88600" },
+    { label: "Automatizason", sub: "Scripts, scraping", icon: "refresh", color: "#c0353a" },
+  ]}
+/>
+
+## Stilu 2 — Títulu di pájina (`SectionHeading` + `showHeader={false}`)
+
+Li o títulu ta ben di `<SectionHeading>` ku un barra vertikal di kor, i o blóku ta abri diretu sen kabeçálu duplikadu. O `variant` di `SectionHeading` ta kombina ku o tipu di blóku.
+
+<SectionHeading variant="concept">Undi Python ta brilha</SectionHeading>
+
+<ConceptDiagram
+  showHeader={false}
+  areas={[
+    { label: "Web", sub: "Django, FastAPI", icon: "globe", color: "#0077b6" },
+    { label: "Jogus", sub: "Pygame", icon: "gamepad", color: "#4a5d73" },
+    { label: "IoT", sub: "MicroPython", icon: "cpu", color: "#003366" },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+
+<QuizSet showHeader={false}>
+  <Quiz position={0} /><Quiz position={1} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+
+<Rezumu showHeader={false}>
+  <RezumuItem term="showHeader" code>kontrola si o blóku ta mostra se kabeçálu interno (padrón: ta mostra)</RezumuItem>
+  <RezumuItem term="SectionHeading" code>títulu di pájina ku barra vertikal di kor pa kada tipu di blóku</RezumuItem>
+  <RezumuItem>O barra di asentu di topu ta sempri parse — na dos stilu, klaru i sukuru.</RezumuItem>
+  <RezumuItem term="Regra di oru" variant="gold">uza `showHeader={false}` SÓ kuandu ten un `<SectionHeading>` pa riba — sen el, o standalone ta perde se título</RezumuItem>
+  <RezumuItem term="Errus kumuns" variant="warning">ka mistura o kabeçálu interno ku un `<SectionHeading>` — ta da dos título</RezumuItem>
+  <RezumuItem term="Pista" variant="tip">variant ta ser un di: `practice`, `quiz`, `summary`, `concept`</RezumuItem>
+</Rezumu>
+
+## Standalone Quiz (kabeçálu própi)
+
+Es `QuizSet` ta mostra se kabeçálu interno (íkon + título + subtítulu) ku barra di asentu **azul**:
+
+<QuizSet>
+  <Quiz position={2} /><Quiz position={3} />
+</QuizSet>

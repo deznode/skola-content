@@ -1,0 +1,22 @@
+- slug: kumprimenta
+  language: python
+  kind: code
+  title: { kea: "Primeru funsan" }
+  prompt: { kea: "Skrebi un funsan `kumprimenta(nomi)` ki ta retorna `\"Ola, {nomi}!\"`." }
+  hint: { kea: "Uza un f-string: `f\"Ola, {nomi}!\"`." }
+  starterCode: |
+    def kumprimenta(nomi):
+        # Bu kódiku li
+        pass
+  solutionCode: |
+    def kumprimenta(nomi):
+        return f"Ola, {nomi}!"
+- slug: splora-fstrings
+  language: python
+  kind: explore
+  title: { kea: "Splora dokumentason di f-strings" }
+  prompt: { kea: "Antis di skrebi más, odja modu ki dokumentason ofisial ta splika f-strings." }
+  resources:
+    kea:
+      - { label: "Python Docs — Input i Output", url: "https://docs.python.org/3/tutorial/inputoutput.html" }
+      - { label: "PEP 498 — Literal String Interpolation", url: "https://peps.python.org/pep-0498/" }
