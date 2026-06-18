@@ -2,7 +2,7 @@
   language: python
   kind: code
   title: { kea: "Primeru funsan" }
-  prompt: { kea: "Skrebi un funsan `kumprimenta(nomi)` ki ta retorna `\"Ola, {nomi}!\"`." }
+  prompt: { kea: "Skrebe un funsan `kumprimenta(nomi)` ki ta retorna `\"Ola, {nomi}!\"`." }
   hint: { kea: "Uza un f-string: `f\"Ola, {nomi}!\"`." }
   starterCode: |
     def kumprimenta(nomi):
@@ -15,7 +15,7 @@
   language: python
   kind: explore
   title: { kea: "Splora dokumentason di f-strings" }
-  prompt: { kea: "Antis di skrebi más, odja modu ki dokumentason ofisial ta splika f-strings." }
+  prompt: { kea: "Antis di skrebe más, odja modu ki dokumentason ofisial ta splika f-strings." }
   resources:
     kea:
       - { label: "Python Docs — Input i Output", url: "https://docs.python.org/3/tutorial/inputoutput.html" }

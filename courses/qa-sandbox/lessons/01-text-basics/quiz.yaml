@@ -14,7 +14,7 @@
     kea: "Kantu iten ten na lista ordenadu di riba?"
     en: "How many items are in the ordered list above?"
   options:
-    - text: { kea: "Dôs", en: "Two" }
+    - text: { kea: "Dos", en: "Two" }
       correct: false
     - text: { kea: "Três", en: "Three" }
       correct: true

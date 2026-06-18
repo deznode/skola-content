@@ -1,5 +1,5 @@
 - question:
-    kea: "Kual notason ta marka un liña ku kor di destake (sen muda)?"
+    kea: "Kual notason ta marka un linha ku kor di destake (sen muda)?"
     en: "Which notation marks a line with a highlight color (no change)?"
   options:
     - text: { kea: "[!code highlight]", en: "[!code highlight]" }
@@ -9,7 +9,7 @@
     - text: { kea: "[!code focus]", en: "[!code focus]" }
       correct: false
 - question:
-    kea: "Kual notason ta marka un liña komu adisionadu (verdi)?"
+    kea: "Kual notason ta marka un linha kumo adisionadu (verdi)?"
     en: "Which notation marks a line as added (green)?"
   options:
     - text: { kea: "[!code --]", en: "[!code --]" }
@@ -17,7 +17,7 @@
     - text: { kea: "[!code ++]", en: "[!code ++]" }
       correct: true
 - question:
-    kea: "Kual notason ta poi un liña na fokus i ta desfoka o restu?"
+    kea: "Kual notason ta poi un linha na fokus i ta desfoka o restu?"
     en: "Which notation focuses one line and dims the rest?"
   options:
     - text: { kea: "[!code highlight]", en: "[!code highlight]" }

@@ -11,18 +11,19 @@ objectives:
   - "Testa barra di asentu di 4px na tudu kuatu blóku (Tenta Gosi, QuizSet, Rezumu, ConceptDiagram)"
   - "Testa prop showHeader={false} ku SectionHeading pa stilu di títulu di pájina"
   - "Testa ConceptDiagram data-driven ku íkones di marka"
+  - "Testa blóku nobu di kontéudu — CompareTable, Steps i Flashcard"
 ---
 
 Es lison ta mostra **dos stilu di títulu** pa kada blóku di lison, i modu ki es ta uza dentu di un pájina real.
 
 Kada blóku ten un **barra di asentu di 4px** na topu (kor pa tipu) ki ta sempri parse — é o sinal "un sistema só". I kada blóku ten un prop `showHeader`:
 
-- `showHeader` (padrón, `true`) → o blóku ta mostra se própi kabeçálu (íkon + título).
-- `showHeader={false}` → kabeçálu skondidu; uza un `<SectionHeading>` pa riba en ves.
+- `showHeader` (padrón, `true`) → o blóku ta mostra se própi kabesálu (íkon + título).
+- `showHeader={false}` → kabesálu skondidu; uza un `<SectionHeading>` pa riba en bez.
 
-## Stilu 1 — Kabeçálu própi (standalone)
+## Stilu 1 — Kabesálu própi (standalone)
 
-Sen `<SectionHeading>`, ku o kabeçálu interno di kada blóku. Repara na barra di asentu **azul** na topu di `ConceptDiagram`:
+Sen `<SectionHeading>`, ku o kabesálu interno di kada blóku. Repara na barra di asentu **azul** na topu di `ConceptDiagram`:
 
 <ConceptDiagram
   eyebrow="Undi el ta brilha"
@@ -38,7 +39,7 @@ Sen `<SectionHeading>`, ku o kabeçálu interno di kada blóku. Repara na barra 
 
 ## Stilu 2 — Títulu di pájina (`SectionHeading` + `showHeader={false}`)
 
-Li o títulu ta ben di `<SectionHeading>` ku un barra vertikal di kor, i o blóku ta abri diretu sen kabeçálu duplikadu. O `variant` di `SectionHeading` ta kombina ku o tipu di blóku.
+Li o títulu ta ben di `<SectionHeading>` ku un barra vertikal di kor, i o blóku ta abri diretu sen kabesálu duplikadu. O `variant` di `SectionHeading` ta kombina ku o tipu di blóku.
 
 <SectionHeading variant="concept">Undi Python ta brilha</SectionHeading>
 
@@ -64,18 +65,56 @@ Li o títulu ta ben di `<SectionHeading>` ku un barra vertikal di kor, i o blók
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
 
 <Rezumu showHeader={false}>
-  <RezumuItem term="showHeader" code>kontrola si o blóku ta mostra se kabeçálu interno (padrón: ta mostra)</RezumuItem>
+  <RezumuItem term="showHeader" code>kontrola si o blóku ta mostra se kabesálu interno (padrón: ta mostra)</RezumuItem>
   <RezumuItem term="SectionHeading" code>títulu di pájina ku barra vertikal di kor pa kada tipu di blóku</RezumuItem>
   <RezumuItem>O barra di asentu di topu ta sempri parse — na dos stilu, klaru i sukuru.</RezumuItem>
   <RezumuItem term="Regra di oru" variant="gold">uza `showHeader={false}` SÓ kuandu ten un `<SectionHeading>` pa riba — sen el, o standalone ta perde se título</RezumuItem>
-  <RezumuItem term="Errus kumuns" variant="warning">ka mistura o kabeçálu interno ku un `<SectionHeading>` — ta da dos título</RezumuItem>
+  <RezumuItem term="Errus kumuns" variant="warning">ka mistura o kabesálu interno ku un `<SectionHeading>` — ta da dos título</RezumuItem>
   <RezumuItem term="Pista" variant="tip">variant ta ser un di: `practice`, `quiz`, `summary`, `concept`</RezumuItem>
 </Rezumu>
 
-## Standalone Quiz (kabeçálu própi)
+## Standalone Quiz (kabesálu própi)
 
-Es `QuizSet` ta mostra se kabeçálu interno (íkon + título + subtítulu) ku barra di asentu **azul**:
+Es `QuizSet` ta mostra se kabesálu interno (íkon + título + subtítulu) ku barra di asentu **azul**:
 
 <QuizSet>
   <Quiz position={2} /><Quiz position={3} />
 </QuizSet>
+
+## Blóku nobu di kontéudu
+
+Es tres blóku ta kompleta o sistema unifikadu. Kada un ten o se barra di asentu na topu i o se kabesálu interno.
+
+<CompareTable
+  eyebrow="Kompara"
+  title="Lista versus Tuplu"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "Lista", syntax: "[1, 2]", accent: "blue" },
+    { name: "Tuplu", syntax: "(1, 2)", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Mutável", kind: "bool", vals: [true, false] },
+    { label: "Sintaksi", kind: "code", vals: ["[1, 2]", "(1, 2)"] },
+    { label: "Kuandu uza", kind: "text", vals: ["Dadus ki ta **muda**", "Dadus **fixu**"] },
+  ]}
+/>
+
+<Steps
+  eyebrow="Pasus"
+  title="Konfigura bu ambienti Python"
+  steps={[
+    { title: "Instala Python", body: "Baixa o vérson más resenti di [python.org](https://python.org).", code: "python --version" },
+    { title: "Kria un ambienti virtual", body: "Izola dependensia di kada prujetu.", code: "python -m venv .venv" },
+    { title: "Ativa-l", code: "source .venv/bin/activate" },
+  ]}
+/>
+
+<Flashcard
+  eyebrow="Flashcard"
+  title="Termu báziku"
+  cards={[
+    { term: "Variável", def: "Un nomi ki ta gualda un valor na memória." },
+    { term: "Funsan", def: "Un blóku di kódigu reutilizável ki ta izekuta un tarefa." },
+  ]}
+/>

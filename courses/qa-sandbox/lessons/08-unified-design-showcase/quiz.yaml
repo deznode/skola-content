@@ -1,5 +1,5 @@
 - question:
-    kea: "Ki prop ki ta skonde o kabeçálu interno di un blóku?"
+    kea: "Ki prop ki ta skonde o kabesálu interno di un blóku?"
   options:
     - text: { kea: "showHeader={false}" }
       correct: true

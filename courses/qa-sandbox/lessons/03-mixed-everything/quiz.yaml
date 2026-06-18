@@ -12,7 +12,7 @@
   options:
     - text: { kea: "Un", en: "One" }
       correct: false
-    - text: { kea: "Dôs", en: "Two" }
+    - text: { kea: "Dos", en: "Two" }
       correct: false
     - text: { kea: "Três (tip, warning, info)", en: "Three (tip, warning, info)" }
       correct: true

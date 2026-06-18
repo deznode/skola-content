@@ -21,7 +21,7 @@
     - text: { kea: "try" }
       correct: false
 - question:
-    kea: "Kual palavra-xavi ki nu ta uza pa lansa un exsesun nos própi?"
+    kea: "Kual palavra-xavi ki nu ta uza pa lansa un exsesan nos própi?"
   options:
     - text: { kea: "raise" }
       correct: true
