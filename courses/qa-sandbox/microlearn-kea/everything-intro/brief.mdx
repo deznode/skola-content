@@ -7,6 +7,27 @@ language: kea
 cast:
   - mentor
   - builder
+  - companion
+# --- T2 narration (spec 051). Audio asset is a placeholder until published;
+# the player renders transport + beats + transcript and shows the retry bar
+# on play until narration.mp3 exists. ---
+audio_path: /static/content/courses/qa-sandbox/microlearn-kea/everything-intro/narration.mp3
+transcript_path: ./transcript.md
+timing: audio_aligned
+segments:
+  - { t: 0, title: "Kuze nu ta odja", cast: mentor }
+  - { t: 18, title: "Títulu y elenku", cast: builder }
+  - { t: 40, title: "Korpu di brief", cast: mentor }
+  - { t: 70, title: "Player re-ativadu", cast: companion }
+captions:
+  - { t: 0, cast: mentor, text: "Olá! Es é o brief di microlearn pa o lison tudu djuntu." }
+  - { t: 6, cast: mentor, text: "Nu ta testa o microlearn player re-ativadu pa es kursu di testi." }
+  - { t: 18, cast: builder, text: "Primeru, o títulu di microlearn ta parsi na riba." }
+  - { t: 28, cast: builder, text: "Y a fila di avatares — mentor, builder, companion — ta renderiza." }
+  - { t: 40, cast: mentor, text: "Dipôs, o korpu di brief ta renderiza komu prosa, di baxu." }
+  - { t: 55, cast: mentor, text: "Asin bu ta lê o rezumu sen presa, sen XP, sen muru." }
+  - { t: 70, cast: companion, text: "Y o player ta toca, ta marka momentus, y ta sigui o transcript." }
+  - { t: 84, cast: companion, text: "Klika un linha pa salta pa es momentu. Sô izé!" }
 ---
 
 Es é o **brief di microlearn** pa o lison "tudu djuntu". E ta testa o microlearn player re-ativadu pa es kursu di testi.
@@ -14,5 +35,6 @@ Es é o **brief di microlearn** pa o lison "tudu djuntu". E ta testa o microlear
 **Na es brief bu ta verifika:**
 
 - O títulu di microlearn ta parsi
-- A fila di avatares (cast: mentor, builder) ta renderiza
+- A fila di avatares (cast: mentor, builder, companion) ta renderiza
 - O korpu di brief ta renderiza komu prosa
+- O transport, momentus, y transcript sinkronizadu (T2) ta parsi
