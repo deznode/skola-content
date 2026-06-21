@@ -35,7 +35,7 @@ __add__     # Kuandu uza + ku bo objetu
 Djá nu uza metodu majiku dezdi lisan di Klasis: `__init__`! Kada bez ki bo skrebe `MinhaKlasi()`, Python ta txoma `__init__` automátikamenti.
 
 :::callout{type=tip}
-**Dika:** Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu metodus, uza nomis normál.
+Nunka inventa bo propriu dunder nomis (kuma `__nha_metodu__`). Dunder nomis é reservadu pa Python. Pa bo propriu metodus, uza nomis normál.
 :::
 
 ## `__str__` — Representasan pa Uzuáriu
@@ -123,7 +123,7 @@ João — Kursu: Data Science
 ```
 
 :::callout{type=tip}
-**Dika:** Un bon `__repr__` deve parése ku kódiku ki bu pode kopia i kola pa kria mesmu objetu. Pensa nél kuma "reseta pa rekonstrui".
+Un bon `__repr__` deve parése ku kódiku ki bu pode kopia i kola pa kria mesmu objetu. Pensa nél kuma "reseta pa rekonstrui".
 :::
 
 ## Diferensa entri `__str__` i `__repr__`
@@ -150,7 +150,7 @@ print(alunus)
 ```
 
 :::callout{type=tip}
-**Dika:** Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
+Si bo só implementa un, implementa `__repr__`. Python ta uza `__repr__` kuma fallback kuandu `__str__` ka ezisti.
 :::
 
 ## `dir()` — Deskubri Metodus
@@ -194,7 +194,7 @@ print([m for m in dir(karu) if not m.startswith("_")])
 ```
 
 :::callout{type=tip}
-**Dika:** Uza `dir()` kuandu bu ka lembra ki metodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
+Uza `dir()` kuandu bu ka lembra ki metodus un objetu tene. É kuma un "menu" di tudu ki ta disponível!
 :::
 
 ## `__len__` i `__contains__` — Otru Metodus Majiku Útil

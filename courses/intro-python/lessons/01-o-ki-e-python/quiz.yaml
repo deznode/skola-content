@@ -2,39 +2,79 @@
 # Draft-canonical per ADR-0026. Publish copies this to
 # content/courses/intro-python/lessons/01-o-ki-e-python/quiz.yaml; positions
 # 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+#
+# `explain` is the author-written "Pamodi:" why-feedback (spec 048) shown after a
+# pick. It gives the reason only — the right/wrong verdict comes from the status
+# line — so it reads naturally on both correct and incorrect picks.
 - question:
     kea: "Kual di kes karakterístika li é un di razons ki ta faze Python tan popular?"
     en: "Which of these is one of the reasons Python is so popular?"
   options:
     - text: { kea: "El ta funsiona só na Windows", en: "It only runs on Windows" }
       correct: false
+      explain:
+        kea: "Python ta kore na Windows, macOS i Linux — ka só un sistema."
+        en: "Python runs on Windows, macOS and Linux — not just one."
     - text: { kea: "Sintaxi faxi di ler, ki ta paresi ku inglés simples", en: "Easy-to-read syntax, close to plain English" }
       correct: true
+      explain:
+        kea: "Sintaxi limpu i fáxi di ler é un di razons prinsipal pa Python ser tan popular."
+        en: "Clean, readable syntax is a key reason Python is so popular."
     - text: { kea: "El ka ten bibliotekas", en: "It has no libraries" }
       correct: false
+      explain:
+        kea: "Python ten txeu biblioteka — é un di si pontus más forti."
+        en: "Python has many libraries — one of its biggest strengths."
     - text: { kea: "É karu pa instala", en: "It is expensive to install" }
       correct: false
+      explain:
+        kea: "Python é grátis i open source."
+        en: "Python is free and open source."
 - question:
     kea: "Pa kuze é ki Python é fundasan modernu na mundu di tek?"
     en: "What is Python the foundational language for in the modern tech world?"
   options:
     - text: { kea: "Dezenvolvimentu di jogus móvel", en: "Mobile game development" }
       correct: false
+      explain:
+        kea: "Jogus móvel ta uza más otus ferramentas; Python ta brilha na AI i dadus."
+        en: "Mobile games mostly use other tools; Python shines in AI and data."
     - text: { kea: "Intelijensia Artifisial i Machine Learning", en: "Artificial Intelligence and Machine Learning" }
       correct: true
+      explain:
+        kea: "Python é fundasan di AI i machine learning na mundu di tek modernu."
+        en: "Python is the foundation of AI and machine learning in modern tech."
     - text: { kea: "Sistema operasional", en: "Operating systems" }
       correct: false
+      explain:
+        kea: "Sistema operasional ta skritu más na C i C++."
+        en: "Operating systems are mostly written in C and C++."
     - text: { kea: "Konfigurasan di redi", en: "Network configuration" }
       correct: false
+      explain:
+        kea: "Konfigurasan di redi ka é undi Python ta brilha más."
+        en: "Network configuration isn't where Python stands out most."
 - question:
     kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"
     en: "For tech professionals in Cape Verde, what is Python's main advantage?"
   options:
     - text: { kea: "El ta funsiona so na portugés", en: "Only works in Portuguese" }
       correct: false
+      explain:
+        kea: "Python ka ta dependi di un língua; kódiku ta uza palavras na inglés."
+        en: "Python isn't tied to a language; code uses English keywords."
     - text: { kea: "Ta abri portas pa trabadju remotu ku empresas internasionais", en: "Opens doors for remote work with international companies" }
       correct: true
+      explain:
+        kea: "Python ta abri portas pa trabadju remotu ku empresas internasionais."
+        en: "Python opens doors to remote work with international companies."
     - text: { kea: "Ten kustu altu di lisensa", en: "Has a high license cost" }
       correct: false
+      explain:
+        kea: "Python é grátis — sen kustu di lisensa."
+        en: "Python is free — there is no license cost."
     - text: { kea: "Só pa estudantis universitáriu", en: "Only for university students" }
       correct: false
+      explain:
+        kea: "Kualker algen pode prende Python, sen presiza di universidadi."
+        en: "Anyone can learn Python — no university required."

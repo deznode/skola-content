@@ -1,0 +1,22 @@
+# Code-examples sidecar (draft source) for lesson m1-02 "Instala Python".
+# Draft-canonical per ADR-0026. Publish copies this to
+# content/courses/intro-python/lessons/02-instala-python/code-examples.yaml;
+# position 0 corresponds to <CodeExample position={0} showTabs/> in kea.mdx.
+#
+# Code examples are NOT localized (single language/code/title triple). `variants`
+# (V33) is the optional grouped tab set — with >=2 entries <CodeExample> renders a
+# language tab bar. The scalar `code` below is the single-render fallback
+# (macOS/Linux, the most common case).
+- title: "Ativa .venv"
+  language: bash
+  code: "source .venv/bin/activate"
+  variants:
+    - label: "macOS / Linux"
+      language: bash
+      code: "source .venv/bin/activate"
+    - label: "Windows (Command Prompt)"
+      language: bash
+      code: '.venv\Scripts\activate'
+    - label: "Windows (PowerShell)"
+      language: powershell
+      code: '.venv\Scripts\Activate.ps1'

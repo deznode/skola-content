@@ -17,7 +17,7 @@ objectives:
 
 # Konjuntus (Sets)
 
-Na matemátika, un konjuntu é un grupu di elementus úniku -- sen repetisan. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi un bez só, ó kuandu bo presiza verifika rápidu si un elementu ezisti. Nos ta uza sets pa tudu tipu di koza -- dezdi removi duplikadus te kompara listas di dadus.
+Na matemátika, un konjuntu é un grupu di elementus úniku — sen repetisan. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi un bez só, ó kuandu bo presiza verifika rápidu si un elementu ezisti. Nos ta uza sets pa tudu tipu di koza — dezdi removi duplikadus te kompara listas di dadus.
 
 ## Kria Sets
 
@@ -40,8 +40,8 @@ print(type(vazio_corretu))  # <class 'set'>
 print(type(vazio_eradu))    # <class 'dict'>
 ```
 
-:::callout{type=tip}
-**Dika:** `{}` ta kria un disionáriu vazio, NAU un set vazio! Pa kria set vazio, senpri uza `set()`. Txeu programadoris ta kái nes armadidja.
+:::callout{type=warning}
+`{}` ta kria un disionáriu vazio, NAU un set vazio! Pa kria set vazio, senpri uza `set()`. Txeu programadoris ta kái nes armadidja.
 :::
 
 ## Auto-Deduplikasan
@@ -73,7 +73,7 @@ print(estudantis)  # {'Maria', 'João', 'Ana', 'Pedro'}
 
 ## Membership Testing (Testa si Elementu Ezisti)
 
-Un di grandi vantajens di sets é velosidadi di buska. Verifika si un elementu sta dentu di un set é **O(1)** -- konstanti, independenti di tamanhu. Na listas, é **O(n)** -- más lentu pa listas grandi.
+Un di grandi vantajens di sets é velosidadi di buska. Verifika si un elementu sta dentu di un set é **O(1)** — konstanti, independenti di tamanhu. Na listas, é **O(n)** — más lentu pa listas grandi.
 
 ```python
 # Lista di ilhas ku aeroporitu internasional
@@ -102,7 +102,7 @@ print(f"Password tene karakter spesial: {tene_spesial}")  # True
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo presiza verifika si un valór ezisti dentu di un kolesan grandi, konverti pa set primeru. Pa 1 milhan di elementus, set ta responde instantaneamenti, lista ta leva tempu.
+Kuandu bo presiza verifika si un valór ezisti dentu di un kolesan grandi, konverti pa set primeru. Pa 1 milhan di elementus, set ta responde instantaneamenti, lista ta leva tempu.
 :::
 
 ## Operasons Matemátiku
@@ -174,7 +174,7 @@ print(frutas)  # {'manga', 'laranja'}
 ```
 
 :::callout{type=tip}
-**Dika:** Uza `.discard()` en bez di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
+Uza `.discard()` en bez di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
 :::
 
 ```python
@@ -272,7 +272,7 @@ print(playlist_limpu)
 | Elementus é mutável (listas, dicts) | | ✓ |
 
 :::callout{type=tip}
-**Dika:** Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bu ka pode po listas ó disionárius dentu di un set.
+Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bu ka pode po listas ó disionárius dentu di un set.
 :::
 
 ```python

@@ -1,0 +1,35 @@
+# Code-examples sidecar (draft source) for lesson m1-09 "Kondisionais (if/elif/else)".
+# Draft-canonical per ADR-0026. Publish copies this to
+# content/courses/intro-python/lessons/09-kondisionais/code-examples.yaml;
+# position 0 corresponds to <CodeExample position={0} showTabs/> in kea.mdx.
+#
+# Code examples are NOT localized (single language/code/title triple). `variants`
+# (V33) is the grouped tab set — with >=2 entries <CodeExample> renders a tab
+# bar. The scalar `code` below is the single-render fallback (the if/else form,
+# the safe default). Both variants assign status = "adultu" and print:
+#   Bo é adultu.
+- title: "Mesmu rezultadu, dos forma di skrebe"
+  language: python
+  code: |
+    idadi = 20
+    if idadi >= 18:
+        status = "adultu"
+    else:
+        status = "menor"
+    print(f"Bo é {status}.")  # Bo é adultu.
+  variants:
+    - label: "if / else (forma normal)"
+      language: python
+      code: |
+        idadi = 20
+        if idadi >= 18:
+            status = "adultu"
+        else:
+            status = "menor"
+        print(f"Bo é {status}.")  # Bo é adultu.
+    - label: "Ternary (un linha)"
+      language: python
+      code: |
+        idadi = 20
+        status = "adultu" if idadi >= 18 else "menor"
+        print(f"Bo é {status}.")  # Bo é adultu.

@@ -51,7 +51,7 @@ print(maria._ilha)      # Santiago ⚠️ (funsiona, ma ka debe)
 ```
 
 :::callout{type=tip}
-**Dika:** Na Python, `_protejidu` é só un **konvensan** — nada ka ta impidi bo di asésa-l. É kumo un avizu: "Oji, ka toka nisi sen motivo!" Ma `__privadu` tene protesan real.
+Na Python, `_protejidu` é só un **konvensan** — nada ka ta impidi bo di asésa-l. É kumo un avizu: "Oji, ka toka nisi sen motivo!" Ma `__privadu` tene protesan real.
 :::
 
 ## Name Mangling — Kumo Python ta Proteje Atributus Privadu
@@ -82,7 +82,7 @@ print([attr for attr in dir(konta) if "saldu" in attr])
 ```
 
 :::callout{type=tip}
-**Dika:** Name mangling ka é seguránsa — é protesan kontra **eru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
+Name mangling ka é seguránsa — é protesan kontra **eru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
 :::
 
 ## Getters i Setters Tradisionál
@@ -170,7 +170,7 @@ print(kaxtelu.presu)          # Asésa kumo atributu ✨
 ```
 
 :::callout{type=tip}
-**Dika:** `@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di metodu**. Utilizador ka presiza sabi ki tene un funsan pa trás!
+`@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di metodu**. Utilizador ka presiza sabi ki tene un funsan pa trás!
 :::
 
 ## `@property.setter` ku Validasan
@@ -267,7 +267,7 @@ print(f"Nova área: {terrenu.area} m²")       # Nova área: 800 m² (rekalkula 
 ```
 
 :::callout{type=tip}
-**Dika:** Property kalkuladu (sen setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SENPRI atualizadu!
+Property kalkuladu (sen setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor ta sta SENPRI atualizadu!
 :::
 
 ## Izemplu Prátiku: Konta Bankáriu Seguru
@@ -415,7 +415,7 @@ print(len(konta.istóriku))   # 4 (orijinál ka mudá)
 ```
 
 :::callout{type=tip}
-**Dika:** Nota kumo `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padron importanti di enkapsolamentu txomadu "defensive copy".
+Nota kumo `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padron importanti di enkapsolamentu txomadu "defensive copy".
 :::
 
 ## Rezumu di @property vs Getters/Setters

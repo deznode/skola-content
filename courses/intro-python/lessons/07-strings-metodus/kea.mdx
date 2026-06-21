@@ -45,8 +45,8 @@ if resposta.lower() == "sim":
     print("Ótima escolha! Katxupa é vida!")
 ```
 
-:::callout{type=tip}
-**Dika:** Metodus di string NUNKA ta muda string original — es ta retorna un string NOVU. String é imutável na Python.
+:::callout{type=warning}
+Metodus di string NUNKA ta muda string original — es ta retorna un string NOVU. String é imutável na Python.
 :::
 
 ```python
@@ -84,7 +84,7 @@ print(f"Email registradu: {email}")
 ```
 
 :::callout{type=tip}
-**Dika:** Bu pode enkadea (chain) vários metodus djuntu: `" OLA ".strip().lower()` ta da `"ola"`. Python ta izekuta di eskérda pa direita.
+Bu pode enkadea (chain) vários metodus djuntu: `" OLA ".strip().lower()` ta da `"ola"`. Python ta izekuta di eskérda pa direita.
 :::
 
 ## Split i Join
@@ -337,28 +337,36 @@ print(f"{largura=}, {altura=}, {area=}")
 ```
 
 :::callout{type=tip}
-**Dika:** `f"{var=}"` é bo midjór amigu kuandu bu ta tenta intende pamodi bo kódiku ka ta funsiona. Uza el na lugar di `print("x =", x)`.
+`f"{var=}"` é bo midjór amigu kuandu bu ta tenta intende pamodi bo kódiku ka ta funsiona. Uza el na lugar di `print("x =", x)`.
 :::
 
 ## Otus Metodus di Formatasan (pa Ler Kódiku Antigu)
 
-f-strings é metodu prinsipal, ma bu ta enkontra otus metodus na kódiku ezistenti. Ka presiza domina — basta konxe pa pode ler.
+f-strings é metodu prinsipal, ma bu ta enkontra otus metodus na kódiku ezistenti. Ka presiza domina — basta konxe pa pode ler. Es tres manera ta da **mesmu rezultadu** — vira es tabs pa kompara:
 
-```python
-# .format() — komun na kódiku antigu (Python 2-3.5)
-nomi = "Ana"
-idadi = 25
-print("Nha nomi é {} i N tene {} anu".format(nomi, idadi))
-print("Nha nomi é {0} i N tene {1} anu".format(nomi, idadi))
-
-# %-formatting — legadu, mutu antigu
-print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
-# %s = string, %d = interu, %f = float
-```
+<CodeExample position={0} showTabs />
 
 :::callout{type=tip}
-**Dika:** Kuandu bo skrebe kódiku novu, SENPRI uza f-strings. `.format()` i `%` só esisti pa bu pode ler kódiku ki otru pesoas skrebe antis.
+Kuandu bo skrebe kódiku novu, SENPRI uza f-strings. `.format()` i `%` só esisti pa bu pode ler kódiku ki otru pesoas skrebe antis.
 :::
+
+## Repete pa Lembra: Metodus di String
+
+Antis di pratika, vira es kartas pa fixa o ki kada metodu ta faze. Klika pa odja a definison.
+
+<Flashcard
+  showHeader={false}
+  cards={[
+    { term: "upper()", def: "Ta muda tudu letras pa maiúskula; ta retorna un string novu sen muda o original." },
+    { term: "strip()", def: "Ta tira spasu di inísiu i final di un string." },
+    { term: "split()", def: "Ta kebra un string nun lista, separandu pa un karáter (spasu é o padrau)." },
+    { term: "join()", def: "Ta djunta un lista nun sô string, uzandu un separador." },
+    { term: "replace()", def: "Ta substitui tudu okorensia di un testu pa otru." },
+    { term: "find()", def: "Ta da o índisi di primeru okorensia, o -1 si ka atxa." },
+    { term: "startswith()", def: "Ta verifika si un string ta kumesa ku un testu; ta da True o False." },
+    { term: "isdigit()", def: "Ta verifika si tudu karáter é dígitu; ta da True o False." },
+  ]}
+/>
 
 ## Tenta Gosi
 <TentaGosi />
@@ -368,8 +376,8 @@ print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">String é **imutável** — metodus kumo `.upper()` o `.replace()` ka ta muda o original; es ta retorna un string novu ki bu ten ki garda (`nomi = nomi.upper()`).</RezumuItem>
   <RezumuItem term="Kazu i limpeza">`.upper()`, `.lower()`, `.title()` pa muda kazu; `.strip()` pa tira spasus — esensial pa input di utilizador.</RezumuItem>
   <RezumuItem term="Split/Join">`.split()` ta kebra string pa lista; `"sep".join()` ta djunta lista pa string.</RezumuItem>

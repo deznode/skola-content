@@ -1,0 +1,35 @@
+# Code-examples sidecar (draft source) for lesson m1-07 "Strings: Metodus i Formatasan".
+# Draft-canonical per ADR-0026. Publish copies this to
+# content/courses/intro-python/lessons/07-strings-metodus/code-examples.yaml;
+# position 0 corresponds to <CodeExample position={0} showTabs/> in kea.mdx.
+#
+# Code examples are NOT localized (single language/code/title triple). `variants`
+# (V33) is the grouped tab set — with >=2 entries <CodeExample> renders a tab
+# bar. The scalar `code` below is the single-render fallback (the f-string form,
+# the recommended modern default). All three variants print the same line:
+#   Nha nomi é Ana i N tene 25 anu
+- title: "Mesmu rezultadu, tres manera di formata"
+  language: python
+  code: |
+    nomi = "Ana"
+    idadi = 25
+    print(f"Nha nomi é {nomi} i N tene {idadi} anu")
+  variants:
+    - label: "f-string (rekomendadu)"
+      language: python
+      code: |
+        nomi = "Ana"
+        idadi = 25
+        print(f"Nha nomi é {nomi} i N tene {idadi} anu")
+    - label: ".format() (kódiku antigu)"
+      language: python
+      code: |
+        nomi = "Ana"
+        idadi = 25
+        print("Nha nomi é {} i N tene {} anu".format(nomi, idadi))
+    - label: "%-formatting (legadu)"
+      language: python
+      code: |
+        nomi = "Ana"
+        idadi = 25
+        print("Nha nomi é %s i N tene %d anu" % (nomi, idadi))

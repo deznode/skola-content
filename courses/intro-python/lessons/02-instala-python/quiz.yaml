@@ -7,36 +7,63 @@
 # These 3 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
+#
+# `explain` is the author-written "Pamodi:" why-feedback (spec 048) — the reason
+# only; the right/wrong verdict comes from the status line.
 - question:
     kea: "Na Windows, pamodi é importanti marka \"Add python.exe to PATH\" duranti instalasan di Python?"
   options:
     - text: { kea: "Sen el, sistema ka ta atxa `python` kuandu bu skrebe-l na terminal" }
       correct: true
+      explain:
+        kea: "PATH ta permiti terminal atxa `python`. Sen el, bu ta odja eru 'command not found'."
     - text: { kea: "Pa instala VS Code automátikamenti" }
       correct: false
+      explain:
+        kea: "PATH ka ten nada ku VS Code — el ta instala-su separadu."
     - text: { kea: "Pa kria un virtual environment automátikamenti" }
       correct: false
+      explain:
+        kea: "Bu ta kria `.venv` manualmenti ku `python -m venv`, ka pa PATH."
     - text: { kea: "Pa faze download di Python más rápidu" }
       correct: false
+      explain:
+        kea: "PATH ka ta afeta velosidadi di download — el ta djuda terminal atxa `python`."
 - question:
     kea: "Pa kuze ki ta sirbi un virtual environment (`.venv`)?"
   options:
     - text: { kea: "Pa izola pakotis di kada projetu, asi un projetu ka ta kebra otu" }
       correct: true
+      explain:
+        kea: "Kada projetu ta tene si própriu pakotis, asi un ka ta kebra otu."
     - text: { kea: "Pa faze Python kore más rápidu" }
       correct: false
+      explain:
+        kea: "`.venv` ka ta muda velosidadi — el ta izola dependénsias di kada projetu."
     - text: { kea: "Pa traduzi kódiku pa otus línguas" }
       correct: false
+      explain:
+        kea: "`.venv` ka ten nada ku tradusan di kódiku."
     - text: { kea: "Pa substitui VS Code" }
       correct: false
+      explain:
+        kea: "`.venv` i VS Code ta faze kuzas diferenti — un ka ta substitui otu."
 - question:
     kea: "Kumo bu ta sabe ki bu virtual environment ta ativu na terminal?"
   options:
     - text: { kea: "Kuandu `(.venv)` ta aparesi na kumesu di prompt" }
       correct: true
+      explain:
+        kea: "Prefiksu `(.venv)` na kumesu di prompt ta mostra ki ambienti ta ativu."
     - text: { kea: "Kuandu VS Code ta fitxa" }
       correct: false
+      explain:
+        kea: "Fitxa VS Code ka ten nada ku ativasan di `.venv`."
     - text: { kea: "Kuandu `python --version` ta da eru" }
       correct: false
+      explain:
+        kea: "Un eru na `python --version` ta indika otu prublema, ka un `.venv` ativu."
     - text: { kea: "Kuandu pasta `.venv` ta dizaparesi" }
       correct: false
+      explain:
+        kea: "Pasta `.venv` ta fika undi el sta; ativasan ta muda só bu prompt."

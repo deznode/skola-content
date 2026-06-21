@@ -35,8 +35,8 @@ print(10 / 5)    # 2.0  ← nota: 2.0, KA 2!
 print(7 / 2)     # 3.5
 ```
 
-:::callout{type=tip}
-**Dika:** Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadidja komun!
+:::callout{type=warning}
+Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadidja komun!
 :::
 
 ```python
@@ -149,8 +149,8 @@ print(10 >= 10)   # True   (maior O igual)
 print(10 <= 9)    # False  (menor O igual)
 ```
 
-:::callout{type=tip}
-**Dika:** Ka konfundi `=` (atribuisan) ku `==` (komparasan)! `x = 5` ta guarda valor 5 na `x`. `x == 5` ta pergunta "x é igual a 5?".
+:::callout{type=warning}
+Ka konfundi `=` (atribuisan) ku `==` (komparasan)! `x = 5` ta guarda valor 5 na `x`. `x == 5` ta pergunta "x é igual a 5?".
 :::
 
 ```python
@@ -245,24 +245,27 @@ print(f"Senha forte? {senha_forte}")  # True
 
 ## Tabela di Verdadi (Truth Table)
 
-Pa intende `and`, `or`, i `not`, es tabela ta ajuda:
+Pa intende `and` i `or`, kompara es dos lado-a-lado: `and` só ta da `True` kuandu **ambos** é `True`; `or` só ta da `False` kuandu **ambos** é `False`.
+
+<CompareTable
+  cornerLabel="A · B"
+  showHeader={false}
+  cols={[
+    { name: "and", syntax: "A and B", accent: "blue" },
+    { name: "or", syntax: "A or B", accent: "teal" },
+  ]}
+  rows={[
+    { label: "`True` ku `True`", kind: "bool", vals: [true, true] },
+    { label: "`True` ku `False`", kind: "bool", vals: [false, true] },
+    { label: "`False` ku `True`", kind: "bool", vals: [false, true] },
+    { label: "`False` ku `False`", kind: "bool", vals: [false, false] },
+  ]}
+/>
+
+I `not` ta inverte un valor lójiku:
 
 ```python
-# Tabela di verdadi pa 'and'
-print(True and True)    # True
-print(True and False)   # False
-print(False and True)   # False
-print(False and False)  # False
-# Rezumu: and só é True kuandu AMBOS é True
-
-# Tabela di verdadi pa 'or'
-print(True or True)     # True
-print(True or False)    # True
-print(False or True)    # True
-print(False or False)   # False
-# Rezumu: or só é False kuandu AMBOS é False
-
-# Tabela di verdadi pa 'not'
+# 'not' inverte True/False
 print(not True)    # False
 print(not False)   # True
 ```
@@ -305,7 +308,7 @@ print(resultado)  # 15
 ```
 
 :::callout{type=tip}
-**Dika:** Na dúvida, uza **paréntesis**! `(2 + 3) * 4` é más klaru ki depende di presedensia. Kódiku klaru é más importante ki kódiku kurtu.
+Na dúvida, uza **paréntesis**! `(2 + 3) * 4` é más klaru ki depende di presedensia. Kódiku klaru é más importante ki kódiku kurtu.
 :::
 
 ## Armadilhas Komun
@@ -337,8 +340,8 @@ print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Na dúvida sobri a orden, uza **paréntesis** — `(2 + 3) * 4` é más klaru ki konfia na presedensia. Kódiku klaru ganha di kódiku kurtu.</RezumuItem>
   <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é o restu; `**` é potensia.</RezumuItem>
   <RezumuItem term="Komparasan">`==`, `!=`, `>`, `<`, `>=`, `<=` ta da senpri `True`/`False`.</RezumuItem>

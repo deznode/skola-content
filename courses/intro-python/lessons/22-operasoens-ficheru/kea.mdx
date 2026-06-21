@@ -34,7 +34,7 @@ Antis di abri un ficheru, bo presiza dizi a Python **o ki bu kre faze** ku el. E
 | `'w+'` | Write + Read | Skrebe + ler. Apaga i kria novu |
 
 :::callout{type=tip}
-**Dika:** Modu padran é `'r'`. Si bu ka espesifika nada, Python ta abri pa leitura.
+Modu padran é `'r'`. Si bu ka espesifika nada, Python ta abri pa leitura.
 :::
 
 ## Abri i Ler Ficheru
@@ -69,7 +69,7 @@ with open("ilhas.txt", "r") as ficheru:
 ```
 
 :::callout{type=tip}
-**Dika:** `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
+`readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
 :::
 
 ## O ki É `with` Statement?
@@ -115,8 +115,8 @@ with open("lista_kompras.txt", "w") as ficheru:
     ficheru.write("Lista novu — tudu anteriu ta bai!\n")
 ```
 
-:::callout{type=tip}
-**Dika:** Modu `'w'` é manera "apagador" — el ta limpa tudu i kumesa di novu. Si bu kre mantene o ki dja stá, uza `'a'`!
+:::callout{type=warning}
+Modu `'w'` é manera "apagador" — el ta limpa tudu i kumesa di novu. Si bu kre mantene o ki dja stá, uza `'a'`!
 :::
 
 ### Modu `'a'` — Adisiona Sen Apaga
@@ -143,7 +143,7 @@ with open("ilhas_kv.txt", "w") as ficheru:
 ```
 
 :::callout{type=tip}
-**Dika:** `writelines()` ka ta adisiona `\n` automátikamenti — bo presiza inkluí na kada string!
+`writelines()` ka ta adisiona `\n` automátikamenti — bo presiza inkluí na kada string!
 :::
 
 ## Modu `'w+'` — Skrebe i Ler (ku seek)

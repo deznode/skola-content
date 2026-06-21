@@ -54,10 +54,10 @@ for i in range(10, 0, -1):
 ```
 
 :::callout{type=tip}
-**Dika:** `range(stop)` ta kumesa SENPRI na 0 i ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 -- sinku numerus, ma nunka txiga na 5!
+`range(stop)` ta kumesa SENPRI na 0 i ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 — sinku numerus, ma nunka txiga na 5!
 :::
 
-Izemplu prátiku -- kontajen regresivu:
+Izemplu prátiku — kontajen regresivu:
 
 ```python
 # Kontajen regresivu pa lansamentu di fogeti na Fogu 🌋
@@ -69,7 +69,7 @@ print("FOGETI! 🚀")
 
 ## Itera Sima Strings
 
-`for` loop ta funsiona dirétamenti ku strings -- el ta pasa pu kada karáter:
+`for` loop ta funsiona dirétamenti ku strings — el ta pasa pu kada karáter:
 
 ```python
 # Itera sima kada letra
@@ -126,11 +126,11 @@ while kontador <= 5:
     kontador += 1     # IMPORTANTI: sen kel li, loop ta kori pa senpri!
 ```
 
-:::callout{type=tip}
-**Dika:** Senpri garanti ki kondisan di `while` ta txiga a `False` na algun momentu. Sen kél, bu ta kria un "loop infinitu" ki ka ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
+:::callout{type=warning}
+Senpri garanti ki kondisan di `while` ta txiga a `False` na algun momentu. Sen kél, bu ta kria un "loop infinitu" ki ka ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
 :::
 
-Izemplu prátiku -- jogu di adivinha:
+Izemplu prátiku — jogu di adivinha:
 
 ```python
 # Jogu di adivinha numeru
@@ -154,7 +154,7 @@ while True:
         print("Más baxu!")
 ```
 
-Otu izemplu -- validasan di input:
+Otu izemplu — validasan di input:
 
 ```python
 # Pidi un numeru positivu
@@ -171,7 +171,7 @@ print(f"Bo inseri: {numeru}")
 
 Python tene 3 instruson spesiál pa kontrola kumé loop ta funsiona:
 
-### Break -- Sai di Loop
+### Break — Sai di Loop
 
 `break` ta termina loop imediatamenti, mesmu si kondisan ainda é `True`:
 
@@ -195,7 +195,7 @@ for nomi in nomis:
     print(f"Verifikandu: {nomi}...")
 ```
 
-### Continue -- Pula pa Prósimu
+### Continue — Pula pa Prósimu
 
 `continue` ta pula restu di iterasan atual i ta bai pa prósimu:
 
@@ -218,9 +218,9 @@ for ilha in ilhas:
     print(f"Ilha: {ilha}")
 ```
 
-### Pass -- Ka Faze Nada
+### Pass — Ka Faze Nada
 
-`pass` é un "placeholder" -- el ka ta faze nada, ma ta permiti bu tene un bloku vazio sen eru:
+`pass` é un "placeholder" — el ka ta faze nada, ma ta permiti bu tene un bloku vazio sen eru:
 
 ```python
 # Placeholder pa kódiku ki bo ta skrévi dipos
@@ -232,7 +232,7 @@ for i in range(10):
 ```
 
 :::callout{type=tip}
-**Dika:** `pass` é útil kuandu bu ta planeja bo programa i bu kre dexa un bloku vazio pa dipos. Sen `pass`, Python ta dá `IndentationError`.
+`pass` é útil kuandu bu ta planeja bo programa i bu kre dexa un bloku vazio pa dipos. Sen `pass`, Python ta dá `IndentationError`.
 :::
 
 ## For-Else: Bloku Else Dipos di Loop
@@ -255,7 +255,7 @@ else:
 
 Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kori.
 
-Izemplu klásku -- verifikador di numeru primu:
+Izemplu klásku — verifikador di numeru primu:
 
 ```python
 # Verifica si un numeru é primu
@@ -284,7 +284,7 @@ for i in range(1, 6):
         print(f"{i} x {j} = {i * j}")
 ```
 
-Izemplu más kurtu -- gridu di koordenadas:
+Izemplu más kurtu — gridu di koordenadas:
 
 ```python
 # Gridu 3x3
@@ -299,7 +299,7 @@ for linha in range(3):
 # (2,0)  (2,1)  (2,2)
 ```
 
-Izemplu dekorativu -- triángulu di estrelas:
+Izemplu dekorativu — triángulu di estrelas:
 
 ```python
 # Triángulu di estrelas
@@ -333,7 +333,7 @@ print(f"Soma di 1 a {n} = {soma}")
 ```
 
 :::callout{type=tip}
-**Dika:** Python tene un atalhu pa kel: `soma = sum(range(1, n + 1))`. Funsan `sum()` ta soma tudu elementus di un sekuénsia!
+Python tene un atalhu pa kel: `soma = sum(range(1, n + 1))`. Funsan `sum()` ta soma tudu elementus di un sekuénsia!
 :::
 
 ### Atxador di Numerus Primu
@@ -417,8 +417,8 @@ Ambos ta dá mesmu resultadu:
 5. Santo Antão
 ```
 
-:::callout{type=tip}
-**Dika:** `enumerate()` é un funsan inkorporadu ki nos ta explora na detalhi na Module 3 (Lisan 18: Funsons Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bu ta itera.
+:::callout{type=info}
+`enumerate()` é un funsan inkorporadu ki nos ta explora na detalhi na Module 3 (Lisan 18: Funsons Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bu ta itera.
 :::
 
 ## Erus Komun ku Loops

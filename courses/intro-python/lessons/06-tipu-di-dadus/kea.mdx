@@ -52,7 +52,7 @@ print(type(numeru_grandi))     # <class 'int'>
 ```
 
 :::callout{type=tip}
-**Dika:** Bu pode uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
+Bu pode uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000` é mesmu ki `1000000`.
 :::
 
 ### Float — Númerus Desimais
@@ -87,8 +87,7 @@ print(resultado)       # 10.0
 print(type(resultado)) # <class 'float'>
 ```
 
-:::callout{type=warning}
-**Kuidadu ku prezisan di float:**
+:::callout{type=warning title="Kuidadu ku prezisan di float"}
 
 ```python
 # Float tene limitasons di prezisan
@@ -146,7 +145,7 @@ print(f"{nomi} tene {idadi} anus")  # Djina tene 20 anus
 ```
 
 :::callout{type=tip}
-**Dika:** Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasan ku `+`.
+Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasan ku `+`.
 :::
 
 *(F-strings ten más kapasidadi — formatasan, debug, ekspresons dentu. Bu ta prende más na Lisan 7.)*
@@ -196,12 +195,33 @@ else:
 
 ## Kuandu Uza Kada Tipu
 
-| Situasan | Tipu | Izemplu |
-|----------|------|---------|
-| Kontador, kantidadi, idadi | `int` | `estudantis = 45` |
-| Presu, medida, persentajen | `float` | `presu = 149.99` |
-| Nomi, mensajen, textu | `str` | `nomi = "Ana"` |
-| Sim/nun, ativu/inativu | `bool` | `ativu = True` |
+<CompareTable
+  cornerLabel="Tipu"
+  showHeader={false}
+  cols={[
+    { name: "int", syntax: "interu", accent: "blue" },
+    { name: "float", syntax: "desimal", accent: "teal" },
+    { name: "str", syntax: "textu", accent: "gold" },
+    { name: "bool", syntax: "True / False", accent: "coral" },
+  ]}
+  rows={[
+    {
+      label: "Pa kuze",
+      kind: "text",
+      vals: [
+        "Kontador, kantidadi, idadi",
+        "Presu, medida, persentajen",
+        "Nomi, mensajen, textu",
+        "Sim/nun, ativu/inativu",
+      ],
+    },
+    {
+      label: "Izemplu",
+      kind: "code",
+      vals: ["estudantis = 45", "presu = 149.99", 'nomi = "Ana"', "ativu = True"],
+    },
+  ]}
+/>
 
 ```python
 # Ezemplu prátiku: Rejistru di un estudanti
@@ -269,7 +289,7 @@ print(int("5") == 5)  # True
 ```
 
 :::callout{type=tip}
-**Dika:** Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
+Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
 :::
 
 ## Tabela Rezumu di Konversan
@@ -298,8 +318,8 @@ print(bool(""))        # False (string vazio)
 print(bool("Ola"))     # True (kualker string ku konteúdu)
 ```
 
-:::callout{type=tip}
-**Dika:** `int()` ta **trunka** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
+:::callout{type=warning}
+`int()` ta **trunka** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
 :::
 
 ## Izemplu Prátiku: Loja di Katxupa
@@ -386,10 +406,26 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 ```
 
 :::callout{type=tip}
-**Dika:** `isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
+`isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
 :::
 
 *(Nu ta vorta a `isinstance()` ku más detalji na Lisan 18.)*
+
+## Repete pa Lembra: Funsons di Konversan
+
+Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja a definison.
+
+<Flashcard
+  showHeader={false}
+  cards={[
+    { term: "int()", def: "Ta konverti un valor pa interu i ta trunka a parti desimal — int(3.9) ta da 3, ka 4." },
+    { term: "float()", def: "Ta konverti un valor pa númeru desimal — float(42) ta da 42.0." },
+    { term: "str()", def: 'Ta konverti kualker valor pa textu — str(42) ta da o testu "42".' },
+    { term: "bool()", def: "Ta konverti un valor pa True ó False — 0, testu vaziu i None ta da False; tudu otu ta da True." },
+    { term: "round()", def: "Ta arredonda un desimal pa interu más prósimu — round(3.9) ta da 4." },
+    { term: "isinstance()", def: "Ta verifika si un valor é di un sertu tipu i ta da True ó False — más profisional ki type() == pa kel verifikasan." },
+  ]}
+/>
 
 ## Tenta Gosi
 <TentaGosi />
@@ -399,8 +435,8 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika os tipus ku `type()` — kuazi senpri a soluson é konverti un valor ku `int()`, `float()` o `str()`.</RezumuItem>
   <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é os tipus fundamentais.</RezumuItem>
   <RezumuItem term="f-strings">A midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>

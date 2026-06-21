@@ -54,7 +54,7 @@ Kada operador tene un metodu majiku korispondenti. Kuandu bo defini es metodu na
 | `>=` | `__ge__` | Maior o igual |
 
 :::callout{type=tip}
-**Dika:** Bu ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, i `__str__` — es é ki bu ta uza más freku. Konsulta tabela kuandu presiza otus.
+Bu ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, i `__str__` — es é ki bu ta uza más freku. Konsulta tabela kuandu presiza otus.
 :::
 
 ## `__add__` i `__sub__` — Adisan i Subtrasan
@@ -98,7 +98,7 @@ print(p5)              # Pontu(8, 11)
 Nota ki `__add__` i `__sub__` ta retorna un **novu** objetu `Pontu`. Es é importanti — operador ka deve muda objetis orijinál.
 
 :::callout{type=tip}
-**Dika:** Senpri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
+Senpri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
 :::
 
 ## `__mul__` — Multiplikasan (Eskalar)
@@ -179,7 +179,7 @@ print(p1 < p3)     # True — p1 sta más pertu di orijem
 ```
 
 :::callout{type=tip}
-**Dika:** Si bo defini `__eq__`, é bon prátika defini `__lt__` tanbe. Ku es dos, `sorted()` ta funsiona ku bo objetis automátikamenti!
+Si bo defini `__eq__`, é bon prátika defini `__lt__` tanbe. Ku es dos, `sorted()` ta funsiona ku bo objetis automátikamenti!
 :::
 
 ## Izemplu Konpletu: Klasi Vetor
@@ -336,7 +336,7 @@ print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 ```
 
 :::callout{type=tip}
-**Dika:** `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasan" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasan.
+`isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasan" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasan.
 :::
 
 ## Tenta Gosi

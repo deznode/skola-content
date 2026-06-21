@@ -17,10 +17,8 @@ objectives:
 
 Tudu programador ta atxa erus — dezdi ki ta kumesa até ki ta vira espesialista. Diferensa é ki un programador sperienti **sabi ler** mensajen di eru i rezolve rápidu. Na es lisan, nu ta prende a ler tracebacks di Python manera un detetivi — di baxu pa riba — pa diskubri exatamenti o ki koreu mal i undi.
 
-Erus ka é sinal di frakasu — é sinal di ki bu ta tenta. Nu ta prende djuntu, i erus é parti di prende.
-
-:::callout{type=tip}
-**Es lisan na 3 palavra:** **Ler** → **Atxa** → **Pensa**. Bu ta odja kel padran na fin di lisan. Pa gosi, fixa atensan na es 3 pasus enkuantu nu ta ler izemplus.
+:::callout{type=info title="Es lisan na 3 palavra"}
+**Ler** → **Atxa** → **Pensa**. Bu ta odja kel padran na fin di lisan. Pa gosi, fixa atensan na es 3 pasus enkuantu nu ta ler izemplus.
 :::
 
 ## O ki é un Traceback?
@@ -99,7 +97,7 @@ Es ta dize-bu:
 Es ta mostra ki linha 7 é undi bo txoma funsan ki faya. `<module>` signifika ki ta na nível prinsipál di programa (ka dentu di un funsan).
 
 :::callout{type=tip}
-**Dika:** Pensa na traceback manera un pilha di pratus — última pratu (última linha) é undi pratu kebra. Ma bu presiza odja pratus di baxu pa kompriende pamodi tudu kai.
+Pensa na traceback manera un pilha di pratus — última pratu (última linha) é undi pratu kebra. Ma bu presiza odja pratus di baxu pa kompriende pamodi tudu kai.
 :::
 
 ## Seta `^` — Bo Midjór Amigu (Python 3.11+)
@@ -167,7 +165,7 @@ SyntaxError: expected ':'
 - Uza `=` (atribuisan) na lugar di `==` (komparasan) na kondisionais
 
 :::callout{type=tip}
-**Dika:** `SyntaxError` é úniku eru ki Python ta atxa **antis** di roda programa. Tudu otu erus ta aparesi kuandu programa ta roda.
+`SyntaxError` é úniku eru ki Python ta atxa **antis** di roda programa. Tudu otu erus ta aparesi kuandu programa ta roda.
 :::
 
 ### 2. `NameError` — Nomi ka Ezisti
@@ -297,28 +295,66 @@ print(nota)  # Sen nota
 
 ## Rezimu Vizual: 5 Exceptions
 
-| Exception | Signifikadu | Izemplu Rápidu | Korresan Kumun |
-|-----------|-------------|-----------------|----------------|
-| `SyntaxError` | Gramátika eradu | `if x > 5` (falta `:`) | Djunta `:`, `)`, `]` ki falta |
-| `NameError` | Variável ka defini | `print(x)` sen `x = ...` | Defini variável o verifika ortografia |
-| `TypeError` | Tipus inkompatível | `"Ola" + 5` | Uza `str()`, `int()` o f-string |
-| `IndexError` | Índisi fora di rangu | `lista[10]` ku 3 elementus | Verifika `len()` antis |
-| `KeyError` | Xavi ka ezisti | `d["xavi"]` ki ka ezisti | Uza `.get(xavi, padran)` |
+<CompareTable
+  cornerLabel="Eru"
+  showHeader={false}
+  cols={[
+    { name: "SyntaxError", accent: "coral" },
+    { name: "NameError", accent: "gold" },
+    { name: "TypeError", accent: "blue" },
+    { name: "IndexError", accent: "teal" },
+    { name: "KeyError", accent: "slate" },
+  ]}
+  rows={[
+    {
+      label: "Signifikadu",
+      kind: "text",
+      vals: [
+        "Gramátika eradu",
+        "Variável ka defini",
+        "Tipus inkompatível",
+        "Índisi fora di rangu",
+        "Xavi ka ezisti",
+      ],
+    },
+    {
+      label: "Izemplu",
+      kind: "code",
+      vals: ["if x > 5", "print(x)", '"Ola" + 5', "lista[10]", 'd["xavi"]'],
+    },
+    {
+      label: "Korresan",
+      kind: "text",
+      vals: [
+        "Djunta `:`, `)`, `]` ki falta",
+        "Defini variável o verifika ortografia",
+        "Uza `str()`, `int()` o f-string",
+        "Verifika `len()` antis",
+        "Uza `.get(xavi, padran)`",
+      ],
+    },
+  ]}
+/>
 
 ## Estratéjia di 3 Pasus pa Rezolvi Eru
 
 Kuandu bo odja un eru, sigi senpri es 3 pasus:
 
-```
-1. LER  →  Última linha di traceback (tipu + mensajen)
-2. ATXA →  Fixeru i número di linha (seta ^ mostra lokalizasan)
-3. PENSA →  "Pamodi Python ta pensa ki es é un problema?"
-```
+<Steps
+  variant="phases"
+  showHeader={false}
+  phaseWord="Pasu"
+  steps={[
+    { title: "Ler", body: "Última linha di traceback — o **tipu** di eru i a **mensajen** ki ta splika-l." },
+    { title: "Atxa", body: "Fixeru i número di linha. A seta `^` ta mostra a lokalizasan exatu." },
+    { title: "Pensa", body: "Pergunta-bu: **\"Pamodi Python ta pensa ki es é un problema?\"**" },
+  ]}
+/>
 
 Nu pratika ku un izemplu:
 
-:::callout{type=tip}
-**O ki es kódiku ta tenta faze:** Soma kuatu presu (350, 200, 150, 400) i kalkula média. Ka preokupa ku `for` i `range` — bu ta prende-s na Lisan 10. Repara na traceback.
+:::callout{type=info title="O ki es kódiku ta tenta faze"}
+Soma kuatu presu (350, 200, 150, 400) i kalkula média. Ka preokupa ku `for` i `range` — bu ta prende-s na Lisan 10. Repara na traceback.
 :::
 
 ```python
@@ -359,7 +395,7 @@ print(f"Média di presu: {media} ECV")  # Média di presu: 275.0 ECV
 ```
 
 :::callout{type=tip}
-**Dika:** Na futuru, bu ta prende ki `sum(lista_di_presus)` é manera más simples di soma un lista. Ma pa gosi, importanti é kompriende kumo ler erus!
+Na futuru, bu ta prende ki `sum(lista_di_presus)` é manera más simples di soma un lista. Ma pa gosi, importanti é kompriende kumo ler erus!
 :::
 
 ## Tenta Gosi
@@ -370,8 +406,8 @@ print(f"Média di presu: {media} ECV")  # Média di presu: 275.0 ECV
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Ler senpri di **baxu pa riba** — última linha di traceback tene o tipu di eru i a mensajen ki ta splika-l.</RezumuItem>
   <RezumuItem term="Seta caret (^)">Python 3.11+ ta aponta direitamenti pa parti di kódiku ki faya — bu ka meste advinha undi sta problema.</RezumuItem>
   <RezumuItem term="5 exceptions">`SyntaxError`, `NameError`, `TypeError`, `IndexError` i `KeyError` ta kobri maioria di erus ki bu ta atxa na kumesu.</RezumuItem>
