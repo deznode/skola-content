@@ -110,12 +110,86 @@ Es tres blóku ta kompleta o sistema unifikadu. Kada un ten o se barra di asentu
   ]}
 />
 
+<Steps
+  variant="phases"
+  eyebrow="Pasu a pasu"
+  title="Primeru programa na Python"
+  phaseWord="Fasi"
+  steps={[
+    {
+      title: "Diskarega Python",
+      body: "Bai pa [python.org](https://python.org) i diskarega a versãu 3.x más resenti.",
+      points: [
+        "Windows: skolhe o instalador `.exe` di 64-bit.",
+        "macOS: diskarega o pakoti `.pkg` ofisial.",
+        "Linux: txeu distribuison dja ten Python pre-instaladu.",
+      ],
+    },
+    { title: "Verifika a instalason", body: "Abri o terminal i konfirma ki tudu ta funsiona:", code: "python --version" },
+    { title: "Bu primeru ficheru", body: "Kria `ola.py`, skrebe un linha i kore-l.", code: 'print("Ola, mundu!")' },
+  ]}
+/>
+
 <Flashcard
   eyebrow="Flashcard"
   title="Termu báziku"
   cards={[
     { term: "Variável", def: "Un nomi ki ta gualda un valor na memória." },
     { term: "Funsan", def: "Un blóku di kódigu reutilizável ki ta izekuta un tarefa." },
+  ]}
+/>
+
+<PlatformTabs
+  eyebrow="Instalason"
+  title="Instala Python na bu sistema"
+  tabs={[
+    {
+      label: "Windows",
+      icon: "windows",
+      intro: "Bai na `python.org/downloads` i diskarega o instalador di 64-bit.",
+      steps: ['Klika na **"Download Python"**.', 'Marka **"Add python.exe to PATH"**.'],
+      cmdLabel: "Command Prompt",
+      cmd: "python --version",
+      out: "Python 3.13.2",
+    },
+    {
+      label: "macOS",
+      icon: "apple",
+      intro: "Diskarega o pakoti `.pkg` ofisial pa macOS.",
+      cmdLabel: "Terminal",
+      cmd: "python3 --version",
+      out: "Python 3.13.2",
+      note: "Na macOS uza `python3` (ku 3) — o sistema dja ten un Python antigu.",
+    },
+    {
+      label: "Linux",
+      icon: "linux",
+      intro: "Na txeu distribuison, Python dja ta ben instaladu. Pa atualiza:",
+      cmdLabel: "bash",
+      cmd: "sudo apt update\nsudo apt install python3 python3-venv",
+    },
+  ]}
+/>
+
+<DetailDisclosure
+  items={[
+    {
+      q: "O ki é o `PATH`?",
+      tag: "Splika más",
+      a: "O PATH é un lista di pastas undi o sistema ta buska programas. Sen Python na PATH, ti ki bu skrebe `python`, o sistema ka ta atxa-l.",
+    },
+    {
+      q: "Pamodi `python3` na lugar di `python`?",
+      tag: "Splika más",
+      a: "Na macOS i Linux, `python` txeu bes ta pónta pa un versãu antigu. Uza `python3`:",
+      code: "python3 --version",
+    },
+    {
+      q: "Ki é un ambiente virtual (venv)?",
+      tag: "Opsional",
+      a: "Un `venv` ta izola es pakotis di kada prujetu. Kria un asin:",
+      code: "python3 -m venv .venv",
+    },
   ]}
 />
 
