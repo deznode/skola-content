@@ -198,3 +198,31 @@ Es tres blóku ta kompleta o sistema unifikadu. Kada un ten o se barra di asentu
 Pa lisans di CLI ou editor, `<Kbd>` ta renderiza teklas i atallus sima kapas di tekládu — na meiu di un frazi ou sima referénsia.
 
 Skrebe bu komandu i primi <Kbd keys="Enter" /> pa kore-l. Primi <Kbd keys="Shift+Tab" /> pa troka di modu, ou <Kbd keys="Esc" /> pa kansela. O atallu <Kbd keys="Ctrl+L" /> ta limpa o ekran, i <Kbd keys="/" /> ta abri o menu di komandus.
+
+## Vokabulariu na linha (`<GlossaryText>`)
+
+Pa teje vokabulariu na tudu lison, `<GlossaryText>` ta transforma markadoris `[[términu]]` na gatilhus ku tooltip — ka un sesan di vokabulariu separadu.
+
+<GlossaryText
+  text="Un [[variável]] ta guarda un valor. Un [[loop]] ta ripiti kódiku, i un [[array]] ta gwarda várius valoris djuntu."
+  terms={{
+    "variável": { en: "variable", definition: "Un espasu na memória ku un `nomi` ki ta guarda un valor." },
+    "loop": { en: "loop", definition: "Un strutura ki ta ripiti un bloku di kódiku várius bes." },
+    "array": { en: "array", definition: "Un lista ordenadu di valoris, asesadu pa `índisi`." }
+  }}
+/>
+
+## Organiza o kódiku (`<ParsonsProblem>`)
+
+Arasta (ou uza o setas) pa pô o linhas di kódiku na órdi sertu, dipôs verifika.
+
+<ParsonsProblem
+  title="Konstrui a funsan `media()`"
+  prompt="Arasta o linhas pa pô-s na órdi sertu — ou uza o setas."
+  solution={[
+    "def media(numerus):",
+    "    total = sum(numerus)",
+    "    kontu = len(numerus)",
+    "    return total / kontu"
+  ]}
+/>
