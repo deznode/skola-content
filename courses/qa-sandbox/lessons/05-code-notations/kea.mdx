@@ -41,6 +41,70 @@ function setup() {
 
 So a linha ku `loadConfig()` debe sta na fokus; o restu debe ta más éskuru/desfokadu.
 
+## Komponentis di Kódigu Interativu (spec 052)
+
+Diferenti di blocos di Shiki di riba, es kuatu komponentis ben di `@skola/learning-content-core` i ta renderiza ku props inline (sen sidecar).
+
+### Annotated Code
+
+<AnnotatedCode
+  lang="python"
+  filename="media.py"
+  title="Le o kódigu liña-pa-liña"
+  code={[
+    { t: "def media(notas):", m: 1 },
+    { t: "    total = sum(notas)", m: 2 },
+    { t: "    return total / len(notas)", m: 3 },
+  ]}
+  notes={[
+    { m: 1, title: "Definison", body: "`def` ta deklara un funsan `media` ku un lista `notas`." },
+    { m: 2, title: "Soma", body: "`sum()` ta djunta tudu valoris di a lista." },
+    { m: 3, title: "Divizon", body: "Divizon pa `len(notas)` ta da a **média**." },
+  ]}
+/>
+
+### Code Diff
+
+<CodeDiff
+  lang="python"
+  filename="media.py"
+  title="Antis i dipos di o fix"
+  note="Nu pâra divizon pa zeru ku un check di lista bazia."
+  diff={[
+    { type: "ctx", t: "def media(notas):" },
+    { type: "del", t: "    return sum(notas) / len(notas)" },
+    { type: "add", t: "    if not notas:" },
+    { type: "add", t: "        return 0" },
+    { type: "add", t: "    return sum(notas) / len(notas)" },
+  ]}
+/>
+
+### Code Cloze
+
+<CodeCloze
+  lang="python"
+  title="Konpleta o kódigu"
+  prompt="Inche os spasus pa kria a funsan di dobra."
+  template={[
+    "{{0}} dobra(x):",
+    "    return x {{1}} 2",
+  ]}
+  answers={["def", "*"]}
+  hints={["Palavra-chavi pa funsan", "Operador di multiplikason"]}
+  solved="Korretu! `def` ta deklara a funsan i `*` ta multiplika."
+/>
+
+### Terminal Block
+
+<TerminalBlock
+  title="bash — skola.dev"
+  lines={[
+    { type: "cmd", t: "python3 media.py" },
+    { type: "out", t: "Média: 14.5" },
+    { type: "ok", t: "Konkluidu sen eru." },
+  ]}
+/>
+
 ## Verifika
 
 - O botão di kópia (copy) ta funsiona i ta kopia o kódigu sen o markup di notason
