@@ -35,39 +35,64 @@ Skodje bu sistema operasional pa odja pasus di instalasan:
     {
       label: 'Windows',
       icon: 'windows',
-      intro: 'Faze download di installer `.exe` di [python.org/downloads](https://www.python.org/downloads/) i sigi es pasus:',
-      steps: [
-        'Klika na **"Download Python 3.13.x"**',
-        'Abri fixeru ki bu faze download (`python-3.13.x-amd64.exe`)',
-        '**MUTU IMPORTANTI:** Marka txekbox **"Add python.exe to PATH"** na parti di baxu!',
-        'Klika **"Install Now"** i spera instalasan termina',
+      content: [
+        { type: 'prose', t: 'Faze download di installer `.exe` di [python.org/downloads](https://www.python.org/downloads/) i sigi es pasus:' },
+        { type: 'steps', items: [
+          'Klika na **"Download Python 3.13.x"**',
+          'Abri fixeru ki bu faze download (`python-3.13.x-amd64.exe`)',
+          '**MUTU IMPORTANTI:** Marka txekbox **"Add python.exe to PATH"** na parti di baxu!',
+          'Klika **"Install Now"** i spera instalasan termina',
+        ] },
+        { type: 'cmd', label: 'Command Prompt', lines: ['python --version'], out: 'Python 3.13.2' },
+        { type: 'callout', sev: 'warning', t: 'Si bu skise marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bu instala sen marka, kore installer otu bez i skodje "Modify" → marka "Add to PATH".' },
       ],
-      cmdLabel: 'Command Prompt',
-      cmd: 'python --version',
-      out: 'Python 3.13.2',
-      note: 'Si bu skise marka "Add python.exe to PATH", Python ka ta funsiona na terminal. Si bu instala sen marka, kore installer otu bez i skodje "Modify" → marka "Add to PATH".',
     },
     {
       label: 'macOS',
       icon: 'apple',
-      intro: 'Faze download di fixeru `.pkg` pa macOS di [python.org/downloads](https://www.python.org/downloads/) i sigi es pasus:',
-      steps: [
-        'Abri fixeru `.pkg` i sigi instrusan di instalador',
-        'Klika **"Install"** i po bu password si pidi',
+      content: [
+        { type: 'prose', t: 'Faze download di fixeru `.pkg` pa macOS di [python.org/downloads](https://www.python.org/downloads/) i sigi es pasus:' },
+        { type: 'steps', items: [
+          'Abri fixeru `.pkg` i sigi instrusan di instalador',
+          'Klika **"Install"** i po bu password si pidi',
+        ] },
+        { type: 'cmd', label: 'Terminal', lines: ['python3 --version'], out: 'Python 3.13.2' },
+        { type: 'callout', sev: 'tip', t: 'Na macOS, uza `python3` (ku 3) na lugar di `python`. macOS ta ben ku un Python antigu pré-instaladu, nton `python3` garanti ki bu ta uza versan novu.' },
       ],
-      cmdLabel: 'Terminal',
-      cmd: 'python3 --version',
-      out: 'Python 3.13.2',
-      note: 'Na macOS, uza `python3` (ku 3) na lugar di `python`. macOS ta ben ku un Python antigu pré-instaladu, nton `python3` garanti ki bu ta uza versan novu.',
     },
     {
       label: 'Linux',
       icon: 'linux',
-      intro: 'Na maioria di distribuisons Linux (Ubuntu/Debian), Python dja ta ben instaladu. Pa atualiza o instala, uza `apt`:',
-      cmdLabel: 'bash',
-      cmd: 'sudo apt update\nsudo apt install python3 python3-venv python3-pip\npython3 --version',
-      out: 'Python 3.13.2',
-      note: 'Na Linux, é importanti instala tanbe `python3-venv` pamodi el ta permiti bu kria virtual environments. Sen kel pakoti, `python -m venv` ta da eru.',
+      content: [
+        { type: 'prose', t: 'Na maioria di distribuisons Linux (Ubuntu/Debian), Python dja ta ben instaladu. Pa atualiza o instala, uza `apt`:' },
+        { type: 'cmd', label: 'bash', lines: ['sudo apt update', 'sudo apt install python3 python3-venv python3-pip', 'python3 --version'], out: 'Python 3.13.2' },
+        { type: 'callout', sev: 'warning', t: 'Na Linux, é importanti instala tanbe `python3-venv` pamodi el ta permiti bu kria virtual environments. Sen kel pakoti, `python -m venv` ta da eru.' },
+      ],
+    },
+  ]}
+/>
+
+### Pergunta frekuenti sobri instalasan
+
+Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi sen es detalhis tanbe.
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Pamodi `python3` na macOS/Linux ma `python` na Windows?",
+      tag: "Splika más",
+      a: "Na macOS i Linux, o komandu `python` txeu bez ta pónta pa un versan antigu ki ta ben djuntu ku sistema. Pa kel razan, uza `python3` pa garanti ki bu ta uza versan novu. Na Windows, installer ta kria so o komandu `python`.",
+      code: "python3 --version",
+    },
+    {
+      q: "O ki é un *interpreter* di Python?",
+      tag: "Splika más",
+      a: "É o programa ki ta le i ta kore bu kódiku, linha pa linha. Kuandu bu instala Python, bu ta instala un interpreter. Más pa frenti, VS Code ta pergunta-bu kal interpreter pa uza — normalmenti kel ki sta dentu di bu `.venv`.",
+    },
+    {
+      q: "Meste koneksan internet pa kore Python?",
+      tag: "Opsional",
+      a: "Nau. Dipos di instala, Python ta kore tudu lokalmenti na bu komputador. Bu so meste internet pa faze download di Python, di VS Code, o di pakotis ku `pip`.",
     },
   ]}
 />
@@ -91,7 +116,7 @@ Extensan di Python ta da-bu:
 Pa instala:
 
 1. Abri VS Code
-2. Klika na íkoni di **Extensions** na barra lateral (o primi `Ctrl+Shift+X`)
+2. Klika na íkoni di **Extensions** na barra lateral (o primi <Kbd keys="Ctrl+Shift+X" />)
 3. Skrebe **"Python"** na barra di buska
 4. Skodje extensan **"Python"** di Microsoft (el ta mostru *ms-python.python*)
 5. Klika **"Install"**
@@ -107,8 +132,20 @@ Gosi nu ta kria un pasta pa nos primeru projetu Python. Es é un bon ábitu — 
   showHeader={false}
   phaseWord="Pasu"
   steps={[
-    { title: "Kria pasta di projetu i entra na el", body: "Na terminal, kria un pasta nobu pa bu projetu i entra dentu di el. Na Windows é igual — uza Command Prompt.", code: "mkdir meu-primeru-python\ncd meu-primeru-python" },
-    { title: "Abri pasta na VS Code", body: "Es komandu ta abri VS Code ku pasta atual kumo projetu. Si `code` ka ta funsiona, abri VS Code manualmenti i uza **File → Open Folder**.", code: "code ." },
+    {
+      title: "Kria pasta di projetu i entra na el",
+      content: [
+        { type: "prose", t: "Na terminal, kria un pasta nobu pa bu projetu i entra dentu di el. Na Windows é igual — uza Command Prompt." },
+        { type: "cmd", lines: ["mkdir meu-primeru-python", "cd meu-primeru-python"] },
+      ],
+    },
+    {
+      title: "Abri pasta na VS Code",
+      content: [
+        { type: "prose", t: "Es komandu ta abri VS Code ku pasta atual kumo projetu. Si `code` ka ta funsiona, abri VS Code manualmenti i uza **File → Open Folder**." },
+        { type: "cmd", lines: ["code ."] },
+      ],
+    },
   ]}
 />
 
@@ -124,7 +161,7 @@ Ku virtual environment, kada projetu tene si própriu "mundu" separadu.
 
 ### Kria .venv
 
-Na terminal di VS Code (abri ku `` Ctrl+` ``), skrebe:
+Na terminal di VS Code (abri ku <Kbd keys="Ctrl+`" />), skrebe:
 
 ```bash
 # Windows
@@ -174,8 +211,8 @@ Gosi si! Nu ta skrebe nos primeru programa Python.
 
 ### Kria Fixeru
 
-1. Na VS Code, klika na **New File** (o `Ctrl+N`)
-2. Salva kumo **`ola.py`** (File → Save, o `Ctrl+S`)
+1. Na VS Code, klika na **New File** (o <Kbd keys="Ctrl+N" />)
+2. Salva kumo **`ola.py`** (File → Save, o <Kbd keys="Ctrl+S" />)
 
 :::callout{type=tip}
 Fixeru Python senpri tene extensan **`.py`**. Kel é manera Python sabe ki é un programa pa roda.
@@ -215,7 +252,7 @@ python ola.py
 ```
 
 **Manera 3: Ataju di Tekladu**
-- Primi `Ctrl+F5` (roda sen debugger)
+- Primi <Kbd keys="Ctrl+F5" /> (roda sen debugger)
 
 Bu debe odja algu manera:
 
