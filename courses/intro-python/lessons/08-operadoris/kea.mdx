@@ -16,11 +16,11 @@ objectives:
 
 # Operadoris
 
-Operadoris é sinais ki ta dize Python pa faze un operasan ku valoris. Kuandu bo skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na es lisan, nos ta prende tres tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasan (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bu ta uza na tudu programa ki bo skrebe.
+Operadoris é sinais ki ta dize Python pa faze un operasan ku valoris. Kuandu bu skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na es lisan, nos ta prende tres tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasan (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bu ta uza na tudu programa ki bu skrebe.
 
 ## Operadoris Aritmétiku
 
-Es operadoris ta faze kálkulus matemátiku. Si bo sabe matemátika báziku, bo djá konxe maioria.
+Es operadoris ta faze kálkulus matemátiku. Si bu sabe matemátika báziku, djá bu konxe maioria.
 
 ```python
 # Adisan i Subtrasan
@@ -36,7 +36,7 @@ print(7 / 2)     # 3.5
 ```
 
 :::callout{type=warning}
-Divisan ku `/` SENPRI ta retorna un float (nùmeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadidja komun!
+Divisan ku `/` SENPRI ta retorna un float (númeru ku pontu desimal), mesmu kuandu rezultadu é "interu". `10 / 5` ta da `2.0`, ka `2`. Es é un armadidja komun!
 :::
 
 ```python
@@ -55,7 +55,7 @@ print(7 % 2)     # 1  (ímpar: restu é 1)
 # Esponensasan (potensia)
 print(2 ** 3)    # 8   (2 × 2 × 2)
 print(5 ** 2)    # 25  (5 × 5)
-print(10 ** 0)   # 1   (kualker nùmeru elevadu a 0 é 1)
+print(10 ** 0)   # 1   (kualker númeru elevadu a 0 é 1)
 print(9 ** 0.5)  # 3.0 (rais kuadrada!)
 ```
 
@@ -90,7 +90,7 @@ print(f"{eskudus} ECV = {euros:.2f} EUR")
 ### Par o Ímpar?
 
 ```python
-# Truque ku módulu: verifica si nùmeru é par o ímpar
+# Truque ku módulu: verifica si númeru é par o ímpar
 numeru = 17
 
 if numeru % 2 == 0:
@@ -131,6 +131,23 @@ print(saldo)   # 866
 | `x %= 3` | `x = x % 3` |
 | `x **= 2` | `x = x ** 2` |
 
+<SectionHeading level={3} variant="practice">Tenta: Divisan Interu i Restu</SectionHeading>
+
+<CodeCloze
+  lang="python"
+  title="Inche os spasus"
+  prompt="Kalkula kuantas notas di 100 i kuantu sobra di un troku."
+  template={[
+    "troku = 250",
+    "notas_100 = troku {{0}} 100   # 2 notas di 100",
+    "restu = troku {{1}} 100       # 50 ECV sobra",
+    'print(f"{notas_100} nota(s) i {restu} ECV")',
+  ]}
+  answers={["//", "%"]}
+  hints={["Divisan interu (kosienti)", "Restu di divisan"]}
+  solved="Korretu! `//` ta da o kosienti interu (2) i `%` ta da o restu (50)."
+/>
+
 ## Operadoris di Komparasan
 
 Es operadoris ta kompara dois valoris i ta retorna `True` o `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bu ta prende na prósimu lisan.
@@ -153,12 +170,17 @@ print(10 <= 9)    # False  (menor O igual)
 Ka konfundi `=` (atribuisan) ku `==` (komparasan)! `x = 5` ta guarda valor 5 na `x`. `x == 5` ta pergunta "x é igual a 5?".
 :::
 
-```python
-# Komparasan di strings — é CASE SENSITIVE!
-print("Praia" == "Praia")    # True
-print("Praia" == "praia")    # False! (P maiúskula ≠ p minúskula)
-print("Praia".lower() == "praia".lower())  # True (soluson!)
-```
+<CodeDiff
+  lang="python"
+  filename="kompara_str.py"
+  title="Komparasan di strings é case-sensitive"
+  note="`==` ta distingui maiúskula di minúskula. Pa kompara sen liga pa kazu, baxa os dos ku `.lower()`."
+  diff={[
+    { type: "ctx", t: 'print("Praia" == "Praia")    # True' },
+    { type: "del", t: 'print("Praia" == "praia")    # False — P ≠ p' },
+    { type: "add", t: 'print("Praia".lower() == "praia".lower())  # True' },
+  ]}
+/>
 
 ```python
 # Komparasan ku variáveis
@@ -200,10 +222,10 @@ print(idadi >= 30 and tene_bilheti)  # False (25 ka >= 30)
 
 ```python
 # or: pelo menus UN kondisan ten ki ser verdaderu
-é_studanti = False
-é_idosu = True
+studanti = False
+idosu = True
 
-tene_diskontu = é_studanti or é_idosu
+tene_diskontu = studanti or idosu
 print(tene_diskontu)  # True (pelo menus un é True)
 ```
 
@@ -221,18 +243,18 @@ print(not loja_aberta)  # True
 ### Kombina Tudu Djuntu
 
 ```python
-# Ezemplu kompletu: validasan di bilheti
+# Izemplu kompletu: validasan di bilheti
 idadi = 22
-é_studanti = True
+studanti = True
 tene_dinheru = True
 
 # Pode entra si: (tene 18+ anu I tene dinheru) O é studanti
-pode_entra = (idadi >= 18 and tene_dinheru) or é_studanti
+pode_entra = (idadi >= 18 and tene_dinheru) or studanti
 print(f"Pode entra? {pode_entra}")  # True
 ```
 
 ```python
-# Ezemplu prátiku: validasan di senha
+# Izemplu prátiku: validasan di senha
 senha = "Py2026!"
 
 tene_tamanhu = len(senha) >= 6
@@ -243,7 +265,7 @@ senha_forte = tene_tamanhu and tene_numeru and tene_letra
 print(f"Senha forte? {senha_forte}")  # True
 ```
 
-## Tabela di Verdadi (Truth Table)
+<SectionHeading variant="concept">Tabela di Verdadi (Truth Table)</SectionHeading>
 
 Pa intende `and` i `or`, kompara es dos lado-a-lado: `and` só ta da `True` kuandu **ambos** é `True`; `or` só ta da `False` kuandu **ambos** é `False`.
 
@@ -278,66 +300,78 @@ Python ta sigi un orden espesífiku kuandu tene vários operadoris na mesmu expr
 
 ```python
 # Sen paréntesis: Python sigi presedensia
-resultado = 2 + 3 * 4
-print(resultado)  # 14 (ka 20! — * antis di +)
+rezultadu = 2 + 3 * 4
+print(rezultadu)  # 14 (ka 20! — * antis di +)
 
 # Ku paréntesis: bo kontrola orden
-resultado = (2 + 3) * 4
-print(resultado)  # 20
+rezultadu = (2 + 3) * 4
+print(rezultadu)  # 20
 ```
 
-**Orden di presedensia (di más altu pa más baixu):**
+**Orden di presedensia (di más altu pa más baxu):**
 
 | Priuridad | Operador | Deskrisan |
 |-----------|----------|-----------|
 | 1 (más altu) | `**` | Esponensasan |
-| 2 | `not` | Negasan lójika |
-| 3 | `*`, `/`, `//`, `%` | Multiplikasan, divisan, módulu |
-| 4 | `+`, `-` | Adisan, subtrasan |
-| 5 | `==`, `!=`, `>`, `<`, `>=`, `<=` | Komparasan |
+| 2 | `*`, `/`, `//`, `%` | Multiplikasan, divisan, módulu |
+| 3 | `+`, `-` | Adisan, subtrasan |
+| 4 | `==`, `!=`, `>`, `<`, `>=`, `<=` | Komparasan |
+| 5 | `not` | Negasan lójika |
 | 6 | `and` | E lójiku |
-| 7 (más baixu) | `or` | Ou lójiku |
+| 7 (más baxu) | `or` | Ou lójiku |
 
-```python
-# Ezemplu di presedensia
-resultado = 2 ** 3 + 4 * 2 - 1
-# Pasu 1: 2 ** 3 = 8       (esponensasan primeiru)
-# Pasu 2: 4 * 2 = 8        (multiplikasan)
-# Pasu 3: 8 + 8 - 1 = 15   (adisan i subtrasan)
-print(resultado)  # 15
-```
+<AnnotatedCode
+  lang="python"
+  title="Kumo Python ta avalia 2 ** 3 + 4 * 2 - 1"
+  code={[
+    { t: "rezultadu = 2 ** 3 + 4 * 2 - 1", m: 1 },
+    { t: "#           = 8 + 4 * 2 - 1", m: 2 },
+    { t: "#           = 8 + 8 - 1", m: 3 },
+    { t: "#           = 15", m: 0 },
+    { t: "print(rezultadu)  # 15", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Esponensasan primeru", body: "`**` ten a priuridadi más alta — `2 ** 3 = 8`." },
+    { m: 2, title: "Dipos multiplikasan", body: "`*` ben antis di `+` i `-` — `4 * 2 = 8`." },
+    { m: 3, title: "Pa fin, adisan i subtrasan", body: "Di skerda pa direta — `8 + 8 - 1 = 15`." },
+  ]}
+/>
+
+:::callout{type=tip}
+Komparasan ben antis di `and`/`or`/`not`. Pa kel motivu `idadi >= 18 and tene_bilheti` ka meste paréntesis — Python ta avalia `(idadi >= 18) and (tene_bilheti)`, ka `idadi >= (18 and tene_bilheti)`. I `not 5 > 3` é `not (5 > 3)` → `False`.
+:::
 
 :::callout{type=tip}
 Na dúvida, uza **paréntesis**! `(2 + 3) * 4` é más klaru ki depende di presedensia. Kódiku klaru é más importante ki kódiku kurtu.
 :::
 
-## Armadilhas Komun
+## Armadidjas Komun
 
 ```python
-# ARMADILHA 1: / senpri retorna float
+# ARMADIDJA 1: / senpri retorna float
 print(type(10 / 5))   # <class 'float'> — 2.0, ka 2!
 print(type(10 // 5))  # <class 'int'>   — 2 (si bo kre interu, uza //)
 
-# ARMADILHA 2: = vs ==
+# ARMADIDJA 2: = vs ==
 x = 5      # atribuisan (guarda valor)
 x == 5     # komparasan (pergunta si é igual) → True
 
-# ARMADILHA 3: komparasan di string é case-sensitive
+# ARMADIDJA 3: komparasan di string é case-sensitive
 nomi = "Pedro"
 print(nomi == "pedro")  # False!
 print(nomi.lower() == "pedro")  # True (soluson)
 
-# ARMADILHA 4: divisan interu ku negativus
+# ARMADIDJA 4: divisan interu ku negativus
 print(7 // 2)    #  3  ← normal
-print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
+print(-7 // 2)   # -4  ← aredonda pa BAXU, ka pa zeru!
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
@@ -346,6 +380,6 @@ print(-7 // 2)   # -4  ← arredonda pa BAIXU, ka pa zeru!
   <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é o restu; `**` é potensia.</RezumuItem>
   <RezumuItem term="Komparasan">`==`, `!=`, `>`, `<`, `>=`, `<=` ta da senpri `True`/`False`.</RezumuItem>
   <RezumuItem term="Lójiku">`and` (os dos `True`), `or` (algun `True`), `not` (inverti).</RezumuItem>
-  <RezumuItem term="Presedensia">`**` > `not` > `* / // %` > `+ -` > komparasan > `and` > `or`.</RezumuItem>
+  <RezumuItem term="Presedensia">`**` > `* / // %` > `+ -` > komparasan > `not` > `and` > `or`.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Ka konfundi `=` (atribuisan) ku `==` (komparasan). I komparasan di string é **case-sensitive** — `"Pedro" == "pedro"` é `False`.</RezumuItem>
 </KeyTakeaways>

@@ -10,15 +10,15 @@ duration: "20 min"
 objectives:
   - "Traba ku int, float, str i bool"
   - "Intendi kuandu uza kada tipu di dadus"
-  - "Evita TypeError kuandu mistra tipus"
+  - "Evita TypeError kuandu mistura tipus"
   - "Konverti entri tipus pa rezolve erus"
 ---
 
 # Tipu di Dadus
 
-Na mundu real, nos ta lida ku diferenti tipus di informasan: númerus, textus, sim/nun. Python tanbe tene diferenti **data types** pa representa kada tipu di informasan.
+Na mundu real, nu ta lida ku diferenti tipus di informasan: númerus, textus, sim/nun. Python tanbe tene diferenti **data types** pa representa kada tipu di informasan.
 
-Nes lisan, nos ta esplora 4 tipus fundamentais di Python — `int`, `float`, `str` i `bool` — i prende kuandu uza kada un i kumo evita erus kuandu mistra es.
+Na Lisan 5 bu dja konxe es kuatu tipus i `type()`. Gosi nu ta entra na detalhi: **kuandu** skodje kada un, pamodi `/` ta da senpri `float`, kumo `int()` ta trunka, i kumo evita `TypeError` ki ta parese kuandu bu mistura tipus.
 
 ## 4 Tipus Fundamentais
 
@@ -29,7 +29,7 @@ Nes lisan, nos ta esplora 4 tipus fundamentais di Python — `int`, `float`, `st
 Númerus sen puntu desimal: positivu, negativu ó zeru.
 
 ```python
-# Ezemplus di int
+# Izemplus di int
 populasan = 600000
 temperatura = -5
 anu = 2026
@@ -60,7 +60,7 @@ Bu pode uza underscore (`_`) dentu di númerus grandi pa lejilidadi: `1_000_000`
 Númerus ku puntu desimal.
 
 ```python
-# Ezemplus di float
+# Izemplus di float
 presu_katxupa = 350.50
 altura = 1.75
 pi = 3.14159
@@ -77,14 +77,14 @@ Undi uza `float`:
 
 ```python
 # ATENSAN: Divisan senpri ta retorna float!
-resultado = 10 / 5
-print(resultado)       # 2.0 (ka 2!)
-print(type(resultado)) # <class 'float'>
+rezultadu = 10 / 5
+print(rezultadu)       # 2.0 (ka 2!)
+print(type(rezultadu)) # <class 'float'>
 
-# Mesmu kuandu resultado podi ser interu
-resultado = 100 / 10
-print(resultado)       # 10.0
-print(type(resultado)) # <class 'float'>
+# Mesmu kuandu rezultadu pode ser interu
+rezultadu = 100 / 10
+print(rezultadu)       # 10.0
+print(type(rezultadu)) # <class 'float'>
 ```
 
 :::callout{type=warning title="Kuidadu ku prezisan di float"}
@@ -102,7 +102,7 @@ Kel é un limitasan di kumo komputador ta armazena númerus desimais. Pa maioria
 Textu dentu di aspas (simples ó dublu).
 
 ```python
-# Ezemplus di str
+# Izemplus di str
 nomi = "Cesária Évora"
 ilha = 'São Vicente'
 mensajen = "Morabeza é alma di Kabu Verdi"
@@ -111,7 +111,7 @@ vazio = ""  # String vazio — tanbe é válidu
 print(type(nomi))  # <class 'str'>
 ```
 
-Bu pode uza aspas simples (`'`) ó dublu (`"`) — resultado é mesmu:
+Bu pode uza aspas simples (`'`) ó dublu (`"`) — rezultadu é mesmu:
 
 ```python
 # Tudu kel é válidu
@@ -139,13 +139,13 @@ print(saudasan)  # Ola, Djina!
 # Repetisan
 print("-" * 30)  # ------------------------------
 
-# f-string (melhor manera di mistra textu ku variáveis)
+# f-string (midjór manera di mistura textu ku variáveis)
 idadi = 20
 print(f"{nomi} tene {idadi} anus")  # Djina tene 20 anus
 ```
 
 :::callout{type=tip}
-Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkatenasan ku `+`.
+Senpri uza **f-strings** pa mistura textu ku variáveis. É más limpu ki konkatenasan ku `+`.
 :::
 
 *(F-strings ten más kapasidadi — formatasan, debug, ekspresons dentu. Bu ta prende más na Lisan 7.)*
@@ -155,7 +155,7 @@ Senpri uza **f-strings** pa mistra textu ku variáveis. É más limpu ki konkate
 Só tene 2 valores: `True` ó `False` (ku T i F maiúskulu!).
 
 ```python
-# Ezemplus di bool
+# Izemplus di bool
 é_estudanti = True
 ten_passaporti = False
 ta_xobi = True
@@ -193,7 +193,7 @@ else:
 
 *(Kondisionais `if`/`else` i operadoris di komparasan: bu ta prende más na Lisan 8 i Lisan 9.)*
 
-## Kuandu Uza Kada Tipu
+<SectionHeading variant="concept">Kuandu Uza Kada Tipu</SectionHeading>
 
 <CompareTable
   cornerLabel="Tipu"
@@ -224,7 +224,7 @@ else:
 />
 
 ```python
-# Ezemplu prátiku: Rejistru di un estudanti
+# Izemplu prátiku: Rejistru di un estudanti
 nomi = "Kelvin"           # str
 idadi = 21                # int
 nota_media = 82.5         # float
@@ -244,59 +244,80 @@ print(f"Kréditus: {kreditusECV} ECV")
 
 Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze un operasan ku tipus inkompatíveis.
 
-### Eru #1: Soma di String ku Númeru
+<SectionHeading level={3} variant="concept">Eru #1: Soma di String ku Númeru</SectionHeading>
 
-```python
-nomi = "Maria"
-idadi = 25
+<CodeDiff
+  lang="python"
+  filename="mensajen.py"
+  title="Soma di string ku int"
+  note="Ka pode `+` un `str` ku un `int`. Konverti ku `str(idadi)`, ó — midjór — uza un f-string."
+  diff={[
+    { type: "ctx", t: 'nomi = "Maria"' },
+    { type: "ctx", t: "idadi = 25" },
+    { type: "del", t: 'mensajen = nomi + " tene " + idadi + " anus"' },
+    { type: "add", t: 'mensajen = f"{nomi} tene {idadi} anus"' },
+    { type: "ctx", t: "print(mensajen)  # Maria tene 25 anus" },
+  ]}
+/>
 
-# ERADU — ka podi soma string ku int
-# mensajen = nomi + " tene " + idadi + " anus"  # TypeError!
+<SectionHeading level={3} variant="concept">Eru #2: Operasan Matemátika ku String</SectionHeading>
 
-# SOLUSON 1: Konverti int pa string
-mensajen = nomi + " tene " + str(idadi) + " anus"
-print(mensajen)  # Maria tene 25 anus
+<CodeDiff
+  lang="python"
+  filename="taxa.py"
+  title="Multiplika un string"
+  note="`presu` é un string, ka un númeru. Konverti ku `float()` antis di multiplika."
+  diff={[
+    { type: "ctx", t: 'presu = "350"    # É string, ka int!' },
+    { type: "ctx", t: "taxa = 0.15" },
+    { type: "del", t: "total = presu * taxa" },
+    { type: "add", t: "total = float(presu) * taxa" },
+    { type: "ctx", t: 'print(f"Taxa: {total} ECV")  # Taxa: 52.5 ECV' },
+  ]}
+/>
 
-# SOLUSON 2 (MELHOR): Uza f-string
-mensajen = f"{nomi} tene {idadi} anus"
-print(mensajen)  # Maria tene 25 anus
-```
+<SectionHeading level={3} variant="concept">Eru #3: Komparasan di Tipus Diferenti</SectionHeading>
 
-### Eru #2: Operasan Matemátika ku String
-
-```python
-presu = "350"    # É string, ka int!
-taxa = 0.15
-
-# ERADU
-# total = presu * taxa  # TypeError: can't multiply str by float
-
-# KORETU — konverti primeiru
-total = float(presu) * taxa
-print(f"Taxa: {total} ECV")  # Taxa: 52.5 ECV
-```
-
-### Eru #3: Komparasan di Tipus Diferenti
-
-```python
-# String "5" ka é mesmu ki int 5
-print("5" == 5)     # False
-print(type("5"))    # <class 'str'>
-print(type(5))      # <class 'int'>
-
-# Pa kompara, konverti pa mesmu tipu
-print(int("5") == 5)  # True
-```
+<CodeDiff
+  lang="python"
+  filename="kompara.py"
+  title="Kompara tipus diferenti"
+  note="Kompara un string ku un int ta da `False` sen lansa eru — un bug silensiozu. Konverti pa mesmu tipu antis di kompara."
+  diff={[
+    { type: "del", t: 'print("5" == 5)       # False — tipus diferenti' },
+    { type: "add", t: 'print(int("5") == 5)  # True — mesmu tipu' },
+  ]}
+/>
 
 :::callout{type=tip}
 Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
 :::
 
+<SectionHeading level={3} variant="practice">Tenta: Koriji os Tipus</SectionHeading>
+
+<CodeCloze
+  lang="python"
+  title="Inche os spasus"
+  prompt="Koriji dos erus: konverti kada valor pa tipu sertu."
+  template={[
+    "idadi = 25",
+    'presu = "350"',
+    "taxa = 0.15",
+    "# 1) int → textu pa konkatena",
+    'mensajen = "Idadi: " + {{0}}(idadi)',
+    "# 2) string → desimal pa multiplika",
+    "total = {{1}}(presu) * taxa",
+  ]}
+  answers={["str", "float"]}
+  hints={["Konverti int pa textu", "Konverti string pa desimal"]}
+  solved="Korretu! `str()` ta konverti int pa textu, i `float()` ta konverti string pa númeru."
+/>
+
 ## Tabela Rezumu di Konversan
 
 ```python
 # int() — pa interu
-print(int(3.14))       # 3 (trunca, ka arredonda!)
+print(int(3.14))       # 3 (trunka, ka aredonda!)
 print(int("42"))       # 42
 print(int(True))       # 1
 print(int(False))      # 0
@@ -319,7 +340,7 @@ print(bool("Ola"))     # True (kualker string ku konteúdu)
 ```
 
 :::callout{type=warning}
-`int()` ta **trunka** (korta parti desimal), ka ta arredonda. `int(3.9)` da `3`, ka `4`! Pa arredonda, uza `round(3.9)` ki da `4`.
+`int()` ta **trunka** (korta parti desimal), ka ta aredonda. `int(3.9)` da `3`, ka `4`! Pa aredonda, uza `round(3.9)` ki da `4`.
 :::
 
 ## Izemplu Prátiku: Loja di Katxupa
@@ -370,25 +391,29 @@ print(f"Porsons ki resta: {porsun_resta}")
 ```
 
 Kuandu bo roda:
-```
-===================================
-  Loja di Katxupa di Nha Cesária
-===================================
 
-Pratu: Katxupa Rica
-Presu: 450.0 ECV
-Disponível: 12 porsons
-Spesialidadi di kaza: Sim
+<TerminalBlock
+  title="python loja.py"
+  lines={[
+    { type: "cmd", t: "python loja.py" },
+    { type: "out", t: "===================================" },
+    { type: "out", t: "  Loja di Katxupa di Nha Cesária" },
+    { type: "out", t: "===================================" },
+    { type: "out", t: "Pratu: Katxupa Rica" },
+    { type: "out", t: "Presu: 450.0 ECV" },
+    { type: "out", t: "Disponível: 12 porsons" },
+    { type: "out", t: "Spesialidadi di kaza: Sim" },
+    { type: "out", t: "Kantu porsan bo kre? 3" },
+    { type: "out", t: "--- Rezumu di Pedidu ---" },
+    { type: "out", t: "Pratu: Katxupa Rica x3" },
+    { type: "out", t: "Subtotal: 1350.00 ECV" },
+    { type: "out", t: "Taxa (15%): 202.50 ECV" },
+    { type: "out", t: "Total: 1552.50 ECV" },
+    { type: "out", t: "Porsons ki resta: 9" },
+  ]}
+/>
 
-Kantu porsan bo kre? 3
-
---- Rezumu di Pedidu ---
-Pratu: Katxupa Rica x3
-Subtotal: 1350.00 ECV
-Taxa (15%): 202.50 ECV
-Total: 1552.50 ECV
-Porsons ki resta: 9
-```
+*(Pa kel izemplu-li, bu skrebe `3` na `input()`. Repara: `subtotal` é `float` (pamodi `presu_unitáriu` é float), nton tudu kálkulu ta da float — `:.2f` só ta kontrola kuantu kasa desimal ta parese.)*
 
 ## Verifikasan Rápida di Tipus
 
@@ -409,38 +434,38 @@ print(isinstance(valor, (int, float)))  # True — é int ó float
 `isinstance()` é más profisional ki `type() ==`. Pa gosi, `type()` ta sirvi, ma lenbra `isinstance()` pa futuru.
 :::
 
-*(Nu ta vorta a `isinstance()` ku más detalji na Lisan 18.)*
+*(Nu ta volta pa `isinstance()` ku más detalji na Lisan 18.)*
 
-## Repete pa Lembra: Funsons di Konversan
+<SectionHeading variant="practice">Repete pa Lembra: Funsons di Konversan</SectionHeading>
 
-Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja a definison.
+Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja definison.
 
 <Flashcard
   showHeader={false}
   cards={[
-    { term: "int()", def: "Ta konverti un valor pa interu i ta trunka a parti desimal — int(3.9) ta da 3, ka 4." },
+    { term: "int()", def: "Ta konverti un valor pa interu i ta trunka parti desimal — int(3.9) ta da 3, ka 4." },
     { term: "float()", def: "Ta konverti un valor pa númeru desimal — float(42) ta da 42.0." },
-    { term: "str()", def: 'Ta konverti kualker valor pa textu — str(42) ta da o testu "42".' },
-    { term: "bool()", def: "Ta konverti un valor pa True ó False — 0, testu vaziu i None ta da False; tudu otu ta da True." },
-    { term: "round()", def: "Ta arredonda un desimal pa interu más prósimu — round(3.9) ta da 4." },
+    { term: "str()", def: 'Ta konverti kualker valor pa textu — str(42) ta da textu "42".' },
+    { term: "bool()", def: "Ta konverti un valor pa True ó False — 0, textu vaziu i None ta da False; tudu otu ta da True." },
+    { term: "round()", def: "Ta aredonda un desimal pa interu más prósimu — round(3.9) ta da 4." },
     { term: "isinstance()", def: "Ta verifika si un valor é di un sertu tipu i ta da True ó False — más profisional ki type() == pa kel verifikasan." },
   ]}
 />
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika os tipus ku `type()` — kuazi senpri a soluson é konverti un valor ku `int()`, `float()` o `str()`.</RezumuItem>
-  <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é os tipus fundamentais.</RezumuItem>
-  <RezumuItem term="f-strings">A midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>
-  <RezumuItem>A divisan `/` ta retorna **senpri** float — `10 / 5` é `2.0`, ka `2`.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`TypeError` ta parese kuandu bu ta mistura tipus inkompatíveis (`"Maria" + 25`). I `int(3.9)` ta **trunka** pa `3` — pa arredonda, uza `round()`.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">`isinstance(valor, int)` é más profisional ki `type(valor) == int` pa verifika tipu — bu ta volta a el na Lisan 18.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika tipus ku `type()` — kuazi senpri soluson é konverti un valor ku `int()`, `float()` o `str()`.</RezumuItem>
+  <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é tipus fundamentais.</RezumuItem>
+  <RezumuItem term="f-strings">Midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>
+  <RezumuItem>Divisan `/` ta retorna **senpri** float — `10 / 5` é `2.0`, ka `2`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`TypeError` ta parese kuandu bu ta mistura tipus inkompatíveis (`"Maria" + 25`). I `int(3.9)` ta **trunka** pa `3` — pa aredonda, uza `round()`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`isinstance(valor, int)` é más profisional ki `type(valor) == int` pa verifika tipu — bu ta volta pa el na Lisan 18.</RezumuItem>
 </KeyTakeaways>

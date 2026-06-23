@@ -10,16 +10,16 @@
 - question:
     kea: "Bu tene `saudasan = \"ola\"` i bu kore `saudasan.upper()`. Dipos, `print(saudasan)` ta mostra o ki?"
   options:
-    - text: { kea: "`ola` — string é imutável; `.upper()` ta retorna un string novu, ma ka ta muda o original" }
+    - text: { kea: "`ola` — string é imutável; `.upper()` ta retorna un string novu, ma ka ta muda original" }
       correct: true
-    - text: { kea: "`OLA` — `.upper()` ta muda a variável na lugar" }
+    - text: { kea: "`OLA` — `.upper()` ta muda variável na lugar" }
       correct: false
-    - text: { kea: "Un eru — ka pode txoma `.upper()` sen garda o rezultadu" }
+    - text: { kea: "Un eru — ka pode txoma `.upper()` sen garda rezultadu" }
       correct: false
-    - text: { kea: "`Ola` — só a primeru letra ta vira maiúskula" }
+    - text: { kea: "`Ola` — só primeru letra ta vira maiúskula" }
       correct: false
 - question:
-    kea: "Kal é a diferensa entri `.find(\"x\")` i `.index(\"x\")` kuandu `\"x\"` **ka ta atxa** na string?"
+    kea: "Kal é diferensa entri `.find(\"x\")` i `.index(\"x\")` kuandu `\"x\"` **ka ta atxa** na string?"
   options:
     - text: { kea: "`.find()` ta retorna `-1`; `.index()` ta lansa un `ValueError`" }
       correct: true
@@ -32,11 +32,22 @@
 - question:
     kea: "O ki ta da `\"Edna\"[::-1]`?"
   options:
-    - text: { kea: "`\"andE\"` — o step `-1` ta inverti a string" }
+    - text: { kea: "`\"andE\"` — step `-1` ta inverti string" }
       correct: true
     - text: { kea: "`\"Edna\"` — sen mudansa" }
       correct: false
-    - text: { kea: "`\"E\"` — só o primeru karáter" }
+    - text: { kea: "`\"E\"` — só primeru karáter" }
       correct: false
     - text: { kea: "Un `IndexError` — `-1` é fora di rangu" }
+      correct: false
+- question:
+    kea: "Bu tene `presu = 850`. O ki ta da `print(f\"Presu: {presu * 1.15:.2f}\")`?"
+  options:
+    - text: { kea: "`Presu: 977.50` — expresan ta kalkula i `:.2f` ta aredonda pa 2 kazas desimal" }
+      correct: true
+    - text: { kea: "`Presu: {presu * 1.15:.2f}` — f-string ka ta kalkula expresan, só variável simplis" }
+      correct: false
+    - text: { kea: "`Presu: 977.4999999` — `:.2f` ka ta aredonda, só ta mostra" }
+      correct: false
+    - text: { kea: "Un eru — ka pode po expresan dentu di `{}`" }
       correct: false

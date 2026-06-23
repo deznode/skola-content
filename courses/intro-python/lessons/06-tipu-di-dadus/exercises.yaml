@@ -22,7 +22,7 @@
   prompt:
     kea: "Kria kuatu variável pa un voo inter-ilhas — `destinu` (str), `distansia_km` (float), `nru_pasajeru` (int) i `voo_diretu` (bool). Imprimi kada un ku un f-string, i mostra se tipu ku `type()`."
   hint:
-    kea: "Skodje o literál sertu: string ku aspas (`\"Sal\"`), float ku ponto (`227.0`), int sen ponto (`48`), bool ku `True`/`False`. Dipos `print(f\"...{destinu}...\")` i `print(type(distansia_km))`."
+    kea: "Skodje literál sertu: string ku aspas (`\"Sal\"`), float ku ponto (`227.0`), int sen ponto (`48`), bool ku `True`/`False`. Dipos `print(f\"...{destinu}...\")` i `print(type(distansia_km))`."
   starterCode: |
     # voo.py — kria as variáveis i imprimi-s
     destinu =        # str, p.ex. "Sal"
@@ -53,9 +53,9 @@
   kind: code
   title: { kea: "Adivinha o ki kada linha ta imprimi" }
   prompt:
-    kea: "Pa kada linha, adivinha o ki Python ta imprimi (o tipu o o valor). Dipos kore o kódiku pa konfirma si bu staba sertu."
+    kea: "Pa kada linha, adivinha o ki Python ta imprimi (tipu o valor). Dipos kore kódiku pa konfirma si bu staba sertu."
   hint:
-    kea: "Lenbra: `type()` ta da `<class '...'>`. `int(\"42\") + 8` ta soma dos interu. `str(42) + \"8\"` ta **konkatena** dos string. I `int(3.9)` ta **trunka** (korta o desimal), ka arredonda."
+    kea: "Lenbra: `type()` ta da `<class '...'>`. `int(\"42\") + 8` ta soma dos interu. `str(42) + \"8\"` ta **konkatena** dos string. I `int(3.9)` ta **trunka** (korta desimal), ka aredonda."
   starterCode: |
     # adivinha.py — adivinha kada saída, dipos kore pa konfirma
     print(type(42))
@@ -72,14 +72,14 @@
     print(type(True))       # <class 'bool'>
     print(int("42") + 8)    # 50  (int + int)
     print(str(42) + "8")    # 428 (string + string — konkatenasan)
-    print(int(3.9))         # 3   (trunka, ka arredonda)
+    print(int(3.9))         # 3   (trunka, ka aredonda)
 - slug: koriji-typeerror-mistura
   language: python
   kind: debug
   file: tipos.py
   title: { kea: "Preve i koriji TypeError" }
   prompt:
-    kea: "Ku `a = \"100\"`, `b = 50` i `c = 2.5`, dos di es operasons ta da `TypeError` i dos ta funsiona. Kore o kódiku pa odja kal, i koriji as ki faya pa kada un da un rezultadu numériku."
+    kea: "Ku `a = \"100\"`, `b = 50` i `c = 2.5`, dos di es operasons ta da `TypeError` i dos ta funsiona. Kore kódiku pa odja kal, i koriji as ki faya pa kada un da un rezultadu numériku."
   hint:
     kea: "`a` é un **string** (`\"100\"`), ka un númeru. `a + b` (str + int) i `a * c` (str × float) ta da `TypeError`. `b + c` (int + float) ta funsiona, i `a + str(b)` é dos string — ta konkatena. Pa kalkula ku `a`, konverti-l primeru ku `int(a)` o `float(a)`."
   starterCode: |
@@ -105,9 +105,9 @@
 - slug: splora-tipus-numerikus
   language: python
   kind: explore
-  title: { kea: "Splora os tipus numérikus di Python" }
+  title: { kea: "Splora tipus numérikus di Python" }
   prompt:
-    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i o módulu `decimal` pa dinheru ezatu). Odja a dokumentason pa odja o ki más izisti — ka meste dekora, só sabe undi buska."
+    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i módulu `decimal` pa dinheru ezatu). Odja dokumentason pa odja o ki más izisti — ka meste dekora, só sabe undi buska."
   resources:
     kea:
       - { label: "Python docs — Numeric Types (int, float, complex)", url: "https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" }
@@ -117,6 +117,6 @@
   kind: reflect
   title: { kea: "Refleta sobri un TypeError ki bu pode atxa" }
   prompt:
-    kea: "Pensa na un programa ki ta mistura textu ku númerus (p.ex. mostra un presu nun mensajen). Skrebe undi un `TypeError` ta pode parese, i kal di as dos solusons (konverti ku `str()`/`int()` o uza un f-string) bu ta skodje i pamodi."
+    kea: "Pensa na un programa ki ta mistura textu ku númerus (p.ex. mostra un presu nun mensajen). Skrebe undi un `TypeError` ta pode parese, i kal di dos solusons (konverti ku `str()`/`int()` o uza un f-string) bu ta skodje i pamodi."
   notePlaceholder:
     kea: "Programa: …   ·   Undi TypeError ta parese: …   ·   Soluson skodjedu (str()/int() o f-string): …"

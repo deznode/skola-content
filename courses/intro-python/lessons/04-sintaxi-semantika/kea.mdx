@@ -9,10 +9,10 @@ lesson: 4
 duration: "20 min"
 objectives:
   - "Skrebe komentárius pa dokumenta kódiku"
-  - "Intende ki Python é case sensitive"
+  - "Distingui nomis pa maiúskula/minúskula — Python é case sensitive"
   - "Uza indentasan koretamenti pa defini blokus di kódiku"
   - "Kontinua linhas longas ku backslash (\\)"
-  - "Intende dynamic typing — variáveis pode muda di tipu"
+  - "Uza type() pa konfirma ki un variável pode muda di tipu (dynamic typing)"
 ---
 
 # Sintaxi i Semantika
@@ -23,11 +23,54 @@ Nes lisan, nu ta prende regras fundamentais di Python: kumo skrebe komentárius,
 
 ## Syntax vs. Semantics
 
-**Syntax** é regras di kumo bo skrebe kódiku. **Semantics** é signifikadu di kódiku — kuze ki el ta faze kuandu bo roda.
+<GlossaryText
+  text="[[Syntax]] é regras di kumo bo skrebe kódiku. [[Semantics]] é signifikadu di kódiku — kuze ki el ta faze kuandu bo roda."
+  terms={{
+    syntax: {
+      en: "syntax",
+      definition: "Regras di kumo bu skrebe kódiku — a 'gramátika' di Python. Un eru di syntax ta para programa antis di kore.",
+    },
+    semantics: {
+      en: "semantics",
+      definition: "Signifikadu di kódiku — o ki el ta faze kuandu ta kore. Kódiku pode ten syntax koretu ma semantics eradu (un eru di lójika).",
+    },
+  }}
+/>
 
-Pensa assin:
-- **Syntax** = gramátika di kriolu ("Nha nomi é Maria" — regra di frazi)
-- **Semantics** = signifikadu ("Maria é nha nomi" — nu ta intende)
+Pensa assin: **syntax** é gramátika di kriolu (regras di kumo bu monta un frazi), i **semantics** é sentidu — o ki kel frazi ta signifika.
+
+<CompareTable
+  cornerLabel="Konseitu"
+  cols={[
+    { name: "Syntax", accent: "blue" },
+    { name: "Semantics", accent: "gold" },
+  ]}
+  rows={[
+    {
+      label: "O ki é",
+      kind: "text",
+      vals: [
+        "Regras di **kumo** bu skrebe kódiku",
+        "**Signifikadu** — o ki kódiku ta faze",
+      ],
+    },
+    {
+      label: "Analojia (kriolu)",
+      kind: "text",
+      vals: ["Gramátika di frazi", "Sentidu di frazi"],
+    },
+    {
+      label: "Ken ta verifika",
+      kind: "text",
+      vals: ["Python — ta da `SyntaxError`", "Bo — ku testis"],
+    },
+    {
+      label: "Izemplu di eru",
+      kind: "code",
+      vals: ['print("Ola"', "media = soma / 3"],
+    },
+  ]}
+/>
 
 ```python
 # Syntax koretu, semantics koretu
@@ -37,15 +80,15 @@ print("Ola, Mundu!")  # Ta imprimi: Ola, Mundu!
 # print("Ola, Mundu!"  # SyntaxError: falta parentesis di fitxa
 ```
 
-Si bo skrebe kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda kualker kuza. Si syntax sta koretu ma kódiku ta faze algu diferenti di ki bo kria, kel é un problema di **semantics**.
+Si bo skrebe kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda kualker kuza. Si syntax sta koretu ma kódiku ta faze algu diferenti di ki bu kre, kel é un problema di **semantics**.
 
 ```python
 # Syntax koretu, ma semantics eradu
-# Bo kria kalkula média, ma bo dividi pa 3 en bez di 2
+# Bu kre kalkula média, ma bu dividi pa 3 en bez di 2
 nota1 = 85
 nota2 = 92
 media = (nota1 + nota2) / 3  # Eru di lójika! Devia ser / 2
-print(media)  # 59.0 — resultado eradu, ma Python ka reklama
+print(media)  # 59.0 — rezultadu eradu, ma Python ka reklama
 ```
 
 :::callout{type=tip}
@@ -67,20 +110,20 @@ media = (nota1 + nota2) / 2  # 88.5
 print(f"Média di {nomi}: {media}")
 ```
 
-Komentárius é sabi pa:
+Komentárius é útil pa:
 - Splika pamodi bo skrebe kódiku di un sertu manera
 - Djuda otu pesoas (ó bo futuru!) intende bo kódiku
 - Desativa kódiku temporariamenti (pa testa)
 
 ```python
-# Bo podi desativa un linha di kódiku pon # na frenti
+# Bo pode desativa un linha di kódiku pon # na frenti
 presu = 1500
-# presu = presu * 1.10  # Desativadu — ka ta aplika desconto gosi
+# presu = presu * 1.10  # Desativadu — ka ta aplika diskontu gosi
 print(f"Presu: {presu} ECV")
 ```
 
 :::callout{type=tip}
-Komentárius sabi ta splika **pamodi**, ka **kuze**. En bez di `# soma a + b`, skrebe `# kalkula total di venda`.
+Komentárius bon ta splika **pamodi**, ka **kuze**. En bez di `# soma a + b`, skrebe `# kalkula total di venda`.
 :::
 
 ## Case Sensitivity
@@ -132,7 +175,7 @@ idadi = 20
 
 if idadi >= 18:
     print("Bo é adultu")      # 4 spasus — dentu di if
-    print("Bo podi vota")     # 4 spasus — inda dentu di if
+    print("Bo pode vota")     # 4 spasus — inda dentu di if
 
 print("Programa termina")     # Sen indentasan — fora di if
 ```
@@ -140,7 +183,7 @@ print("Programa termina")     # Sen indentasan — fora di if
 Kuandu bo roda kel kódiku ku `idadi = 20`:
 ```
 Bo é adultu
-Bo podi vota
+Bo pode vota
 Programa termina
 ```
 
@@ -169,25 +212,49 @@ if nota >= 70:
         print("Bon trabadjo!")  # nível 2 (8 spasus)
 ```
 
+<ParsonsProblem
+  title="Organiza bloku ku indentasan koretu"
+  prompt="Es linhas dja ten indentasan koretu — po-s na órdi pa programa klasifika nota."
+  solution={[
+    "nota = 85",
+    "if nota >= 70:",
+    '    print("Bo pasa!")',
+    "    if nota >= 90:",
+    '        print("Exselenti!")',
+    "    else:",
+    '        print("Bon trabadjo!")',
+  ]}
+/>
+
 :::callout{type=tip}
 Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all". Assin bu ta odja si bo indentasan sta koretu.
 :::
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Tabs o spasus? I pamodi 4?",
+      tag: "Splika más",
+      a: "Komunidadi Python (guia **PEP 8**) ta rekomenda **4 spasus**, ka tabs. Importanti é ser **konsistenti**: nunka mistura tabs ku spasus na mesmu fixeru — Python ta da un `TabError`. Maioria di editoris (VS Code) ta konverti Tab pa spasus otomátikamenti.",
+    },
+  ]}
+/>
 
 ## Kontinuasan di Linha ku `\`
 
 Ás vezis un linha di kódiku é mutu longu. Bu pode kebra el ku **backslash** (`\`) pa kontinua na prósimu linha.
 
 ```python
-# Linha mutu longu — difísil di le
+# Linha mutu longu — difísil di ler
 total = 100 + 200 + 300 + 400 + 500 + 600 + 700 + 800 + 900 + 1000
 
-# Melhor — uza \ pa kebra
+# Midjór — uza \ pa kebra
 total = 100 + 200 + 300 + 400 + 500 + \
         600 + 700 + 800 + 900 + 1000
 print(total)  # 5500
 ```
 
-Dentu di parentesis, kolxetis ó xavis, bu ka presiza `\` — Python ta intende automátikamenti:
+Dentu di parentesis, brackets ó braces, bu ka presiza `\` — Python ta intende automatikamenti:
 
 ```python
 # Parentesis ta permiti kebra di linha sen \
@@ -201,7 +268,7 @@ ilhas = (
 )
 print(ilhas)
 
-# Mesmu ku lista (kolxetis)
+# Mesmu ku lista (brackets)
 notus = [
     85, 92, 78,
     90, 88, 95
@@ -216,7 +283,7 @@ Na prátika, é midjór uza parentesis pa kebra linhas longas. É más limpu ki 
 
 ## Dynamic Typing
 
-Na Python, bu ka presiza deklara tipu di un variável. Python ta diskubri tipu automátikamenti — kel ta txoma **dynamic typing**.
+Na Python, bu ka presiza deklara tipu di un variável. Python ta diskubri tipu automatikamenti — kel ta txoma **dynamic typing**.
 
 ```python
 valor = 10
@@ -234,7 +301,7 @@ print(type(valor))  # <class 'bool'>
 
 Mesmu variável `valor` muda di `int` pa `str` pa `float` pa `bool` — Python ka reklama!
 
-Kel é diferenti di linguajens kumo Java ó C++, undi bu ten ki deklara tipu:
+Kel é diferenti di linguajens kumo Java ó C++, unde bu ten ki deklara tipu:
 
 ```python
 # Na Python (dynamic typing):
@@ -243,6 +310,36 @@ nomi = "Ana"          # Python sabi ki é str
 # Na Java (static typing) — só pa komparasan:
 # String nomi = "Ana";  // Bo ten ki dizi ki é String
 ```
+
+<CompareTable
+  cornerLabel="Tipajen"
+  cols={[
+    { name: "Dynamic typing", syntax: "Python", accent: "teal" },
+    { name: "Static typing", syntax: "Java, C++", accent: "slate" },
+  ]}
+  rows={[
+    {
+      label: "Deklara tipu?",
+      kind: "text",
+      vals: ["Nau — Python ta diskubri", "Sin — bu ten ki dizi-l"],
+    },
+    {
+      label: "Skrebe variável",
+      kind: "code",
+      vals: ['nomi = "Ana"', 'String nomi = "Ana";'],
+    },
+    {
+      label: "Muda di tipu?",
+      kind: "text",
+      vals: ["Sin — `int` → `str` → `bool`", "Nau — tipu fika fixu"],
+    },
+    {
+      label: "Verifika tipu",
+      kind: "code",
+      vals: ["type(nomi)", "—"],
+    },
+  ]}
+/>
 
 Funsan `type()` é bo amigu pa verifika tipu di kualker valor:
 
@@ -260,63 +357,72 @@ print(type(ten_grogu))     # <class 'bool'>
 Dynamic typing ta da liberdadi, ma tanbe responsabilidadi. Tenta ka muda tipu di un variável sen razun — kódiku ta fika konfuzu.
 :::
 
-## Erus Komuns di Sintaxi
+<SectionHeading variant="concept">Erus Komuns di Sintaxi</SectionHeading>
 
 Kel é erus ki tudu prinsipianti ta enkontra. Ka ten problemas — é normal!
 
-### 1. IndentationError
+<SectionHeading level={3} variant="concept">1. IndentationError</SectionHeading>
 
-```python
-# ERADU — falta indentasan dipos di if
-if True:
-print("Ola")  # IndentationError!
+<CodeDiff
+  lang="python"
+  filename="indentasan.py"
+  note="Dipos di `if True:`, linha di dentu meste **4 spasus** di indentasan."
+  diff={[
+    { type: "ctx", t: "if True:" },
+    { type: "del", t: 'print("Ola")' },
+    { type: "add", t: '    print("Ola")' },
+  ]}
+/>
 
-# KORETU
-if True:
-    print("Ola")
-```
+<SectionHeading level={3} variant="concept">2. SyntaxError — Parentesis</SectionHeading>
 
-### 2. SyntaxError — Parentesis
+<CodeDiff
+  lang="python"
+  filename="parentesis.py"
+  note="Tudu `(` ki bu abri meste se `)` di fitxa."
+  diff={[
+    { type: "del", t: 'print("Ola"' },
+    { type: "add", t: 'print("Ola")' },
+  ]}
+/>
 
-```python
-# ERADU — falta parentesis di fitxa
-print("Ola"  # SyntaxError!
+<SectionHeading level={3} variant="concept">3. Case sensitivity na funsons</SectionHeading>
 
-# KORETU
-print("Ola")
-```
+<CodeDiff
+  lang="python"
+  filename="funsan.py"
+  note="Funsons built-in é tudu minúskulu: `print`, ka `Print`."
+  diff={[
+    { type: "del", t: 'Print("Ola")' },
+    { type: "add", t: 'print("Ola")' },
+  ]}
+/>
 
-### 3. NameError — Variável ka definidu
+<CodeCloze
+  lang="python"
+  title="Konpleta o kódiku sen erus"
+  prompt="Inche spasus pa programa fika korretu — un komentáriu, i kondisan di if."
+  template={[
+    "{{0}} Es é un komentáriu",
+    "idadi = 20",
+    "if idadi >= 18{{1}}",
+    '    print("Adultu")',
+  ]}
+  answers={["#", ":"]}
+  hints={["Karáter ki ta kumesa un komentáriu", "Kuze ki ta fitxa kondisan di un if?"]}
+  solved="Korretu! O `#` ta abri un komentáriu i o `:` ta abri bloku di if."
+/>
 
-```python
-# ERADU — bo uza variável antis di kria el
-print(mensajen)  # NameError: name 'mensajen' is not defined
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-# KORETU
-mensajen = "Ola!"
-print(mensajen)
-```
-
-### 4. Case sensitivity na funsons
-
-```python
-# ERADU
-Print("Ola")  # NameError: name 'Print' is not defined
-
-# KORETU
-print("Ola")
-```
-
-## Tenta Gosi
-<TentaGosi />
-
-## Testa bu Konhesimentu
-<QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Python ta deteta só erus di **syntax**; erus di **semantics** (lójika) é bu responsabilidadi — testa senpri bu kódiku.</RezumuItem>
   <RezumuItem term="Komentárius">`#` ta dokumenta kódiku — Python ta ignora tudu o ki ben dipos del. Splika **pamodi**, ka **kuze**.</RezumuItem>
   <RezumuItem term="Case sensitivity">`nomi`, `Nomi` i `NOMI` é tres variáveis diferenti — i `print` ka é `Print`.</RezumuItem>

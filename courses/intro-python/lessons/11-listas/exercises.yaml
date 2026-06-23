@@ -53,7 +53,7 @@
 
     # TODO: presus asima di 300
     # TODO: presus ku 15% di diskontu (p * 0.85)
-    # TODO: presus en EUR (p / 110, arredondadu)
+    # TODO: presus en EUR (p / 110, aredondadu)
   solutionCode: |
     # presus.py
     presus = [250, 500, 180, 750, 320, 90, 450]

@@ -17,11 +17,11 @@
       correct: true
       explain:
         kea: "PATH ta permiti terminal atxa `python`. Sen el, bu ta odja eru 'command not found'."
-    - text: { kea: "Pa instala VS Code automátikamenti" }
+    - text: { kea: "Pa instala VS Code automatikamenti" }
       correct: false
       explain:
         kea: "PATH ka ten nada ku VS Code — el ta instala-su separadu."
-    - text: { kea: "Pa kria un virtual environment automátikamenti" }
+    - text: { kea: "Pa kria un virtual environment automatikamenti" }
       correct: false
       explain:
         kea: "Bu ta kria `.venv` manualmenti ku `python -m venv`, ka pa PATH."

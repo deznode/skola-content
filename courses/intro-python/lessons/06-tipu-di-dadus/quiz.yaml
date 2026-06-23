@@ -8,13 +8,13 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "O ki é o tipu di `10 / 5` na Python?"
+    kea: "O ki é tipu di `10 / 5` na Python?"
   options:
-    - text: { kea: "`float` — a divisan `/` ta retorna **senpri** float, anton `10 / 5` é `2.0`" }
+    - text: { kea: "`float` — divisan `/` ta retorna **senpri** float, anton `10 / 5` é `2.0`" }
       correct: true
     - text: { kea: "`int` — dos interu ta da senpri un interu" }
       correct: false
-    - text: { kea: "`str` — o rezultadu ten ki ser konvertidu" }
+    - text: { kea: "`str` — rezultadu ten ki ser konvertidu" }
       correct: false
     - text: { kea: "Ta dependi: `2` é int, `2.0` é float" }
       correct: false
@@ -23,18 +23,18 @@
   options:
     - text: { kea: "Un `TypeError` — ka pode multiplika un string pa un float; konverti ku `float(presu)` primeru" }
       correct: true
-    - text: { kea: "Ta da `52.5`, pamodi Python ta konverti automátikamenti" }
+    - text: { kea: "Ta da `52.5`, pamodi Python ta konverti automatikamenti" }
       correct: false
-    - text: { kea: "Ta repeti a string 0.15 bez" }
+    - text: { kea: "Ta repeti string 0.15 bez" }
       correct: false
-    - text: { kea: "Un `ValueError` — o presu ka é válidu" }
+    - text: { kea: "Un `ValueError` — presu ka é válidu" }
       correct: false
 - question:
     kea: "O ki ta da `int(3.9)`?"
   options:
-    - text: { kea: "`3` — `int()` ta **trunka** (korta a parti desimal), ka ta arredonda" }
+    - text: { kea: "`3` — `int()` ta **trunka** (korta parti desimal), ka ta aredonda" }
       correct: true
-    - text: { kea: "`4` — `int()` ta arredonda pa interu más prósimu" }
+    - text: { kea: "`4` — `int()` ta aredonda pa interu más prósimu" }
       correct: false
     - text: { kea: "`3.9` — ka ta muda nada" }
       correct: false

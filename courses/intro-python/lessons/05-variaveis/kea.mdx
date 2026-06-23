@@ -23,7 +23,14 @@ Nes lisan, nu ta prende kumo kria variáveis, ki regras di nomi tene, kumo reseb
 
 ## Kria Variáveis
 
-Na Python, bu ta kria un variável sinplismenti: bu ta atribui un valor ku `=`. Ka presiza deklara tipu — Python ta diskubri tipu automatikamenti.
+Na Python, bu ta kria un variável sinplismenti: bu ta atribui un valor ku `=`. Ka presiza deklara tipu antis — Python ta diskubri-l sózin.
+
+<GlossaryText
+  text="Es komportamentu — undi bu ka ta deklara tipu, i el pode muda kuandu bu re-atribui — ta txoma-s [[tipu dinámiku]]."
+  terms={{
+    "tipu dinámiku": { en: "dynamic typing", definition: "Un sistema undi tipu di un variável é diskubridu na momentu di izekusan i pode muda kuandu bu atribui un valor novu — ka presiza deklara-l antis." },
+  }}
+/>
 
 ```python
 # Kria variáveis
@@ -64,26 +71,44 @@ print(presu)   # 850
 
 Python ten regras ki bu ten ki sigi pa nomis di variáveis:
 
-### Regras Obrigatóriu
+<SectionHeading level={3} variant="concept">Regras Obrigatóriu</SectionHeading>
 
 ```python
-# KORETU — komesa ku letra ó underscore
+# Nomis VÁLIDU — komesa ku letra ó underscore
 nomi = "Gil"
 _idadi = 30
 nomi_kompletu = "Gil Santos"
 nota1 = 85
-
-# ERADU — ka pode komesa ku númeru
-# 2nomi = "Gil"       # SyntaxError!
-
-# ERADU — ka pode uza hífens ó spasus
-# nomi-kompletu = "Gil"    # SyntaxError!
-# nomi kompletu = "Gil"    # SyntaxError!
-
-# ERADU — ka pode uza palavras reservadas di Python
-# if = 10        # SyntaxError!
-# print = "ola"  # Funsiona ma ta kebra print()!
 ```
+
+<CompareTable
+  cornerLabel="Regra"
+  cols={[
+    { name: "❌ Eradu", syntax: "SyntaxError", accent: "coral" },
+    { name: "✅ Koretu", syntax: "válidu", accent: "teal" },
+  ]}
+  rows={[
+    {
+      label: "Komesa ku númeru",
+      kind: "code",
+      vals: ['2nomi = "Gil"', 'nomi2 = "Gil"'],
+    },
+    {
+      label: "Spasu ó hífen",
+      kind: "code",
+      vals: ['nomi-kompletu = "Gil"', 'nomi_kompletu = "Gil"'],
+    },
+    {
+      label: "Palavra reservada",
+      kind: "code",
+      vals: ["if = 10", "si_kondisan = 10"],
+    },
+  ]}
+/>
+
+:::callout{type=warning}
+Uza un palavra di Python kumo `print` ó `list` kumo nomi di variável ka ta da eru na momentu — ma ta **kebra** kel funsan pa restu di programa. Evita-l.
+:::
 
 ### Konvensons (PEP 8)
 
@@ -143,7 +168,7 @@ valor = "25"
 print(type(valor))  # <class 'str'> — é string, ka int!
 
 # Kel splika pamodi kel ka funsiona:
-# resultado = valor + 10  # TypeError!
+# rezultadu = valor + 10  # TypeError!
 ```
 
 Bu tanbe pode uza `type()` diretamenti ku valores:
@@ -169,30 +194,34 @@ print(f"Ola, {nomi}! Ben-vindu!")
 ```
 
 Kuandu bu roda:
-```
-Kual é bo nomi? Maria
-Ola, Maria! Ben-vindu!
-```
+
+<TerminalBlock
+  title="python kumprimentu.py"
+  lines={[
+    { type: "cmd", t: "python kumprimentu.py" },
+    { type: "out", t: "Kual é bo nomi? Maria" },
+    { type: "out", t: "Ola, Maria! Ben-vindu!" },
+  ]}
+/>
 
 :::callout{type=warning}
-`input()` senpri ta retorna **string**, mesmu si utilizador skrebe un númeru:
-
-```python
-idadi = input("Kual é bo idadi? ")
-print(type(idadi))  # <class 'str'> — É string!
-
-# Kel ka ta funsiona kumo bu spera:
-# resultado = idadi + 5  # TypeError: can only concatenate str to str
-```
+`input()` senpri ta retorna **string**, mesmu si utilizador skrebe un númeru — nton `idadi + 5` ta da `TypeError: can only concatenate str to str`.
 :::
 
-Pa traba ku númerus, bu ten ki **konverti**:
+Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ó `float()`):
 
-```python
-idadi = int(input("Kual é bo idadi? "))
-print(type(idadi))  # <class 'int'> — Gosi é int!
-print(f"Na 10 anus, bu ta tene {idadi + 10} anus")
-```
+<CodeDiff
+  lang="python"
+  filename="idadi.py"
+  title="Konverti input antis di kalkula"
+  note="`input()` ta da string; `int()` ta konverti-l pa interu, nton `idadi + 10` ta funsiona."
+  diff={[
+    { type: "del", t: 'idadi = input("Kual é bo idadi? ")' },
+    { type: "add", t: 'idadi = int(input("Kual é bo idadi? "))' },
+    { type: "ctx", t: "print(type(idadi))" },
+    { type: "ctx", t: 'print(f"Na 10 anus, bu ta tene {idadi + 10} anus")' },
+  ]}
+/>
 
 :::callout{type=tip}
 Senpri lenbra — `input()` ta retorna string. Si bu kre númeru, uza `int()` ó `float()` pa konverti.
@@ -200,7 +229,7 @@ Senpri lenbra — `input()` ta retorna string. Si bu kre númeru, uza `int()` ó
 
 ## Konversan di Tipu (Type Casting)
 
-Python tene funsons pa konverti entri tipus:
+Python ten funsons pa konverti entri tipus:
 
 | Funsan | Faze kuze | Izemplu |
 |--------|-----------|---------|
@@ -225,7 +254,7 @@ populasan = 600000
 mensajen = "Kabu Verdi tene " + str(populasan) + " pesoas"
 print(mensajen)
 
-# Melhor ku f-string (ka presiza konverti)
+# Midjór ku f-string (ka presiza konverti)
 print(f"Kabu Verdi tene {populasan} pesoas")
 ```
 
@@ -244,13 +273,13 @@ print(float("3.14"))  # 3.14
 # float("ola")     # ValueError: could not convert string to float
 
 # Pa konverti "3.14" pa int, fazi en 2 pasus:
-resultado = int(float("3.14"))  # Primeiru float, dipos int
-print(resultado)  # 3
+rezultadu = int(float("3.14"))  # Primeru float, dipos int
+print(rezultadu)  # 3
 ```
 
 ### Bool Konversan
 
-Python tene regras simples pa konverti pa `bool`. Programadoris ta xoma valores ki ta vira `False` di **"falsy"** (vazi, zeru, nada), i valores ki ta vira `True` di **"truthy"** (ten algun kuza dentu).
+Python ten regras simples pa konverti pa `bool`. Programadoris ta txoma valores ki ta vira `False` di **"falsy"** (vazi, zeru, nada), i valores ki ta vira `True` di **"truthy"** (ten algun kuza dentu).
 
 ```python
 # Valores "falsy" (vira False)
@@ -266,6 +295,22 @@ print(bool("Ola"))   # True
 print(bool(0.001))   # True
 ```
 
+<SectionHeading level={3} variant="practice">Tenta: Konverti Input</SectionHeading>
+
+<CodeCloze
+  lang="python"
+  title="Inche spasus"
+  prompt="Konverti input pa interu i kalkula anu ki ben."
+  template={[
+    'idadi = {{0}}(input("Kual é bo idadi? "))',
+    "ano_ki_ben = idadi {{1}} 1",
+    'print(f"Pa anu ki ben bu ta tene {ano_ki_ben}")',
+  ]}
+  answers={["int", "+"]}
+  hints={["Konverti string pa interu", "Operador pa soma"]}
+  solved="Korretu! `int()` ta konverti string pa interu, i `+` ta soma 1 anu."
+/>
+
 ## Izemplu Prátiku: Kalkuladora Simples
 
 Nu ta kombina tudu ki nos prende — `input()`, konversan di tipu, i f-strings:
@@ -276,7 +321,7 @@ print("=== Kalkuladora di Skola ===")
 print()
 
 # Resebe númerus di utilizador
-num1 = float(input("Primeiro númeru: "))
+num1 = float(input("Primeru númeru: "))
 num2 = float(input("Segundu númeru: "))
 
 # Kalkula
@@ -294,17 +339,20 @@ print(f"{num1} / {num2} = {divisan}")
 ```
 
 Kuandu bu roda:
-```
-=== Kalkuladora di Skola ===
 
-Primeiro númeru: 150
-Segundu númeru: 45
-
-150.0 + 45.0 = 195.0
-150.0 - 45.0 = 105.0
-150.0 * 45.0 = 6750.0
-150.0 / 45.0 = 3.3333333333333335
-```
+<TerminalBlock
+  title="python kalkuladora.py"
+  lines={[
+    { type: "cmd", t: "python kalkuladora.py" },
+    { type: "out", t: "=== Kalkuladora di Skola ===" },
+    { type: "out", t: "Primeru númeru: 150" },
+    { type: "out", t: "Segundu númeru: 45" },
+    { type: "out", t: "150.0 + 45.0 = 195.0" },
+    { type: "out", t: "150.0 - 45.0 = 105.0" },
+    { type: "out", t: "150.0 * 45.0 = 6750.0" },
+    { type: "out", t: "150.0 / 45.0 = 3.3333333333333335" },
+  ]}
+/>
 
 ## Izemplu Prátiku: Perfil di Estudanti
 
@@ -330,38 +378,41 @@ print(f"Tipu di nota: {type(nota_media).__name__}")
 ```
 
 Kuandu bu roda:
-```
-=== Kria Bo Perfil ===
 
-Nomi: Nilton
-Ilha: São Vicente
-Idadi: 19
-Nota média: 82.5
+<TerminalBlock
+  title="python perfil.py"
+  lines={[
+    { type: "cmd", t: "python perfil.py" },
+    { type: "out", t: "=== Kria Bo Perfil ===" },
+    { type: "out", t: "Nomi: Nilton" },
+    { type: "out", t: "Ilha: São Vicente" },
+    { type: "out", t: "Idadi: 19" },
+    { type: "out", t: "Nota média: 82.5" },
+    { type: "out", t: "--- Bo Perfil ---" },
+    { type: "out", t: "Nomi: Nilton" },
+    { type: "out", t: "Ilha: São Vicente" },
+    { type: "out", t: "Idadi: 19 anus" },
+    { type: "out", t: "Nota média: 82.5" },
+    { type: "out", t: "Tipu di nomi: str" },
+    { type: "out", t: "Tipu di idadi: int" },
+    { type: "out", t: "Tipu di nota: float" },
+  ]}
+/>
 
---- Bo Perfil ---
-Nomi: Nilton
-Ilha: São Vicente
-Idadi: 19 anus
-Nota média: 82.5
-Tipu di nomi: str
-Tipu di idadi: int
-Tipu di nota: float
-```
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Tenta Gosi
-<TentaGosi />
-
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`input()` ta retorna **senpri** un string — si bu kre un númeru, konverti ku `int()` o `float()` antis di kalkula.</RezumuItem>
-  <RezumuItem term="Variáveis">Kaxas pa garda dados — kria ku `=`. Python ta diskubri o tipu sózin (dynamic typing).</RezumuItem>
-  <RezumuItem term="Nomis">Devi kumesa ku letra o `_`, uza `snake_case`, i ser **deskritivu** (`presu_katxupa`, ka `x`).</RezumuItem>
-  <RezumuItem term="type()">Ta mostra o tipu di un valor — un ferramenta sabi pa debugging.</RezumuItem>
+  <RezumuItem term="Variáveis">Kaxas pa garda dados — kria ku `=`. Python ta diskubri tipu sózin (dynamic typing).</RezumuItem>
+  <RezumuItem term="Nomis">Debe kumesa ku letra o `_`, uza `snake_case`, i ser **deskritivu** (`presu_katxupa`, ka `x`).</RezumuItem>
+  <RezumuItem term="type()">Ta mostra tipu di un valor — un ferramenta útil pa debugging.</RezumuItem>
   <RezumuItem term="Konversan">`int()`, `float()`, `str()`, `bool()` ta muda entri tipus.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`ValueError` ta parese kuandu a konversan ka é posível (`int("Maria")`); `TypeError` kuandu bu ta mistura tipus (`"25" + 5`).</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`ValueError` ta parese kuandu konversan ka é posível (`int("Maria")`); `TypeError` kuandu bu ta mistura tipus (`"25" + 5`).</RezumuItem>
 </KeyTakeaways>

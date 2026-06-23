@@ -33,3 +33,38 @@
         idadi = 20
         status = "adultu" if idadi >= 18 else "menor"
         print(f"Bo é {status}.")  # Bo é adultu.
+
+# position 1 — <CodeExample position={1} showTabs/>: anu bisextu, dos formas.
+# Mesmu lójika i mesmu rezultadu; o `if` aninhadu vs a versan nun linha só.
+# Scalar `code` fallback = a versan simplifikadu (más limpu).
+- title: "Anu bisextu — aninhadu vs un linha"
+  language: python
+  code: |
+    anu = int(input("Inseri un anu: "))
+    if (anu % 4 == 0 and anu % 100 != 0) or (anu % 400 == 0):
+        print(f"{anu} é anu bisextu! 📅")
+    else:
+        print(f"{anu} KA é anu bisextu.")
+  variants:
+    - label: "if aninhadu"
+      language: python
+      code: |
+        anu = int(input("Inseri un anu: "))
+        if anu % 4 == 0:
+            if anu % 100 == 0:
+                if anu % 400 == 0:
+                    print(f"{anu} é anu bisextu! 📅")
+                else:
+                    print(f"{anu} KA é anu bisextu.")
+            else:
+                print(f"{anu} é anu bisextu! 📅")
+        else:
+            print(f"{anu} KA é anu bisextu.")
+    - label: "and / or (un linha)"
+      language: python
+      code: |
+        anu = int(input("Inseri un anu: "))
+        if (anu % 4 == 0 and anu % 100 != 0) or (anu % 400 == 0):
+            print(f"{anu} é anu bisextu! 📅")
+        else:
+            print(f"{anu} KA é anu bisextu.")

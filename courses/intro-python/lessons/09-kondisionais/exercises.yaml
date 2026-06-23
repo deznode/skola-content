@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Klasifikador di IMC" }
   prompt:
-    kea: "Pidi o pezu (kg) i a altura (m). Kalkula o IMC (`pezu / altura ** 2`) i mostra a klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` o más é \"Obezidadi\"."
+    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` o más é \"Obezidadi\"."
   hint:
-    kea: "Konverti os dos input ku `float()`. Pa as kategorias, testa di o más baxu pa o más altu — `if imc < 18.5:` ... `elif imc < 25:` ... `elif imc < 30:` ... `else:`. A orden ta importa: o primeru `True` ta ganha."
+    kea: "Konverti dos input ku `float()`. Pa kategorias, testa di más baxu pa más altu — `if imc < 18.5:` ... `elif imc < 25:` ... `elif imc < 30:` ... `else:`. Orden ta importa: primeru `True` ta ganha."
   starterCode: |
     # imc.py
     pezu = float(input("Pezu (kg)? "))
@@ -49,9 +49,9 @@
   kind: code
   title: { kea: "Konversor di moeda" }
   prompt:
-    kea: "Pidi un montanti i a moeda di orijen (`ECV`, `EUR` o `USD`), i mostra o valor na as otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje o kálkulu ku `if`/`elif`/`else` sigundu a moeda."
+    kea: "Pidi un montanti i moeda di orijen (`ECV`, `EUR` o `USD`), i mostra valor na otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje kálkulu ku `if`/`elif`/`else` sigundu moeda."
   hint:
-    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa as otas. Si a moeda é `EUR`, o montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa o `else`, mostra ki a moeda ka é válidu."
+    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa as otas. Si moeda é `EUR`, montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa `else`, mostra ki moeda ka é válidu."
   starterCode: |
     # moeda.py
     montanti = float(input("Montanti? "))
@@ -78,7 +78,7 @@
   kind: code
   title: { kea: "Klasifikador di triángulu" }
   prompt:
-    kea: "Pidi os 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki o terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) o \"Eskalenu\" (tudu diferenti)."
+    kea: "Pidi 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) o \"Eskalenu\" (tudu diferenti)."
   hint:
     kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu o un `else` pa o kazu inválidu."
   starterCode: |
@@ -108,11 +108,11 @@
   language: python
   kind: debug
   file: nota.py
-  title: { kea: "Koriji a orden di os elif" }
+  title: { kea: "Koriji orden di elif" }
   prompt:
-    kea: "Es klasifikador di nota ta sai senpri `Reprovadu`, mésmu pa `nota = 85`. O kódiku ka ta da eru — ma a lójika sta mal. Diskubri pamodi i koriji a orden di os `elif`."
+    kea: "Es klasifikador di nota ta sai senpri `Reprovadu`, mésmu pa `nota = 85`. Kódiku ka ta da eru — ma lójika sta mal. Diskubri pamodi i koriji orden di `elif`."
   hint:
-    kea: "Python ta para na primeru kondisan ki é `True`. `nota >= 0` é `True` pa kuazi tudu nota, nton el ta ganha senpri i os otus `elif` nunka ta kore. Po as kondisan di a más estrita (`>= 70`) pa a más larga (`>= 0`)."
+    kea: "Python ta para na primeru kondisan ki é `True`. `nota >= 0` é `True` pa kuazi tudu nota, nton el ta ganha senpri i otus `elif` nunka ta kore. Po kondisan di más estrita (`>= 70`) pa más larga (`>= 0`)."
   starterCode: |
     # nota.py — es ta sai senpri "Reprovadu". Koriji a orden.
     nota = 85
@@ -150,8 +150,8 @@
 - slug: refleta-orden-elif
   language: python
   kind: reflect
-  title: { kea: "Refleta sobri a orden di os `elif`" }
+  title: { kea: "Refleta sobri orden di `elif`" }
   prompt:
-    kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe o ki ta kontise si bu po a kondisan más larga (`< 65`) antis di a más estrita (`< 13`)."
+    kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe o ki ta kontise si bu po kondisan más larga (`< 65`) antis di más estrita (`< 13`)."
   notePlaceholder:
     kea: "Kadeia: …   ·   Orden koretu: …   ·   O ki ta kontise si troka a orden: …"

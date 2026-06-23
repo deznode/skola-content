@@ -21,7 +21,7 @@
   prompt:
     kea: "Pidi un nomi kompletu ku `input()`. Dipos mostra-l na maiúskula (`.upper()`), na minúskula (`.lower()`), na formatu título (`.title()`), i mostra kuantas letra el tene (uza `len()` i `.replace(\" \", \"\")` pa tira os spasus)."
   hint:
-    kea: "Metodus di string ka ta muda o original — es ta retorna un string novu, anton uza-s diretu dentu di un f-string: `print(f\"{nomi.upper()}\")`. Pa konta só as letra (sen spasus): `len(nomi.replace(\" \", \"\"))`."
+    kea: "Metodus di string ka ta muda original — es ta retorna un string novu, anton uza-s diretu dentu di un f-string: `print(f\"{nomi.upper()}\")`. Pa konta só letra (sen spasus): `len(nomi.replace(\" \", \"\"))`."
   starterCode: |
     # nomi.py
     nomi = input("Bu nomi kompletu? ")
@@ -43,22 +43,22 @@
   kind: code
   title: { kea: "Analizador di frazi" }
   prompt:
-    kea: "Pidi un frazi i mostra: kuantas palavra el tene (`.split()` + `len()`), kuantas bez a letra `a` ta parese (`.count(\"a\")`), i a frazi invertidu (`[::-1]`)."
+    kea: "Pidi un frazi i mostra: kuantas palavra el tene (`.split()` + `len()`), kuantas bez letra `a` ta parese (`.count(\"a\")`), i frazi invertidu (`[::-1]`)."
   hint:
-    kea: "`.split()` sen argumentu ta kebra pa spasu i ta da un lista — `len(frazi.split())` é o nu di palavra. `frazi.count(\"a\")` ta konta só `a` minúskulu. I `frazi[::-1]` ta inverti a string interu."
+    kea: "`.split()` sen argumentu ta kebra pa spasu i ta da un lista — `len(frazi.split())` é nu di palavra. `frazi.count(\"a\")` ta konta só `a` minúskulu. I `frazi[::-1]` ta inverti string interu."
   starterCode: |
     # frazi.py
     frazi = input("Skrebe un frazi: ")
 
     # TODO: kuantas palavra (split + len)
-    # TODO: kuantas bes a letra "a" ta parese (count)
+    # TODO: kuantas bez a letra "a" ta parese (count)
     # TODO: a frazi invertidu ([::-1])
   solutionCode: |
     # frazi.py
     frazi = input("Skrebe un frazi: ")
 
     print(f"Palavras: {len(frazi.split())}")
-    print(f"Letra 'a': {frazi.count('a')} bes")
+    print(f"Letra 'a': {frazi.count('a')} bez")
     print(f"Invertidu: {frazi[::-1]}")
 - slug: formatador-di-kontatu
   language: python
@@ -67,7 +67,7 @@
   prompt:
     kea: "Pidi nomi, ilha i telefone, i mostra un kartu di kontatu formatadu ku f-strings — kada kampu na se própria linha (`Nomi:`, `Ilha:`, `Tel:`), alinhadu ku `:<` pa fika sertu."
   hint:
-    kea: "Uza `:<12` dentu di un f-string pa alinha un valor na 12 karater (`f\"Nomi: {nomi:<12}\"`). Pa o telefone, bu pode formata os dígitus ku slicing: `f\"+{tel[:3]} {tel[3:6]}-{tel[6:8]}-{tel[8:]}\"`."
+    kea: "Uza `:<12` dentu di un f-string pa alinha un valor na 12 karater (`f\"Nomi: {nomi:<12}\"`). Pa telefone, bu pode formata dígitus ku slicing: `f\"+{tel[:3]} {tel[3:6]}-{tel[6:8]}-{tel[8:]}\"`."
   starterCode: |
     # kontatu.py
     nomi = input("Nomi? ")
@@ -93,7 +93,7 @@
   file: nomi.py
   title: { kea: "Koriji un string imutável" }
   prompt:
-    kea: "Es programa ta da un `TypeError` kuandu el tenta muda a primeru letra di `nomi`. Strings é **imutável**! Koriji-l pa `nomi` fika `Toni`."
+    kea: "Es programa ta da un `TypeError` kuandu el tenta muda primeru letra di `nomi`. Strings é **imutável**! Koriji-l pa `nomi` fika `Toni`."
   hint:
     kea: "`nomi[0] = \"T\"` ta da `TypeError: 'str' object does not support item assignment` — un string ka pode ser mudadu na lugar. Kria un string novu: `nomi = \"T\" + nomi[1:]` (o `nomi.capitalize()`)."
   starterCode: |
@@ -111,7 +111,7 @@
   kind: explore
   title: { kea: "Splora tudu os metodus di string" }
   prompt:
-    kea: "String tene dezenas di metodus — `.upper()`, `.split()`, `.replace()` é só algun. Odja a lista ofisial pa odja o ki más izisti; ka meste dekora, só sabe undi buska kuandu bu meste."
+    kea: "String tene dezenas di metodus — `.upper()`, `.split()`, `.replace()` é só algun. Odja lista ofisial pa odja o ki más izisti; ka meste dekora, só sabe undi buska kuandu bu meste."
   resources:
     kea:
       - { label: "Python docs — String Methods", url: "https://docs.python.org/3/library/stdtypes.html#string-methods" }

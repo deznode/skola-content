@@ -36,7 +36,7 @@
       correct: true
     - text: { kea: "Ta retorna `0` pa string ki ka é númeru" }
       correct: false
-    - text: { kea: "Ta retorna o tamañu di string: `5`" }
+    - text: { kea: "Ta retorna tamanhu di string: `5`" }
       correct: false
     - text: { kea: "Un `TypeError` — `int()` ka ta seita strings" }
       correct: false

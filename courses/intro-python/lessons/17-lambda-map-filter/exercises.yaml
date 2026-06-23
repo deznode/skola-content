@@ -16,14 +16,14 @@
   kind: code
   title: { kea: "Konversor di moeda ku map()" }
   prompt:
-    kea: "Uza `map()` pa konverti un lista di presus na ECV pa Euro (taxa: `1 EUR = 110.265 ECV`). Arredonda pa 2 kaza desimal i konverti o rezultadu pa un lista."
+    kea: "Uza `map()` pa konverti un lista di presus na ECV pa Euro (taxa: `1 EUR = 110.265 ECV`). Aredonda pa 2 kaza desimal i konverti o rezultadu pa un lista."
   hint:
     kea: "`list(map(lambda p: round(p / 110.265, 2), presus))`. Lenbra: sen o `list(...)`, `map()` ta da un objetu lazy, ka un lista."
   starterCode: |
     # moeda.py
     presus_ecv = [500, 1200, 3500, 8000, 15000]
 
-    # TODO: map() pa konverti pa EUR, arredondadu a 2 kaza
+    # TODO: map() pa konverti pa EUR, aredondadu a 2 kaza
     presus_eur =
     print(presus_eur)
   solutionCode: |

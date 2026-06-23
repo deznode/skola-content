@@ -10,33 +10,44 @@
 - question:
     kea: "Ki númerus `range(1, 6)` ta jera?"
   options:
-    - text: { kea: "`1, 2, 3, 4, 5` — o `stop` (`6`) **ka** ta entra" }
+    - text: { kea: "`1, 2, 3, 4, 5` — `stop` (`6`) **ka** ta entra" }
       correct: true
-    - text: { kea: "`1, 2, 3, 4, 5, 6` — os dos limiti ta entra" }
+    - text: { kea: "`1, 2, 3, 4, 5, 6` — dos limiti ta entra" }
       correct: false
     - text: { kea: "`0, 1, 2, 3, 4, 5` — ta kumesa senpri na 0" }
       correct: false
-    - text: { kea: "`2, 3, 4, 5, 6` — o `start` ka ta entra" }
+    - text: { kea: "`2, 3, 4, 5, 6` — `start` ka ta entra" }
       correct: false
 - question:
-    kea: "Kal é a diferensa entri `break` i `continue`?"
+    kea: "Kal é diferensa entri `break` i `continue`?"
   options:
-    - text: { kea: "`break` ta sai di o loop interu; `continue` ta pula só o restu di a iterasan atual i ta bai pa a prósima" }
+    - text: { kea: "`break` ta sai di loop interu; `continue` ta pula só restu di iterasan atual i ta bai pa prósima" }
       correct: true
-    - text: { kea: "`break` ta pula un iterasan; `continue` ta sai di o loop" }
+    - text: { kea: "`break` ta pula un iterasan; `continue` ta sai di loop" }
       correct: false
-    - text: { kea: "Os dos ta sai di o loop, ma `continue` é más rápidu" }
+    - text: { kea: "Dos ta sai di loop, ma `continue` é más rápidu" }
       correct: false
-    - text: { kea: "`break` ta pausa o loop; `continue` ta rekomesa-l di o iníisu" }
+    - text: { kea: "`break` ta pausa loop; `continue` ta rekomesa-l di inisu" }
       correct: false
 - question:
-    kea: "Nun `while` loop, o ki ta kontise si bu skese di atualiza a variável di kontrol (p.ex. `kontador += 1`)?"
+    kea: "Nun `while` loop, o ki ta kontise si bu skese di atualiza variável di kontrol (p.ex. `kontador += 1`)?"
   options:
-    - text: { kea: "Un loop infinitu — a kondisan ta fika senpri `True` i o loop ka ta para nunka" }
+    - text: { kea: "Un loop infinitu — kondisan ta fika senpri `True` i loop ka ta para nunka" }
       correct: true
-    - text: { kea: "O loop ta kore un bez só i para" }
+    - text: { kea: "Loop ta kore un bez só i para" }
       correct: false
     - text: { kea: "Python ta da un `SyntaxError` antis di kore" }
       correct: false
-    - text: { kea: "O loop ta atualiza a variável automátikamenti" }
+    - text: { kea: "Loop ta atualiza variável automatikamenti" }
+      correct: false
+- question:
+    kea: "Nun `for ... else`, kuandu é ki bloku `else` ta kore?"
+  options:
+    - text: { kea: "Só si loop termina sen ki un `break` é izekutadu" }
+      correct: true
+    - text: { kea: "Senpri ki loop termina, ku ou sen `break`" }
+      correct: false
+    - text: { kea: "Só si loop ta izekuta un `break`" }
+      correct: false
+    - text: { kea: "Só si kondisan di `for` é `False` di inisu" }
       correct: false

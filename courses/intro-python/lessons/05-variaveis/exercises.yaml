@@ -54,7 +54,7 @@
   prompt:
     kea: "Skrebe un programa ki ta pergunta nomi, ilha i anu di nasimentu, kalkula idadi (`2026 - anu`) i imprimi un mensajen sabi kumo `Ola, Tóni di Santiago! Bu ten 25 anu.`"
   hint:
-    kea: "Lenbra: `input()` senpri ta retorna string! Pa kalkula `2026 - anu`, konverti o anu ku `int(input(...))` primeru. O nomi i a ilha pode fika kumo string. Po tudu djuntu na un f-string."
+    kea: "Lenbra: `input()` senpri ta retorna string! Pa kalkula `2026 - anu`, konverti anu ku `int(input(...))` primeru. Nomi i ilha pode fika kumo string. Po tudu djuntu na un f-string."
   starterCode: |
     # idadi.py
     nomi = input("Bu nomi? ")
@@ -77,9 +77,9 @@
   kind: code
   title: { kea: "Adivinha o tipu dipos di kada konversan" }
   prompt:
-    kea: "Pa kada linha, adivinha o tipu di `valor` dipos di kada konversan. Dipos kore o kódiku ku `type()` na kada pasu pa konfirma si bu staba sertu."
+    kea: "Pa kada linha, adivinha tipu di `valor` dipos di kada konversan. Dipos kore kódiku ku `type()` na kada pasu pa konfirma si bu staba sertu."
   hint:
-    kea: "`input()` ta da senpri `str`. Dipos `int(valor)` ta da `int`, `float(valor)` ta da `float`, i `str(valor)` ta volta pa `str`. Po un `print(type(valor))` dipos di kada linha pa odja a mudansa."
+    kea: "`input()` ta da senpri `str`. Dipos `int(valor)` ta da `int`, `float(valor)` ta da `float`, i `str(valor)` ta volta pa `str`. Po un `print(type(valor))` dipos di kada linha pa odja mudansa."
   starterCode: |
     # tipus.py — adivinha o tipu, dipos po type() pa konfirma
     valor = input("Skrebe un kuza: ")   # tipu = ?
@@ -105,9 +105,9 @@
   file: troka.py
   title: { kea: "Koriji un troka di variáveis" }
   prompt:
-    kea: "Es programa debe troka os valoris di `a` i `b` (`a` fika ku 20, `b` ku 10), ma na fin os dos ta fika `20`. Diskubri pamodi i koriji-l."
+    kea: "Es programa debe troka valoris di `a` i `b` (`a` fika ku 20, `b` ku 10), ma na fin os dos ta fika `20`. Diskubri pamodi i koriji-l."
   hint:
-    kea: "`a = b` ta po `a` igual a 20, ma gosi o valor antigu di `a` (10) sta perdidu — `b = a` ta kopia `20` di volta. Uza un variável temporáriu, o o atadju di Python: `a, b = b, a`."
+    kea: "`a = b` ta po `a` igual a 20, ma gosi valor antigu di `a` (10) sta perdidu — `b = a` ta kopia `20` di volta. Uza un variável temporáriu, o atadju di Python: `a, b = b, a`."
   starterCode: |
     # troka.py — debe troka a i b, ma os dos ta fika 20. Koriji-l.
     a = 10
@@ -128,9 +128,9 @@
 - slug: splora-funsoens-konversan
   language: python
   kind: explore
-  title: { kea: "Splora as funsons di konversan" }
+  title: { kea: "Splora funsons di konversan" }
   prompt:
-    kea: "`int()`, `float()`, `str()` i `bool()` é só algun di as funsons inkorporadu di Python. Odja a lista ofisial pa odja o ki más izisti — ka meste dekora-s, só sabe undi buska."
+    kea: "`int()`, `float()`, `str()` i `bool()` é só algun di funsons inkorporadu di Python. Odja lista ofisial pa odja o ki más izisti — ka meste dekora-s, só sabe undi buska."
   resources:
     kea:
       - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }

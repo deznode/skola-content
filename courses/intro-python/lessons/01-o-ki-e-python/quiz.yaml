@@ -58,7 +58,7 @@
     kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"
     en: "For tech professionals in Cape Verde, what is Python's main advantage?"
   options:
-    - text: { kea: "El ta funsiona so na portugés", en: "Only works in Portuguese" }
+    - text: { kea: "El ta funsiona so na portugues", en: "Only works in Portuguese" }
       correct: false
       explain:
         kea: "Python ka ta dependi di un língua; kódiku ta uza palavras na inglés."

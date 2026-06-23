@@ -39,7 +39,7 @@
   prompt:
     kea: "Kria un ficheru `conversor.py` ku as funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu ficheru, importa-s i testa."
   hint:
-    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Arredonda o rezultadu ku `round(..., 2)`."
+    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Aredonda o rezultadu ku `round(..., 2)`."
   starterCode: |
     # conversor.py
     TAXA = 110.265

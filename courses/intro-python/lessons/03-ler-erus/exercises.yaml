@@ -22,9 +22,9 @@
   file: nomi.py
   title: { kea: "Koriji un NameError" }
   prompt:
-    kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja o traceback, i koriji-l pa el imprimi `Ola, Tóni`."
+    kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja traceback, i koriji-l pa el imprimi `Ola, Tóni`."
   hint:
-    kea: "Lé última linha: `name 'nomi' is not defined`. A variável `nomi` ka foi kriadu antis di uza-l na `print`. Defini-l primeru — por izemplu `nomi = \"Tóni\"` o `nomi = input(\"Bu nomi? \")`."
+    kea: "Ler última linha: `name 'nomi' is not defined`. Variável `nomi` ka foi kriadu antis di uza-l na `print`. Defini-l primeru — por izemplu `nomi = \"Tóni\"` o `nomi = input(\"Bu nomi? \")`."
   starterCode: |
     # nomi.py — es programa ta da un NameError. Koriji-l.
     print("Ola, " + nomi)
@@ -38,9 +38,9 @@
   file: loja.py
   title: { kea: "Koriji un TypeError" }
   prompt:
-    kea: "Es programa ta da un `TypeError`. **Dika:** `input()` ta retorna senpri un string! Koriji-l pa el kalkula o presu total."
+    kea: "Es programa ta da un `TypeError`. **Dika:** `input()` ta retorna senpri un string! Koriji-l pa el kalkula presu total."
   hint:
-    kea: "Lé última linha: `can't multiply sequence by non-int`. Tantu `presu` kumo `kantidadi` ben di `input()`, nton es é **strings**, ka númerus. Konverti kada un ku `int(...)` antis di multiplika."
+    kea: "Ler última linha: `can't multiply sequence by non-int`. Tantu `presu` kumo `kantidadi` ben di `input()`, nton es é **strings**, ka númerus. Konverti kada un ku `int(...)` antis di multiplika."
   starterCode: |
     # loja.py — es programa ta da un TypeError. Koriji-l.
     presu = input("Presu di un item? ")
@@ -59,7 +59,7 @@
   file: fruta.py
   title: { kea: "Koriji un IndexError" }
   prompt:
-    kea: "Es programa ta da un `IndexError`: a lista `fruta` ten 3 elementus, ma `print(fruta[5])` ta pidi índisi 5. Koriji-l pa el imprimi un fruta ki ezisti na lista."
+    kea: "Es programa ta da un `IndexError`: lista `fruta` ten 3 elementus, ma `print(fruta[5])` ta pidi índisi 5. Koriji-l pa el imprimi un fruta ki ezisti na lista."
   hint:
     kea: "Lista ten 3 elementus, nton índisis válidu é só `0`, `1` i `2` — ka `3`, `4` o `5`. Lenbra: índisi ta kumesa na 0, i último índisi válidu é `len(fruta) - 1`."
   starterCode: |

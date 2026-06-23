@@ -107,7 +107,7 @@
   prompt:
     kea: "Es programa debe kalkula a média di tres nota (debe ser `80.0`), ma `media` ta sai mutu altu. O problema é a presedensia di os operadoris. Koriji-l."
   hint:
-    kea: "Na `nota1 + nota2 + nota3 / 3`, o `/` ta kore **antis** di o `+`, anton só `nota3` ta ser divididu pa 3. Po as somas dentu di parêntesis: `(nota1 + nota2 + nota3) / 3`."
+    kea: "Na `nota1 + nota2 + nota3 / 3`, o `/` ta kore **antis** di o `+`, anton só `nota3` ta ser divididu pa 3. Po as somas dentu di paréntesis: `(nota1 + nota2 + nota3) / 3`."
   starterCode: |
     # media.py — a média ta sai mutu altu. Koriji a presedensia.
     nota1 = 80
@@ -117,7 +117,7 @@
     media = nota1 + nota2 + nota3 / 3
     print(f"Média: {media}")   # debe ser 80.0
   solutionCode: |
-    # media.py — parêntesis pa soma antis di dividi
+    # media.py — paréntesis pa soma antis di dividi
     nota1 = 80
     nota2 = 90
     nota3 = 70

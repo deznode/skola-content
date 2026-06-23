@@ -13,12 +13,19 @@ objectives:
   - "Uza while loop pa repetisan kondisinál"
   - "Kontrola fluxu ku break, continue i pass"
   - "Kria loops aninhadu pa padruns kompleksu"
-  - "Konxé enumerate() kumo pitu pa Module 3"
+  - "Konxe enumerate() kumo pitu pa Module 3"
 ---
 
 # Loops (for/while)
 
 Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu bez sen skrebe mesmu koza repetidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
+
+<GlossaryText
+  text="Kada bez ki un loop ta kori bloku di dentu, nu ta txoma kel un [[iterasan]] — loops ta otomatiza es repetison."
+  terms={{
+    iterasan: { en: "iteration", definition: "Un volta úniku di un loop — un pasaji pa bloku di kódiku ki ta repeti. Un loop ku 5 voltas ta faze 5 iterasons." },
+  }}
+/>
 
 ## For Loop ku Range()
 
@@ -35,23 +42,30 @@ for i in range(5):
 
 `range()` ta aséita até 3 argumentus: `range(start, stop, step)`:
 
-```python
-# range(stop) -- kumesa na 0
-for i in range(5):
-    print(i)         # 0, 1, 2, 3, 4
-
-# range(start, stop) -- stop ka ta inkluídu!
-for i in range(1, 6):
-    print(i)         # 1, 2, 3, 4, 5
-
-# range(start, stop, step)
-for i in range(0, 10, 2):
-    print(i)         # 0, 2, 4, 6, 8
-
-# Kontajen disendenti
-for i in range(10, 0, -1):
-    print(i)         # 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
-```
+<AnnotatedCode
+  lang="python"
+  title="Kuatu formas di uza range()"
+  code={[
+    { t: "# range(stop) — kumesa senpri na 0", m: 1 },
+    { t: "for i in range(5):", m: 1 },
+    { t: "    print(i)          # 0, 1, 2, 3, 4", m: 0 },
+    { t: "# range(start, stop)", m: 2 },
+    { t: "for i in range(1, 6):", m: 2 },
+    { t: "    print(i)          # 1, 2, 3, 4, 5", m: 0 },
+    { t: "# range(start, stop, step)", m: 3 },
+    { t: "for i in range(0, 10, 2):", m: 3 },
+    { t: "    print(i)          # 0, 2, 4, 6, 8", m: 0 },
+    { t: "# Kontajen disendenti (step negativu)", m: 4 },
+    { t: "for i in range(10, 0, -1):", m: 4 },
+    { t: "    print(i)          # 10, 9, ... , 1", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Un argumentu", body: "`range(5)` ta kumesa na **0** i ta para **antis** di `5`." },
+    { m: 2, title: "Dos argumentus", body: "`range(1, 6)` ta kumesa na `1`; `stop` (`6`) **ka** ta entra." },
+    { m: 3, title: "Tres argumentus", body: "Terseru valor é **step** (saltu) — `2` ta pula di dos en dos." },
+    { m: 4, title: "Step negativu", body: "Un step negativu ta konta **pa trás** — `range(10, 0, -1)` ta da `10` até `1`." },
+  ]}
+/>
 
 :::callout{type=tip}
 `range(stop)` ta kumesa SENPRI na 0 i ta para ANTES di `stop`. Nton `range(5)` ta dá 0, 1, 2, 3, 4 — sinku numerus, ma nunka txiga na 5!
@@ -127,7 +141,7 @@ while kontador <= 5:
 ```
 
 :::callout{type=warning}
-Senpri garanti ki kondisan di `while` ta txiga a `False` na algun momentu. Sen kél, bu ta kria un "loop infinitu" ki ka ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
+Senpri garanti ki kondisan di `while` ta txiga pa `False` na algun momentu. Sen kél, bu ta kria un "loop infinitu" ki ka ta para nunka! Pa para un loop infinitu, primi `Ctrl + C` na terminal.
 :::
 
 Izemplu prátiku — jogu di adivinha:
@@ -167,9 +181,24 @@ while numeru <= 0:
 print(f"Bo inseri: {numeru}")
 ```
 
+<SectionHeading variant="concept">For o While — kal ki ta uza?</SectionHeading>
+<CompareTable
+  showHeader={false}
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "for", syntax: "for x in ...", accent: "blue" },
+    { name: "while", syntax: "while kondisan:", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Kuandu uza", kind: "text", vals: ["Bu **sabe** kuantas bez (lista, string, `range`)", "Bu **ka sabe** kuantas bez — ta para ku un kondisan"] },
+    { label: "Para sózin (sen risku di loop infinitu)", kind: "bool", vals: [true, false] },
+    { label: "Izemplu típiku", kind: "text", vals: ["Itera sima un lista di ilhas", "Pidi input té ki é válidu"] },
+  ]}
+/>
+
 ## Break, Continue i Pass
 
-Python tene 3 instruson spesiál pa kontrola kumé loop ta funsiona:
+Python tene 3 instruson spesiál pa kontrola kumo loop ta funsiona:
 
 ### Break — Sai di Loop
 
@@ -299,6 +328,10 @@ for linha in range(3):
 # (2,0)  (2,1)  (2,2)
 ```
 
+:::callout{type=tip}
+**Para i pensa:** antes di kontinua — si bu tene un `for i in range(3)` ku un `for j in range(2)` dentu, kuantas bez ta kore `print` di dentu? (Resposta: 3 × 2 = 6.)
+:::
+
 Izemplu dekorativu — triángulu di estrelas:
 
 ```python
@@ -315,7 +348,7 @@ for i in range(1, andaris + 1):
 # ⭐⭐⭐⭐⭐
 ```
 
-## Ezemplus Prátikus
+## Izemplus Prátikus
 
 ### Soma di N Numerus
 
@@ -377,38 +410,50 @@ for ilha, temp_f in ilhas_temp:
     print(f"{ilha:<15} {temp_f:>5}°F {temp_c:>5.1f}°C")
 ```
 
-### FizzBuzz (Ezersísiu Klásku)
+<SectionHeading variant="practice" level={3}>FizzBuzz (Ezersísiu Klásku)</SectionHeading>
 
-```python
-# FizzBuzz -- un ezersísiu famózu di programasan
-for i in range(1, 31):
-    if i % 3 == 0 and i % 5 == 0:
-        print("FizzBuzz")
-    elif i % 3 == 0:
-        print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
-```
+FizzBuzz é un ezersísiu famózu di programasan. Pa kada númeru di 1 a 30: mostra `Fizz` si é múltiplu di 3, `Buzz` si é múltiplu di 5, `FizzBuzz` si é múltiplu di ambos, ó própi númeru.
+
+<ParsonsProblem
+  title="Organiza FizzBuzz"
+  prompt="Ordena es liñas pa kria FizzBuzz. **Dika:** test di `FizzBuzz` (múltiplu di 3 **i** 5) ten ki ben **primeru** — senan `Fizz` ó `Buzz` ta apanha-l antis!"
+  solution={[
+    "for i in range(1, 31):",
+    "    if i % 3 == 0 and i % 5 == 0:",
+    '        print("FizzBuzz")',
+    "    elif i % 3 == 0:",
+    '        print("Fizz")',
+    "    elif i % 5 == 0:",
+    '        print("Buzz")',
+    "    else:",
+    "        print(i)",
+  ]}
+/>
 
 ## Pitu di Enumerate()
 
-Kuandu bu ta itera sima un lista i bo presiza tanbe sabé índisi (pozisan), `enumerate()` é bo amigu milhor:
+<GlossaryText
+  text="Kuandu bu ta itera sima un lista i bo presiza tanbe sabé [[índisi]] (pozisan) di kada elementu, `enumerate()` é bo amigu midjór:"
+  terms={{
+    índisi: { en: "index", definition: "Pozisan numérika di un elementu na un sekuénsia, ki ta kumesa na 0. Na [\"a\", \"b\"], \"a\" tene índisi 0 i \"b\" índisi 1." },
+  }}
+/>
 
-```python
-# Sen enumerate -- funsiona ma ka é eleganti
-ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
+<CodeDiff
+  lang="python"
+  filename="enumerate.py"
+  title="range(len(...)) → enumerate()"
+  note="`enumerate()` ta da índisi i valor djuntu — más limpu i Pythonic ki indexa ku `range(len(...))`."
+  diff={[
+    { type: "ctx", t: 'ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]' },
+    { type: "del", t: "for i in range(len(ilhas)):" },
+    { type: "del", t: '    print(f"{i + 1}. {ilhas[i]}")' },
+    { type: "add", t: "for i, ilha in enumerate(ilhas, start=1):" },
+    { type: "add", t: '    print(f"{i}. {ilha}")' },
+  ]}
+/>
 
-for i in range(len(ilhas)):
-    print(f"{i + 1}. {ilhas[i]}")
-
-# Ku enumerate -- más limpu i Pythonic!
-for i, ilha in enumerate(ilhas, start=1):
-    print(f"{i}. {ilha}")
-```
-
-Ambos ta dá mesmu resultadu:
+Ambos ta dá mesmu rezultadu:
 ```
 1. Santiago
 2. São Vicente
@@ -418,48 +463,55 @@ Ambos ta dá mesmu resultadu:
 ```
 
 :::callout{type=info}
-`enumerate()` é un funsan inkorporadu ki nos ta explora na detalhi na Module 3 (Lisan 18: Funsons Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bu ta itera.
+`enumerate()` é un funsan inkorporadu ki nu ta explora na detalhi na Module 3 (Lisan 18: Funsons Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bu ta itera.
 :::
 
 ## Erus Komun ku Loops
 
-```python
-# ERU 1: Loop infinitu (skise atualiza variável)
-# kontador = 0
-# while kontador < 5:
-#     print(kontador)
-#     # Skise: kontador += 1  --> loop ta kori pa senpri!
+<DetailDisclosure
+  items={[
+    {
+      q: "Loop infinitu — skese di atualiza variável",
+      tag: "Eru",
+      a: "Nun `while`, si bu ka muda variável di kontrol, kondisan ta fika senpri `True` i loop ka ta para nunka. Atualiza-l dentu di loop.",
+      code: "kontador += 1",
+    },
+    {
+      q: "Off-by-one ku `range()`",
+      tag: "Eru",
+      a: "`range(1, 5)` ta da `1, 2, 3, 4` — `stop` **ka** ta entra. Pa inklui `5`, uza `range(1, 6)`.",
+      code: "range(1, 6)",
+    },
+    {
+      q: "Modifika un lista enkuantu bu ta itera-l",
+      tag: "Eru",
+      a: "Tira elementus di un lista dentu di un `for` sima kel lista ta kausa bugs (saltu di elementus). Itera sima un **kópia** ku `[:]`.",
+      code: "for nomi in nomis[:]:",
+    },
+    {
+      q: "Uza `=` en bez di `==` na kondisan",
+      tag: "Eru",
+      a: "`=` é atribuisan; komparasan é `==`. `while kontador = 5:` ta da un `SyntaxError`.",
+      code: "while kontador == 5:",
+    },
+  ]}
+/>
 
-# ERU 2: Off-by-one ku range()
-# range(1, 5) ta dá 1, 2, 3, 4 -- KA inklui 5!
-# Pa inklui 5: range(1, 6)
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-# ERU 3: Modifika lista enkuantu ta itera
-# nomis = ["João", "Ana", "Maria"]
-# for nomi in nomis:
-#     if nomi == "Ana":
-#         nomis.remove(nomi)  # PERIGOZU! Ta kauza bugs
-
-# ERU 4: Uza = en bez di == na kondisan
-# while kontador = 5:    # SyntaxError!
-# while kontador == 5:   # Korretu ✓
-```
-
-## Tenta Gosi
-<TentaGosi />
-
-## Testa bu Konhesimentu
-<QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Nun `while` loop, garanti senpri ki a kondisan ta txiga a `False` — atualiza a variável di kontrol, senan bu ta kria un **loop infinitu**.</RezumuItem>
-  <RezumuItem term="for + range">`for` ta itera sima un sekuénsia; `range(start, stop, step)` ta jera númerus i o `stop` **ka** ta entra.</RezumuItem>
-  <RezumuItem term="while">Ta repeti enkuantu a kondisan é `True` — bon kuandu bu ka sabe kuantas bez.</RezumuItem>
-  <RezumuItem term="break / continue / pass">`break` ta sai di o loop; `continue` ta pula pa a prósima iterasan; `pass` é un placeholder ki ka ta faze nada.</RezumuItem>
-  <RezumuItem term="for-else">O `else` di un `for` ta kore só si o loop termina **sen** `break` — perfeitu pa buskas.</RezumuItem>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Regra di oru">Nun `while` loop, garanti senpri ki kondisan ta txiga pa `False` — atualiza variável di kontrol, senan bu ta kria un **loop infinitu**.</RezumuItem>
+  <RezumuItem term="for + range">`for` ta itera sima un sekuénsia; `range(start, stop, step)` ta jera númerus i `stop` **ka** ta entra.</RezumuItem>
+  <RezumuItem term="while">Ta repeti enkuantu kondisan é `True` — bon kuandu bu ka sabe kuantas bez.</RezumuItem>
+  <RezumuItem term="break / continue / pass">`break` ta sai di loop; `continue` ta pula pa prósima iterasan; `pass` é un placeholder ki ka ta faze nada.</RezumuItem>
+  <RezumuItem term="for-else">`else` di un `for` ta kore só si loop termina **sen** `break` — perfeitu pa buskas.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Off-by-one ku `range()` (`range(1, 5)` ka inklui `5`), loop infinitu na `while`, i modifika un lista enkuantu bu ta itera-l.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">`enumerate()` ta da índisi i valor djuntu — más Pythonic ki `range(len(...))`. Bu ta volta a el na Lisan 18.</RezumuItem>
 </KeyTakeaways>

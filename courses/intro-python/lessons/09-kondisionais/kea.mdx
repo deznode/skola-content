@@ -12,12 +12,24 @@ objectives:
   - "Skrebe kadeia if/elif/else pa klasifika valóris"
   - "Kria kondisionais aninhadu pa lójika kompleksu"
   - "Konstrui un kalkuladora simples ku kondisionais"
-  - "Konxé match/case kumo alternativa modernu (Python 3.10+)"
+  - "Konxe match/case kumo alternativa modernu (Python 3.10+)"
 ---
 
 # Kondisionais (if/elif/else)
 
-Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, nha ta lerba garda-txuva. Si nau, nha ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizun baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
+Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizun baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
+
+<GlossaryText
+  text="Un programa ta toma desizun avaliandu un [[kondisan]] — un pergunta ki ta da `True` ó `False` (un valor [[boolean]])."
+  terms={{
+    kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ó `False` — pa izemplu idadi >= 18. É o ki un if ta verifika antis di disidi." },
+    boolean: { en: "boolean", definition: "Tipu di dadu ku dos valor sô: True ó False. Tudu komparasan (==, >, <...) ta produzi un boolean." },
+  }}
+/>
+
+:::callout{type=tip}
+Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`and`, `or`, `not`). Kada un di es ta da un `boolean` (`True`/`False`) — i é izatamenti kel ki un `if` ta presiza. Nes lisan nu ta uza-s pa toma desizun.
+:::
 
 ## If i Else Báziku
 
@@ -25,24 +37,25 @@ Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, nha ta lerba ga
 
 Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta bloku di kódiku dentu. Si é `False`, el ta pula pa `else`.
 
-```python
-# Verifikasan simples di idadi
-idadi = 18
-
-if idadi >= 18:
-    print("Bo é adultu.")
-else:
-    print("Bo é menor di idadi.")
-```
-
-**Kumé ki funsiona:**
-
-1. Python ta avalia kondisan `idadi >= 18`
-2. Si é `True` — izekuta primeru bloku (dipos di `if`)
-3. Si é `False` — izekuta bloku `else`
+<AnnotatedCode
+  lang="python"
+  title="Kumé ki un if/else ta funsiona"
+  code={[
+    { t: "idadi = 18", m: 0 },
+    { t: "if idadi >= 18:", m: 1 },
+    { t: '    print("Bo é adultu.")', m: 2 },
+    { t: "else:", m: 0 },
+    { t: '    print("Bo é menor di idadi.")', m: 3 },
+  ]}
+  notes={[
+    { m: 1, title: "Avalia kondisan", body: "Python ta avalia `idadi >= 18` — ta da `True` ó `False`." },
+    { m: 2, title: "Si é True", body: "Si kondisan é `True`, ta izekuta bloku **indentadu** dipos di `if`." },
+    { m: 3, title: "Si é False", body: "Si é `False`, Python ta salta diretu pa bloku `else`." },
+  ]}
+/>
 
 :::callout{type=warning}
-Nunka skise `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabe ki kódiku ta pertensi a kál bloku.
+Nunka skise `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabe ki kódiku ta pertensi pa kál bloku.
 :::
 
 Ma uzus simples:
@@ -115,7 +128,7 @@ else:
 
 ## Kondisionais Aninhadu
 
-Bu pode po un `if` dentu di otu `if`. Es ta txomá "kondisionais aninhadu" (nested conditionals). Útil kuandu bo presiza verifika más ki un koza di bez.
+Bu pode po un `if` dentu di otu `if`. Es ta txoma "kondisionais aninhadu" (nested conditionals). Útil kuandu bo presiza verifika más ki un koza di bez.
 
 ```python
 # Verifica si numeru é par/ímpar i positivu/negativu
@@ -147,39 +160,18 @@ Un anu é bisextu si:
 - É divisível pa 4 **I**
 - **KA** é divisível pa 100 **OU** é divisível pa 400
 
-```python
-# Verifikador di anu bisextu
-anu = int(input("Inseri un anu: "))
+Es dos versons ta da **mesmu rezultadu** — vira es tabs pa kompara `if` aninhadu ku versan nun linha só (ku operadoris `and` i `or` ki bu prende na L08; nu ta volta na es más baxu na seksan "Kondisionais ku Operadoris Lójiku"):
 
-if anu % 4 == 0:
-    if anu % 100 == 0:
-        if anu % 400 == 0:
-            print(f"{anu} é anu bisextu! 📅")
-        else:
-            print(f"{anu} KA é anu bisextu.")
-    else:
-        print(f"{anu} é anu bisextu! 📅")
-else:
-    print(f"{anu} KA é anu bisextu.")
-```
+<CodeExample position={1} showTabs />
 
 Testa ku anus diferenti:
-- `2024` — bisextu (divisível pa 4, nau pa 100)
-- `1900` — NAU bisextu (divisível pa 100, ma nau pa 400)
-- `2000` — bisextu (divisível pa 400)
-- `2023` — NAU bisextu (nau divisível pa 4)
 
-Bo tanbe pode skrebe mesmu lójika na un linha ku operadoris `and` i `or`:
-
-```python
-# Versan simplifikadu ku operadoris lójiku
-anu = int(input("Inseri un anu: "))
-
-if (anu % 4 == 0 and anu % 100 != 0) or (anu % 400 == 0):
-    print(f"{anu} é anu bisextu! 📅")
-else:
-    print(f"{anu} KA é anu bisextu.")
-```
+| Anu | Bisextu? | Pamodi |
+|-----|----------|--------|
+| `2024` | ✅ Sin | Divisível pa 4, nau pa 100 |
+| `1900` | ❌ Nau | Divisível pa 100, ma nau pa 400 |
+| `2000` | ✅ Sin | Divisível pa 400 |
+| `2023` | ❌ Nau | Nau divisível pa 4 |
 
 ## Kalkuladora Simples
 
@@ -193,26 +185,26 @@ num2 = float(input("Sigundu numeru: "))
 operasan = input("Operasan (+, -, *, /): ")
 
 if operasan == "+":
-    resultadu = num1 + num2
-    print(f"{num1} + {num2} = {resultadu}")
+    rezultadu = num1 + num2
+    print(f"{num1} + {num2} = {rezultadu}")
 elif operasan == "-":
-    resultadu = num1 - num2
-    print(f"{num1} - {num2} = {resultadu}")
+    rezultadu = num1 - num2
+    print(f"{num1} - {num2} = {rezultadu}")
 elif operasan == "*":
-    resultadu = num1 * num2
-    print(f"{num1} * {num2} = {resultadu}")
+    rezultadu = num1 * num2
+    print(f"{num1} * {num2} = {rezultadu}")
 elif operasan == "/":
     if num2 != 0:
-        resultadu = num1 / num2
-        print(f"{num1} / {num2} = {resultadu}")
+        rezultadu = num1 / num2
+        print(f"{num1} / {num2} = {rezultadu}")
     else:
-        print("Eru: Ka podi dividi pa zeru!")
+        print("Eru: Ka pode dividi pa zeru!")
 else:
     print(f"Operasan '{operasan}' ka é válidu. Uza +, -, * ó /.")
 ```
 
 :::callout{type=tip}
-Nota kumé ki nos po un `if` dentu di `elif operasan == "/"` pa verifika si `num2` é zeru. Divizun pa zeru ta kauza `ZeroDivisionError` na Python!
+Nota kumo ki nos po un `if` dentu di `elif operasan == "/"` pa verifika si `num2` é zeru. Divizan pa zeru ta kauza `ZeroDivisionError` na Python!
 :::
 
 ## Kondisionais na Un Linha (Ternary Operator)
@@ -222,7 +214,8 @@ Pa kondisionais simples, Python ta permiti skrebe tudu na un linha só. Es dos f
 <CodeExample position={0} showTabs />
 
 ```python
-# Más ezemplus
+# Más izemplus
+idadi = 20
 nomi = "Maria"
 saudasan = f"Bon dia, {nomi}!" if idadi >= 18 else f"Ola, {nomi}!"
 print(saudasan)
@@ -244,7 +237,7 @@ tene_bilheti = True
 if idadi >= 18 and tene_bilheti:
     print("Ben-vindu pa festa di funana! 🎵")
 else:
-    print("Bo ka podi entra.")
+    print("Bo ka pode entra.")
 ```
 
 ```python
@@ -266,7 +259,7 @@ sta_txobe = False
 if temperatura > 25 and not sta_txobe:
     print("Dia perfeitu pa bai praia na Sal! 🏖️")
 else:
-    print("Talves oxi ka é milhor dia.")
+    print("Talvez oji é ka midjór dia.")
 ```
 
 ## Pitu di Match/Case (Python 3.10+)
@@ -285,7 +278,7 @@ match operasan:
     case "*":
         print("Multiplikasan")
     case "/":
-        print("Divizun")
+        print("Divizan")
     case _:
         print("Operasan diskonxidu!")
 ```
@@ -311,43 +304,49 @@ match dia:
 
 ## Erus Komun ku Kondisionais
 
-```python
-# ERU 1: Uza = en bez di ==
-# if idadi = 18:    # SyntaxError! = é atribuisan
-if idadi == 18:      # == é komparasan ✓
-    print("18 anus!")
+<DetailDisclosure
+  items={[
+    {
+      q: "Uza `=` en bez di `==`",
+      tag: "Eru",
+      a: "`=` é atribuisan (guarda valor); komparasan é `==`. `if idadi = 18:` ta da un `SyntaxError`.",
+      code: "if idadi == 18:",
+    },
+    {
+      q: "Skese `:` na fin di liña",
+      tag: "Eru",
+      a: "Tudu `if`, `elif` i `else` ten ki kaba ku dos pontus `:`. Sen el, `SyntaxError`.",
+      code: "if idadi >= 18:",
+    },
+    {
+      q: "Indentasan inkorretu",
+      tag: "Eru",
+      a: "Kódiku dentu di un `if` ten ki ser indentadu ku 4 espasu. Sen indentasan, `IndentationError`.",
+      code: '    print("Adultu")',
+    },
+    {
+      q: "Kompara tipu diferenti (string ku int)",
+      tag: "Eru",
+      a: '`"18" == 18` ta da `False` — un string nunka é igual a un int. Konverti primeru ku `int()`.',
+      code: 'int("18") == 18',
+    },
+  ]}
+/>
 
-# ERU 2: Skise ':'
-# if idadi >= 18     # SyntaxError! Falta ':'
-if idadi >= 18:      # ✓
-    print("Adultu")
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-# ERU 3: Indentasan inkorretu
-# if idadi >= 18:
-# print("Adultu")    # IndentationError! Falta espasu
-if idadi >= 18:
-    print("Adultu")  # 4 espasu di indentasan ✓
-
-# ERU 4: Kompara tipu diferenti
-# if "18" == 18:     # False! string ka é igual a int
-if int("18") == 18:  # True ✓
-    print("Igual!")
-```
-
-## Tenta Gosi
-<TentaGosi />
-
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">A **orden** ta importa — Python ta para na primeru kondisan ki é `True`. Po as kondisons más estrita antis di as más larga.</RezumuItem>
-  <RezumuItem term="if / elif / else">`if` ta verifika un kondisan; `elif` ta djunta más opsons; `else` ta apanha tudu o restu.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">**Orden** ta importa — Python ta para na primeru kondisan ki é `True`. Po kondisons más estrita antis di más larga.</RezumuItem>
+  <RezumuItem term="if / elif / else">`if` ta verifika un kondisan; `elif` ta djunta más opsons; `else` ta apanha tudu restu.</RezumuItem>
   <RezumuItem term="Aninhadu">Bu pode po un `if` dentu di otu pa lójika kompleksu — ma kuidadu ku profundidadi (más di 3 nível ta fika difísil di ler).</RezumuItem>
   <RezumuItem term="Ternary">`valor if kondisan else otu_valor` é útil pa kazus simples nun linha.</RezumuItem>
   <RezumuItem term="match/case">Python 3.10+ — un alternativa eleganti pa kadeia di `if`/`elif` ku txeu opsan; `case _` é kumo `else`.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka skese o `:` dipos di `if`/`elif`/`else`, indenta ku 4 spasus, i uza senpri `==` (ka `=`) pa komparasan.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka skese `:` dipos di `if`/`elif`/`else`, indenta ku 4 spasus, i uza senpri `==` (ka `=`) pa komparasan.</RezumuItem>
 </KeyTakeaways>

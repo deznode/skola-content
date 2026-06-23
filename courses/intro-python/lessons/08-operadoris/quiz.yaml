@@ -16,14 +16,14 @@
       correct: false
     - text: { kea: "`1` — `//` ta da o restu" }
       correct: false
-    - text: { kea: "`4` — ta arredonda pa riba" }
+    - text: { kea: "`4` — ta aredonda pa riba" }
       correct: false
 - question:
     kea: "O ki ta imprimi `print(2 + 3 * 4)`?"
   options:
     - text: { kea: "`14` — a multiplikasan `*` ta kore antis di a adisan `+` (presedensia)" }
       correct: true
-    - text: { kea: "`20` — Python ta kalkula di eskerda pa direita: `(2 + 3) * 4`" }
+    - text: { kea: "`20` — Python ta kalkula di skerda pa direta: `(2 + 3) * 4`" }
       correct: false
     - text: { kea: "`24` — tudu multiplikadu" }
       correct: false
@@ -39,4 +39,13 @@
     - text: { kea: "Senpri — `and` ta da senpri `True`" }
       correct: false
     - text: { kea: "Só kuandu os dos kondisons é `False`" }
+      correct: false
+- question:
+    kea: "O ki ta da `not 5 > 3`?"
+  options:
+    - text: { kea: "`False` — komparasan ben antis di `not`: `not (5 > 3)` → `not True`" }
+      correct: true
+    - text: { kea: "Un erru (TypeError) — `not 5` ka pode kompara ku 3" }
+      correct: false
+    - text: { kea: "`True` — `not` ta kore primeru" }
       correct: false

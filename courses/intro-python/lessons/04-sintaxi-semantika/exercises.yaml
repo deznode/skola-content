@@ -22,7 +22,7 @@
   file: nomis.py
   title: { kea: "Koriji un eru di case sensitivity" }
   prompt:
-    kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja o eru, i koriji-l pa el imprimi tudu dos nomi."
+    kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja eru, i koriji-l pa el imprimi tudu dos nomi."
   hint:
     kea: "Lé última linha: `name 'Nomi' is not defined`. Python é **case sensitive** — `nomi`, `Nomi` i `NOMI` é tres variáveis diferenti. Só `nomi` i `NOMI` foi kriadu; `Nomi` (N maiúskulu) ka izisti. Skrebe `print(NOMI)` o defini `Nomi` antis."
   starterCode: |
@@ -45,7 +45,7 @@
   prompt:
     kea: "Es programa ten **3 erus**: un di case sensitivity i dos di indentasan. Kore-l pa odja kada eru, i koriji-l pa el imprimi `Ola, Djina!` i `Ben-vindu!`."
   hint:
-    kea: "Eru 1: a kondisan ta uza `nomi` (minúskulu), ma a variável foi kriadu kumo `Nomi` — uniformiza pa minúskulu. Eru 2: a primeru `print` ka tene indentasan dipos di `if:`. Eru 3: a sigundu `print` tene indentasan eradu (3 spasus en bez di 4). Lenbra: **4 spasus** pa kada nível."
+    kea: "Eru 1: kondisan ta uza `nomi` (minúskulu), ma variável foi kriadu kumo `Nomi` — uniformiza pa minúskulu. Eru 2: primeru `print` ka tene indentasan dipos di `if:`. Eru 3: sigundu `print` tene indentasan eradu (3 spasus en bez di 4). Lenbra: **4 spasus** pa kada nível."
   starterCode: |
     # ola.py — es programa ten 3 erus. Koriji-l.
     Nomi = "Djina"
@@ -64,9 +64,9 @@
   file: soma.py
   title: { kea: "Koriji a kontinuasan di linha" }
   prompt:
-    kea: "Es bloku ta da un `SyntaxError` pamodi el ta kebra a linha dipos di `+` sen `\\`. Koriji-l pa el soma tudu i imprimi `1500`."
+    kea: "Es bloku ta da un `SyntaxError` pamodi el ta kebra linha dipos di `+` sen `\\`. Koriji-l pa el soma tudu i imprimi `1500`."
   hint:
-    kea: "Fora di paréntesis, Python ka ta dexa kebra un linha simplismenti pamodi el termina ku `+`. Po un **backslash** (`\\`) na fin di primeru linha — o nton pói tudu a soma dentu di paréntesis `( ... )`, ki ta permiti kebra sen `\\`."
+    kea: "Fora di paréntesis, Python ka ta dexa kebra un linha simplismenti pamodi el termina ku `+`. Po un **backslash** (`\\`) na fin di primeru linha — o nton pói tudu soma dentu di paréntesis `( ... )`, ki ta permiti kebra sen `\\`."
   starterCode: |
     # soma.py — es bloku ta da un SyntaxError. Koriji-l.
     total = 100 + 200 + 300 +
@@ -85,7 +85,7 @@
 - slug: splora-pep8
   language: python
   kind: explore
-  title: { kea: "Splora a konvensan di stilu PEP 8" }
+  title: { kea: "Splora konvensan di stilu PEP 8" }
   prompt:
     kea: "Python tene un guia ofisial di stilu txomadu **PEP 8** — kumo nomia variáveis, kuantu spasus uza, undi po linha branku. Ka meste dekora-l; só sabe ki el izisti i undi buska."
   resources:
@@ -99,4 +99,4 @@
   prompt:
     kea: "Pensa na un eru di sintaxi ki bu dja atxa na es lisan (`SyntaxError`, `NameError` o `IndentationError`). Skrebe ki tipu di eru era, o ki kauza-l, i kumo bu koriji-l."
   notePlaceholder:
-    kea: "Eru: …   ·   Kauza (case? indentasan? paréntesis?): …   ·   Korresan: …"
+    kea: "Eru: …   ·   Kauza (case? indentasan? paréntesis?): …   ·   Koresan: …"
