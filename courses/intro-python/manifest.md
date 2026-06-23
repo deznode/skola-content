@@ -1,6 +1,6 @@
 # Introdusan Konpletu a Python — Published Assets
 
-**Published:** 2026-06-22
+**Published:** 2026-06-23
 **Source:** topics/intro-python/
 
 ## Files
@@ -11,7 +11,7 @@
 | lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 32 |
 | lessons/{NN}-{slug}/quiz.yaml | Lesson quiz sidecars | 31 |
 | lessons/{NN}-{slug}/exercises.yaml | Lesson exercise sidecars (incl. 18 debug-kind across 14 lessons) | 31 |
-| lessons/{NN}-{slug}/code-examples.yaml | Lesson code-example sidecars | 3 |
+| lessons/{NN}-{slug}/code-examples.yaml | Lesson code-example sidecars | 2 |
 | code/start/ | Starter code | 16 files |
 | code/final/ | Solution code | 16 files |
 | infographics/* | Infographics (PNG and/or JPG) | 15 |

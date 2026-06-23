@@ -21,16 +21,16 @@
   prompt:
     kea: "Kria kuatu variável pa un pratu di kumida — `nomi_pratu` (string), `presu` (float), `porsan` (int) i `disponivel` (bool). Imprimi kada un ku un f-string, i mostra se tipu ku `type()`."
   hint:
-    kea: "Skodje o literál sertu pa kada tipu: string ku aspas (`\"Katxupa\"`), float ku ponto (`350.0`), int sen ponto (`2`), bool ku `True`/`False`. Dipos uza `print(f\"...{nomi_pratu}...\")` i `print(type(presu))`."
+    kea: "Skodje literál sertu pa kada tipu: string ku aspas (`\"Katxupa\"`), float ku ponto (`350.0`), int sen ponto (`2`), bool ku `True`/`False`. Dipos uza `print(f\"...{nomi_pratu}...\")` i `print(type(presu))`."
   starterCode: |
-    # pratu.py — kria as variáveis i imprimi-s
+    # pratu.py — kria variáveis i imprimi-s
     nomi_pratu =   # string, p.ex. "Katxupa"
     presu =        # float, p.ex. 350.0
     porsan =       # int, p.ex. 2
     disponivel =   # bool, True o False
 
     # TODO: imprimi kada variável ku un f-string
-    # TODO: imprimi o tipu di kada un ku type()
+    # TODO: imprimi tipu di kada un ku type()
   solutionCode: |
     # pratu.py
     nomi_pratu = "Katxupa"
@@ -59,11 +59,11 @@
     # idadi.py
     nomi = input("Bu nomi? ")
     ilha = input("Bu ilha? ")
-    # TODO: pidi o anu di nasimentu i konverti-l pa int
+    # TODO: pidi anu di nasimentu i konverti-l pa int
     anu =
 
     # TODO: kalkula idadi (2026 - anu)
-    # TODO: imprimi a mensajen ku un f-string
+    # TODO: imprimi mensajen ku un f-string
   solutionCode: |
     # idadi.py
     nomi = input("Bu nomi? ")
@@ -75,13 +75,13 @@
 - slug: adivinha-tipu-konversan
   language: python
   kind: code
-  title: { kea: "Adivinha o tipu dipos di kada konversan" }
+  title: { kea: "Adivinha tipu dipos di kada konversan" }
   prompt:
     kea: "Pa kada linha, adivinha tipu di `valor` dipos di kada konversan. Dipos kore kódiku ku `type()` na kada pasu pa konfirma si bu staba sertu."
   hint:
     kea: "`input()` ta da senpri `str`. Dipos `int(valor)` ta da `int`, `float(valor)` ta da `float`, i `str(valor)` ta volta pa `str`. Po un `print(type(valor))` dipos di kada linha pa odja mudansa."
   starterCode: |
-    # tipus.py — adivinha o tipu, dipos po type() pa konfirma
+    # tipus.py — adivinha tipu, dipos po type() pa konfirma
     valor = input("Skrebe un kuza: ")   # tipu = ?
     valor = int(valor)                  # tipu = ?
     valor = float(valor)                # tipu = ?
@@ -105,11 +105,11 @@
   file: troka.py
   title: { kea: "Koriji un troka di variáveis" }
   prompt:
-    kea: "Es programa debe troka valoris di `a` i `b` (`a` fika ku 20, `b` ku 10), ma na fin os dos ta fika `20`. Diskubri pamodi i koriji-l."
+    kea: "Es programa debe troka valoris di `a` i `b` (`a` fika ku 20, `b` ku 10), ma na fin kes dos ta fika `20`. Diskubri pamodi i koriji-l."
   hint:
-    kea: "`a = b` ta po `a` igual a 20, ma gosi valor antigu di `a` (10) sta perdidu — `b = a` ta kopia `20` di volta. Uza un variável temporáriu, o atadju di Python: `a, b = b, a`."
+    kea: "`a = b` ta po `a` igual a 20, ma gosi valor antigu di `a` (10) sta perdidu — `b = a` ta kopia `20` di volta. Uza un variável temporáriu, atadju di Python: `a, b = b, a`."
   starterCode: |
-    # troka.py — debe troka a i b, ma os dos ta fika 20. Koriji-l.
+    # troka.py — debe troka a i b, ma kes dos ta fika 20. Koriji-l.
     a = 10
     b = 20
 

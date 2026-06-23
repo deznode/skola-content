@@ -21,7 +21,7 @@ objectives:
 Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu bez sen skrebe mesmu koza repetidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
 
 <GlossaryText
-  text="Kada bez ki un loop ta kori bloku di dentu, nu ta txoma kel un [[iterasan]] — loops ta otomatiza es repetison."
+  text="Kada bez ki un loop ta kore bloku di dentu, nu ta txoma kel un [[iterasan]] — loops ta otomatiza es repetison."
   terms={{
     iterasan: { en: "iteration", definition: "Un volta úniku di un loop — un pasaji pa bloku di kódiku ki ta repeti. Un loop ku 5 voltas ta faze 5 iterasons." },
   }}
@@ -106,7 +106,7 @@ print(f"'{nomi}' tene {kontador} vogais.")  # 'Amilcar' tene 3 vogais.
 
 ## Itera Sima Listas
 
-Bo tanbe pode itera dirétamenti sima listas (nos ta prende listas na Module 2, ma li ta mostru pitu):
+Bo tanbe pode itera dirétamenti sima listas (nos ta prende listas na Module 2, ma li ta mostra pitu):
 
 ```python
 # Lista di ilhas di Kabu Verdi
@@ -130,14 +130,14 @@ print(f"Média: {media}")  # Média: 15.4
 
 ## While Loop
 
-`while` loop ta repeti enkuantu kondisan é `True`. Útil kuandu bu ka sabe kuántus bez loop ta presiza kori.
+`while` loop ta repeti enkuantu kondisan é `True`. Útil kuandu bu ka sabe kuántus bez loop ta presiza kore.
 
 ```python
 # Konta di 1 a 5 ku while
 kontador = 1
 while kontador <= 5:
     print(kontador)
-    kontador += 1     # IMPORTANTI: sen kel li, loop ta kori pa senpri!
+    kontador += 1     # IMPORTANTI: sen kel li, loop ta kore pa senpri!
 ```
 
 :::callout{type=warning}
@@ -252,7 +252,7 @@ for ilha in ilhas:
 `pass` é un "placeholder" — el ka ta faze nada, ma ta permiti bu tene un bloku vazio sen eru:
 
 ```python
-# Placeholder pa kódiku ki bo ta skrévi dipos
+# Placeholder pa kódiku ki bu ta skrebe dipos
 for i in range(10):
     if i % 2 == 0:
         pass  # TODO: Prosesa numerus par dipos
@@ -266,7 +266,7 @@ for i in range(10):
 
 ## For-Else: Bloku Else Dipos di Loop
 
-Python tene un karaterístika únika: bu pode po `else` dipos di un `for` loop. Bloku `else` ta kori SÓ si loop termina normalmenti (sen `break`):
+Python tene un karaterístika únika: bu pode po `else` dipos di un `for` loop. Bloku `else` ta kore SÓ si loop termina normalmenti (sen `break`):
 
 ```python
 # Buska un numeru na lista
@@ -282,7 +282,7 @@ else:
 # Saída: 7 ka sta na lista.
 ```
 
-Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kori.
+Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kore.
 
 Izemplu klásku — verifikador di numeru primu:
 
@@ -303,7 +303,7 @@ else:
 
 ## Loops Aninhadu
 
-Bu pode po un loop dentu di otu loop. Loop di dentu ta kori kompletu pa KADA iterasan di loop di fora:
+Bu pode po un loop dentu di otu loop. Loop di dentu ta kore kompletu pa KADA iterasan di loop di fora:
 
 ```python
 # Tábua di multiplikasan di 1 a 5
@@ -513,5 +513,5 @@ Ambos ta dá mesmu rezultadu:
   <RezumuItem term="break / continue / pass">`break` ta sai di loop; `continue` ta pula pa prósima iterasan; `pass` é un placeholder ki ka ta faze nada.</RezumuItem>
   <RezumuItem term="for-else">`else` di un `for` ta kore só si loop termina **sen** `break` — perfeitu pa buskas.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Off-by-one ku `range()` (`range(1, 5)` ka inklui `5`), loop infinitu na `while`, i modifika un lista enkuantu bu ta itera-l.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">`enumerate()` ta da índisi i valor djuntu — más Pythonic ki `range(len(...))`. Bu ta volta a el na Lisan 18.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`enumerate()` ta da índisi i valor djuntu — más Pythonic ki `range(len(...))`. Bu ta volta pa el na Lisan 18.</RezumuItem>
 </KeyTakeaways>

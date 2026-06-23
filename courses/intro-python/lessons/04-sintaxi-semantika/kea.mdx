@@ -77,7 +77,7 @@ Pensa assin: **syntax** é gramátika di kriolu (regras di kumo bu monta un fraz
 print("Ola, Mundu!")  # Ta imprimi: Ola, Mundu!
 
 # Syntax INKORRETU — Python ka ta intendi
-# print("Ola, Mundu!"  # SyntaxError: falta parentesis di fitxa
+# print("Ola, Mundu!"  # SyntaxError: falta paréntesis di fitxa
 ```
 
 Si bo skrebe kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda kualker kuza. Si syntax sta koretu ma kódiku ta faze algu diferenti di ki bu kre, kel é un problema di **semantics**.
@@ -87,7 +87,7 @@ Si bo skrebe kódiku ku syntax eradu, Python ta da **SyntaxError** antis di roda
 # Bu kre kalkula média, ma bu dividi pa 3 en bez di 2
 nota1 = 85
 nota2 = 92
-media = (nota1 + nota2) / 3  # Eru di lójika! Devia ser / 2
+media = (nota1 + nota2) / 3  # Eru di lójika! Ten ki ser / 2
 print(media)  # 59.0 — rezultadu eradu, ma Python ka reklama
 ```
 
@@ -235,7 +235,7 @@ Konfigura bo VS Code pa mostra spasus: Settings → "Render Whitespace" → "all
     {
       q: "Tabs o spasus? I pamodi 4?",
       tag: "Splika más",
-      a: "Komunidadi Python (guia **PEP 8**) ta rekomenda **4 spasus**, ka tabs. Importanti é ser **konsistenti**: nunka mistura tabs ku spasus na mesmu fixeru — Python ta da un `TabError`. Maioria di editoris (VS Code) ta konverti Tab pa spasus otomátikamenti.",
+      a: "Komunidadi Python (guia **PEP 8**) ta rekomenda **4 spasus**, ka tabs. Importanti é ser **konsistenti**: nunka mistura tabs ku spasus na mesmu fixeru — Python ta da un `TabError`. Maioria di editoris (VS Code) ta konverti Tab pa spasus automatikamenti.",
     },
   ]}
 />
@@ -254,7 +254,7 @@ total = 100 + 200 + 300 + 400 + 500 + \
 print(total)  # 5500
 ```
 
-Dentu di parentesis, brackets ó braces, bu ka presiza `\` — Python ta intende automatikamenti:
+Dentu di paréntesis, brackets ó braces, bu ka presiza `\` — Python ta intende automatikamenti:
 
 ```python
 # Parentesis ta permiti kebra di linha sen \
@@ -275,10 +275,10 @@ notus = [
 ]
 ```
 
-*(Tupla `(...)` i lista `[...]`: bu ta prende más na Módulu 2, Lisan 11 i 12. Pa gosi, so fixa ki dentu di parentesis Python ka presiza `\`.)*
+*(Tupla `(...)` i lista `[...]`: bu ta prende más na Módulu 2, Lisan 11 i 12. Pa gosi, so fixa ki dentu di paréntesis Python ka presiza `\`.)*
 
 :::callout{type=tip}
-Na prátika, é midjór uza parentesis pa kebra linhas longas. É más limpu ki `\`.
+Na prátika, é midjór uza paréntesis pa kebra linhas longas. É más limpu ki `\`.
 :::
 
 ## Dynamic Typing
@@ -428,5 +428,5 @@ Kel é erus ki tudu prinsipianti ta enkontra. Ka ten problemas — é normal!
   <RezumuItem term="Case sensitivity">`nomi`, `Nomi` i `NOMI` é tres variáveis diferenti — i `print` ka é `Print`.</RezumuItem>
   <RezumuItem term="Indentasan">**4 spasus** pa kada nível ta defini blokus di kódiku — ka ten `{ }` na Python.</RezumuItem>
   <RezumuItem>Pa **kontinua linhas longas**, uza `\` o (midjór) paréntesis. Ku **dynamic typing**, variáveis pode muda di tipu — uza `type()` pa verifika.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`IndentationError` (spasus eradu), `SyntaxError` (paréntesis ki falta) i `NameError` (nomi ku case eradu) é o ki bu ta atxa más na kumesu.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">`IndentationError` (spasus eradu), `SyntaxError` (paréntesis ki falta) i `NameError` (nomi ku case eradu) é o ki bu ta atxa más na kumesu.</RezumuItem>
 </KeyTakeaways>

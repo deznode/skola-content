@@ -16,7 +16,7 @@ objectives:
 
 # Tipu di Dadus
 
-Na mundu real, nu ta lida ku diferenti tipus di informasan: númerus, textus, sim/nun. Python tanbe tene diferenti **data types** pa representa kada tipu di informasan.
+Na mundu real, nu ta lida ku diferenti tipus di informasan: númerus, textus, sin/nau. Python tanbe tene diferenti **data types** pa representa kada tipu di informasan.
 
 Na Lisan 5 bu dja konxe es kuatu tipus i `type()`. Gosi nu ta entra na detalhi: **kuandu** skodje kada un, pamodi `/` ta da senpri `float`, kumo `int()` ta trunka, i kumo evita `TypeError` ki ta parese kuandu bu mistura tipus.
 
@@ -119,7 +119,7 @@ greeting1 = "Ola!"
 greeting2 = 'Ola!'
 print(greeting1 == greeting2)  # True
 
-# Sabi pa kuandu textu tene aspas dentu
+# Útil pa kuandu textu tene aspas dentu
 frazi = "Funana é músika di 'batuku' kabu-verdianu"
 frazi2 = 'El dizi "morabeza" pa tudu pesoa'
 ```
@@ -212,7 +212,7 @@ else:
         "Kontador, kantidadi, idadi",
         "Presu, medida, persentajen",
         "Nomi, mensajen, textu",
-        "Sim/nun, ativu/inativu",
+        "Sin/nau, ativu/inativu",
       ],
     },
     {
@@ -235,7 +235,7 @@ kreditusECV = 15000       # int
 print(f"Estudanti: {nomi}")
 print(f"Idadi: {idadi} anus")
 print(f"Nota média: {nota_media}")
-print(f"Bolsista: {'Sim' if é_bolsista else 'Nun'}")
+print(f"Bolsista: {'Sin' if é_bolsista else 'Nau'}")
 print(f"Ilha: {ilha}")
 print(f"Kréditus: {kreditusECV} ECV")
 ```
@@ -368,11 +368,11 @@ porsun_disponível = 12                # int
 print(f"Pratu: {nomi_pratu}")
 print(f"Presu: {presu_unitáriu} ECV")
 print(f"Disponível: {porsun_disponível} porsons")
-print(f"Spesialidadi di kaza: {'Sim' if é_spesialidadi else 'Nun'}")
+print(f"Spesialidadi di kaza: {'Sin' if é_spesialidadi else 'Nau'}")
 print()
 
 # Resebe pedidu
-kantidadi = int(input("Kantu porsan bo kre? "))
+kantidadi = int(input("Kantu porsan bu kre? "))
 
 # Kalkula
 subtotal = presu_unitáriu * kantidadi
@@ -402,8 +402,8 @@ Kuandu bo roda:
     { type: "out", t: "Pratu: Katxupa Rica" },
     { type: "out", t: "Presu: 450.0 ECV" },
     { type: "out", t: "Disponível: 12 porsons" },
-    { type: "out", t: "Spesialidadi di kaza: Sim" },
-    { type: "out", t: "Kantu porsan bo kre? 3" },
+    { type: "out", t: "Spesialidadi di kaza: Sin" },
+    { type: "out", t: "Kantu porsan bu kre? 3" },
     { type: "out", t: "--- Rezumu di Pedidu ---" },
     { type: "out", t: "Pratu: Katxupa Rica x3" },
     { type: "out", t: "Subtotal: 1350.00 ECV" },
@@ -466,6 +466,6 @@ Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja
   <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é tipus fundamentais.</RezumuItem>
   <RezumuItem term="f-strings">Midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>
   <RezumuItem>Divisan `/` ta retorna **senpri** float — `10 / 5` é `2.0`, ka `2`.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`TypeError` ta parese kuandu bu ta mistura tipus inkompatíveis (`"Maria" + 25`). I `int(3.9)` ta **trunka** pa `3` — pa aredonda, uza `round()`.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">`TypeError` ta parese kuandu bu ta mistura tipus inkompatíveis (`"Maria" + 25`). I `int(3.9)` ta **trunka** pa `3` — pa aredonda, uza `round()`.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">`isinstance(valor, int)` é más profisional ki `type(valor) == int` pa verifika tipu — bu ta volta pa el na Lisan 18.</RezumuItem>
 </KeyTakeaways>

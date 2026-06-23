@@ -8,7 +8,7 @@ module: 1
 lesson: 9
 duration: "25 min"
 objectives:
-  - "Uza if/else pa toma desizun na kódiku"
+  - "Uza if/else pa toma desizan na kódiku"
   - "Skrebe kadeia if/elif/else pa klasifika valóris"
   - "Kria kondisionais aninhadu pa lójika kompleksu"
   - "Konstrui un kalkuladora simples ku kondisionais"
@@ -17,10 +17,10 @@ objectives:
 
 # Kondisionais (if/elif/else)
 
-Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizun baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
+Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizan baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
 
 <GlossaryText
-  text="Un programa ta toma desizun avaliandu un [[kondisan]] — un pergunta ki ta da `True` ó `False` (un valor [[boolean]])."
+  text="Un programa ta toma desizan avaliandu un [[kondisan]] — un pergunta ki ta da `True` ó `False` (un valor [[boolean]])."
   terms={{
     kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ó `False` — pa izemplu idadi >= 18. É o ki un if ta verifika antis di disidi." },
     boolean: { en: "boolean", definition: "Tipu di dadu ku dos valor sô: True ó False. Tudu komparasan (==, >, <...) ta produzi un boolean." },
@@ -28,7 +28,7 @@ Na vida real, nos ta toma desizun a tudu momentu: "Si sta txobe, N ta leba garda
 />
 
 :::callout{type=tip}
-Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`and`, `or`, `not`). Kada un di es ta da un `boolean` (`True`/`False`) — i é izatamenti kel ki un `if` ta presiza. Nes lisan nu ta uza-s pa toma desizun.
+Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`and`, `or`, `not`). Kada un di es ta da un `boolean` (`True`/`False`) — i é izatamenti kel ki un `if` ta presiza. Nes lisan nu ta uza-s pa toma desizan.
 :::
 
 ## If i Else Báziku
@@ -95,14 +95,14 @@ elif idadi < 18:
 elif idadi < 65:
     print("Bo é adultu.")
 else:
-    print("Bo é terseiru idadi.")
+    print("Bo é terseru idadi.")
 ```
 
 Kel izemplu li ta funsiona pa kualker idadi:
 - `idadi = 8` — "Bo é kriansa."
 - `idadi = 15` — "Bo é adolesenti."
 - `idadi = 30` — "Bo é adultu."
-- `idadi = 70` — "Bo é terseiru idadi."
+- `idadi = 70` — "Bo é terseru idadi."
 
 :::callout{type=tip}
 Órdin ta importa! Python ta para na primeru kondisan ki é `True`. Si bo po `idadi < 65` primeru, un kriansa di 8 anu ta kái nkel bloku pamodi `8 < 65` tanbe é `True`.
@@ -259,7 +259,7 @@ sta_txobe = False
 if temperatura > 25 and not sta_txobe:
     print("Dia perfeitu pa bai praia na Sal! 🏖️")
 else:
-    print("Talvez oji é ka midjór dia.")
+    print("Talvez oji ka é midjór dia.")
 ```
 
 ## Pitu di Match/Case (Python 3.10+)
@@ -348,5 +348,5 @@ match dia:
   <RezumuItem term="Aninhadu">Bu pode po un `if` dentu di otu pa lójika kompleksu — ma kuidadu ku profundidadi (más di 3 nível ta fika difísil di ler).</RezumuItem>
   <RezumuItem term="Ternary">`valor if kondisan else otu_valor` é útil pa kazus simples nun linha.</RezumuItem>
   <RezumuItem term="match/case">Python 3.10+ — un alternativa eleganti pa kadeia di `if`/`elif` ku txeu opsan; `case _` é kumo `else`.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka skese `:` dipos di `if`/`elif`/`else`, indenta ku 4 spasus, i uza senpri `==` (ka `=`) pa komparasan.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">Ka skese `:` dipos di `if`/`elif`/`else`, indenta ku 4 spasus, i uza senpri `==` (ka `=`) pa komparasan.</RezumuItem>
 </KeyTakeaways>

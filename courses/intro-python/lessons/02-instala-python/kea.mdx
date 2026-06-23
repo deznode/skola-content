@@ -25,7 +25,7 @@ Antis di kumesa programá, nu meste prepara nos ferramentas. É manera un kuzinh
 Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** i faze download di versan más resenti (Python 3.13+).
 
 :::callout{type=info title="O ki é PATH?"}
-PATH é un lista di pastas undi sistema ta buska programas. Sen Python na PATH, te ki bu skrebe `python` na terminal, sistema ka ta atxa-l. Na Windows, é por isu ki "Add python.exe to PATH" ta tan importanti.
+PATH é un lista di pastas undi sistema ta buska programas. Sen Python na PATH, óra ki bu skrebe `python` na terminal, sistema ka ta atxa-l. Na Windows, é por isu ki "Add python.exe to PATH" é importanti.
 :::
 
 Skodje bu sistema operasional pa odja pasus di instalasan:
@@ -40,7 +40,7 @@ Skodje bu sistema operasional pa odja pasus di instalasan:
         { type: 'steps', items: [
           'Klika na **"Download Python 3.13.x"**',
           'Abri fixeru ki bu faze download (`python-3.13.x-amd64.exe`)',
-          '**MUTU IMPORTANTI:** Marka txekbox **"Add python.exe to PATH"** na parti di baxu!',
+          'Marka txekbox **"Add python.exe to PATH"** na parti di baxu!',
           'Klika **"Install Now"** i spera instalasan termina',
         ] },
         { type: 'cmd', label: 'Command Prompt', lines: ['python --version'], out: 'Python 3.13.2' },
@@ -81,26 +81,26 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
     {
       q: "Pamodi `python3` na macOS/Linux ma `python` na Windows?",
       tag: "Splika más",
-      a: "Na Linux, komandu `python` txeu bez ta pónta pa un versan antigu o el ka ta izisti. Na macOS modernu ka ten `python` pré-instaladu di tudu. Pa kel razan, uza `python3` pa garanti ki bu ta uza versan ki bu instala. Na Windows, installer ta kria komandu `python`.",
+      a: "Na Linux, komandu `python` txeu bez ta pónta pa un versan antigu o el ka ta izisti. Na macOS modernu ka ten `python` pré-instaladu global. Pa kel razan, uza `python3` pa garanti ki bu ta uza versan ki bu instala. Na Windows, installer ta kria komandu `python`.",
       code: "python3 --version",
     },
     {
       q: "O ki é un *interpreter* di Python?",
       tag: "Splika más",
-      a: "É programa ki ta le i ta kore bu kódiku, linha pa linha. Kuandu bu instala Python, bu ta instala un interpreter. Más pa frenti, VS Code ta pergunta-bu kal interpreter pa uza — normalmenti kel ki sta dentu di bu `.venv`.",
+      a: "É programa ki ta ler i ta kore bu kódiku, linha pa linha. Kuandu bu instala Python, bu ta instala un interpreter. Más pa frenti, VS Code ta pergunta-bu kual interpreter pa uza — normalmenti kel ki sta dentu di bu `.venv`.",
     },
     {
-      q: "Meste koneksan internet pa kore Python?",
+      q: "Meste koneksan di internet pa kore Python?",
       tag: "Opsional",
-      a: "Nau. Dipos di instala, Python ta kore tudu lokalmenti na bu komputador. Bu so meste internet pa faze download di Python, di VS Code, o di pakotis ku `pip`.",
+      a: "Nau. Dipos di instala, Python ta kore tudu lokalmenti na bu komputador. Bu meste internet só pa faze download di Python, di VS Code, ou di pakotis ku `pip`.",
     },
   ]}
 />
 
 <GlossaryText
-  text="Gosi ki Python ta instaladu, nu ta konfigura o editor i kria un [[virtual environment]] — un espasu izoladu pa kada projetu. Sigi es kuatu fasis pa prepara tudu."
+  text="Ago ki Python sta instaladu, nu ta konfigura editor i kria un [[virtual environment]] — un espasu izoladu pa kada projetu. Sigi es kuatu fasis pa prepara tudu."
   terms={{
-    "virtual environment": { en: "virtual environment", definition: "Un espasu izoladu pa un prujetu Python, ku si própriu kópia di Python i si próprius pakotis — pa un prujetu ka kebra otu." },
+    "virtual environment": { en: "virtual environment", definition: "Un espasu izoladu pa un projetu Python, ku si própriu kópia di Python i si próprius pakotis — pa un projetu ka kebra otu." },
   }}
 />
 
@@ -134,7 +134,7 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
       title: "Kria pasta di projetu",
       content: [
         { type: "prose", t: "Kada projetu ten ki tene si própriu pasta — é un bon ábitu. Na terminal, kria un pasta nobu i entra dentu di el (na Windows uza Command Prompt)." },
-        { type: "cmd", lines: ["mkdir meu-primeru-python", "cd meu-primeru-python"] },
+        { type: "cmd", lines: ["mkdir projetu-python", "cd projetu-python"] },
         { type: "prose", t: "Abri pasta na VS Code. Si `code` ka ta funsiona, abri VS Code manualmenti i uza **File → Open Folder**." },
         { type: "cmd", lines: ["code ."] },
       ],
@@ -145,14 +145,14 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
       content: [
         { type: "prose", t: "Virtual environment ta da kada projetu si própriu \"mundu\" separadu. Pamodi é importanti?" },
         { type: "list", items: [
-          "**Projetu A** presiza di un biblioteka na versan 1.0",
-          "**Projetu B** presiza di mesma biblioteka na versan 2.0",
-          "Sen virtual environment, un ta kebra otu!",
+          "**Projetu A** meste di un biblioteka na versan 1.0",
+          "**Projetu B** meste di mesmu biblioteka na versan 2.0",
+          "Sen virtual environment, es dos versan ta entra na konflitu!",
         ] },
         { type: "prose", t: "Na terminal di VS Code (menu **Terminal → New Terminal**), kria i ativa `.venv` pa bu sistema:" },
         { type: "cmd", label: "Windows", lines: ["python -m venv .venv", ".venv\\Scripts\\activate          # Command Prompt", ".venv\\Scripts\\Activate.ps1    # PowerShell"] },
         { type: "cmd", label: "macOS / Linux", lines: ["python3 -m venv .venv", "source .venv/bin/activate"] },
-        { type: "callout", sev: "tip", t: "Kuandu `.venv` ta ativu, bu ta odja `(.venv)` na kumessu di prompt — tudu pakoti ki bu instala gosi ta bai pa es projetu so, ka pa sistema interu." },
+        { type: "callout", sev: "tip", t: "Kuandu `.venv` ta ativu, bu ta odja `(.venv)` na kumesu di prompt — tudu pakoti ki bu instala gosi ta bai pa es projetu só, ka pa sistema interu." },
         { type: "callout", sev: "warning", t: "Windows PowerShell: si bu odja eru di \"execution policy\", kore `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` i tenta ativa otu bez." },
       ],
     },
@@ -169,7 +169,7 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
 
 ## Nha Primeru Programa!
 
-Gosi si! Nu ta skrebe nos primeru programa Python.
+Gosi, nu ta skrebe nos primeru programa Python.
 
 <SectionHeading level={3} variant="install">Kria Fixeru</SectionHeading>
 
@@ -193,7 +193,7 @@ Es `f` antis di aspras (`f"..."`) é un **f-string** — el ta permiti po variá
 # Kriadu pa aprendedores di Skola.dev
 
 nomi = input("Kumo é bu nomi? ")
-ilha = input("Bu é di kal ilha? ")
+ilha = input("Bo é di kual ilha? ")
 
 print(f"Ola, {nomi}! Ben-vindu a Python!")
 print(f"{ilha} é un ilha sabi! Morabeza! 🇨🇻")
@@ -202,10 +202,10 @@ print("Nu ta kria djuntu!")
 
 <SectionHeading level={3} variant="install">Roda Programa</SectionHeading>
 
-Tene 3 maneras di roda bu programa:
+Ten 3 maneras di roda bu programa:
 
-**Manera 1: Botan Play** (más fáxi)
-- Klika na botan ▶️ (play) na kantu superiór direitu di VS Code
+**Manera 1: Boton Play** (más fáxi)
+- Klika na boton ▶️ (play) na kantu superiór direitu di VS Code
 
 **Manera 2: Terminal**
 ```bash
@@ -213,17 +213,17 @@ Tene 3 maneras di roda bu programa:
 python ola.py
 ```
 
-**Manera 3: Ataju di Tekladu**
+**Manera 3: Keyboard Shortcut**
 - Primi <Kbd keys="Ctrl+F5" /> (roda sen debugger)
 
-Bu debe odja algu manera:
+Bu debe odja algu sima es:
 
 <TerminalBlock
   title="python ola.py"
   lines={[
     { type: 'cmd', t: 'python ola.py' },
     { type: 'out', t: 'Kumo é bu nomi? Cesária' },
-    { type: 'out', t: 'Bu é di kal ilha? São Vicente' },
+    { type: 'out', t: 'Bo é di kual ilha? São Vicente' },
     { type: 'out', t: 'Ola, Cesária! Ben-vindu a Python!' },
     { type: 'out', t: 'São Vicente é un ilha sabi! Morabeza! 🇨🇻' },
     { type: 'out', t: 'Nu ta kria djuntu!' },
@@ -234,7 +234,7 @@ Bu debe odja algu manera:
 
 ## Komandus Esensiais pa Lembra
 
-Aki tene un rezimu di komandus ki bu ta uza senpri. Repete-s ku es flashcards pa lembra, i konsulta es tabelas senpri ki bu meste.
+Li ten un rezumu di komandus ki bu ta uza senpri. Repete-s ku es flashcards pa lembra, i konsulta es tabelas senpri ki bu meste.
 
 <Flashcard
   title="Komandus esensiais"
@@ -252,7 +252,7 @@ Aki tene un rezimu di komandus ki bu ta uza senpri. Repete-s ku es flashcards pa
 <GlossaryText
   text="Un [[pakoti]] é un biblioteka di kódiku ki otu pesoa skrebe pa bu uza. `pip` é programa ki ta instala-l dentu di bu `.venv`."
   terms={{
-    "pakoti": { en: "package", definition: "Un biblioteka di kódiku reutilizável ki otus dezenvolvedoris skrebe i partilha, pa bu instala ku `pip` i uza na bu prujetu." },
+    "pakoti": { en: "package", definition: "Un biblioteka di kódiku reutilizável ki otus dezenvolvedoris skrebe i partilha, pa bu instala ku `pip` i uza na bu projetu." },
   }}
 />
 
@@ -266,7 +266,7 @@ Lisan 21 (Ambiente Virtual i pip) ta mostra `pip list`, `pip freeze` i `requirem
 :::
 
 :::callout{type=tip}
-Kuandu `.venv` ta ativu, bu pode uza `python` (sen 3) na tudu sistema — virtual environment dja sabe kal versan pa uza, sen presiza skrebe `python3`.
+Kuandu `.venv` ta ativu, bu pode uza `python` (sen 3) na tudu sistema — virtual environment dja sabe kual versan pa uza, sen presiza skrebe `python3`.
 :::
 
 ## Erus Kumuns i Soluson
@@ -296,5 +296,5 @@ Kuandu `.venv` ta ativu, bu pode uza `python` (sen 3) na tudu sistema — virtua
   <RezumuItem term="Kria i ativa .venv">`python -m venv .venv` kria, `source .venv/bin/activate` (o `.venv\Scripts\activate`) ativa</RezumuItem>
   <RezumuItem term="Primeru programa">uza `input()` pa resebe dadus i `print()` pa mostra rezultadus</RezumuItem>
   <RezumuItem variant="gold" term="Regra di oru">Senpri verifika ki `(.venv)` ta na bu prompt antis di instala pakotis o roda kódiku. Sen el ativu, tudu ta bai pa sistema interu.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Maioria di prublemas di setup ben di tres kuzas: skese "Add to PATH" na Windows, uza `python` envés di `python3` na macOS, o `.venv` ka ativu — odja tabela "Erus Kumuns i Soluson" di riba.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">Maioria di prublemas di setup ben di tres kuzas: skese "Add to PATH" na Windows, uza `python` envés di `python3` na macOS, o `.venv` ka ativu — odja tabela "Erus Kumuns i Soluson" di riba.</RezumuItem>
 </KeyTakeaways>

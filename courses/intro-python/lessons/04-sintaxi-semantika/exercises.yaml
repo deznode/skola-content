@@ -24,7 +24,7 @@
   prompt:
     kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja eru, i koriji-l pa el imprimi tudu dos nomi."
   hint:
-    kea: "Lé última linha: `name 'Nomi' is not defined`. Python é **case sensitive** — `nomi`, `Nomi` i `NOMI` é tres variáveis diferenti. Só `nomi` i `NOMI` foi kriadu; `Nomi` (N maiúskulu) ka izisti. Skrebe `print(NOMI)` o defini `Nomi` antis."
+    kea: "Ler última linha: `name 'Nomi' is not defined`. Python é **case sensitive** — `nomi`, `Nomi` i `NOMI` é tres variáveis diferenti. Só `nomi` i `NOMI` foi kriadu; `Nomi` (N maiúskulu) ka izisti. Skrebe `print(NOMI)` o defini `Nomi` antis."
   starterCode: |
     # nomis.py — es programa ta da un NameError. Koriji-l.
     nomi = "Cesária"

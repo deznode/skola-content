@@ -111,7 +111,7 @@
   kind: explore
   title: { kea: "Splora teknikas di loop (enumerate, zip, itertools)" }
   prompt:
-    kea: "Alén di `range()`, Python tene ferramentas kumo `enumerate()` (índisi + valor), `zip()` (dos lista djuntu) i módulu `itertools`. Odja dokumentason — bu ta volta a `enumerate()` na Lisan 18."
+    kea: "Alén di `range()`, Python tene ferramentas kumo `enumerate()` (índisi + valor), `zip()` (dos lista djuntu) i módulu `itertools`. Odja dokumentason — bu ta volta pa `enumerate()` na Lisan 18."
   resources:
     kea:
       - { label: "Python docs — enumerate()", url: "https://docs.python.org/3/library/functions.html#enumerate" }

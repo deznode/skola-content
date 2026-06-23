@@ -110,7 +110,7 @@ Segridu más importanti: **senpri kumesa ler di última linha**. É la ki respos
 Pensa na traceback manera un pilha di pratus — últimu pratu (última linha) é unde pratu ta kebra. Ma bu presiza odja pratus di baxu pa kompriende pamodi tudu kai.
 :::
 
-## Seta `^` — Bo Midjór Amigu (Python 3.11+)
+## Seta `^` — Bu Midjór Amigu (Python 3.11+)
 
 Dezdi Python 3.11, erus tene un **seta `^`** ki ta aponta exatamenti pa parti di kódiku ki ta kauza problema. Es ta midjora txeu kuandu bu ta faze debug!
 
@@ -199,7 +199,7 @@ if idadi > 18
 
 <SectionHeading level={3} variant="concept">2. `NameError` — Nomi ka Ezisti</SectionHeading>
 
-Bu ta uza un variável ki ka foi kriadu inda.
+Bu ta uza un variável ki ka kriadu inda.
 
 ```python
 print(mensajen)
@@ -233,7 +233,7 @@ Bu ta mistura tipus ki ka é kompatível.
 
 ```python
 idadi = 25
-mensajen = "Bo tene " + idadi + " anu"
+mensajen = "Bu tene " + idadi + " anu"
 ```
 
 <TerminalBlock
@@ -241,7 +241,7 @@ mensajen = "Bo tene " + idadi + " anu"
   lines={[
     { type: "err", t: "Traceback (most recent call last):" },
     { type: "trace", t: '  File "testa.py", line 2, in <module>' },
-    { type: "code", t: '    mensajen = "Bo tene " + idadi + " anu"' },
+    { type: "code", t: '    mensajen = "Bu tene " + idadi + " anu"' },
     { type: "caret", t: "               ~~~~~~~~~~~~^~~~~~" },
     { type: "err", t: 'TypeError: can only concatenate str (not "int") to str' },
   ]}
@@ -259,8 +259,8 @@ Seta `^` ta mostra exatamenti unde string ta bate ku int!
 ```python
 # Koresan: uza f-string
 idadi = 25
-mensajen = f"Bo tene {idadi} anu"
-print(mensajen)  # Bo tene 25 anu
+mensajen = f"Bu tene {idadi} anu"
+print(mensajen)  # Bu tene 25 anu
 ```
 
 <SectionHeading level={3} variant="concept">4. `IndexError` — Índisi Fora di Rangu</SectionHeading>

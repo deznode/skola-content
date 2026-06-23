@@ -24,12 +24,12 @@
   prompt:
     kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja traceback, i koriji-l pa el imprimi `Ola, Tóni`."
   hint:
-    kea: "Ler última linha: `name 'nomi' is not defined`. Variável `nomi` ka foi kriadu antis di uza-l na `print`. Defini-l primeru — por izemplu `nomi = \"Tóni\"` o `nomi = input(\"Bu nomi? \")`."
+    kea: "Ler última linha: `name 'nomi' is not defined`. Variável `nomi` ka foi kriadu antis di uza-l na `print`. Defini-l primeru — pa izemplu `nomi = \"Tóni\"` o `nomi = input(\"Bu nomi? \")`."
   starterCode: |
     # nomi.py — es programa ta da un NameError. Koriji-l.
     print("Ola, " + nomi)
   solutionCode: |
-    # Defini a variável antis di uza-l
+    # Defini variável antis di uza-l
     nomi = "Tóni"
     print("Ola, " + nomi)   # Ola, Tóni
 - slug: koriji-typeerror
@@ -70,7 +70,7 @@
     fruta = ["banana", "manga", "papaia"]
     print(fruta[2])   # "papaia" — último índisi válidu é len(fruta) - 1
 
-    # Manera más seguru: verifika tamañu antis di asesa
+    # Manera más seguru: verifika tamanhu antis di asesa
     indisi = 5
     if indisi < len(fruta):
         print(fruta[indisi])

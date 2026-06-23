@@ -25,8 +25,8 @@
     pezu = float(input("Pezu (kg)? "))
     altura = float(input("Altura (m)? "))
 
-    # TODO: kalkula o IMC
-    # TODO: mostra a klasifikasan ku if/elif/else
+    # TODO: kalkula IMC
+    # TODO: mostra klasifikasan ku if/elif/else
   solutionCode: |
     # imc.py
     pezu = float(input("Pezu (kg)? "))
@@ -51,13 +51,13 @@
   prompt:
     kea: "Pidi un montanti i moeda di orijen (`ECV`, `EUR` o `USD`), i mostra valor na otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje kálkulu ku `if`/`elif`/`else` sigundu moeda."
   hint:
-    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa as otas. Si moeda é `EUR`, montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa `else`, mostra ki moeda ka é válidu."
+    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa kes otus. Si moeda é `EUR`, montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa `else`, mostra ki moeda ka é válidu."
   starterCode: |
     # moeda.py
     montanti = float(input("Montanti? "))
     moeda = input("Moeda di orijen (ECV/EUR/USD)? ").upper()
 
-    # TODO: konverti pa as otas dos moedas ku if/elif/else
+    # TODO: konverti pa kes otus dos moedas ku if/elif/else
   solutionCode: |
     # moeda.py
     montanti = float(input("Montanti? "))
@@ -80,7 +80,7 @@
   prompt:
     kea: "Pidi 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) o \"Eskalenu\" (tudu diferenti)."
   hint:
-    kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu o un `else` pa o kazu inválidu."
+    kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu o un `else` pa kazu inválidu."
   starterCode: |
     # triangulu.py
     a = float(input("Ladu 1? "))
@@ -114,7 +114,7 @@
   hint:
     kea: "Python ta para na primeru kondisan ki é `True`. `nota >= 0` é `True` pa kuazi tudu nota, nton el ta ganha senpri i otus `elif` nunka ta kore. Po kondisan di más estrita (`>= 70`) pa más larga (`>= 0`)."
   starterCode: |
-    # nota.py — es ta sai senpri "Reprovadu". Koriji a orden.
+    # nota.py — es ta sai senpri "Reprovadu". Koriji orden.
     nota = 85
 
     if nota >= 0:
@@ -126,7 +126,7 @@
     else:
         print("Nota inválidu")
   solutionCode: |
-    # nota.py — testa di a kondisan más estrita pa a más larga
+    # nota.py — testa di kondisan más estrita pa más larga
     nota = 85
 
     if nota >= 70:
@@ -142,7 +142,7 @@
   kind: explore
   title: { kea: "Splora match/case (Python 3.10+)" }
   prompt:
-    kea: "`match`/`case` é un alternativa modernu pa kadeia di `if`/`elif` kuandu bu ta kompara un valor ku txeu opsan. Odja a dokumentason pa odja o ki más el pode faze (kumo kombina padrons ku `|`)."
+    kea: "`match`/`case` é un alternativa modernu pa kadeia di `if`/`elif` kuandu bu ta kompara un valor ku txeu opsan. Odja dokumentason pa odja o ki más el pode faze (kumo kombina padrons ku `|`)."
   resources:
     kea:
       - { label: "Python docs — match statements (tutorial)", url: "https://docs.python.org/3/tutorial/controlflow.html#match-statements" }
@@ -154,4 +154,4 @@
   prompt:
     kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe o ki ta kontise si bu po kondisan más larga (`< 65`) antis di más estrita (`< 13`)."
   notePlaceholder:
-    kea: "Kadeia: …   ·   Orden koretu: …   ·   O ki ta kontise si troka a orden: …"
+    kea: "Kadeia: …   ·   Orden koretu: …   ·   O ki ta kontise si troka orden: …"
