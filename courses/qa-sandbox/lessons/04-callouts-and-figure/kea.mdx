@@ -10,7 +10,7 @@ duration: "9 min"
 objectives:
   - "Testa renderizason di figura (infográfiku) ku lightbox"
   - "Testa blocos di kódigu na vários linguajens: Python, JavaScript, Bash, SQL"
-  - "Testa tudu tres tipu di callout djuntu"
+  - "Testa tudu seis tipu di callout djuntu (info/tip/warning/success/danger/quote)"
   - "Testa typography spine (h1..h4 + blockquote + inline code + anchor + ul) ku spec 048 parity gate"
   - "Testa Quiz i CodeExample interativu via sibling YAML sidecars"
 ---
@@ -79,6 +79,18 @@ Callout di tipu **warning** — verifika a kor di avizu.
 
 :::callout{type=info}
 Callout di tipu **info** — verifika a kor di informason.
+:::
+
+:::callout{type=success}
+Callout di tipu **success** — konfirmason, "el funsiona".
+:::
+
+:::callout{type=danger title="Kuidadu"}
+Callout di tipu **danger** — risku sériu, sima perda di dadus.
+:::
+
+:::callout{type=quote cite="Tim Peters — O Zen di Python"}
+Sinplis é midjór ki komplikadu.
 :::
 
 ## Komponentes Interativos

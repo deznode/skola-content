@@ -1,0 +1,30 @@
+---
+title: "CodeExample (Snippet + Tabs)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: code-example-tabs
+slug: "code-example-tabs"
+module: 3
+lesson: 1
+duration: "8 min"
+objectives:
+  - "Testa CodeExample ku un snippet sinplis (sidecar code-examples.yaml)"
+  - "Testa CodeExample ku tabs di múltiplu linguajen"
+---
+
+O komponenti **`<CodeExample>`** é data-driven, sima `<Quiz>`: o teksu di o
+snippet ta bibe nun sidecar **`code-examples.yaml`**, i o prop `position`
+(**0-based**) ta skodje kal ki ta renderiza. El ten botón di kópia própi.
+
+## Snippet sinplis
+
+`position={0}` — un snippet só, sen tabs (o izemplu ka ten `variants`).
+
+<CodeExample position={0} />
+
+## Múltiplu linguajen (tabs)
+
+`position={1}` — es izemplu ten **tres `variants`**, nton o bar di tabs ta
+parse. Klika entri Python, JavaScript, i Bash.
+
+<CodeExample position={1} showTabs />

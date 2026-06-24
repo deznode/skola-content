@@ -1,0 +1,33 @@
+---
+title: "Tenta Gosi — Tudu Tipu di Exersísiu"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: tenta-gosi-kinds
+slug: "tenta-gosi-kinds"
+module: 2
+lesson: 1
+duration: "10 min"
+objectives:
+  - "Testa TentaGosi ku tudu sinku kind: code, debug, setup, explore, reflect"
+  - "Testa o padron showHeader={false} + SectionHeading variant=practice"
+---
+
+Es lison ta esersi o komponenti **`<TentaGosi>`** (alias `<Exercise>`). El é
+**self-closing** — tudu exersísiu ta ben di o sidecar `exercises.yaml`, nunka di
+filhu na MDX. Es pájina ten un exersísiu pa **kada un di o sinku `kind`**:
+
+- **`code`** — skrebe kódiku di zeru (badju **Kódiku**, oru)
+- **`debug`** — koriji kódiku kebradu, mostradu inline read-only (badju **Koriji**)
+- **`setup`** — un komandu di terminal ku output spradu (badju **Setup**, teal)
+- **`explore`** — botons di link pa rekursu di fora (badju **Splora**)
+- **`reflect`** — un kaxa di nota lokal pa skrebe (badju **Refleta**)
+
+## Stilu di kabesálu
+
+Es blóku ta uza o padron **`showHeader={false}` + `<SectionHeading>`**: o títulu
+ta ben di o `SectionHeading` ku barra di asentu, i o blóku ta abri sen kabesálu
+duplikadu. O `variant="practice"` ta kombina o asentu ku o tipu di blóku.
+
+<SectionHeading variant="practice">Tenta gosi — sinku tipu</SectionHeading>
+
+<TentaGosi showHeader={false} />

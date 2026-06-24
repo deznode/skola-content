@@ -1,0 +1,59 @@
+---
+title: "PlatformTabs (Windows / macOS / Linux)"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: platform-tabs
+slug: "platform-tabs"
+module: 4
+lesson: 2
+duration: "7 min"
+objectives:
+  - "Testa PlatformTabs ku instrusons spesífiku pa kada sistema operativu"
+  - "Testa konteúdu Block[] dentu di kada tab i o íkones di plataforma"
+---
+
+O komponenti **`<PlatformTabs>`** ta da instrusons spesífiku pa kada sistema
+operativu. Kada tab ten un `content: Block[]` (mésmu katálogu ki `<Steps>`) i un
+`icon` (`windows` · `apple` · `linux` · `container` · `generic`). Uza os tekla
+di seta pa navega entri os tabs.
+
+<PlatformTabs
+  title="Instala Python na bu sistema"
+  tabs={[
+    {
+      label: "Windows",
+      icon: "windows",
+      content: [
+        { type: "prose", t: "Faze download di o installer `.exe` di [python.org](https://www.python.org/downloads/)." },
+        { type: "steps", items: ["Klika **Download Python 3.13.x**", "**IMPORTANTI:** marka **Add python.exe to PATH**"] },
+        { type: "cmd", label: "Command Prompt", lines: ["python --version"], out: "Python 3.13.2" },
+        { type: "callout", sev: "warning", t: "Si bu skise marka **Add to PATH**, Python ka ta funsiona na terminal." },
+      ],
+    },
+    {
+      label: "macOS",
+      icon: "apple",
+      content: [
+        { type: "prose", t: "Faze download di o fixeru `.pkg` di [python.org](https://www.python.org/downloads/), o uza Homebrew." },
+        { type: "cmd", label: "Terminal", lines: ["brew install python", "python3 --version"], out: "Python 3.13.2" },
+        { type: "callout", sev: "tip", t: "Na macOS uza `python3` (ku 3) — o sistema ta ben ku un Python antigu." },
+      ],
+    },
+    {
+      label: "Linux",
+      icon: "linux",
+      content: [
+        { type: "prose", t: "Uza o gestor di pakotis di bu distribuison." },
+        { type: "cmd", label: "Debian / Ubuntu", lines: ["sudo apt install python3 python3-venv", "python3 --version"], out: "Python 3.13.2" },
+      ],
+    },
+    {
+      label: "Docker",
+      icon: "container",
+      content: [
+        { type: "prose", t: "Si bu ka kre instala nada lokal, uza un imajen Docker." },
+        { type: "cmd", label: "Terminal", lines: ["docker run -it --rm python:3.13 python --version"], out: "Python 3.13.2" },
+      ],
+    },
+  ]}
+/>

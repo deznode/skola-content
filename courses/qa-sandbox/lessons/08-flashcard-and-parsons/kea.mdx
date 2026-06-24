@@ -1,0 +1,63 @@
+---
+title: "Flashcard i Parsons"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: flashcard-and-parsons
+slug: "flashcard-and-parsons"
+module: 2
+lesson: 3
+duration: "8 min"
+objectives:
+  - "Testa Flashcard ku flip term<->definison i múltiplu karton"
+  - "Testa ParsonsProblem ku reordenason di linhas di kódigu"
+---
+
+Dos komponenti di prátika ku **dadus inline** (sen sidecar): `<Flashcard>` pa
+repetison spasiadu, i `<ParsonsProblem>` pa reordena linhas di kódiku.
+
+## Flashcard — repete pa lembra
+
+`<Flashcard>` ta resebe un array `cards={[{ term, def }]}`. O `term` é o frenti
+(mono), o `def` é o kostas. **Tudu é teksu sinplis — sen inline markdown li.**
+
+<Flashcard
+  title="Métodus di string"
+  cards={[
+    { term: "upper()", def: "Ta muda tudu letras pa maiúskula; ta retorna un string novu." },
+    { term: "strip()", def: "Ta tira spasu di inísiu i final di un string." },
+    { term: "split()", def: "Ta kebra un string nun lista, separandu pa un karáter." },
+    { term: "replace()", def: "Ta troka tudu okorrénsia di un teksu pa otru." },
+  ]}
+/>
+
+### Mésmu komponenti, sen kabesálu
+
+Ku `showHeader={false}` o eyebrow + título + kontador di mestria ta dizaparse.
+
+<SectionHeading variant="concept">Tipus di dadu</SectionHeading>
+
+<Flashcard
+  showHeader={false}
+  cards={[
+    { term: "int", def: "Numeru inteiru, sima 42." },
+    { term: "float", def: "Numeru ku ponti desimal, sima 3.14." },
+    { term: "bool", def: "Verdadi o falsu: True o False." },
+  ]}
+/>
+
+## ParsonsProblem — organiza o kódiku
+
+`<ParsonsProblem>` ta resebe o `solution` na **órdi serta**; o komponenti ta
+baralha-l di forma deterministika (SSR-safe) i o aluno ta reorganiza-l. O
+`title` i o `prompt` ta seta inline markdown; o `solution` é teksu sinplis.
+
+<ParsonsProblem
+  title="Konstrui a funsan `media()`"
+  prompt="Reorganiza es linhas pa konstrui un funsan ki ta kalkula a **média** di un lista."
+  solution={[
+    "def media(numerus):",
+    "    total = sum(numerus)",
+    "    kontu = len(numerus)",
+    "    return total / kontu",
+  ]}
+/>

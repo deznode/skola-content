@@ -2,7 +2,7 @@ slug: qa-sandbox
 title: "QA Sandbox — Lesson Rendering Test Course"
 level: beginner
 category: programming
-duration_minutes: 60
+duration_minutes: 120
 instructor: Skola QA
 # Local-only test course. Excluded from default `pnpm gen:catalog` discovery and
 # from the catalog-drift-guard hook, so it never reaches db/migration / prod.
@@ -12,27 +12,25 @@ test_only: true
 translations:
   kea:
     title: "QA Sandbox — Testi di Renderizason di Lison"
-    description: "Kursu di testi pa esersi tudu sénariu di renderizason di lison: tipus TEXT, VIDEO i MIXED, kódigu ku notason highlight/diff/focus, quiz, callout, figura, i microlearn player."
+    description: "Kursu di testi pa esersi TUDU komponenti di @skola/learning-content-core i tudu se variant: prátika, kódigu, strutura, inline/referénsia, i média/callouts — organizadu un módulu pa kada família di komponenti."
     prerequisites: "Nenhun konhesimentu préviu — es é un kursu di testi."
     outcomes: |
-      Testa renderizason di lison di tipu TEXT, VIDEO, i MIXED
-      Verifika kódigu ku notason highlight, diff, i focus
-      Verifika quiz ku validason di resposta na servidor
-      Verifika callout (tip/warning/info), figura ku lightbox, i microlearn player
+      Esersi tudu 21 komponenti registadu i tudu se variant
+      Verifika layouts TEXT/VIDEO/MIXED i o microlearn player
+      Verifika prátika (TentaGosi/QuizSet/Flashcard/Parsons), kódigu, strutura, inline, i média
   en:
     title: "QA Sandbox — Lesson Rendering Test Course"
-    description: "A QA-only course exercising every lesson rendering scenario: TEXT, VIDEO and MIXED layouts, code blocks with highlight/diff/focus notation, quizzes, callouts, figures, and the microlearn player."
+    description: "A QA-only course exercising EVERY @skola/learning-content-core component and all its variants — practice, code, structure, inline/reference, and media/callouts — organized one module per component family."
     prerequisites: "None — this is a test course."
     outcomes: |
-      Exercise TEXT, VIDEO, and MIXED lesson layouts
-      Verify code blocks with highlight, diff, and focus notation
-      Verify quizzes with server-side answer validation
-      Verify callouts (tip/warning/info), figure lightbox, and the microlearn player
+      Exercise all 21 registered components and every variant
+      Verify TEXT/VIDEO/MIXED layouts and the microlearn player
+      Verify practice, code-teaching, structure, inline, and media families
 modules:
-  - slug: lesson-types
+  - slug: lesson-layouts
     title:
-      kea: "Tipus di Lison"
-      en: "Lesson Types"
+      kea: "Layouts di Lison i Tipografia"
+      en: "Lesson Layouts & Typography"
     lessons:
       - slug: text-basics
         languages: [kea, en]
@@ -45,34 +43,71 @@ modules:
         languages: [kea]
         content_type: MIXED
         video_url: "https://files.vidstack.io/sprite-fight/720p.mp4"
-  - slug: rich-content
-    title:
-      kea: "Konteúdu Riku"
-      en: "Rich Content"
-    lessons:
-      - slug: callouts-and-figure
-        languages: [kea]
-        content_type: TEXT
-      - slug: code-notations
-        languages: [kea]
-        content_type: TEXT
       - slug: microlearn-everything
         languages: [kea]
         content_type: MIXED
         video_url: "https://www.youtube.com/watch?v=_cMxraX_5RE"
-  - slug: practice-blocks
+  - slug: practice-assessment
     title:
-      kea: "Blóku di Prátika"
-      en: "Practice Blocks"
+      kea: "Prátika i Avaliason"
+      en: "Practice & Assessment"
     lessons:
-      - slug: practice-blocks
+      - slug: tenta-gosi-kinds
         languages: [kea]
         content_type: TEXT
-  - slug: unified-design
+      - slug: quiz-and-quizset
+        languages: [kea]
+        content_type: TEXT
+      - slug: flashcard-and-parsons
+        languages: [kea]
+        content_type: TEXT
+  - slug: code-teaching
     title:
-      kea: "Stilu Unifikadu"
-      en: "Unified Design"
+      kea: "Inxina Kódigu"
+      en: "Code Teaching"
     lessons:
-      - slug: unified-design-showcase
+      - slug: code-example-tabs
+        languages: [kea]
+        content_type: TEXT
+      - slug: annotated-and-diff
+        languages: [kea]
+        content_type: TEXT
+      - slug: cloze-and-terminal
+        languages: [kea]
+        content_type: TEXT
+  - slug: structure-layout
+    title:
+      kea: "Strutura i Layout"
+      en: "Structure & Layout"
+    lessons:
+      - slug: steps-and-blocks
+        languages: [kea]
+        content_type: TEXT
+      - slug: platform-tabs
+        languages: [kea]
+        content_type: TEXT
+      - slug: disclosure-and-section-heading
+        languages: [kea]
+        content_type: TEXT
+  - slug: inline-reference
+    title:
+      kea: "Inline i Referénsia"
+      en: "Inline & Reference"
+    lessons:
+      - slug: glossary-and-kbd
+        languages: [kea]
+        content_type: TEXT
+      - slug: compare-and-concept
+        languages: [kea]
+        content_type: TEXT
+      - slug: key-takeaways
+        languages: [kea]
+        content_type: TEXT
+  - slug: media-callouts
+    title:
+      kea: "Média i Callouts"
+      en: "Media & Callouts"
+    lessons:
+      - slug: callouts-and-figure
         languages: [kea]
         content_type: TEXT

@@ -1,0 +1,42 @@
+---
+title: "KeyTakeaways / Rezumu"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: key-takeaways
+slug: "key-takeaways"
+module: 5
+lesson: 3
+duration: "6 min"
+objectives:
+  - "Testa KeyTakeaways/Rezumu ku RezumuItem default, ku term+code, i variant gold/warning/tip"
+  - "Testa o padron showHeader={false} + SectionHeading variant=summary"
+---
+
+O blóku **`<KeyTakeaways>`** (alias `<Rezumu>`) é o landmark "pa lembra" na fin
+di un lison. El ten linhas `<RezumuItem>` ku várius variant.
+
+## Ku kabesálu própi
+
+Es uza o kabesálu interno (`showHeader` padrón). Repara na os kuatu tipu di
+linha: narrativa (check teal), term+code, i os tres variant ku kor.
+
+<KeyTakeaways>
+  <RezumuItem term="try/except" code>tenta kódiku i kaptura erru si akontese</RezumuItem>
+  <RezumuItem term="finally" code>sempri ta roda — pa limpeza</RezumuItem>
+  <RezumuItem>Python ta kaptura **só** o tipu di exsesun ki bu nomeia — kualker otru ta kontinua pa riba.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kaptura espesífiku. Nunka uza `except:` solu.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`except: pass` ta sköndé bugs — nunka inora un erru sen razon.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Na produsan, uza `logging.exception()` en bez di `print`.</RezumuItem>
+</KeyTakeaways>
+
+## Ku showHeader={false} + SectionHeading
+
+Mésmu blóku (alias `<Rezumu>`), ma o títulu ta ben di `<SectionHeading variant="summary">`.
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+
+<Rezumu showHeader={false}>
+  <RezumuItem term="venv" code>ambienti izoladu pa dependénsia di un projetu</RezumuItem>
+  <RezumuItem>Ativa o `.venv` antis di instala kualker pakoti.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Skese di ativa o venv ta instala global.</RezumuItem>
+</Rezumu>

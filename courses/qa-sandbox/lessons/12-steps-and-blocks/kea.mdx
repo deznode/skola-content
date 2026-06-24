@@ -1,0 +1,69 @@
+---
+title: "Steps i o Block[] Catalog"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: steps-and-blocks
+slug: "steps-and-blocks"
+module: 4
+lesson: 1
+duration: "10 min"
+objectives:
+  - "Testa Steps na modu accordion i na modu phases"
+  - "Testa o catálogu Block[] (prose, steps, list, cmd, code, callout, table, image)"
+---
+
+O komponenti **`<Steps>`** ta uza o **slot `Block[]` API** (spec 054): kada step
+ten un `content: Block[]`. Es lison ta esersi **tudu** tipu di Block na o
+katálogu, di través di o dos variants.
+
+## Variant accordion (un step abertu di kada bez)
+
+Es accordion ta esersi `prose`, `cmd`, `steps`, i `callout`.
+
+<Steps
+  variant="accordion"
+  title="Konfigura bu ambienti Python"
+  steps={[
+    {
+      title: "Kria pasta di projetu",
+      content: [
+        { type: "prose", t: "Na terminal, kria un pasta nobu i entra dentu di el." },
+        { type: "cmd", lines: ["mkdir meu-projetu", "cd meu-projetu"] },
+      ],
+    },
+    {
+      title: "Kria i ativa o ambienti virtual",
+      content: [
+        { type: "steps", items: ["Kria o `.venv`", "Ativa-l", "Konfirma ku `python --version`"] },
+        { type: "cmd", label: "Terminal", lines: ["python3 -m venv .venv", "source .venv/bin/activate"], out: "(.venv) $" },
+        { type: "callout", sev: "warning", t: "Si bu skise ativa o `.venv`, os pakotis ta instala global." },
+      ],
+    },
+  ]}
+/>
+
+## Variant phases (tudu abertu, badju maior)
+
+Es phases ta esersi `list`, `code`, `table`, i `image`, ku `phaseWord="Fasi"`.
+
+<Steps
+  variant="phases"
+  phaseWord="Fasi"
+  title="Anatomia di un pakoti"
+  steps={[
+    {
+      title: "Fixerus prinsipal",
+      content: [
+        { type: "list", items: ["`pyproject.toml` — konfigurason", "`README.md` — dokumentason", "`src/` — kódigu"] },
+        { type: "code", t: "pip install -e ." },
+      ],
+    },
+    {
+      title: "Komparason di formatu",
+      content: [
+        { type: "table", head: ["Formatu", "Uzu"], rows: [["wheel", "Distribuison binária"], ["sdist", "Kódigu fonti"]] },
+        { type: "image", imgLabel: "Strutura di pakoti", caption: "Layout tipiku di un pakoti Python." },
+      ],
+    },
+  ]}
+/>

@@ -1,0 +1,63 @@
+# 6 questions (positions 0–5). Demos: explain feedback, correct/incorrect paths.
+- question:
+    kea: "Kal funsan ki ta pidi un valor pa o uzuáriu na terminal?"
+  options:
+    - text: { kea: "`input()`" }
+      correct: true
+      explain: { kea: "**`input()`** ta para o programa i ta lê un linha di teksu di o uzuáriu." }
+    - text: { kea: "`print()`" }
+      correct: false
+      explain: { kea: "`print()` ta **mostra** valor, e ka ta lê nada." }
+- question:
+    kea: "Kal é o tipu di `42` na Python?"
+  options:
+    - text: { kea: "`int`" }
+      correct: true
+      explain: { kea: "Numerus sen ponti desimal é `int` (inteiru)." }
+    - text: { kea: "`str`" }
+      correct: false
+    - text: { kea: "`float`" }
+      correct: false
+      explain: { kea: "`float` é pa numerus ku ponti, sima `42.0`." }
+- question:
+    kea: "Kal palavra-xavi ki ta kria un funsan?"
+  options:
+    - text: { kea: "`def`" }
+      correct: true
+      explain: { kea: "`def nomi(...):` ta difini un funsan." }
+    - text: { kea: "`func`" }
+      correct: false
+    - text: { kea: "`function`" }
+      correct: false
+- question:
+    kea: "Un f-string ta kumesa ku kal letra antis di o aspa?"
+  options:
+    - text: { kea: "`f`" }
+      correct: true
+      explain: { kea: "`f\"Ola, {nomi}\"` — o `f` ta ativa interpolason di `{...}`." }
+    - text: { kea: "`s`" }
+      correct: false
+    - text: { kea: "`p`" }
+      correct: false
+- question:
+    kea: "Kal struktura ki ta gualda valor na pares xavi→valor?"
+  options:
+    - text: { kea: "`dict`" }
+      correct: true
+      explain: { kea: "`{ \"nomi\": \"Tóni\" }` é un dicionáriu (`dict`)." }
+    - text: { kea: "`list`" }
+      correct: false
+      explain: { kea: "`list` ta gualda valor en órdi, ku índisi numériku." }
+    - text: { kea: "`tuple`" }
+      correct: false
+- question:
+    kea: "Kal operador ki ta da o restu di un divizon?"
+  options:
+    - text: { kea: "`%`" }
+      correct: true
+      explain: { kea: "`7 % 3` ta da `1` — o restu (módulu)." }
+    - text: { kea: "`//`" }
+      correct: false
+      explain: { kea: "`//` ta da o kosienti inteiru, ka o restu." }
+    - text: { kea: "`/`" }
+      correct: false

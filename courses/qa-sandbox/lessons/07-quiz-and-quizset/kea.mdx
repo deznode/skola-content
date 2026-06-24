@@ -1,0 +1,49 @@
+---
+title: "Quiz i QuizSet"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: quiz-and-quizset
+slug: "quiz-and-quizset"
+module: 2
+lesson: 2
+duration: "8 min"
+objectives:
+  - "Testa QuizSet stepper ku kaminhu di resposta serta i errada"
+  - "Testa kampu explain i o padron showHeader={false} + SectionHeading variant=quiz"
+---
+
+O komponenti **`<QuizSet>`** ta inrola un o más markadores **`<Quiz position={n} />`**
+nun stepper di un-pergunta-di-kada-bez. O `position` é **0-based** i ta aponta pa
+o índisi na `quiz.yaml`. Sénpri inrola na `<QuizSet>`, mésmu pa un pergunta só.
+
+## Stepper kompletu (kabesálu própi)
+
+Ku **≥2** pergunta, bu ta odja o stepper kompletu: progresu en dot, footer
+prev/next. Es konjuntu ta mostra o se kabesálu interno (`showHeader` padrón).
+Responde serta o errada pa odja o feedback **Pamodi:** (kampu `explain`).
+
+<QuizSet>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+## Un pergunta só (chrome ta kolapsa)
+
+Ku un `<Quiz>` só, o stepper chrome ta auto-kolapsa — inda ta parse intensional.
+
+<QuizSet>
+  <Quiz position={3} />
+</QuizSet>
+
+## Padron showHeader={false} + SectionHeading
+
+Li o títulu ta ben di `<SectionHeading variant="quiz">` i o konjuntu ta abri sen
+kabesálu duplikadu; o kontador i o dot-progress ta fika.
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+
+<QuizSet showHeader={false}>
+  <Quiz position={4} />
+  <Quiz position={5} />
+</QuizSet>

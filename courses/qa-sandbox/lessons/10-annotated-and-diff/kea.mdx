@@ -1,0 +1,76 @@
+---
+title: "AnnotatedCode i CodeDiff"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: annotated-and-diff
+slug: "annotated-and-diff"
+module: 3
+lesson: 2
+duration: "9 min"
+objectives:
+  - "Testa AnnotatedCode ku nota numeradu na marjen"
+  - "Testa CodeDiff na modu split i unified"
+---
+
+## AnnotatedCode — nota na marjen
+
+Kada linha ten un markador `m` ki ta liga-l a un karton di splikason numeradu.
+O markadoris ta sikla pa sinku kor di asentu (blue → gold → teal → coral →
+slate). O `body` di kada nota ta seta inline markdown.
+
+<AnnotatedCode
+  lang="python"
+  filename="media.py"
+  title="Lê o kódiku liña-pa-liña"
+  code={[
+    { t: "def media(notas):", m: 1 },
+    { t: "    total = sum(notas)", m: 2 },
+    { t: "    kontu = len(notas)", m: 3 },
+    { t: "    return total / kontu", m: 4 },
+  ]}
+  notes={[
+    { m: 1, title: "Definison", body: "`def` ta deklara un funsan `media` ku un lista `notas`." },
+    { m: 2, title: "Soma", body: "`sum()` ta djunta **tudu** valoris di a lista." },
+    { m: 3, title: "Kontu", body: "`len()` ta konta kuantu valor ten." },
+    { m: 4, title: "Divizon", body: "Total a dividi pa kontu ta da a **média**." },
+  ]}
+/>
+
+## CodeDiff — antis / dipos
+
+Kada linha é `ctx` (kontekstu), `add`, o `del`. Sen `forceView`, o aluno pode
+troka entri **split** (Antis | Dipos) i **unified**.
+
+<CodeDiff
+  lang="python"
+  filename="media.py"
+  title="Antis i dipôs di o fix (toggle split/unified)"
+  note="Nu pâra divizon pa zeru ku un check di lista bazia."
+  diff={[
+    { type: "ctx", t: "def media(notas):" },
+    { type: "del", t: "    return sum(notas) / len(notas)" },
+    { type: "add", t: "    if not notas:" },
+    { type: "add", t: "        return 0" },
+    { type: "add", t: "    return sum(notas) / len(notas)" },
+  ]}
+/>
+
+### Pinadu na modu unified
+
+Ku `forceView="unified"` o vista ta fika fiksu na unified (sen toggle).
+
+<CodeDiff
+  lang="python"
+  filename="media.py"
+  eyebrow="Unified"
+  title="Mésmu diff, pinadu unified"
+  forceView="unified"
+  showNote={false}
+  diff={[
+    { type: "ctx", t: "def media(notas):" },
+    { type: "del", t: "    return sum(notas) / len(notas)" },
+    { type: "add", t: "    if not notas:" },
+    { type: "add", t: "        return 0" },
+    { type: "add", t: "    return sum(notas) / len(notas)" },
+  ]}
+/>

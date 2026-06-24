@@ -1,6 +1,6 @@
 # QA Sandbox — Published Assets
 
-**Published:** 2026-06-18
+**Published:** 2026-06-24
 **Source:** topics/qa-sandbox/
 
 ## Files
@@ -8,16 +8,17 @@
 | File | Type | Count |
 |------|------|-------|
 | course.yaml | Course manifest | 1 |
-| lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 8 |
-| lessons/{NN}-{slug}/en.mdx | Lessons (English, L1–L2 only) | 2 |
-| lessons/{NN}-{slug}/quiz.yaml | Quiz sidecars | 8 |
-| lessons/{NN}-{slug}/code-examples.yaml | CodeExample sidecars (L3, L4, L5) | 3 |
-| lessons/{NN}-{slug}/exercises.yaml | Exercise sidecars (L7, L8) | 2 |
-| infographics/* | Infographics (JPEG) | 1 |
+| lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 17 |
+| lessons/{01,02}-*/en.mdx | Lessons (English) | 2 |
+| lessons/**/quiz.yaml | Quiz sidecars | 6 |
+| lessons/**/exercises.yaml | Exercise sidecars | 1 |
+| lessons/**/code-examples.yaml | Code-example sidecars | 3 |
+| infographics/* | Infographics | 1 |
 | microlearn-kea/{unitSlug}/ | Microlearn unit bundles | 1 |
 
-## Notes
+## Structure
 
-- `course.yaml` is hand-maintained for this test bed (carries `video_url`, `content_type`, and `en` translations not present in `content.json`) — preserved as-is, not regenerated.
-- `test_only: true` — excluded from default `pnpm gen:catalog` discovery and the catalog-drift-guard hook; never reaches prod.
-- L4 (`callouts-and-figure`) CodeExample marker corrected to `position={1}` per pedagogy review (2026-06-17).
+6 modules (one per learning-content-core README family + M0 layouts), 17 lessons,
+exhaustively exercising all 21 registered components and their variants. Anchored
+04-callouts-and-figure (parity-drift-gate fixture). `test_only: true` — excluded
+from prod catalog discovery.

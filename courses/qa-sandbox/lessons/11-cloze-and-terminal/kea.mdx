@@ -1,0 +1,61 @@
+---
+title: "CodeCloze i TerminalBlock"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: cloze-and-terminal
+slug: "cloze-and-terminal"
+module: 3
+lesson: 3
+duration: "9 min"
+objectives:
+  - "Testa CodeCloze ku enche-spasu na kódigu"
+  - "Testa TerminalBlock na modu sesson i traceback"
+---
+
+## CodeCloze — enche os spasus
+
+O `template` ten markadoris `{{0}}`, `{{1}}`… ki ta bira inputs; `answers[i]` é
+o valor speradu pa kada spasu (igualdadi sen spasu na pontas). Botóns:
+**Verifika** i **Limpa**.
+
+<CodeCloze
+  lang="python"
+  title="Konpleta a funsan di dobra"
+  prompt="Inche os spasus pa kria a funsan ki ta dobra un numeru."
+  template={[
+    "{{0}} dobra(x):",
+    "    return x {{1}} 2",
+  ]}
+  answers={["def", "*"]}
+  hints={["Palavra-xavi pa funsan", "Operador di multiplikason"]}
+  solved="Korretu! `def` ta deklara a funsan i `*` ta multiplika."
+/>
+
+## TerminalBlock — sesson
+
+Ku o prop `lines` (máximu kontrolu), kada linha ten un `type`. O botón di kópia
+ta kopia **só** os komandus (`cmd`/`root`), nunka o sígilu `$` o o output.
+
+<TerminalBlock
+  title="python media.py"
+  lines={[
+    { type: "cmd", t: "python3 media.py" },
+    { type: "out", t: "Média: 14.5" },
+    { type: "ok",  t: "Successfully completed." },
+  ]}
+/>
+
+## TerminalBlock — traceback
+
+Ku o prop `code` (string parsadu), linhas ku `Traceback`/`Error` ta bira tipu
+`err` (vermedju) otomátiku.
+
+<TerminalBlock
+  title="python media.py — erru"
+  showCursor={false}
+  code={`$ python3 media.py
+Traceback (most recent call last):
+  File "media.py", line 2, in <module>
+    print(media([]))
+ZeroDivisionError: division by zero`}
+/>

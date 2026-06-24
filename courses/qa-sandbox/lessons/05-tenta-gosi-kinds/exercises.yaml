@@ -1,0 +1,57 @@
+# Demo: one exercise per TentaGosi kind (code · debug · setup · explore · reflect).
+# Order matches the five badges documented in practice-and-assessment.md.
+- slug: tgk-code-kumprimentu
+  language: python
+  kind: code
+  title: { kea: "Skrebe kumprimentu.py" }
+  prompt: { kea: "Kria un fixeru `kumprimentu.py` ki ta pidi un nomi ku `input()` i ta imprimi `Ola, <nomi>!`. Uza un **f-string**." }
+  hint: { kea: "Txoma `input()` pa gualda o nomi, dipos `print(f\"...\")`." }
+  starterCode: |
+    # kumprimentu.py
+  solutionCode: |
+    nomi = input("Kumo é bu nomi? ")
+    print(f"Ola, {nomi}!")
+
+- slug: tgk-debug-nameerror
+  language: python
+  kind: debug
+  file: kontu.py
+  title: { kea: "Koriji un NameError" }
+  prompt: { kea: "Es programa ta da un `NameError`. Diskubri pamodi i koriji-l." }
+  starterCode: |
+    print(f"Total: {total}")
+    total = 10 + 5
+  solutionCode: |
+    total = 10 + 5
+    print(f"Total: {total}")
+  hint: { kea: "`total` ta uzadu **antis** di ser difinidu — troka órdi di linhas." }
+
+- slug: tgk-setup-venv
+  language: bash
+  kind: setup
+  title: { kea: "Prepara un ambienti virtual" }
+  prompt: { kea: "Kria un ambienti virtual `.venv`, ativa-l, i konfirma versan di Python." }
+  command: |
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python --version
+  expectedOutput: |
+    (.venv) $ python --version
+    Python 3.12.3
+
+- slug: tgk-explore-docs
+  language: python
+  kind: explore
+  title: { kea: "Splora dokumentason di strings" }
+  prompt: { kea: "Bai na es links i lê sobri métodus di string na Python." }
+  resources:
+    kea:
+      - { label: "Python — str docs", url: "https://docs.python.org/3/library/stdtypes.html#str" }
+      - { label: "Real Python — f-strings", url: "https://realpython.com/python-f-strings/" }
+
+- slug: tgk-reflect-aprende
+  language: python
+  kind: reflect
+  title: { kea: "Refleta sobri o ki bu prende" }
+  prompt: { kea: "Sen kódiku — pensa. Skrebe **tres** kuza ki fika klaru pa bo sobri es lison." }
+  notePlaceholder: { kea: "Skrebe li tres kuza ki bu prende…" }

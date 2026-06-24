@@ -1,0 +1,42 @@
+---
+title: "GlossaryText i Kbd"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: glossary-and-kbd
+slug: "glossary-and-kbd"
+module: 5
+lesson: 1
+duration: "7 min"
+objectives:
+  - "Testa markadores [[term]] / GlossaryText ku definison na hover"
+  - "Testa Kbd ku tekla di atalhu (ex. Ctrl+L)"
+---
+
+## GlossaryText — termu na hover
+
+`<GlossaryText>` ta inrola prosa ku markadores **`[[term]]`**. Kada markador ta
+bira un popover di definison na hover/tap. Os definison ta ben di o prop `terms`
+(pasadu inline pa garanti ki resolve na o preview di pipeline-app — sen el, o
+markador ta fika teksu sinplis).
+
+<GlossaryText
+  text="Un [[variável]] ta gualda un valor. Un [[loop]] ta ripiti kódiku, i un [[array]] ta gualda várius valor djuntu. Kada [[funsan]] ta inkapsula un tarefa."
+  terms={{
+    "variável": { en: "variable", definition: "Un espasu na memória ku un `nomi` ki ta gualda un valor." },
+    "loop":     { en: "loop", definition: "Un strutura ki ta ripiti un blóku di kódiku várius bês." },
+    "array":    { en: "array", definition: "Un lista ordenadu di valor, asesadu pa `índisi`.", code: "notas = [10, 14, 18]" },
+    "funsan":   { en: "function", definition: "Un blóku reutilizável di kódiku ki ta izekuta un tarefa." },
+  }}
+/>
+
+## Kbd — tekla di atalhu
+
+`<Kbd>` ta renderiza keycaps di un spec djuntadu ku `+`. Tokens konhesidu
+(`Ctrl`, `Shift`, `Cmd`, `Enter`…) ta da glifu; kualker otru token ta da o se
+teksu literal.
+
+Primi <Kbd keys="Enter" /> pa kore-l, o <Kbd keys="Shift+Tab" /> pa troka di
+modu. Pa limpa o terminal, uza <Kbd keys="Ctrl+L" />. Na macOS, salva ku
+<Kbd keys="Cmd+S" os="mac" />; na Windows, <Kbd keys="Ctrl+S" os="windows" />.
+
+Un keycap maior (`size="lg"`): <Kbd keys="Ctrl+Shift+P" size="lg" />.

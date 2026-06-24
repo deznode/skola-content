@@ -1,0 +1,30 @@
+# CodeExample sidecar. Order here = 0-based display position
+# (<CodeExample position={0}/> = first). See code-teaching.md.
+# Example 0: single snippet (no variants → no tab bar).
+# Example 1: ≥2 variants → language tab bar renders.
+- language: python
+  title: "Ola, mundu (Python)"
+  code: |
+    nomi = "Cesária"
+    print(f"Ola, {nomi}!")
+- language: python
+  title: "Mésmu programa, tres linguajen"
+  code: |
+    nomi = "Cesária"
+    print(f"Ola, {nomi}!")
+  variants:
+    - language: python
+      label: "Python"
+      code: |
+        nomi = "Cesária"
+        print(f"Ola, {nomi}!")
+    - language: javascript
+      label: "JavaScript"
+      code: |
+        const nomi = "Cesária";
+        console.log(`Ola, ${nomi}!`);
+    - language: bash
+      label: "Bash"
+      code: |
+        nomi="Cesária"
+        echo "Ola, $nomi!"

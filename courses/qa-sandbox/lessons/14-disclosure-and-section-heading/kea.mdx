@@ -1,0 +1,69 @@
+---
+title: "DetailDisclosure i SectionHeading"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: disclosure-and-section-heading
+slug: "disclosure-and-section-heading"
+module: 4
+lesson: 3
+duration: "8 min"
+objectives:
+  - "Testa DetailDisclosure ku karton expandível (items)"
+  - "Testa SectionHeading na tudu variant (practice/install/quiz/summary/concept) i level 2/3"
+---
+
+Dos komponenti di strutura: `<DetailDisclosure>` pa "splika más" / FAQ, i
+`<SectionHeading>` pa kabesálu di pájina ku asentu di kor.
+
+## DetailDisclosure — karton expandível
+
+Un pilha di karton; **más di un pode sta abertu di kada bez**. O `tag` ta bira
+un pílula: o valor literal `"Opsional"` ta renderiza mutu (muted), kualker otru
+valor ta renderiza na kor di asentu. O kampu `code` ta mostra un kódiku mono inline.
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Pamodi `python3` na macOS/Linux ma `python` na Windows?",
+      tag: "Splika más",
+      a: "Na macOS i Linux, `python` txeu bês ta pónta pa un versan antigu. Uza `python3` pa garanti o versan novu.",
+      code: "python3 --version",
+    },
+    {
+      q: "Meste koneksan internet pa kore Python?",
+      tag: "Opsional",
+      a: "Nau. Dipôs di instala, Python ta kore tudu lokalmenti.",
+    },
+    {
+      q: "Kal é a diferensa entri `pip` i `venv`?",
+      tag: "FAQ",
+      a: "`pip` ta instala pakotis; `venv` ta kria un ambienti izoladu undi instala-s.",
+    },
+  ]}
+/>
+
+<SectionHeading variant="concept">SectionHeading — asentu di kor</SectionHeading>
+
+Es kabesálu ten **sinku variant** (kada un ku se kor) i **dos level** (2 i 3).
+O variant ta kombina ku o tipu di blóku ki ben pa baxu (ku `showHeader={false}`).
+Li sta os sinku variant, na **level 3** (nested dentu di es seson):
+
+<SectionHeading variant="practice" level={3}>practice — pa prátika</SectionHeading>
+
+Asentu pa blóku di prátika sima `<TentaGosi>` i `<Steps>`.
+
+<SectionHeading variant="install" level={3}>install — pa instalason</SectionHeading>
+
+Asentu pa seson di setup / instalason.
+
+<SectionHeading variant="quiz" level={3}>quiz — pa kuiz</SectionHeading>
+
+Asentu pa `<QuizSet>`.
+
+<SectionHeading variant="summary" level={3}>summary — pa rezumu</SectionHeading>
+
+Asentu pa `<KeyTakeaways>` / `<Rezumu>`.
+
+<SectionHeading variant="concept" level={3}>concept — pa konseitu</SectionHeading>
+
+Asentu pa `<ConceptDiagram>`.
