@@ -4,10 +4,10 @@
   options:
     - text: { kea: "`input()`" }
       correct: true
-      explain: { kea: "**`input()`** ta para o programa i ta lê un linha di teksu di o uzuáriu." }
+      explain: { kea: "**`input()`** ta para o programa i ta le un linha di teksu di o uzuáriu." }
     - text: { kea: "`print()`" }
       correct: false
-      explain: { kea: "`print()` ta **mostra** valor, e ka ta lê nada." }
+      explain: { kea: "`print()` ta **mostra** valor, e ka ta le nada." }
 - question:
     kea: "Kal é o tipu di `42` na Python?"
   options:
@@ -44,7 +44,7 @@
   options:
     - text: { kea: "`dict`" }
       correct: true
-      explain: { kea: "`{ \"nomi\": \"Tóni\" }` é un dicionáriu (`dict`)." }
+      explain: { kea: "`{ \"nomi\": \"Tóni\" }` é un disionáriu (`dict`)." }
     - text: { kea: "`list`" }
       correct: false
       explain: { kea: "`list` ta gualda valor en órdi, ku índisi numériku." }

@@ -43,7 +43,7 @@
   language: python
   kind: explore
   title: { kea: "Splora dokumentason di strings" }
-  prompt: { kea: "Bai na es links i lê sobri métodus di string na Python." }
+  prompt: { kea: "Bai na es links i le sobri métodus di string na Python." }
   resources:
     kea:
       - { label: "Python — str docs", url: "https://docs.python.org/3/library/stdtypes.html#str" }
