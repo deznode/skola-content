@@ -1,0 +1,26 @@
+# Git hooks for the skola-content repo, managed by Lefthook (https://lefthook.dev).
+#
+# Install once per clone:   lefthook install
+# Bypass for one commit:    LEFTHOOK=0 git commit ...   (or  git commit --no-verify)
+#
+# These checks run on STAGED files only and mirror (a fast subset of) the
+# non-blocking jobs in .github/workflows/content-ci.yml, catching the same
+# problems locally before they reach CI. All commands use binaries that are
+# already on PATH (gitleaks, python3) — no package.json / node_modules needed.
+
+pre-commit:
+  parallel: true
+  commands:
+    # Block commits that contain hardcoded secrets (global mandate: no secrets in git).
+    gitleaks:
+      run: gitleaks git --staged --redact --verbose
+
+    # Reject Python teaching samples that don't even parse (mirrors CI's py_compile).
+    python-syntax:
+      glob: "*.py"
+      run: python3 -m py_compile {staged_files}
+
+    # Catch broken relative Markdown links (mirrors CI's internal-link check).
+    broken-links:
+      glob: "*.{md,mdx}"
+      run: ./scripts/check-links.sh {staged_files}
