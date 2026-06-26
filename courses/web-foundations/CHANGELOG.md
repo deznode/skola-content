@@ -8,6 +8,11 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-06-26] — hand-edit
+
+### Changed
+- Marked course `test_only: true` in `course.yaml` so it stays out of production (db/migration) and loads only in `local`/`test` profiles via `db/seed/dev`, until the course is ready to ship. Not durable across `/skola:pipeline-publish` — re-add after any republish.
+
 ## [2026-06-26] — publish (revision)
 
 ### Changed
