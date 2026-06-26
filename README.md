@@ -6,7 +6,7 @@ language: kea
 
 **🇨🇻 Kriolu** · [🇵🇹 Portugues](./README.pt.md) · [🇬🇧 English](./README.en.md)
 
-# Kontiudu Skola.dev
+# Kontiudu di Skola.dev
 
 Kontiudu edukativu i izenplus di kódiku pa [Skola.dev](https://skola.dev) — pa nsina programasan, dizenvolvimentu cloud-native, i IA na Kriolu Kabuverdianu.
 
