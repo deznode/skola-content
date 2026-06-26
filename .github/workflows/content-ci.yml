@@ -36,6 +36,61 @@ jobs:
             done
           done
 
+  # Require a CHANGELOG.md update for every artifact touched in this change set
+  # (mirrors the local `changelog-guard` Lefthook hook). Keeps a per-course
+  # history of what changed and when.
+  changelog-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check each touched artifact updated its CHANGELOG
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+          PUSH_HEAD_SHA: ${{ github.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            base="$PR_BASE_SHA"
+            head="$PR_HEAD_SHA"
+          else
+            base="$PUSH_BEFORE_SHA"
+            head="$PUSH_HEAD_SHA"
+          fi
+          # Fall back to the previous commit if the base is empty/unknown (e.g. first push).
+          if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            base="$head^"
+          fi
+
+          changed=$(git diff --name-only "$base" "$head")
+
+          # Artifact roots (courses/<slug>) with any changed file.
+          roots=$(printf '%s\n' "$changed" \
+            | grep -E '^courses/[^/]+/' \
+            | cut -d/ -f1-2 | sort -u || true)
+
+          missing=0
+          while IFS= read -r root; do
+            [ -n "$root" ] || continue
+            if ! printf '%s\n' "$changed" | grep -Fqx "$root/CHANGELOG.md"; then
+              echo "✗ $root changed but $root/CHANGELOG.md was not updated"
+              missing=1
+            fi
+          done <<EOF
+          $roots
+          EOF
+
+          if [ "$missing" -ne 0 ]; then
+            echo ""
+            echo "Every change to an artifact must record an entry in that artifact's CHANGELOG.md."
+            exit 1
+          fi
+          echo "All touched artifacts updated their CHANGELOG.md."
+
   # Validate code samples can at least be parsed
   validate-code:
     runs-on: ubuntu-latest

@@ -24,3 +24,13 @@ pre-commit:
     broken-links:
       glob: "*.{md,mdx}"
       run: ./scripts/check-links.sh {staged_files}
+
+    # Require a CHANGELOG.md update for every artifact touched (mirrors CI's
+    # changelog-drift job). Keeps a per-course history of what changed and when.
+    # `files:` overrides the default {staged_files} (which is --diff-filter=ACMR,
+    # i.e. excludes Deletions) with ACMRD, so a pure-deletion commit in a course
+    # is gated locally too — matching the CI job's `git diff --name-only`.
+    changelog-guard:
+      glob: "courses/*/**"
+      files: git diff --staged --name-only --diff-filter=ACMRD
+      run: ./scripts/changelog-guard.sh {files}
