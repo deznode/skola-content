@@ -4,8 +4,6 @@ slug: readme
 language: en
 -->
 
-![Skola.dev Content](./assets/banner-en.svg)
-
 [🇨🇻 Kriolu](./README.md) · [🇵🇹 Português](./README.pt.md) · **🇬🇧 English**
 
 # Skola.dev Content

@@ -4,8 +4,6 @@ slug: readme
 language: kea
 -->
 
-![Kontiudu Skola.dev](./assets/banner-kea.svg)
-
 **🇨🇻 Kriolu** · [🇵🇹 Portugues](./README.pt.md) · [🇬🇧 English](./README.en.md)
 
 # Kontiudu Skola.dev
