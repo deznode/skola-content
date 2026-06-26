@@ -1,8 +1,8 @@
----
+<!--
 title: Skola Content
 slug: readme
 language: en
----
+-->
 
 [🇨🇻 Kriolu](./README.md) · [🇵🇹 Português](./README.pt.md) · **🇬🇧 English**
 

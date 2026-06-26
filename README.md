@@ -1,8 +1,8 @@
----
+<!--
 title: Kontiudu Skola
 slug: readme
 language: kea
----
+-->
 
 **🇨🇻 Kriolu** · [🇵🇹 Portugues](./README.pt.md) · [🇬🇧 English](./README.en.md)
 
