@@ -8,6 +8,11 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-06-26] — publish (revision)
+
+### Changed
+- M1 L01 "Kumo Web ta funsiona": cut request→response redundancy so the infographic carries the 4-step sequence; reframed the Internet≠Web lead as a curiosity hook (`…ki sin. Ma nau.`) with a roads/islands analogy callout (`fiu`/`strada`/`kez`); removed `**bold**`/`` `code` `` markup that leaked as literal characters in the `<GlossaryText>` body (companion `learning-content-core` fix renders that subset going forward).
+
 ## [2026-06-26] — publish
 
 ### Added
