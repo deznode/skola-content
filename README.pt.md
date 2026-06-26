@@ -1,12 +1,14 @@
----
+<!--
 title: Conteúdo Skola
 slug: readme
 language: pt
----
+-->
+
+![Conteúdo Skola.dev](./assets/banner-pt.svg)
 
 [🇨🇻 Kriolu](./README.md) · **🇵🇹 Português** · [🇬🇧 English](./README.en.md)
 
-# Conteúdo Skola
+# Conteúdo Skola.dev
 
 Conteúdo educativo e exemplos de código para [Skola.dev](https://skola.dev) — ensinando programação, desenvolvimento cloud-native e IA em Crioulo Cabo-verdiano.
 

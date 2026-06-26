@@ -1,12 +1,14 @@
----
+<!--
 title: Kontiudu Skola
 slug: readme
 language: kea
----
+-->
+
+![Kontiudu Skola.dev](./assets/banner-kea.svg)
 
 **🇨🇻 Kriolu** · [🇵🇹 Portugues](./README.pt.md) · [🇬🇧 English](./README.en.md)
 
-# Kontiudu Skola
+# Kontiudu Skola.dev
 
 Kontiudu edukativu i izenplus di kódiku pa [Skola.dev](https://skola.dev) — pa nsina programasan, dizenvolvimentu cloud-native, i IA na Kriolu Kabuverdianu.
 

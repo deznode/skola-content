@@ -1,12 +1,14 @@
----
+<!--
 title: Skola Content
 slug: readme
 language: en
----
+-->
+
+![Skola.dev Content](./assets/banner-en.svg)
 
 [🇨🇻 Kriolu](./README.md) · [🇵🇹 Português](./README.pt.md) · **🇬🇧 English**
 
-# Skola Content
+# Skola.dev Content
 
 Educational content and code samples for [Skola.dev](https://skola.dev) — teaching programming, cloud-native development, and AI in Cape Verdean Kriolu.
 
