@@ -1,176 +1,142 @@
-# Skola Content
+---
+title: Kontiudu Skola
+slug: readme
+language: kea
+---
 
-Educational content and code samples for [Skola.dev](https://skola.dev) - teaching programming, cloud-native development, and AI in Cape Verdean Kriolu.
+**🇨🇻 Kriolu** · [🇵🇹 Portugues](./README.pt.md) · [🇬🇧 English](./README.en.md)
 
-## Repository Structure
+# Kontiudu Skola
 
-This repository contains **published, polished content** organized by course. Content is created through the [skola-research](https://github.com/deznode/skola-research) pipeline and published here as the public-facing output.
+Kontiudu edukativu i izenplus di kódiku pa [Skola.dev](https://skola.dev) — pa nsina programasan, dizenvolvimentu cloud-native, i IA na Kriolu Kabuverdianu.
 
-### Content Modes
+## Strutura di Repozitóriu
 
-Content is organized in two modes:
+Es repozitóriu ten **kontiudu publikadu i finalizadu**, organizadu pa kursu. Kontiudu é kriadu através di pipeline [skola-research](https://github.com/deznode/skola-research) i é publikadu li komu rezultadu públiku.
 
-| Mode | Structure | Description |
-|------|-----------|-------------|
-| **Course** (canonical) | `courses/{slug}/` | Structured courses with modules, individual lessons, and supporting materials |
-| **Tutorial** (legacy) | `{slug}/` | Single-topic tutorials with one tutorial file and code samples |
+Tudu kontiudu é organizadu na **modu Kursu** — kursu struturadu ku módulu, lisan individual, i material di apoiu, baxu `courses/{slug}/`.
 
-New content should always use **Course mode**.
+### Kursu
 
-### Courses
-
-| Course | Lessons | Languages | Description |
-|--------|---------|-----------|-------------|
-| [intro-python](./courses/intro-python/) | 32 | kea | Complete Python introduction (beginner) |
+| Kursu | Lisan | Língua | Diskrisan |
+|-------|-------|--------|-----------|
+| [intro-python](./courses/intro-python/) | 32 | kea | Introdusan kompletu a Python (prinsipianti) |
+| [web-foundations](./courses/web-foundations/) | 19 | kea | Fundamentus di web: HTML i CSS (prinsipianti) |
 
 ### Blog
 
-| Location | Description |
-|----------|-------------|
-| [blog/drafts/](./blog/drafts/) | Blog posts in progress |
-| [blog/published/](./blog/published/) | Published blog posts |
+| Lokal | Diskrisan |
+|-------|-----------|
+| [blog/drafts/](./blog/drafts/) | Postu di blog na progresu |
+| [blog/published/](./blog/published/) | Postu di blog publikadu |
 
-## Course Structure (Canonical)
+## Strutura di Kursu
 
-Every course follows this layout:
+Kada kursu ta sigi es leiaute:
 
 ```
 courses/{slug}/
-├── course.yaml                # Course manifest (modules, lessons, metadata)
-├── cheatsheet-{lang}.md       # Reference cheatsheet (one per language)
-├── slides-{lang}/             # Slidev presentation (one per language)
-│   ├── slides.md
-│   ├── package.json
-│   └── styles/
-├── lessons/                   # Individual lessons
+├── course.yaml                # Manifestu di kursu (módulu, lisan, metadadus)
+├── cheatsheet-{lang}.md       # Cheatsheet di referénsia (un pa kada língua)
+├── lessons/                   # Lisan individual
 │   └── {lessonSlug}/
-│       ├── kea.mdx            # Kriolu lesson
-│       └── pt.mdx             # Portuguese lesson (if available)
-├── code/                      # Code samples (language-neutral)
-│   ├── start/                 # Starter scaffolding with TODOs
-│   ├── final/                 # Complete working solution
-│   ├── docker/                # Docker environment (optional)
-│   └── projects/              # Practice projects (optional)
-├── infographics/              # Visual assets (PNGs)
-├── microlearn/                # Short-form content
-│   ├── video-scripts/         # 60-90s video scripts
-│   ├── micro-blogs/           # 100-250 word posts
-│   ├── seo/                   # SEO metadata (YAML)
-│   └── thumbnails/            # Thumbnail briefs
-└── manifest.md                # Published asset inventory
+│       ├── kea.mdx            # Lisan na Kriolu
+│       └── pt.mdx             # Lisan na Portugues (si ten)
+├── code/                      # Izenplu di kódiku (neutru di língua)
+│   ├── start/                 # Skeletu inisial ku TODOs
+│   └── final/                 # Solusan kompletu ki ta funsiona
+├── infographics/              # Asetu vizual (PNGs)
+├── microlearn/                # Kontiudu kurtu
+│   ├── video-scripts/         # Skript di vídeu 60-90s
+│   ├── micro-blogs/           # Postu di 100-250 palavra
+│   ├── seo/                   # Metadadus SEO (YAML)
+│   └── thumbnails/            # Brief di thumbnail
+├── manifest.md                # Inventáriu di asetu publikadu
+└── CHANGELOG.md               # Istóriku di mudansas
 ```
 
-**Key relationship**: `code/final/` is the source of truth. `code/start/` is derived from it with implementation stripped and TODOs added.
+**Relasan xavi**: `code/final/` é fonti di verdadi. `code/start/` ta deriva di el, ku implementasan tiradu i TODOs adisionadu.
 
-### Legacy Tutorial Structure
+## Uzu
 
-```
-{slug}/
-├── README.md
-├── kea/
-│   ├── tutorial.mdx
-│   ├── cheatsheet.md
-│   ├── infographics/
-│   └── slides/
-└── code/
-    ├── start/
-    ├── final/
-    ├── docker/
-    └── projects/
-```
+### Pa Studanti
 
-## Usage
-
-### For Students
-
-Clone this repository to get all content and code:
+Klona es repozitóriu pa pega tudu kontiudu i kódiku:
 
 ```bash
 git clone https://github.com/deznode/skola-content.git
 cd skola-content
 ```
 
-#### Following a Course
+#### Sigi un Kursu
 
-1. Navigate to the course and start with the first lesson:
+1. Navega pa kursu i kumesa ku primeru lisan:
    ```bash
    cd courses/intro-python/lessons/01-o-ki-e-python
    cat kea.mdx
    ```
 
-2. Work through lessons sequentially — each directory is numbered
+2. Sigi lisons pa órden — kada diretóriu ten un númeru
 
-3. Use the starter code alongside lessons:
+3. Uza kódiku inisial djuntu ku lisons:
    ```bash
    cd courses/intro-python/code/start
    ```
 
-4. Check the complete solution when needed:
+4. Odja solusan kompletu kantu bu meste:
    ```bash
    cd courses/intro-python/code/final
    ```
 
-#### Using Cheatsheets
+#### Uza Cheatsheet
 
-Quick reference for an entire course:
+Referénsia rápidu pa un kursu interu:
 ```bash
 cat courses/intro-python/cheatsheet-kea.md
 ```
 
-#### Slidev Presentations
+## Suporti di Língua
 
-```bash
-cd courses/{slug}/slides-kea
-pnpm install
-pnpm dev              # Start dev server with hot reload
-pnpm build            # Build static site
-pnpm export-pdf       # Export to PDF
-```
+- **Prinsipal**: Kriolu Kabuverdianu (`kea`)
+- **Sekundáriu**: Portugues (`pt`), Inglés (`en`)
 
-## Language Support
+Kontiudu é kriadu primeru na Kriolu, ku tradusan ta sigi dipos. Palavras tekniku ta fika na Inglés kantu ka ten tradusan diretu.
 
-- **Primary**: Cape Verdean Kriolu (`kea`)
-- **Secondary**: Portuguese (`pt`), English (`en`)
+## Kontribui
 
-Content is created first in Kriolu, with translations following. Technical terms remain in English when no direct translation exists.
+### Adisiona un Kursu Nobu
 
-## Contributing
-
-### Adding a New Course
-
-1. Create the course directory under `courses/`:
+1. Kria diretóriu di kursu baxu `courses/`:
    ```bash
    mkdir -p courses/{slug}/lessons
    ```
 
-2. Create `course.yaml` with course metadata (title, modules, lessons)
+2. Kria `course.yaml` ku metadadus di kursu (títulu, módulu, lisan)
 
-3. Create lesson files: `courses/{slug}/lessons/{lessonSlug}/kea.mdx`
-   - Each lesson requires frontmatter: `title`, `language`, `courseSlug`, `lessonSlug`
+3. Kria fitxeru di lisan: `courses/{slug}/lessons/{lessonSlug}/kea.mdx`
+   - Kada lisan ta meste frontmatter: `title`, `language`, `courseSlug`, `lessonSlug`
 
-4. Add code samples in `code/start/` and `code/final/`
-   - `code/final/` is the source of truth
-   - `code/start/` is derived with implementation stripped and TODOs added
+4. Adisiona izenplus di kódiku na `code/start/` i `code/final/`
+   - `code/final/` é fonti di verdadi
+   - `code/start/` ta deriva ku implementasan tiradu i TODOs adisionadu
 
-5. Add supporting materials as needed:
-   - `cheatsheet-kea.md` — Quick reference for the entire course
-   - `infographics/` — Visual diagrams (PNG)
-   - `slides-kea/` — Slidev presentation
-   - `microlearn/` — Short-form content (video scripts, micro-blogs)
+5. Adisiona material di apoiu konfórmi nesesáriu:
+   - `cheatsheet-kea.md` — Referénsia rápidu pa kursu interu
+   - `infographics/` — Diagrama vizual (PNG)
+   - `microlearn/` — Kontiudu kurtu (skript di vídeu, micro-blog)
 
-6. Create `manifest.md` listing all published assets
+6. Kria `manifest.md` ku lista di tudu asetu publikadu
 
-### File Naming
+### Nomeasan di Fitxeru
 
-- Lessons: `courses/{slug}/lessons/{lessonSlug}/{lang}.mdx`
-- Cheatsheets: `courses/{slug}/cheatsheet-{lang}.md`
-- Slides: `courses/{slug}/slides-{lang}/slides.md`
-- Blog posts: `blog/{status}/{date}-{slug}.mdx`
+- Lisan: `courses/{slug}/lessons/{lessonSlug}/{lang}.mdx`
+- Cheatsheet: `courses/{slug}/cheatsheet-{lang}.md`
+- Postu di blog: `blog/{status}/{date}-{slug}.mdx`
 
-## License
+## Lisensa
 
-MIT License - See individual topic folders for specific licensing if applicable.
+Lisensa MIT.
 
 ---
 
-**Nos ta kria djunta!** (We build together!)
+**Nu ta kria djuntu!**
