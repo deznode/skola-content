@@ -1,0 +1,63 @@
+# Quiz sidecar (draft source) for lesson m1-02 "Konfigura bu ambienti".
+# Positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# One question per learning outcome (LO1→0, LO2→1, LO3→2, LO4→3).
+- question:
+    kea: "Pamodi nu ta uza un editor kumo VS Code en bez di Notepad pa skrebe HTML?"
+  options:
+    - text: { kea: "El ta da syntax highlighting, autocomplete i extensions" }
+      correct: true
+      explain: { kea: "Un editor profisional ta koloria kódiku, ta sujeri kuze ki ben siginti, i ta seta extensions — Notepad ka ten nada di kel-li." }
+    - text: { kea: "El é mas baratu ki Notepad" }
+      correct: false
+      explain: { kea: "Dos é grátis. Vantajen di VS Code é ferramenta, ka presu." }
+    - text: { kea: "El ta funsiona so na Windows" }
+      correct: false
+      explain: { kea: "VS Code ta funsiona igual na macOS, Windows i Linux." }
+    - text: { kea: "El ka ta presiza ki bu salva ficheru" }
+      correct: false
+      explain: { kea: "Bu ten ki salva sempri — Prettier i Live Server ta reaji na save." }
+- question:
+    kea: "Dipos di instala extension Prettier, kuze mas ki bu ten ki faze pa el limpa kódiku na save?"
+  options:
+    - text: { kea: "Po el kumo *default formatter* i marka *format on save* na Settings" }
+      correct: true
+      explain: { kea: "So instala ka ta xega — Prettier ta funsiona so dipos ki bu poi-l kumo formatador padran i marka format-on-save." }
+    - text: { kea: "Nada — so instala extension é sufisienti" }
+      correct: false
+      explain: { kea: "Es é eru kumun: sen konfigura Settings, Prettier ka ta formata nada na save." }
+    - text: { kea: "Reinstala VS Code" }
+      correct: false
+      explain: { kea: "Ka ten ki reinstala nada — só konfigura Settings." }
+    - text: { kea: "Skrebe tudu kódiku na maiúskula" }
+      correct: false
+      explain: { kea: "Maiúskula ka ten a ver ku formatasan." }
+- question:
+    kea: "Kuze ki boton **Go Live** di Live Server ta faze?"
+  options:
+    - text: { kea: "Ta abri un servidor lokal na `localhost:5500` ki ta atualiza pajina kada save" }
+      correct: true
+      explain: { kea: "Live Server ta sirvi bu pajina na `localhost:5500` i ta da refresh otomátiku kada bez ki bu salva." }
+    - text: { kea: "Ta manda bu pajina pa internet pa tudu mundu odja" }
+      correct: false
+      explain: { kea: "É só lokal — na bu komputador. Pa publika na internet meste otra ferramenta." }
+    - text: { kea: "Ta formata bu HTML" }
+      correct: false
+      explain: { kea: "Kel-li é Prettier, ka Live Server." }
+    - text: { kea: "Ta instala Chrome" }
+      correct: false
+      explain: { kea: "Live Server ta uza browser ki bu dja ten; el ka ta instala nada." }
+- question:
+    kea: "Undi ki kódiku di kursu ta mora, i kuze ki el ten dentru?"
+  options:
+    - text: { kea: "Nun repo públiku na GitHub, ku un pasta `start/` (ku TODOs) i un pasta `final/` (solusan kompleta)" }
+      correct: true
+      explain: { kea: "`start/` ten scaffolding pa bu kompleta; `final/` ten solusan pa bu konferi kuandu bu kaba. Bu ta pega-l ku Download ZIP ou git clone." }
+    - text: { kea: "So un ficheru `index.html` vaziu pa bu baixa" }
+      correct: false
+      explain: { kea: "Ten dos pasta — `start/` i `final/` — ka un ficheru solu." }
+    - text: { kea: "Vídeu-aula di kada lisan" }
+      correct: false
+      explain: { kea: "Es repo ten só kódiku, ka vídeu." }
+    - text: { kea: "VS Code i Chrome pa instala" }
+      correct: false
+      explain: { kea: "VS Code i Chrome bu instala separadu; `start/` i `final/` ten kódiku di kursu." }

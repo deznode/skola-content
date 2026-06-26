@@ -1,0 +1,44 @@
+# Exercises sidecar (draft source) for lesson m3-11 "Konflitu i inheritance na CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/11-konflitu-i-inheritance-na-css/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: pamodi-regra-ka-ta-aplika           # → O1, O2 (debug specificity)
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Pamodi es `color` ka ta aplika?" }
+  prompt:
+    kea: "Byline ku `class=\"author-name\"` ta sai **sinza** (`#555`), ma autora kre-l **azul** (`#1098ad`). Es dos regra ta apunta pa mesmu elementu. Konta vetor `(a, b, c)` di kada un i diskubri pamodi regra azul ta perde — dipos koriji-l **sen** uza `!important`. (Dika: bu pode torna selector azul mas spesífiku, ou muda ordi.)"
+  starterCode: |
+    .author-name { color: #1098ad; }   /* (0, 1, 0) */
+    p#byline     { color: #555; }       /* (1, 0, 1) — ta ganha, pamodi ten un ID */
+  solutionCode: |
+    /* Simplifika: tira ID di selector sinza, pa class ganha */
+    .author-name { color: #1098ad; }   /* (0, 1, 0) — gosi ta ganha */
+    p            { color: #555; }       /* (0, 0, 1) */
+  hint:
+    kea: "Konta di skerda pa direita: `p#byline` é `(1, 0, 1)` — un ID na kolun `a`. `.author-name` é `(0, 1, 0)`. Un ID ta sobrepasa kualkér class. Pa azul ganha, baxa pezu di selector sinza."
+- slug: refaktoriza-inheritance               # → O3, O4 (code / inheritance)
+  language: css
+  kind: code
+  title: { kea: "Move stilu di testu pa `body` i deixa inheritance trabadja" }
+  prompt:
+    kea: "Es folha ta repeti `font-family` i `color` na trez regra (`h1`, `h2`, `p`). Refaktoriza: move es **dos propriedadi ki ta inheri** pa `body` un bez so, i tira-s di `h1`, `h2`, `p`. Mantén `font-size: 36px` na `h1` — kel é spesífiku di título. Rezultadu ta parse igual, ma ku menus repetisan."
+  starterCode: |
+    h1 { font-family: sans-serif; color: #333; font-size: 36px; }
+    h2 { font-family: sans-serif; color: #333; }
+    p  { font-family: sans-serif; color: #333; }
+  solutionCode: |
+    body { font-family: sans-serif; color: #333; }
+
+    h1 { font-size: 36px; }   /* h2, p ka ten ki repeti nada — es ta inheri di body */
+  hint:
+    kea: "`color` i `font-family` ta inheri, nton un só deklarasan na `body` ta kaska pa `h1`, `h2`, `p`. `font-size` na `h1` é spesífiku — deixa-l li."
+- slug: preve-inheri-o-nau                     # → O4, O5 (reflect / apply)
+  language: css
+  kind: reflect
+  title: { kea: "Preve: kal ki ta inheri, kal ki ka ta?" }
+  prompt:
+    kea: "Imajina ki bu poi es na `body`: `color: navy`, `border: 2px solid red`, `font-family: serif`, `margin: 40px`. **Antis di testa**, skrebe pa kada un si un `<p>` dentru di `<body>` ta resebe-l ou nau — i splika ku un fraze pamodi nu ten selector `*` pa kes ki **ka** ta inheri."
+  notePlaceholder:
+    kea: "color → … · border → … · font-family → … · margin → … · Pamodi `*`: …"

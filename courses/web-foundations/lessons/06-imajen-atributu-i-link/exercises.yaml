@@ -1,0 +1,63 @@
+# Exercises sidecar (draft source) for lesson m2-06 "Imajen, atributu i link".
+# Publish copies this to
+# content/courses/web-foundations/lessons/06-imajen-atributu-i-link/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-img-i-link-kebradu
+  language: html
+  kind: debug
+  file: cesaria.html
+  title: { kea: "Koriji un imajen i un link kebradu" }
+  prompt:
+    kea: "Es kódiku ten **dos** problema: `<img>` ka ten atributu `alt` (mal pa asesibilidadi i fallback), i tag di link sta skrebedu kumo `<link>` ku `<a>` falta-l `href`. Diskubri i koriji tudu dos pa imajen tene un deskrisan útil i link liga pa `cesaria.html`."
+  starterCode: |
+    <img src="cesaria.jpg" width="600" />
+
+    <link href="cesaria.html">Volta pa blog</link>
+  solutionCode: |
+    <img
+      src="cesaria.jpg"
+      alt="Cesária Évora na palku, di pe diskaltsu"
+      width="600"
+    />
+
+    <a href="cesaria.html">Volta pa blog</a>
+  hint:
+    kea: "Un imajen útil ten sempri `alt` deskritivu. Pa link visivel na pajina uza `<a href=\"...\">`, ka `<link>` — `<link>` é so pa `<head>` (CSS)."
+- slug: adisiona-link-externu-i-internu
+  language: html
+  kind: code
+  file: cesaria.html
+  title: { kea: "Adisiona un link externu i un link internu" }
+  prompt:
+    kea: "Skrebe dos link dentru di lista: (1) un link **externu** pa `https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora` ku `target=\"_blank\"` pa abri na un aba novu, i (2) un link **internu** pa `blog.html` (mesmu website, sen `target`). Skrebe-s a mon dentru di kada `<li>`."
+  starterCode: |
+    <h2>Websites pa konxe mas</h2>
+
+    <ul>
+      <li><!-- link externu pa Wikipedia (aba novu) --></li>
+      <li><!-- link internu pa blog.html --></li>
+    </ul>
+  solutionCode: |
+    <h2>Websites pa konxe mas</h2>
+
+    <ul>
+      <li>
+        <a
+          href="https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora"
+          target="_blank"
+        >Wikipedia — Cesária Évora</a>
+      </li>
+      <li>
+        <a href="blog.html">Volta pa blog</a>
+      </li>
+    </ul>
+  hint:
+    kea: "Link externu ten URL kompletu (`https://...`) i `target=\"_blank\"`; link internu ten so nomi di ficheru (`blog.html`) sen `target`."
+- slug: skrebe-alt-pa-cidade-velha
+  language: html
+  kind: reflect
+  title: { kea: "Skrebe un `alt` bon pa un foto di Cidade Velha" }
+  prompt:
+    kea: "Imajina un foto di **Cidade Velha** — primeru sidadi di Kabu Verdi, ku Fortaleza Real di São Filipe na riba di un monti. Skrebe un atributu `alt` pa es imajen. Dipos splika kuze ki ta faze un `alt` bon vs un `alt` inútil (ex: `alt=\"imajen\"` ou `alt=\"foto.jpg\"`)."
+  notePlaceholder:
+    kea: "Nha alt: `alt=\"…\"`. Un alt bon ta… ; un alt inútil ta… Pamodi: …"

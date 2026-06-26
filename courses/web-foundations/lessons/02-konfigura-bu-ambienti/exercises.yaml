@@ -1,0 +1,45 @@
+# Exercises sidecar (draft source) for lesson m1-02 "Konfigura bu ambienti".
+# Publish copies this to content/courses/web-foundations/lessons/02-konfigura-bu-ambienti/exercises.yaml.
+# Keep `slug` stable (completed_exercises FK).
+- slug: konfirma-vs-code
+  language: bash
+  kind: setup
+  title: { kea: "Konfirma ki VS Code sta instaladu" }
+  prompt:
+    kea: "Dipos di instala VS Code, abri un terminal i kore es komandu pa konfirma ki el sta na bu sistema. Si `code` ka ta funsiona na terminal, abri VS Code, primi `Cmd+Shift+P` / `Ctrl+Shift+P`, i kore **\"Shell Command: Install 'code' command in PATH\"**."
+  command: |
+    code --version
+  expectedOutput: |
+    1.9x.x
+- slug: instala-extensions
+  language: bash
+  kind: explore
+  title: { kea: "Instala Prettier i Live Server" }
+  prompt:
+    kea: "Na painel **Extensions** (`Cmd+Shift+X` / `Ctrl+Shift+X`), prokura i instala **Prettier - Code formatter** i **Live Server**. Dipos, na Settings, po Prettier kumo *default formatter* i marka **format on save**."
+  resources:
+    kea:
+      - { label: "Prettier - Code formatter", url: "https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" }
+      - { label: "Live Server", url: "https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" }
+- slug: testa-prettier
+  language: html
+  kind: code
+  title: { kea: "Testa ki Prettier ta formata" }
+  prompt:
+    kea: "Kria un ficheru `test.html`, kola es HTML malformatadu di propósitu, i salva (`Cmd+S` / `Ctrl+S`). Si tudu sta konfiguradu dretu, Prettier ta limpa indentasan sozinhu — spasu extra ta dizaparese i tag ta alinha."
+  hint:
+    kea: "Si nada ka muda na save, vai pa Settings i konfirma ki **default formatter** sta Prettier i **format on save** sta markadu."
+  starterCode: |
+    <html>
+       <body>
+    <h1>Olá   mundu!</h1>
+            <p>Es ta limpa kuandu N salva.</p>
+       </body>
+    </html>
+  solutionCode: |
+    <html>
+      <body>
+        <h1>Olá mundu!</h1>
+        <p>Es ta limpa kuandu N salva.</p>
+      </body>
+    </html>

@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m4-14 "Flexbox: un dimensan".
+# Publish copies this to
+# content/courses/web-foundations/lessons/14-flexbox-un-dimensan/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Kal propriedadi ki ta alinha flex items na **cross axis** (vertikal padron)?"
+  options:
+    - text: { kea: "`align-items`" }
+      correct: true
+      explain: { kea: "Sertu — `align-items` ta opera na cross axis (vertikal padron). É el ki ta sentra items vertikalmenti ku `center`." }
+    - text: { kea: "`justify-content`" }
+      correct: false
+      explain: { kea: "`justify-content` ta opera na **main axis** (horizontal padron), ka na cross axis. Si bu konfundi es dos, troka-l." }
+    - text: { kea: "`gap`" }
+      correct: false
+      explain: { kea: "`gap` ta da spasu **entri** items, ma el ka ta alinha-s na ninhun eixu." }
+    - text: { kea: "`order`" }
+      correct: false
+      explain: { kea: "`order` ta reorganiza items vizualmenti, ka ta alinha-s na un eixu." }
+- question:
+    kea: "Ku `box-sizing: border-box`, un kaixa ku `width: 300px` i `padding: 40px` ta okupa kuantu na pajina?"
+  options:
+    - text: { kea: "**300px** — padding ta fika dentru di largura" }
+      correct: true
+      explain: { kea: "Sertu — `border-box` ta faze `width` signifika largura **final**. Padding ta subtrai di kontéudu, ka soma pa fora." }
+    - text: { kea: "380px — padding ta soma pa largura" }
+      correct: false
+      explain: { kea: "Es é komportamentu di `content-box` (defualt), ka `border-box`. Ku `border-box`, padding ta fika **dentru** di kel 300px." }
+    - text: { kea: "340px — só un lado di padding ta soma" }
+      correct: false
+      explain: { kea: "Nau — ku `border-box` largura final é 300px sertu, ku padding dentru." }
+    - text: { kea: "260px — padding ta tira di largura" }
+      correct: false
+      explain: { kea: "Largura final ta keda 300px; kontéudu dentru é ki ta diminui pa kaba spasu pa padding." }
+- question:
+    kea: "Bu kre un header ku titulu na skerda i nav na direita, alinhadu vertikalmenti na meiu. Kal **dos** regras na container?"
+  options:
+    - text: { kea: "`justify-content: space-between` + `align-items: center`" }
+      correct: true
+      explain: { kea: "Sertu — `space-between` ta inpurra titulu i nav pa kada ponta na main axis, i `align-items: center` ta sentra-s vertikalmenti." }
+    - text: { kea: "`justify-content: center` + `align-items: space-between`" }
+      correct: false
+      explain: { kea: "Trokadu. `space-between` é valor di `justify-content` (main axis); `align-items` ka ta aseita `space-between`." }
+    - text: { kea: "`text-align: center` + `align-items: center`" }
+      correct: false
+      explain: { kea: "`text-align: center` só ta sentra testu dentru di un elementu, ka ta distribui titulu i nav pa kada ponta." }
+    - text: { kea: "`gap: auto` + `order: -1`" }
+      correct: false
+      explain: { kea: "`gap: auto` ka ta existi, i `order` ta reorganiza, ka ta distribui na main axis. Uza `justify-content: space-between`." }
+- question:
+    kea: "Bu ta atxa ki bu sta aninhar Flexbox dentru di Flexbox pa faze un grid di kartas. Kuze ki es ta sinaliza?"
+  options:
+    - text: { kea: "Ki bu kre **CSS Grid** (layout dos dimensan)" }
+      correct: true
+      explain: { kea: "Sertu — Flexbox é pa un dimensan (un linha ou un koluna). Grid 2D ku linhas i kolunas é trabaju di CSS Grid (Lisan 16)." }
+    - text: { kea: "Ki bu falta un `justify-content`" }
+      correct: false
+      explain: { kea: "Nau — mas un propriedadi ka ta rezolve un layout 2D. Bu kre Grid." }
+    - text: { kea: "Ki bu debe volta pa floats" }
+      correct: false
+      explain: { kea: "Floats é legasi — nu ka ta uza-s pa layout novu. Pa 2D, uza Grid." }
+    - text: { kea: "Ki Flexbox ka ta funsiona na navbar" }
+      correct: false
+      explain: { kea: "Flexbox ta funsiona perfeitu na navbar (1D). El só ka é midjór skolha pa grid 2D." }

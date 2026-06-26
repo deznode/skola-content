@@ -1,0 +1,78 @@
+# Quiz sidecar (draft source) for lesson m1-03 "Kria bu primeru pajina HTML".
+# Positions 0..4 correspond to <Quiz position={N}/> markers in kea.mdx.
+# One question per learning outcome (index naming, Emmet, element anatomy, charset, Live Server).
+- question:
+    kea: "Pamodi nu ta sempri xama pajina di entrada di un website `index.html`?"
+  options:
+    - text: { kea: "Pamodi servidor web ta sempri prokura `index.html` kuandu un uzuáriu ta vizita un pasta" }
+      correct: true
+      explain: { kea: "`index.html` é konvensan universal — servidor ta sirvi-l otomatikamenti pa pasta vizitadu." }
+    - text: { kea: "Pamodi HTML ka ta funsiona ku otru nomi" }
+      correct: false
+      explain: { kea: "HTML ta funsiona ku kualkér nomi; é só konvensan ki ta torna `index.html` spesial." }
+    - text: { kea: "Pamodi é nomi mas kurtu pa skrebe" }
+      correct: false
+      explain: { kea: "Ka é sobre tamanhu di nomi — é sobre o ki servidor ta prokura." }
+    - text: { kea: "Pamodi Chrome ta izijí kel nomi" }
+      correct: false
+      explain: { kea: "Chrome ta abri kualkér ficheru; é servidor ki ta prokura `index.html`." }
+- question:
+    kea: "Na un ficheru `index.html` vaziu, kuze ki `!` siguidu di **Tab** ta faze?"
+  options:
+    - text: { kea: "Ta scaffold tudu skeleton di HTML5 (DOCTYPE, html, head, body)" }
+      correct: true
+      explain: { kea: "Es é Emmet: `!` + Tab ta spandi pa un skeleton HTML5 kompletu nun klik." }
+    - text: { kea: "Ta salva o ficheru" }
+      correct: false
+      explain: { kea: "Salva é `Cmd+S` / `Ctrl+S`, ka `!` + Tab." }
+    - text: { kea: "Ta abri Live Server" }
+      correct: false
+      explain: { kea: "Live Server ta abri pa **Go Live** ou klik direitu, ka pa Emmet." }
+    - text: { kea: "Ta limpa indentasan" }
+      correct: false
+      explain: { kea: "Limpa indentasan é Prettier na save, ka Emmet." }
+- question:
+    kea: "Kal é trez parti di un HTML element kumo `<h1>Olá</h1>`?"
+  options:
+    - text: { kea: "Opening tag, konteúdu, closing tag" }
+      correct: true
+      explain: { kea: "`<h1>` (opening tag) + `Olá` (konteúdu) + `</h1>` (closing tag)." }
+    - text: { kea: "Head, body, footer" }
+      correct: false
+      explain: { kea: "Kes é seksan di un dokumentu, ka parti di un element." }
+    - text: { kea: "DOCTYPE, html, title" }
+      correct: false
+      explain: { kea: "Kes é parti di skeleton di pajina, ka di un element solu." }
+    - text: { kea: "Selector, propriedadi, valor" }
+      correct: false
+      explain: { kea: "Kes é parti di un regra CSS — nu ta odja-s na Módulu 3." }
+- question:
+    kea: "Pamodi `<meta charset=\"UTF-8\" />` é krítiku pa un pajina na Kriolu?"
+  options:
+    - text: { kea: "Sen el, karater spesial kumo `á`, `é`, `ô`, `ñ` ka ta parse dretu" }
+      correct: true
+      explain: { kea: "UTF-8 ta garante ki asentu i karater spesial di Kriolu i Portuguez ta parse sertu (nau `SÃ£o`)." }
+    - text: { kea: "El ta da kor pa pajina" }
+      correct: false
+      explain: { kea: "Kor ta ben di CSS, ka di charset." }
+    - text: { kea: "El ta abri pajina na Chrome" }
+      correct: false
+      explain: { kea: "Abri pajina é Live Server; charset é sobre kódiku di karater." }
+    - text: { kea: "El ta torna pajina mas rápidu" }
+      correct: false
+      explain: { kea: "Charset ka ten a ver ku velosidadi — é sobre karater parse dretu." }
+- question:
+    kea: "Kumo bu ta abri `index.html` na browser ku auto-refresh kada save?"
+  options:
+    - text: { kea: "Klika ku boton direitu na ficheru → **Open with Live Server** (ou **Go Live**)" }
+      correct: true
+      explain: { kea: "Live Server ta abri na `localhost:5500` i ta da refresh otomátiku kada bez ki bu salva." }
+    - text: { kea: "Rasta ficheru pa lixeira" }
+      correct: false
+      explain: { kea: "Kel-li ta paga ficheru! Uza Live Server." }
+    - text: { kea: "Primi `Cmd+P`" }
+      correct: false
+      explain: { kea: "`Cmd+P` ta abri prokura di ficheru na VS Code, ka pajina na browser." }
+    - text: { kea: "Instala Chrome di novu" }
+      correct: false
+      explain: { kea: "Ka ten ki reinstala nada — só uza Live Server." }

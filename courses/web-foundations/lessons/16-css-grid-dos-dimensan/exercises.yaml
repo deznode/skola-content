@@ -1,0 +1,50 @@
+# Exercises sidecar (draft source) for lesson m4-16 "CSS Grid: dos dimensan".
+# Publish copies this to
+# content/courses/web-foundations/lessons/16-css-grid-dos-dimensan/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-falta-display-grid
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Pamodi ki galeria ka ta vira grid?" }
+  prompt:
+    kea: "Es `.gallery` debe ser un grid di 3 kolunas, ma na pajina tudu kartas ta enpilha **un en baxu di otru** kumo si nada ka ta funsiona. `grid-template-columns` ta ser **inoradu silensiozamenti**. Diskubri kel ki falta i koriji-l."
+  hint:
+    kea: "`grid-template-columns` só ta funsiona kuandu container ten `display: grid`. Sen el, browser ta inora regra kompletamenti. Adisiona `display: grid` na `.gallery`."
+  starterCode: |
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  solutionCode: |
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+- slug: kria-galeria-3-koluna
+  language: css
+  kind: code
+  title: { kea: "Kria un galeria di 3 kolunas igual" }
+  prompt:
+    kea: "Skrebe regra `.gallery` pa transforma un wrapper di kartas nun grid di **3 kolunas igual**, ku **24px di spasu** entri linhas i kolunas. Uza `repeat()` i unidadi `fr`."
+  hint:
+    kea: "Trez linhas: `display: grid` pa aktiva, `grid-template-columns: repeat(3, 1fr)` pa trez kolunas igual, i `gap: 24px` pa spasu."
+  starterCode: |
+    .gallery {
+      /* grid di 3 kolunas igual, 24px di gap */
+    }
+  solutionCode: |
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+- slug: reflekti-grid-vs-flexbox
+  language: css
+  kind: reflect
+  title: { kea: "Grid ou Flexbox?" }
+  prompt:
+    kea: "Splika ku bu propi palavra diferensa entri Grid i Flexbox. Da un izemplu di un layout undi ki Flexbox é midjór skolha i un izemplu undi ki Grid é midjór. Pensa nun website real (navbar, galeria di foto, byline, dashboard)."
+  notePlaceholder:
+    kea: "Flexbox é midjór pa… (izemplu: …) pamodi é un dimensan. Grid é midjór pa… (izemplu: …) pamodi é dos dimensan."

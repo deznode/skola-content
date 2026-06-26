@@ -1,0 +1,82 @@
+# Quiz sidecar (draft source) for lesson m1-01 "Kumo Web ta funsiona".
+# Publish copies this to
+# content/courses/web-foundations/lessons/01-kumo-web-ta-funsiona/quiz.yaml;
+# positions 0..4 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback (spec 048) shown after a
+# pick — it gives the reason only; the right/wrong verdict comes from the status line.
+# One question per learning outcome (LO1→0, LO2→1, LO3→2+3, LO4→4).
+- question:
+    kea: "Kuandu bu ta dijita un URL i primi Enter, kuze ki **servidor** ta manda di volta pa bu browser?"
+  options:
+    - text: { kea: "Un dokumentu HTML" }
+      correct: true
+      explain: { kea: "Servidor ta resebe bu **request** i ta manda di volta un **response**: un dokumentu HTML ki browser ta *parse* na pajina." }
+    - text: { kea: "Un retratu (imajen) di pajina prontu" }
+      correct: false
+      explain: { kea: "Servidor ta manda kódiku HTML, ka un imajen. É browser ki ta konstrui kuza visual a partir di kel HTML." }
+    - text: { kea: "Nada — browser ta inventa pajina sô" }
+      correct: false
+      explain: { kea: "Sen un response di servidor, browser ka ten konteúdu pa mostra." }
+    - text: { kea: "Un programa pa bu instala" }
+      correct: false
+      explain: { kea: "Browser ka ta instala nada; el ta resebe HTML i ta mostra-l diretu." }
+- question:
+    kea: "Kal di trez linguajen di front-end ki ta kuida di **apariénsia** — kor, tamanhu i pozisan?"
+  options:
+    - text: { kea: "CSS" }
+      correct: true
+      explain: { kea: "CSS é **stilu** (adjetivu): el ta da kor, tamanhu i pozisan." }
+    - text: { kea: "HTML" }
+      correct: false
+      explain: { kea: "HTML é **konteúdu** i strutura (substantivu), ka apariénsia." }
+    - text: { kea: "JavaScript" }
+      correct: false
+      explain: { kea: "JavaScript é **lojika** i komportamentu (verbu), ka apariénsia." }
+    - text: { kea: "HTTP" }
+      correct: false
+      explain: { kea: "HTTP é protokolu di komunikasan entri browser i servidor, ka un di trez linguajen di front-end." }
+- question:
+    kea: "Undi ki kódiku di **back-end** (bazi di dadus, login, kalkulu) ta korre?"
+  options:
+    - text: { kea: "Na servidor" }
+      correct: true
+      explain: { kea: "Back-end ta korre na servidor — bu ka ta odja-l, ma sen el website ka ta funsiona." }
+    - text: { kea: "Na bu browser" }
+      correct: false
+      explain: { kea: "Kel-li é front-end. Back-end ta korre na servidor, ka na browser." }
+    - text: { kea: "Na bu tela só" }
+      correct: false
+      explain: { kea: "Tela ta mostra front-end; back-end sta na servidor algures na mundu." }
+    - text: { kea: "Na kabu di internet" }
+      correct: false
+      explain: { kea: "Kabu é infrastrutura di rede, ka undi kódiku di back-end ta korre." }
+- question:
+    kea: "Un landing page di un restoranti na Mindelo ki ta mostra **mesmu** konteúdu pa tudu vizitanti — ke ki tipu di website?"
+  options:
+    - text: { kea: "Statiku" }
+      correct: true
+      explain: { kea: "Statiku = mesmu pa tudu kel ki ta vizita. So HTML i CSS é mas ki sufisienti." }
+    - text: { kea: "Dinámiku" }
+      correct: false
+      explain: { kea: "Dinámiku ta muda konformi uzuáriu (kumo feed di Facebook) i ta presiza back-end." }
+    - text: { kea: "Statiku só si ten poku imajen" }
+      correct: false
+      explain: { kea: "Statiku ou dinámiku ka ten a ver ku kuantidadi di imajen, ma ku si konteúdu ta muda pa kada uzuáriu." }
+    - text: { kea: "Ka dá pa sabe sen odja kódiku" }
+      correct: false
+      explain: { kea: "Pa difinisan, konteúdu igual pa tudu vizitanti = statiku." }
+- question:
+    kea: "Pamodi ki é importanti prende HTML i CSS antis di framework kumo React ou Vue?"
+  options:
+    - text: { kea: "Pamodi es é fundasan di tudu framework moderno" }
+      correct: true
+      explain: { kea: "React, Vue i Next.js tudu ta jera HTML i CSS na fin. Sen kel fundasan, framework ta fika magia ki bu ka ta intende." }
+    - text: { kea: "Pamodi React ka ta funsiona na Kabu Verdi" }
+      correct: false
+      explain: { kea: "React ta funsiona na kualker lugar — kel-li ka é razan." }
+    - text: { kea: "Pamodi HTML é mas nove ki React" }
+      correct: false
+      explain: { kea: "HTML é mas antigu; idadi ka é razan — é ki HTML i CSS é a baz." }
+    - text: { kea: "Pamodi framework ka ta uza HTML" }
+      correct: false
+      explain: { kea: "Pelu kontráriu — framework ta produzi HTML i CSS." }

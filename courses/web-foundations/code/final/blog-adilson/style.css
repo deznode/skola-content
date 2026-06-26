@@ -1,0 +1,268 @@
+/* ========================================================================
+   Blog di Adilson — style.css
+   Cobertura: Lisan 8 (CSS sintaksi) ti Lisan 17 (Grid pozisiona)
+   ======================================================================== */
+
+/* ── Reset universal ──────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Body — baz tipográfiku ───────────────────────────────────────────── */
+
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f7f0e6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Container utility ────────────────────────────────────────────────── */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Headings (Lisan 9) ───────────────────────────────────────────────── */
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: #1098ad;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 24px 0 16px;
+  color: #333;
+  border-bottom: 2px solid #1098ad;
+  padding-bottom: 4px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+  color: #555;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+/* ── Links (Lisan 10 — LVHA ordi) ─────────────────────────────────────── */
+
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0a7888;
+}
+
+a:hover {
+  color: #e67e22;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #c0392b;
+}
+
+/* ── Header global (Lisan 14 — Flexbox) ───────────────────────────────── */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #1098ad;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.main-header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.main-header nav a {
+  font-weight: bold;
+}
+
+/* ── Article + sidebar layout (Lisan 15 — Flexbox 2 koluna) ──────────── */
+
+main {
+  padding: 32px 0;
+}
+
+main > h2,
+main > p,
+main > ul {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+
+article {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.content {
+  flex: 1;
+}
+
+.sidebar {
+  flex: 0 0 280px;
+  background-color: #f7f0e6;
+  padding: 20px;
+  border-left: 4px solid #1098ad;
+  border-radius: 4px;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: #1098ad;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* ── Article header + byline (Lisan 14 — Flexbox) ─────────────────────── */
+
+article > header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.author-photo {
+  border-radius: 50%;
+}
+
+.author-name {
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+/* ── Blockquote (Lisan 5) ─────────────────────────────────────────────── */
+
+blockquote {
+  border-left: 4px solid #1098ad;
+  padding: 16px 24px;
+  margin: 24px 0;
+  font-style: italic;
+  background-color: #fafafa;
+  color: #555;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+
+footer {
+  text-align: center;
+  padding: 24px;
+  background-color: #1d2a35;
+  color: #ccc;
+  margin-top: 64px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ── Grid demo gallery (Lisan 16 + 17) ────────────────────────────────── */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.hero {
+  grid-column: 1 / -1;
+  padding: 40px;
+  background-color: #1098ad;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.hero h2 {
+  color: #fff;
+  border-bottom: none;
+}
+
+.feature {
+  grid-column: span 2;
+  background-color: #f7f0e6;
+}
+
+.tall {
+  grid-row: span 2;
+}
+
+.card {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #1098ad;
+}
+
+.card p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #555;
+}

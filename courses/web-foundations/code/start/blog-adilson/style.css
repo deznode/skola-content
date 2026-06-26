@@ -1,0 +1,70 @@
+/* ========================================================================
+   Blog di Adilson — style.css (START)
+   Es ficheru ta krese di Lisan 8 ti Lisan 17 — adisiona regras progressivamenti.
+   ======================================================================== */
+
+/* ===== TODO Lisan 8: liga ku HTML =====
+   - Konfirma ki <link rel="stylesheet" href="style.css" /> sta na <head> di tudu HTML
+   - Adisiona un teste simples: body { background-color: #f7f0e6; }
+*/
+
+
+/* ===== TODO Lisan 9: testu i kor =====
+   - body { font-family, font-size, color: #333, line-height: 1.5 }
+   - h1, h2, h3 ku kor i tamanhu diferenti (h2 ku border-bottom teal)
+*/
+
+
+/* ===== TODO Lisan 10: LVHA pa links =====
+   - a:link { color: #1098ad; text-decoration: none; }
+   - a:visited { color: #0a7888; }
+   - a:hover { color: #e67e22; text-decoration: underline; }
+   - a:active { color: #c0392b; }
+   - ⚠ Ordi LVHA — Link → Visited → Hover → Active
+*/
+
+
+/* ===== TODO Lisan 11: konflitu + "inheritance" =====
+   - Konfirma ki body { font-family, color } ta inherita pa h1, h2, p
+   - Demo: si bu adisiona regra ku id + klassi, ki gana? (Spesifisidadi)
+*/
+
+
+/* ===== TODO Lisan 12: box model =====
+   - * { box-sizing: border-box; }  (un linha, na topu)
+   - .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+*/
+
+
+/* ===== TODO Lisan 13: DevTools — sem regra nova =====
+   Eksperimenta na DevTools, ka adisiona na ficheru.
+*/
+
+
+/* ===== TODO Lisan 14: Flexbox pa header + byline =====
+   - .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; }
+   - .main-header nav { display: flex; gap: 24px; }
+   - .author { display: flex; align-items: center; gap: 16px; }
+   - .author-photo { border-radius: 50%; }
+*/
+
+
+/* ===== TODO Lisan 15: Flexbox 2-koluna pa artigu + sidebar =====
+   - .row { display: flex; gap: 32px; align-items: flex-start; }
+   - .content { flex: 1; }
+   - .sidebar { flex: 0 0 280px; background, padding, border-left }
+*/
+
+
+/* ===== TODO Lisan 16: Grid pa galeria =====
+   - .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+   - .card { padding, background, border, border-radius }
+*/
+
+
+/* ===== TODO Lisan 17: pozisiona + alinha =====
+   - .hero { grid-column: 1 / -1; padding: 40px; background-color: #1098ad; color: #fff; }
+   - .feature { grid-column: span 2; }
+   - .tall { grid-row: span 2; }
+   - .card { display: grid; place-items: center; text-align: center; }
+*/

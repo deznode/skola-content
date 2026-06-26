@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m2-04 "Strutura di un dokumentu HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/04-strutura-di-un-dokumentu-html/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Kal forma di skrebe deklarason di tipu di dokumentu é **korreta** pa HTML5?"
+  options:
+    - text: { kea: "`<!DOCTYPE html>`" }
+      correct: true
+      explain: { kea: "Sertu — sempri letra minúskula pa `html`. Es ta diz pa browser ki é HTML5 i ta evita *quirks mode*." }
+    - text: { kea: "`<!DOCTYPE HTML5>`" }
+      correct: false
+      explain: { kea: "Ka é válidu — browser ka ta da eru, ma ta volta silensiozamenti pa *quirks mode*." }
+    - text: { kea: "`<!DOCTYPE>`" }
+      correct: false
+      explain: { kea: "Inkompletu. É sempri `<!DOCTYPE html>`." }
+    - text: { kea: "`<html5>`" }
+      correct: false
+      explain: { kea: "`<html>` é root element, ka deklarason di tipu di dokumentu." }
+- question:
+    kea: "Undi ki konteúdu **visivel** (heading, paragrafu, imajen) ta vai?"
+  options:
+    - text: { kea: "Dentru di `<body>`" }
+      correct: true
+      explain: { kea: "Sertu — `<body>` é pa tudu kuza ki uzuáriu ta odja." }
+    - text: { kea: "Dentru di `<head>`" }
+      correct: false
+      explain: { kea: "`<head>` é metadata invizivel (title, charset, links). Konteúdu visivel ta vai na `<body>`." }
+    - text: { kea: "Dentru di `<title>`" }
+      correct: false
+      explain: { kea: "`<title>` é so nomi di pajina (na aba di browser), ka pa konteúdu di pajina." }
+    - text: { kea: "Dentru di `<!DOCTYPE>`" }
+      correct: false
+      explain: { kea: "Deklarason di tipu di dokumentu ka ta resebe konteúdu." }
+- question:
+    kea: "Kal di es elementu é un **void element** (so opening tag, sen closing tag)?"
+  options:
+    - text: { kea: "`<meta charset=\"UTF-8\" />`" }
+      correct: true
+      explain: { kea: "Sertu — `<meta>`, `<br>`, `<hr>`, `<img>`, `<link>` é void: so opening tag, sen konteúdu." }
+    - text: { kea: "`<title>`" }
+      correct: false
+      explain: { kea: "`<title>` ten konteúdu i closing tag (`<title>…</title>`) — é container." }
+    - text: { kea: "`<body>`" }
+      correct: false
+      explain: { kea: "`<body>` ten konteúdu dentru — é container element." }
+    - text: { kea: "`<p>`" }
+      correct: false
+      explain: { kea: "`<p>` ten testu dentru i closing tag — container." }
+- question:
+    kea: "Pamodi `<meta charset=\"UTF-8\" />` é **krítiku** pa un pajina na Kriolu?"
+  options:
+    - text: { kea: "Sen el, palavra ku asentu kumo \"São Vicente\" ta parese kodifikadu eradu" }
+      correct: true
+      explain: { kea: "Sertu — UTF-8 ta suporta `á`, `é`, `ô`, `ñ`, `ç`. Sen el, ta parese `SÃ£o Vicente` ou `S?o Vicente`." }
+    - text: { kea: "Sen el, pajina ka ta karrega di tudu" }
+      correct: false
+      explain: { kea: "Pajina ta karrega; é so karater spesial ki ta parese eradu." }
+    - text: { kea: "Sen el, CSS ka ta funsiona" }
+      correct: false
+      explain: { kea: "Charset ka ten nada a ver ku CSS — é sobre kodifikasan di karater." }
+    - text: { kea: "Sen el, browser ta entra na quirks mode" }
+      correct: false
+      explain: { kea: "Quirks mode ben di falta di `<!DOCTYPE html>`, ka di charset." }

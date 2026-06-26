@@ -1,0 +1,49 @@
+# Quiz sidecar (draft source) for lesson m4-15 "Layout di pajina ku Flexbox".
+# Publish copies this to
+# content/courses/web-foundations/lessons/15-layout-ku-flexbox/quiz.yaml;
+# positions 0..2 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Kuze ki shorthand `flex: 1` ta ekivali?"
+  options:
+    - text: { kea: "`flex: 1 1 0` — krese, pode sprega, basis 0" }
+      correct: true
+      explain: { kea: "Sertu — `flex: 1` é atadju pa `1 1 0`: item ta absorva tudu spasu disponivel igualmenti ku otus `flex: 1`." }
+    - text: { kea: "`flex: 1 0 auto`" }
+      correct: false
+      explain: { kea: "Nau — kel-li ta keri dizê 'krese, ka sprega, basis di kontéudu'. `flex: 1` é `1 1 0`." }
+    - text: { kea: "`flex: 0 1 auto`" }
+      correct: false
+      explain: { kea: "Kel-li é **defualt** di flex items (`flex: 0 1 auto`), ka `flex: 1`." }
+    - text: { kea: "`flex: 1 1 100%`" }
+      correct: false
+      explain: { kea: "Basis di `flex: 1` é `0`, ka `100%`. Skrebe `flex: 1 1 0`." }
+- question:
+    kea: "Pamodi ki nu ta adisiona `align-items: flex-start` nun layout di dos koluna (artigu + aside)?"
+  options:
+    - text: { kea: "Pa preveni koluna mas kurtu di stica pa altura di koluna mas longu" }
+      correct: true
+      explain: { kea: "Sertu — defualt é `stretch`, ki ta torna tudu kolunas altura igual. `flex-start` ta deixa kada koluna ku sí altura propi." }
+    - text: { kea: "Pa sentra es dos kolunas horizontalmenti" }
+      correct: false
+      explain: { kea: "Sentra horizontal é trabaju di `justify-content`. `align-items: flex-start` ta opera na cross axis (vertikal)." }
+    - text: { kea: "Pa da spasu entri es dos kolunas" }
+      correct: false
+      explain: { kea: "Spasu entri kolunas é `gap`. `align-items: flex-start` ta kontrola alinhamentu vertikal." }
+    - text: { kea: "Pa faze artigu absorva mas spasu" }
+      correct: false
+      explain: { kea: "Absorva spasu é `flex: 1` na artigu. `align-items: flex-start` ka ta muda largura." }
+- question:
+    kea: "Bu kre un sidebar (`aside`) ku largura **fixu di 300px** ki ka ta krese nen sprega. Kal valor di `flex`?"
+  options:
+    - text: { kea: "`flex: 0 0 300px`" }
+      correct: true
+      explain: { kea: "Sertu — `0` grow (ka krese), `0` shrink (ka sprega), `300px` basis (largura fixu). Es é padron pa sidebar fixu." }
+    - text: { kea: "`flex: 1 1 300px`" }
+      correct: false
+      explain: { kea: "Ku `1 1` el ta krese i sprega — ka ta fika fixu. Pa fixu uza `0 0 300px`." }
+    - text: { kea: "`width: 300px`" }
+      correct: false
+      explain: { kea: "Pa flex items, prefere `flex-basis`/`flex` sobre `width` — `width` ta kebra inesperadamenti kuandu spasu ta diminui. Uza `flex: 0 0 300px`." }
+    - text: { kea: "`flex: 300px`" }
+      correct: false
+      explain: { kea: "Es sintaksi ka ta da-bu kontrolu di grow/shrink ki bu kre. Skrebe `flex: 0 0 300px`." }

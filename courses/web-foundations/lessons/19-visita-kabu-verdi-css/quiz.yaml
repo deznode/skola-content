@@ -1,0 +1,64 @@
+# Quiz sidecar (draft source) for lesson m5-19 "Visita Kabu Verdi: layout i stilu ku CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/19-visita-kabu-verdi-css/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Pamodi `* { box-sizing: border-box }` ten ki ben **primeru** na `style.css`?"
+  options:
+    - text: { kea: "Sen el, `padding` ta adisiona pa largura i o grid di 5 koluna ta kuebra silensiozamenti" }
+      correct: true
+      explain: { kea: "Sertu — ku `border-box`, `padding` i `border` ta entra **dentru** di largura deklaradu. Sen el, kada karta ta fika mas largu ki o esperadu i o grid ta transborda. Callback L14." }
+    - text: { kea: "É a regra ki o browser ta le mas dipresa" }
+      correct: false
+      explain: { kea: "Ka ten a-ver ku velosidadi. É sobre kumo `padding` ta konta pa largura." }
+    - text: { kea: "Pamodi `*` ta seleciona o `<body>` apenas" }
+      correct: false
+      explain: { kea: "`*` ta seleciona **tudu** elementu, ka só `<body>`. I o motivu di poi-l primeru é o kálkulu di largura, ka o skopu." }
+    - text: { kea: "Pa apaga tudu kor padron di o browser" }
+      correct: false
+      explain: { kea: "`box-sizing` ka ten a-ver ku kor — el ta kontrola kumo largura ta konta. `margin: 0; padding: 0` é ki ta zera spasamentu padron." }
+- question:
+    kea: "Bu kre 3 kartas lado-a-lado, i dentru di kada karta foto → sitasan → nomi enpilhadu vertikal. Ki ferramenta pa o eskema **externu**, ki ferramenta pa o **internu**?"
+  options:
+    - text: { kea: "Grid pa o externu (3 koluna), Flexbox column pa o internu" }
+      correct: true
+      explain: { kea: "Sertu — o eskema di 3 kartas é 2D (Grid); o enpilhamentu vertikal dentru di kada karta é 1D (Flexbox `flex-direction: column`). Es é o padron profisional di L19." }
+    - text: { kea: "Flexbox pa o externu, Grid pa o internu" }
+      correct: false
+      explain: { kea: "Trokadu — o internu (foto/quote/cite nun koluna) é 1D = Flexbox. O externu (3 kartas alinhadu) é midjór ku Grid." }
+    - text: { kea: "Grid pa o dos níveis" }
+      correct: false
+      explain: { kea: "Ta funsiona, ma o enpilhamentu vertikal internu é 1D — Flexbox é mas simplis i mas korretu pa un só direksan." }
+    - text: { kea: "Flexbox pa o dos níveis" }
+      correct: false
+      explain: { kea: "Ta funsiona, ma pa 3 kartas igual lado-a-lado, Grid ku `repeat(3, 1fr)` é mas firmi i previzível." }
+- question:
+    kea: "Na seksan di komida, `.food-row img` ten `flex: 0 0 400px`. Kuze ki es trez valoris ta fla?"
+  options:
+    - text: { kea: "Ka krese (0), ka enkolhe (0), largura baz 400px" }
+      correct: true
+      explain: { kea: "Sertu — `flex-grow: 0`, `flex-shrink: 0`, `flex-basis: 400px`. A imajen ta fika fiksu na 400px, i `.food-text` ku `flex: 1` ta absorbi o restu. Callback L15." }
+    - text: { kea: "Krese 0 bez, margin 0, padding 400px" }
+      correct: false
+      explain: { kea: "Nau — `flex` é atadju di `flex-grow flex-shrink flex-basis`, ka margin/padding." }
+    - text: { kea: "400 pixel di gap entri items" }
+      correct: false
+      explain: { kea: "Gap é propriedadi separadu (`gap`). `flex: 0 0 400px` ta defini kresimentu, enkolhimentu i largura baz di o item." }
+    - text: { kea: "A imajen ta krese ti 400px i dipos para" }
+      correct: false
+      explain: { kea: "O primeru `0` ta fla ka krese de tudu. O `400px` é a largura baz fiksu, ka un limiti máksimu di kresimentu." }
+- question:
+    kea: "Ki pergunta ki ta resolvi 90% di bu desizons di layout entri Grid i Flexbox?"
+  options:
+    - text: { kea: "É 2D (linha **i** koluna)? → Grid. É 1D (un só direksan)? → Flexbox" }
+      correct: true
+      explain: { kea: "Sertu — pinta o mapa primeru. Ilhas (5×2) i selas di muzika = 2D = Grid. Nav, fila di komida, koluna di footer = 1D = Flexbox." }
+    - text: { kea: "É moderno? → Grid. É bedju? → Flexbox" }
+      correct: false
+      explain: { kea: "Es dos é modernu i bons. A desizan é sobre **dimensan** (1D vs 2D), ka idadi." }
+    - text: { kea: "Ten imajen? → Grid. Ka ten? → Flexbox" }
+      correct: false
+      explain: { kea: "Imajen ka ten a-ver. A pergunta é kuantas dimensan bu ta kontrola: un (Flexbox) ou dos (Grid)." }
+    - text: { kea: "É largu? → Grid. É streitu? → Flexbox" }
+      correct: false
+      explain: { kea: "Largura ka ta disidi. É a kuantidadi di dimensan (1D vs 2D) ki ta disidi entri Flexbox i Grid." }

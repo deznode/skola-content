@@ -1,0 +1,88 @@
+# Exercises sidecar (draft source) for lesson m5-19 "Visita Kabu Verdi: layout i stilu ku CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/19-visita-kabu-verdi-css/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: kompleta-music-row-grid
+  language: css
+  kind: code
+  file: style.css
+  title: { kea: "Kompleta o grid di muzika" }
+  prompt:
+    kea: "O `.music-row` debe mostra **3 kartas igual lado-a-lado**, i dentru di kada `.music-card` o kontéudu debe ser **sentradu na o dos eixu**. Kompleta o CSS ki ta falta. (Callback L16 + L17.)"
+  hint:
+    kea: "Pa 3 koluna igual: `grid-template-columns: repeat(3, 1fr)`. Pa sentra na o dos eixu dentru di kada karta: `place-items: center`."
+  starterCode: |
+    .music-row {
+      display: grid;
+      /* 3 koluna igual: */
+      gap: 32px;
+    }
+
+    .music-card {
+      background-color: white;
+      padding: 32px 24px;
+      border-radius: 8px;
+      display: grid;
+      /* sentra kontéudu na o dos eixu: */
+      gap: 12px;
+    }
+  solutionCode: |
+    .music-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .music-card {
+      background-color: white;
+      padding: 32px 24px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+    }
+- slug: koriji-grid-ki-ta-transborda
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji o grid di ilhas ki ta transborda" }
+  prompt:
+    kea: "O grid di ilhas debia ten 5 koluna limpu, ma kada karta sta mas largu ki o esperadu i o layout ta transborda pa direita. O `padding` di `.island-card` é ki ta kuebra-l. Adisiona a regra ki ta faze `padding` konta **dentru** di largura. (Callback L14.)"
+  hint:
+    kea: "Falta o reset universal. `* { box-sizing: border-box; }` ta faze `padding` i `border` entra dentru di largura deklaradu, en bez di adisiona pa el."
+  starterCode: |
+    /* (sen reset) */
+
+    .islands-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .island-card {
+      padding: 16px;
+    }
+  solutionCode: |
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .islands-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .island-card {
+      padding: 16px;
+    }
+- slug: reflekti-grid-ku-flexbox
+  language: css
+  kind: reflect
+  title: { kea: "Pamodi Grid **i** Flexbox na testimunhu?" }
+  prompt:
+    kea: "Na seksan di testimunhu bu uza Grid pa o eskema externu (3 kartas) i Flexbox pa o internu (foto → sitasan → nomi). Splika ku bu propi palavra: pamodi ka uza **só** Grid, ou **só** Flexbox, pa tudu dos níveis?"
+  notePlaceholder:
+    kea: "O externu é… (2D/1D), entô N ta uza… O internu é… (2D/1D), entô N ta uza…"

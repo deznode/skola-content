@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m3-08 "CSS: sintaksi i liga ku HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/08-css-sintaksi-i-liga-ku-html/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Na regra `h1 { color: blue; }`, kal parti é **selector**?"
+  options:
+    - text: { kea: "`h1`" }
+      correct: true
+      explain: { kea: "Sertu — selector ta diz **ken** nu ta stila: aki, tudu element `<h1>` na pajina." }
+    - text: { kea: "`color`" }
+      correct: false
+      explain: { kea: "`color` é **propriedadi** — kuze ki nu ta muda, dentru di bloku di deklarasan." }
+    - text: { kea: "`blue`" }
+      correct: false
+      explain: { kea: "`blue` é **valor** di propriedadi `color`, ka selector." }
+    - text: { kea: "`{ }`" }
+      correct: false
+      explain: { kea: "Kuétxa ta marka **bloku di deklarasan** — selector ben antis di el." }
+- question:
+    kea: "Pamodi external CSS (`style.css` ligadu ku `<link>`) é primeru skolha pa un website real?"
+  options:
+    - text: { kea: "Un ficheru ta stila tudu pajina — muda un bez, tudu pajina ta atualiza" }
+      correct: true
+      explain: { kea: "Sertu — sentralizasan: mesmu `style.css` ta sirvi tudu pajina, sen repetisan." }
+    - text: { kea: "Ta faze pajina karega mas dipresa ki kualkér otu manera" }
+      correct: false
+      explain: { kea: "Velosidadi ka é razan — ganhu é manutensan i separation of concerns." }
+    - text: { kea: "É úniku manera ki browser ta intende CSS" }
+      correct: false
+      explain: { kea: "Browser ta intende tudu trez (inline, internal, external) — external é midjór prátika, ka úniku ki ta funsiona." }
+    - text: { kea: "Ka ten ki skrebe `;` na fin di deklarasan" }
+      correct: false
+      explain: { kea: "`;` é obrigatóriu na tudu manera di skrebe CSS — el ka ten nada a ver ku undiCSS mora." }
+- question:
+    kea: "Undi ki tag `<link rel=\"stylesheet\" href=\"style.css\">` debe mora?"
+  options:
+    - text: { kea: "Dentru di `<head>`" }
+      correct: true
+      explain: { kea: "Sertu — `<link>` é un tag void ki ta vivi na `<head>`, nunka na `<body>`." }
+    - text: { kea: "Dentru di `<body>`, na inísiu" }
+      correct: false
+      explain: { kea: "Nau — rekursu kumo CSS i ícon ta liga na `<head>`, ka na `<body>`." }
+    - text: { kea: "Dentru di tag `<h1>`" }
+      correct: false
+      explain: { kea: "Kel-li ta konfundi-l ku CSS inline (`style=\"...\"`). `<link>` é un tag separadu na `<head>`." }
+    - text: { kea: "Na fin di ficheru, dipos di `</html>`" }
+      correct: false
+      explain: { kea: "Nada ka debe mora dipos di `</html>`. `<link>` ta entra na `<head>`." }
+- question:
+    kea: "Na prinsípiu di **separation of concerns**, ken ta kuida di kuze?"
+  options:
+    - text: { kea: "HTML = strutura i signifikadu; CSS = apariénsia i layout" }
+      correct: true
+      explain: { kea: "Sertu — HTML é osu (strutura), CSS é peli (apariénsia). Mantén separadu pa kódiku fika fásil di muda." }
+    - text: { kea: "HTML = kor i font; CSS = testu di pajina" }
+      correct: false
+      explain: { kea: "Trokadu — kor i font é CSS; testu i strutura é HTML." }
+    - text: { kea: "Tudu dos ta faze mesmu — é so prefersia" }
+      correct: false
+      explain: { kea: "Nau — kada un ten un papel distintu; mistura-s (ex. inline `style`) é exatamenti kel ki separation of concerns ta evita." }
+    - text: { kea: "CSS ta kuida di strutura; HTML ta da kor" }
+      correct: false
+      explain: { kea: "Invertidu — strutura é HTML, kor é CSS." }

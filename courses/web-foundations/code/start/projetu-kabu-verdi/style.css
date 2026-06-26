@@ -1,0 +1,63 @@
+/* ========================================================================
+   Visita Kabu Verdi — style.css (START)
+   Capstone di Web Foundations (Lisan 19)
+
+   Stratejia: trabadja na 7 pasu (0 a 6). Salva i refresh dipos di kada un.
+   ======================================================================== */
+
+/* ===== TODO Pasu 0: Reset + baz tipográfiku =====
+   1. * { box-sizing: border-box; margin: 0; padding: 0; }
+   2. body { font-family, color: #333, line-height: 1.5, background-color: #f7f0e6 }
+   3. .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+   4. section, header.hero, footer { padding: 64px 0; }
+   5. h2 { font-size: 32px; text-align: center; margin-bottom: 32px; color: #1098ad; }
+*/
+
+
+/* ===== TODO Pasu 1: Header + Hero (Flexbox) =====
+   - .hero { background-color: #fff; text-align: center; }
+   - .main-nav — Flexbox horizontal: justify-content: space-between; align-items: center;
+   - .main-nav ul — Flexbox ku gap: 24px; list-style: none;
+   - .hero-text h1, .hero-text .tagline, .hero-text button
+   - Hover state na butãu (LVHA ordi si bu adisiona otrus pseudo-classes)
+*/
+
+
+/* ===== TODO Pasu 2: Ilhas grid (CSS Grid 5×2) =====
+   - .islands-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+   - .island-card { background, padding, border-radius, box-shadow }
+   - .island-card img { width: 100%; height: 180px; object-fit: cover; }
+   - .island-card h3, .island-card p
+*/
+
+
+/* ===== TODO Pasu 3: Komida (Flexbox 2-koluna) =====
+   - .food-row { display: flex; align-items: center; gap: 48px; }
+   - .food-row img { flex: 0 0 400px; height: 300px; object-fit: cover; }
+   - .food-text { flex: 1; }
+   - .food-text h3 { font-size, color }
+*/
+
+
+/* ===== TODO Pasu 4: Muzika (CSS Grid 3 koluna) =====
+   - .music-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+   - .music-card { display: grid; place-items: center; padding, background, border-radius }
+   - .music-card h3, .music-card p
+*/
+
+
+/* ===== TODO Pasu 5: Testimoñu (Grid + Flexbox kombinadu) =====
+   - .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+   - .testimonial { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+   - .testimonial img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+   - .testimonial blockquote { font-style: italic; color: #555; }
+   - .testimonial cite { font-style: normal; font-weight: bold; color: #1098ad; }
+*/
+
+
+/* ===== TODO Pasu 6: Footer (Flexbox 3 koluna) =====
+   - footer { background-color: #1d2a35; color: #f7f0e6; }
+   - .footer-cols { display: flex; justify-content: space-between; gap: 48px; }
+   - .footer-col h3, .footer-col p
+   - .copy { text-align: center; padding-top: 32px; border-top: 1px solid #555; }
+*/

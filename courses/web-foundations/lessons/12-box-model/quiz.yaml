@@ -1,0 +1,69 @@
+# Quiz sidecar (draft source) for lesson m3-12 "Box model".
+# Publish copies this to
+# content/courses/web-foundations/lessons/12-box-model/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Di **dentru pa fora**, kal é órdi korretu di kuatru kamada di box model?"
+  options:
+    - text: { kea: "content → padding → border → margin" }
+      correct: true
+      explain: { kea: "Sertu — kontéudu na sentru, dipos padding, dipos border, i margin pa fora di tudu." }
+    - text: { kea: "margin → border → padding → content" }
+      correct: false
+      explain: { kea: "Es é di fora pa dentru — kontráriu. Di dentru pa fora é content primeru." }
+    - text: { kea: "content → border → padding → margin" }
+      correct: false
+      explain: { kea: "Padding ta ben **antis** di border — padding é spasu entri kontéudu i border." }
+    - text: { kea: "padding → content → margin → border" }
+      correct: false
+      explain: { kea: "Content é sempri sentru. Padding ta inrola content, ka kontráriu." }
+# — Objective 1 (recall)
+- question:
+    kea: "Un elementu ten `width: 300px`, `padding: 40px` i `border: 5px solid`. Ku box model **padron**, kantu pixel ta okupa na pajina na horizontal?"
+  options:
+    - text: { kea: "390px" }
+      correct: true
+      explain: { kea: "Sertu — 300 + 40 + 40 (padding dos ladu) + 5 + 5 (border dos ladu) = **390px**. Box model padron ta soma padding i border na width." }
+    - text: { kea: "300px" }
+      correct: false
+      explain: { kea: "So si fose `box-sizing: border-box` (Lisan 14). Ku padron, padding i border ta soma na width." }
+    - text: { kea: "380px" }
+      correct: false
+      explain: { kea: "Bu skise border: 5px na kada ladu = +10px. 380 + 10 = **390px**." }
+    - text: { kea: "345px" }
+      correct: false
+      explain: { kea: "Padding i border ta konta na **dos** ladu kada un: 40×2 + 5×2 = 90, ka 45." }
+# — Objective 1 / fill area (apply)
+- question:
+    kea: "Dos elementu inpilhadu: kel di sima ten `margin-bottom: 40px`, kel di baxu ten `margin-top: 30px`. Kantu é spasu entri es?"
+  options:
+    - text: { kea: "40px — margin vertikal adjasenti ta kolapsa pa kel mas grandi" }
+      correct: true
+      explain: { kea: "Sertu — kolapsu di margin: browser ta toma so kel mas grandi (40), ka soma es dos." }
+    - text: { kea: "70px — es dos margin ta soma" }
+      correct: false
+      explain: { kea: "Margin **horizontal** ta soma, ma margin **vertikal** adjasenti ta kolapsa pa kel mas grandi." }
+    - text: { kea: "30px — ta toma kel mas pikinin" }
+      correct: false
+      explain: { kea: "Ta toma kel mas **grandi** (40), ka kel mas pikinin." }
+    - text: { kea: "0px — margin ka ta funsiona entri dos elementu" }
+      correct: false
+      explain: { kea: "Margin ta funsiona — so ta kolapsa pa kel mas grandi en bez di soma." }
+# — Objective 5 (conceptual why)
+- question:
+    kea: "Pa `margin: 0 auto` sentra un elementu horizontalmenti, kuze ki elementu **ten ki ten**?"
+  options:
+    - text: { kea: "Un largura definidu (`width` ou `max-width`)" }
+      correct: true
+      explain: { kea: "Sertu — sen largura, bloku dja ta okupa 100% i ka ten spasu pa `auto` divizi na dos ladu." }
+    - text: { kea: "Un `background-color`" }
+      correct: false
+      explain: { kea: "Kor di fundu ka ten nada a ver ku sentrajen. Kel ki falta é un largura." }
+    - text: { kea: "`display: inline`" }
+      correct: false
+      explain: { kea: "Inline elementu ta inora `width` i margin vertikal — `margin: 0 auto` ka ta sentra inline. Presiza bloku ku largura." }
+    - text: { kea: "Un `padding` na pai" }
+      correct: false
+      explain: { kea: "Padding di pai ka ta sentra fidju — elementu mesmu presiza un `width`." }
+# — Objective 4 (apply/recall)

@@ -1,0 +1,51 @@
+# Exercises sidecar (draft source) for lesson m3-12 "Box model".
+# Publish copies this to
+# content/courses/web-foundations/lessons/12-box-model/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: sentra-ka-ta-funsiona
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji un container ki ka ta sentra" }
+  prompt:
+    kea: "Es `.container` ta leva `margin: 0 auto` ma **ka ta sentra** — ta okupa tudu largura di pajina. Diskubri pamodi i koriji. (Dika: `margin: 0 auto` so ta sentra si elementu ten un largura definidu.)"
+  starterCode: |
+    .container {
+      margin: 0 auto;
+      padding: 40px;
+    }
+  solutionCode: |
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+  hint: { kea: "Bloku elementu padron dja ta okupa **100%** di largura. Sen un `width` ou `max-width`, ka ten spasu pa `auto` divizi na dos ladu." }
+# — traces Objective 4
+- slug: adisiona-spasing-kartaun
+  language: css
+  kind: code
+  title: { kea: "Da spasu pa un kartaun di artigu" }
+  prompt:
+    kea: "Skrebe regra `.kartaun`: **20px** di padding na tudu ladu, **16px** di margin pa baxu, i un border di **1px solid `#ddd`**. Dipos da-l un largura di **300px**. Uza forma kurtu undi faze sentidu."
+  starterCode: |
+    .kartaun {
+      /* skrebe li */
+    }
+  solutionCode: |
+    .kartaun {
+      width: 300px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+    }
+  hint: { kea: "`padding: 20px` ta da tudu kuatru ladu. Pa spasu so pa baxu, uza `margin-bottom` (ka `margin`)." }
+# — traces Objectives 2 + 3
+- slug: refleta-kolapsu-margin
+  language: css
+  kind: reflect
+  title: { kea: "Refleta sobri kolapsu di margin" }
+  prompt:
+    kea: "Un `<h2>` ten `margin-bottom: 40px` i `<p>` dibaxu ten `margin-top: 30px`. Splika ku bu palavra pamodi spasu entri es é **40px** i ka **70px**, i pamodi prátika rekomendadu é uza so `margin-bottom`."
+  notePlaceholder: { kea: "Skrebe li kel ki ta kontise ku es dos margin…" }
+# — traces Objective 5

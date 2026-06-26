@@ -1,0 +1,52 @@
+# Exercises sidecar (draft source) for lesson m3-08 "CSS: sintaksi i liga ku HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/08-css-sintaksi-i-liga-ku-html/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-link-stylesheet
+  language: html
+  kind: debug
+  file: cesaria.html
+  title: { kea: "Koriji `<link>` — CSS ka ta karega" }
+  prompt:
+    kea: "Es pajina dura ki ta liga ku `style.css`, ma nada ka ta stila. Ten **dos** eru na tag `<link>`: atributu `rel` sta eradu i atributu `href` sta falta. Koriji-s pa folha di stilu karega."
+  starterCode: |
+    <head>
+      <meta charset="UTF-8" />
+      <title>Blog di Adilson — Cesária Évora</title>
+      <link rel="icon" />
+    </head>
+  solutionCode: |
+    <head>
+      <meta charset="UTF-8" />
+      <title>Blog di Adilson — Cesária Évora</title>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+  hint:
+    kea: "`rel` ta diz pa browser **kuze** ki é ficheru — pa CSS é `rel=\"stylesheet\"`, ka `rel=\"icon\"`. I sen `href`, browser ka sabe **undi** ta otxa ficheru."
+- slug: skrebe-style-css
+  language: css
+  kind: code
+  title: { kea: "Skrebe `style.css` di raiz — dos regra" }
+  prompt:
+    kea: "Na un ficheru `style.css` vaziu, skrebe **dos regra CSS kompletu**: (1) `<body>` ku `background-color: #f7f7f7;`, i (2) tudu `<h1>` ku `color: #1098ad;`. Ka skesi `;` na fin di kada deklarasan i kuétxa `{ }`."
+  starterCode: |
+    /* style.css — stilu pa blog di Adilson */
+  solutionCode: |
+    /* style.css — stilu pa blog di Adilson */
+    body {
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      color: #1098ad;
+    }
+  hint:
+    kea: "Kada regra é `selector { propriedadi: valor; }`. Selector di korpu di pajina é `body`; pa titulu é `h1`."
+- slug: pamodi-external-css
+  language: css
+  kind: reflect
+  title: { kea: "Pamodi external CSS é primeru skolha?" }
+  prompt:
+    kea: "Imajina un website ku **kuatru** pajina (`index.html`, `blog.html`, `cesaria.html`, `sobre.html`) i bu kre ki tudu `<h1>` ten mesmu kor. Splika ku bu propi palavra pamodi un ficheru `style.css` **external** é midjór ki skrebe `style=\"...\"` **inline** na kada tag. Liga bu resposta ku ideia di **separation of concerns**."
+  notePlaceholder:
+    kea: "Inline: pa muda kor nu ten ki edita… · External: nu muda na un lugar so i… · Separation of concerns: HTML ta kuida di… i CSS di…"

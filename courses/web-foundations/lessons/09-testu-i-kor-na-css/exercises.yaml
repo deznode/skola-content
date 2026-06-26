@@ -1,0 +1,54 @@
+# Exercises sidecar (draft source) for lesson m3-09 "Testu i kor na CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/09-testu-i-kor-na-css/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-style-css
+  language: css
+  kind: debug
+  file: style.css
+  title:  { kea: "Koriji style.css" }
+  prompt: { kea: "Es CSS ten **trez erru**: un `;` ki ta falta, un nomi di propriedadi eradu, i un `border` ku valor fora di órdi. Diskubri-s i koriji-s." }
+  starterCode: |
+    h1 {
+      colur: #1098ad;
+      font-size: 36px
+      text-align: center;
+    }
+    .box {
+      border: solid 5px #777;
+    }
+  solutionCode: |
+    h1 {
+      color: #1098ad;
+      font-size: 36px;
+      text-align: center;
+    }
+    .box {
+      border: 5px solid #777;
+    }
+  hint: { kea: "Un: `colur` ka é propriedadi — kal é nomi dretu? Dos: odja fin di `font-size`. Trez: órdi di `border` é `width style color`." }
+
+- slug: stila-related-posts
+  language: css
+  kind: code
+  title:  { kea: "Stila kaxa di postu rilasionadu" }
+  prompt: { kea: "Skrebe un regra pa `.related-posts`: fundu branku (`#fff`), testu grey médiu (`#777`), un `border` di `2px solid #1098ad`, i `line-height` di `1.6`." }
+  starterCode: |
+    .related-posts {
+      /* skrebe kuatru deklarasan li */
+    }
+  solutionCode: |
+    .related-posts {
+      background-color: #fff;
+      color: #777;
+      border: 2px solid #1098ad;
+      line-height: 1.6;
+    }
+  hint: { kea: "Kuatru deklarasan: `background-color`, `color`, `border` (shorthand) i `line-height` sen unidadi." }
+
+- slug: refleta-paleta-grey
+  language: css
+  kind: reflect
+  title:  { kea: "Skoji bu paleta di grey" }
+  prompt: { kea: "Pa blog di Adilson bu meste trez tonalidadi di grey: un pa fundu, un pa testu prinsipal, un pa byline. Skrebe trez valor hex ku R = G = B i splika pamodi tonalidadi ta muda." }
+  notePlaceholder: { kea: "Fundu: #…   Testu: #…   Byline: #…   — Pamodi tonalidadi ta muda: …" }

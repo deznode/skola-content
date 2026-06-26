@@ -1,0 +1,51 @@
+# Exercises sidecar (draft source) for lesson m4-14 "Flexbox: un dimensan".
+# Publish copies this to
+# content/courses/web-foundations/lessons/14-flexbox-un-dimensan/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-eixu-trokadu
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji un header ku eixu trokadu" }
+  prompt:
+    kea: "Es header debe ten titulu na skerda i nav na direita, alinhadu vertikalmenti — ma `justify-content` i `align-items` sta **trokadu**. Nav ka ta sta na direita i alinhamentu vertikal ka ta funsiona. Koriji kada propriedadi pa kel eixu sertu."
+  hint:
+    kea: "`justify-content` ta opera na **main axis** (horizontal) — el ta aseita `space-between`. `align-items` ta opera na **cross axis** (vertikal) — el ta aseita `center`. Troka-s pa kada un keda na kel eixu sertu."
+  starterCode: |
+    .main-header {
+      display: flex;
+      justify-content: center;
+      align-items: space-between;
+    }
+  solutionCode: |
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+- slug: kria-byline-flex
+  language: css
+  kind: code
+  title: { kea: "Kria un byline ku foto i nomi lado-a-lado" }
+  prompt:
+    kea: "Bu ten un `<div class=\"author\">` ku un foto i un nomi dentru. Skrebe regra `.author` pa po foto i nomi **lado-a-lado**, **sentradu vertikalmenti**, ku **16px di spasu** entri es dos. Uza Flexbox (ka margin individual)."
+  hint:
+    kea: "Trez linhas: `display: flex` pa aktiva Flexbox, `align-items: center` pa sentra vertikal (cross axis), i `gap: 16px` pa spasu entri foto i nomi."
+  starterCode: |
+    .author {
+      /* Skrebe a regra li: flex, sentra vertikal, 16px di gap */
+    }
+  solutionCode: |
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+- slug: reflekti-sentra-vertikal
+  language: css
+  kind: reflect
+  title: { kea: "Undi ki `align-items: center` ta salva-bu?" }
+  prompt:
+    kea: "Antes di Flexbox, sentra un kuza vertikalmenti é un di problema mas frustranti di CSS. Pensa nun lugar nun pajina real (un karton, un nav, un byline, un boton) undi ki `align-items: center` ta salva-bu trabaju. Splika ku bu propi palavra pamodi Flexbox ta torna kel-li un linha só."
+  notePlaceholder:
+    kea: "Un lugar undi N ta uza `align-items: center` é… Antes di Flexbox, N teni ki… ma gosi é só un linha pamodi…"

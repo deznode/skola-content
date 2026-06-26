@@ -1,0 +1,49 @@
+# Quiz sidecar (draft source) for lesson m5-18 "Visita Kabu Verdi: planeja i skrebe HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/18-visita-kabu-verdi-html/quiz.yaml;
+# positions 0..2 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Pa o grupu di 10 kartas di ilha, ki elementu ki ta wrap tudu grupu, i ki elementu pa kada karta individual?"
+  options:
+    - text: { kea: "`<section>` pa o grupu, `<article>` pa kada karta" }
+      correct: true
+      explain: { kea: "Sertu — `<section>` é agrupamentu temátiku (tudu ilhas djuntu); `<article>` é kontéudu independenti ki ta faze sentidu solu (un karta di ilha). Callback di L7." }
+    - text: { kea: "`<article>` pa o grupu, `<section>` pa kada karta" }
+      correct: false
+      explain: { kea: "Trokadu — o grupu inteiru é o agrupamentu temátiku (`<section>`); kada karta ki ta faze sentidu solu é `<article>`." }
+    - text: { kea: "`<div>` pa tudu dos" }
+      correct: false
+      explain: { kea: "`<div>` ka ten signifikadu semántiku. Uza-l só pa wrap di layout (kumo `.container`), ka pa kontéudu ki ten signifikadu." }
+    - text: { kea: "`<section>` pa tudu dos" }
+      correct: false
+      explain: { kea: "O grupu é `<section>`, ma kada karta ki ta faze sentidu solu é `<article>`. Es dos ten papel diferenti." }
+- question:
+    kea: "Pamodi nu ta liga `style.css` na `<head>` na Lisan 18, si o ficheru sta vaziu?"
+  options:
+    - text: { kea: "Pa kuandu nu komesa o CSS na L19, stilu ta apilika otomátikamenti sen torna abri `<head>`" }
+      correct: true
+      explain: { kea: "Sertu — liga-l un vés gosi, i kada regra ki bu skrebe na L19 ta entra sen mas trabadju. Si bu skise, L19 'ka ta faze nada' — i es é primeru kuza pa kontrola." }
+    - text: { kea: "Un ficheru CSS vaziu ta faze pajina karega mas dipresa" }
+      correct: false
+      explain: { kea: "Nau — ka ten a-ver ku velosidadi. Nu ta liga-l gosi só pa preparasan; L19 ta inche-l." }
+    - text: { kea: "HTML ka ta válidu sen un `<link>` pa CSS" }
+      correct: false
+      explain: { kea: "HTML é totalmenti válidu sen CSS. Nu ta liga-l gosi só pa konveniénsia di L19." }
+    - text: { kea: "O browser ka ta mostra HTML sen un ficheru CSS" }
+      correct: false
+      explain: { kea: "O browser ta mostra HTML sen kualkér CSS — só ka ta ten layout nin kor. Nu ta liga `style.css` gosi pa preparar." }
+- question:
+    kea: "Bu ten 10 imajen di ilha. Ki `alt` ki é korretu pa akesibilidadi?"
+  options:
+    - text: { kea: "Un deskrisan úniku ki ta splika kuze kada imajen ta mostra (ex.: 'Vista di Cidade Velha, Santiago')" }
+      correct: true
+      explain: { kea: "Sertu — `alt` ten ki deskrebe o kontéudu di kada imajen pa ken ka ta odja-l. Vaziu ou 'img' ka ta djuda." }
+    - text: { kea: "`alt=\"img\"` pa tudu 10" }
+      correct: false
+      explain: { kea: "'img' ka ta da nenhun informasan. Kada `alt` ten ki splika kuze kel imajen spesífiku ta mostra." }
+    - text: { kea: "Deixa `alt` vaziu — o nomi di ficheru dja ta xega" }
+      correct: false
+      explain: { kea: "Nomi di ficheru (`santiago.jpg`) ka ta ser lidu kumo deskrisan pa lentor di ekran. `alt` ten ki ten testu ki ta splika a imajen." }
+    - text: { kea: "Ka poi `alt` — el é opsional" }
+      correct: false
+      explain: { kea: "Pa imajen ki ka é dekorativu, `alt` é obrigatóriu pa akesibilidadi. Sen el, ken uza lentor di ekran ka ta sabe kuze imajen ta mostra." }

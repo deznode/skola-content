@@ -1,0 +1,49 @@
+# Quiz sidecar (draft source) for lesson m4-16 "CSS Grid: dos dimensan".
+# Publish copies this to
+# content/courses/web-foundations/lessons/16-css-grid-dos-dimensan/quiz.yaml;
+# positions 0..2 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "Kuze ki `grid-template-columns: repeat(3, 1fr)` ta produzi?"
+  options:
+    - text: { kea: "3 kolunas igual ki ta dividi spasu disponivel" }
+      correct: true
+      explain: { kea: "Sertu — `repeat(3, 1fr)` é atadju pa `1fr 1fr 1fr`: trez kolunas ku largura igual ki ta dividi spasu." }
+    - text: { kea: "3 kolunas dimensiona pa kontéudu" }
+      correct: false
+      explain: { kea: "Kel-li é `repeat(3, auto)`. `1fr` ta dividi spasu disponivel igualmenti, ka dimensiona pa kontéudu." }
+    - text: { kea: "3 linhas igual" }
+      correct: false
+      explain: { kea: "`grid-template-columns` ta defini **kolunas**, ka linhas. Pa linhas ten `grid-template-rows`." }
+    - text: { kea: "1 koluna repetidu 3 bez verticalmente" }
+      correct: false
+      explain: { kea: "Nau — ta kria 3 kolunas lado-a-lado, kada un `1fr`." }
+- question:
+    kea: "Kuandu ki bu ta alkansa pa **CSS Grid** en bez di Flexbox?"
+  options:
+    - text: { kea: "Kuandu bu ten **linhas i kolunas djuntu** (layout 2D)" }
+      correct: true
+      explain: { kea: "Sertu — Grid é pa dos dimensan (galeria, dashboard, layout di revista). Flexbox é pa un dimensan (un linha ou un koluna)." }
+    - text: { kea: "Kuandu bu ten so un linha di items" }
+      correct: false
+      explain: { kea: "Pa un linha (navbar, byline), Flexbox é mas simples. Grid é pa 2D." }
+    - text: { kea: "Kuandu bu kre sentra un kuza vertikalmenti" }
+      correct: false
+      explain: { kea: "Sentra vertikal un item é trabaju komun di Flexbox (`align-items: center`). Grid é pa layout 2D." }
+    - text: { kea: "Sempri — Grid ta substitui Flexbox" }
+      correct: false
+      explain: { kea: "Nau — es dos ta brinka djuntu. Flexbox pa 1D, Grid pa 2D; bu ta uza kada un undi el ta sirvi midjór." }
+- question:
+    kea: "Na CSS Grid, keyword pa alinha pa **komesu** é…"
+  options:
+    - text: { kea: "`start` (sen prefix `flex-`)" }
+      correct: true
+      explain: { kea: "Sertu — Grid uza `start`/`end`. Memoriza: na Grid, kai prefix `flex-`. Es pitfall ta repeti na Lisan 17." }
+    - text: { kea: "`flex-start`" }
+      correct: false
+      explain: { kea: "`flex-start` é keyword di **Flexbox**. Na Grid é só `start` — mesmu konseitu, keyword diferenti." }
+    - text: { kea: "`top`" }
+      correct: false
+      explain: { kea: "`top` ka é keyword di alinhamentu di Grid. Uza `start`." }
+    - text: { kea: "`begin`" }
+      correct: false
+      explain: { kea: "Ka ten keyword `begin` na CSS. Na Grid é `start`." }

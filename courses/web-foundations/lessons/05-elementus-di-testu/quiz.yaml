@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m2-05 "Elementus di testu: titulu, paragrafu, lista".
+# Publish copies this to
+# content/courses/web-foundations/lessons/05-elementus-di-testu/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Kuantu `<h1>` ki un pajina debe ten?"
+  options:
+    - text: { kea: "So **un** `<h1>` pa pajina inteiru" }
+      correct: true
+      explain: { kea: "Sertu — regra di ouro. Google ta uza-l pa intende tópiku prinsipal i screen reader ta anunsia-l kumo título di pajina." }
+    - text: { kea: "Un `<h1>` pa kada seksan" }
+      correct: false
+      explain: { kea: "Pa título di seksan uza `<h2>`. So debe ten un `<h1>` pa tudu pajina." }
+    - text: { kea: "Kuantu ki bu kre, sen limiti" }
+      correct: false
+      explain: { kea: "Mas di un `<h1>` ta kebra SEO i asesibilidadi. Ten so un." }
+    - text: { kea: "Zeru — `<h1>` é opsional" }
+      correct: false
+      explain: { kea: "Kada pajina debe ten un `<h1>` pa marka tópiku prinsipal." }
+- question:
+    kea: "Kal tag ki bu ta uza pa marka testu ku **signifikadu** di importansia (ka so apariénsia)?"
+  options:
+    - text: { kea: "`<strong>`" }
+      correct: true
+      explain: { kea: "Sertu — `<strong>` ten semantika di importansia. Screen reader ta da-l intonasan i Google ta uza-l pa peso na SEO." }
+    - text: { kea: "`<b>`" }
+      correct: false
+      explain: { kea: "`<b>` so ta poi en negritu sen signifikadu. Pa importansia semántika uza `<strong>`." }
+    - text: { kea: "`<em>`" }
+      correct: false
+      explain: { kea: "`<em>` é pa énfasi (itáliku), ka pa importansia. Pa importansia uza `<strong>`." }
+    - text: { kea: "`<h1>`" }
+      correct: false
+      explain: { kea: "`<h1>` é título di pajina, ka pa marka un palavra dentru di un paragrafu." }
+- question:
+    kea: "Bu ten un lista undi ki **ordi ta importa** (pasu di un resipi). Kal tag ki bu ta uza?"
+  options:
+    - text: { kea: "`<ol>` (ordenadu, numeradu)" }
+      correct: true
+      explain: { kea: "Sertu — `<ol>` ta numera itens. Uza-l kuandu ordi ta importa: resipi, instrusan, ranking." }
+    - text: { kea: "`<ul>` (ka-ordenadu, bullet)" }
+      correct: false
+      explain: { kea: "`<ul>` é pa kuandu ordi ka ta importa. Pa pasu numeradu uza `<ol>`." }
+    - text: { kea: "`<li>` so, sen parent" }
+      correct: false
+      explain: { kea: "`<li>` ten ki sta dentru di un `<ol>` ou `<ul>`. So el ka é lista válidu." }
+    - text: { kea: "`<p>` ku númeru a mon" }
+      correct: false
+      explain: { kea: "Skrebe númeru a mon ka é semántiku. Uza `<ol>` — browser ta numera automatikamenti." }
+- question:
+    kea: "É `<ul><strong>Lápis</strong></ul>` un lista HTML **válidu**?"
+  options:
+    - text: { kea: "Nau — kada item ten ki sta dentru di un `<li>`" }
+      correct: true
+      explain: { kea: "Sertu — `<ul>` (ou `<ol>`) so ta resebe `<li>` kumo fidju diretu. Skrebe `<ul><li>Lápis</li></ul>`." }
+    - text: { kea: "Sin — `<strong>` ta funsiona kumo item" }
+      correct: false
+      explain: { kea: "Nau — `<strong>` ka é item di lista. Tudu item ten ki sta dentru di un `<li>`." }
+    - text: { kea: "Sin, ma so si ten un so item" }
+      correct: false
+      explain: { kea: "Númeru di itens ka ta importa — kada item, mesmu un so, ten ki sta dentru di un `<li>`." }
+    - text: { kea: "Sin, pamodi `<ul>` ta aseita kualkér element" }
+      correct: false
+      explain: { kea: "`<ul>` so ta aseita `<li>` kumo fidju diretu, ka kualkér element." }

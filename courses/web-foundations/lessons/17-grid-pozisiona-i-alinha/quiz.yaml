@@ -1,0 +1,64 @@
+# Quiz sidecar (draft source) for lesson m4-17 "Grid: pozisiona i alinha items".
+# Publish copies this to
+# content/courses/web-foundations/lessons/17-grid-pozisiona-i-alinha/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+- question:
+    kea: "`grid-column: 1 / 3` ta okupa kual kolunas?"
+  options:
+    - text: { kea: "Kolunas **1 i 2** — line di fin é eksklusivu" }
+      correct: true
+      explain: { kea: "Sertu — komesa na line 1, kaba na line 3, ma line di fin é **eksklusivu**: ta okupa kolunas 1 i 2, ka 3. Studantes ta erra es kontaji konstantamenti." }
+    - text: { kea: "Kolunas 1, 2 i 3" }
+      correct: false
+      explain: { kea: "Nau — line di fin (3) é eksklusivu. Ta okupa só kolunas 1 i 2." }
+    - text: { kea: "Só koluna 1" }
+      correct: false
+      explain: { kea: "Di line 1 ti line 3 ta atravesa dos kolunas (1 i 2), ka un só." }
+    - text: { kea: "Kolunas 2 i 3" }
+      correct: false
+      explain: { kea: "Komesa na line 1 = komesu di koluna 1. Ta okupa kolunas 1 i 2." }
+- question:
+    kea: "Pamodi ki `grid-column: 1 / -1` é midjór ki `1 / 6` pa un banner ki ta spani tudu largura?"
+  options:
+    - text: { kea: "`1 / -1` ta funsiona independenti di kuantas kolunas grid ten" }
+      correct: true
+      explain: { kea: "Sertu — `-1` é sempri **últimu** line. Si bu muda di 5 pa 6 kolunas, banner ta kontinua kompletu sen bu toca-l. `1 / 6` ta kebra." }
+    - text: { kea: "`1 / -1` é mas rápidu pa browser renderiza" }
+      correct: false
+      explain: { kea: "Diferensa ka é performansi — é robustez. `1 / -1` ta adapta automatikamenti pa kuantidadi di kolunas." }
+    - text: { kea: "`1 / 6` ka é CSS válidu" }
+      correct: false
+      explain: { kea: "`1 / 6` é válidu — el só ta kebra kuandu kuantidadi di kolunas muda. `1 / -1` é mas seguru." }
+    - text: { kea: "Es dos é eksatamenti igual sempri" }
+      correct: false
+      explain: { kea: "So é igual kuandu grid ten eksatamenti 5 kolunas. Muda pa 6 i `1 / 6` ta deixa un koluna di fora." }
+- question:
+    kea: "Bu kre sentra kontéudu (h3 + p) dentru di **kada** cell, horizontal i vertikal. Kal shorthand?"
+  options:
+    - text: { kea: "`place-items: center`" }
+      correct: true
+      explain: { kea: "Sertu — `place-items: center` ta sentra na dos eixu di un bez (atadju pa `justify-items` + `align-items`)." }
+    - text: { kea: "`place-content: center`" }
+      correct: false
+      explain: { kea: "`place-content` ta alinha **grid inteiru** dentru di container, ka kontéudu dentru di kada cell. Pa cell uza `place-items`." }
+    - text: { kea: "`text-align: center`" }
+      correct: false
+      explain: { kea: "`text-align: center` só ta sentra testu horizontalmenti, ka item dentru di kel cell na dos eixu." }
+    - text: { kea: "`align-self: center`" }
+      correct: false
+      explain: { kea: "`align-self` ta afeta un **item** só i un eixu só. Pa sentra tudu items na dos eixu uza `place-items: center` na container." }
+- question:
+    kea: "Kal diferensa entri `justify-items` i `justify-content` nun grid?"
+  options:
+    - text: { kea: "`justify-items` = items dentru di kel cell; `justify-content` = tudu grid dentru di container" }
+      correct: true
+      explain: { kea: "Sertu — skopu diferenti. `justify-items` ta moveu kada item dentru di sí cell; `justify-content` ta moveu grid inteiru kuandu el é mas pikinu ki container." }
+    - text: { kea: "Es dos é mesmu kuza, nomi diferenti" }
+      correct: false
+      explain: { kea: "Nau — skopu diferenti. Un é item dentru di cell, otru é grid dentru di container." }
+    - text: { kea: "`justify-items` é vertikal, `justify-content` é horizontal" }
+      correct: false
+      explain: { kea: "Es dos é horizontal (`justify-*`). Diferensa é **skopu**: item-na-cell vs grid-na-container." }
+    - text: { kea: "`justify-content` só ta funsiona na Flexbox" }
+      correct: false
+      explain: { kea: "`justify-content` ta funsiona na Grid tanbé — ta alinha grid inteiru dentru di container." }

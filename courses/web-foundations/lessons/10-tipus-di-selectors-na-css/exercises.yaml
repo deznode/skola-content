@@ -1,0 +1,49 @@
+# Exercises sidecar (draft source) for lesson m3-10 "Tipus di selectors na CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/10-tipus-di-selectors-na-css/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-ordi-lvha
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji ordi di link kuebradu (LVHA)" }
+  prompt:
+    kea: "Es CSS ten un **bug** di ordi: `:hover` sta skritu **antis** di `:visited`, nton `:visited` ta sobrescrebe-l i efeitu di hover ta dezaparesi pa link ki dja foi visitadu. Reorganiza es kuatru regra na ordi **LVHA** (LoVe HAte)."
+  hint:
+    kea: "Ordi korreta: `:link`, dipos `:visited`, dipos `:hover`, dipos `:active`. So muda ordi di linha — ka muda kor."
+  starterCode: |
+    a:link    { color: #1098ad; }
+    a:hover   { color: #ad1090; text-decoration: underline; }
+    a:visited { color: #777; }
+    a:active  { color: #800; }
+  solutionCode: |
+    a:link    { color: #1098ad; }
+    a:visited { color: #777; }
+    a:hover   { color: #ad1090; text-decoration: underline; }
+    a:active  { color: #800; }
+- slug: eskrebe-class-i-id
+  language: css
+  kind: code
+  title: { kea: "Skrebe un selector di class i un di id" }
+  prompt:
+    kea: "Na `style.css`, skrebe **dos** regra. (1) Un **class** ku nomi **kebab-case** `.related-posts` ku un `border-top: 2px solid #ddd`. (2) Un **id** `#main-header` ku un `padding: 20px`. Lembra: class ta kumesa ku `.`, id ku `#`, i nomi di class na kebab-case (ka camelCase)."
+  hint:
+    kea: "Class: `.related-posts { … }`. Id: `#main-header { … }`. Ka skrebe `.relatedPosts` nen `.related_posts` — uza traseu (`-`)."
+  starterCode: |
+    /* Skrebe es dos regra li */
+  solutionCode: |
+    .related-posts {
+      border-top: 2px solid #ddd;
+    }
+
+    #main-header {
+      padding: 20px;
+    }
+- slug: reflekti-class-vs-id
+  language: css
+  kind: reflect
+  title: { kea: "Kuandu uza class i kuandu uza id?" }
+  prompt:
+    kea: "Splika ku bu propi palavra: pamodi ki nu ta **preferi class sobri id** pa stilu? Da un izemplu di un kuza ki ta **repeti** na pajina (uza class) i un kuza **úniku** (pode uza id)."
+  notePlaceholder:
+    kea: "N ta uza class pa… (izemplu: …). N ta uza id so kuandu… (izemplu: …)."

@@ -1,0 +1,76 @@
+slug: web-foundations
+title: "Fundamentus di Web: HTML i CSS"
+level: beginner
+category: programming
+duration_minutes: 450
+instructor: Joaquim Costa
+translations:
+  kea:
+    title: "Fundamentus di Web: HTML i CSS"
+    description: Aprendi HTML i CSS di zero. Kel kursu ta ensiná-bu kria pajina web ku strutura semantiku, stiliza-s ku kor, fonti i layout (Flexbox i CSS Grid), i pa fin konstrui un pajina di turizmu sobri ilhas di Kabu Verdi.
+    prerequisites: Nenhum konhesimentu préviu nesesáriu
+    outcomes: |
+      Skrebe HTML5 semantiku ku strutura korretu
+      Stiliza pajina ku CSS: kor, fonti i selectors
+      Domina box model: margin, border, padding i tamanhu
+      Konstrui layout ku Flexbox i CSS Grid
+      Debuga ku DevTools i konstrui un landing page di Kabu Verdi
+modules:
+  - slug: introduson-na-web
+    title:
+      kea: "Introduson na Web"
+    lessons:
+      - slug: kumo-web-ta-funsiona
+        languages: [kea]
+      - slug: konfigura-bu-ambienti
+        languages: [kea]
+      - slug: kria-bu-primeru-pajina-html
+        languages: [kea]
+  - slug: fundamentus-html
+    title:
+      kea: "Fundamentus di HTML"
+    lessons:
+      - slug: strutura-di-un-dokumentu-html
+        languages: [kea]
+      - slug: elementus-di-testu
+        languages: [kea]
+      - slug: imajen-atributu-i-link
+        languages: [kea]
+      - slug: html-semantiku
+        languages: [kea]
+  - slug: fundamentus-css
+    title:
+      kea: "Fundamentus di CSS"
+    lessons:
+      - slug: css-sintaksi-i-liga-ku-html
+        languages: [kea]
+      - slug: testu-i-kor-na-css
+        languages: [kea]
+      - slug: tipus-di-selectors-na-css
+        languages: [kea]
+      - slug: konflitu-i-inheritance-na-css
+        languages: [kea]
+      - slug: box-model
+        languages: [kea]
+      - slug: devtools-google-i-debug
+        languages: [kea]
+  - slug: layouts
+    title:
+      kea: "Layouts: Flexbox i CSS Grid"
+    lessons:
+      - slug: flexbox-un-dimensan
+        languages: [kea]
+      - slug: layout-ku-flexbox
+        languages: [kea]
+      - slug: css-grid-dos-dimensan
+        languages: [kea]
+      - slug: grid-pozisiona-i-alinha
+        languages: [kea]
+  - slug: visita-kabu-verdi
+    title:
+      kea: "Projetu Final: Visita Kabu Verdi"
+    lessons:
+      - slug: visita-kabu-verdi-html
+        languages: [kea]
+      - slug: visita-kabu-verdi-css
+        languages: [kea]

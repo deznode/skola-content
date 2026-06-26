@@ -1,0 +1,325 @@
+---
+title: "Grid: pozisiona i alinha items"
+language: kea
+courseSlug: web-foundations
+lessonSlug: grid-pozisiona-i-alinha
+module: 4
+lesson: 17
+duration: 20
+objectives:
+  - "Pozisiona grid items ku line numbers (`grid-column: 1 / 3`, `grid-row: 2 / 4`)"
+  - "Spani múltiplas tracks ku keyword `span` (`grid-column: span 2`)"
+  - "Aplika truk di **`1 / -1`** pa span di komesu ti fin"
+  - "Distingui `justify-items` / `align-items` (items dentru di cells) di `justify-content` / `align-content` (grid dentru di container)"
+  - "Uza shorthand `place-items` pa sentra kontéudu di kada cell"
+prerequisites:
+  - "Lisan 16 — CSS Grid: dos dimensan"
+---
+
+# Grid: pozisiona i alinha items
+
+Ti gosi, kada grid item ta okupa un cell úniku — un linha + un koluna. Ma kuandu nu kre ki un item okupa **dos kolunas**, ou spani **tudu largura** di pajina (kumo un banner)? Pa kel-li, nu ta uza **line numbers**, **`span`** i un truk majiku ku **`-1`**.
+
+## Line numbers — fundamentu
+
+Pa un grid di 4 kolunas, ten **5 line numbers** vertikal:
+
+```
+| line 1 | line 2 | line 3 | line 4 | line 5 |
+   col 1    col 2    col 3    col 4
+```
+
+Mêsmu pa linhas (horizontal). Pa un grid 4×3, ten 5 lines vertikal + 4 lines horizontal.
+
+**Negativu konta di fin:** line `-1` é últimu, `-2` é penúltimu, etc. Es é parti **majika** — bu ka presiza sabe kuantu kolunas existi.
+
+![Grid template: lines numeradu (1 ti N+1, -1 di fin), tracks, cells](../../infographics/11-css-grid-template.jpg)
+
+## Pozisiona item ku line numbers
+
+```css
+.feature {
+  grid-column: 1 / 3;      /* komesa na line 1, fin na line 3 → ta okupa col 1 i 2 */
+  grid-row: 2 / 4;         /* komesa na line 2, fin na line 4 → ta okupa row 2 i 3 */
+}
+```
+
+**Atensan — line di fin é eksklusivu.** `grid-column: 1 / 3` ta okupa kolunas 1 i 2, **ka 1, 2 i 3**. Studantes ta erra es kontaji konstantamenti.
+
+## Span — pa "kuantu largu" só
+
+Si bu ka kuida undi item ta komesa, só **kuantu largu el é**, uza `span`:
+
+```css
+.feature {
+  grid-column: span 2;     /* spani 2 kolunas, undi kuze item ta otxa */
+}
+
+.tall {
+  grid-row: span 3;        /* spani 3 linhas */
+}
+```
+
+Mas kompinatu:
+
+```css
+.banner {
+  grid-column: 1 / span 3;    /* komesa na col 1, spani 3 kolunas */
+}
+```
+
+**Prefere `span` kuandu bu ka kuida pozisan eksatu.** Mas leji pa ler.
+
+## Truk majiku — `1 / -1`
+
+Kuandu un item ten ki **spani tudu largura** di grid:
+
+```css
+.hero {
+  grid-column: 1 / -1;     /* komesa na primeru line, ta fin na **últimu** line */
+}
+```
+
+**Pamodi es é majiku:** funsiona **independenti** di kuantas kolunas grid ten. Si bu muda di 3 koluna pa 5 koluna mas tarde, hero ta kontinua kompletu sen bu ten ki tocar el.
+
+:::callout{type=tip}
+**`grid-column: 1 / -1` é truk mas útil di tudu Grid.** Memoriza-l gosi. Bu ta uza-l pa banner, hero, footer, kualkér kuza ki "speni tudu largura".
+
+**Evita** `grid-column: 1 / 6` pa un grid di 5 koluna — kuandu bu muda pa 6 koluna, layout ta kebra. Sempri `1 / -1`.
+:::
+
+## Alinhamentu dentru di cell — item-level
+
+Kuandu un cell é **mas grandi ki kontéudu di item**, undi item ta poza dentru? CSS Grid ten kuatru propriedadi pa kel-li.
+
+### No container (afeta tudu items)
+
+| Propriedadi | Eixu | Valor |
+|---|---|---|
+| `justify-items` | Horizontal | `start`, `end`, `center`, `stretch` (padron) |
+| `align-items` | Vertikal | `start`, `end`, `center`, `stretch` (padron) |
+
+**Atensan — Grid uza `start`/`end`, ka `flex-start`/`flex-end`.** Mêsmu konfundi di Lisan 16, gosi bu sta skrebe-l verdadeiramenti.
+
+### No item (sobrepasa container)
+
+| Propriedadi | Eixu |
+|---|---|
+| `justify-self` | Horizontal |
+| `align-self` | Vertikal |
+
+### Shorthand — `place-items`
+
+```css
+.gallery {
+  place-items: center center;    /* horizontal center, vertikal center */
+}
+
+/* ô forma mas kurtu kuandu dos ladu é igual: */
+.gallery {
+  place-items: center;           /* tudu dos eixu sentradu */
+}
+```
+
+**`place-items: center`** é maneira mas rápida di sentra kontéudu di **kada** cell.
+
+## Alinhamentu di grid inteiru — track-level
+
+Kuandu **grid tudu** é mas pikinu ki container (egzemplu, ten 3 kolunas di 100px ma container ten 1000px), pa undi tracks ta poza?
+
+```css
+.gallery {
+  justify-content: center;       /* sentra tudu grid horizontal */
+  align-content: center;         /* sentra tudu grid vertikal */
+}
+```
+
+Valor é igual ki Flexbox: `start`, `end`, `center`, `space-between`, `space-around`, `space-evenly`.
+
+**Diferensa:** `justify-items` ta sentra **kada item dentru di kel cell**. `justify-content` ta sentra **tudu grid dentru di container**. Skopu diferenti.
+
+<CompareTable
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "justify-items", syntax: "item na cell", accent: "teal" },
+    { name: "justify-content", syntax: "grid na container", accent: "orange" },
+  ]}
+  rows={[
+    { label: "Kuze ki ta moveu", kind: "text", vals: ["Kada **item** dentru di sí cell", "**Grid inteiru** dentru di container"] },
+    { label: "Skopu", kind: "text", vals: ["Cell", "Container"] },
+    { label: "Kuandu ta importa", kind: "text", vals: ["Cell é mas grandi ki item", "Grid é mas pikinu ki container"] },
+    { label: "Valoris komun", kind: "code", vals: ["start / center / end / stretch", "start / center / space-between"] },
+  ]}
+/>
+
+## Prátika — kostrui layout konplet ku hero, feature, tall
+
+Volta pa `grid-demo.html`. Vamu transforma-l nun layout mas riku ku **hero (full-width)**, **un feature card (span 2 kolunas)**, **un tall card (span 2 linhas)** mas restu di kartas normal.
+
+### Pasu 1 — refaktoriza HTML
+
+Substitui kontéudu di `.gallery` pa:
+
+```html
+<div class="gallery">
+  <header class="hero">
+    <h2>Pesoas i Lugar di Kabu Verdi</h2>
+    <p>Skola ta selebra istória i kultura di Kabu Verdi.</p>
+  </header>
+
+  <article class="card feature">
+    <h3>Cesária Évora</h3>
+    <p>Reina di Morna — nasidu na Mindelo, 1941. Voz d'Amor ganhou Grammy na 2004.</p>
+  </article>
+
+  <article class="card tall">
+    <h3>Pico do Fogo</h3>
+    <p>Vulkãu ativu di 2829m na Ilha di Fogo. Subida ta da 4-6 ora di kaminhada.</p>
+  </article>
+
+  <article class="card">
+    <h3>Djássi</h3>
+    <p>Studanti di Mindelo.</p>
+  </article>
+  <article class="card">
+    <h3>Djamila Tavares</h3>
+    <p>Jornalista.</p>
+  </article>
+  <article class="card">
+    <h3>Kátia</h3>
+    <p>Frontend dev na Praia.</p>
+  </article>
+  <article class="card">
+    <h3>Manuel Furtado</h3>
+    <p>Revizor di CSS.</p>
+  </article>
+  <article class="card">
+    <h3>Mário Évora</h3>
+    <p>Biografu di musika.</p>
+  </article>
+  <article class="card">
+    <h3>Cesária Lima</h3>
+    <p>Skritora konvidada.</p>
+  </article>
+  <article class="card">
+    <h3>Adilson</h3>
+    <p>Donu di blog, Mindelo.</p>
+  </article>
+</div>
+```
+
+### Pasu 2 — atualiza CSS
+
+Na `style.css`:
+
+<AnnotatedCode
+  lang="css"
+  filename="style.css"
+  title="Layout riku, linha-pa-linha"
+  code={[
+    { t: ".gallery {", m: 1 },
+    { t: "  display: grid;", m: 1 },
+    { t: "  grid-template-columns: repeat(3, 1fr);", m: 1 },
+    { t: "  gap: 24px;", m: 0 },
+    { t: "  margin-top: 40px;", m: 0 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: ".hero {", m: 0 },
+    { t: "  grid-column: 1 / -1;", m: 2 },
+    { t: "  padding: 40px;", m: 0 },
+    { t: "  background-color: #1098ad;", m: 0 },
+    { t: "  color: #fff;", m: 0 },
+    { t: "  text-align: center;", m: 0 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: ".feature {", m: 0 },
+    { t: "  grid-column: span 2;", m: 3 },
+    { t: "  background-color: #f7f0e6;", m: 0 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: ".tall {", m: 0 },
+    { t: "  grid-row: span 2;", m: 4 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: ".card {", m: 0 },
+    { t: "  padding: 20px;", m: 0 },
+    { t: "  background-color: #fff;", m: 0 },
+    { t: "  border: 1px solid #ddd;", m: 0 },
+    { t: "  border-radius: 8px;", m: 0 },
+    { t: "  display: grid;", m: 5 },
+    { t: "  place-items: center;", m: 5 },
+    { t: "  text-align: center;", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Grid base", body: "`display: grid` ku `repeat(3, 1fr)` — trez kolunas igual pa restu di kartas otxa." },
+    { m: 2, title: "Hero full-width", body: "`grid-column: 1 / -1` ta faze hero spani tudu largura, sin konteu kuantas kolunas existi." },
+    { m: 3, title: "Feature largu", body: "`grid-column: span 2` — es karta ta okupa **dos kolunas**." },
+    { m: 4, title: "Tall altu", body: "`grid-row: span 2` — es karta ta okupa **dos linhas**." },
+    { m: 5, title: "Grid dentru di Grid", body: "`display: grid` + `place-items: center` na `.card` ta sentra `<h3>` i `<p>` dentru di kada karta." },
+  ]}
+/>
+
+Salva. Abri `grid-demo.html` ku Live Server.
+
+Bu ta odja:
+
+- **Hero** azul-mar ta spani topu kompletu di grid.
+- **Cesária Évora** (feature) ta okupa 2 kolunas — visibilmenti mas grandi.
+- **Pico do Fogo** (tall) ta okupa 2 linhas — vertikalmenti mas grandi.
+- Restu di kartas (Djássi, Djamila, Kátia, Manuel, Mário, Cesária Lima, Adilson) ta okupa un cell kada.
+- Kada karta ten kontéudu **sentradu** vertikal i horizontal — grasas pa `place-items: center`.
+
+### Pasu 3 — inspekciona line numbers ku DevTools
+
+Abri DevTools. Na painel Elements, prokura `.gallery`. Klika batch "grid". Pajina ta resebi overlay ku **line numbers** vizível: 1, 2, 3, 4 horizontal i tanbé vertikal.
+
+**Kompara ku CSS:** `grid-column: 1 / -1` di hero ta komesa na line 1 i akaba na line 4 (-1 ta keri dizê "últimu" = 4 pa 3 koluna). `grid-column: span 2` di feature ta okupa di un line ti otru, 2 lugaris mas tarde.
+
+### Pasu 4 — eksperimenta `justify-items: center`
+
+Adisiona temporalmenti:
+
+```css
+.gallery {
+  /* ... */
+  justify-items: center;
+}
+```
+
+Salva. Kartas ta **enkolhe pa largura di kontéudu** i sentra horizontalmenti dentru di kel cells. Es é `justify-items` (item dentru di cell).
+
+Removê dipos di obzerva.
+
+## Erus komun pa evita
+
+- **`start`/`end` vs `flex-start`/`flex-end`** — pitfall di Lisan 16 ki ta repeti. Si alinhamentu di Grid ka ta funsiona, **primeru kuza ki bu kontrola é es**.
+- **Off-by-one na line numbers.** `grid-column: 1 / 3` ta okupa kolunas 1 i 2, **ka 1 ti 3**. Line di fin é **eksklusivu**.
+- **Skesi truk `1 / -1`.** Studantes ta skrebe `1 / 6` pa grid di 5 koluna i ta kebra kuandu adisiona 6ª koluna. **Sempri `1 / -1`** pa "tudu largura".
+- **Konfundi `justify-items` ku `justify-content`.** `justify-items` = items dentru di kel cell. `justify-content` = tudu grid dentru di container. Si items ka ta moveu, bu probabal kre kel **otru**.
+- **Spani mas tracks ki existi.** `grid-column: 1 / 10` na grid di 5 koluna ta kria kolunas implísitu i ta kebra layout. Uza `1 / -1` ou `span N` ku N ≤ kuantidadi di kolunas.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Line numbers">Pozitivu 1 ti N+1, negativu -1 di fin.</RezumuItem>
+  <RezumuItem term="Line di fin é eksklusivu" variant="warning">`grid-column: 1 / 3` ta okupa kolunas 1 i 2, ka 3.</RezumuItem>
+  <RezumuItem term="span N">`span N` — pa "kuantu largu", sen kuida pozisan.</RezumuItem>
+  <RezumuItem term="Truk 1 / -1" variant="gold">`1 / -1` — truk majiku pa "tudu largura". Memoriza-l.</RezumuItem>
+  <RezumuItem term="Item-level">`justify-items`/`align-items` na container; `justify-self`/`align-self` na item.</RezumuItem>
+  <RezumuItem term="Keywords di Grid" variant="warning">Grid uza `start`/`end`, ka `flex-start`/`flex-end`.</RezumuItem>
+  <RezumuItem term="place-items: center">Atadju pa sentra na dos eixu di kada cell.</RezumuItem>
+  <RezumuItem term="Track-level">`justify-content`/`align-content` ta alinha tudu grid dentru di container.</RezumuItem>
+</KeyTakeaways>
+
+**Konklui Módulu 4!** Bu ten Flexbox (1D) i Grid (2D) na bolsu.

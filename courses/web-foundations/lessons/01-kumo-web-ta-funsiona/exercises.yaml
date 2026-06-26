@@ -1,0 +1,22 @@
+# Exercises sidecar (draft source) for lesson m1-01 "Kumo Web ta funsiona".
+# Publish copies this to
+# content/courses/web-foundations/lessons/01-kumo-web-ta-funsiona/exercises.yaml;
+# scripts/import-content.ts emits it into the `exercises` table and <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+- slug: odja-html-website-real
+  language: html
+  kind: explore
+  title: { kea: "Odja HTML di un website real" }
+  prompt:
+    kea: "Abri **Chrome** i vizita `nosilha.com` (ou `deznode.cv`). Klika ku boton direitu na un parti vaziu di pajina i skodje **\"View Page Source\"** (ou primi `Ctrl+U` / `Cmd+Option+U`). Na aba novu ki ta abri, prokura trez kuza: a tag `<html>` na riba di tudu, `<head>` ku metadata (titulu, charset, link pa CSS), i `<body>` ku konteúdu visivel. **Kel HTML li é mesmu HTML ki bu ta skrebe na es kursu — diferensa é so tamanhu.**"
+  resources:
+    kea:
+      - { label: "nosilha.com", url: "https://nosilha.com" }
+      - { label: "deznode.cv", url: "https://deznode.cv" }
+- slug: internet-ka-e-web
+  language: html
+  kind: reflect
+  title: { kea: "Internet ka é Web" }
+  prompt:
+    kea: "Ku bu propi palavra, skrebe un frazi ki ta splika diferensa entri **Internet** i **Web**. Dipos, da dos izemplu di kuza ki ta uza Internet ma ki **ka** é parti di Web."
+  notePlaceholder: { kea: "Internet é… ma Web é… Dos kuza ki ta uza internet ma ka é Web: …" }

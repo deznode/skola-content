@@ -1,0 +1,139 @@
+---
+title: "Strutura di un dokumentu HTML"
+language: kea
+courseSlug: web-foundations
+lessonSlug: strutura-di-un-dokumentu-html
+module: 2
+lesson: 4
+duration: 25
+objectives:
+  - "Skrebe un dokumentu HTML5 válido a mon, sen Emmet"
+  - "Splika papel di kada parti: `<!DOCTYPE>`, `<html>`, `<head>`, `<title>`, `<body>`"
+  - "Identifika elementu *void* (sen closing tag) vs elementu *container*"
+  - "Splika pamodi browser ta ignora spasu extra, ma indentasan ta djuda pesoa"
+prerequisites:
+  - "Lisan 3 — Kria bu primeru pajina HTML"
+---
+
+# Strutura di un dokumentu HTML
+
+Lisan anterior, Emmet kria tudu skeleton pa bu. Gosi bu ben konxe kada parti pa bu intende kuze ki bu sta ta skrebe.
+
+## Skeleton HTML5 — a mon
+
+Kria un ficheru novu `blog.html` (na mesmu pasta di `index.html`). Es bez, ka uza Emmet — bu sta ta skrebe skeleton a mon, linha pa linha:
+
+```html
+<!DOCTYPE html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog di Adilson</title>
+  </head>
+  <body>
+    <!-- Konteúdu visivel ta vai li -->
+  </body>
+</html>
+```
+
+Skrebe el devagar i, pa kada linha, fla na boz alta kuze ki el ta faze. Kopia-kolar ka ta ensina memória muskular.
+
+## Kada parti, splikadu
+
+<AnnotatedCode
+  lang="html"
+  filename="blog.html"
+  title="Kada linha di skeleton, splikadu"
+  code={[
+    { t: "<!DOCTYPE html>", m: 1 },
+    { t: '<html lang="kea">', m: 2 },
+    { t: "  <head>", m: 3 },
+    { t: '    <meta charset="UTF-8" />', m: 4 },
+    { t: "    <title>Blog di Adilson</title>", m: 5 },
+    { t: "  </head>", m: 0 },
+    { t: "  <body>", m: 6 },
+    { t: "    <!-- Konteúdu visivel ta vai li -->", m: 0 },
+    { t: "  </body>", m: 0 },
+    { t: "</html>", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Skrebe-l a mon", body: "Na Lisan 3 Emmet ta jera es linha pa bu; gosi bu ta skrebe-l. `<!DOCTYPE html>` ta diz pa browser ki é **HTML5** — sen el, ta entra na modu quirks i layout ta podri." },
+    { m: 2, title: 'lang="kea", ka "en"', body: 'Emmet ta po `lang="en"` di padran. A mon, skrebe `lang="kea"` — bu pajina sta na Kriolu, i screen reader ta uza-l pa pronunsia dretu.' },
+    { m: 3, title: "head — recap", body: "Kumo bu odja na Lisan 3: `<head>` é metadata invizivel. Nada ki sta li dentru ta parese na pajina." },
+    { m: 4, title: "charset — un void element", body: '`<meta charset="UTF-8" />` ka ten closing tag (un **void element** — odja mas baxu). Sen el, `São Vicente` ta parese `SÃ£o Vicente`. Po-l na primeru linha di `<head>`.' },
+    { m: 5, title: "title", body: "Nomi na aba di browser i na rezultadu di Google. Skrebe-l klaru i deskritivu." },
+    { m: 6, title: "body", body: "Tudu konteúdu visivel ta vai dentru di `<body>`." },
+  ]}
+/>
+
+:::callout{type=tip}
+Skrebe sempri `<!DOCTYPE html>` ku letra minúskula pa `html`. Forma kumo `<!DOCTYPE HTML5>` ou `<!DOCTYPE>` ka é válidu — browser ka ta da-bu eru, ma ta volta pa *quirks mode* silensiozamenti.
+:::
+
+![Strutura di un dokumentu HTML: DOCTYPE, html, head, body](../../infographics/03-html-document-anatomy.jpg)
+
+## Container vs void elements
+
+Na Lisan 3 bu konxe ki kada element ten **opening tag**, **konteúdu**, i **closing tag** — kumo `<p>Olá!</p>`. Un element ki ten konteúdu dentru asin é un **container element**.
+
+Ma ka tudu element ta sigui es forma. **Void elements** ka ten konteúdu nen closing tag — es é so opening tag (kumo `<meta charset="UTF-8" />` ki bu skrebe na riba):
+
+- `<br />` — kebra di linha
+- `<hr />` — linha orizontal di divizan
+- `<img />` — imajen (lisan 6)
+- `<meta />` — metadata
+- `<link />` — referensia pa ficheru externu
+
+Void elements ka ten closing tag. Spesifikasan di HTML5 ta permiti dos forma:
+
+- `<br>` (sen barra)
+- `<br />` (ku barra — XHTML-style)
+
+Bu pode uza kualkér forma. Es kursu ta uza `<br />` ku barra pa konsistensia ku ferramenta di formatasan kumo Prettier.
+
+## Indentasan: konfortu di leitura
+
+Browser ka ta liga pa spasu extra ou kebra di linha. Es trez forma ta da mesmu rezultadu:
+
+```html
+<p>Olá</p>
+```
+
+```html
+<p>
+  Olá
+</p>
+```
+
+```html
+<p>     Olá   </p>
+```
+
+Ma pa **bu** (i kel ki ta le bu kódiku mas tardi), indentasan ta da tudu. Konvensan: 2 spasu pa kada nivel di nesting. Prettier ta faze-l pa bu automatikamenti.
+
+## Erus komun pa evita
+
+- **Skesi `<meta charset="UTF-8" />`** — palavra ku asentu ta parese kodifikadu eradu (`SÃ£o Vicente`, `pa?xa`).
+- **`<!DOCTYPE HTML5>` ou `<!DOCTYPE>`** — ka é válidu. Sempri `<!DOCTYPE html>`, letra minúskula pa `html`.
+- **Konteúdu dentru di `<head>`** — kuza visivel kumo `<h1>` ka ta parse si ta sta na `<head>`.
+- **`lang` ka definidu** — screen reader ta supor inglés i ta pronunsia palavra Kriolu eradamenti.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Skeleton HTML5">Sinku parti: `<!DOCTYPE>`, `<html>`, `<head>`, `<title>`, `<body>`.</RezumuItem>
+  <RezumuItem term="head vs body">`<head>` ten metadata invizivel; `<body>` ten konteúdu visivel.</RezumuItem>
+  <RezumuItem term="charset UTF-8" variant="warning">`<meta charset="UTF-8" />` é krítiku pa palavra ku asentu Kriolu i Portuguez — sen el, `São` ta parese `SÃ£o`.</RezumuItem>
+  <RezumuItem term="lang=kea">`lang="kea"` ta diz pa browser i screen reader ki konteúdu sta na Kriolu.</RezumuItem>
+  <RezumuItem term="Void elements" variant="gold">Element sen konteúdu (`<br />`, `<hr />`, `<img />`, `<meta />`) ten so opening tag.</RezumuItem>
+</KeyTakeaways>

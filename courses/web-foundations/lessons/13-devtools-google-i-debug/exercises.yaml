@@ -1,0 +1,40 @@
+# Exercises sidecar (draft source) for lesson m3-13 "DevTools, Google i debug".
+# Publish copies this to
+# content/courses/web-foundations/lessons/13-devtools-google-i-debug/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: txeklist-debug-css                       # → Obj 1, 2 (workflow synthesis)
+  language: css
+  kind: reflect
+  title: { kea: "Bu txeklist di debug CSS" }
+  prompt:
+    kea: "Próximu bez ki bu CSS ka ta funsiona, ki **trez kuza** bu ta kontrola na DevTools, i na ki **órdi**? Skrebe-s. Dika: komesa pa painel **Network** (`style.css` ta da 404?), dipos painel **Styles** (regra **tachiada** = sobrepasadu? **triángulu amarelu** = nomi di propriedadi eradu?)."
+  notePlaceholder:
+    kea: "1. Network: style.css… · 2. Styles — tachiada: … · 3. Styles — triángulu amarelu: …"
+- slug: koriji-propriedadi-eradu                 # → Obj 1, 2 (find the bad rule in Styles)
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Diagnostika pamodi paragrafu ka ten kor" }
+  prompt:
+    kea: "Es regra ta na `cesaria.html` ma paragrafu ta fika pretu — kor `#333` ka ta aplika. Inspekciona un `<p>` na painel **Styles**: bu ta odja un **triángulu amarelu** na lado di un linha. Diskubri erru i koriji-l."
+  starterCode: |
+    p {
+      colur: #333;
+    }
+  solutionCode: |
+    p {
+      color: #333;
+    }
+  hint:
+    kea: "Triángulu amarelu ta marka un propriedadi ki **ka egziste**. Konpara nomi ku korretu: é `color`, ka `colur`."
+- slug: valida-i-le-mdn                           # → Obj 3, 5 (validator + source hierarchy)
+  language: html
+  kind: explore
+  title: { kea: "Valida `cesaria.html` i le MDN" }
+  prompt:
+    kea: "1. Bai pa **validator.w3.org**, pega **Validate by Direct Input**, kola tudu `cesaria.html` i klika **Check** — koriji kualkér erru. 2. Dipos abri página di MDN sobri un propriedadi CSS ki bu uza na es módulu i le parti **Try it**."
+  resources:
+    kea:
+      - { label: "W3C HTML Validator", url: "https://validator.w3.org" }
+      - { label: "MDN — CSS color", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/color" }
+      - { label: "MDN — CSS box model", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" }

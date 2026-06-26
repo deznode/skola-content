@@ -1,0 +1,261 @@
+---
+title: "CSS Grid: dos dimensan"
+language: kea
+courseSlug: web-foundations
+lessonSlug: css-grid-dos-dimensan
+module: 4
+lesson: 16
+duration: 20
+objectives:
+  - "Sabe kuandu uza Grid (2D) i kuandu uza Flexbox (1D)"
+  - "Aplika `display: grid` i defini kolunas ku `grid-template-columns`"
+  - "Uza unidadi `fr` i funsan `repeat()` pa dimensiona kolunas"
+  - "Uza shorthand `gap` pa spasu entri linhas i kolunas"
+  - "Distingui keywords di Grid (`start`/`end`) di Flexbox (`flex-start`/`flex-end`)"
+prerequisites:
+  - "Lisan 15 — Layout di pajina ku Flexbox"
+---
+
+# CSS Grid: dos dimensan
+
+Flexbox é otimu pa **un dimensan** — un linha ou un koluna. Ma kuandu nu kre un **grid di verdadi** — 3×3 di kartas, 5 koluna ku linhas igual, tipu pajina di revista — nu ta uza **CSS Grid**. El é **dos dimensan** (linhas + kolunas djuntu).
+
+## Grid vs Flexbox — kuandu uza ken
+
+| Sirvi pa | Skolha |
+|---|---|
+| Un linha ou un koluna (navbar, byline, boton, lista horizontal) | **Flexbox** |
+| Grid 2D (galeria, dashboard, layout di revista) | **Grid** |
+| Ta aninhar Flex containers só pa faze un grid | **Senal di ki bu kre Grid** |
+
+**Regra prátiku:** si bu ta pensa "linhas + kolunas djuntu", uza Grid. Si bu ta pensa "só un eixu", uza Flexbox. Es dos ta brinka djuntu na projetu real.
+
+## Grid básiku
+
+### Aktiva ku `display: grid`
+
+```css
+.gallery {
+  display: grid;
+}
+```
+
+Tudu fidju **diretu** ta torna **grid items** automatikamenti (igual ki Flexbox).
+
+### Defini kolunas — `grid-template-columns`
+
+Lista di largura, separadu pa spasu:
+
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;     /* 3 koluna fixu */
+}
+```
+
+Pa linhas, ten `grid-template-rows` (poku uzadu pa novatu — linhas ta auto-dimensiona pa kontéudu).
+
+## Unidadi `fr` — divisor di spasu sobra
+
+`fr` (fraksion) ta dividi spasu **disponivel** entri kolunas.
+
+```css
+grid-template-columns: 1fr 1fr 1fr;       /* 3 kolunas igual */
+grid-template-columns: 1fr 2fr 1fr;       /* meiu é dos vês mas largu */
+grid-template-columns: 200px 1fr;         /* sidebar fixu + kontéudu flexível */
+```
+
+`fr` é otimu pamodi el ta **adapta automatikamenti** kuandu largura di pajina muda. Defualt sólidu pa layouts modernu.
+
+## Funsan `repeat()` — kurtu pa kolunas igual
+
+Si bu ten 5 kolunas igual, ka skrebe `1fr 1fr 1fr 1fr 1fr`. Uza `repeat()`:
+
+```css
+grid-template-columns: repeat(5, 1fr);    /* = 1fr 1fr 1fr 1fr 1fr */
+grid-template-columns: repeat(3, 200px);  /* = 200px 200px 200px */
+grid-template-columns: repeat(4, 1fr);    /* 4 kolunas igual */
+```
+
+## `gap` — spasu entri tracks
+
+Sintaksi é igual ki Flexbox:
+
+```css
+gap: 24px;            /* 24px entri linhas i entri kolunas */
+gap: 16px 32px;       /* 16px entri linhas, 32px entri kolunas */
+row-gap: 16px;        /* só linhas */
+column-gap: 32px;     /* só kolunas */
+```
+
+**Nota:** propriedadi bedju `grid-gap` inda ta funsiona, ma `gap` é forma nova (i ta funsiona na Flexbox tanbé).
+
+## Terminolojia di Grid
+
+![Grid template: lines (numeradu 1 ti N+1), tracks (linhas/kolunas), cells, gaps](../../infographics/11-css-grid-template.jpg)
+
+| Términu | Signifikadu |
+|---|---|
+| **Line** | Linha imajináriu entri kada track. Numeradu di 1 ti N+1 (i tanbé negativu di -1 di fin). |
+| **Track** | Un linha (row) ou un koluna inteira. |
+| **Cell** | Krusamentu di un row i un koluna — un "kaixa" únikru. |
+| **Gap / Gutter** | Spasu entri tracks. |
+
+Nu ta uza es vokabuláriu na próximu lisan kuandu nu ta pozisiona items spesifikamenti.
+
+## DevTools grid overlay
+
+Chrome DevTools ten un ferramenta espesial pa Grid:
+
+1. Abri DevTools, painel **Elements**.
+2. Prokura tag ku `display: grid`.
+3. Na lado di tag, klika **batch "grid"** (un kuadradinhu).
+4. Pajina ta resebi un **overlay** ku linhas numeradu, gaps i tracks vizível.
+
+Es ferramenta é **obrigatóriu** pa debug Grid — sen el, line numbers é abstratu.
+
+:::callout{type=tip}
+**Pitfall importanti — keywords Grid vs Flexbox:**
+
+| Flexbox | Grid |
+|---|---|
+| `flex-start` | `start` |
+| `flex-end` | `end` |
+
+Mêsmu konseitu (komesu / fin), **keywords diferenti**. Memoriza: **na Grid, sen prefix `flex-`**. Es ta keda mas klaru na Lisan 17 kuandu nu ta uza-l, ma kumesa konxe-l gosi.
+:::
+
+## Prátika — kostrui galeria di 9 kartas
+
+Vamu kria un ficheru novu pa eksperimenta sen txuga blog.
+
+### Pasu 1 — kria `grid-demo.html`
+
+Na mêsmu pasta ki `cesaria.html`, kria ficheru novu `grid-demo.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo di Grid — galeria di pesoas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pesoas di Skola</h1>
+
+      <div class="gallery">
+        <article class="card">
+          <h3>Djássi</h3>
+          <p>Studanti di dezenvolvimentu na Mindelo.</p>
+        </article>
+        <article class="card">
+          <h3>Djamila Tavares</h3>
+          <p>Jornalista i autora di artigus na blog.</p>
+        </article>
+        <article class="card">
+          <h3>Kátia</h3>
+          <p>Aprendi web na Praia, fokada na frontend.</p>
+        </article>
+        <article class="card">
+          <h3>Manuel Furtado</h3>
+          <p>Revizor di stilu di kódiku CSS.</p>
+        </article>
+        <article class="card">
+          <h3>Mário Évora</h3>
+          <p>Biografu i kronista di musika tradisional.</p>
+        </article>
+        <article class="card">
+          <h3>Cesária Lima</h3>
+          <p>Skritora konvidada, fokada na storia.</p>
+        </article>
+        <article class="card">
+          <h3>Adilson</h3>
+          <p>Donu di Blog di Adilson, di Mindelo.</p>
+        </article>
+        <article class="card">
+          <h3>Maria Almeida</h3>
+          <p>Disenadora di interface, baziada na Sal.</p>
+        </article>
+        <article class="card">
+          <h3>Júlia Gomes</h3>
+          <p>Pesquizadora di UX, fokada na komunidadi.</p>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+### Pasu 2 — adisiona stilu di Grid na `style.css`
+
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.card h3 {
+  color: #1098ad;
+  margin-bottom: 8px;
+}
+```
+
+Salva. Abri `grid-demo.html` ku Live Server. Bu ta odja un grid **3×3** perfeitu — 9 kartas distribuidu na 3 kolunas, 3 linhas, ku 24px di spasu.
+
+### Pasu 3 — eksperimenta diferenti templates
+
+Muda `grid-template-columns` na `style.css` i obzerva:
+
+```css
+grid-template-columns: repeat(2, 1fr);    /* 2 kolunas → 4 linhas + 1 extra na fin */
+grid-template-columns: repeat(5, 1fr);    /* 5 kolunas → 2 linhas (5 + 4) */
+grid-template-columns: 1fr 2fr 1fr;       /* meiu koluna é dos vês mas largu */
+grid-template-columns: 200px 1fr 200px;   /* 200px fixu + flexível + 200px fixu */
+```
+
+Layout ta reflowa automatikamenti. **Sen un linha di kódiku pa kada karta** — Grid ta kuida di restu.
+
+### Pasu 4 — inspekciona ku DevTools grid overlay
+
+Abri DevTools. Na painel Elements, prokura `<div class="gallery">`. Klika batch "grid" na lado. Pajina ta resebi un overlay ku **line numbers** (1, 2, 3, 4 pa kolunas), gaps, i tracks vizível. Es line numbers ta importa muitu na Lisan 17 kuandu nu ta pozisiona items spesifikamenti.
+
+## Erus komun pa evita
+
+- **`start`/`end` vs `flex-start`/`flex-end`.** Grid uza `start`/`end`; Flexbox uza `flex-start`/`flex-end`. Memoriza: **na Grid, kai prefix `flex-`**. Kel pitfall ta repeti na Lisan 17.
+- **Skesi `display: grid`.** Si bu skrebe `grid-template-columns` na un container sen `display: grid`, **nada ka ta akontesi**. Padron silensiozu.
+- **Konfundi `repeat(3, 1fr)` ku `repeat(3, auto)`.** Primeru = 3 kolunas igual ki dividi spasu. Sigundu = 3 kolunas ki dimensiona pa kontéudu.
+- **Uza `width` na grid items.** Grid ta dimensiona automatikamenti via template. **Ka luta kontra Grid** — defini template korretu na container.
+- **Uza Grid pa un linha simples.** Si bu ten un navbar di 5 items na un linha, **Flexbox é mas simples**. Grid é pa **dos dimensan**.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Grid = 2D" variant="gold">Grid é pa **2D** (linhas + kolunas djuntu); Flexbox é pa **1D**.</RezumuItem>
+  <RezumuItem term="Aktiva Grid">`display: grid` na container → fidju diretu ta torna grid items.</RezumuItem>
+  <RezumuItem term="Defini kolunas">`grid-template-columns: repeat(3, 1fr)` pa kolunas igual.</RezumuItem>
+  <RezumuItem term="Unidadi fr">Unidadi `fr` ta dividi spasu disponivel.</RezumuItem>
+  <RezumuItem term="gap">`gap` ta funsiona igual ki na Flexbox (i tanbé na Flexbox).</RezumuItem>
+  <RezumuItem term="Terminolojia">**lines** (1 ti N+1, i -1 di fin), **tracks**, **cells**, **gaps**.</RezumuItem>
+  <RezumuItem term="DevTools grid overlay">Batch "grid" na Elements é obrigatóriu pa debug.</RezumuItem>
+  <RezumuItem term="Keywords" variant="warning">Grid `start`/`end`, Flexbox `flex-start`/`flex-end`. Ka konfundi.</RezumuItem>
+</KeyTakeaways>

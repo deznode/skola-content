@@ -1,0 +1,210 @@
+---
+title: "DevTools, Google i debug"
+language: kea
+courseSlug: web-foundations
+lessonSlug: devtools-google-i-debug
+module: 3
+lesson: 13
+duration: 20
+objectives:
+  - "Abri Chrome DevTools i navega painel di Elements i Styles"
+  - "Edita CSS live na DevTools ku flecha (Shift pa ×10) antis di salva na `style.css`"
+  - "Validá HTML ku W3C HTML Validator"
+  - "Formula un Google query útil pa probléma di CSS"
+  - "Konxe rekursus kanónicus: **MDN** > **Stack Overflow** > evita **W3Schools**"
+prerequisites:
+  - "Lisan 12 — Box model"
+---
+
+# DevTools, Google i debug
+
+Ti gosi, kuandu un kuza dá erradu, bu ta fika paradu. Es lisan li bu ta aprende **debug** — kumo un kuzinheru ki ta proba sosa antis di sirvi. Ferramentas ki kada profisional di web ta uza tudu dia: DevTools, Google, MDN (Mozilla Developer Network). Kátia, ki ta aprende web na Praia, ja perdeu dos hora un dia pa odja ki problema éra so un erru di skritura na nomi di propriedadi. DevTools ta poupa-l tempu sima es.
+
+## Chrome DevTools — tour
+
+### Abri DevTools
+
+- **Atallu:** `Cmd+Opt+I` (Mac) ou `Ctrl+Shift+I` (Windows/Linux).
+- **Ku rato:** klika ku rato direita na kualkér elementu di pajina → **Inspect** / **Inspekciona**.
+
+DevTools ta abri na un painel lateral ou na un janela separadu.
+
+### Painel **Elements** — strutura HTML live
+
+Ta mostra árvore di HTML kumo browser ta vé-l gosi — ka kumo bu skrebe-l. Si JavaScript adisiona ou remove elementu, Elements ta atualiza.
+
+- Pasa rato sobre kualkér linha → kel elementu ta destaka na pajina.
+- Klika ku rato direita → opsan pa edita HTML diretu, kopia, etc.
+
+### Painel **Styles** — kuze ki ta aplika
+
+Mostra **tudu regra CSS ki ta aplika** pa elementu selecionadu, ordenadu di mas spesífiku pa mas jeral. Na fundu, na itáliku, ta ben **user-agent styles** (kor i tamanhu padron di browser).
+
+| Kuza ki bu ta odja | Signifikadu |
+|---|---|
+| Regra normal | Ta aplika gosi |
+| Regra **tachiada** (riska na sentru) | Sobrepasadu pa otru regra mas spesífiku |
+| Linha ku ikon di triángulu amarelu | Erru di skritura ou valor inválidu |
+
+### Edita live ku flecha
+
+Klika na kualkér valor numériku (egzemplu, `font-size: 16px`). Kumo kel valor ta keda azul (modu di edisan), pode:
+
+- **↑ / ↓** — inkrementa ou dekrementa por 1.
+- **Shift + ↑/↓** — inkrementa ou dekrementa por **10**.
+- **Alt + ↑/↓** — inkrementa ou dekrementa por **0.1**.
+
+Edisons na DevTools **ka ta salva na ficheru**. Tudu ta pirdi kuandu bu rikarrega pajina. Uza DevTools pa **eksperimenta**, dipos kopia valor finál pa `style.css`.
+
+### Forsa stadu `:hover`
+
+Pseudo-classes (`:hover`, `:focus`, `:active`) é difisil di debug pamodi es ta dezaparesi kuandu bu sai ku rato. Solusan: na topu di painel Styles, klika `:hov`. Marka kaixa pa `:hover`. Stadu ta keda "ligadu" — i bu pode inspekciona regra di hover ku kalmu.
+
+### Box model na kantu direitu
+
+Na painel Computed (ou embaxu di Styles), DevTools ta dezenha un diagrama vivu di box model di elementu selecionadu. Bu ta odja eksatamenti kuantu `padding`, `border` i `margin` el ten. Ferramenta krítika pa debug spasing.
+
+:::callout{type=tip}
+**Primeru kuza ki bu ta odja kuandu CSS ka funsiona:** sera ki `style.css` ta linka? Abri painel **Network**, rikarrega pajina, prokura `style.css`. Si **stadu é 404**, atributu `href` ou lokalizasan di ficheru ta eradu.
+:::
+
+## W3C HTML Validator
+
+Pa kontrola ki HTML é váldidu (tag fixu korreta, atributus obrigatóriu prizenti), uza [validator.w3.org](https://validator.w3.org). Es ferramenta ofisial di W3C (organizasan ki manten standard di web).
+
+1. Vai pa `validator.w3.org`.
+2. Pega tab **"Validate by Direct Input"**.
+3. Kopia tudu HTML di `cesaria.html` na area di testu.
+4. Klika **Check**.
+5. Es ta da-bu lista di erros, ku linha onde es ta sta.
+
+Validador ka ta enspeta CSS ou JavaScript — só HTML.
+
+## Googla di manera intelijenti
+
+Mas di metadi di tempu di un dezenvolvedor é Google. É mistériu — ma **kumo** bu ta Googla ta faze diferensa.
+
+### Mau query → mau resultadu
+
+| Mau | Bon |
+|---|---|
+| "como sentrar coisa" | "CSS center element horizontally" |
+| "html não funciona" | "HTML form action attribute missing" |
+| "estilo errado" | "CSS specificity class vs id" |
+
+**Regras:**
+
+1. **Skrebe na inglés.** Dokumentasan di web é em inglés. Bu ta otxa 100× mas rezultadu.
+2. **Komesa ku `CSS` ou `HTML`.** Ta filtra rezultadu pa web.
+3. **Sé spesífiku sobre kuze ki bu kre faze**, ka kumo bu ta tenta-l.
+4. **Adisiona "MDN" na fin** pa otxa MDN diretu: `CSS flexbox align-items MDN`.
+
+### Onde klika
+
+| Sitio | Konfiansa |
+|---|---|
+| **MDN Web Docs** (developer.mozilla.org) | **Altu** — manual ofisial. Sempri prefere. |
+| **Stack Overflow** | Mediu — bon pa probléma spesífiku. Le resposta mas votadu, ka primeru. |
+| **CSS-Tricks** | Bon — tutoriais sólidu, sobre tudu de Chris Coyier. |
+| **W3Schools** | **Baxu** — frekuentement dezatualizadu. Evita ou kruza ku MDN. |
+
+## Le MDN
+
+Página tipiku di MDN ten es strutura:
+
+1. **Diskrisan** — kuze ki é propriedadi/element.
+2. **Try it** — demo interativu.
+3. **Syntax** — sintaksi formal i valor posivel.
+4. **Egzemplus** — kódiku kompletu.
+5. **Browser compatibility** — tabela na fundu mostrando ki browser ta suportar (importanti pa projetu real).
+
+Pa novatu, parti mas útil é **Try it** i **Egzemplus**. Sintaksi formal ta keda mas klaru ku tempu.
+
+## Faze un bon pergunta (na fórum, Discord, Q&A di Skola)
+
+Si bu prizizar di ajuda, pesoa ki bu ta perguntar ta presiza **kontekstu**. Sen kontekstu, resposta ka pode ben.
+
+### Strutura di un bon pergunta
+
+1. **Reprodusan minima** — un demo na **CodePen** ou **JSFiddle** ku **só problema**, sen restu di projetu.
+2. **Kuze ki bu sperá** — "Bu sperá ki boton ta keda azul kuandu bu pasa rato".
+3. **Kuze ki ta akontesi** — "Boton fika sen muda kor".
+4. **Kuze ki bu dja tenta** — "Konfirma na DevTools ki `:hover` ta funsiona na otru elementu; selector é `.btn:hover { color: blue }`".
+
+Es strutura ta resolvi 50% di problema só pa faze pergunta. Txeu bez, kuandu bu skrebe pergunta dretu, bu ta otxa resposta tu propi.
+
+<SectionHeading variant="install">Prátika: debug style.css ku Kátia</SectionHeading>
+
+<Steps
+  variant="phases"
+  phaseWord="Pasu"
+  showHeader={false}
+  steps={[
+    {
+      title: "Inspekciona titulu di blog",
+      content: [
+        { type: "prose", t: "Abri `cesaria.html` ku Live Server, abri DevTools (`Cmd+Opt+I`), i klika ku rato direita na titulu \"Blog di Adilson\" → **Inspect**." },
+        { type: "prose", t: "Na painel Styles, prokura regra `h1 { color: #1098ad; }`. Klika na `#1098ad` i edita pa `#ad1090` — **pajina ta muda imediatamenti** pa púrpura." },
+        { type: "callout", sev: "tip", t: "Rikarrega pajina (`Cmd+R`): kor ta volta pa azul — edisan na DevTools **ka ta salva** na ficheru." },
+      ],
+    },
+    {
+      title: "Flecha pa ajusta valor",
+      content: [
+        { type: "prose", t: "Klika na `font-size: 36px` di `h1`. **↑** → 37px; **Shift+↑** → salta pa 47px; **Alt+↑** → 0.1. Ajusta te bu gosta, dipos kopia valor final pa `style.css`." },
+      ],
+    },
+    {
+      title: "Forsa stadu :hover na un link",
+      content: [
+        { type: "prose", t: "Klika ku rato direita na un link → **Inspect**. Na topu di painel Styles, klika `:hov` i marka `:hover`. Regra `a:hover` ta apareci na lista — inspekciona-l ku kalmu." },
+      ],
+    },
+    {
+      title: "Diagnostika un erru di skritura",
+      content: [
+        { type: "prose", t: "Na `style.css`, adisiona propozitalmenti un erru na regra `p`: skrebe `colur: #333;` en bez di `color: #333;`. Salva i rikarrega — paragrafu ta perdi kor." },
+        { type: "prose", t: "Inspekciona un `<p>` na DevTools. Un **ikon di triángulu amarelu** ta apareci na lado di `colur` — DevTools ta sinaliza ki propriedadi ka egziste. Koriji pa `color`, salva, rikarrega: kor ta volta." },
+      ],
+    },
+    {
+      title: "Valida HTML",
+      content: [
+        { type: "prose", t: "Abri `validator.w3.org`, klika **\"Validate by Direct Input\"**, kopia tudu `cesaria.html`, i klika **Check**. Si bu skrebe HTML kuidadozu na M1+M2, bu debe odja zero erro ou poku avisu." },
+      ],
+    },
+  ]}
+/>
+
+## Erus komun pa evita
+
+- **Edisons na DevTools ka salva.** Se bu kre keda mudansa, kopia pa `style.css`. Si nu, ta pirdi ku rikarregamenti.
+- **Konfiansa siga na W3Schools.** Ten muitu informasan dezatualizadu, prinsipalmenti pa Flexbox, Grid i propriedadis modernu. Kruza sempri ku MDN.
+- **Perguntar sen reprodusan minima.** "Pamodi es ka ta funsiona?" — resposta probabal: silénsiu. Ku CodePen + ekspetativa + tentativa, resposta ta ben rápidu.
+- **Inora avisu di DevTools.** Triángulu amarelu = mensajen di browser pa bu. Sempri kontrola-l antis di pirdi 30 minutu Googlando.
+- **Ka kontrola Network panel.** Si `style.css` ta da 404, **nada di stilu** ka ta aplika. Es é primeru kuza pa kontrola.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="DevTools">`Cmd/Ctrl+Opt+I` ou rato direitu → Inspect. Painels prinsipal: **Elements**, **Styles**, **Network**, **Computed**.</RezumuItem>
+  <RezumuItem term="Regra tachiada">Na painel Styles = sobrepasadu pa otru regra mas spesífiku.</RezumuItem>
+  <RezumuItem term="Edita live" variant="warning">Ku flecha (↑/↓, Shift pa ×10) — ma **ka ta salva na ficheru**, kopia valor final pa `style.css`.</RezumuItem>
+  <RezumuItem term=":hov">Ta forsa stadu di hover pa bu pode inspekciona regra di `:hover` ku kalmu.</RezumuItem>
+  <RezumuItem term="Validá HTML">Na **validator.w3.org** — só HTML, ka CSS nin JavaScript.</RezumuItem>
+  <RezumuItem term="Google query" variant="tip">Skrebe na inglés, komesa ku `CSS`/`HTML`, sé spesífiku, adisiona "MDN" na fin.</RezumuItem>
+  <RezumuItem term="Fonti kanóniku" variant="gold">**MDN > Stack Overflow > CSS-Tricks > (evita) W3Schools**.</RezumuItem>
+  <RezumuItem term="Bon pergunta">CodePen + ekspetativa + tentativa — ta resolvi metadi di problema só pa skrebe-l.</RezumuItem>
+</KeyTakeaways>
+
+**Konklui Módulu 3!** Gosi bu ta inspekciona kualkér pajina, debug CSS na DevTools, valida bu HTML i otxa resposta na MDN kuandu un kuza dá erradu.

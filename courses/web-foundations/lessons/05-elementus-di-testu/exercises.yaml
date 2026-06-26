@@ -1,0 +1,46 @@
+# Exercises sidecar (draft source) for lesson m2-05 "Elementus di testu: titulu, paragrafu, lista".
+# Publish copies this to
+# content/courses/web-foundations/lessons/05-elementus-di-testu/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-strong-sen-fexa
+  language: html
+  kind: debug
+  file: cesaria.html
+  title: { kea: "Koriji un `<strong>` sen fexa" }
+  prompt:
+    kea: "Es snippet ten un **bug**: tag `<strong>` na primeru paragrafu ka sta fexadu. Pa kauza di kel-li, tudu testu dispós di \"Mindelo\" ta parese **negritu** ti fim di dokumentu. Diskubri undi ki falta `</strong>` i koriji-l."
+  hint:
+    kea: "Kada `<strong>` ten ki ten un `</strong>` korrespondenti. Odja pa palavra \"Mindelo\" — el ta abri negritu, ma nunka ta fexa-l."
+  starterCode: |
+    <h1>Cesária Évora</h1>
+    <p>Cesária Évora nase na <strong>Mindelo, na ilha di São Vicente.</p>
+    <p>El ganha Grammy na 2004.</p>
+  solutionCode: |
+    <h1>Cesária Évora</h1>
+    <p>Cesária Évora nase na <strong>Mindelo</strong>, na ilha di São Vicente.</p>
+    <p>El ganha Grammy na 2004.</p>
+- slug: skrebe-lista-ordenadu
+  language: html
+  kind: code
+  title: { kea: "Skrebe un lista ordenadu di pasu di katxupa" }
+  prompt:
+    kea: "Skrebe un lista **ordenadu** (`<ol>`) ku kuatru pasu pa kuzinha katxupa, kada pasu dentru di un `<li>`. Uza `<ol>` pamodi ordi di pasu ta importa. Pasu: 1) Ferve milhu i fijon, 2) Adisiona karne, 3) Mexe i tampa, 4) Sirvi kenti."
+  hint:
+    kea: "Komesa ku `<ol>`, po un `<li>` pa kada pasu, i fexa ku `</ol>`. Kada item ten ki sta dentru di un `<li>`."
+  starterCode: |
+    <!-- Skrebe a lista ordenadu di pasu di katxupa li -->
+  solutionCode: |
+    <ol>
+      <li>Ferve milhu i fijon.</li>
+      <li>Adisiona karne.</li>
+      <li>Mexe i tampa.</li>
+      <li>Sirvi kenti.</li>
+    </ol>
+- slug: reflekti-ol-vs-ul
+  language: html
+  kind: reflect
+  title: { kea: "Kuandu uza `<ol>` i kuandu uza `<ul>`?" }
+  prompt:
+    kea: "Splika ku bu propi palavra: kuandu ki bu ta uza `<ol>` (ordenadu) i kuandu ki bu ta uza `<ul>` (ka-ordenadu)? Da un izemplu di kada un di un kontestu Kabuverdianu (pur izemplu, pasu di un resipi vs ingredientis di katxupa)."
+  notePlaceholder:
+    kea: "N ta uza `<ol>` kuandu… (izemplu: …). N ta uza `<ul>` kuandu… (izemplu: …)."

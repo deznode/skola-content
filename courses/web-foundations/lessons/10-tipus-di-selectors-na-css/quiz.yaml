@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m3-10 "Tipus di selectors na CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/10-tipus-di-selectors-na-css/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# P0 recall · P1 why/conceptual · P2 apply · P3 recall
+- question:
+    kea: "Kal selector ki é **reutilizavel** (pode aparesi muitu bez na mesmu pajina)?"
+  options:
+    - text: { kea: "Class — `.post-meta`" }
+      correct: true
+      explain: { kea: "Sertu — un class pode aparesi na kuantu elementu ki bu kre. Pa kel-li nu ta uza class pa kuaze tudu stilu." }
+    - text: { kea: "Id — `#main-header`" }
+      correct: false
+      explain: { kea: "Id ten ki ser **úniku** — so un elementu pa pajina. Pa kuza ki ta repeti uza class." }
+    - text: { kea: "Tudu dos é igual" }
+      correct: false
+      explain: { kea: "Nau — class ta repeti, id é úniku. Kel-li é diferensa prinsipal." }
+    - text: { kea: "Element selector — `p`" }
+      correct: false
+      explain: { kea: "Element selector ta kojí **tudu** elementu di un tipu, ma pergunta é sobri class vs id." }
+- question:
+    kea: "Pamodi ki `:hover` ten ki ben **dipos** di `:visited` na CSS?"
+  options:
+    - text: { kea: "Pamodi si `:hover` ben antis, `:visited` ta sobrescrebe-l i hover ta dezaparesi pa link visitadu" }
+      correct: true
+      explain: { kea: "Sertu — kel-li é #1 footgun. Ordi LVHA (LoVe HAte) ta garanti ki kada stadu ta funsiona." }
+    - text: { kea: "Pamodi `:hover` é mas importanti ki `:visited`" }
+      correct: false
+      explain: { kea: "Ka é sobri importansia — é sobri **ordi** i especificidadi igual. Kel ki ben dipos ta ganha." }
+    - text: { kea: "Pamodi `:visited` so ta funsiona na mobile" }
+      correct: false
+      explain: { kea: "Nau — `:visited` ta funsiona na tudu browser. Problema é ordi." }
+    - text: { kea: "Ka ten ordi obrigatóriu — kualkér ordi ta funsiona" }
+      correct: false
+      explain: { kea: "Ten sin — LVHA: Link, Visited, Hover, Active. Kuebra-l i hover ta sprega." }
+- question:
+    kea: "Selector `article p:first-child` ta kojí kuze?"
+  options:
+    - text: { kea: "Un `<p>` ki é **primeru fidju** di se pai (dentru di un `<article>`)" }
+      correct: true
+      explain: { kea: "Sertu — `:first-child` ta izijí ki `<p>` seja primeru fidju. Si `<article>` ta kumesa ku `<header>`, regra **nunka** ta kasa." }
+    - text: { kea: "Primeru `<p>` ki ta apareci dentru di `<article>`" }
+      correct: false
+      explain: { kea: "Es é eru komun. `:first-child` ka kre dizi 'primeru `<p>`' — kre dizi 'un `<p>` ki é primeru fidju'." }
+    - text: { kea: "Tudu `<p>` dentru di `<article>`" }
+      correct: false
+      explain: { kea: "Pa tudu `<p>` dentru di article, skrebe `article p` (sen `:first-child`)." }
+    - text: { kea: "Primeru `<article>` di pajina" }
+      correct: false
+      explain: { kea: "`:first-child` sta na `p`, ka na `article` — nton é sobre `<p>`, ka `<article>`." }
+- question:
+    kea: "Kal di es nomi di class ki ta sigui konvensan **kebab-case**?"
+  options:
+    - text: { kea: "`.related-posts`" }
+      correct: true
+      explain: { kea: "Sertu — kebab-case: palavra na minúskula, separadu pa traseu (`-`). Kel-li é padron pa nomi di class." }
+    - text: { kea: "`.relatedPosts`" }
+      correct: false
+      explain: { kea: "Kel-li é camelCase. Pa class uza kebab-case: `.related-posts`." }
+    - text: { kea: "`.related_posts`" }
+      correct: false
+      explain: { kea: "Kel-li é snake_case. Pa class uza traseu, ka underscore: `.related-posts`." }
+    - text: { kea: "`.RelatedPosts`" }
+      correct: false
+      explain: { kea: "Kel-li é PascalCase. Skoji kebab-case i fika kel-li pa tudu projetu." }

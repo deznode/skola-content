@@ -1,0 +1,82 @@
+# Exercises sidecar (draft source) for lesson m4-15 "Layout di pajina ku Flexbox".
+# Publish copies this to
+# content/courses/web-foundations/lessons/15-layout-ku-flexbox/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-aside-ta-stica
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji un aside ki ta stica feiu" }
+  prompt:
+    kea: "Es layout dos-koluna ten un **bug**: `aside` (ki ten poku kontéudu) ta stica pa kanba altura kompletu di artigu, ku spasu branku feiu na fundu. Falta **un linha** na `.row` pa rezolve-l. Adisiona-l."
+  hint:
+    kea: "Defualt di `align-items` é `stretch` — el ta torna tudu kolunas altura igual. Adisiona `align-items: flex-start` na `.row` pa kada koluna fika ku sí altura propi."
+  starterCode: |
+    .row {
+      display: flex;
+      gap: 75px;
+    }
+
+    article {
+      flex: 1;
+    }
+
+    aside {
+      flex: 0 0 300px;
+    }
+  solutionCode: |
+    .row {
+      display: flex;
+      gap: 75px;
+      align-items: flex-start;
+    }
+
+    article {
+      flex: 1;
+    }
+
+    aside {
+      flex: 0 0 300px;
+    }
+- slug: kostrui-layout-dos-koluna
+  language: css
+  kind: code
+  title: { kea: "Kostrui un layout di dos koluna" }
+  prompt:
+    kea: "Bu ten un `<div class=\"row\">` ku un `<article>` i un `<aside>` dentru. Skrebe CSS pa: (1) po-s **lado-a-lado** ku **75px di spasu**, alinhadu pa **topu**; (2) artigu ta **absorva spasu disponivel**; (3) aside ten largura **fixu di 300px**."
+  hint:
+    kea: "Trez regras: `.row` ku `display: flex; gap: 75px; align-items: flex-start;`, `article` ku `flex: 1`, i `aside` ku `flex: 0 0 300px`."
+  starterCode: |
+    .row {
+      /* lado-a-lado, 75px gap, alinhadu pa topu */
+    }
+
+    article {
+      /* absorva spasu disponivel */
+    }
+
+    aside {
+      /* fixu 300px, ka krese, ka sprega */
+    }
+  solutionCode: |
+    .row {
+      display: flex;
+      gap: 75px;
+      align-items: flex-start;
+    }
+
+    article {
+      flex: 1;
+    }
+
+    aside {
+      flex: 0 0 300px;
+    }
+- slug: reflekti-flex-1-vs-fixu
+  language: css
+  kind: reflect
+  title: { kea: "`flex: 1` ou `flex: 0 0 Npx`?" }
+  prompt:
+    kea: "Splika ku bu propi palavra: kuandu ki bu ta da un item `flex: 1` i kuandu ki bu ta da-l `flex: 0 0 Npx`? Pensa nun layout real (artigu vs sidebar, kontéudu prinsipal vs menu) i diz kual ki debe ser flexível i kual ki debe ser fixu."
+  notePlaceholder:
+    kea: "N ta uza `flex: 1` kuandu… (izemplu: …). N ta uza `flex: 0 0 Npx` kuandu… (izemplu: …)."

@@ -1,0 +1,235 @@
+---
+title: "Testu i kor na CSS"
+language: kea
+courseSlug: web-foundations
+lessonSlug: testu-i-kor-na-css
+module: 3
+lesson: 9
+duration: 30
+objectives:
+  - "Stila testu ku `color`, `font-size`, `font-family`, `font-weight`, `font-style`, `text-align`, `text-transform`, `line-height`"
+  - "Skrebe valor di kor na hex (`#RRGGBB`), RGB (`rgb()`), RGBA (`rgba()`) i nomi nomeadu"
+  - "Splika 'truk di grey': R = G = B ta da tonalidadi di cinza"
+  - "Adisiona `background-color` i `border` (shorthand `width style color`)"
+prerequisites:
+  - "Lisan 8 — CSS: sintaksi i kumo liga-l ku HTML"
+---
+
+# Testu i kor na CSS
+
+Ti gosi, blog di Adilson ten un kor di fundu i un `<h1>` azul-mar. É un kumesu. Gosi nu ta torna-l bonitu di verdadi: font sériu, kor ku karater, spasing ki ta da konfortu pa ledjor di artigu sobre Cesária Évora.
+
+## Propriedadis di testu
+
+Es é "kavala di trabaju" di CSS — kuze ki bu ta uza tudu dia.
+
+| Propriedadi | Kuze ki ta faze | Egzemplu di valor |
+|---|---|---|
+| `color` | Kor di testu | `#333`, `blue`, `rgb(50, 50, 50)` |
+| `font-family` | Família di font | `sans-serif`, `Georgia, serif` |
+| `font-size` | Tamanhu di font | `16px`, `1.2em`, `24px` |
+| `font-weight` | Spesura di font | `bold`, `400`, `700` |
+| `font-style` | Stilu di font | `italic`, `normal` |
+| `text-transform` | Transforma maiúskula/minúskula | `uppercase`, `lowercase`, `capitalize` |
+| `text-align` | Alinhamentu horizontal | `left`, `center`, `right`, `justify` |
+| `line-height` | Altura di linha (spasing vertikal) | `1.5` (sen unidadi — múltiplu) |
+
+**Sobre `line-height`:** uza sempri valor sen unidadi (`1.5`, `1.6`). Ka uza `px`. Múltiplu sen unidadi ta skala dretu ku `font-size`, pa kel-li é mas previzivel.
+
+```css
+p {
+  color: #333;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+```
+
+:::callout{type=tip}
+**Pa testu kumpridu (paragrafu di artigu), uza `line-height` entri `1.4` i `1.7`.** Menus ki kel-li, linha ta keda apertadu i kansa ojo. Mas ki kel-li, linha ta sebra muitu i ledjor ta perdi fil. `1.5` é puntu di partida siguru pa kuazi tudu kazu.
+:::
+
+## Valor di kor
+
+Ten kuatru manera prinsipal di skrebe un kor na CSS.
+
+### Hex — `#RRGGBB`
+
+Mas komun. Seis dígitu hexadesimal, em pares pa **vermedju (R)**, **verdi (G)**, **azul (B)**.
+
+```css
+color: #1098ad;        /* azul-mar — inspiradu na bandera di KV */
+color: #f7f0e6;        /* areia klaru */
+```
+
+Hex tanbé ten **forma kurtu** kuandu dos dígitu di kada par é igual:
+
+```css
+color: #fff;     /* = #ffffff (branku) */
+color: #000;     /* = #000000 (pretu) */
+color: #f7f;     /* = #ff77ff */
+```
+
+### RGB — `rgb(R, G, B)`
+
+Mêsmu kor di hex, ma na desimal (0–255 pa kada kanal).
+
+```css
+color: rgb(16, 152, 173);    /* mêsmu azul-mar di antes */
+color: rgb(255, 255, 255);   /* branku */
+```
+
+### RGBA — `rgba(R, G, B, A)`
+
+Igual ki RGB, ma ku un kuartu valor: **alpha** (0 = transparenti, 1 = sólidu). Útil pa kor semi-transparenti.
+
+```css
+background-color: rgba(16, 152, 173, 0.5);   /* azul-mar mei-transparenti */
+```
+
+### Nomi nomeadu — `red`, `blue`, `tomato`
+
+CSS ten ~140 nomi pré-definidu. Bon pa demo rápidu, ma evita na projetu real (poku flexibilidadi).
+
+```css
+color: red;
+color: tomato;
+color: rebeccapurple;
+```
+
+### Truk di grey
+
+Si R = G = B, kor ta keda grey. Tonalidadi ta depende di valor:
+
+| Valor | Tonalidadi |
+|---|---|
+| `#fff` | Branku |
+| `#f7f7f7` | Grey muitu klaru (fundu suavi) |
+| `#777` | Grey médiu |
+| `#444` | Grey sukuru |
+| `#000` | Pretu |
+
+```css
+body { background-color: #f7f7f7; }
+p     { color: #444; }
+footer { color: #777; }
+```
+
+:::callout{type=tip}
+VS Code ten **color picker** internu. Pasa rato sobri kualkér valor di kor i klika na kuadradu kolorida ki ta apareci. Bu pode skoji kor visualmenti i VS Code ta atualiza ficheru pa bu.
+:::
+
+## Background i border
+
+### `background-color`
+
+Ta pinta fundu di kualkér elementu.
+
+```css
+body              { background-color: #f7f7f7; }
+.related-posts    { background-color: #fff; }
+```
+
+### `border`
+
+Shorthand ku trez valor: **largura**, **stilu**, **kor**.
+
+```css
+border: 5px solid #1098ad;     /* 5px largura, sólidu, azul-mar */
+border: 2px dotted #777;       /* 2px, ponteadu, grey */
+border: 3px dashed red;        /* 3px, tracejadu, vermedju */
+```
+
+Stilus mas komun: `solid`, `dotted`, `dashed`, `double`, `none`.
+
+Border pode tanbé ser **só na un lado**:
+
+```css
+border-top: 2px solid #1098ad;
+border-bottom: 3px solid #1098ad;
+border-left: 5px solid #777;
+border-right: 1px dashed #ddd;
+```
+
+<SectionHeading variant="install">Prátika: stila blog di Adilson</SectionHeading>
+
+Abri `style.css`. Reskrebe el ku stilu kompletu pa testu i kor.
+
+<AnnotatedCode
+  lang="css"
+  filename="style.css"
+  title="style.css kompletu, regra pa regra"
+  code={[
+    { t: "/* style.css — stilu pa blog di Adilson */", m: 0 },
+    { t: "/* Paleta inspiradu na bandera di KV: azul-mar, areia, branku */", m: 0 },
+    { t: "/* Revizu: Manuel Furtado, 2026 */", m: 0 },
+    { t: "", m: 0 },
+    { t: "body {", m: 1 },
+    { t: "  background-color: #f7f0e6;", m: 1 },
+    { t: "  color: #333;", m: 1 },
+    { t: "  font-family: sans-serif;", m: 1 },
+    { t: "  font-size: 16px;", m: 1 },
+    { t: "  line-height: 1.5;", m: 1 },
+    { t: "}", m: 1 },
+    { t: "", m: 0 },
+    { t: "h1 {", m: 2 },
+    { t: "  color: #1098ad;", m: 2 },
+    { t: "  font-size: 36px;", m: 2 },
+    { t: "  text-transform: uppercase;", m: 2 },
+    { t: "  text-align: center;", m: 2 },
+    { t: "}", m: 2 },
+    { t: "", m: 0 },
+    { t: "h2 {", m: 3 },
+    { t: "  color: #444;", m: 3 },
+    { t: "  font-size: 28px;", m: 3 },
+    { t: "  border-bottom: 3px solid #1098ad;", m: 3 },
+    { t: "}", m: 3 },
+    { t: "", m: 0 },
+    { t: "p {", m: 4 },
+    { t: "  font-size: 16px;", m: 4 },
+    { t: "}", m: 4 },
+    { t: "", m: 0 },
+    { t: "em {", m: 5 },
+    { t: "  font-style: italic;", m: 5 },
+    { t: "  color: #777;", m: 5 },
+    { t: "}", m: 5 },
+  ]}
+  notes={[
+    { m: 1, title: "body — reset jeral", body: "Fundu areia klaru (`#f7f0e6`), testu grey sukuru (`#333`) en bez di pretu duru, font `sans-serif`, i `line-height: 1.5` pa konfortu di leitura." },
+    { m: 2, title: "h1 — titulu prinsipal", body: "Azul-mar (`#1098ad`), `36px`, tudu maiúskula (`text-transform: uppercase`), sentradu (`text-align: center`)." },
+    { m: 3, title: "h2 — separador di seksan", body: "Grey sukuru ku un `border-bottom` azul embaxu — ta sirvi kumo separador entri seksan." },
+    { m: 4, title: "p — paragrafu", body: "Ta erda font i kor di `body`; li nu so fixa `font-size: 16px`." },
+    { m: 5, title: "em — byline", body: "Itáliku i grey médiu (`#777`) — mas suavi ki paragrafu, bon pa byline." },
+  ]}
+/>
+
+Salva i abri `cesaria.html` ku Live Server — kada regra ta transforma un parti di pajina.
+
+## Erus komun pa evita
+
+- **Skesi `;` na fin di un deklarasan.** Próximu deklarasan ta keda silensiozamenti inoradu. Hábitu: skrebe sempri `;`.
+- **Erru na nomi di propriedadi** (`colur` na bez di `color`, `font-sze` na bez di `font-size`). Browser ta inora linha. DevTools ta mostra un ikon di avisu na linha — nu ta odja kel-li na Lisan 13.
+- **Misturá `px` i `em` sen kuidadu.** Pa gosi, fika ku `px` pa font i `1.5` (sen unidadi) pa `line-height`. Unidadi rilativu (`em`, `rem`, `%`) ta ben na un kursu di responsive design.
+- **Uza kor nomeadu (`red`, `blue`) na projetu real.** Pinta-l so na demo. Pa produsan, sempri hex ou RGB.
+- **Skesi alpha na `rgba`** kuandu bu kre transparénsia. `rgb(...)` é sólidu sempri.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Propriedadis di testu" variant="gold">`color`, `font-family`, `font-size`, `font-weight`, `font-style`, `text-transform`, `text-align`, `line-height`.</RezumuItem>
+  <RezumuItem term="line-height">Uza sempri múltiplu sen unidadi (`1.5`) — ta skala ku `font-size`.</RezumuItem>
+  <RezumuItem term="Valor di kor">hex (`#1098ad`), hex kurtu (`#fff`), `rgb()`, `rgba()` (ku alpha), nomi nomeadu.</RezumuItem>
+  <RezumuItem term="Truk di grey">Si R = G = B, kor é grey. Tonalidadi ta depende di valor.</RezumuItem>
+  <RezumuItem term="background-color i border">`background-color` ta pinta fundu; `border` é shorthand `width style color`.</RezumuItem>
+  <RezumuItem term="color picker" variant="tip">VS Code ten color picker internu — pasa rato sobri valor.</RezumuItem>
+</KeyTakeaways>

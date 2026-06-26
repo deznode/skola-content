@@ -1,0 +1,39 @@
+# Exercises sidecar (draft source) for lesson m1-03 "Kria bu primeru pajina HTML".
+# Publish copies this to content/courses/web-foundations/lessons/03-kria-bu-primeru-pajina-html/exercises.yaml.
+# Keep `slug` stable (completed_exercises FK).
+- slug: pajina-sobre-bo
+  language: html
+  kind: code
+  title: { kea: "Pajina sobre bo" }
+  prompt:
+    kea: "Na bu `index.html`, muda `<h1>` pa un titulu ku bu propi nomi i skrebe trez `<p>`: undi bu ta mora, kuze ki bu ta gosta di faze, i pamodi bu sta na es kursu. Salva i odja-l na Live Server."
+  hint:
+    kea: "Kada paragrafu ta vai entri `<p>` i `</p>`, tudu dentru di `<body>`."
+  starterCode: |
+    <h1>Olá, N é ...</h1>
+    <p>...</p>
+  solutionCode: |
+    <h1>Olá, N é Adilson!</h1>
+    <p>N ta mora na Praia, na ilha di Santiago.</p>
+    <p>N ta gosta di tira foto i prende kuza nobu.</p>
+    <p>N sta na es kursu pa N kria nha propi website.</p>
+- slug: negritu-i-italiku
+  language: html
+  kind: code
+  title: { kea: "Negritu i itáliku" }
+  prompt:
+    kea: "Uza `<strong>` (negritu) i `<em>` (itáliku) pelu menus un bez na kada paragrafu pa destaka palavra importanti."
+  hint:
+    kea: "`<strong>palavra</strong>` ta da negritu; `<em>palavra</em>` ta da itáliku."
+  starterCode: |
+    <p>N ta mora na Praia.</p>
+  solutionCode: |
+    <p>N ta mora na <strong>Praia</strong>, na ilha di <em>Santiago</em>.</p>
+- slug: titulu-di-aba
+  language: html
+  kind: reflect
+  title: { kea: "Títulu di aba" }
+  prompt:
+    kea: "Muda `<title>` pa algu pesoal (ex: `Pajina di Adilson`). Salva i konfirma ki aba di browser ta atualiza. Skrebe li kuze ki aba ta mostra gosi."
+  notePlaceholder:
+    kea: "Aba di browser ta mostra agora: ..."

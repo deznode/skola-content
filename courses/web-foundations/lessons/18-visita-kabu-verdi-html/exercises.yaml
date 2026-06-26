@@ -1,0 +1,72 @@
+# Exercises sidecar (draft source) for lesson m5-18 "Visita Kabu Verdi: planeja i skrebe HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/18-visita-kabu-verdi-html/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: skrebe-karta-muzika-batuku
+  language: html
+  kind: code
+  file: index.html
+  title: { kea: "Adisiona un karta di muzika pa Batuku" }
+  prompt:
+    kea: "Na seksan di muzika bu ten kartas pa Morna, Funaná i Coladera. Skrebe o `<article class=\"music-card\">` pa **Batuku** bu mésmu, sigi o mésmu padron: un `<h3>` ku o nomi i un `<p>` ku un deskrisan kurtu. Ka ten kódiku novu — só replika o padron."
+  hint:
+    kea: "Kopia strutura di un `<article class=\"music-card\">` ki dja ten: un `<h3>` pa o nomi, un `<p>` pa o deskrisan. Sô muda o testu."
+  starterCode: |
+    <div class="music-row">
+      <!-- Morna, Funaná i Coladera dja sta li -->
+
+      <!-- Skrebe o <article> pa Batuku li: -->
+
+    </div>
+  solutionCode: |
+    <div class="music-row">
+      <!-- Morna, Funaná i Coladera dja sta li -->
+
+      <article class="music-card">
+        <h3>Batuku</h3>
+        <p>Ritimu antigu di Santiago, ku panu na koxa i kantiga di mudjer. Raís di tudu.</p>
+      </article>
+    </div>
+- slug: koriji-div-pa-semantiku
+  language: html
+  kind: debug
+  file: index.html
+  title: { kea: "Koriji `<div>` undi falta semántika" }
+  prompt:
+    kea: "Es seksan di testimunhu ta uza `<div>` pa tudu — ma un testimunhu é kontéudu independenti ki ta faze sentidu solu. Koriji o markup pa uza elementu semántiku korretu: o grupu, kada karta, a sitasan, i a atribuisan. (Callback L7.)"
+  hint:
+    kea: "O grupu temátiku = `<section>`. Kada testimunhu independenti = `<article>`. A sitasan longu = `<blockquote>`, i o nomi di ken fla = `<cite>`."
+  starterCode: |
+    <div class="testimonials">
+      <div class="container">
+        <h2>Kuzas ki turistas ta fla</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <img src="img/djamila.jpg" alt="Foto di Djamila Tavares" width="80" height="80" />
+            <div>"Praia ta mistura kapital ku puvu — sentru istóriku i fésta."</div>
+            <div>— Djamila Tavares, Praia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  solutionCode: |
+    <section class="testimonials">
+      <div class="container">
+        <h2>Kuzas ki turistas ta fla</h2>
+        <div class="testimonials-grid">
+          <article class="testimonial">
+            <img src="img/djamila.jpg" alt="Foto di Djamila Tavares" width="80" height="80" />
+            <blockquote>"Praia ta mistura kapital ku puvu — sentru istóriku i fésta."</blockquote>
+            <cite>— Djamila Tavares, Praia</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+- slug: reflekti-planea-antes
+  language: html
+  kind: reflect
+  title: { kea: "Pamodi planea antes di skrebe?" }
+  prompt:
+    kea: "Es lisan ta insisti ki bu sketcha 6 retangulu na papel antes di toka teklado. Splika ku bu propi palavra: ki problema ki o sketch ta evita? Kuze ki podia kontise si bu komesa skrebe HTML diretu sen plan?"
+  notePlaceholder:
+    kea: "O sketch ta djuda pamodi… Sen plan, N podia…"

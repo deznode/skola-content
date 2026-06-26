@@ -1,0 +1,205 @@
+---
+title: "Layout di pajina ku Flexbox"
+language: kea
+courseSlug: web-foundations
+lessonSlug: layout-ku-flexbox
+module: 4
+lesson: 15
+duration: 25
+objectives:
+  - "Uza shorthand `flex: 1` pa un item absorva spasu disponivel"
+  - "Splika `flex-grow`, `flex-shrink`, `flex-basis` i pamodi `flex: 1` é skolha komun"
+  - "Kostrui layout di pajina header + (artigu | aside) + footer ku Flexbox"
+  - "Aplika `gap` na container, ka margin individual pa item"
+prerequisites:
+  - "Lisan 14 — Flexbox: un dimensan"
+---
+
+# Layout di pajina ku Flexbox
+
+Na lisan anterior, nu konstrui parti spesífiku — nav, byline. Gosi nu ta kostrui **layout konplet di pajina**: header pa topu, artigu + aside lado-a-lado na meiu, footer pa fundu. Es é layout klásiku di blog ou website di notisia.
+
+## Shorthand `flex`
+
+Kada flex item ten trez propriedadi ki ta kontrolá kumo el ta krese, sprega ou poza-l-na flex container:
+
+```css
+flex: <grow> <shrink> <basis>;
+```
+
+| Propriedadi | Kuze ki ta faze |
+|---|---|
+| `flex-grow` | Kuantu item ta krese kuandu ten spasu sobra |
+| `flex-shrink` | Si item pode sprega kuandu ka kabe |
+| `flex-basis` | Tamanhu di partida (kumo `width` ma midjór pa flex items) |
+
+Defualt: `flex: 0 1 auto` (ka krese, pode sprega, tamanhu padron di kontéudu).
+
+### `flex-grow`
+
+```css
+.item-a { flex-grow: 0; }    /* ka krese */
+.item-b { flex-grow: 1; }    /* absorva tudu spasu sobra */
+.item-c { flex-grow: 2; }    /* absorva du-bli spasu di b */
+```
+
+**Atensan:** `flex-grow: 2` ka ta keri dizê "kel item é dos bez tamanhu di otus". Ta keri dizê "kel item ta resebi dos bez mas di **spasu sobra**". Resultadu finál ta depende di kontéudu mas spasu disponivel.
+
+### `flex-basis`
+
+```css
+.sidebar { flex-basis: 300px; }    /* tamanhu inisial = 300px */
+```
+
+Pa flex items, **prefere `flex-basis` sobre `width`**. Es ta brinka ku grow/shrink kumo spera.
+
+### Shorthand komun
+
+| Shorthand | Ekivalenti | Kuandu uza |
+|---|---|---|
+| `flex: 1` | `flex: 1 1 0` | "Absorva tudu spasu disponivel" |
+| `flex: 0 0 300px` | (literal) | "Tamanhu fixu, ka krese, ka sprega" |
+| `flex: auto` | `flex: 1 1 auto` | "Krese, ma respeita tamanhu di kontéudu" |
+
+## Pattern di layout di pajina
+
+```html
+<body>
+  <header class="main-header">...</header>
+
+  <div class="row">
+    <article>...</article>
+    <aside>...</aside>
+  </div>
+
+  <footer>...</footer>
+</body>
+```
+
+<AnnotatedCode
+  lang="css"
+  filename="style.css"
+  title="Pattern di layout, linha-pa-linha"
+  code={[
+    { t: ".row {", m: 1 },
+    { t: "  display: flex;", m: 1 },
+    { t: "  gap: 75px;", m: 2 },
+    { t: "  align-items: flex-start;", m: 3 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: "article {", m: 4 },
+    { t: "  flex: 1;", m: 4 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: "aside {", m: 5 },
+    { t: "  flex: 0 0 300px;", m: 5 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Lado-a-lado", body: "`display: flex` na `.row` ta po artigu i aside lado-a-lado." },
+    { m: 2, title: "Spasu entri kolunas", body: "`gap: 75px` — spasu entri es dos kolunas, sen margin individual." },
+    { m: 3, title: "Alinha pa topu", body: "`align-items: flex-start` ta preveni aside (mas kurtu) di stica pa altura di artigu. Sen el, defualt `stretch` ta torna-s altura igual." },
+    { m: 4, title: "Artigu flexível", body: "`flex: 1` — artigu ta absorva tudu spasu sobra dipos ki aside resebe sí 300px." },
+    { m: 5, title: "Aside fixu", body: "`flex: 0 0 300px` — largura fixu di 300px: ka krese, ka sprega." },
+  ]}
+/>
+
+:::callout{type=tip}
+**`align-items: flex-start` é importanti pa layout dos-koluna.** Sen el, koluna mas kurtu ta stika pa kanba altura di koluna mas longu — i ta keda spasu branku feiu na fundu. Sempri adisiona-l kuandu kolunas ten kontéudu diferenti.
+:::
+
+## Prátika — adisiona layout dos-koluna na blog
+
+### Pasu 1 — anrola `<article>` i `<aside>` na `<div class="row">`
+
+Na `cesaria.html`, mete artigu i aside dentru di un div:
+
+```html
+<main>
+  <div class="row">
+    <article>
+      <!-- kontéudu di artigu -->
+    </article>
+
+    <aside class="related-posts">
+      <h2>Artigus relasionadu</h2>
+      <ul>...</ul>
+    </aside>
+  </div>
+</main>
+```
+
+### Pasu 2 — adisiona stilu di Flexbox
+
+Na `style.css`:
+
+```css
+.row {
+  display: flex;
+  gap: 75px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+article {
+  flex: 1;
+}
+
+aside {
+  flex: 0 0 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #ddd;
+}
+```
+
+Salva. Abri `cesaria.html` ku Live Server.
+
+Bu ta odja:
+
+- Artigu na skerda, ku largura **flexível** (ta absorva spasu sobra).
+- Aside na direita, ku largura **fixu di 300px**.
+- 75px di spasu entri kel dos kolunas.
+- Aside ten un fundu branku ku padding internu — strutura é vizível.
+- Footer ta abranji **largura kompletu** embaxu di kel dos kolunas.
+
+### Pasu 3 — inspekciona ku DevTools
+
+Abri DevTools (`Cmd/Ctrl+Opt+I`). Klika ku rato direita na `.row` → **Inspect**. Bu ta odja un **batch "flex"** na lado di tag na painel Elements.
+
+Klika kel batch "flex". Chrome ta overlay un dezenhu di flex container — bu ta odja main axis ku flecha, items numeradu, gap distinto. **Es ferramenta é kavala di trabaju pa debug Flexbox.**
+
+## Erus komun pa evita
+
+- **Uza `width: 300px` na flex item** na bez di `flex-basis: 300px` ou `flex: 0 0 300px`. Ta funsiona na kazu jeral, ma ta kebra inesperadamenti kuandu spasu ta diminui. **Sempri prefere shorthand `flex`** pa flex items.
+- **Speera ki `flex-grow: 1` i `flex-grow: 2` ta dizê "metadi di otru".** Ka — `2` ta resebi **dos bez mas di spasu sobra**, ka dos bez mas di total. Si items é grandi i spasu sobra é poku, diferensa ta keda kuazi invizível.
+- **Adisiona spasu ku `margin-right` na items** na bez di `gap` na container. Funsiona, ma ta deixa un trailing margin na últimu item. `gap` é mas limpu.
+- **Skesi `align-items: flex-start`** na layout dos-koluna. Defualt `stretch` ta torna kolunas igual altura, mêsmu si un ten muitu menus kontéudu.
+- **Mistura defualts difisil di distingui.** `flex: auto` ka é igual `flex: 1`. Si bu kre absorva tudu spasu, **uza `flex: 1`** sempri.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Shorthand flex" variant="gold">`flex: <grow> <shrink> <basis>` — trez propriedadi nun shorthand.</RezumuItem>
+  <RezumuItem term="flex: 1">`flex: 1` = "absorva tudu spasu sobra" (uzu mas komun).</RezumuItem>
+  <RezumuItem term="flex: 0 0 300px">`flex: 0 0 300px` = "fixu 300px, ka muda".</RezumuItem>
+  <RezumuItem term="Prefere flex-basis">Pa flex items, prefere `flex-basis` sobre `width`.</RezumuItem>
+  <RezumuItem term="Pattern di layout">`<div class="row">` ku `display: flex`, `gap`, `align-items: flex-start`; `flex: 1` pa kontéudu prinsipal, `flex: 0 0 Npx` pa sidebar.</RezumuItem>
+  <RezumuItem term="DevTools flex badge" variant="warning">Badge "flex" na Elements ta da overlay vizível — uza-l pa debug.</RezumuItem>
+</KeyTakeaways>

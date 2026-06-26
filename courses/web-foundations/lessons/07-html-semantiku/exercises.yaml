@@ -1,0 +1,95 @@
+# Exercises sidecar (draft source) for lesson m2-07 "HTML semantiku".
+# Publish copies this to
+# content/courses/web-foundations/lessons/07-html-semantiku/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-divitis
+  language: html
+  kind: debug
+  file: blog.html
+  title: { kea: "Koriji \"divitis\" — troka `<div>` pa element semántika" }
+  prompt:
+    kea: "Es pajina é tudu `<div class=\"...\">` — un kazu klásiku di **divitis**. Troka kada `<div>` pa element semántika korretu: topu é `<header>`, grupu di link é `<nav>`, konteúdu prinsipal é `<main>`, blog post independenti é `<article>`, i pé é `<footer>`. Mantén mesmu konteúdu — muda so nomi di tag."
+  starterCode: |
+    <div class="header">
+      <h1>Blog di Adilson</h1>
+      <div class="nav">
+        <a href="index.html">Inísiu</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="article">
+        <h2>Cesária Évora — Reina di Morna</h2>
+        <p>Cesária Évora nase na Mindelo...</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>2026 Blog di Adilson.</p>
+    </div>
+  solutionCode: |
+    <header>
+      <h1>Blog di Adilson</h1>
+      <nav>
+        <a href="index.html">Inísiu</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h2>Cesária Évora — Reina di Morna</h2>
+        <p>Cesária Évora nase na Mindelo...</p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Blog di Adilson.</p>
+    </footer>
+  hint:
+    kea: "Kada `class` ta da-bu dika: `class=\"header\"` ta vira `<header>`, `class=\"nav\"` ta vira `<nav>`, `class=\"article\"` ta vira `<article>`. Bu ka ta presiza mas atributu `class`."
+- slug: skrebe-pajina-semantika
+  language: html
+  kind: code
+  title: { kea: "Skrebe un skeleton di pajina semántika a mon" }
+  prompt:
+    kea: "Skrebe strutura semántika di un pajina sobri **Funaná na Santiago**, sen Emmet: un `<header>` ku un `<nav>` (dos link), un `<main>` ku un `<article>` (un `<h2>` i un `<p>`), i un `<footer>` ku un linha di copyright ku HTML entity `&copy;`. Po so `<body>` — ka ten ki repeti skeleton kompletu."
+  hint:
+    kea: "Komesa di fora pa dentru: `<header>` (ku `<nav>` dentru), dipos `<main>` (ku `<article>` dentru), i por fin `<footer>`. Pa simbolu © skrebe `&copy;`."
+  starterCode: |
+    <!-- Strutura semántika di un pajina sobri Funaná na Santiago -->
+    <header>
+      <!-- TODO: nav ku dos link -->
+    </header>
+
+    <!-- TODO: main ku un article -->
+
+    <!-- TODO: footer ku copyright -->
+  solutionCode: |
+    <header>
+      <h1>Funaná na Santiago</h1>
+      <nav>
+        <a href="index.html">Inísiu</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h2>O ritmu di Funaná</h2>
+        <p>Funaná nase na ilha di Santiago, ku gaita i ferinhu.</p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Blog di Adilson.</p>
+    </footer>
+- slug: pamodi-semantiku-ta-importa
+  language: html
+  kind: reflect
+  title: { kea: "Pamodi semantic HTML ta importa?" }
+  prompt:
+    kea: "Skrebe ku bu propi palavra **trez** benefisiu konkretu di semantic HTML (un pa SEO, un pa asesibilidadi, un pa manutensan). Pa kel di asesibilidadi, da un izemplu di kumo un screen reader ta uza `<nav>` ou `<main>` pa djuda un pesoa segu navega pajina."
+  notePlaceholder:
+    kea: "SEO: Google ta… · Asesibilidadi: screen reader ta… (izemplu: …) · Manutensan: dispós di seis mes…"

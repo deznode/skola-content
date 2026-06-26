@@ -1,0 +1,64 @@
+# Exercises sidecar (draft source) for lesson m2-04 "Strutura di un dokumentu HTML".
+# Publish copies this to
+# content/courses/web-foundations/lessons/04-strutura-di-un-dokumentu-html/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: skrebe-skeleton-a-mon
+  language: html
+  kind: code
+  title: { kea: "Skrebe skeleton HTML5 a mon" }
+  prompt:
+    kea: "Kria un ficheru `blog.html` i skrebe skeleton HTML5 kompletu **a mon** — sen Emmet, sen kopia-kolar: `<!DOCTYPE html>`, `<html lang=\"kea\">`, un `<head>` ku `<meta charset=\"UTF-8\" />` i `<title>Blog di Adilson</title>`, i un `<body>` vaziu. Fla na boz alta kuze ki kada linha ta faze."
+  hint:
+    kea: "Komesa di fora pa dentru: primeru `<!DOCTYPE html>`, dipos `<html>`, i dentru di el `<head>` i `<body>`."
+  starterCode: |
+    <!-- blog.html — skrebe skeleton li -->
+  solutionCode: |
+    <!DOCTYPE html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Blog di Adilson</title>
+      </head>
+      <body>
+      </body>
+    </html>
+- slug: koriji-skeleton-kebradu
+  language: html
+  kind: debug
+  file: pajina.html
+  title: { kea: "Koriji un skeleton kebradu" }
+  prompt:
+    kea: "Es pajina ten **trez** problema: falta-l `<meta charset>` (asentu ta kebra), `<title>` sta na lugar eradu, i un `<h1>` sta dentru di `<head>`. Diskubri i koriji tudu trez."
+  starterCode: |
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <h1>Visita Kabu Verdi</h1>
+      </head>
+      <body>
+        <title>Pajina prinsipal</title>
+        <p>São Vicente é nha ilha.</p>
+      </body>
+    </html>
+  solutionCode: |
+    <!DOCTYPE html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Pajina prinsipal</title>
+      </head>
+      <body>
+        <h1>Visita Kabu Verdi</h1>
+        <p>São Vicente é nha ilha.</p>
+      </body>
+    </html>
+  hint:
+    kea: "`<title>` i `<meta>` ta vai dentru di `<head>`; konteúdu visivel (`<h1>`, `<p>`) ta vai dentru di `<body>`. I `<html>` ta presiza atributu `lang`."
+- slug: testa-h1-na-head
+  language: html
+  kind: reflect
+  title: { kea: "Kuze ki ta akontese ku `<h1>` na `<head>`?" }
+  prompt:
+    kea: "Po un `<h1>Olá</h1>` dentru di `<head>` (en bez di `<body>`), salva, i abri na browser. Kuze ki bu odja na pajina? Skrebe pamodi bu pensa ki kel-li ta akontese."
+  notePlaceholder:
+    kea: "Kuandu N po `<h1>` na `<head>`, browser ta… Pamodi: …"

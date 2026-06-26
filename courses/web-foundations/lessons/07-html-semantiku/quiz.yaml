@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m2-07 "HTML semantiku".
+# Publish copies this to
+# content/courses/web-foundations/lessons/07-html-semantiku/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Kal element ki bu ta uza pa inkapsula un **pesa di konteúdu independenti** (kumo un blog post ou un karton di produtu)?"
+  options:
+    - text: { kea: "`<article>`" }
+      correct: true
+      explain: { kea: "Sertu — `<article>` é pa konteúdu ki ta faze sentidu sozinhu, fora di kontextu di pajina." }
+    - text: { kea: "`<aside>`" }
+      correct: false
+      explain: { kea: "`<aside>` é pa konteúdu **sekundáriu** (sidebar, \"artigu relasionadu\"), ka pa pesa prinsipal independenti." }
+    - text: { kea: "`<div>`" }
+      correct: false
+      explain: { kea: "`<div>` ta funsiona, ma ka ta diz **nada** sobre konteúdu — perde-bu tudu benefisiu semántiku." }
+    - text: { kea: "`<nav>`" }
+      correct: false
+      explain: { kea: "`<nav>` é pa navegasan — grupu di link prinsipal, ka pa un pesa di konteúdu." }
+- question:
+    kea: "Pamodi semantic HTML ta importa?"
+  options:
+    - text: { kea: "Ta djuda SEO, asesibilidadi i manutensan — sen kustu vizual nenhun" }
+      correct: true
+      explain: { kea: "Sertu — Google ta intende midjór, screen reader ta da menu di navegasan, i kódiku ta fika mas klaru — i apariénsia ka ta muda." }
+    - text: { kea: "Ta faze pajina karega mas dipresa" }
+      correct: false
+      explain: { kea: "Velosidadi ka ten nada a ver — benefisiu é signifikadu pa mákina (SEO, asesibilidadi) i pa pesoa (manutensan)." }
+    - text: { kea: "Ta muda automatikamenti apariénsia di pajina" }
+      correct: false
+      explain: { kea: "Apariénsia ka ta muda — kel ben di CSS. Semantika ta da **signifikadu**, ka stilu." }
+    - text: { kea: "É obrigatóriu — pajina sen el ka ta abri na browser" }
+      correct: false
+      explain: { kea: "Browser ta abri pajina ku `<div>` so. Semantika é midjór prátika, ka un rekízitu pa karega." }
+- question:
+    kea: "Kuantu `<main>` un pajina pode ten?"
+  options:
+    - text: { kea: "So un — é úniku, kumo `<h1>`" }
+      correct: true
+      explain: { kea: "Sertu — `<main>` ta marka konteúdu prinsipal i úniku di pajina; so pode ten un pa pajina." }
+    - text: { kea: "Kuantu bu kré" }
+      correct: false
+      explain: { kea: "Nau — mas di un `<main>` ta konfundi screen reader i ferramenta. É úniku, kumo `<h1>`." }
+    - text: { kea: "Un pa kada `<article>`" }
+      correct: false
+      explain: { kea: "Nau — `<article>` ta vai **dentru** di `<main>`. Ten un `<main>` so, ku kuantu `<article>` bu kré." }
+    - text: { kea: "Dos: un pa topu i un pa fundu" }
+      correct: false
+      explain: { kea: "Topu i fundu é `<header>` i `<footer>`. `<main>` é un so, pa konteúdu prinsipal." }
+- question:
+    kea: "Kal HTML entity ki ta renderiza simbolu di copyright ©?"
+  options:
+    - text: { kea: "`&copy;`" }
+      correct: true
+      explain: { kea: "Sertu — `&copy;` ta vira ©. HTML entities ta komesa ku `&` i ta kaba ku `;`." }
+    - text: { kea: "`&rarr;`" }
+      correct: false
+      explain: { kea: "`&rarr;` ta vira → (flecha direita), ka simbolu di copyright." }
+    - text: { kea: "`&amp;`" }
+      correct: false
+      explain: { kea: "`&amp;` ta vira & (e komersial), ka ©." }
+    - text: { kea: "`&copyright;`" }
+      correct: false
+      explain: { kea: "Ka existi — nomi korretu di entity é `&copy;`, mas kurtu." }

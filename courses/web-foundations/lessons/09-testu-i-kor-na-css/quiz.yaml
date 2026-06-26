@@ -1,0 +1,55 @@
+# Quiz sidecar (draft source) for lesson m3-09 "Testu i kor na CSS".
+# Publish copies this to
+# content/courses/web-foundations/lessons/09-testu-i-kor-na-css/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question: { kea: "Na `rgba(16, 152, 173, 0.5)`, kuze ki kuartu valor `0.5` ta kontrola?" }
+  options:
+    - text: { kea: "Transparénsia (alpha) — `0` = transparenti, `1` = sólidu" }
+      correct: true
+      explain: { kea: "**Alpha** é kuartu kanal; `rgb()` é sempri sólidu, `rgba()` ta da kor semi-transparenti." }
+    - text: { kea: "Brilhu di kor" }
+      correct: false
+    - text: { kea: "Tamanhu di font" }
+      correct: false
+    - text: { kea: "Largura di border" }
+      correct: false
+
+- question: { kea: "Kal di es valor ta da un kor **grey**?" }
+  options:
+    - text: { kea: "`#777777`" }
+      correct: true
+      explain: { kea: "Kuandu R = G = B (li `77 77 77`), kor ta keda grey. Valor mas baxu = mas sukuru." }
+    - text: { kea: "`#1098ad`" }
+      correct: false
+      explain: { kea: "R, G i B diferenti → kor ku matiz (li, azul-mar)." }
+    - text: { kea: "`#ff0000`" }
+      correct: false
+    - text: { kea: "`#00ff00`" }
+      correct: false
+
+- question: { kea: "Kal sintaksi di `border` ta da un linha di **3px**, **tracejadu**, **azul-mar**?" }
+  options:
+    - text: { kea: "`border: 3px dashed #1098ad;`" }
+      correct: true
+      explain: { kea: "Órdi di shorthand é `width style color`." }
+    - text: { kea: "`border: #1098ad 3px dashed;`" }
+      correct: false
+      explain: { kea: "Órdi eradu — largura ten ki ben primeru, ka kor." }
+    - text: { kea: "`border: dashed 3px #1098ad;`" }
+      correct: false
+    - text: { kea: "`border: 3px #1098ad dashed;`" }
+      correct: false
+
+- question: { kea: "Pamodi ki nu ta uza `line-height: 1.5` (sen unidadi) na bez di `line-height: 24px`?" }
+  options:
+    - text: { kea: "Múltiplu sen unidadi ta skala dretu ku `font-size` di kada elementu — mas previzivel" }
+      correct: true
+      explain: { kea: "`1.5` ta multiplika o `font-size` lokal; `24px` ta fika fiksu i pode keda apertadu na testu grandi." }
+    - text: { kea: "`px` ka ta funsiona na `line-height`" }
+      correct: false
+      explain: { kea: "`px` ta funsiona — ma ka ta skala ku font." }
+    - text: { kea: "Sen unidadi ta karega pajina mas rápidu" }
+      correct: false
+    - text: { kea: "É úniku manera ki browser ta seta altura di linha" }
+      correct: false

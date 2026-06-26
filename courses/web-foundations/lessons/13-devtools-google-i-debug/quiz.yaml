@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m3-13 "DevTools, Google i debug".
+# Publish copies this to
+# content/courses/web-foundations/lessons/13-devtools-google-i-debug/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:                                       # Q0 → Obj 2 / cross-ref L12 (conceptual)
+    kea: "Na painel **Styles**, kuze ki un regra **tachiada** (riska na sentru) ta signifika?"
+  options:
+    - text: { kea: "El ta sobrepasadu pa otru regra mas spesífiku" }
+      correct: true
+      explain: { kea: "Sertu — browser konta regra mas spesífiku; kel tachiada perde i ka ta aplika. É si ki bu ta odja **especificidade** na prátika." }
+    - text: { kea: "El ten un erru di skritura" }
+      correct: false
+      explain: { kea: "Erru di skritura é marka pa un **triángulu amarelu**, ka pa tachiadu." }
+    - text: { kea: "É un komentáriu CSS" }
+      correct: false
+      explain: { kea: "Komentáriu ka ta apareci kumo regra na painel Styles." }
+    - text: { kea: "É un regra padron di browser (user-agent)" }
+      correct: false
+      explain: { kea: "User-agent styles ta ben na **fundu**, na itáliku — ka tachiadu." }
+- question:                                       # Q1 → Obj 1, 2 (recall — the yellow-triangle skill)
+    kea: "Bu ta odja un **triángulu amarelu** na lado di un linha na painel Styles. Kuze ki DevTools ta sta dize-bu?"
+  options:
+    - text: { kea: "Nomi di propriedadi ka egziste ou valor é inválidu" }
+      correct: true
+      explain: { kea: "Sertu — egzemplu `colur: #333` ou `col); 10px`. DevTools ta inora regra invális i ta sinaliza ku triángulu." }
+    - text: { kea: "Regra ta funsiona, ma é lentu" }
+      correct: false
+      explain: { kea: "DevTools ka ta mide velosidadi na painel Styles. Triángulu é un **avizu di valor inválidu**." }
+    - text: { kea: "Ficheru `style.css` ta da 404" }
+      correct: false
+      explain: { kea: "Un 404 bu ta odja na painel **Network**, ka kumo triángulu na Styles." }
+    - text: { kea: "Elementu ka ten klasi sertu" }
+      correct: false
+      explain: { kea: "Si fose klasi, regra nin ta apareseria pa kel elementu. Triángulu é sobre **kontéudu** di regra." }
+- question:                                       # Q2 → Obj 4 (apply — formulate a query)
+    kea: "Bu kre sentra un elementu na orizontal i ka ta sa ben. Kal é **midjór** Google query?"
+  options:
+    - text: { kea: "`CSS center element horizontally`" }
+      correct: true
+      explain: { kea: "Sertu — inglés + komesa ku `CSS` + spesífiku sobre objetivu. Es ta da-bu MDN i Stack Overflow diretu." }
+    - text: { kea: "como centrar coisa" }
+      correct: false
+      explain: { kea: "Português + vagu. Dokumentasan di web é em inglés — bu ta otxa 100× menus rezultadu útil." }
+    - text: { kea: "pamodi meu CSS ka ta funsiona" }
+      correct: false
+      explain: { kea: "Mutu vagu — ka diz kel ki bu kre faze. Sé spesífiku sobre objetivu, ka sobre frustrasan." }
+    - text: { kea: "`style.css help`" }
+      correct: false
+      explain: { kea: "Ka ten termu téknika. Adisiona `CSS` + propriedadi/objetivu konkretu." }
+- question:                                       # Q3 → Obj 5 (recall — source hierarchy)
+    kea: "Pa un dúvida di CSS, ki fonti bu ta konfia **mas**, i ki un bu ta **evita**?"
+  options:
+    - text: { kea: "Konfia **MDN** primeru; evita **W3Schools**" }
+      correct: true
+      explain: { kea: "Sertu — MDN é manual ofisial (sempri prefere). W3Schools ta tene mutu informasan dezatualizadu — kruza sempri ku MDN." }
+    - text: { kea: "Konfia **W3Schools** primeru; evita **MDN**" }
+      correct: false
+      explain: { kea: "Inverte — MDN é referénsia kanóniku; W3Schools é kel ki bu ta kruza ku kuidadu." }
+    - text: { kea: "Konfia **primeru** rezultadu di Google, sempri" }
+      correct: false
+      explain: { kea: "Primeru rezultadu ka é garantia. Na Stack Overflow, le resposta **mas votadu**, ka primeru." }
+    - text: { kea: "Tudu fonti ten mésmu valor" }
+      correct: false
+      explain: { kea: "Nau — ten un ierarkia: MDN > Stack Overflow > CSS-Tricks > (evita) W3Schools." }

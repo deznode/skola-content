@@ -1,0 +1,414 @@
+---
+title: "Visita Kabu Verdi: planeja i skrebe HTML"
+language: kea
+courseSlug: web-foundations
+lessonSlug: visita-kabu-verdi-html
+module: 5
+lesson: 18
+duration: 30
+objectives:
+  - "Planea un landing page di 6 seksan antes di toka teklado"
+  - "Strutura un projetu novu na un folder ku `index.html`, `style.css` i `img/`"
+  - "Skrebe HTML semantiku (`<header>`, `<nav>`, `<section>`, `<article>`, `<footer>`) pa tudu 6 seksan"
+  - "Aplika konvensan di klassi kebab-case di Lisan 10 ku konsistensia"
+  - "Konfirma na browser ki dokumentu ta parse kumo lista vertikal sen layout — pronto pa stiliza"
+prerequisites:
+  - "Lisan 7 — HTML semantiku"
+  - "Lisan 10 — Tipus di selectors na CSS"
+  - "Lisan 17 — Grid: pozisiona i alinha items"
+---
+
+# Visita Kabu Verdi: planeja i skrebe HTML
+
+L17 fitxa ku un teaser: nun projetu final, bu ta kostrui un landing page sobre turizmu na Kabu Verdi. **Es módulu li, nu ka ta aprende nada novu.** Nu ben uza tudu kuza ki nu ja sabe pa kostrui un website di verdadi. Es lisan = HTML (strutura). Próximu lisan = CSS (vida i kor).
+
+## Planea antes di skrebe — sempri
+
+Antes di toka teklado, **dezenha**. Pega un papel ou un kuadru branku i sketcha 6 retangulu, un en sima di otru:
+
+```
+┌─────────────────────────────────────────────────┐
+│  Logo                          Ilhas Komida Muz │   ← 1. Hero
+│                                                 │
+│         Konxe Kabu Verdi                        │
+│         Dês Ilhas, Un Pôvu                      │
+│         [ Bem visita-nu ]                       │
+├─────────────────────────────────────────────────┤
+│         Konxe Nos Dês Ilhas                     │   ← 2. Ilhas grid (5×2)
+│  [Sgo][SAnt][SVic][Fogo][Sal]                   │
+│  [Boa][Maio][Brav][SNic][SLuz]                  │
+├─────────────────────────────────────────────────┤
+│   [imajen]   │   Kuzinha di Kabu Verdi          │   ← 3. Komida (2 col)
+│              │   Katxupa, pastel, lagosta…      │
+├─────────────────────────────────────────────────┤
+│         Muzika i Kultura                        │   ← 4. Muzika (3 col)
+│  [ Morna ]   [ Funaná ]   [ Coladera ]          │
+├─────────────────────────────────────────────────┤
+│         Kuzas ki turistas ta fla                │   ← 5. Testimunhu (3 col)
+│  [Djamila]   [Mário]      [Cesária L.]          │
+├─────────────────────────────────────────────────┤
+│  Kontaktu   │   Sosial   │   Sobre              │   ← 6. Footer
+│  © 2026 Visita Kabu Verdi                       │
+└─────────────────────────────────────────────────┘
+```
+
+**Na palavra (di sima pa baxu):** (1) Hero — logo, nav, títulu grandi i boton; (2) grid di 10 ilhas; (3) komida — imajen + testu; (4) muzika — 3 kartas; (5) testimunhu — 3 sitasan; (6) footer ku 3 koluna.
+
+**Pamodi sketcha primeru?** Pamodi kódiku ki ka ten plan ta vira karavana — seksan dipendi di seksan, i bu ta perde fukus. Sketch é mapa.
+
+:::callout{type=tip}
+**Skrebe HTML i CSS na mêsmu tempu é trapadju.** Lisan 18 = só strutura. Lisan 19 = só stilu. Si bu tenta dos djuntu, kódiku fika fragil — kuandu un kuza muda, otru ta keda. Separa por padron, mistura só na fin.
+:::
+
+## Identifika elementus semantiku pa kada seksan
+
+Lembra di Lisan 7: kada parti di pajina ten un tag semantiku ki ta splika **kuze ki el é**, ka **kumo el ta parese**.
+
+| Seksan | Elementu wrap | Elementu interior |
+|---|---|---|
+| 1. Hero | `<header class="hero">` | `<nav>`, `<h1>`, `<p>`, `<button>` |
+| 2. Ilhas | `<section id="ilhas">` | `<h2>`, 10 × `<article class="island-card">` |
+| 3. Komida | `<section id="komida">` | `<h2>`, `<img />`, `<h3>`, `<p>` |
+| 4. Muzika | `<section id="muzika">` | `<h2>`, 3 × `<article class="music-card">` |
+| 5. Testimunhu | `<section class="testimonials">` | `<h2>`, 3 × `<article class="testimonial">` |
+| 6. Footer | `<footer id="kontaktu">` | 3 × `<div class="footer-col">`, `<p>` |
+
+**`<section>` ou `<article>`?** Lembra di L7: `<article>` é "kontéudu independenti ki pode sai di pajina i kontinua ten sentidu" (un karta di ilha, un testimunhu). `<section>` é "agrupamentu temátiku" (tudu ilhas djuntu, tudu testimunhu djuntu).
+
+## Pasu 0 — kria folder i ficheros
+
+Es é un projetu novu, na un folder novu. Na bu workspace, abri terminal i kria:
+
+```
+projetu-kabu-verdi/
+├── index.html        ← strutura (Lisan 18, gosi)
+├── style.css         ← stilu (vaziu pa gosi; Lisan 19 ta inche-l)
+└── img/              ← imajen pa kada seksan
+    ├── santiago.jpg
+    ├── santo-antao.jpg
+    ├── sao-vicente.jpg
+    ├── fogo.jpg
+    ├── sal.jpg
+    ├── boa-vista.jpg
+    ├── maio.jpg
+    ├── brava.jpg
+    ├── sao-nicolau.jpg
+    ├── santa-luzia.jpg
+    ├── katxupa.jpg
+    ├── djamila.jpg
+    ├── mario.jpg
+    └── cesaria-lima.jpg
+```
+
+Pa gosi, imajens é só placeholders — bu pode uza un imajen `.jpg` kualkér ou un `placeholder.jpg` repetidu. Konsenta ki tudu `src=""` ta referensia un nomi ki existi na pastel `img/`.
+
+## Pasu 1 — boilerplate i `<link>` pa CSS
+
+Na `index.html`, komesa ku boilerplate ki nu memoriza desdi Lisan 3, ku `<link>` pa `style.css` ja preparadu:
+
+```html
+<!DOCTYPE html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visita Kabu Verdi — Dês Ilhas, Un Pôvu</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 6 seksan ta entra li -->
+  </body>
+</html>
+```
+
+**Pamodi liga `style.css` gosi si el sta vaziu?** Pa kuandu bu komesa Lisan 19, website ta resebe stilu automatikamenti sen bu ten ki torna abri `<head>`.
+
+## Pasu 2 — Hero (seksan 1)
+
+Logo + nav + headline + CTA, tudu dentru di `<header class="hero">`:
+
+```html
+<header class="hero">
+  <nav class="main-nav">
+    <p class="logo">Visita Kabu Verdi</p>
+    <ul>
+      <li><a href="#ilhas">Ilhas</a></li>
+      <li><a href="#komida">Komida</a></li>
+      <li><a href="#muzika">Muzika</a></li>
+      <li><a href="#kontaktu">Kontaktu</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-text">
+    <h1>Konxe Kabu Verdi</h1>
+    <p class="tagline">Dês Ilhas, Un Pôvu</p>
+    <button type="button">Bem visita-nu</button>
+  </div>
+</header>
+```
+
+**Nota:** nav links ta uza âncoras (`href="#ilhas"`) ki ta saltar pa seksan **id** korrespondenti dentru di mêsmu pajina (lembra di Lisan 6 sobre âncoras).
+
+## Pasu 3 — Ilhas grid (seksan 2)
+
+10 ilhas, kada un nun `<article class="island-card">`. Nomi i un linha kurtu di deskrisan pa kada:
+
+```html
+<section id="ilhas" class="islands">
+  <div class="container">
+    <h2>Konxe Nos Dês Ilhas</h2>
+
+    <div class="islands-grid">
+      <article class="island-card">
+        <img src="img/santiago.jpg" alt="Vista di Cidade Velha, Santiago" width="400" height="180" />
+        <h3>Santiago</h3>
+        <p>Kapital, kultura i Cidade Velha — primeru sídadi di Atlantiku.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/santo-antao.jpg" alt="Montanhas verdis di Santo Antão" width="400" height="180" />
+        <h3>Santo Antão</h3>
+        <p>Montanha verdi pa kaminhada longu i vista di mar.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/sao-vicente.jpg" alt="Porto di Mindelo, São Vicente" width="400" height="180" />
+        <h3>São Vicente</h3>
+        <p>Mindelo, kaza di muzika i karnaval.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/fogo.jpg" alt="Vulkãu Pico do Fogo" width="400" height="180" />
+        <h3>Fogo</h3>
+        <p>Vulkãu ativu di 2829m i kafé liál.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/sal.jpg" alt="Praia di Santa Maria, Sal" width="400" height="180" />
+        <h3>Sal</h3>
+        <p>Praia branku, salina di Pedra di Lume i surf.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/boa-vista.jpg" alt="Tartaruga na praia di Boa Vista" width="400" height="180" />
+        <h3>Boa Vista</h3>
+        <p>Praia ku tartaruga i di-zerta di Viana.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/maio.jpg" alt="Praia kalmu di Maio" width="400" height="180" />
+        <h3>Maio</h3>
+        <p>Praia kalmu i pesca tradisional.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/brava.jpg" alt="Flores di ilha Brava" width="400" height="180" />
+        <h3>Brava</h3>
+        <p>Flores di Kabu Verdi — ilha mas pikinu, mas verdi.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/sao-nicolau.jpg" alt="Vila di Ribeira Brava, São Nicolau" width="400" height="180" />
+        <h3>São Nicolau</h3>
+        <p>Istória, poezia i Monte Gordo.</p>
+      </article>
+
+      <article class="island-card">
+        <img src="img/santa-luzia.jpg" alt="Di-zerta di Santa Luzia" width="400" height="180" />
+        <h3>Santa Luzia</h3>
+        <p>Di-zerta i ka-povoadu — reservadu pa natureza.</p>
+      </article>
+    </div>
+  </div>
+</section>
+```
+
+**Konvensan:** kada `island-card` ten **un imajen, un `<h3>`, un `<p>`** — strutura identiku. Si Lisan 19 muda spasamentu di un karta, ta apilika a tudu 10 automatikamenti (regra `.island-card` será uniku).
+
+**`<div class="container">` wrap?** Igual ki nu fizi na L12 — un wrapper pa limita largura na CSS, sen kuebra strutura semantiku.
+
+## Pasu 4 — Komida (seksan 3)
+
+Un seksan di dos koluna: imajen na skerda, testu na direita.
+
+```html
+<section id="komida" class="food">
+  <div class="container">
+    <h2>Kuzinha di Kabu Verdi</h2>
+
+    <div class="food-row">
+      <img src="img/katxupa.jpg" alt="Pratu di katxupa rika" width="400" height="300" />
+
+      <div class="food-text">
+        <h3>Katxupa, pastel, lagosta, grogue</h3>
+        <p>
+          Katxupa é pratu nasional — milhu, fijon i karni kuzinhadu lentamenti
+          ti tudu sabor ta junta. Pastel di milhu pa sobremeza. Lagosta freska
+          di mar pa otkazion speshal. I pa fin di refesan, un kopu di grogue.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**Pa gosi**, imajen i testu ta pareci enpilhadu vertikal. Lisan 19 ta poi es lado-a-lado ku Flexbox.
+
+## Pasu 5 — Muzika (seksan 4)
+
+Trez kartas di musika tradisional — sen imajen, só nomi i deskrisan kurtu.
+
+```html
+<section id="muzika" class="music">
+  <div class="container">
+    <h2>Muzika i Kultura</h2>
+
+    <div class="music-row">
+      <article class="music-card">
+        <h3>Morna</h3>
+        <p>Mélankolia di mar, sodadi i partida. Reina é Cesária Évora.</p>
+      </article>
+
+      <article class="music-card">
+        <h3>Funaná</h3>
+        <p>Aselerasion i akordion di Santiago. Pa baila ti suor.</p>
+      </article>
+
+      <article class="music-card">
+        <h3>Coladera</h3>
+        <p>Ritimu kalentinu, irman di morna — ma mas alegri.</p>
+      </article>
+    </div>
+  </div>
+</section>
+```
+
+Sen imajen, kartas ten só `<h3>` + `<p>`. Lisan 19 ta da-l kor di fundu i sentra kontéudu.
+
+## Pasu 6 — Testimunhu (seksan 5)
+
+Trez sitasan di trez personas — un di Praia, un di Mindelo, un di Fogo. Kada testimunhu ten foto rondu (`<img />`), sitasan en italiku ku `<blockquote>`, i atribuisan ku `<cite>`.
+
+```html
+<section class="testimonials">
+  <div class="container">
+    <h2>Kuzas ki turistas ta fla</h2>
+
+    <div class="testimonials-grid">
+      <article class="testimonial">
+        <img src="img/djamila.jpg" alt="Foto di Djamila Tavares" width="80" height="80" />
+        <blockquote>
+          "Praia ta mistura kapital ku puvu — sentru istóriku, beach di
+          Quebra Canela, i fésta di tudu noiti. Bedju ku jovem ta konvive."
+        </blockquote>
+        <cite>— Djamila Tavares, Praia</cite>
+      </article>
+
+      <article class="testimonial">
+        <img src="img/mario.jpg" alt="Foto di Mário Évora" width="80" height="80" />
+        <blockquote>
+          "Mindelo é karnaval, é muzika, é tudu otu mundu. Bu ka pode sai
+          sen entra nun klubi i bira pa baila morna ku kabuverdianu."
+        </blockquote>
+        <cite>— Mário Évora, Mindelo</cite>
+      </article>
+
+      <article class="testimonial">
+        <img src="img/cesaria-lima.jpg" alt="Foto di Cesária Lima" width="80" height="80" />
+        <blockquote>
+          "Subi Pico do Fogo na madrugada. Vulkãu na pe, mar Atlantiku ti
+          orizonti, i kafé liál na bar di vila. Ka ten otu maneira di vibe."
+        </blockquote>
+        <cite>— Cesária Lima, Fogo</cite>
+      </article>
+    </div>
+  </div>
+</section>
+```
+
+**Lembra di L7:** `<blockquote>` é pa sitasan longu di otra fonti. `<cite>` é pa nomi di otor ou fonti. Es dos djuntu = padron pa testimunhu.
+
+## Pasu 7 — Footer (seksan 6)
+
+Trez koluna di link + linha di copyright na fundu:
+
+```html
+<footer id="kontaktu">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h3>Kontaktu</h3>
+        <p>info@visitakaboverdi.cv</p>
+        <p>+238 999 0000</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sosial</h3>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>YouTube</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Sobre</h3>
+        <p>Misan</p>
+        <p>Politika di privacidadi</p>
+        <p>Trabadja ku nu</p>
+      </div>
+    </div>
+
+    <p class="copy">&copy; 2026 Visita Kabu Verdi</p>
+  </div>
+</footer>
+```
+
+**`&copy;`** = entidadi HTML pa símbolu di copyright (©). Lembra di L7 sobre entidadis — uza `&copy;`, ka kopia un símbolu direitamenti, pa garanti ki ta parse igual na tudu browser.
+
+## Tisten na browser
+
+Salva `index.html`. Klika direitu → "Open with Live Server" (ou abri folder na VS Code ku Live Server ativu).
+
+Bu ta odja:
+
+- Un dokumentu **longu**, **vertikal**, **sen kor sen layout**.
+- Trez nivel di títulus pa hierarquia: `<h1>` (1 bez), `<h2>` (6 bez), `<h3>` (vários).
+- Tudu 10 ilhas, un en baxu di otru.
+- Foto di katxupa en sima di testu.
+- Trez kartas di musika enpilhadu.
+- Trez testimunhu enpilhadu.
+- Footer ku 3 koluna enpilhadu.
+
+**Es é o ponto di partida pretendidu.** Pajina é semantikamenti korretu, akesível, i pronto pa stiliza. **Ka modifika strutura gosi.** Lisan 19 ta transforma-l ku CSS sen toka HTML (eksetu un wrap `.container` ou dos ki dja ten lugar).
+
+:::callout{type=tip}
+**Inspekciona ku DevTools (callback di L13).** Klika direitu na pajina → Inspect. Na painel Elements bu pode konfirma ki tudu seksan ta uza `<section>`, `<article>`, `<header>`, `<footer>` — nau só `<div>`. Si tudu é `<div>`, voltai i refaktoriza pa elementu semantiku korretu.
+:::
+
+## Erus komun pa evita
+
+- **Skesi `alt` na imajen di ilha.** 10 ilhas = 10 `alt` ki ten ki ten testu. Ka usa `alt="img"` ou deixa vaziu — pa akesibilidadi, kada `alt` ten ki splika kuze imajen ta mostra. Mas komum erru di studanti.
+- **Skrebe HTML i CSS na mêsmu tempu.** Resisti. Es lisan = só strutura. Si bu sta tenta poi `style="..."` inline, **para**. Wait pa L19.
+- **Konvensan di klassi inkonsistenti.** `island-card`, `IslandCard`, `island_card` — pega un i pega só un. Kebab-case di L10 (`island-card`) ta sigi konvensan di tudu kursu.
+- **`<div>` undi `<section>` ou `<article>` é mas korretu.** Si bu ta wrap algun kuza ki ten un títulu i kontéudu independenti, é `<article>`. Si é un agrupamentu temátiku, é `<section>`. `<div>` é só pa wrap di layout sen signifikadu (kumo `.container` ou `.food-row`).
+- **Skesi `<link rel="stylesheet" href="style.css" />`.** Si Lisan 19 ka ta parese faze nada, **primeru kuza pa kontrola**: bu ten `<link>` na `<head>`?
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Ka ten konseitu novu">Es módulu é aplikasan di Módulus 1–4 nun projetu di verdadi.</RezumuItem>
+  <RezumuItem term="Planea antes di skrebe">Sketch di 6 seksan na papel ta salva tenpu.</RezumuItem>
+  <RezumuItem term="Strutura primeru, stilu dipos" variant="gold">Skrebe HTML semantiku primeru; separa kontéudu di apresentasan.</RezumuItem>
+  <RezumuItem term="Folder di projetu">`projetu-kabu-verdi/` ten `index.html`, `style.css` (vaziu), i `img/` ku placeholders.</RezumuItem>
+  <RezumuItem term="6 seksan semántiku">`<header class="hero">`, `<section id="ilhas">`, `<section id="komida">`, `<section id="muzika">`, `<section class="testimonials">`, `<footer id="kontaktu">`.</RezumuItem>
+  <RezumuItem term="Konvensan kebab-case">Klassis ta sigi L10: `island-card`, `food-row`, `music-card`, `testimonial`, `footer-col`.</RezumuItem>
+  <RezumuItem term="Pronto pa stiliza" variant="warning">Pajina ta parse kumo lista vertikal longu — kel-li é esperadu. Ku CSS nu ta da-l layout i vida.</RezumuItem>
+</KeyTakeaways>

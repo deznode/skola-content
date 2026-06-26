@@ -1,0 +1,65 @@
+# Quiz sidecar (draft source) for lesson m2-06 "Imajen, atributu i link".
+# Publish copies this to
+# content/courses/web-foundations/lessons/06-imajen-atributu-i-link/quiz.yaml;
+# positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
+# `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
+- question:
+    kea: "Kuze ki é un **atributu** na HTML?"
+  options:
+    - text: { kea: "Un par `key=\"value\"` dentru di opening tag ki ta da informasan extra" }
+      correct: true
+      explain: { kea: "Sertu — kumo `src=\"foto.jpg\"` ou `href=\"sobre.html\"`. Ta vai sempri dentru di opening tag, ku valor entri aspa." }
+    - text: { kea: "Un tag novu ki bu ta kria" }
+      correct: false
+      explain: { kea: "Ka é un tag — é informasan extra ki ta vai dentru di un opening tag." }
+    - text: { kea: "Konteúdu ki ta parese entri opening i closing tag" }
+      correct: false
+      explain: { kea: "Kel é konteúdu di elementu. Atributu ta vai dentru di propi opening tag, na forma `key=\"value\"`." }
+    - text: { kea: "Closing tag di un elementu" }
+      correct: false
+      explain: { kea: "Closing tag ta fexa elementu (`</p>`). Atributu é `key=\"value\"` na opening tag." }
+- question:
+    kea: "Pamodi atributu `alt` na un `<img>` é **importanti**?"
+  options:
+    - text: { kea: "Pa asesibilidadi, SEO i fallback — i `alt=\"\"` vaziu é midjór ki omiti-l" }
+      correct: true
+      explain: { kea: "Sertu — screen reader ta le-l, Google ta uza-l, i si imajen ka karrega el ta parese. Pa imajen dekorativa `alt=\"\"` ta diz screen reader pa salta-l; omiti-l ta faze screen reader le nomi di ficheru." }
+    - text: { kea: "Pa muda tamanhu di imajen" }
+      correct: false
+      explain: { kea: "Tamanhu é `width` i `height`, ka `alt`. `alt` é deskrisan textual." }
+    - text: { kea: "Pa imajen karrega mas rapidu" }
+      correct: false
+      explain: { kea: "`alt` ka ten nada a ver ku velosidadi — é deskrisan textual di imajen." }
+    - text: { kea: "Ka ta importa — é opsional i bu pode sempri omiti-l" }
+      correct: false
+      explain: { kea: "Ta importa txeu: sen el, screen reader ta le nomi di ficheru i SEO ta penaliza. Sempri preenche-l (ou `alt=\"\"` si dekorativa)." }
+- question:
+    kea: "Kuze ki `target=\"_blank\"` ta faze na un `<a href=\"...\">`?"
+  options:
+    - text: { kea: "Ta abri link na un aba novu" }
+      correct: true
+      explain: { kea: "Sertu — útil pa link externu, pa uzuáriu ka perde bu pajina. Padran (sen `target`) ta abri na mesmu aba." }
+    - text: { kea: "Ta faze link ten kor azul" }
+      correct: false
+      explain: { kea: "Kor di link ben di browser/CSS, ka di `target`. `target=\"_blank\"` ta abri na aba novu." }
+    - text: { kea: "Ta skonde link te uzuáriu pasa rato na riba" }
+      correct: false
+      explain: { kea: "`target` ka ta skonde nada — el ta kontrola undi ki link ta abri (mesmu aba ou aba novu)." }
+    - text: { kea: "Ta transforma link internu na link externu" }
+      correct: false
+      explain: { kea: "Internu vs externu ben di valor di `href` (nomi di ficheru vs URL kompletu), ka di `target`." }
+- question:
+    kea: "Kal di es afirmasan sobre `<a>` é **korreta**?"
+  options:
+    - text: { kea: "Sen `href`, `<a>` ka é un link real; i `<a>` (na `<body>`) é diferenti di `<link>` (na `<head>`, pa CSS)" }
+      correct: true
+      explain: { kea: "Sertu — `<a href=\"...\">` é hyperlink visivel na `<body>`; `<link rel=\"stylesheet\">` na `<head>` ta karrega CSS. Sen `href`, `<a>` é so un anchor sen destinu." }
+    - text: { kea: "`<a>` i `<link>` é mesmu kuza i ta funsiona igual" }
+      correct: false
+      explain: { kea: "Es é dos kuza diferenti ku mesmu palavra: `<a>` é link visivel na `<body>`; `<link>` ta karrega ficheru externu na `<head>`." }
+    - text: { kea: "Un `<a>` sen `href` inda ta funsiona kumo link normal" }
+      correct: false
+      explain: { kea: "Sen `href`, `<a>` ka ten destinu — ka é un link. Sempri inklui `href`." }
+    - text: { kea: "`<link>` ta vai na `<body>` pa kria hyperlink" }
+      correct: false
+      explain: { kea: "`<link>` ta vai na `<head>` (pa CSS/favicon). Pa hyperlink visivel uza `<a>` na `<body>`." }

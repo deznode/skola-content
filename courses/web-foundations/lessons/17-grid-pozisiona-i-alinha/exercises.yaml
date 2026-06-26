@@ -1,0 +1,57 @@
+# Exercises sidecar (draft source) for lesson m4-17 "Grid: pozisiona i alinha items".
+# Publish copies this to
+# content/courses/web-foundations/lessons/17-grid-pozisiona-i-alinha/exercises.yaml;
+# <TentaGosi/> renders these in display order. Keep `slug` stable (completed_exercises FK).
+- slug: koriji-hero-line-hardcoded
+  language: css
+  kind: debug
+  file: style.css
+  title: { kea: "Koriji un hero ki ka ta spani tudu largura" }
+  prompt:
+    kea: "Es grid gosi ten **6 kolunas** (antes teni 5). `.hero` debe spani tudu largura, ma el ta para na 5ª koluna — ten un kel branku na direita. Kódiku ten numéru di line **fixu a mon**. Koriji-l pa hero spani sempri tudu largura, **mesmu si kuantidadi di kolunas muda otu bez**."
+  hint:
+    kea: "`grid-column: 1 / 6` é fixu pa 5 kolunas — el ta kebra kuandu bu adisiona 6ª. Uza truk majiku `1 / -1`: `-1` é sempri últimu line, sin konteu kuantas kolunas existi."
+  starterCode: |
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 24px;
+    }
+
+    .hero {
+      grid-column: 1 / 6;
+    }
+  solutionCode: |
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 24px;
+    }
+
+    .hero {
+      grid-column: 1 / -1;
+    }
+- slug: kria-feature-span-2
+  language: css
+  kind: code
+  title: { kea: "Faze un karta okupa dos kolunas" }
+  prompt:
+    kea: "Bu ten un `.feature` karta nun grid. Faze-l **spani dos kolunas** undi-kuze el ta otxa na grid — sen kuida pozisan eksatu, só largura. Uza keyword `span`."
+  hint:
+    kea: "Pa \"kuantu largu\" sen kuida pozisan, uza `span`: `grid-column: span 2`. Mas léji di ler ki numerus di line."
+  starterCode: |
+    .feature {
+      /* spani dos kolunas */
+    }
+  solutionCode: |
+    .feature {
+      grid-column: span 2;
+    }
+- slug: reflekti-items-vs-content
+  language: css
+  kind: reflect
+  title: { kea: "`justify-items` ou `justify-content`?" }
+  prompt:
+    kea: "Splika ku bu propi palavra diferensa entri `justify-items` i `justify-content` nun grid. Kual ki ta moveu kada item dentru di kel cell, i kual ki ta moveu grid inteiru dentru di container? Da un situasan undi ki bu ta uza kada un."
+  notePlaceholder:
+    kea: "`justify-items` ta moveu… N ta uza-l kuandu… `justify-content` ta moveu… N ta uza-l kuandu…"

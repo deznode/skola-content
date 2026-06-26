@@ -1,0 +1,175 @@
+---
+title: "Konfigura bu ambienti"
+language: kea
+courseSlug: web-foundations
+lessonSlug: konfigura-bu-ambienti
+module: 1
+lesson: 2
+duration: 20
+objectives:
+  - "Instala VS Code na macOS, Windows ou Linux"
+  - "Instala extension Prettier i konfigura format-on-save"
+  - "Instala extension Live Server pa odja pajina HTML na localhost"
+  - "Pega kódiku di kursu di GitHub (Download ZIP) i abri-l na VS Code"
+prerequisites:
+  - "Lisan 1 — Kumo Web ta funsiona"
+---
+
+# Konfigura bu ambienti
+
+Antis di bu skrebe un linha di kódiku, bu ten ki ten bu ferramenta prontu. Kumo un músiku ku si instrumentu afinadu, ku ferramenta sertu bu ta skrebe kódiku ku konfiansa.
+
+## Pamodi un editor di kódiku?
+
+Bu ta pode skrebe HTML na Notepad ou TextEdit. <GlossaryText
+  text="Ma sen un editor profisional, bu ta perde trez kuza: [[syntax highlighting]], [[autocomplete]] i [[extensions]]."
+  terms={{
+    "syntax highlighting": { en: "syntax highlighting", definition: "Kódiku ta ben koloridu pa bu distingui tag, atributu i valor di un odjada." },
+    "autocomplete": { en: "autocomplete", definition: "Editor ta sujeri i kompleta kódiku enkuantu bu ta skrebe." },
+    "extensions": { en: "extensions", definition: "Plugins ki ta da funsionalidadi extra — formatador, server lokal, temas." },
+  }}
+/>
+
+**VS Code** é editor mas uzadu na mundu di dezenvolvimentu web. E é grátis, ten tudu trez kuza en sima, i ta funsiona igual na macOS, Windows i Linux.
+
+<SectionHeading variant="install">Pasu 1 — Instala VS Code</SectionHeading>
+
+<PlatformTabs
+  showHeader={false}
+  tabs={[
+    {
+      label: "Windows",
+      icon: "windows",
+      content: [
+        { type: "prose", t: "Bai pa **[code.visualstudio.com](https://code.visualstudio.com)** i baixa instalador `.exe`." },
+        { type: "steps", items: ["Kore instalador (`.exe`)", "Aseita akordu i klika **Next** ti **Install**", "Marka **\"Add to PATH\"** si el ta parese"] },
+        { type: "cmd", label: "Command Prompt", lines: ["code --version"], out: "1.9x.x" },
+      ],
+    },
+    {
+      label: "macOS",
+      icon: "apple",
+      content: [
+        { type: "prose", t: "Bai pa **[code.visualstudio.com](https://code.visualstudio.com)** i baixa ficheru `.zip`. Strai-l i move **Visual Studio Code.app** pa pasta **Applications**." },
+        { type: "callout", sev: "tip", t: "Pa uza `code` na terminal: abri VS Code, primi `Cmd+Shift+P`, i kore **\"Shell Command: Install 'code' command in PATH\"**." },
+        { type: "cmd", label: "Terminal", lines: ["code --version"], out: "1.9x.x" },
+      ],
+    },
+    {
+      label: "Linux",
+      icon: "linux",
+      content: [
+        { type: "prose", t: "Baixa pakoti `.deb` (Debian/Ubuntu) ou `.rpm` (Fedora) di **[code.visualstudio.com](https://code.visualstudio.com)**, ou uza snap." },
+        { type: "cmd", label: "Terminal", lines: ["sudo snap install code --classic", "code --version"], out: "1.9x.x" },
+      ],
+    },
+  ]}
+/>
+
+Kuandu bu ta abri VS Code primeru bez, bu ta odja kuatru parti prinsipal:
+
+- **Activity Bar** (skerda) — ikoni pa Explorer, Search, Source Control, Extensions.
+- **Side Bar** — konteúdu di parti seletadu (en jeral, lista di ficheru).
+- **Editor** (sentru) — undi bu ta skrebe kódiku.
+- **Panel** (baixu) — Terminal, Output, Problems.
+
+<SectionHeading variant="install">Pasu 2 — Instala Prettier</SectionHeading>
+
+**Prettier** é un *formatador* automátiku. El ta limpa kódiku malformatadu kuandu bu ta salva ficheru.
+
+1. Na VS Code, klika ikoni di **Extensions** na Activity Bar (ou primi `Cmd+Shift+X` / `Ctrl+Shift+X`).
+2. Skrebe **Prettier** na kaixa di prokura.
+3. Skodje **"Prettier - Code formatter"** (kel ku mas di 30M instalasan).
+4. Klika **Install**.
+
+Gosi bu ten ki konfigura Prettier kumo formatador padran:
+
+1. Abri Settings: `Cmd+,` (macOS) ou `Ctrl+,` (Windows/Linux).
+2. Na kaixa di prokura na riba, skrebe **"default formatter"**.
+3. Skodje **Prettier - Code formatter**.
+4. Prokura **"format on save"** — marka kaixa.
+5. Prokura **"tab size"** i po **2**.
+6. Prokura **"files: auto save"** i skodje **onFocusChange**.
+
+:::callout{type=tip}
+Salta konfigurasan di Prettier gosi ta kusta-bu trabadju mas tardi. A partir di Lisan 5, bu ta ten ki skrebe HTML ku nesting profundu. Sen Prettier, bu ta gasta minutu ta indenta linha na mon i ta luta ku spasu. Konfigura el gosi i diskese.
+:::
+
+<SectionHeading variant="install">Pasu 3 — Instala Live Server</SectionHeading>
+
+**Live Server** é un extension ki ta abri bu ficheru HTML na browser i ta atualiza el automatikamenti kuandu bu ta salva.
+
+1. Volta pa **Extensions** na Activity Bar.
+2. Skrebe **Live Server** na kaixa di prokura.
+3. Skodje **"Live Server"** di Ritwick Dey.
+4. Klika **Install**.
+
+Bu ta odja un boton **"Go Live"** ki ta parese na status bar (parti baixu di VS Code). Kel boton ta abri un servidor lokal na `localhost:5500` ki ta sirvi bu pajina HTML.
+
+<SectionHeading variant="install">Pasu 4 — Pega kódiku di kursu</SectionHeading>
+
+Kódiku di kursu sta na GitHub, na un repo públiku. El ten dos pasta:
+
+- [`code/start/`](https://github.com/deznode/skola-content/tree/main/courses/web-foundations/code/start) — scaffolding ku TODOs ki bu ta kompleta.
+- [`code/final/`](https://github.com/deznode/skola-content/tree/main/courses/web-foundations/code/final) — solusan kompleta pa bu konferi kuandu bu kaba.
+
+Tene dos manera di pega-l. Pa kumesa, **Download ZIP** é mas fasil:
+
+1. Abri repo: **[github.com/deznode/skola-content](https://github.com/deznode/skola-content/tree/main/courses/web-foundations/code)**.
+2. Klika boton verdi **Code → Download ZIP** i strai el pa un website fasil di odja (ex: `Documents/web-foundations/`).
+3. Na VS Code: **File → Open Folder…** → skodje pasta ki bu strai.
+4. VS Code ta abri pasta. Bu ta odja lista di ficheru na Explorer (skerda).
+
+Si bu dja sabe **git**, bu ta pode klona repo na bez di baixa ZIP:
+
+<TerminalBlock
+  title="Terminal"
+  lines={[{ type: "cmd", t: "git clone https://github.com/deznode/skola-content.git" }]}
+/>
+
+:::callout{type=tip}
+Ka ten problema si bu ka konxe git inda — nu ta prende-l mas tardi; pa gosi, Download ZIP ta xega.
+:::
+
+## Pergunta kumuns
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Prettier ta muda nha HTML — el ta straga nha kódiku?",
+      tag: "Splika más",
+      a: "Nau. Prettier ta muda **so indentasan i spasu** (kumo kódiku ta parese), nunka o ki kódiku ta faze. Rezultadu na browser ta fika izatu igual.",
+    },
+    {
+      q: "Si N fitxa VS Code, N ten ki konfigura tudu di nobu?",
+      tag: "Splika más",
+      a: "Nau. Settings i extensions ta fika salvu na bu komputador. Bu ta konfigura un bez sô i ta fika asin pa tudu projetu.",
+    },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+## Erus kumuns
+
+- **So instala Prettier ka é sufisienti** — bu ten ki konfigura el kumo formatador padran na Settings.
+- **Instala extension na "User" ou na workspace** — pa kursu, instala na User (ta funsiona na tudu projetu).
+- **Salva ficheru sen extension `.html`** — VS Code ka ta da-l syntax highlighting di HTML, i Live Server ka ta abri el dretu.
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="VS Code">Editor padran pa kursu — grátis, multi-plataforma, ku ekosistema enormi di extensions.</RezumuItem>
+  <RezumuItem term="Prettier" variant="tip">Ta formata kódiku otomatikamenti na save — ta poupa minutu pa kada lisan dispós.</RezumuItem>
+  <RezumuItem term="Konfigura, ka so instala" variant="warning">So instala Prettier ka ta xega — po-l kumo default formatter i marka format-on-save na Settings.</RezumuItem>
+  <RezumuItem term="Live Server">Ta abri pajina HTML na browser i ta atualiza el na save — ka ten ki primi refresh a mon.</RezumuItem>
+  <RezumuItem term="Kódiku di kursu">Repo públiku na GitHub — `start/` pa kompleta, `final/` pa konferi; baixa ku Download ZIP.</RezumuItem>
+</KeyTakeaways>
