@@ -11,6 +11,19 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-06-28]
+
+### Added
+- M7 `learning-components-063` module + three lessons exercising the spec-063
+  net-new components: `18-teaching-blocks` (`FileTree`, `AnalogyCard`,
+  `MisconceptionConfront`, `FadingExample`), `19-systems-diagrams`
+  (`ExecutionTrace`, `ArchitectureDiagram`, `SystemWalkthrough`,
+  `SequenceDiagram`, `ConfigTree` + `traces.yaml`/`diagrams.yaml`/`configs.yaml`
+  sidecars), `20-web-tools` (`LivePreview`, `BoxModel`).
+- New practice kinds appended to `05-tenta-gosi-kinds/exercises.yaml`: `predict`,
+  interactive `debug` (`bugLine`), `reflect` self-explanation (`code` +
+  `modelPoints`), and a graduated `hints[]` ladder.
+
 ## [2026-06-23] — publish
 
 ### Changed

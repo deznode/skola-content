@@ -111,3 +111,17 @@ modules:
       - slug: callouts-and-figure
         languages: [kea]
         content_type: TEXT
+  - slug: learning-components-063
+    title:
+      kea: "Komponenti Nobu — Inxinu, Sistemas i Web"
+      en: "New Components — Teaching, Systems & Web (spec 063)"
+    lessons:
+      - slug: teaching-blocks
+        languages: [kea]
+        content_type: TEXT
+      - slug: systems-diagrams
+        languages: [kea]
+        content_type: TEXT
+      - slug: web-tools
+        languages: [kea]
+        content_type: TEXT

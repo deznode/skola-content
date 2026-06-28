@@ -1,0 +1,61 @@
+---
+title: "Ferramentas Web — LivePreview, BoxModel"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: web-tools
+slug: "web-tools"
+module: 7
+lesson: 3
+duration: "8 min"
+objectives:
+  - "Testa LivePreview ku panels html/css/js i o iframe sandboxedu"
+  - "Testa BoxModel ku árvi DOM + diagrama margin/border/padding/content"
+---
+
+Es lison ta esersi os **ferramentas web** di spec 063 (W6). Tudu dôs é
+**inline-prop**. qa-sandbox sô — ka é konteúdu pa aprendiz.
+
+## LivePreview — edita o kódiku, odja o rezultadu
+
+`<LivePreview>` ta da panels editável di `html`/`css`/`js` ki ta alimenta un
+iframe sandboxedu (`allow-scripts`, sen `allow-same-origin`). Os edison di o
+aprendiz ta persisti (`storageKey`); o botan **Rezeta** ta volta pa o kódiku
+inisial.
+
+<LivePreview
+  storageKey="qa-sandbox-web-tools"
+  html="<div class='kartxon'><h2>Ola, mundu!</h2><button id='bt'>Klika li</button></div>"
+  css=".kartxon { padding: 24px; background: #0077b6; color: white; border-radius: 12px; text-align: center; } button { margin-top: 12px; padding: 8px 16px; border: none; border-radius: 8px; background: #ffc300; font-weight: 700; }"
+  js="document.getElementById('bt').addEventListener('click', () => { document.getElementById('bt').textContent = 'Klikadu!'; });"
+/>
+
+## BoxModel — o box model kamada pa kamada
+
+`<BoxModel>` ta para un árvi DOM ku un diagrama di kamadas
+(content/padding/border/margin). Klika (ô uza as setas) riba di un elementu pa
+inspesiona o se box. Kada elementu ten `box` (`margin`/`border`/`padding` komu
+númeru ô `{t,r,b,l}`, más `w`/`h`).
+
+<BoxModel
+  elements={[
+    {
+      id: "card",
+      depth: 0,
+      tag: "div",
+      sel: ".kartxon",
+      display: "block",
+      boxSizing: "border-box",
+      box: { margin: 16, border: 2, padding: 24, w: 240, h: 96 },
+      note: "Ku `box-sizing: border-box`, o `width: 240` ta inklui o padding i o border.",
+    },
+    {
+      id: "btn",
+      depth: 1,
+      tag: "button",
+      display: "inline-block",
+      boxSizing: "border-box",
+      box: { margin: { t: 14, r: 0, b: 0, l: 0 }, border: 0, padding: { t: 9, r: 18, b: 9, l: 18 }, w: 78, h: 18 },
+      note: "Un `inline-block` — o padding ta da-l tamanhu, mas e ta fika na liña.",
+    },
+  ]}
+/>

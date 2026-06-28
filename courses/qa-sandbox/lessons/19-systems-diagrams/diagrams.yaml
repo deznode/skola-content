@@ -1,0 +1,39 @@
+# <ArchitectureDiagram position={0} />
+- type: architecture
+  nodes:
+    - { id: browser, col: 0, row: 1, label: "Navegador", sub: "Cliente", kind: client, icon: monitor, desc: "O navegador ta manda pididus `HTTPS` pa o sistema." }
+    - { id: ingress, col: 1, row: 1, label: "Ingress", sub: "Nginx", kind: edge, icon: route, desc: "Ponta di entrada na kluster. Ta enkaminha kada pididu." }
+    - { id: api, col: 2, row: 1, label: "API", sub: "Spring Boot", kind: service, icon: server, desc: "Ta prosesa lójika di négósiu i ta responde." }
+    - { id: db, col: 3, row: 0, label: "PostgreSQL", sub: "Bazi di dadus", kind: data, icon: database, desc: "Undi os dadus ta fika gardadu pa sempri." }
+    - { id: cache, col: 3, row: 1, label: "Redis", sub: "Cache", kind: data, icon: bolt, desc: "Cache na memória — respostas más rápidu." }
+  edges:
+    - { from: browser, to: ingress, label: "HTTPS" }
+    - { from: ingress, to: api, label: "/api" }
+    - { from: api, to: db, label: "SQL" }
+    - { from: api, to: cache, label: "get/set", dashed: true }
+
+# <SystemWalkthrough position={1} />
+- type: walkthrough
+  nodes:
+    - { id: browser, col: 0, row: 0, label: "Navegador", sub: "Cliente", kind: client, icon: monitor }
+    - { id: api, col: 1, row: 0, label: "API", sub: "Spring Boot", kind: service, icon: server }
+    - { id: db, col: 2, row: 0, label: "PostgreSQL", sub: "Dadus", kind: data, icon: database }
+  edges:
+    - { from: browser, to: api, label: "GET /notas" }
+    - { from: api, to: db, label: "SELECT" }
+  steps:
+    - { edge: 0, title: "O navegador ta manda", note: "Un pididu `GET` ta sai di o navegador pa a API." }
+    - { node: api, title: "A API ta resebe", note: "A API ta resebe i ta valida o pididu." }
+    - { edge: 1, title: "A API ta konsulta", note: "A API ta buska os notas na `PostgreSQL`." }
+
+# <SequenceDiagram position={2} />
+- type: sequence
+  actors:
+    - { id: cli, label: "Cliente", icon: monitor }
+    - { id: api, label: "API", icon: server }
+    - { id: db, label: "DB", icon: database }
+  steps:
+    - { from: cli, to: api, msg: "GET /notas", title: "Pididu", note: "O cliente ta pidi os notas." }
+    - { from: api, to: db, msg: "SELECT ...", title: "Konsulta", note: "A API ta konsulta a bazi di dadus." }
+    - { from: db, to: api, msg: "rows", ret: true, title: "Rezultadu", note: "A bazi ta torna os linhas." }
+    - { from: api, to: cli, msg: "200 OK", ret: true, title: "Resposta", note: "A API ta responde ku os dadus." }
