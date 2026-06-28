@@ -55,3 +55,84 @@
   title: { kea: "Refleta sobri o ki bu prende" }
   prompt: { kea: "Sen kódiku — pensa. Skrebe **tres** kuza ki fika klaru pa bo sobri es lison." }
   notePlaceholder: { kea: "Skrebe li tres kuza ki bu prende…" }
+
+# ── spec 063 (W3) — práticas interativas: predict, debug (bugLine),
+# reflect ku auto-splikason (code + modelPoints), i o ladeira di hints[].
+# Anexadu (slugs nobu) — ka muda os sinku di riba, pa ka perde progresu.
+
+- slug: tgk-predict-slice
+  language: python
+  kind: predict
+  title: { kea: "Prevê o slice" }
+  prompt: { kea: "Antis di kontinua, **prevê** o ki es kódiku ta imprimi." }
+  starterCode: |
+    palavra = "Kabuverdi"
+    print(palavra[0:3])
+  options: ['"Kabu"', '"Kab"', '"abu"', '"Kabuverdi"']
+  correct: 1
+  output: "Kab"
+  why: { kea: "O slice `[0:3]` ta para **antis** di o índisi 3 — letras 0, 1, i 2." }
+
+- slug: tgk-debug-interativu
+  language: python
+  kind: debug
+  file: media.py
+  title: { kea: "Atxa o bug — divizan eradu" }
+  prompt: { kea: "Es funsan ta da rezultadu eradu. Klika na a **linha** ku o bug." }
+  starterCode: |
+    def media(notas):
+        total = 0
+        for n in notas:
+            total = total + n
+        return total / len(nota)
+  bugLine: 5
+  bugExplain: { kea: "A variável txoma `notas` (plural), mas a linha 5 ta uza `nota` — un `NameError`." }
+  solutionCode: |
+    def media(notas):
+        total = 0
+        for n in notas:
+            total = total + n
+        return total / len(notas)
+  hints:
+    kea:
+      - { tier: "Konseitu", body: "O eru ta na o **nomi** di un variável." }
+      - { tier: "Undi", body: "Repara na a **última** linha, dentu di `len(...)`." }
+      - { tier: "Spesifiku", body: "`nota` ka existi — é `notas`." }
+
+- slug: tgk-reflect-splika
+  language: python
+  kind: reflect
+  title: { kea: "Splika ku bo palavras" }
+  prompt: { kea: "Pamodi ki es funsan ta uza un dicionáriu en ves di kontá un-pa-un?" }
+  code: |
+    def konta(palavra):
+        d = {}
+        for c in palavra:
+            d[c] = d.get(c, 0) + 1
+        return d
+  notePlaceholder: { kea: "Skrebe li a bo splikason…" }
+  modelPoints:
+    kea:
+      - "`d.get(c, 0)` ta evita verifika si a txave ja existi."
+      - "Un só passada pa tudu os letra — más rápidu ki kontá un-pa-un."
+      - "O dicionáriu ta gualda kada letra ku o se kontaxen."
+
+- slug: tgk-code-hints-ladeira
+  language: python
+  kind: code
+  title: { kea: "Funsan dividi_seguru" }
+  prompt: { kea: "Skrebe `dividi_seguru(a, b)` ki ta torna `None` si `b` é zeru, sinon `a / b`." }
+  hints:
+    kea:
+      - { tier: "Konseitu", body: "Pensa na un verifikason **antis** di dividi." }
+      - { tier: "Undi", body: "Si `b == 0`, torna `None` sedu." }
+      - { tier: "Spesifiku", body: "`if b == 0: return None` dipos `return a / b`." }
+  starterCode: |
+    def dividi_seguru(a, b):
+        # bu kódiku li
+        pass
+  solutionCode: |
+    def dividi_seguru(a, b):
+        if b == 0:
+            return None
+        return a / b

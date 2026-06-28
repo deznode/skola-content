@@ -1,0 +1,58 @@
+---
+title: "Sistemas i Diagramas — ExecutionTrace, Architecture/Walkthrough/Sequence, ConfigTree"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: systems-diagrams
+slug: "systems-diagrams"
+module: 7
+lesson: 2
+duration: "12 min"
+objectives:
+  - "Testa ExecutionTrace ku stepper di variávis (← traces.yaml)"
+  - "Testa ArchitectureDiagram / SystemWalkthrough / SequenceDiagram (← diagrams.yaml, discriminadu pa type)"
+  - "Testa ConfigTree ku árvi YAML dobrável (← configs.yaml)"
+  - "Verifika indexason pa position entre o MDX i os sidecars"
+---
+
+Es lison ta esersi os komponenti di **sistemas** di spec 063 (W5). Diferenti di os
+blóku inline, kada un di es tag ta lê o se dadu pa `position` di un sidecar
+irmon: `traces.yaml`, `diagrams.yaml`, ô `configs.yaml`. Os tres tag di diagrama
+ta partilha o mesmu `diagrams.yaml`, diskriminadu pa o kampu `type`. qa-sandbox
+sô.
+
+## ExecutionTrace — pasu a pasu, linha a linha
+
+`<ExecutionTrace>` ta lê o `traces` na `position={0}`. Uza o stepper pa korre o
+kódiku linha a linha; os variávis ki muda ta pisa "MUDA".
+
+<ExecutionTrace position={0} />
+
+## ArchitectureDiagram — topolojia statiku
+
+`<ArchitectureDiagram>` ta lê o primeru entrada di `diagrams.yaml` (`type:
+architecture`, `position={0}`). Pasa o rato (ô uza as setas) riba di un nó pa
+ilumina os se konexons.
+
+<ArchitectureDiagram position={0} />
+
+## SystemWalkthrough — sigi un pididu
+
+`<SystemWalkthrough>` ta lê a sigunda entrada (`type: walkthrough`,
+`position={1}`). Kada pasu ta ilumina un edge ô nó, ku check badges na os nó ja
+vizitadu.
+
+<SystemWalkthrough position={1} />
+
+## SequenceDiagram — ken ta fala ku ken
+
+`<SequenceDiagram>` ta lê a tarseira entrada (`type: sequence`, `position={2}`).
+Os mensajen ta toka un di kada bes; setas di ritornu é traseadu.
+
+<SequenceDiagram position={2} />
+
+## ConfigTree — lê o config txave pa txave
+
+`<ConfigTree>` ta lê o `configs` na `position={0}`. Pasa o rato riba di un txave
+pa lê o se splikason; Enter/Space ta dobra os nós di tipu `map`/`seq`.
+
+<ConfigTree position={0} />

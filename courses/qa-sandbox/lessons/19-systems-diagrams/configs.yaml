@@ -1,0 +1,17 @@
+# <ConfigTree position={0} />
+- filename: deployment.yaml
+  config:
+    - { type: leaf, key: apiVersion, val: "apps/v1", note: "A versan di a API di Kubernetes." }
+    - { type: leaf, key: kind, val: "Deployment", note: "Jeri un grupu di `Pods` idéntiku." }
+    - type: map
+      id: spec
+      key: spec
+      note: "O kumportamentu dizejadu di o Deployment."
+      children:
+        - { type: leaf, key: replicas, val: "3", note: "Kuantu `Pods` pa manté vivu na tudu momentu." }
+        - type: map
+          id: selector
+          key: selector
+          note: "Komu o Deployment ta atxa os `Pods` ki e ta jeri."
+          children:
+            - { type: leaf, key: matchLabels, val: "app: web", note: "Os `Pods` ku es label ta pertense a es Deployment." }

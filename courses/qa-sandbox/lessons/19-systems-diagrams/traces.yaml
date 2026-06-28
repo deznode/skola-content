@@ -1,0 +1,14 @@
+# <ExecutionTrace position={0} />
+- filename: kalkula_media.py
+  lang: python
+  code:
+    - "def kalkula_media(notas):"
+    - "    total = 0"
+    - "    for n in notas:"
+    - "        total = total + n"
+    - "    return total / len(notas)"
+  steps:
+    - { line: 2, vars: { total: "0" }, note: "Inisializa `total` ku zeru." }
+    - { line: 4, vars: { total: "12", n: "12" }, note: "Soma o primeru notu." }
+    - { line: 4, vars: { total: "27", n: "15" }, note: "Soma o sigundu notu." }
+    - { line: 5, vars: { total: "27", media: "13.5" }, note: "Divizan pa kuantidadi.", out: "13.5" }

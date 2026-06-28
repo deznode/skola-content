@@ -1,0 +1,91 @@
+---
+title: "Blóku di Inxinu — FileTree, AnalogyCard, MisconceptionConfront, FadingExample"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: teaching-blocks
+slug: "teaching-blocks"
+module: 7
+lesson: 1
+duration: "10 min"
+objectives:
+  - "Testa FileTree ku árvi anotadu (folder/file, badge, muted, note)"
+  - "Testa AnalogyCard ku hero + rows (analogy→tech→code) + limit"
+  - "Testa MisconceptionConfront ku belief/myth/real/proof/takeaway"
+  - "Testa FadingExample ku blanks na nível diferenti (andaime ki ta sumi)"
+---
+
+Es lison ta esersi os kuatru **blóku di inxinu** di spec 063 (W4). Tudu kuatru é
+**inline-prop** — es ka ten sidecar; o konteúdu ta ben diretu na o tag MDX.
+qa-sandbox sô — ka é konteúdu pa aprendiz.
+
+## FileTree — strutura di prujetu anotadu
+
+`<FileTree>` ta mostra un árvi di pasta/fixeru ku un `note` pa kada linha. Pasa o
+rato (ô tab) riba di un linha pa odja o `note` na o rail di ladu. Kada nó ten
+`depth`, `kind` (`folder`/`file`), `name`, i opsionalmenti `note`, `badge`, i
+`muted`.
+
+<FileTree
+  nodes={[
+    { id: "root", depth: 0, kind: "folder", name: "meu-prujetu/", note: "A raís di tudu prujetu Python." },
+    { id: "src", depth: 1, kind: "folder", name: "src/", note: "O kódiku-fonti ta mora li." },
+    { id: "main", depth: 2, kind: "file", name: "main.py", badge: "aki", note: "O ponta di `entrada` — undi o prugrama ta kumesa." },
+    { id: "utils", depth: 2, kind: "file", name: "utils.py", note: "Funsons di ajuda ki `main.py` ta importa." },
+    { id: "venv", depth: 1, kind: "folder", name: ".venv/", note: "Ambienti virtual. Nunka komita-l pa Git.", muted: true },
+    { id: "readme", depth: 1, kind: "file", name: "README.md", note: "Komu instala i korre o prujetu." },
+  ]}
+/>
+
+## AnalogyCard — un konseitu, un ankora konxidu
+
+`<AnalogyCard>` ta inxina un konseitu di través di un kuza konxidu, mapeadu
+parti-pa-parti pa kódiku, ku un `limit` onestu na fim ("undi a kumparason ta
+kaba"). Kada `row` ten `analogy`, `tech`, i `code`.
+
+<AnalogyCard
+  hero="Un **funsan** é tipu un **receita di katxupa**: bu ta da-l ingredientes, e ta sigi pasus, i na fim e ta torna-bu un pratu."
+  rows={[
+    { analogy: "Os ingredientes", analogyDesc: "midju, fijon, karni.", tech: "Parámetros", code: "def katxupa(midju, fijon, karni):" },
+    { analogy: "O modu di prepara", analogyDesc: "os pasu un pa un.", tech: "Korpu di funsan", code: "    poi(midju)\n    djunta(fijon, karni)" },
+    { analogy: "O pratu prontu", analogyDesc: "o rezultadu na mesa.", tech: "Valor di ritornu", code: "    return pratu" },
+  ]}
+  limit="Un funsan, o komputador ta korre **exatamenti** igual kada bes — nada di 'mas ô menus'."
+/>
+
+## MisconceptionConfront — kompromisu, dipos konfrontu
+
+`<MisconceptionConfront>` ta mostra un `belief` ki txeu jenti ta pensa (sempri
+**falsu**), ta pidi o aprendiz pa komete (Verdadi / Falsu), dipos ta konfronta-l
+ku o `real`, un `proof` ki bu pode korre, i un `takeaway`.
+
+<MisconceptionConfront
+  belief="Si N skribi `b = a`, N ta fika ku dôs lista separadu — muda un ka ta afeta o ôtu."
+  myth="O nomi `b` ta kopia tudu o konteúdu di `a` pa un lista nobu."
+  real="`b = a` ka ta kopia nada — `a` ku `b` ta apunta pa **mesmu** lista na memória."
+  proof={[
+    "a = [1, 2, 3]",
+    "b = a            # b ka é kópia",
+    "b.append(4)",
+    "print(a)         # [1, 2, 3, 4]  <- a tambe muda!",
+  ]}
+  takeaway="Pa kopia di verdadi, uza `b = a.copy()` (ô `b = list(a)`)."
+/>
+
+## FadingExample — andaime ki ta sumi
+
+`<FadingExample>` é un izemplu trabaiadu ki ta tira o andaime pasu a pasu (solusan
+interu → blanks → kuazi vaziu). Kada linha é un lista di segmentu: `{ text }` é
+kódiku fixu; `{ blank, level }` ta vira un espasu klika-pa-mostra kuandu o faze ta
+txiga o `level`.
+
+<FadingExample
+  filename="kalkula_media.py"
+  lang="python"
+  lines={[
+    [{ text: "def kalkula_media(notas):" }],
+    [{ text: "    total = " }, { blank: "0", level: 1 }],
+    [{ text: "    for n in " }, { blank: "notas", level: 2 }, { text: ":" }],
+    [{ text: "        total = " }, { blank: "total + n", level: 1 }],
+    [{ text: "    return " }, { blank: "total / len(notas)", level: 2 }],
+  ]}
+/>
