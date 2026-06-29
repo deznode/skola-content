@@ -1,0 +1,44 @@
+# PREPARED qa-sandbox fixture for <MemoryDiagram> (spec 065 W-A3, T-A3.5).
+# MANUAL PUBLISH STEP: copy this file to
+#   skola-content@main: courses/qa-sandbox/lessons/<lesson>/memory.yaml
+# then `task content:bump -- qa-sandbox` in skola.dev to regenerate
+# R__10_course_qa_sandbox.sql. DO NOT commit into .content from this worktree.
+#
+# <MemoryDiagram position={0} /> — references & aliasing (Python). Two names →
+# one object (aliasing), then a mutation flashes "MUDA".
+- filename: aliasing.py
+  lang: python
+  code:
+    - "a = [1, 2, 3]"
+    - "b = a"
+    - "b.append(4)"
+    - "print(a)"
+  steps:
+    - line: 1
+      names:
+        - { name: a, ref: o1 }
+      objects:
+        - { id: o1, type: list, items: ["1", "2", "3"] }
+      note: "`a` ta pono pa un lista nobu na memória."
+    - line: 2
+      names:
+        - { name: a, ref: o1 }
+        - { name: b, ref: o1 }
+      objects:
+        - { id: o1, type: list, items: ["1", "2", "3"] }
+      note: "`b = a` ka ta kopia a lista — só a referensia. Gosi dôs nomi ta pono pa o **mésmu** objetu (aliasing)."
+    - line: 3
+      names:
+        - { name: a, ref: o1 }
+        - { name: b, ref: o1 }
+      objects:
+        - { id: o1, type: list, items: ["1", "2", "3", "4"] }
+      note: "`b.append(4)` ta muda o objetu — i komu `a` ta pono pa o mésmu, `a` tanbe ta muda."
+      out: "[1, 2, 3, 4]"
+    - line: 4
+      names:
+        - { name: a, ref: o1 }
+        - { name: b, ref: o1 }
+      objects:
+        - { id: o1, type: list, items: ["1", "2", "3", "4"] }
+      note: "`print(a)` ta mostra `[1, 2, 3, 4]` — pamodi a lista é partilhadu."

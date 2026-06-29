@@ -1,0 +1,52 @@
+# PREPARED qa-sandbox fixture for <AlgorithmVisualizer> (spec 065 W-A4, T-A4.7).
+# MANUAL PUBLISH STEP: copy to skola-content@main:
+#   courses/qa-sandbox/lessons/<lesson>/algos.yaml
+# then `task content:bump -- qa-sandbox`. >=2 kinds incl. array + graph.
+#
+# <AlgorithmVisualizer position={0} /> — bubble sort (array, identity-tracked slide)
+- kind: array
+  lang: kotlin
+  code:
+    - "fun bubbleSort(arr: IntArray) {"
+    - "  for (i in arr.indices) {"
+    - "    for (j in 0 until arr.size - 1 - i) {"
+    - "      if (arr[j] > arr[j + 1]) {"
+    - "        val t = arr[j]; arr[j] = arr[j + 1]; arr[j + 1] = t"
+    - "      }"
+    - "    }"
+    - "  }"
+    - "}"
+  steps:
+    - { array: ["5", "2", "4", "1"], pointers: { j: 0 }, compare: [0, 1], sorted: [], line: 4, note: "Kompara `5` i `2` → 5 > 2, ta troka." }
+    - { array: ["2", "5", "4", "1"], swap: [0, 1], pointers: { j: 1 }, sorted: [], line: 5, note: "Trokadu. Gosi kompara `5` i `4`." }
+    - { array: ["2", "4", "5", "1"], swap: [1, 2], pointers: { j: 2 }, sorted: [], line: 5, note: "Troka di novu. Kompara `5` i `1`." }
+    - { array: ["2", "4", "1", "5"], swap: [2, 3], sorted: [3], line: 5, note: "`5` ta xega na fin — ta fika ordenadu (teal)." }
+    - { array: ["1", "2", "4", "5"], sorted: [0, 1, 2, 3], line: 9, note: "Dipos di más voltas, tudu ta fika ordenadu." }
+
+# <AlgorithmVisualizer position={1} /> — BFS traversal (graph, queue frontier)
+- kind: graph
+  lang: python
+  code:
+    - "from collections import deque"
+    - "def bfs(g, start):"
+    - "  seen = {start}"
+    - "  q = deque([start])"
+    - "  while q:"
+    - "    node = q.popleft()"
+    - "    for nb in g[node]:"
+    - "      if nb not in seen:"
+    - "        seen.add(nb); q.append(nb)"
+  graph:
+    nodes:
+      - { id: A, x: 60, y: 20 }
+      - { id: B, x: 190, y: 20 }
+      - { id: C, x: 60, y: 140 }
+      - { id: D, x: 190, y: 140 }
+      - { id: E, x: 320, y: 80 }
+    edges: [[A, B], [A, C], [B, D], [C, D], [D, E]]
+  steps:
+    - { current: A, visited: ["A"], frontier: ["B", "C"], frontierType: queue, line: 6, note: "Kumesa na `A`. Bizinhus `B`, `C` ta entra na fila." }
+    - { current: B, visited: ["A", "B"], frontier: ["C", "D"], frontierType: queue, line: 6, note: "Tira `B` di a fila. `D` ta entra." }
+    - { current: C, visited: ["A", "B", "C"], frontier: ["D"], frontierType: queue, line: 6, note: "Tira `C`. `D` ja sta na fila — ka ta dobra." }
+    - { current: D, visited: ["A", "B", "C", "D"], frontier: ["E"], frontierType: queue, line: 6, note: "Tira `D`. `E` ta entra." }
+    - { current: E, visited: ["A", "B", "C", "D", "E"], frontier: [], frontierType: queue, line: 6, note: "Tira `E`. Fila vaziu — BFS kaba." }

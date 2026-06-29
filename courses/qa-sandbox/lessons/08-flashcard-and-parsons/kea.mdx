@@ -8,36 +8,48 @@ module: 2
 lesson: 3
 duration: "8 min"
 objectives:
-  - "Testa Flashcard ku flip term<->definison i múltiplu karton"
+  - "Testa Flashcard ku studu Leitner: flip, avaliason di rekordason i kódigu inline"
   - "Testa ParsonsProblem ku reordenason di linhas di kódigu"
 ---
 
 Dos komponenti di prátika ku **dadus inline** (sen sidecar): `<Flashcard>` pa
-repetison spasiadu, i `<ParsonsProblem>` pa reordena linhas di kódiku.
+studu di repetison spasiadu (Leitner), i `<ParsonsProblem>` pa reordena linhas
+di kódiku.
 
 ## Flashcard — repete pa lembra
 
-`<Flashcard>` ta resebe un array `cards={[{ term, def }]}`. O `term` é o frenti
-(mono), o `def` é o kostas. **Tudu é teksu sinplis — sen inline markdown li.**
+`<Flashcard>` ta resebe un array `cards={[{ term, def, code?, lang? }]}`. O `term`
+é o frenti (mono), o `def` é o kostas, i `code` ta parse na fasi di resposta.
+O aluno ta vira o kartãu, ta avalia kuántu el sabe-l (skala Anki), i o kartões
+fraku ta volta na mésmu sesãu. **Tudu é teksu sinplis — sen inline markdown li.**
 
 <Flashcard
   title="Métodus di string"
+  deckId="qa-sandbox-string-methods"
   cards={[
-    { term: "upper()", def: "Ta muda tudu letras pa maiúskula; ta retorna un string novu." },
-    { term: "strip()", def: "Ta tira spasu di inísiu i final di un string." },
-    { term: "split()", def: "Ta kebra un string nun lista, separandu pa un karáter." },
-    { term: "replace()", def: "Ta troka tudu okorrénsia di un teksu pa otru." },
+    { term: "upper()", def: "Ta muda tudu letras pa maiúskula; ta retorna un string novu.", code: "name.upper()", lang: "py" },
+    { term: "strip()", def: "Ta tira spasu di inísiu i final di un string.", code: "txt.strip()", lang: "py" },
+    { term: "split()", def: "Ta kebra un string nun lista, separandu pa un karáter.", code: 'txt.split(",")', lang: "py" },
+    { term: "replace()", def: "Ta troka tudu okorrénsia di un teksu pa otru.", code: 'txt.replace("a", "b")', lang: "py" },
   ]}
 />
 
-### Mésmu komponenti, sen kabesálu
+### Mésmu komponenti, sen kabesálu, mode def-first + skala kustom
 
 Ku `showHeader={false}` o eyebrow + título + kontador di mestria ta dizaparse.
+Ku `mode="def-first"` o definison é o frenti, i un `ratings` kustom ta troka o
+preset (li, dos butãu só).
 
 <SectionHeading variant="concept">Tipus di dadu</SectionHeading>
 
 <Flashcard
   showHeader={false}
+  mode="def-first"
+  deckId="qa-sandbox-data-types"
+  ratings={[
+    { label: "Ka sabe-l", color: "#D94045", delta: "reset", requeue: true },
+    { label: "Sabe-l", color: "#0F766E", delta: 1 },
+  ]}
   cards={[
     { term: "int", def: "Numeru inteiru, sima 42." },
     { term: "float", def: "Numeru ku ponti desimal, sima 3.14." },
