@@ -1,0 +1,65 @@
+---
+title: "Blóku di Meta-Lison — LessonObjectives, Prerequisites, CourseOutline"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: lesson-meta
+slug: "lesson-meta"
+module: 8
+lesson: 1
+duration: "8 min"
+objectives:
+  - "Testa LessonObjectives ku checkbox ki ta marka fetu + barra di progresu"
+  - "Testa Prerequisites ku ícone Lucide, estadu fetu/ka-fetu, i links"
+  - "Testa CourseOutline ku status done/active/todo/locked + konetor"
+---
+
+Es lison ta esersi os três **blóku di meta-lison** di lesson-toolkit handoff. Tudu
+três é **inline-prop** — ka ten sidecar; o konteúdu ta ben diretu na o tag MDX.
+qa-sandbox sô — ka é konteúdu pa aprendiz.
+
+## LessonObjectives — objetivus ki ta marka fetu
+
+`<LessonObjectives>` ta lista o ki o aprendiz ta atinji. Kada item é un checkbox
+ki, ki klikadu, ta marka fetu (kaxa teal + riska na téstu); un barra di progresu
+ta sigui `fetu / total`.
+
+<LessonObjectives
+  title="Objetivus di es lison"
+  items={[
+    "Instala Python na bu sistema i konfirma a versãu",
+    "Adisiona Python pa o `PATH` di bu sistema",
+    "Skrebe i kore bu primeru programa",
+  ]}
+/>
+
+## Prerequisites — antis di kumesa
+
+`<Prerequisites>` é o kartãu "Antis di kumesa": o ki pa sabe promeru. Kada linha
+ten un `icon` Lucide, un `title`, un `meta`, i un estadu `done`. Linhas ku `href`
+ta liga pa o rekursu.
+
+<Prerequisites
+  items={[
+    { icon: "terminal", title: "Bázikus di terminal", meta: "Lison 1 · 6 min", done: true, href: "#l1" },
+    { icon: "code", title: "Variáveis i tipus di dadus", meta: "Lison 3 · 12 min", done: true, href: "#l3" },
+    { icon: "git", title: "Konta na GitHub kriadu", meta: "Setup · 4 min", done: false, href: "#setup" },
+  ]}
+/>
+
+## CourseOutline — vista di módulu
+
+`<CourseOutline>` ta mostra tudu lison di un módulu ku se status: `done` (teal
+check), `active` (play azul + badge "Gosi"), `todo` (númeru), ô `locked` (kandadu
++ "Blokeadu"). Un konetor teal ta liga lison fetu.
+
+<CourseOutline
+  eyebrow="Módulu 1"
+  title="Fundamentus di Python"
+  lessons={[
+    { title: "O ki é Python", meta: "6 min · Vídeo", status: "done", href: "#o1" },
+    { title: "Instala Python i VS Code", meta: "9 min · Prátika", status: "done", href: "#o2" },
+    { title: "Variáveis i tipus di dadus", meta: "12 min · Prátika", status: "active", href: "#o3" },
+    { title: "Operadoris i ekspresons", meta: "10 min · Prátika", status: "todo", href: "#o4" },
+    { title: "Projetu: Kalkuladora", meta: "20 min · Projetu", status: "locked" },
+  ]}
+/>

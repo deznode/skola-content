@@ -125,3 +125,11 @@ modules:
       - slug: web-tools
         languages: [kea]
         content_type: TEXT
+  - slug: lesson-toolkit-meta
+    title:
+      kea: "Blóku di Meta-Lison — Objetivus, Prerekizitu, Sumáriu"
+      en: "Lesson-Meta Blocks — Objectives, Prerequisites, Outline"
+    lessons:
+      - slug: lesson-meta
+        languages: [kea]
+        content_type: TEXT

@@ -11,6 +11,14 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-06-30]
+
+### Added
+- M8 `lesson-toolkit-meta` module + `21-lesson-meta` lesson exercising the three
+  lesson_toolkit lesson-meta components: `LessonObjectives`, `Prerequisites`,
+  `CourseOutline`. Gives the registry-completeness backstop + parity-drift-gate a
+  render surface (parity-safe — not the L04 fixture the gate compares).
+
 ## [2026-06-28]
 
 ### Added
