@@ -1,10 +1,10 @@
 # Quiz sidecar (draft source) for lesson m2-12 "Tuplas".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/12-tuplas/quiz.yaml; positions 0,1,2
+# content/courses/intro-python/lessons/12-tuplas/quiz.yaml; positions 0,1,2,3
 # correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 3 questions were AI-drafted from the lesson body for review, NOT
+# These 4 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
@@ -40,3 +40,18 @@
       correct: false
     - text: { kea: "Un eru — `*` ka pode sta na unpacking" }
       correct: false
+- question:
+    kea: "Dipos di `primeiru, *meiu, ultimu = (10, 20, 30, 40, 50)`, o ki é `meiu`?"
+  options:
+    - text: { kea: "`[20, 30, 40]` — o `*` na meiu ta apanha tudu elementu entri `primeiru` i `ultimu`, kumo un **lista**" }
+      correct: true
+      explain: { kea: "`primeiru` apanha `10`, `ultimu` apanha `50`, i `*meiu` fika ku tudu o restu na meiu — senpri un lista." }
+    - text: { kea: "`(20, 30, 40)` — un tuple" }
+      correct: false
+      explain: { kea: "Star unpacking ta da senpri un **lista**, nunka un tuple." }
+    - text: { kea: "`30` — só o elementu di meiu" }
+      correct: false
+      explain: { kea: "`*meiu` ta apanha tudu o restu, ka un só elementu." }
+    - text: { kea: "Un eru — `*` ka pode sta na meiu di dos variávis" }
+      correct: false
+      explain: { kea: "O `*` pode sta na kualker pozisan, te na meiu entri dos variávis fixu." }

@@ -1,10 +1,10 @@
 # Quiz sidecar (draft source) for lesson m2-13 "Disionárius i Dict Comprehension".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
 # content/courses/intro-python/lessons/13-disionarius/quiz.yaml; positions
-# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+# 0,1,2,3,4 correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 3 questions were AI-drafted from the lesson body for review, NOT
+# These 5 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
@@ -40,3 +40,33 @@
       correct: false
     - text: { kea: "Pa verifika si `k` é un xavi válidu" }
       correct: false
+- question:
+    kea: "O ki ta da `{n: n ** 2 for n in range(1, 4)}`?"
+  options:
+    - text: { kea: "`{1: 1, 2: 4, 3: 9}` — dict comprehension ku xavi `n` i valor `n ** 2`" }
+      correct: true
+      explain: { kea: "`{key_expr: value_expr for item in iterável}`: pa kada `n` di 1 a 3, xavi é `n` i valor é `n ** 2`." }
+    - text: { kea: "`[1, 4, 9]` — un lista di kuadradus" }
+      correct: false
+      explain: { kea: "Ku `{}` i `xavi: valor` o rezultadu é un disionáriu, ka un lista." }
+    - text: { kea: "`{1, 4, 9}` — un set" }
+      correct: false
+      explain: { kea: "Ku `:` entri xavi i valor é un dict comprehension; sen `:` sería un set." }
+    - text: { kea: "`{1: 1, 2: 4, 3: 9, 4: 16}` — te 4" }
+      correct: false
+      explain: { kea: "`range(1, 4)` ta para antis di 4, entun só 1, 2, 3." }
+- question:
+    kea: "Na `for k, v in nota.items():`, o ki kada volta di o loop ta da?"
+  options:
+    - text: { kea: "Un par — `k` ta risibi a xavi i `v` ta risibi o valor korrespondenti" }
+      correct: true
+      explain: { kea: "`.items()` ta da kada par `(xavi, valor)`, ki o loop ta separa pa `k` i `v`." }
+    - text: { kea: "Só as xavis, un di kada bez" }
+      correct: false
+      explain: { kea: "Só xavis sería `for k in nota:` o `nota.keys()`; `.items()` ta da xavi i valor." }
+    - text: { kea: "Só os valores, un di kada bez" }
+      correct: false
+      explain: { kea: "Pa só valores uza `.values()`; `.items()` ta da os dos." }
+    - text: { kea: "Un lista ku tudu os par di un bez" }
+      correct: false
+      explain: { kea: "O loop ta prosesa un par di kada volta, ka tudu di un bez." }

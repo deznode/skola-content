@@ -273,51 +273,29 @@ Sintaxi di `class` é o tópiku di **Módulu 4** (lisan 26 +). Pa gosi, só odja
 :::
 
 ```python
-# Defini exsesons personalizadu
+# Defini un tipu novu di eru — só un linha!
 class SalduInsufisientiError(Exception):
-    """Lansa kuandu saldu ka txega pa operasan"""
-    def __init__(self, saldu_atual, montanti):
-        self.saldu_atual = saldu_atual
-        self.montanti = montanti
-        super().__init__(
-            f"Saldu insufisienti: tene {saldu_atual} ECV, "
-            f"ma ta precisa {montanti} ECV"
-        )
-
-class LimitiDiáriuExcediduError(Exception):
-    """Lansa kuandu limiti diáriu di levantamentu foi txegadu"""
     pass
 
-# Uza na klasi
-class KontaBankária:
-    LIMITI_DIÁRIU = 50_000  # 50.000 ECV
+# Uza-l ku raise, mesmu manera ki kualker otu exsesan
+def levanta(saldu, montanti):
+    if montanti > saldu:
+        raise SalduInsufisientiError(
+            f"Saldu insufisienti: tene {saldu} ECV, ma ta precisa {montanti} ECV"
+        )
+    return saldu - montanti
 
-    def __init__(self, titulár, saldu=0):
-        self.titulár = titulár
-        self.saldu = saldu
-        self.levantadu_oji = 0
-
-    def levanta(self, montanti):
-        if montanti > self.saldu:
-            raise SalduInsufisientiError(self.saldu, montanti)
-        if self.levantadu_oji + montanti > self.LIMITI_DIÁRIU:
-            raise LimitiDiáriuExcediduError(
-                f"Limiti diáriu di {self.LIMITI_DIÁRIU} ECV dja foi txegadu!"
-            )
-        self.saldu -= montanti
-        self.levantadu_oji += montanti
-        return montanti
-
-# Testu
-konta = KontaBankária("Amilcar", 10_000)
-
+# Kaptura-l pa nomi — más spesífiku ki un Exception jenériku
 try:
-    konta.levanta(15_000)
+    novu_saldu = levanta(10_000, 15_000)
 except SalduInsufisientiError as e:
     print(e)
     # Saldu insufisienti: tene 10000 ECV, ma ta precisa 15000 ECV
-    print(f"Saldu atual: {e.saldu_atual} ECV")  # Asesu a atributus
 ```
+
+:::callout{type=tip}
+Un klasi di eru personalizadu ta dexa bo `except` kaptura **só** kel tipu di problema (`except SalduInsufisientiError`), na lugar di un `except Exception` ki ta apanha tudu. Kuandu bo prende klasis na Módulu 4, bo ta odja kumo da-l más detalhi (mensajen, atributus).
+:::
 
 ## Padran Prátiku: Ficheru ku Exsesons
 
@@ -365,7 +343,7 @@ except FileNotFoundError as e:
 
 ![Ierarkia di exsesons di Python — BaseException, Exception, ValueError, TypeError, etc.](../../infographics/14-ierarkia-di-exsesan.png)
 
-```
+```text
 BaseException
 ├── KeyboardInterrupt    (Ctrl+C)
 ├── SystemExit           (sys.exit())

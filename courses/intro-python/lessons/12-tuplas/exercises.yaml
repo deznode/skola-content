@@ -63,7 +63,7 @@
   prompt:
     kea: "Kria un tuple di tuples ku informasan di 4 ilha, kada un `(nomi, populasan, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Dipos kalkula a populasan total i atxa a ilha ku más pesoa."
   hint:
-    kea: "Itera ku unpacking diretu: `for nomi, pop, area in ilhas:`. Pa o total, soma as populasan nun loop o ku un comprehension `sum(p for _, p, _ in ilhas)`. Pa a ilha ku más pesoa, `max(ilhas, key=lambda i: i[1])`."
+    kea: "Itera ku unpacking diretu: `for nomi, pop, area in ilhas:`. Pa o total, soma as populasan nun loop (`total += pop`). Pa a ilha ku más pesoa, kompara kada un nun loop i guarda o maior."
   starterCode: |
     # ilhas.py
     ilhas = (
@@ -87,8 +87,12 @@
     for nomi, pop, area in ilhas:
         print(f"{nomi:<14} {pop:>7} pesoa  {area} km²")
 
-    total = sum(pop for _, pop, _ in ilhas)
-    maior = max(ilhas, key=lambda i: i[1])
+    total = 0
+    maior = ilhas[0]
+    for ilha in ilhas:
+        total += ilha[1]
+        if ilha[1] > maior[1]:
+            maior = ilha
 
     print(f"Populasan total: {total}")
     print(f"Más pesoa: {maior[0]} ({maior[1]})")

@@ -118,6 +118,15 @@
     kea:
       - { label: "Python docs — More on Lists (metodus)", url: "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" }
       - { label: "Python docs — List Comprehensions", url: "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" }
+- slug: splora-comprehension-aninhadu
+  language: python
+  kind: explore
+  title: { kea: "Splora comprehension aninhadu" }
+  prompt:
+    kea: "Comprehensions pode ser aninhadu — un comprehension dentu di otu — pa kria listas di listas (p.ex. un tabela di multiplikasan ó pares di koordinadas). Es é avansadu i opcional. Odja a dokumentason i tenta kria un tabela 3×3."
+  resources:
+    kea:
+      - { label: "Python docs — Nested List Comprehensions", url: "https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions" }
 - slug: refleta-sort-vs-sorted
   language: python
   kind: reflect

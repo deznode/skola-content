@@ -1,10 +1,10 @@
 # Quiz sidecar (draft source) for lesson m2-11 "Listas i List Comprehension".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/11-listas/quiz.yaml; positions 0,1,2
+# content/courses/intro-python/lessons/11-listas/quiz.yaml; positions 0,1,2,3
 # correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 3 questions were AI-drafted from the lesson body for review, NOT
+# These 4 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
@@ -40,3 +40,18 @@
       correct: false
     - text: { kea: "Nada ta muda — string é imutável" }
       correct: false
+- question:
+    kea: "Ku `ilhas = [\"Santiago\", \"São Vicente\", \"Sal\", \"Fogo\", \"Santo Antão\"]`, o ki ta da `ilhas[1:4:2]`?"
+  options:
+    - text: { kea: "`['São Vicente', 'Fogo']` — kumesa na índisi 1, para antis di 4, di dos en dos" }
+      correct: true
+      explain: { kea: "Slice é `[start:stop:step]`: índisi 1 i 3 (4 é eksklusivu), ku passu 2." }
+    - text: { kea: "`['São Vicente', 'Sal', 'Fogo']` — di índisi 1 te 4" }
+      correct: false
+      explain: { kea: "Kel-li ta ignora o passu `2`; ku passu 2 só índisi 1 i 3 ta entra." }
+    - text: { kea: "`['Santiago', 'Sal', 'Santo Antão']` — di dos en dos di kumesu" }
+      correct: false
+      explain: { kea: "O slice ta kumesa na índisi 1, ka na 0." }
+    - text: { kea: "`['Sal', 'Fogo']` — índisi 2 i 3" }
+      correct: false
+      explain: { kea: "Start é 1 i step é 2, entun índisi 1 i 3." }

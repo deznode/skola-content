@@ -10,7 +10,7 @@ duration: "15 min"
 objectives:
   - "Adisiona type hints na funsons i variáveis pa dokumenta tipu di dadus"
   - "Uza sintaxi int | None (Python 3.10+) pa valóris opisionais"
-  - "Kompriendi ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
+  - "Splika ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
 ---
 
 # Annotasons di Tipu
@@ -201,11 +201,11 @@ Entun pa ki é ki type hints ta sirbi?
 
 ```python
 # Sen hints — ki é ki es funsan ta espera?
-def prosesa(dadus, opcoes, callback):
+def prosesa(dadus, opcoes):
     ...
 
 # Ku hints — klaru!
-def prosesa(dadus: list[dict], opcoes: dict[str, bool], callback: callable) -> bool:
+def prosesa(dadus: list[dict], opcoes: dict[str, bool]) -> bool:
     ...
 ```
 

@@ -13,9 +13,13 @@ objectives:
   - "Testa membership ku 'in' na tempu O(1)"
   - "Aplika operasons matemátiku: union, intersection, difference"
   - "Skrebe set comprehension"
+  - "Modifika sets ku .add(), .remove() i .discard()"
+  - "Skodje entri set i lista pa un kazu di uzu"
 ---
 
 # Konjuntus (Sets)
+
+Imagina ki bu tene un lista di 500 nomi di estudanti ki registra pa un evento — ma alguns registra dos ó tres bez. Kumo ki bu ta tira os duplikadus i, dipos, verifika rápidu si un pesoa sta na lista? Pa kel-li Python tene un ferramenta spesial: o **set**.
 
 Na matemátika, un konjuntu é un grupu di elementus úniku — sen repetisan. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi un bez só, ó kuandu bo presiza verifika rápidu si un elementu ezisti. Nos ta uza sets pa tudu tipu di koza — dezdi removi duplikadus te kompara listas di dadus.
 
@@ -44,6 +48,17 @@ print(type(vazio_eradu))    # <class 'dict'>
 `{}` ta kria un disionáriu vazio, NAU un set vazio! Pa kria set vazio, senpri uza `set()`. Txeu programadoris ta kái nes armadidja.
 :::
 
+### Sets Ka Tene Órdin — Ka Pode Indexa
+
+Pamodi un set ka ten órdin garantidu, bu **ka pode** asesa elementus pa índisi kumo na lista. Tenta-l ta da un eru:
+
+<TerminalBlock code={`>>> ilhas = {"Santiago", "Sal", "Fogo"}
+>>> ilhas[0]
+Traceback (most recent call last):
+TypeError: 'set' object is not subscriptable`} />
+
+Si bu presiza asesu pa índisi, uza un lista. Si bu presiza elementus úniku i buska rápidu, uza un set.
+
 ## Auto-Deduplikasan
 
 Kuandu bo kria un set, Python ta elimina automatikamenti tudu elementu repetidu:
@@ -58,7 +73,7 @@ print(f"Tinha {len(notas)} notas, ma só {len(notas_unikas)} é úniku")
 # Letras di un palavra
 palavra = "katxupa"
 letras = set(palavra)
-print(letras)  # {'c', 'a', 'h', 'u', 'p'} (órdin podi varia)
+print(letras)  # {'k', 'a', 't', 'x', 'u', 'p'} (órdin podi varia)
 print(f"'{palavra}' tene {len(letras)} letras diferenti")
 ```
 
@@ -148,6 +163,33 @@ so_sv = ingredientis_katxupa_sv - ingredientis_katxupa_santiago
 print(f"Só Santiago: {so_santiago}")
 print(f"Só São Vicente: {so_sv}")
 ```
+
+Es kuadru ta rezumi os kuatru operason, ku o rezultadu pa `python_estudantis` i `javascript_estudantis` di sima:
+
+<CompareTable
+  title="Operasons di konjuntus"
+  cornerLabel="Operason"
+  cols={[
+    { name: "Union", syntax: "a | b", accent: "blue" },
+    { name: "Intersection", syntax: "a & b", accent: "teal" },
+    { name: "Difference", syntax: "a - b", accent: "orange" },
+    { name: "Symmetric", syntax: "a ^ b", accent: "purple" },
+  ]}
+  rows={[
+    { label: "O ki ta da", kind: "text", vals: [
+      "Tudu estudanti di os dos kursu",
+      "Estudanti na **ambos** kursu",
+      "Estudanti só na `a` (Python), ka na `b`",
+      "Estudanti na un kursu ma **ka** na os dos",
+    ] },
+    { label: "Rezultadu", kind: "text", vals: [
+      "`{Maria, João, Ana, Pedro, Carla, Nilton, Kelvin, Edna}`",
+      "`{Ana, Pedro}`",
+      "`{Maria, João, Carla}`",
+      "`{Maria, João, Carla, Nilton, Kelvin, Edna}`",
+    ] },
+  ]}
+/>
 
 ## Metodus di Sets
 
@@ -277,7 +319,7 @@ Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas
 
 ```python
 # Kel li ta funsiona
-validu = {1, "hello", (1, 2, 3), True}
+validu = {1, "hello", (1, 2, 3), 3.14}  # números, strings, tuplas — tudu imutável
 
 # Kel li ta da eru!
 # invalidu = {[1, 2], {"a": 1}}  # TypeError: unhashable type: 'list'
@@ -288,7 +330,7 @@ validu = {1, "hello", (1, 2, 3), True}
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
 ## Rezumu

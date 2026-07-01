@@ -10,7 +10,7 @@ duration: "20 min"
 objectives:
   - "Uza enumerate() pa itera ku índisi sen range(len())"
   - "Uza zip() pa itera sobri vários listas na paralelu"
-  - "Intende diferensa entri sorted() i .sort()"
+  - "Distingi kuandu uza sorted() vs .sort()"
   - "Uza any() i all() pa agregasan boolean"
   - "Verifika tipus ku isinstance()"
 ---
@@ -226,7 +226,7 @@ palavras = ["katxupa", "morabeza", "sol", "funana", "grogu"]
 
 # Pa tamánhu di palavra
 print(sorted(palavras, key=len))
-# ['sol', 'funana', 'grogu', 'katxupa', 'morabeza']
+# ['sol', 'grogu', 'funana', 'katxupa', 'morabeza']
 
 # Alfabetikamenti (sen importa maiúskulas)
 misturadu = ["Praia", "mindelo", "SAL", "fogo"]
@@ -347,8 +347,8 @@ print(isinstance(True, bool))       # True
 
 ```python
 # isinstance() vs type()
-# isinstance() funsiona ku hereditariedadi (inheritance)
-print(isinstance(True, int))    # True! (bool é subtipo di int)
+# Na Python, un bool ta konta sima un númeru interu
+print(isinstance(True, int))    # True! (True ta funsiona sima 1, False sima 0)
 print(type(True) == int)        # False (type() é striitu)
 ```
 

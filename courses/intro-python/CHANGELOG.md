@@ -8,6 +8,15 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-06-30] — publish
+
+### Changed
+- M1 (L01–L10): pedagogy and quiz refinements; component enrichment.
+- M2 (L11–L15): pedagogy fixes, load restructures, expanded quizzes and exercises.
+- M3 (L16–L25): applied M3 pedagogy fixes; component enrichment.
+### Fixed
+- Minor typos in code comments and explanations across lessons.
+
 ## [2026-06-23] — publish
 
 ### Changed

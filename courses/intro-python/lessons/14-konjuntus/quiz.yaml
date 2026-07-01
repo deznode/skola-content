@@ -1,10 +1,10 @@
 # Quiz sidecar (draft source) for lesson m2-14 "Konjuntus (Sets)".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/14-konjuntus/quiz.yaml; positions 0,1,2
+# content/courses/intro-python/lessons/14-konjuntus/quiz.yaml; positions 0,1,2,3,4
 # correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 3 questions were AI-drafted from the lesson body for review, NOT
+# These 5 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
@@ -40,3 +40,33 @@
       correct: false
     - text: { kea: "Es é igual — ka ten diferensa di velosidadi" }
       correct: false
+- question:
+    kea: "O ki ta da `{x for x in range(5) if x % 2 == 0}`?"
+  options:
+    - text: { kea: "`{0, 2, 4}` — un set comprehension ku só os par di 0 a 4" }
+      correct: true
+      explain: { kea: "Ku txaves `{}` i sen `key: value` é un **set comprehension**: só os `x` par di `range(5)`." }
+    - text: { kea: "`[0, 2, 4]` — un lista" }
+      correct: false
+      explain: { kea: "Txaves `{}` ta da un set, ka un lista (kel sería `[...]`)." }
+    - text: { kea: "`{0: 0, 2: 2, 4: 4}` — un disionáriu" }
+      correct: false
+      explain: { kea: "Sen `key: value` ka é dict comprehension — é un set." }
+    - text: { kea: "`{0, 1, 2, 3, 4}` — tudu os númeru" }
+      correct: false
+      explain: { kea: "O filtru `if x % 2 == 0` ta dexa só os par." }
+- question:
+    kea: "Ku `notas = [15, 18, 15, 12, 18]`, o ki ta da `len(set(notas))`?"
+  options:
+    - text: { kea: "`3` — `set()` ta tira os duplikadu, dexandu `{15, 18, 12}`" }
+      correct: true
+      explain: { kea: "Auto-deduplikasan: `set(notas)` é `{12, 15, 18}`, ki tene 3 elementu úniku." }
+    - text: { kea: "`5` — o tamanhu di a lista orijinal" }
+      correct: false
+      explain: { kea: "`set()` ta elimina os repetidu primeru, entun ka é 5." }
+    - text: { kea: "`2` — só os ki ta repete" }
+      correct: false
+      explain: { kea: "`set()` ta guarda kada valor úniku un bez, ka só os repetidu." }
+    - text: { kea: "Un eru — ka pode po `len()` nun set" }
+      correct: false
+      explain: { kea: "`len()` ta funsiona nun set normalmenti." }

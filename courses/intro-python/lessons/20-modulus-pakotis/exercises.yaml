@@ -64,7 +64,7 @@
 
     # --- main.py (otu ficheru) ---
     # from conversor import ecv_pa_euro, euro_pa_ecv
-    # print(ecv_pa_euro(5000))   # 45.34
+    # print(ecv_pa_euro(5000))   # 45.35
     # print(euro_pa_ecv(45))     # 4961.93
 - slug: pakotu-utils
   language: python

@@ -8,7 +8,7 @@ module: 3
 lesson: 19
 duration: "15 min"
 objectives:
-  - "Intendi lazy evaluation i pamodi el ta puopa memória"
+  - "Splika lazy evaluation i pamodi el ta puopa memória"
   - "Skrebe generator expressions ku sintaxi (x for x in ...)"
   - "Kria generator functions ku yield"
   - "Kompara uzu di memória entri listas i jeneradorus"
@@ -146,6 +146,10 @@ Un generator ku `while True` ta produz valóris pa senpri — el é **infinitu**
 ## Ler Ficheru Grandi Linha pa Linha
 
 Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sen karrega tudu na memória:
+
+:::callout{type=info}
+Es izemplu ta uza `with open(...)` pa ler ficheru — bo ta prende operasons ku ficheru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo o generator ta entrega **un linha di kada bez**, sen po tudu o ficheru na memória.
+:::
 
 ```python
 def le_linhas(kaminu_ficheru):

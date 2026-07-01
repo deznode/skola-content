@@ -11,8 +11,8 @@ objectives:
   - "Importa módulus built-in ku import, from...import, i alias"
   - "Uza pip pa instala pakotis di terseru"
   - "Kria pakotis personalizadu ku __init__.py"
-  - "Konxe módulus prinsipais di standard library"
-  - "Intendi padron __name__ == '__main__'"
+  - "Identifika módulus prinsipais di standard library"
+  - "Aplika padron __name__ == '__main__'"
 ---
 
 # Módulus i Pakotis
@@ -159,46 +159,7 @@ aniversáriu = datetime.strptime("15/01/1973", "%d/%m/%Y")
 print(f"Dia: {aniversáriu.day}, Mes: {aniversáriu.month}")
 ```
 
-### `csv` — Ler i skrebe CSV
-
-```python
-import csv
-
-# Skrévi un CSV
-vendas = [
-    ["produto", "prasu", "kuantidadi"],
-    ["Grogu", "500 ECV", "10"],
-    ["Ponche", "300 ECV", "25"],
-    ["Mel di kana", "200 ECV", "15"],
-]
-
-with open("vendas.csv", "w", newline="") as f:
-    escritor = csv.writer(f)
-    escritor.writerows(vendas)
-
-# Ler un CSV
-with open("vendas.csv", "r") as f:
-    leitor = csv.reader(f)
-    for linha in leitor:
-        print(linha)
-```
-
-### `re` — Expresons regularis
-
-```python
-import re
-
-textu = "Maria tene 22 anu i João tene 35 anu"
-
-# Atxa tudu numeru
-numeros = re.findall(r"\d+", textu)
-print(numeros)  # ['22', '35']
-
-# Verifica si email é válidu (báziku)
-email = "maria@gmail.com"
-if re.match(r"^[\w.+-]+@[\w-]+\.[\w.]+$", email):
-    print(f"{email} parsé válidu ✓")
-```
+Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bo ta prende kada un kuandu bo presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
 
 :::callout{type=tip}
 Standard library é enormi! Kel li é só un prova. Vizita [docs.python.org/3/library](https://docs.python.org/3/library/) pa esplora tudu módulus disponível.
@@ -241,7 +202,7 @@ Senpri instala pakotis dentu di un **ambiente virtual** (`.venv`). Nos ta prende
 
 Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ó más módulus:
 
-```
+```text
 meu_projetu/
 ├── main.py
 └── utilidadis/
@@ -328,7 +289,7 @@ Kel padron é perfeitu pa po kódiku di testu ó ezemplus ki só ta roda kuandu 
 
 Un projetu Python ben organizadu ta parsé ku kel li:
 
-```
+```text
 gestor_notas/
 ├── main.py              # Pontu di entrada
 ├── requirements.txt     # Dependénsia di terseru

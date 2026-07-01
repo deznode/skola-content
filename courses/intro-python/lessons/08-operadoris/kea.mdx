@@ -11,10 +11,12 @@ objectives:
   - "Uza operadoris aritmétiku (+, -, *, /, //, %, **) pa faze kálkulus"
   - "Kompara valoris ku operadoris di komparasan (==, !=, >, <, >=, <=)"
   - "Kombina kondisons ku operadoris lójiku (and, or, not)"
-  - "Intende presedensia di operadoris i armadidjas komun"
+  - "Aplika regras di presedensia pa prever rezultadu di un expresan i evita armadidjas komun"
 ---
 
 # Operadoris
+
+Imajina ki bu sta faze un app pa un loja na Praia: bu meste kalkula troku, verifika si un kliente tene idadi pa kompra, i djunta varius kondisons pa disidi si un diskontu ta aplika. Tudu kel-li ta kontise ku **operadoris**.
 
 Operadoris é sinais ki ta dize Python pa faze un operasan ku valoris. Kuandu bu skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na es lisan, nos ta prende tres tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasan (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bu ta uza na tudu programa ki bu skrebe.
 
@@ -254,16 +256,20 @@ print(f"Pode entra? {pode_entra}")  # True
 ```
 
 ```python
-# Izemplu prátiku: validasan di senha
+# Izemplu prátiku: validasan simples di password
 senha = "Py2026!"
 
-tene_tamanhu = len(senha) >= 6
-tene_numeru = any(c.isdigit() for c in senha)
-tene_letra = any(c.isalpha() for c in senha)
+tene_tamanhu = len(senha) >= 8     # operador di komparasan
+ka_vaziu = senha != ""             # operador di komparasan
 
-senha_forte = tene_tamanhu and tene_numeru and tene_letra
-print(f"Senha forte? {senha_forte}")  # True
+# Operador lójiku `and` ta djunta es dos kondisons:
+senha_ok = tene_tamanhu and ka_vaziu
+print(f"Password ok? {senha_ok}")  # True
 ```
+
+:::callout{type=note}
+Pa verifika regras más detalhadu — si tene númeru, si tene letra maiúskula — bu meste persorre kada karáter di string. Bu ta prende kel-li ku **loops** na Lisan 10.
+:::
 
 <SectionHeading variant="concept">Tabela di Verdadi (Truth Table)</SectionHeading>
 

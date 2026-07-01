@@ -85,6 +85,25 @@
     print(f"Tudu (|):      {p1 | p2}")
     print(f"Na os dos (&): {p1 & p2}")
     print(f"Só na p1 (-):  {p1 - p2}")
+- slug: set-comprehension-vogais
+  language: python
+  kind: code
+  title: { kea: "Set comprehension — vogais úniku" }
+  prompt:
+    kea: "Tene un palavra (p.ex. `\"morabeza\"`). Uza un **set comprehension** pa kria un set ku só as vogais (`a e i o u`) ki ta parsi na palavra. A sintaxi é `{expr for x in ... if kondison}`."
+  hint:
+    kea: "Mesmu lójika di list comprehension, ma ku txaves `{}`: `{letra for letra in palavra if letra in \"aeiou\"}`. O set ta tira os duplikadu automátikamenti."
+  starterCode: |
+    # vogais.py
+    palavra = "morabeza"
+
+    # TODO: set comprehension ku só as vogais úniku di palavra
+  solutionCode: |
+    # vogais.py
+    palavra = "morabeza"
+
+    vogais_na_palavra = {letra for letra in palavra if letra in "aeiou"}
+    print(vogais_na_palavra)  # {'o', 'a', 'e'} (órdin podi varia)
 - slug: splora-frozenset
   language: python
   kind: explore

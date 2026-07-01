@@ -243,26 +243,21 @@ Li ten un rezumu di komandus ki bu ta uza senpri. Repete-s ku es flashcards pa l
     { term: "source .venv/bin/activate", def: "Ativa .venv na macOS/Linux. Na Windows uza .venv\\Scripts\\activate." },
     { term: "deactivate", def: "Disativa virtual environment atual i volta pa sistema." },
     { term: "pip install <pakoti>", def: "Instala un pakoti dentu di .venv ativu. Izemplu: pip install requests." },
-    { term: "python ola.py", def: "Kore programa ola.py. Sertifika ki .venv ta ativu primeru." },
+    { term: "python ola.py", def: "Kore programa ola.py dentu di bu .venv ativu." },
   ]}
 />
 
 <SectionHeading level={3} variant="install">pip (Instalador di Pakotis)</SectionHeading>
 
 <GlossaryText
-  text="Un [[pakoti]] é un biblioteka di kódiku ki otu pesoa skrebe pa bu uza. `pip` é programa ki ta instala-l dentu di bu `.venv`."
+  text="Un [[pakoti]] é un biblioteka di kódiku ki otu pesoa skrebe pa bu uza, i `pip install <pakoti>` ta instala-l dentu di bu `.venv` ativu (izemplu: `pip install requests`)."
   terms={{
     "pakoti": { en: "package", definition: "Un biblioteka di kódiku reutilizável ki otus dezenvolvedoris skrebe i partilha, pa bu instala ku `pip` i uza na bu projetu." },
   }}
 />
 
-```bash
-# Instala un pakoti dentu di bu .venv
-pip install requests
-```
-
 :::callout{type=info title="Pa más sobri pip"}
-Lisan 21 (Ambiente Virtual i pip) ta mostra `pip list`, `pip freeze` i `requirements.txt` ku detalhe.
+Nu ta odja `pip list`, `pip freeze` i `requirements.txt` ku detalhe na Lisan 21 (Ambiente Virtual i pip).
 :::
 
 :::callout{type=tip}

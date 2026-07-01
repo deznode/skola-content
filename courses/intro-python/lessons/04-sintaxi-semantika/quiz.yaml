@@ -1,10 +1,10 @@
 # Quiz sidecar (draft source) for lesson m1-04 "Sintaxi i Semantika".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
 # content/courses/intro-python/lessons/04-sintaxi-semantika/quiz.yaml; positions
-# 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
+# 0,1,2,3 correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 3 questions were AI-drafted from the lesson body for review, NOT
+# These 4 questions were AI-drafted from the lesson body for review, NOT
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:

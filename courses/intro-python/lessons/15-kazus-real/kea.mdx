@@ -25,6 +25,10 @@ Nos dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius,
 
 Listas é perfeitu pa jestan di tarefas — bu pode djunta, elimina, i reorganiza elementus. Nos ta kria un sistema simples di tarefas:
 
+:::callout{type=note title="Kual estrutura — i pamodi?"}
+Pa tarefas nu ta uza un **lista**: a orden ta importa i nu meste djunta, tira i reorganiza elementus.
+:::
+
 ```python
 # Sistema di tarefa pa un estudanti na Praia
 tarefas = []
@@ -39,6 +43,10 @@ print("📋 Lista di tarefa:")
 for i, tarefa in enumerate(tarefas, 1):
     print(f"  {i}. {tarefa}")
 ```
+
+:::callout{type=tip title="Para i pensa"}
+Depós di kuatru `.append()`, o ki `len(tarefas)` ta da? *(Resposta: `4`.)*
+:::
 
 ```python
 # Marka tarefa kumo konpletadu (elimina)
@@ -80,6 +88,10 @@ Listas é ótimus kuandu bo presiza mante órdin i modifika konteúdu ku frekué
 
 Listas kombina perfeitamenti ku funsons built-in (`sum`, `max`, `min`, `len`, `sorted`) pa analiza dadus numérikiu:
 
+:::callout{type=note title="Kual estrutura — i pamodi?"}
+Pa notas nu ta uza un **lista** di númeru — asi nu pode aplika funsons built-in (`sum`, `max`, `min`, `len`) pa analiza.
+:::
+
 ```python
 # Notas di Maria na diferentes matérias
 nomis_materia = ["Python", "Matemátika", "Inglés", "Istória", "Fizika"]
@@ -96,6 +108,14 @@ print(f"  Nota más altu: {nota_max}")
 print(f"  Nota más baxu: {nota_min}")
 ```
 
+:::callout{type=tip title="Para i pensa"}
+Ku `notas_maria = [17, 14, 16, 12, 15]`, o ki `sum(notas_maria) / len(notas_maria)` ta da? *(Resposta: `74 / 5 = 14.8`.)*
+:::
+
+:::callout{type=info title="Pa frenti: funsons (Módulu 3)"}
+Li nu ta uza `def` pa kria un **funsan** — un manera di djunta kódiku ki nu pode txoma várias bez. Funsons é o tema di Módulu 3; pa gosi, só presiza intende ki `def klasifika_nota(nota)` ta da un nomi a un bloku di kódiku ki ta risibi un nota i ta da se klasifikasan.
+:::
+
 ```python
 # Klasifika notas
 def klasifika_nota(nota):
@@ -109,7 +129,9 @@ def klasifika_nota(nota):
         return "Insufisiente"
 
 print("\n📝 Detalhes:")
-for materia, nota in zip(nomis_materia, notas_maria):
+for i in range(len(nomis_materia)):
+    materia = nomis_materia[i]
+    nota = notas_maria[i]
     klasifikasan = klasifika_nota(nota)
     print(f"  {materia}: {nota}/20 - {klasifikasan}")
 
@@ -128,7 +150,10 @@ print(f"  João  - Média: {sum(notas_joao)/len(notas_joao):.1f}")
 
 # Ken tene nota más altu na kada matéria?
 print("\n  Milhor na kada matéria:")
-for materia, nota_m, nota_j in zip(nomis_materia, notas_maria, notas_joao):
+for i in range(len(nomis_materia)):
+    materia = nomis_materia[i]
+    nota_m = notas_maria[i]
+    nota_j = notas_joao[i]
     if nota_m > nota_j:
         milhor = "Maria"
     elif nota_j > nota_m:
@@ -141,6 +166,10 @@ for materia, nota_m, nota_j in zip(nomis_materia, notas_maria, notas_joao):
 ## Inventáriu di Loja (Store Inventory)
 
 Disionárius é estrtura ideal pa inventáriu — bu ta mapeia produktu pa informasons (presu, kantidadi, etc.):
+
+:::callout{type=note title="Kual estrutura — i pamodi?"}
+Pa inventáriu nu ta uza un **disionáriu**: kada produtu (xavi) ta mapia pa se informasan (presu, stoki), ku buska rápidu.
+:::
 
 ```python
 # Inventáriu di un merkadu na Mindelo
@@ -196,6 +225,10 @@ for prod, info in stock_baxu.items():
     print(f"  {prod}: só {info['kantidadi']} {info['unidadi']} resta!")
 ```
 
+:::callout{type=tip title="Para i pensa"}
+Depós di vende 3 garafa di grogu (di 15), ki produtu ta entra na lista di stoki baxu (`< 20`)? *(Resposta: grogu, ku 12.)*
+:::
+
 :::callout{type=tip}
 Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` en bez di `KeyError` si produktu ka ezisti.
 :::
@@ -203,6 +236,10 @@ Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é m�
 ## Removi Duplikadus (Sets + Lists)
 
 Sets é arma perfetu pa deteta i elimina duplikadus. Nos ta ve diferenti senárius:
+
+:::callout{type=note title="Kual estrutura — i pamodi?"}
+Pa tira duplikadus nu ta uza un **set**: el ta garanti elementus úniku. Pa mante a orden orijinal, kombina ku un lista (o padrón `vistu`).
+:::
 
 ```python
 # Senáriu 1: Kontatus ku emali duplikadu
@@ -220,7 +257,7 @@ kontatus = [
 print(f"Total kontatus: {len(kontatus)}")
 print(f"Kontatus úniku: {len(set(kontatus))}")
 
-# Removi duplikadus preservandu órdin
+# Removi duplikadus preservandu órdin (mesmu padrun ki nu odja na Lisan 14)
 vistu = set()
 kontatus_limpu = []
 for emali in kontatus:
@@ -233,6 +270,10 @@ for emali in kontatus_limpu:
     print(f"  - {emali}")
 ```
 
+:::callout{type=tip title="Para i pensa"}
+A lista `kontatus` ten 8 email ku duplikadus. Kuantu email úniku `len(set(kontatus))` ta da? *(Resposta: 5.)*
+:::
+
 ```python
 # Senáriu 2: Palavaras repetidu na un textu
 textu = "funana é músika funana é kultura funana é vida na Kabu Verdi"
@@ -243,9 +284,10 @@ unikas = set(palavras)
 print(f"Total palavras: {len(palavras)}")
 print(f"Palavras únikas: {len(unikas)}")
 
-# Palavras ki ta repeti
-from collections import Counter
-kontador = Counter(palavras)
+# Palavras ki ta repeti (ku padrun di kontador di Lisan 13)
+kontador = {}
+for palavra in palavras:
+    kontador[palavra] = kontador.get(palavra, 0) + 1
 repetidus = {palavra: konta for palavra, konta in kontador.items() if konta > 1}
 print(f"Palavras ki ta repeti: {repetidus}")
 ```
@@ -352,7 +394,7 @@ Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" 
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
 ## Rezumu
@@ -362,5 +404,5 @@ Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" 
   <RezumuItem term="Disionáriu">A midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>
   <RezumuItem term="Set">Ta rezolve elegante os problema di duplikasan i pertensa.</RezumuItem>
   <RezumuItem>Os problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa o ki el ta faze midjór.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">`zip()` ta perkore dos lista djuntu (`for materia, nota in zip(...)`), i `collections.Counter` ta konta frekuénsia diretu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Pa perkore dos lista djuntu, uza `range(len(...))` ku índisi; pa konta frekuénsia, uza o padrun `.get(xavi, 0) + 1` (Lisan 13).</RezumuItem>
 </KeyTakeaways>

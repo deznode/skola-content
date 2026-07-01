@@ -146,7 +146,11 @@ with open("ilhas_kv.txt", "w") as ficheru:
 `writelines()` ka ta adisiona `\n` automátikamenti — bo presiza inkluí na kada string!
 :::
 
-## Modu `'w+'` — Skrebe i Ler (ku seek)
+## (Opsional · avansadu) Modu `'w+'` — Skrebe i Ler (ku seek)
+
+:::callout{type=info}
+Es seksan é **opsional** — pa kumesa, os trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bo presiza ler i skrebe mesmu ficheru na un só operasan.
+:::
 
 `'w+'` dixa bo skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bo presiza uza `seek(0)` pa volta pa kumesu!
 

@@ -10,7 +10,7 @@ duration: "15 min"
 objectives:
   - "Skrebe funsons di testu ku assert pa verifika konportamentu di kódiku"
   - "Roda testus ku pytest i interpreta rezultadus"
-  - "Kompriendi pensamentu test-driven: testu → implementa → verifika"
+  - "Aplika siklu test-driven: testu → implementa → verifika"
 ---
 
 # Testu di Kódiku ku pytest
@@ -161,6 +161,7 @@ def soma(a: float, b: float) -> float:
 pytest -v
 
 # test_kalkuladora.py::test_soma_numerus_pozitivu FAILED
+# test_kalkuladora.py::test_soma_numerus_negativu FAILED
 # test_kalkuladora.py::test_soma_ku_zero FAILED
 #
 # FAILURES
@@ -171,7 +172,7 @@ pytest -v
 # E       assert 6 == 5
 # E        +  where 6 = soma(2, 3)
 #
-# ==================== 2 failed, 5 passed in 0.02s ====================
+# ==================== 3 failed, 4 passed in 0.02s ====================
 ```
 
 pytest ta mostra:
@@ -266,7 +267,7 @@ def test_palindromu_ku_maiúskula():
     assert é_palindromu("Ovo") is True
 
 def test_palindromu_ku_espasu():
-    assert é_palindromu("a man a") is True
+    assert é_palindromu("o vo") is True
 
 def test_ka_palindromu():
     assert é_palindromu("maria") is False
@@ -313,7 +314,7 @@ pytest test_utils.py -v
 
 TDD signifika skrebe testus **antis** di skrebe kódiku. Siklu é:
 
-```
+```text
 1. SKREBI TESTU  →  (fayo pamodi funsan ka ezisti inda)
 2. IMPLEMENTA    →  (skrebi kódiku mínima pa testu pasa)
 3. VERIFIKA      →  (roda pytest — tudu verde?)
@@ -393,7 +394,7 @@ Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_
 
 ## Struktura di Projetu ku Testus
 
-```
+```text
 nha_projetu/
 ├── kalkuladora.py
 ├── utils.py
@@ -405,7 +406,7 @@ nha_projetu/
 
 Pa projetis más grandi, testus pode fika na un pasta separadu:
 
-```
+```text
 nha_projetu/
 ├── src/
 │   ├── kalkuladora.py

@@ -121,6 +121,31 @@
     perfil = {"nomi": "Tóni", "ilha": "Fogo"}
     idadi = perfil.get("idadi", "idadi diskoñesidu")
     print(f"{perfil['nomi']} ten {idadi} anu")
+- slug: koriji-kopia-referensia
+  language: python
+  kind: debug
+  file: kopia.py
+  title: { kea: "Koriji un kópia ki ka é independenti" }
+  prompt:
+    kea: "Es programa kre guarda un kópia di o menu antis di subi os presu, ma na fin os dos disionáriu ten os presu novu. Koriji-l pa `menu_orijinal` fika sen muda."
+  hint:
+    kea: "`menu_orijinal = menu` ka ta kria un kópia — é o mesmu objetu. Uza `menu.copy()` pa un kópia independenti."
+  starterCode: |
+    # kopia.py — menu_orijinal ka deve muda, ma el ta muda. Koriji-l.
+    menu = {"katxupa": 450, "grogu": 150}
+    menu_orijinal = menu
+
+    menu["katxupa"] = 500
+    print("Orijinal:", menu_orijinal)  # kre {'katxupa': 450, 'grogu': 150}
+    print("Atual:", menu)
+  solutionCode: |
+    # kopia.py — .copy() ta kria un kópia independenti
+    menu = {"katxupa": 450, "grogu": 150}
+    menu_orijinal = menu.copy()
+
+    menu["katxupa"] = 500
+    print("Orijinal:", menu_orijinal)  # {'katxupa': 450, 'grogu': 150}
+    print("Atual:", menu)              # {'katxupa': 500, 'grogu': 150}
 - slug: splora-collections
   language: python
   kind: explore

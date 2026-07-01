@@ -8,10 +8,10 @@ module: 2
 lesson: 12
 duration: "20 min"
 objectives:
-  - "Kria tuples i intendi imutabilidadi"
+  - "Kria tuples i splika imutabilidadi"
   - "Uza packing i unpacking di valores"
   - "Aplika star unpacking ku *middle"
-  - "Sabi kuandu uza tuple vs lista"
+  - "Distingi kuandu uza tuple vs lista"
 ---
 
 # Tuplas
@@ -288,14 +288,18 @@ print("=== Voos Disponível ===")
 for oríjen, destinu, durasan, presu in voos:
     print(f"  {oríjen} → {destinu}: {durasan}min | {presu} ECV")
 
-# Voo más baratu
-mais_baratu = min(voos, key=lambda v: v[3])
+# Voo más baratu (sen lambda — só ku loop ki nu dja sabi)
+mais_baratu = voos[0]
+for voo in voos:
+    if voo[3] < mais_baratu[3]:
+        mais_baratu = voo
 nomi_rota = f"{mais_baratu[0]} → {mais_baratu[1]}"
 print(f"\nMás baratu: {nomi_rota} ({mais_baratu[3]} ECV)")
 
 # Voos di Praia
 voos_praia = [v for v in voos if v[0] == "Praia"]
 print(f"\nVoos partindo di Praia: {len(voos_praia)}")
+# '_' é un nomi konvensional pa un valor ki nu ka ta uza (li, o oríjen)
 for _, destinu, durasan, presu in voos_praia:
     print(f"  → {destinu}: {durasan}min, {presu} ECV")
 ```
@@ -305,7 +309,7 @@ for _, destinu, durasan, presu in voos_praia:
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
 ## Rezumu

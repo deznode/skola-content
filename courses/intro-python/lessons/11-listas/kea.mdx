@@ -20,6 +20,10 @@ Imagina bu tene un lista di ilhas ki bu kre vizita, un lista di presus di merkad
 
 Lista é un di estruturas más usadu na Python — é **mutável** (bu pode muda dipos di kria), **ordenadu** (elementus ta mantene es pozisan), i pode guarda **kualker tipu di dadu**.
 
+:::callout{type=info title="Antis di kumesa"}
+Pa sigi es lisan bu meste konxe **loops** (Lisan 10) — list comprehension ta uza `for` i `range()` — i ten un base di variávis i strings di Módulu 1.
+:::
+
 ## Kria Listas
 
 Pa kria un lista, uza kolxetis `[]` ku elementus separadu pa vírgula:
@@ -202,29 +206,22 @@ print(notis_ordenadu)  # [78, 85, 88, 92, 95]
 `sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bu ka kre perdi lista orijinal.
 :::
 
-## Otus Metodus Útil
+### Otus Metodus Útil (referénsia)
 
-```python
-notis = [85, 92, 78, 95, 88, 92, 85]
+Es metodus é útil ma ka é o korason di o lisan — lé-s rápidu gosi i volta li kumo referénsia kuandu bu meste-s. Abri kada un pa odja un izemplu:
 
-# count() — konta kantu bez un valor aparese
-print(notis.count(92))   # 2
-print(notis.count(100))  # 0
+<DetailDisclosure
+  items={[
+    { q: "`.count(x)` — kantu bez un valor ta parese", tag: "Referénsia", a: "Ta konta kantu bez `x` ta parese na lista.", code: "notis.count(92)  # 2" },
+    { q: "`.index(x)` — pozisan di primeru okorrénsia", tag: "Referénsia", a: "Ta da o índisi di primeru `x`; ta da `ValueError` si ka atxa.", code: "notis.index(95)  # 3" },
+    { q: "`x in lista` — verifika si un elementu ezisti", tag: "Referénsia", a: "Ta da `True` ó `False`.", code: "92 in notis  # True" },
+    { q: "`len()`, `sum()`, `min()`, `max()` — funsons built-in", tag: "Referénsia", a: "Funsiona diretu ku listas di númeru.", code: "sum(notis)  # 615" },
+  ]}
+/>
 
-# index() — enkontra pozisan di primeiru okorrénsia
-print(notis.index(95))   # 3
-print(notis.index(85))   # 0 (primeiru, ka últimu)
-
-# in — verifica si elementu ezisti
-print(92 in notis)   # True
-print(100 in notis)  # False
-
-# Funsons built-in ku listas
-print(len(notis))    # 7
-print(sum(notis))    # 615
-print(min(notis))    # 78
-print(max(notis))    # 95
-```
+:::callout{type=tip title="Para i pensa"}
+Antis di pasa pa comprehension: dadu `notis = [85, 92, 78]`, o ki `notis.append(90)` ta retorna, i o ki `sorted(notis)` ta da? *(Resposta: `.append()` ta muda `notis` pa `[85, 92, 78, 90]` i ta retorna `None`; `sorted(notis)` ta da un lista nova `[78, 85, 92]` sen muda `notis`.)*
+:::
 
 ## List Comprehension
 
@@ -284,24 +281,9 @@ presus_eur = [round(p / 110, 2) for p in presus_ecv]
 print(presus_eur)  # [3.18, 4.55, 1.36, 7.27]
 ```
 
-### Comprehension Aninhadu (Nested)
-
-```python
-# Kria pares di koordinadas
-koordinadas = [[x, y] for x in range(1, 4) for y in range(1, 4)]
-print(koordinadas)
-# [[1,1], [1,2], [1,3], [2,1], [2,2], [2,3], [3,1], [3,2], [3,3]]
-
-# Tabela di multiplikasan (1-5)
-tabela = [[i * j for j in range(1, 6)] for i in range(1, 6)]
-for linia in tabela:
-    print(linia)
-# [1, 2, 3, 4, 5]
-# [2, 4, 6, 8, 10]
-# [3, 6, 9, 12, 15]
-# [4, 8, 12, 16, 20]
-# [5, 10, 15, 20, 25]
-```
+:::callout{type=note}
+**Avansadu (opcional):** comprehensions pode ser *aninhadu* (un comprehension dentu di otu) pa kria listas di listas, kumo un tabela di multiplikasan. Kel li ta pasa alen di es lisan — odja o izersísiu **"Splora comprehension aninhadu"** na fin si bu kre splora-l.
+:::
 
 ## Izemplu Prátiku: Jestan di Turma
 
@@ -347,7 +329,7 @@ for r in rezumu:
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
 ## Rezumu

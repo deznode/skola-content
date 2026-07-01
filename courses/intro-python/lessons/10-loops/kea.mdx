@@ -13,6 +13,7 @@ objectives:
   - "Uza while loop pa repetisan kondisinál"
   - "Kontrola fluxu ku break, continue i pass"
   - "Kria loops aninhadu pa padruns kompleksu"
+  - "Rekonhese for-else kumo un pitu opsional pa kódiku di buska"
   - "Konxe enumerate() kumo pitu pa Module 3"
 ---
 
@@ -264,7 +265,11 @@ for i in range(10):
 `pass` é útil kuandu bu ta planeja bo programa i bu kre dexa un bloku vazio pa dipos. Sen `pass`, Python ta dá `IndentationError`.
 :::
 
-## For-Else: Bloku Else Dipos di Loop
+## Pitu: For-Else (opsional)
+
+:::callout{type=note}
+Es seksan é un **pitu** opsional pa un karaterístika avansadu. Bu pode pula-l gosi i volta dipos — el ka é nesesáriu pa kompleta Module 1.
+:::
 
 Python tene un karaterístika únika: bu pode po `else` dipos di un `for` loop. Bloku `else` ta kore SÓ si loop termina normalmenti (sen `break`):
 
@@ -282,24 +287,7 @@ else:
 # Saída: 7 ka sta na lista.
 ```
 
-Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kore.
-
-Izemplu klásku — verifikador di numeru primu:
-
-```python
-# Verifica si un numeru é primu
-numeru = int(input("Inseri un numeru: "))
-
-if numeru <= 1:
-    print(f"{numeru} ka é primu.")
-else:
-    for i in range(2, numeru):
-        if numeru % i == 0:
-            print(f"{numeru} ka é primu (divisível pa {i}).")
-            break
-    else:
-        print(f"{numeru} é primu! ✨")
-```
+Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kore. (Bu ta odja `for-else` di nobu na izemplu di numerus primu más baxu.)
 
 ## Loops Aninhadu
 
@@ -331,22 +319,6 @@ for linha in range(3):
 :::callout{type=tip}
 **Para i pensa:** antes di kontinua — si bu tene un `for i in range(3)` ku un `for j in range(2)` dentu, kuantas bez ta kore `print` di dentu? (Resposta: 3 × 2 = 6.)
 :::
-
-Izemplu dekorativu — triángulu di estrelas:
-
-```python
-# Triángulu di estrelas
-andaris = 5
-for i in range(1, andaris + 1):
-    print("⭐" * i)
-
-# Saída:
-# ⭐
-# ⭐⭐
-# ⭐⭐⭐
-# ⭐⭐⭐⭐
-# ⭐⭐⭐⭐⭐
-```
 
 ## Izemplus Prátikus
 

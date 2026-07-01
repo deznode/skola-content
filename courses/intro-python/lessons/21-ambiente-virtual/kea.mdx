@@ -8,7 +8,7 @@ module: 3
 lesson: 21
 duration: "15 min"
 objectives:
-  - "Intendi PAMODI ambientis virtual é esensial pa projetu Python"
+  - "Splika pamodi ambientis virtual é esensial pa projetu Python"
   - "Kria, ativa, i dezativa un ambiente virtual ku venv"
   - "Instala pakotis i jera requirements.txt"
   - "Partilha projetu ku otu pesoa uzandu requirements.txt"
@@ -23,7 +23,7 @@ Imajina bu tene dos kuzinha: un pa prepara katxupa i otu pa prepara pastéis. Ka
 
 Sen ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — partilhadu pa TUDU bo projetus. Kel ta kria problemas sério:
 
-```
+```text
 ❌ SEN ambiente virtual:
 ┌──────────────────────────────────────┐
 │ Python Global                        │
@@ -53,6 +53,10 @@ Sen ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — pa
 - Kuandu bo manda projetu pa kolega, el ka konsigi roda pamodi falta pakotis
 
 ## Fluxu Kompletu: Kria → Ativa → Instala → Freeze
+
+:::callout{type=info}
+Bo dja kria un `.venv` na **Lisan 02** — entun Pasu 1–2 li é un **rekapitulasan rápidu**. O ki é nóvu nes lisan ben más baxu: `freeze`, partilha ku otu pesoa, i `.gitignore`.
+:::
 
 ### Pasu 1: Kria Ambiente Virtual
 
@@ -120,13 +124,14 @@ requests       2.31.0
 (.venv) $ pip freeze > requirements.txt
 ```
 
-```python
-# requirements.txt ta parsé ku kel li:
-# certifi==2024.2.2
-# charset-normalizer==3.3.2
-# flask==3.0.2
-# requests==2.31.0
-# python-dotenv==1.0.1
+Kel ficheru `requirements.txt` ta parsé ku kel li:
+
+```text
+certifi==2024.2.2
+charset-normalizer==3.3.2
+flask==3.0.2
+requests==2.31.0
+python-dotenv==1.0.1
 ```
 
 ### Pasu 5: Dezativa

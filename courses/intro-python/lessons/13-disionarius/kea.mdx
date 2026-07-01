@@ -10,7 +10,7 @@ duration: "30 min"
 objectives:
   - "Kria disionárius i asesa valores ku .get()"
   - "Itera sobri disionárius ku .items(), .keys(), .values()"
-  - "Intendi diferensa entri referénsia i .copy()"
+  - "Distingi diferensa entri referénsia i .copy()"
   - "Skrebe dict comprehensions pa transforma dadus"
 ---
 
@@ -19,6 +19,10 @@ objectives:
 Imagina un livru di kontatusis: bu ta buska un nomi i logu bu ta atxa se númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamente asim — é un kolesons di **pares key-value** (xavi-valor).
 
 Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
+
+:::callout{type=info title="Antis di kumesa"}
+Es lisan ta konta ku **list comprehension** (Lisan 11) — dict comprehension ta uza o mesmu padrón `for`. Ten tanbe un base di listas i tuplas (Lisan 11–12) i di f-strings.
+:::
 
 ## Kria Disionárius
 
@@ -147,17 +151,12 @@ print(pratu.items())
 
 ### Verifika si Key Ezisti
 
-```python
-estudanti = {"nomi": "Pedro", "idadi": 24, "ilha": "Santiago"}
-
-# Uza 'in' pa verifica keys
-print("nomi" in estudanti)     # True
-print("email" in estudanti)    # False
-print("Pedro" in estudanti)    # False — 'in' ta verifica KEYS, ka valores!
-
-# Pa verifica valores
-print("Pedro" in estudanti.values())  # True
-```
+<DetailDisclosure
+  items={[
+    { q: "Kumo verifika si un **xavi** ezisti?", tag: "Splika más", a: "Uza `in` — el ta verifika as **xavis**, ka os valores.", code: "\"nomi\" in estudanti  # True" },
+    { q: "Kumo verifika si un **valor** ezisti?", tag: "Splika más", a: "Uza `in` djuntu ku `.values()`.", code: "\"Pedro\" in estudanti.values()  # True" },
+  ]}
+/>
 
 ## PITFALL: Referénsia vs Kópia
 
@@ -182,7 +181,7 @@ print(kopia_real["nota"]) # 95
 ```
 
 :::callout{type=tip}
-Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu!
+Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu! Nota: `.copy()` ta kopia só o nível di sima — si un disionáriu tene otu disionáriu dentu, kel di dentu inda ta partilhadu.
 :::
 
 ## Iterasan sobri Disionárius
@@ -233,7 +232,15 @@ total = sum(menu.values())
 print(f"\nTotal (tudu): {total} ECV")
 ```
 
+:::callout{type=tip}
+**Para i pensa** 🤔 — Antis di kontinua: dadu `nota = {"Djina": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Djina")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é o default; i `88`.)*
+:::
+
 ## Disionárius Aninhadu (Nested)
+
+:::callout{type=note}
+**Seksan avansada — opcional.** Dict aninhadu ta pasa alen di os objetivu prinsipal di es lisan. Si bu ta kumesa, bu pode salta pa "Padruns Útil" i volta li dipos.
+:::
 
 Disionárius pode kontene otus disionárius — perfeitu pa dadus kompleksu:
 
@@ -313,7 +320,7 @@ print(presus_eur)  # {'katxupa': 4.09, 'buzio': 5.45, 'grogu': 1.36}
 # Kria disionáriu di komprimantu di palavras
 palavras = ["morabeza", "funana", "katxupa", "grogu", "sodadi"]
 tamanhu = {p: len(p) for p in palavras}
-print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'katxupa': 7, 'grogu': 6, 'sodadi': 6}
+print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'katxupa': 7, 'grogu': 5, 'sodadi': 6}
 ```
 
 ## Padruns Útil ku Disionárius
@@ -344,34 +351,6 @@ print(kontador)  # {'m': 1, 'o': 1, 'r': 1, 'a': 2, 'b': 1, 'e': 1, 'z': 1}
 :::callout{type=tip}
 Padrón `.get(key, 0) + 1` é truki klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipos ta soma 1.
 :::
-
-### Merge (Djunta) Disionárius
-
-```python
-# Junta disionárius ku ** (unpacking)
-dados_pessoal = {"nomi": "Gil", "idadi": 24}
-dados_akademiku = {"kursu": "Matemátika", "média": 89.0}
-dados_kontatu = {"email": "gil@email.cv", "ilha": "Santiago"}
-
-# Merge tudu na un
-perfil_kompletu = {**dados_pessoal, **dados_akademiku, **dados_kontatu}
-print(perfil_kompletu)
-# {'nomi': 'Gil', 'idadi': 24, 'kursu': 'Matemátika', 'média': 89.0, 'email': 'gil@email.cv', 'ilha': 'Santiago'}
-
-# Si tene keys duplikadu, últimu ta ganha
-d1 = {"nomi": "Ana", "idadi": 20}
-d2 = {"nomi": "Ana Santos", "email": "ana@cv.edu"}
-resultado = {**d1, **d2}
-print(resultado)  # {'nomi': 'Ana Santos', 'idadi': 20, 'email': 'ana@cv.edu'}
-```
-
-```python
-# Python 3.9+ — operador | pa merge
-d1 = {"a": 1, "b": 2}
-d2 = {"b": 3, "c": 4}
-mergedu = d1 | d2
-print(mergedu)  # {'a': 1, 'b': 3, 'c': 4}
-```
 
 ## Izemplu Prátiku: Loja di Merkadu
 
@@ -410,7 +389,7 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
 ## Rezumu
@@ -419,6 +398,6 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
   <RezumuItem term="Disionáriu">Ta gerda pares **key: value** dentu di `{}`. As xavi ten ki ser **úniku** i **imutável**.</RezumuItem>
   <RezumuItem term="Metodus">`.keys()`, `.values()`, `.items()` (pa iterá), más `.update()`, `.pop()`, `.copy()`.</RezumuItem>
   <RezumuItem term="Comprehension">`{key: valor for item in iterável if kondisan}` pa transforma o filtra dadus.</RezumuItem>
-  <RezumuItem term="Frekuénsia / merge">`frek.get(k, 0) + 1` pa konta; `{**d1, **d2}` o `d1 | d2` (3.9+) pa djunta disionárius.</RezumuItem>
+  <RezumuItem term="Frekuénsia">`frek.get(k, 0) + 1` é o padrón klásiku pa konta kantu bez kada elementu aparese.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">`=` ta kria un **referénsia** a o mesmu objetu (uza `.copy()` pa un kópia real), i xavi duplikadu ta sobreskrebi silensiozu — o últimu ta ganha.</RezumuItem>
 </KeyTakeaways>
