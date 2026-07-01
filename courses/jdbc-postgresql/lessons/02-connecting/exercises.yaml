@@ -1,0 +1,15 @@
+# Exercises sidecar (draft source) for lesson m1-02 "Konekta ku PostgreSQL".
+# Publish copies this to content/courses/jdbc-postgresql/lessons/connecting/exercises.yaml.
+# <TentaGosi/> renders them in display order. Keep `slug` stable (completed_exercises FK).
+- slug: kori-smoke-test-konexon
+  language: bash
+  kind: setup
+  title: { kea: "Kori bu primeru konexon" }
+  prompt:
+    kea: "Salva o programa `JdbcDemo` di riba, troka `URL`, `USER`, i `PASSWORD` ku bu kredensial real di PostgreSQL, i kori-l kontra bu bazi. Bu debe odja a mensajen di konexon **i** a versan di a bazi. Si bu odja `No suitable driver found` ou `Connection refused`, konfirma o `.jar` na classpath i ki o servidor ta kori."
+  command: |
+    javac -cp postgresql-42.7.11.jar JdbcDemo.java
+    java -cp .:postgresql-42.7.11.jar JdbcDemo
+  expectedOutput: |
+    Konektadu ku PostgreSQL!
+    Versan di bazi: PostgreSQL 16.2 on x86_64-pc-linux-gnu...

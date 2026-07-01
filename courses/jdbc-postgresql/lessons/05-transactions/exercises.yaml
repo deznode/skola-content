@@ -1,0 +1,60 @@
+# Exercises sidecar (draft source) for lesson m1-09 "Transasons — Tudu ô Nada".
+# Publish copies this to content/courses/jdbc-postgresql/lessons/transactions/exercises.yaml.
+# Keep `slug` stable (completed_exercises FK).
+- slug: djunta-rollback
+  language: java
+  kind: debug
+  file: Transferi.java
+  title: { kea: "Djunta o rollback ki ta falta" }
+  prompt:
+    kea: "Es métodu di transferénsia ta dizativa autocommit i ta txoma `commit()` — mas si o sigundu `UPDATE` falha, o primeru dja foi inviadu i ka ten volta atras (dinheru ta dizaparesi). Djunta o tratamentu ki ta faze a transason **tudu-ô-nada**."
+  starterCode: |
+    void transferi(Connection conn, int diKonta, int paraKonta, double valor)
+            throws SQLException {
+        conn.setAutoCommit(false);
+
+        try (PreparedStatement p1 = conn.prepareStatement(
+                "UPDATE kontas SET saldu = saldu - ? WHERE id = ?")) {
+            p1.setDouble(1, valor);
+            p1.setInt(2, diKonta);
+            p1.executeUpdate();
+        }
+        try (PreparedStatement p2 = conn.prepareStatement(
+                "UPDATE kontas SET saldu = saldu + ? WHERE id = ?")) {
+            p2.setDouble(1, valor);
+            p2.setInt(2, paraKonta);
+            p2.executeUpdate();
+        }
+
+        conn.commit();
+        // Si algun UPDATE falha, ka ten rollback — bazi fika inkonsistenti!
+    }
+  solutionCode: |
+    void transferi(Connection conn, int diKonta, int paraKonta, double valor)
+            throws SQLException {
+        try {
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement p1 = conn.prepareStatement(
+                    "UPDATE kontas SET saldu = saldu - ? WHERE id = ?")) {
+                p1.setDouble(1, valor);
+                p1.setInt(2, diKonta);
+                p1.executeUpdate();
+            }
+            try (PreparedStatement p2 = conn.prepareStatement(
+                    "UPDATE kontas SET saldu = saldu + ? WHERE id = ?")) {
+                p2.setDouble(1, valor);
+                p2.setInt(2, paraKonta);
+                p2.executeUpdate();
+            }
+
+            conn.commit();
+        } catch (SQLException e) {
+            conn.rollback();   // disfaze TUDU si algun pasu falha
+            throw e;
+        } finally {
+            conn.setAutoCommit(true);
+        }
+    }
+  hint:
+    kea: "Nvolvi os dôs `UPDATE` i o `commit()` nun `try`. Na o `catch (SQLException e)`, txoma `conn.rollback()`. Na o `finally`, restora `conn.setAutoCommit(true)`."

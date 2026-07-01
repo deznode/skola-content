@@ -1,0 +1,124 @@
+# Exercises sidecar (draft source) for lesson m1-03 "CRUD ku PreparedStatement".
+# Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
+# content/courses/jdbc-postgresql/lessons/crud-operations/exercises.yaml, where
+# scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
+# renders them in display order. Keep `slug` stable (completed_exercises FK).
+- slug: livru-enderesus
+  language: java
+  kind: code
+  title: { kea: "Konstrui un livru di enderesus" }
+  prompt:
+    kea: "Konstrui un livru di enderesus sinples na linha di komandu ki ta djunta, lista, buska, i apaga kontatus. **Rekizitus:** (1) Kria un tabela `kontatus` ku `id`, `nomi`, `telefoni`, `email`. (2) Inplementa **djunta** un nobu kontatu, **lista** tudu kontatus, **buska** pa nomi (match parsial ku `ILIKE`), i **apaga** pa ID. (3) Uza `PreparedStatement` pa **tudu** query. Uza un menu loop ku `Scanner` pa input di uzuáriu."
+  hint:
+    kea: "Pa match parsial uza `WHERE nomi ILIKE ?` i seta o parâmetru pa `\"%\" + termu + \"%\"`. Pa o menu, un `while (true)` ku un `switch` riba di o input di `Scanner`."
+  solutionCode: |
+    import java.sql.*;
+    import java.util.Scanner;
+
+    public class LivruEnderesus {
+        private static final String URL = "jdbc:postgresql://localhost:5432/livruenderesus";
+        private static final String USER = "bu_uzuariu";
+        private static final String PASSWORD = "bu_senha";
+
+        public static void main(String[] args) {
+            try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
+                criaTabelaKontatus(conn);
+                koriMenu(conn);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        static void criaTabelaKontatus(Connection conn) throws SQLException {
+            String sql = """
+                CREATE TABLE IF NOT EXISTS kontatus (
+                    id SERIAL PRIMARY KEY,
+                    nomi VARCHAR(100) NOT NULL,
+                    telefoni VARCHAR(20),
+                    email VARCHAR(100)
+                )
+                """;
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.executeUpdate();
+            }
+        }
+
+        static void koriMenu(Connection conn) throws SQLException {
+            Scanner scanner = new Scanner(System.in);
+            while (true) {
+                System.out.println("\n1. Djunta  2. Lista  3. Buska  4. Apaga  5. Sai");
+                String skolha = scanner.nextLine();
+
+                switch (skolha) {
+                    case "1" -> djuntaKontatu(conn, scanner);
+                    case "2" -> listaKontatus(conn);
+                    case "3" -> buskaKontatus(conn, scanner);
+                    case "4" -> apagaKontatu(conn, scanner);
+                    case "5" -> { return; }
+                }
+            }
+        }
+
+        static void djuntaKontatu(Connection conn, Scanner scanner) throws SQLException {
+            System.out.print("Nomi: ");
+            String nomi = scanner.nextLine();
+            System.out.print("Telefoni: ");
+            String telefoni = scanner.nextLine();
+            System.out.print("Email: ");
+            String email = scanner.nextLine();
+
+            String sql = "INSERT INTO kontatus (nomi, telefoni, email) VALUES (?, ?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, nomi);
+                pstmt.setString(2, telefoni);
+                pstmt.setString(3, email);
+                pstmt.executeUpdate();
+                System.out.println("Kontatu djuntadu!");
+            }
+        }
+
+        static void listaKontatus(Connection conn) throws SQLException {
+            String sql = "SELECT id, nomi, telefoni, email FROM kontatus ORDER BY nomi";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql);
+                 ResultSet rs = pstmt.executeQuery()) {
+                System.out.println("\n--- Kontatus ---");
+                while (rs.next()) {
+                    System.out.printf("%d. %s | %s | %s%n",
+                        rs.getInt("id"),
+                        rs.getString("nomi"),
+                        rs.getString("telefoni"),
+                        rs.getString("email"));
+                }
+            }
+        }
+
+        static void buskaKontatus(Connection conn, Scanner scanner) throws SQLException {
+            System.out.print("Buska nomi: ");
+            String termu = scanner.nextLine();
+
+            String sql = "SELECT id, nomi, telefoni FROM kontatus WHERE nomi ILIKE ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, "%" + termu + "%");
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        System.out.printf("%d. %s - %s%n",
+                            rs.getInt("id"),
+                            rs.getString("nomi"),
+                            rs.getString("telefoni"));
+                    }
+                }
+            }
+        }
+
+        static void apagaKontatu(Connection conn, Scanner scanner) throws SQLException {
+            System.out.print("ID di kontatu pa apaga: ");
+            int id = Integer.parseInt(scanner.nextLine());
+
+            String sql = "DELETE FROM kontatus WHERE id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setInt(1, id);
+                int apagadu = pstmt.executeUpdate();
+                System.out.println(apagadu > 0 ? "Apagadu!" : "Ka atxadu.");
+            }
+        }
+    }

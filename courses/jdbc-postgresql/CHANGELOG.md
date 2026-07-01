@@ -1,0 +1,25 @@
+# Changelog — jdbc-postgresql
+
+All notable changes to this course are recorded here. Format follows
+[Keep a Changelog](https://keepachangelog.com/). Dates are publish/commit dates.
+
+Each `## [YYYY-MM-DD] — publish` heading is rolled up at publish time from the
+draft changes since the previous publish (source of truth: `topics/jdbc-postgresql/`,
+trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
+published copy are recorded under their own dated heading.
+
+## [2026-06-30] — publish
+
+### Added
+- Initial course-mode publish of Module 1 (6 lessons): JDBC intro, connecting,
+  CRUD with PreparedStatement, ResultSet, transactions, troubleshooting.
+- Per-lesson sidecars: quiz (all 6) + exercises (L02–L05).
+- Code: starter, solution, and Docker environment.
+- Cheatsheet (kea).
+- 3 infographics (skola-sketch style): JDBC architecture, JDBC URL anatomy,
+  ResultSet cursor — wired into L1 / L2 / L4.
+
+### Changed
+- Kriolu normalization: `memória` (not `mimória`) topic-wide; lexical/label
+  fixes (kódiku, unde, kore, ou, rejistu); bilingual arrow labels; new
+  infographic hook titles.

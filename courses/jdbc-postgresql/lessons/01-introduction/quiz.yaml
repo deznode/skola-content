@@ -1,0 +1,39 @@
+# Quiz sidecar (draft source) for lesson m1-01 "Introdusan a JDBC".
+# Publish copies this to content/courses/jdbc-postgresql/lessons/introduction/quiz.yaml.
+# <Quiz position={n}/> is 0-based and must line up with this list order.
+- question:
+    kea: "Kuzé ki é JDBC?"
+  options:
+    - text: { kea: "Un API padron ki ta liga Java ku kualker bazi di dadus SQL" }
+      correct: true
+      explain: { kea: "JDBC (Java Database Connectivity) é o **tradutor universal** entri bu kódiku Java i a bazi di dadus — el ta funsiona ku kualker bazi SQL." }
+    - text: { kea: "Un bazi di dadus ki ta sostitui PostgreSQL" }
+      correct: false
+      explain: { kea: "Nau — JDBC ka é un bazi di dadus; el é a kamada ki ta dexa Java **fala** ku un bazi kumo PostgreSQL." }
+    - text: { kea: "Un framework kumo Spring Data ou Hibernate" }
+      correct: false
+      explain: { kea: "Pelu kontráriu: Spring Data i Hibernate é abstrasons ki ta sinta **riba** di JDBC." }
+- question:
+    kea: "Pamodi ki ta vale a pena prende JDBC si dja izisti framework kumo Spring Data?"
+  options:
+    - text: { kea: "Pamodi os framework ta sinta riba di JDBC — intendê-l ta djuda-bu debug i da-bu kontrolu" }
+      correct: true
+      explain: { kea: "JDBC é a **fundason**: Spring Data i Hibernate ta jera JDBC pa baxu. Kel ki bu prende li ta djuda-bu debug es framework i skrebe kódiku rápidu ou sinples kuandu bu meste." }
+    - text: { kea: "Pamodi framework é más slow ki JDBC sénpri" }
+      correct: false
+      explain: { kea: "Es ka é o motivu — framework txeu bez ta otimiza bon. O ganhu é **fundamentu** i kontrolu, ka velosidadi sénpri." }
+    - text: { kea: "Pamodi Spring Data ka ta uza bazi di dadus SQL" }
+      correct: false
+      explain: { kea: "Spring Data ta uza bazi SQL sin — através di JDBC." }
+- question:
+    kea: "Kal di os tres objetu di JDBC ta funsiona kumo a **resposta** — un kursor riba di os linhas ki a bazi ta devolve?"
+  options:
+    - text: { kea: "`ResultSet`" }
+      correct: true
+      explain: { kea: "`ResultSet` é a **resposta**: un kursor ki bu ta perkore linha pa linha. `Connection` é a txamada telefóniku i `PreparedStatement` é a mensajen." }
+    - text: { kea: "`Connection`" }
+      correct: false
+      explain: { kea: "`Connection` é a **txamada telefóniku** — el ta abri a linha pa bazi, ma ka ta karega os linhas di rezultadu." }
+    - text: { kea: "`PreparedStatement`" }
+      correct: false
+      explain: { kea: "`PreparedStatement` é a **mensajen** ki ta leva o query SQL — a resposta ta volta nun `ResultSet`." }

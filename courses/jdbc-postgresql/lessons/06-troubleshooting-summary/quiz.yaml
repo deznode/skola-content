@@ -1,0 +1,28 @@
+# Quiz sidecar (draft source) for lesson m1-06 "Rezolve Problema i Rezumu".
+# Publish copies this to content/courses/jdbc-postgresql/lessons/troubleshooting-summary/quiz.yaml.
+- question:
+    kea: "Si bu konkatena input na SQL i un atakanti skrebe `'; DROP TABLE uzuarius; --`, kuzé ki ta kontise?"
+  options:
+    - text: { kea: "A tabela `uzuarius` ta apagadu — é un ataki di SQL injection" }
+      correct: true
+      explain: { kea: "O input ta bira parti di o komandu SQL, entãu o `DROP TABLE` ta kori. É pa es ki bu **nunka** debe konkatena input na SQL." }
+    - text: { kea: "Nada — PostgreSQL ta inora input perigozu automatikamenti" }
+      correct: false
+      explain: { kea: "PostgreSQL ka tene manera di sabe kuzé ki é dadus i kuzé ki é komandu si bu konkatena — pa el, tudu é SQL." }
+- question:
+    kea: "Kal é o manera seguru di pasa input di uzuáriu pa un query?"
+  options:
+    - text: { kea: "`PreparedStatement` ku `?` i `pstmt.setString(…)`" }
+      correct: true
+      explain: { kea: "Ku `?`, a bazi di dadus ta trata o input komu **dadus**, nunka komu kódiku — SQL injection ka ta funsiona." }
+    - text: { kea: "Konkatena o input diretu na string SQL ku `+`" }
+      correct: false
+      explain: { kea: "Es é exatamenti o buraku ki ta dexa SQL injection." }
+- question:
+    kea: "Pamodi try-with-resources é importanti pa konexon di bazi di dadus?"
+  options:
+    - text: { kea: "El ta fetxa a konexon automatikamenti i ta evita 'too many connections'" }
+      correct: true
+      explain: { kea: "Konexon vazadu ta sgota o pool. try-with-resources ta garanti ki tudu ta fetxa, mésmu si un exeson akontese." }
+    - text: { kea: "El ta fazê o kódiku kori más rápidu" }
+      correct: false

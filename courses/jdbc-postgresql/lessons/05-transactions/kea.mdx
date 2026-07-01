@@ -1,0 +1,109 @@
+---
+title: "Transasons — Tudu ou Nada"
+language: kea
+courseSlug: jdbc-postgresql
+lessonSlug: transactions
+objectives:
+  - "Splika pamodi autocommit é perigozu pa operason di vários pasu"
+  - "Agrupa vários statement nun transason ku `setAutoCommit(false)`, `commit()`, i `rollback()`"
+---
+
+Imajina ki Ana ta manda 1000$ pa Tóni. Bu kódiku ta faze dos pasu: **tira** di konta di Ana, i **po** na konta di Tóni. Ma si sigundu pasu falha dipos di primeru funsiona... dinheru **dizaparesi**. Transasons ta rezolve es: ou **tudu** pasu ta funsiona, ou **nada** ta kontise.
+
+<MisconceptionConfront
+  belief="Autocommit (o padron) é seguru pa un transferénsia: kada `UPDATE` ta grava un pa un, entãu tudu ta funsiona bon asin."
+  myth="Si o primeru `UPDATE` (tira di Ana) funsiona i o sigundu (po na Tóni) falha, ka ten prublema — kada statement é independenti."
+  real="Ku autocommit, o primeru `UPDATE` dja foi gravadu pa sénpri. Si o sigundu falha, dinheru sai di Ana ma **nunka** txiga na Tóni — i ka ten volta atras."
+  proof={[
+    "conn.setAutoCommit(true);   // padron",
+    "tira(Ana, 1000);            // gravadu imediatamenti",
+    "po(Toni, 1000);             // FALHA aki -> dinheru dizaparesi",
+  ]}
+  takeaway="Pa operason di vários pasu, dizativa autocommit i uza `commit()` / `rollback()` pa fazé-l tudu-ou-nada."
+/>
+
+## Autocommit — komportamentu padron
+
+Pa padron, JDBC ta sta na modu **autocommit**: kada statement ta grava na bazi di dadus imediatamenti, un pa un. Pa un transferénsia, es é perigozu — si sigundu `UPDATE` falha, primeru dja sta gravadu i ka ten volta atras.
+
+Pa agrupa vários statement nun sô operason tudu-ou-nada, bu ta dizativa autocommit:
+
+<AnnotatedCode
+  lang="java"
+  filename="transferi()"
+  code={[
+    { t: "public static void transferi(Connection conn, int diKonta, int paraKonta, double valor)", m: 0 },
+    { t: "        throws SQLException {", m: 0 },
+    { t: "    String tira = \"UPDATE kontas SET saldu = saldu - ? WHERE id = ?\";", m: 0 },
+    { t: "    String po   = \"UPDATE kontas SET saldu = saldu + ? WHERE id = ?\";", m: 0 },
+    { t: "    try {", m: 0 },
+    { t: "        conn.setAutoCommit(false);  // Kumesa transason", m: 1 },
+    { t: "        try (PreparedStatement p1 = conn.prepareStatement(tira)) {", m: 0 },
+    { t: "            p1.setDouble(1, valor);", m: 0 },
+    { t: "            p1.setInt(2, diKonta);", m: 0 },
+    { t: "            p1.executeUpdate();", m: 0 },
+    { t: "        }", m: 0 },
+    { t: "        try (PreparedStatement p2 = conn.prepareStatement(po)) {", m: 0 },
+    { t: "            p2.setDouble(1, valor);", m: 0 },
+    { t: "            p2.setInt(2, paraKonta);", m: 0 },
+    { t: "            p2.executeUpdate();", m: 0 },
+    { t: "        }", m: 0 },
+    { t: "        conn.commit();  // Tudu dos funsiona — grava pa sénpri", m: 2 },
+    { t: "        System.out.println(\"Transferénsia kompletu!\");", m: 0 },
+    { t: "    } catch (SQLException e) {", m: 0 },
+    { t: "        conn.rollback();  // Algun kuza falha — disfaze TUDU", m: 3 },
+    { t: "        System.err.println(\"Transferénsia falha — rollback fetu.\");", m: 0 },
+    { t: "        throw e;", m: 0 },
+    { t: "    } finally {", m: 0 },
+    { t: "        conn.setAutoCommit(true);  // Restora padron", m: 4 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Kumesa transason", body: "`setAutoCommit(false)` ta kumesa transason — di li pa frenti, nada ta grava te bu txoma `commit()`." },
+    { m: 2, title: "commit()", body: "`commit()` ta grava tudu mudansa djuntu, sô dipos di dos `UPDATE` funsiona." },
+    { m: 3, title: "rollback()", body: "`rollback()` na `catch` ta **disfaze TUDU** mudansa si kualker pasu falha." },
+    { m: 4, title: "Restora padron", body: "`setAutoCommit(true)` na `finally` ta restora komportamentu padron pa konexon." },
+  ]}
+/>
+
+:::callout{type=danger}
+Si bu skese `rollback()` na `catch`, un falha na metadi ta dexa bazi di dadus **inkonsistenti** — dinheru tiradu di un konta ma nunka po na otu.
+:::
+
+## Más fundu (pa más tardi)
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Nível di izolamentu (isolation levels)",
+      tag: "Splika más",
+      a: "Nível di izolamentu ta kontrola kuantu un transason ta odja mudansa di otu transason ki ta kori na mésmu ténpu (`READ COMMITTED`, `SERIALIZABLE`, etc.). PostgreSQL ta uza `READ COMMITTED` pa padron — bon pa kumesa.",
+      code: "conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);",
+    },
+    {
+      q: "Savepoints — rollback parsial",
+      tag: "Opsional",
+      a: "Un savepoint ta marka un pontu dentu di transason undi bu pode faze rollback **parsial**, sen disfaze tudu. Útil pa transason longu ku vários etapa.",
+      code: "Savepoint sp = conn.setSavepoint();",
+    },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
+<QuizSet>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="setAutoCommit(false)" code>kumesa transason — nada ta grava te `commit()`</RezumuItem>
+  <RezumuItem term="commit()" code>grava tudu mudansa djuntu</RezumuItem>
+  <RezumuItem term="rollback()" code>disfaze TUDU si algun pasu falha</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">`rollback()` na `catch`, `setAutoCommit(true)` na `finally`.</RezumuItem>
+</KeyTakeaways>

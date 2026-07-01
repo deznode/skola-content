@@ -1,0 +1,88 @@
+---
+title: "Introdusan a JDBC"
+language: kea
+courseSlug: jdbc-postgresql
+lessonSlug: introduction
+objectives:
+  - "Splika kuzé ki é JDBC i pamodi el ta inporta mésmu ku framework kumo Spring Data ou Hibernate"
+  - "Diskreve modi ki `Connection`, `PreparedStatement` i `ResultSet` ta trabadja djuntu pa kori un query"
+---
+
+Imajina ki bu app Java meste guarda uzuárius ki ta rejista, ou produtus di un loja. Enkuantu bu programa ta kori, kes dadus ta fika na memória — ma asin ki bu fetxa programa, **tudu ta dizaparesi**. Pa dadus fika, bu meste un **bazi di dadus**. I pa bu kódiku Java fala ku un bazi di dadus PostgreSQL, bu meste **JDBC**.
+
+## Kuzé ki é JDBC?
+
+JDBC (Java Database Connectivity) é **API padron** ki ta permiti aplikason Java komunika ku kualker bazi di dadus SQL. Pensa n-el kumo un **tradutor universal** entri bu kódiku Java i bazi di dadus: bu ta skrebe Java, JDBC ta traduzi-l pa kel ki bazi di dadus ta intende.
+
+**Pamodi prende JDBC, si izisti framework?**
+- É **fundason** di tudu trabadju ku bazi di dadus na Java — mésmu Spring Data i Hibernate é un abstrasan ki ta sinta riba di el.
+- Intendi JDBC ta djuda-bu **debug** prublema na es framework di nível más altu.
+- Pa script sinples, batch jobs, ou kódiku undi performance ta inporta, JDBC diretu txeu bez é midjór skolha.
+
+## Undi JDBC ta sta
+
+JDBC é kamada entri bu kódiku i bazi di dadus. Kada pedidu ta dixi pa baxu (query), i dadus ta sobi di volta (rows):
+
+![Diagrama di kamadas JDBC: bu kódiku Java → JDBC (interface padron) → Driver (org.postgresql) → PostgreSQL; pergunta ta dixi pa baxu, dadus ta sobi di volta, i Spring Data / Hibernate ta sinta riba di JDBC](../../infographics/01-jdbc-architecture.jpg)
+
+## Os tres objetu prinsipal
+
+JDBC ta trabadja ku tres objetu — kada un ku un papel na konversa ku bazi di dadus:
+
+<AnalogyCard
+  title="Os tres objetu di JDBC"
+  analogyLabel="Na un txamada telefóniku"
+  codeLabel="Na kódiku"
+  hero="Pensa na JDBC kumo faze un **txamada telefóniku**: primeru bu ta abri linha, dipos bu ta fala bu mensajen, i na fin bu ta resebe un resposta. Kada pasu ten un objetu."
+  rows={[
+    { analogy: "Abri linha", analogyDesc: "liga pa bazi di dadus", tech: "Connection", code: "getConnection()" },
+    { analogy: "Fala bu mensajen", analogyDesc: "leva bu query SQL", tech: "PreparedStatement", code: "prepareStatement()" },
+    { analogy: "Resebe resposta", analogyDesc: "konten dadus ki bazi ta devolve", tech: "ResultSet", code: "executeQuery()" },
+  ]}
+  limit="Un txamada telefóniku é un konversa bibu di dos ladu. Un query é más sinplis: `PreparedStatement` ta manda un bes, `ResultSet` ta txiga di volta, i tudu ta fetxa na fin."
+/>
+
+**Un query di prinsípiu te fin:** primeru, `Connection` ta abri linha pa bazi di dadus. Dipos, bu ta po bu SQL nun `PreparedStatement` i manda-l. Pa un `SELECT`, bazi di dadus ta responde ku un `ResultSet` ki bu ta perkore linha pa linha. Na fin, tudu ta fetxa. Es tres objetu ta parse na kada lisan di es kursu.
+
+## JDBC diretu ou un framework (ORM)?
+
+Más tardi bu pode uza un ORM kumo Spring Data ou Hibernate. Ma prende JDBC primeru ta da-bu fundamentu ki bu meste:
+
+<CompareTable
+  title="JDBC diretu vs ORM"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "JDBC diretu", accent: "blue" },
+    { name: "ORM (Spring Data / Hibernate)", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Kontrolu", kind: "text", vals: ["Total — bu ta skrebe SQL", "Menus — framework ta jera SQL"] },
+    { label: "Kódiku", kind: "text", vals: ["Más verboz", "Más kurtu"] },
+    { label: "Majia", kind: "text", vals: ["Nenhun — tudu sta na vista", "Txeu abstrasan pa baxu"] },
+    { label: "Kuandu uza", kind: "text", vals: ["Aprende, script, performance", "Aplikason grandi ku txeu entidade"] },
+  ]}
+/>
+
+## Kuzé ki bu ta kria
+
+Na es kursu, pasu pa pasu, bu ta konstrui un programa Java real ki ta ler i skrebe dadus na PostgreSQL di forma seguru. Na fin, bu ta konsigi:
+
+- Konekta bu aplikason Java ku un bazi di dadus PostgreSQL
+- Faze tudu operason CRUD (Create, Read, Update, Delete)
+- Skrebe query seguru ki ta privini ataki di SQL injection
+- Jeri transason — operason ki ta susede ou falha tudu djuntu
+
+<SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
+<QuizSet>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="JDBC" code>API padron ki ta liga Java ku kualker bazi di dadus SQL</RezumuItem>
+  <RezumuItem>Os tres objetu ta trabadja djuntu: `Connection` → `PreparedStatement` → `ResultSet`.</RezumuItem>
+  <RezumuItem>Framework kumo Spring Data i Hibernate é un abstrasan ki ta sinta riba di JDBC — prende JDBC primeru.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Pa script sinples i pa aprende fundamentus, JDBC diretu é frekentimenti midjór skolha.</RezumuItem>
+</KeyTakeaways>

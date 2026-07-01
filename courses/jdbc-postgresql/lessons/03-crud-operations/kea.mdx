@@ -1,0 +1,186 @@
+---
+title: "CRUD ku PreparedStatement"
+language: kea
+courseSlug: jdbc-postgresql
+lessonSlug: crud-operations
+objectives:
+  - "Kria un tabela ku `CREATE TABLE IF NOT EXISTS`"
+  - "Faze Insert, Read, Update i Delete ku `PreparedStatement`"
+  - "Uza placeholder `?` (numeradu di 1) di forma seguru kontra SQL injection"
+  - "Konstrui un livru di enderesus na linha di komandu di prinsípiu te fin"
+---
+
+Gosi ki bu ta konekta, nu ta faze trabadju real: **CRUD** — Create, Read, Update, Delete. Tudu ku `PreparedStatement`, ki ta mantén bu query seguru. Izemplus ta uza konstantis `URL`, `USER`, i `PASSWORD` di lisan anterior.
+
+<CompareTable
+  title="Kuatru operason CRUD"
+  cornerLabel="Operason"
+  cols={[
+    { name: "Create", syntax: "INSERT", accent: "blue" },
+    { name: "Read", syntax: "SELECT", accent: "teal" },
+    { name: "Update", syntax: "UPDATE", accent: "orange" },
+    { name: "Delete", syntax: "DELETE", accent: "red" },
+  ]}
+  rows={[
+    { label: "Métodu", kind: "code", vals: ["executeUpdate()", "executeQuery()", "executeUpdate()", "executeUpdate()"] },
+    { label: "Ta devolve", kind: "text", vals: ["`int` (linha)", "un `ResultSet`", "`int` (linha)", "`int` (linha)"] },
+  ]}
+/>
+
+## Kria tabela
+
+Antis di inseri dadus, nu meste un tabela:
+
+<AnnotatedCode
+  lang="java"
+  filename="criaTabela()"
+  code={[
+    { t: "public static void criaTabela(Connection conn) throws SQLException {", m: 0 },
+    { t: "    String sql = \"\"\"", m: 0 },
+    { t: "        CREATE TABLE IF NOT EXISTS uzuarius (", m: 1 },
+    { t: "            id SERIAL PRIMARY KEY,", m: 2 },
+    { t: "            nomi_uzuariu VARCHAR(50) NOT NULL,", m: 0 },
+    { t: "            email VARCHAR(100) UNIQUE NOT NULL,", m: 0 },
+    { t: "            kriadu_na TIMESTAMP DEFAULT CURRENT_TIMESTAMP", m: 0 },
+    { t: "        )", m: 0 },
+    { t: "        \"\"\";", m: 0 },
+    { t: "    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {", m: 0 },
+    { t: "        pstmt.executeUpdate();", m: 3 },
+    { t: "        System.out.println(\"Tabela 'uzuarius' sta prontu.\");", m: 0 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "IF NOT EXISTS", body: "`CREATE TABLE IF NOT EXISTS` ta evita éru si tabela dja izisti." },
+    { m: 2, title: "SERIAL", body: "`SERIAL` ta kria un ID ki ta inkrementa automatikamenti." },
+    { m: 3, title: "executeUpdate()", body: "`executeUpdate()` é pa SQL ki ta modifika (CREATE, INSERT, UPDATE, DELETE)." },
+  ]}
+/>
+
+## Create i Read
+
+### Inseri dadus (Create)
+
+É li ki **PreparedStatement** ta bira krítiku. Placeholder `?` ta kumesa na **1**:
+
+<AnnotatedCode
+  lang="java"
+  filename="inseriUzuariu()"
+  code={[
+    { t: "public static int inseriUzuariu(Connection conn, String nomiUzuariu, String email)", m: 0 },
+    { t: "        throws SQLException {", m: 0 },
+    { t: "    String sql = \"INSERT INTO uzuarius (nomi_uzuariu, email) VALUES (?, ?)\";", m: 1 },
+    { t: "    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {", m: 0 },
+    { t: "        pstmt.setString(1, nomiUzuariu);  // Primeru ?", m: 2 },
+    { t: "        pstmt.setString(2, email);         // Segundu ?", m: 0 },
+    { t: "        int linhasAfetadus = pstmt.executeUpdate();", m: 0 },
+    { t: "        System.out.println(\"Inseridu \" + linhasAfetadus + \" uzuáriu(s).\");", m: 0 },
+    { t: "        return linhasAfetadus;", m: 0 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Placeholder `?`", body: "Bazi di dadus ta trata kada `?` estritamenti kumo **DADUS**, nunka kumo kódiku SQL — es ta privini SQL injection (más sobri es na **Rezolve Problema**)." },
+    { m: 2, title: "Numeradu di 1", body: "`setString(1, nomiUzuariu)` ta entxi primeru `?`. Os placeholder ta kumesa na **1**, ka di 0." },
+  ]}
+/>
+
+### Ler dadus (Read)
+
+`executeQuery()` ta devolve un `ResultSet` ki bu ta perkore ku `rs.next()`:
+
+```java
+public static void listaUzuariusTudu(Connection conn) throws SQLException {
+    String sql = "SELECT id, nomi_uzuariu, email FROM uzuarius";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql);
+         ResultSet rs = pstmt.executeQuery()) {
+
+        while (rs.next()) {
+            System.out.printf("ID: %d | Uzuáriu: %s | Email: %s%n",
+                              rs.getInt("id"),
+                              rs.getString("nomi_uzuariu"),
+                              rs.getString("email"));
+        }
+    }
+}
+```
+
+Pa atxa un linha spesífiku, djunta un `WHERE` ku un `?`:
+
+```java
+public static void atxaUzuariuPorEmail(Connection conn, String email) throws SQLException {
+    String sql = "SELECT id, nomi_uzuariu FROM uzuarius WHERE email = ?";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, email);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                System.out.printf("Atxadu: %s (ID: %d)%n",
+                                  rs.getString("nomi_uzuariu"), rs.getInt("id"));
+            } else {
+                System.out.println("Uzuáriu ka atxadu.");
+            }
+        }
+    }
+}
+```
+
+:::callout{type=tip}
+Sénpri uza nomi di koluna (`rs.getString("email")`) en bez di pozisan — é más lejível i ta sobrevive reordenason di koluna.
+:::
+
+## Update i Delete
+
+```java
+public static int atualizaEmailUzuariu(Connection conn, int uzuariuId, String nobuEmail)
+        throws SQLException {
+
+    String sql = "UPDATE uzuarius SET email = ? WHERE id = ?";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, nobuEmail);
+        pstmt.setInt(2, uzuariuId);
+        return pstmt.executeUpdate();   // númeru di linha atualizadu
+    }
+}
+
+public static int apagaUzuariu(Connection conn, int uzuariuId) throws SQLException {
+    String sql = "DELETE FROM uzuarius WHERE id = ?";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, uzuariuId);
+        return pstmt.executeUpdate();
+    }
+}
+```
+
+:::callout{type=danger}
+`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** linha. Kori `UPDATE uzuarius SET email = '...'` sen `WHERE` ta muda email di tudu uzuáriu. Verifika dublu `WHERE`.
+:::
+
+:::callout{type=success}
+Na es pontu bu debe konsigi konekta, kria tabela, inseri, ler, atualiza, i apaga. Si algun ka ta funsiona, konsulta lisan **Rezolve Problema**.
+:::
+
+## Dezafiu: Livru di Enderesus
+
+Gosi é bu bez. Es dezafiu ta djunta tudu kuza — CRUD kompletu ku `PreparedStatement` — nun sô programa.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
+<QuizSet>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="executeUpdate()" code>pa INSERT / UPDATE / DELETE — ta devolve númeru di linha afetadu</RezumuItem>
+  <RezumuItem term="executeQuery()" code>pa SELECT — ta devolve un `ResultSet`</RezumuItem>
+  <RezumuItem>Placeholder `?` ta numeradu di **1**, ka di 0.</RezumuItem>
+  <RezumuItem variant="warning" term="Eru komun">`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** linha.</RezumuItem>
+</KeyTakeaways>
