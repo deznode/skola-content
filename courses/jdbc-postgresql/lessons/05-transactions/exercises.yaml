@@ -1,13 +1,13 @@
-# Exercises sidecar (draft source) for lesson m1-09 "Transasons — Tudu ô Nada".
+# Exercises sidecar (draft source) for lesson m1-05 "Transasons — Tudu ou Nada".
 # Publish copies this to content/courses/jdbc-postgresql/lessons/transactions/exercises.yaml.
 # Keep `slug` stable (completed_exercises FK).
 - slug: djunta-rollback
   language: java
   kind: debug
   file: Transferi.java
-  title: { kea: "Djunta o rollback ki ta falta" }
+  title: { kea: "Djunta rollback ki ta falta" }
   prompt:
-    kea: "Es métodu di transferénsia ta dizativa autocommit i ta txoma `commit()` — mas si o sigundu `UPDATE` falha, o primeru dja foi inviadu i ka ten volta atras (dinheru ta dizaparesi). Djunta o tratamentu ki ta faze a transason **tudu-ô-nada**."
+    kea: "Es métodu di transferénsia ta dizativa autocommit i ta txoma `commit()` — mas si sigundu `UPDATE` falha, primeru dja foi inviadu i ka ten volta atras (dinheru ta dizaparesi). Djunta tratamentu ki ta faze transasan **tudu-ou-nada**."
   starterCode: |
     void transferi(Connection conn, int diKonta, int paraKonta, double valor)
             throws SQLException {
@@ -57,4 +57,4 @@
         }
     }
   hint:
-    kea: "Nvolvi os dôs `UPDATE` i o `commit()` nun `try`. Na o `catch (SQLException e)`, txoma `conn.rollback()`. Na o `finally`, restora `conn.setAutoCommit(true)`."
+    kea: "Nvolvi dos `UPDATE` i `commit()` nun `try`. Na `catch (SQLException e)`, txoma `conn.rollback()`. Na `finally`, restora `conn.setAutoCommit(true)`."

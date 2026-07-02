@@ -1,29 +1,29 @@
-# Quiz sidecar (draft source) for lesson m1-05 "Intendi ResultSet Más Fundu".
+# Quiz sidecar (draft source) for lesson m1-04 "ResultSet a Fundu".
 # Publish copies this to content/courses/jdbc-postgresql/lessons/understanding-resultset/quiz.yaml.
 - question:
-    kea: "`ResultSet` é un koleson di dadus na memória, komu un `List`?"
+    kea: "`ResultSet` é un koleson di dadus na memória, kumo un `List`?"
   options:
-    - text: { kea: "Nau — el é un kursor bibu pa riba di a konexon" }
+    - text: { kea: "Nau — el é un kursor bibu pa riba di konexon" }
       correct: true
-      explain: { kea: "O `ResultSet` ta ponta pa un linha di kada vês; el ta pidi a bazi di dadus pa prósima linha ku `rs.next()` — el ka ta karega tudu na memória." }
-    - text: { kea: "Sin — el ta karega tudu linha na memória dratu" }
+      explain: { kea: "`ResultSet` ta ponta pa un fila di kada bez; el ta pidi bazi di dadus pa prósima fila ku `rs.next()` — el ka ta karega tudu na memória." }
+    - text: { kea: "Sin — el ta karega tudu fila na memória dratu" }
       correct: false
-      explain: { kea: "Es é o eru komun: `ResultSet` é un kursor, ka un koleson." }
+      explain: { kea: "Es é eru komun: `ResultSet` é un kursor, ka un koleson." }
 - question:
-    kea: "Kuzé ki `rs.next()` ta devolve kuandu ka ten más linha pa le?"
+    kea: "Kuzé ki `rs.next()` ta devolve kuandu ka ten más fila pa le?"
   options:
     - text: { kea: "`false`" }
       correct: true
-      explain: { kea: "`rs.next()` ta move pa prósima linha i ta devolve `false` kuandu kaba — é pamodi `while (rs.next())` ta funsiona." }
+      explain: { kea: "`rs.next()` ta move pa prósima fila i ta devolve `false` kuandu kaba — é pamodi `while (rs.next())` ta funsiona." }
     - text: { kea: "`true`" }
       correct: false
     - text: { kea: "`null`" }
       correct: false
 - question:
-    kea: "Pamodi bu ka debe debolve un `ResultSet` di un métodu?"
+    kea: "Pamodi bu ka debe devolve un `ResultSet` di un métodu?"
   options:
-    - text: { kea: "Pamodi a `Connection` ta fetxa i o kursor ta móre" }
+    - text: { kea: "Pamodi `Connection` ta fitxa i kursor ta móre" }
       correct: true
-      explain: { kea: "Kuandu o métodu kaba, o try-with-resources ta fetxa a `Connection` — i un `ResultSet` sen konexon ta móre. Drena os dadus pa un `List` primeru." }
-    - text: { kea: "Pamodi é más slow" }
+      explain: { kea: "Kuandu métodu kaba, try-with-resources ta fitxa `Connection` — i un `ResultSet` sen konexon ta móre. Kopia dadus pa un `List` primeru." }
+    - text: { kea: "Pamodi é más lentu" }
       correct: false

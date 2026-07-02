@@ -13,8 +13,8 @@ objectives:
 Gosi ki bu ta konekta, nu ta faze trabadju real: **CRUD** — Create, Read, Update, Delete. Tudu ku `PreparedStatement`, ki ta mantén bu query seguru. Izemplus ta uza konstantis `URL`, `USER`, i `PASSWORD` di lisan anterior.
 
 <CompareTable
-  title="Kuatru operason CRUD"
-  cornerLabel="Operason"
+  title="Kuatru operasan CRUD"
+  cornerLabel="Operasan"
   cols={[
     { name: "Create", syntax: "INSERT", accent: "blue" },
     { name: "Read", syntax: "SELECT", accent: "teal" },
@@ -23,7 +23,7 @@ Gosi ki bu ta konekta, nu ta faze trabadju real: **CRUD** — Create, Read, Upda
   ]}
   rows={[
     { label: "Métodu", kind: "code", vals: ["executeUpdate()", "executeQuery()", "executeUpdate()", "executeUpdate()"] },
-    { label: "Ta devolve", kind: "text", vals: ["`int` (linha)", "un `ResultSet`", "`int` (linha)", "`int` (linha)"] },
+    { label: "Ta devolve", kind: "text", vals: ["`int` (fila)", "un `ResultSet`", "`int` (fila)", "`int` (fila)"] },
   ]}
 />
 
@@ -81,7 +81,7 @@ Antis di inseri dadus, nu meste un tabela:
   ]}
   notes={[
     { m: 1, title: "Placeholder `?`", body: "Bazi di dadus ta trata kada `?` estritamenti kumo **DADUS**, nunka kumo kódiku SQL — es ta privini SQL injection (más sobri es na **Rezolve Problema**)." },
-    { m: 2, title: "Numeradu di 1", body: "`setString(1, nomiUzuariu)` ta entxi primeru `?`. Os placeholder ta kumesa na **1**, ka di 0." },
+    { m: 2, title: "Numeradu di 1", body: "`setString(1, nomiUzuariu)` ta entxi primeru `?`. Placeholder ta kumesa na **1**, ka di 0." },
   ]}
 />
 
@@ -106,7 +106,7 @@ public static void listaUzuariusTudu(Connection conn) throws SQLException {
 }
 ```
 
-Pa atxa un linha spesífiku, djunta un `WHERE` ku un `?`:
+Pa atxa un fila spesífiku, djunta un `WHERE` ku un `?`:
 
 ```java
 public static void atxaUzuariuPorEmail(Connection conn, String email) throws SQLException {
@@ -127,7 +127,7 @@ public static void atxaUzuariuPorEmail(Connection conn, String email) throws SQL
 ```
 
 :::callout{type=tip}
-Sénpri uza nomi di koluna (`rs.getString("email")`) en bez di pozisan — é más lejível i ta sobrevive reordenason di koluna.
+Sénpri uza nomi di koluna (`rs.getString("email")`) en bez di pozisan — é más lejível i ta sobrevive reordenasan di koluna.
 :::
 
 ## Update i Delete
@@ -141,7 +141,7 @@ public static int atualizaEmailUzuariu(Connection conn, int uzuariuId, String no
     try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
         pstmt.setString(1, nobuEmail);
         pstmt.setInt(2, uzuariuId);
-        return pstmt.executeUpdate();   // númeru di linha atualizadu
+        return pstmt.executeUpdate();   // númeru di fila atualizadu
     }
 }
 
@@ -156,7 +156,7 @@ public static int apagaUzuariu(Connection conn, int uzuariuId) throws SQLExcepti
 ```
 
 :::callout{type=danger}
-`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** linha. Kori `UPDATE uzuarius SET email = '...'` sen `WHERE` ta muda email di tudu uzuáriu. Verifika dublu `WHERE`.
+`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** fila. Kore `UPDATE uzuarius SET email = '...'` sen `WHERE` ta muda email di tudu uzuáriu. Verifika dublu `WHERE`.
 :::
 
 :::callout{type=success}
@@ -179,8 +179,8 @@ Gosi é bu bez. Es dezafiu ta djunta tudu kuza — CRUD kompletu ku `PreparedSta
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem term="executeUpdate()" code>pa INSERT / UPDATE / DELETE — ta devolve númeru di linha afetadu</RezumuItem>
+  <RezumuItem term="executeUpdate()" code>pa INSERT / UPDATE / DELETE — ta devolve númeru di fila afetadu</RezumuItem>
   <RezumuItem term="executeQuery()" code>pa SELECT — ta devolve un `ResultSet`</RezumuItem>
   <RezumuItem>Placeholder `?` ta numeradu di **1**, ka di 0.</RezumuItem>
-  <RezumuItem variant="warning" term="Eru komun">`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** linha.</RezumuItem>
+  <RezumuItem variant="warning" term="Eru komun">`UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** fila.</RezumuItem>
 </KeyTakeaways>

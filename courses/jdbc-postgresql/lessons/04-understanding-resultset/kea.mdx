@@ -5,38 +5,38 @@ courseSlug: jdbc-postgresql
 lessonSlug: understanding-resultset
 objectives:
   - "Splika `ResultSet` kumo un kursor só-pa-frenti riba di un konexon abertu"
-  - "Drena os linhas pa un `List` di forma koretu"
+  - "Kopia filas pa un `List` di forma koretu"
   - "Jeri rekursu ku try-with-resources pa konexon nunka vaza"
 ---
 
 Dizenvolvedor nobu txeu bez ta konfundi `ResultSet` ku un `List` ou `Array` di Java. Ma el ta funsiona di un manera ben diferenti — i si bu trata-l kumo un koleson na memória, bu kódiku ta kebra.
 
 <MisconceptionConfront
-  belief="Un `ResultSet` é tipu un `List`: el ta karega tudu os linhas na memória di bu konputador, i bu pode ler-l kuandu bu kre."
-  myth="Kuandu o query kori, JDBC ta kopia tudu os linhas pa un koleson na memória — entãu ka ten prublema si a `Connection` fetxa antis di bu ler."
-  real="`ResultSet` é un **kursor bibu** riba di a konexon. El ta pidi a bazi pa próxima linha kada `rs.next()` — i si a `Connection` fetxa, el ta móre na mésmu óra."
+  belief="Un `ResultSet` é tipu un `List`: el ta karega tudu filas na memória di bu konputador, i bu pode ler-l kuandu bu kre."
+  myth="Kuandu query kore, JDBC ta kopia tudu filas pa un koleson na memória — entãu ka ten prublema si `Connection` fitxa antis di bu ler."
+  real="`ResultSet` é un **kursor bibu** riba di konexon. El ta pidi bazi pa próxima fila kada `rs.next()` — i si `Connection` fitxa, el ta móre na mésmu óra."
   proof={[
     "ResultSet rs = pstmt.executeQuery();",
-    "conn.close();                    // konexon fetxa",
+    "conn.close();                    // konexon fitxa",
     "rs.next();   // SQLException: This ResultSet is closed",
   ]}
-  takeaway="Drena os linhas pa un `List` dentu di o `try`, i devolve a lista — nunka o `ResultSet`."
+  takeaway="Kopia filas pa un `List` dentu di `try`, i devolve lista — nunka `ResultSet`."
 />
 
 ## Kumo kursor ta funsiona
 
 ![ResultSet kumo kursor bibu ki ta perkore rejistus un pa un: kada rs.next() ta avansa i ta devolve true; kuandu ka ten más rejistu, el ta devolve false; konexon debe fika abertu i kursor sô ta move pa frenti](../../infographics/03-resultset-cursor.jpg)
 
-Kursor ta kumesa **antis** di primeru linha. Kada `rs.next()` ta avansa un linha i ta devolve `true`; kuandu ka ten más linha, el ta devolve `false`. É pa isu ki `while (rs.next())` ta perkore tudu linhas:
+Kursor ta kumesa **antis** di primeru fila. Kada `rs.next()` ta avansa un fila i ta devolve `true`; kuandu ka ten más fila, el ta devolve `false`. É pa isu ki `while (rs.next())` ta perkore tudu filas:
 
-- **Txamada 1:** `rs.next()` → linha 1 (`true`) → bu ta ler ku `rs.getX(...)`
-- **Txamada 2:** `rs.next()` → linha 2 (`true`)
+- **Txamada 1:** `rs.next()` → fila 1 (`true`) → bu ta ler ku `rs.getX(...)`
+- **Txamada 2:** `rs.next()` → fila 2 (`true`)
 - **...** te ka ten más → `rs.next()` → `false`, loop ta para
 
 **Implikason importanti:**
 - `Connection` debe fika ABERTU enkuantu bu ta perkore `ResultSet`
 - Pa padron, bu sô pode move pa **frenti** (ka pode volta atras)
-- Si bu fetxa `Connection`, `ResultSet` ta móre na mésmu óra
+- Si bu fitxa `Connection`, `ResultSet` ta móre na mésmu óra
 
 ## Ler kolunas: métodu `getX`
 
@@ -59,14 +59,15 @@ Pa koluna ki pode ser `NULL`, `getInt` ta devolve `0` i `getString` ta devolve `
 <CodeDiff
   lang="java"
   filename="pegaUzuarius()"
-  title="Ka devolve un ResultSet — drena-l pa un List"
-  note="Devolve un `ResultSet` di un métodu ta kebra-l: `Connection` ta fetxa na fin di métodu i kursor ta móre. Drena dadus pa un `List` dentu di `try`, i devolve **lista** — ka `ResultSet`."
+  title="Ka devolve un ResultSet — kopia-l pa un List"
+  note="Devolve un `ResultSet` di un métodu ta kebra-l: `Connection` ta fitxa na fin di métodu i kursor ta móre. Kopia dadus pa un `List` dentu di `try`, i devolve **lista** — ka `ResultSet`."
   diff={[
-    { type: "del", t: "// ÉRU — Connection ta fetxa antis di nu ler resultadu!" },
+    { type: "del", t: "// ÉRU — Connection ta fitxa na return, ResultSet ta móre!" },
     { type: "del", t: "ResultSet pegaUzuarius() throws SQLException {" },
-    { type: "del", t: "    Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);" },
-    { type: "del", t: "    PreparedStatement pstmt = conn.prepareStatement(\"SELECT * FROM uzuarius\");" },
-    { type: "del", t: "    return pstmt.executeQuery();  // Connection fetxa, ResultSet móre!" },
+    { type: "del", t: "    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);" },
+    { type: "del", t: "         PreparedStatement pstmt = conn.prepareStatement(\"SELECT * FROM uzuarius\")) {" },
+    { type: "del", t: "        return pstmt.executeQuery();  // try ta fitxa Connection gosi → kursor móre" },
+    { type: "del", t: "    }" },
     { type: "del", t: "}" },
     { type: "add", t: "List<Uzuariu> pegaUzuarius() throws SQLException {" },
     { type: "add", t: "    List<Uzuariu> uzuarius = new ArrayList<>();" },
@@ -77,16 +78,16 @@ Pa koluna ki pode ser `NULL`, `getInt` ta devolve `0` i `getString` ta devolve `
     { type: "add", t: "            uzuarius.add(new Uzuariu(rs.getInt(\"id\"), rs.getString(\"nomi_uzuariu\")));" },
     { type: "add", t: "        }" },
     { type: "add", t: "    }" },
-    { type: "add", t: "    return uzuarius;  // Connection fetxadu, ma dadus sta seguru na lista" },
+    { type: "add", t: "    return uzuarius;  // Connection fitxadu, ma dadus sta seguru na lista" },
     { type: "add", t: "}" },
   ]}
 />
 
 :::callout{type=info}
-`Uzuariu` é un POJO sinples (un klasi ku `id` i `nomiUzuariu`) ki bu ta kria pa guarda kada linha.
+`Uzuariu` é un POJO sinples (un klasi ku `id` i `nomiUzuariu`) ki bu ta kria pa guarda kada fila.
 :::
 
-**Drena pa un `List` ou prosesa na streaming?** Pa mayoria di kazu — listas kurtu ki kabe na memória — drena pa un `List` é más sinplis i seguru. Sô kuandu bu ten **txeu** linha (milharis ou milhons) ki ka kabe na memória, bu ta prosesa kada linha dentu di loop sen guarda tudu.
+**Kopia filas pa un `List` ou prosesa na streaming?** Pa mayoria di kazu — listas kurtu ki kabe na memória — kopia filas pa un `List` é más sinplis i seguru. Sô kuandu bu ten **txeu** fila (milharis ou milhons) ki ka kabe na memória, bu ta prosesa kada fila dentu di loop sen guarda tudu.
 
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
 <TentaGosi showHeader={false} />
@@ -103,5 +104,5 @@ Pa koluna ki pode ser `NULL`, `getInt` ta devolve `0` i `getString` ta devolve `
   <RezumuItem term="ResultSet" code>un kursor bibu pa riba di bazi di dadus — **ka** un koleson na memória</RezumuItem>
   <RezumuItem>`Connection` debe fika abertu enkuantu bu ta ler `ResultSet`; pa padron sô ta move pa frenti.</RezumuItem>
   <RezumuItem>Ler kada koluna ku `getX` ki ta korresponde; uza `wasNull()` pa valor `NULL`.</RezumuItem>
-  <RezumuItem variant="gold" term="Regra di oru">Drena pa un `List` dentu di `try`, i devolve lista — ka `ResultSet`.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kopia filas pa un `List` dentu di `try`, i devolve lista — ka `ResultSet`.</RezumuItem>
 </KeyTakeaways>

@@ -2,38 +2,38 @@
 # Publish copies this to content/courses/jdbc-postgresql/lessons/connecting/quiz.yaml.
 # <Quiz position={n}/> is 0-based and must line up with this list order.
 - question:
-    kea: "Na o JDBC URL `jdbc:postgresql://localhost:5432/nha_bazi`, kuzé ki `5432` ta reprezenta?"
+    kea: "Na JDBC URL `jdbc:postgresql://localhost:5432/nha_bazi`, kuzé ki `5432` ta reprezenta?"
   options:
-    - text: { kea: "A porta undi PostgreSQL ta skuta" }
+    - text: { kea: "Porta unde PostgreSQL ta skuta" }
       correct: true
-      explain: { kea: "`5432` é a **porta** (o padron di PostgreSQL). Dipos di a porta ven `/nha_bazi`, ki é o nomi di a bazi di dadus." }
-    - text: { kea: "O nomi di a bazi di dadus" }
+      explain: { kea: "`5432` é **porta** (padron di PostgreSQL). Dipos di porta ven `/nha_bazi`, ki é nomi di bazi di dadus." }
+    - text: { kea: "Nomi di bazi di dadus" }
       correct: false
-      explain: { kea: "O nomi di a bazi ven dipos di a barra: `/nha_bazi`. `5432` é a porta." }
-    - text: { kea: "O ID di o uzuáriu" }
+      explain: { kea: "Nomi di bazi ven dipos di barra: `/nha_bazi`. `5432` é porta." }
+    - text: { kea: "ID di uzuáriu" }
       correct: false
-      explain: { kea: "O uzuáriu ka ta ba na URL li — el ta pasadu separadu pa `getConnection(URL, USER, PASSWORD)`." }
+      explain: { kea: "Uzuáriu ka ta ba na URL li — el ta pasadu separadu pa `getConnection(URL, USER, PASSWORD)`." }
 - question:
-    kea: "Pamodi nu ta uza try-with-resources pa o `Connection` dezdi o kumesu?"
+    kea: "Pamodi nu ta uza try-with-resources pa `Connection` dezdi kumesu?"
   options:
-    - text: { kea: "Pamodi el ta fetxa a konexon automatikamenti, mésmu si un exeson kontise" }
+    - text: { kea: "Pamodi el ta fitxa konexon automatikamenti, mésmu si un exsesan kontise" }
       correct: true
-      explain: { kea: "Konexon é karu i limitadu. try-with-resources ta garanti ki el ta fetxadu sénpri — sen isu, konexon vazadu ta sgota a bazi ku `too many connections`." }
-    - text: { kea: "Pamodi el ta faze o query kori más rápidu" }
+      explain: { kea: "Konexon é karu i limitadu. try-with-resources ta garanti ki el ta fitxadu sénpri — sen isu, konexon vazadu ta sgota bazi ku `too many connections`." }
+    - text: { kea: "Pamodi el ta faze query kore más rápidu" }
       correct: false
-      explain: { kea: "El ka ta muda velosidadi — el ta garanti **limpeza** di rekursu. O ganhu é ki a konexon nunka vaza." }
-    - text: { kea: "Pamodi sen el o kódiku ka ta kompila" }
+      explain: { kea: "El ka ta muda velosidadi — el ta garanti **limpeza** di rekursu. Ganhu é ki konexon nunka vaza." }
+    - text: { kea: "Pamodi sen el kódiku ka ta kompila" }
       correct: false
-      explain: { kea: "O kódiku ta kompila sen el — ma bu ta dexa konexon abertu, ki é un bug perigozu." }
+      explain: { kea: "Kódiku ta kompila sen el — ma bu ta dexa konexon abertu, ki é un bug perigozu." }
 - question:
     kea: "Kuzé ki `DriverManager.getConnection(...)` ta faze pa baxu?"
   options:
-    - text: { kea: "Ta atxa o driver, abri un socket pa host/porta, otentika, i devolve un `Connection`" }
+    - text: { kea: "Ta atxa driver, abri un socket pa host/porta, otentika, i devolve un `Connection`" }
       correct: true
-      explain: { kea: "É es kuatru pasu: lookup di driver (di o `.jar`), abri socket di rede, otentika ku uzuáriu/senha, i devolve o objetu `Connection`." }
-    - text: { kea: "Ta kria a tabela na bazi di dadus" }
+      explain: { kea: "É es kuatru pasu: lookup di driver (di `.jar`), abri socket di rede, otentika ku uzuáriu/senha, i devolve objetu `Connection`." }
+    - text: { kea: "Ta kria tabela na bazi di dadus" }
       correct: false
-      explain: { kea: "Nau — el sô ta abri a konexon. Kria tabela é un `CREATE TABLE` separadu (próximu lisan)." }
-    - text: { kea: "Ta baxa o driver PostgreSQL di a internet" }
+      explain: { kea: "Nau — el sô ta abri konexon. Kria tabela é un `CREATE TABLE` separadu (próximu lisan)." }
+    - text: { kea: "Ta baxa driver PostgreSQL di internet" }
       correct: false
-      explain: { kea: "O driver dja debe sta na classpath (via Maven ou `.jar`); `getConnection` ka ta baxa nada." }
+      explain: { kea: "Driver dja debe sta na classpath (via Maven ou `.jar`); `getConnection` ka ta baxa nada." }

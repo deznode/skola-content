@@ -5,11 +5,11 @@ courseSlug: jdbc-postgresql
 lessonSlug: troubleshooting-summary
 objectives:
   - "Diagnostika i koriji os 5 falha komun di JDBC"
-  - "Lembra os takeaway prinsipal di tudu kursu"
-  - "Aplika a txeklista pa produson"
+  - "Lembra takeaway prinsipal di tudu kursu"
+  - "Aplika txeklista pa produson"
 ---
 
-Kuandu bu konexon ka ta funsiona, normalmenti é un di sinku prublema. Tres primeru é di **konexon** — verifika-s rápidu ku komandus li baxu. Dipos, nu ta fetxa ku un rezumu di tudu kursu.
+Kuandu bu konexon ka ta funsiona, normalmenti é un di sinku prublema. Tres primeru é di **konexon** — verifika-s rápidu ku komandus li baxu. Dipos, nu ta fitxa ku un rezumu di tudu kursu.
 
 ## Éru di konexon — diagnóstiku rápidu
 
@@ -24,7 +24,7 @@ Kuandu bu konexon ka ta funsiona, normalmenti é un di sinku prublema. Tres prim
     {
       q: 'Éru: "Connection refused" ou "Connection timed out"',
       tag: "Konexon",
-      a: "PostgreSQL ka ta kori, ou host/porta eradu. Konfirma ki servidor ta kori, ki porta é `5432`, i ki `pg_hba.conf` ta permiti konexon di bu IP.",
+      a: "PostgreSQL ka ta kore, ou host/porta eradu. Konfirma ki servidor ta kore, ki porta é `5432`, i ki `pg_hba.conf` ta permiti konexon di bu IP.",
       code: "pg_isready",
     },
     {
@@ -60,7 +60,7 @@ Konkatena input di uzuáriu diretamenti na un string SQL ta dexa un atakanti inx
 ## Éru komun: Vazamentu di Rekursus
 
 :::callout{type=danger}
-Ka fetxa `Connection`, `Statement`, ou `ResultSet` ta sgota pool di konexon — i bu aplikason ta krax ku "too many connections".
+Ka fitxa `Connection`, `Statement`, ou `ResultSet` ta sgota pool di konexon — i bu aplikasan ta krax ku "too many connections".
 :::
 
 ```java
@@ -71,7 +71,7 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
     // Trabadja ku resultadus
 
-} // Tudu tres ta fetxadu automatikamenti li, mésmu si exsesan kontise
+} // Tudu tres ta fitxadu automatikamenti li, mésmu si exsesan kontise
 ```
 
 <SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
@@ -79,15 +79,16 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
+  <Quiz position={3} />
 </QuizSet>
 
 <SectionHeading variant="summary">Rezumu — kuzé ki bu prende</SectionHeading>
 <KeyTakeaways showHeader={false}>
   <RezumuItem>Konekta Java ku PostgreSQL uzandu JDBC i `DriverManager`.</RezumuItem>
   <RezumuItem term="Tres objetu">`Connection`, `PreparedStatement`, i `ResultSet`.</RezumuItem>
-  <RezumuItem>Faze tudu operason CRUD di forma seguru ku `PreparedStatement` (`?` ta privini SQL injection).</RezumuItem>
+  <RezumuItem>Faze tudu operasan CRUD di forma seguru ku `PreparedStatement` (`?` ta privini SQL injection).</RezumuItem>
   <RezumuItem>`ResultSet` ta funsiona kumo kursor — **ka** un koleson na memória.</RezumuItem>
-  <RezumuItem>Transason: `setAutoCommit(false)` / `commit()` / `rollback()` — tudu ou nada.</RezumuItem>
+  <RezumuItem>Transasan: `setAutoCommit(false)` / `commit()` / `rollback()` — tudu ou nada.</RezumuItem>
   <RezumuItem variant="gold" term="Regra di oru">Sénpri `PreparedStatement` ku `?`, sénpri try-with-resources.</RezumuItem>
 </KeyTakeaways>
 
@@ -109,7 +110,9 @@ pstmt.setString(1, nomi);
 int linhasAfetadus = pstmt.executeUpdate();
 ```
 
-> **Dika:** Pa un referénsia kompletu di un pajina, odja cheatsheet di es kursu.
+:::callout{type=tip}
+Pa un referénsia kompletu di un pájina, odja cheatsheet di es kursu.
+:::
 
 ## Seguransa i prósimus pasus
 
@@ -130,10 +133,10 @@ String password = System.getenv("DATABASE_PASSWORD");
     "Connection pooling (`HikariCP`, `c3p0`, ou similar)",
     "Kredensial guardadu di forma seguru (variável di anbienti, jestor di segredu)",
     "Tudu query ta uza `PreparedStatement`",
-    "Tudu rekursus fetxadu ku try-with-resources",
+    "Tudu rekursus fitxadu ku try-with-resources",
     "Tratamentu di éru i logging adekuadu",
     "Uzuáriu di bazi di dadus ku permison mínimu nesesáriu",
   ]}
 />
 
-**Prósimus pasus:** aprofunda na transason (isolation levels, batch), prende Connection Pooling ku [HikariCP](https://github.com/brettwooldridge/HikariCP), ou konstrui un REST API ki ta uza JDBC. Rekursus: [Docs JDBC di PostgreSQL](https://jdbc.postgresql.org/documentation/) · [Tutorial JDBC di Baeldung](https://www.baeldung.com/java-jdbc).
+**Prósimus pasus:** aprofunda na transasan (isolation levels, batch), prende Connection Pooling ku [HikariCP](https://github.com/brettwooldridge/HikariCP), ou konstrui un REST API ki ta uza JDBC. Rekursus: [Docs JDBC di PostgreSQL](https://jdbc.postgresql.org/documentation/) · [Tutorial JDBC di Baeldung](https://www.baeldung.com/java-jdbc).

@@ -3,26 +3,39 @@
 - question:
     kea: "Si bu konkatena input na SQL i un atakanti skrebe `'; DROP TABLE uzuarius; --`, kuzé ki ta kontise?"
   options:
-    - text: { kea: "A tabela `uzuarius` ta apagadu — é un ataki di SQL injection" }
+    - text: { kea: "Tabela `uzuarius` ta apagadu — é un ataki di SQL injection" }
       correct: true
-      explain: { kea: "O input ta bira parti di o komandu SQL, entãu o `DROP TABLE` ta kori. É pa es ki bu **nunka** debe konkatena input na SQL." }
+      explain: { kea: "Input ta bira parti di komandu SQL, entãu `DROP TABLE` ta kore. É pa es ki bu **nunka** debe konkatena input na SQL." }
     - text: { kea: "Nada — PostgreSQL ta inora input perigozu automatikamenti" }
       correct: false
       explain: { kea: "PostgreSQL ka tene manera di sabe kuzé ki é dadus i kuzé ki é komandu si bu konkatena — pa el, tudu é SQL." }
 - question:
-    kea: "Kal é o manera seguru di pasa input di uzuáriu pa un query?"
+    kea: "Kal é manera seguru di pasa input di uzuáriu pa un query?"
   options:
     - text: { kea: "`PreparedStatement` ku `?` i `pstmt.setString(…)`" }
       correct: true
-      explain: { kea: "Ku `?`, a bazi di dadus ta trata o input komu **dadus**, nunka komu kódiku — SQL injection ka ta funsiona." }
-    - text: { kea: "Konkatena o input diretu na string SQL ku `+`" }
+      explain: { kea: "Ku `?`, bazi di dadus ta trata input kumo **dadus**, nunka kumo kódiku — SQL injection ka ta funsiona." }
+    - text: { kea: "Konkatena input diretu na string SQL ku `+`" }
       correct: false
-      explain: { kea: "Es é exatamenti o buraku ki ta dexa SQL injection." }
+      explain: { kea: "Es é exatamenti buraku ki ta dexa SQL injection." }
 - question:
     kea: "Pamodi try-with-resources é importanti pa konexon di bazi di dadus?"
   options:
-    - text: { kea: "El ta fetxa a konexon automatikamenti i ta evita 'too many connections'" }
+    - text: { kea: "El ta fitxa konexon automatikamenti i ta evita 'too many connections'" }
       correct: true
-      explain: { kea: "Konexon vazadu ta sgota o pool. try-with-resources ta garanti ki tudu ta fetxa, mésmu si un exeson akontese." }
-    - text: { kea: "El ta fazê o kódiku kori más rápidu" }
+      explain: { kea: "Konexon vazadu ta sgota pool. try-with-resources ta garanti ki tudu ta fitxa, mésmu si un exsesan kontise." }
+    - text: { kea: "El ta faze kódiku kore más rápidu" }
       correct: false
+      explain: { kea: "try-with-resources é sobri fitxa rekursu ku seguransa, ka sobri velosidade — el ka ta muda performance." }
+- question:
+    kea: "Bu programa ta lansa `No suitable driver found for jdbc:postgresql://…`. Kal é kauza más provável?"
+  options:
+    - text: { kea: "JAR di driver JDBC ka sta na classpath" }
+      correct: true
+      explain: { kea: "JDBC ka atxa un driver pa `jdbc:postgresql:` — djunta dependénsia `org.postgresql:postgresql` na `pom.xml` ou `.jar` na classpath." }
+    - text: { kea: "Senha di bazi di dadus sta eradu" }
+      correct: false
+      explain: { kea: "Senha eradu ta da `FATAL: password authentication failed`, ka `No suitable driver found` — kel-li é un prublema di classpath." }
+    - text: { kea: "PostgreSQL ka ta kore" }
+      correct: false
+      explain: { kea: "Servidor pargadu ta da `Connection refused` — `No suitable driver found` ta kontise antis di kualker konexon, na momentu di atxa driver." }

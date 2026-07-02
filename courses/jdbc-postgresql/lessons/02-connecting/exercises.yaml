@@ -4,9 +4,9 @@
 - slug: kori-smoke-test-konexon
   language: bash
   kind: setup
-  title: { kea: "Kori bu primeru konexon" }
+  title: { kea: "Kore bu primeru konexon" }
   prompt:
-    kea: "Salva o programa `JdbcDemo` di riba, troka `URL`, `USER`, i `PASSWORD` ku bu kredensial real di PostgreSQL, i kori-l kontra bu bazi. Bu debe odja a mensajen di konexon **i** a versan di a bazi. Si bu odja `No suitable driver found` ou `Connection refused`, konfirma o `.jar` na classpath i ki o servidor ta kori."
+    kea: "Salva programa `JdbcDemo` di riba, troka `URL`, `USER`, i `PASSWORD` ku bu kredensial real di PostgreSQL, i kore-l kontra bu bazi. Bu debe odja mensajen di konexon **i** versan di bazi. Si bu odja `No suitable driver found` ou `Connection refused`, konfirma `.jar` na classpath i ki servidor ta kore."
   command: |
     javac -cp postgresql-42.7.11.jar JdbcDemo.java
     java -cp .:postgresql-42.7.11.jar JdbcDemo

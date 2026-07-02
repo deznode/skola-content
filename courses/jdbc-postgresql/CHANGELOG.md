@@ -8,6 +8,18 @@ draft changes since the previous publish (source of truth: `topics/jdbc-postgres
 trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-02] — publish
+
+### Changed
+- Full Module 1 Kriolu calibration (6 lessons + sidecars): `fetxa`→`fitxa` (close,
+  incl. `fitxadu`); `Drena`→`Kopia` for the ResultSet→List pattern; `fila` (not
+  `linha`) for DB rows; PT definite-article elisions; `-son`→`-san` singulars; plus
+  lexical fixes (`kore`, `unde`, `en bez di devolve`).
+- Cheatsheet: same ALUPEC calibration + terminology/clarity pass (`Língua` accent,
+  `Verifika WHERE ku kuidadu`, `fila afetadu`).
+- L01: authored prose refinements (`papia ku`, `di Java`, `fika guardadu`, `eskolha`).
+- `course.yaml` outcomes: `drena`→`kopia`, `transason`→`transasan`, article elision.
+
 ## [2026-06-30] — publish
 
 ### Added

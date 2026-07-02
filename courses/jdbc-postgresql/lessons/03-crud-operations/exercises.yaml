@@ -10,7 +10,7 @@
   prompt:
     kea: "Konstrui un livru di enderesus sinples na linha di komandu ki ta djunta, lista, buska, i apaga kontatus. **Rekizitus:** (1) Kria un tabela `kontatus` ku `id`, `nomi`, `telefoni`, `email`. (2) Inplementa **djunta** un nobu kontatu, **lista** tudu kontatus, **buska** pa nomi (match parsial ku `ILIKE`), i **apaga** pa ID. (3) Uza `PreparedStatement` pa **tudu** query. Uza un menu loop ku `Scanner` pa input di uzuáriu."
   hint:
-    kea: "Pa match parsial uza `WHERE nomi ILIKE ?` i seta o parâmetru pa `\"%\" + termu + \"%\"`. Pa o menu, un `while (true)` ku un `switch` riba di o input di `Scanner`."
+    kea: "Pa match parsial uza `WHERE nomi ILIKE ?` i seta parámetru pa `\"%\" + termu + \"%\"`. Pa menu, un `while (true)` ku un `switch` riba di input di `Scanner`."
   solutionCode: |
     import java.sql.*;
     import java.util.Scanner;

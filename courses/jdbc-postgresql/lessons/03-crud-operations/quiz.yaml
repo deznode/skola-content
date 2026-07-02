@@ -2,25 +2,25 @@
 # Publish copies this to content/courses/jdbc-postgresql/lessons/crud-operations/quiz.yaml.
 # <Quiz position={n}/> is 0-based and must line up with this list order.
 - question:
-    kea: "Kal métodu bu ta uza pa kori un `INSERT`, `UPDATE`, ô `DELETE`?"
+    kea: "Kal métodu bu ta uza pa kore un `INSERT`, `UPDATE`, ou `DELETE`?"
   options:
     - text: { kea: "`executeUpdate()`" }
       correct: true
-      explain: { kea: "**`executeUpdate()`** é pa SQL ki ta modifika dadus — el ta devolve o númeru di linha afetadu." }
+      explain: { kea: "**`executeUpdate()`** é pa SQL ki ta modifika dadus — el ta devolve númeru di fila afetadu." }
     - text: { kea: "`executeQuery()`" }
       correct: false
       explain: { kea: "`executeQuery()` é pa `SELECT` — el ta devolve un `ResultSet`." }
     - text: { kea: "`executeSelect()`" }
       correct: false
 - question:
-    kea: "Na un `PreparedStatement`, o primeru placeholder `?` ta korresponde ku kal índisi?"
+    kea: "Na un `PreparedStatement`, primeru placeholder `?` ta korresponde ku kal índisi?"
   options:
     - text: { kea: "1" }
       correct: true
-      explain: { kea: "Os placeholder di JDBC ta kumesa na **1**, ka na 0 — `pstmt.setString(1, …)` é o primeru `?`." }
+      explain: { kea: "Placeholder di JDBC ta kumesa na **1**, ka na 0 — `pstmt.setString(1, …)` é primeru `?`." }
     - text: { kea: "0" }
       correct: false
-      explain: { kea: "Kuidadu: na JDBC os `?` ta kumesa na 1, ka na 0 komu os array di Java." }
+      explain: { kea: "Kuidadu: na JDBC `?` ta kumesa na 1, ka na 0 kumo array di Java." }
     - text: { kea: "-1" }
       correct: false
 - question:
@@ -31,4 +31,4 @@
       explain: { kea: "`executeQuery()` ta devolve un `ResultSet` ki bu ta perkore ku `rs.next()`." }
     - text: { kea: "`executeUpdate()`" }
       correct: false
-      explain: { kea: "`executeUpdate()` ta devolve un `int` (linha afetadu), ka un `ResultSet`." }
+      explain: { kea: "`executeUpdate()` ta devolve un `int` (fila afetadu), ka un `ResultSet`." }

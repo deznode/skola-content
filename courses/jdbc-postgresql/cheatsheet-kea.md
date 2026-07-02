@@ -10,10 +10,10 @@ trace_id: Skola-course-jdbc-postgresql-cheatsheet-20260628
 
 # JDBC Cheatsheet — Java ku PostgreSQL
 
-**Lingua:** kea (Kabuverdianu) | **Java:** 17+ (LTS) | **Driver:** org.postgresql 42.7.11 | **Doc version:** 1.0.0 | **Validadu na:** 2026-06-28
+**Língua:** kea (Kabuverdianu) | **Java:** 17+ (LTS) | **Driver:** org.postgresql 42.7.11 | **Doc version:** 1.0.0 | **Validadu na:** 2026-06-28
 
-> **Pa ken?** Dizenvolvedor Java prinsipianti ki ta liga un programa ku PostgreSQL pa primeru vês.
-> **Kumo uza:** Referénsia rápidu pa konsulta durante o kursu. Kopia i kola o kódiku diretu pa bu editor.
+> **Pa ken?** Dizenvolvedor Java prinsipianti ki ta liga un programa ku PostgreSQL pa primeru bez.
+> **Kumo uza:** Referénsia rápidu pa konsulta durante kursu. Kopia i kola kódiku diretu pa bu editor.
 
 ---
 
@@ -41,7 +41,7 @@ trace_id: Skola-course-jdbc-postgresql-cheatsheet-20260628
 </dependency>
 ```
 
-**Anatomia di o JDBC URL:**
+**Anatomia di JDBC URL:**
 
 ```
 jdbc:postgresql://localhost:5432/nha_bazi
@@ -52,8 +52,8 @@ protokolu  tipu      host  porta  nomi di bazi
 | Parti | Ezénplu | Nota |
 |-------|---------|------|
 | Protokolu | `jdbc:` | Sénpri es |
-| Tipu | `postgresql` | O driver |
-| Host | `localhost` | Lokal, ô IP/domíniu |
+| Tipu | `postgresql` | Driver |
+| Host | `localhost` | Lokal, ou IP/domíniu |
 | Porta | `5432` | Padron di PostgreSQL |
 | Bazi | `nha_bazi` | Nomi di bu bazi di dadus |
 
@@ -61,7 +61,7 @@ protokolu  tipu      host  porta  nomi di bazi
 
 ## 2. Konekta
 
-Sénpri uza **try-with-resources** — a konexon ta fetxa automatikamenti.
+Sénpri uza **try-with-resources** — konexon ta fitxa automatikamenti.
 
 ```java
 String URL = "jdbc:postgresql://localhost:5432/nha_bazi";
@@ -79,12 +79,12 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
 
 ## 3. CRUD ku PreparedStatement
 
-**Regra di oru:** sénpri `PreparedStatement` ku `?` — nunka konkatena input na SQL. Os placeholder `?` ta kumesa na **1**.
+**Regra di oru:** sénpri `PreparedStatement` ku `?` — nunka konkatena input na SQL. Placeholder `?` ta kumesa na **1**.
 
-| Operason | Métodu | Ta devolve |
+| Operasan | Métodu | Ta devolve |
 |----------|--------|-----------|
 | `SELECT` | `executeQuery()` | un `ResultSet` |
-| `INSERT` / `UPDATE` / `DELETE` | `executeUpdate()` | `int` (linha afetadu) |
+| `INSERT` / `UPDATE` / `DELETE` | `executeUpdate()` | `int` (fila afetadu) |
 
 **Create (INSERT):**
 
@@ -118,13 +118,13 @@ try (PreparedStatement ps = conn.prepareStatement(sql)) {
 }
 ```
 
-> **Kuidadu:** `UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** linha. Verifika dublu o `WHERE`.
+> **Kuidadu:** `UPDATE`/`DELETE` sen `WHERE` ta afeta **TUDU** fila. Verifika `WHERE` ku kuidadu.
 
 ---
 
 ## 4. Le dadus ku ResultSet
 
-`ResultSet` é un **kursor bibu** pa riba di a konexon — **ka** un koleson na memória. A `Connection` debe fika abertu enkuantu bu ta le.
+`ResultSet` é un **kursor bibu** pa riba di konexon — **ka** un koleson na memória. A `Connection` debe fika abertu enkuantu bu ta le.
 
 ```java
 String sql = "SELECT id, nomi, email FROM uzuarius";
@@ -139,7 +139,7 @@ try (PreparedStatement ps = conn.prepareStatement(sql);
 }
 ```
 
-**Drena pa un `List` (envês di debolve o `ResultSet`):**
+**Kopia filas pa un `List` (en bez di devolve `ResultSet`):**
 
 ```java
 List<Uzuariu> lista = new ArrayList<>();
@@ -150,18 +150,18 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         lista.add(new Uzuariu(rs.getInt("id"), rs.getString("nomi")));
     }
 }
-return lista;   // konexon fetxadu, mas dadus seguru na lista
+return lista;   // konexon fitxadu, mas dadus seguru na lista
 ```
 
 ---
 
 ## 5. Transasons
 
-Pa agrupa vários statement nun sô operason **tudu-ô-nada**:
+Pa agrupa vários statement nun sô operasan **tudu-ou-nada**:
 
 ```java
 try {
-    conn.setAutoCommit(false);          // kumesa transason
+    conn.setAutoCommit(false);          // kumesa transasan
     // ... vários UPDATE ...
     conn.commit();                      // grava tudu djuntu
 } catch (SQLException e) {
@@ -174,7 +174,7 @@ try {
 
 | Métodu | Kuzé ki ta faze |
 |--------|-----------------|
-| `setAutoCommit(false)` | Kumesa a transason — nada ta grava te `commit()` |
+| `setAutoCommit(false)` | Kumesa transasan — nada ta grava te `commit()` |
 | `commit()` | Grava tudu mudansa djuntu |
 | `rollback()` | Disfaze TUDU si algun pasu falha |
 
@@ -186,7 +186,7 @@ try {
 |------|-----------|
 | `PreparedStatement` ku `?` | Konkatena input ku `+` na SQL |
 | Kredensial na variável di anbienti | Kredensial na kódiku fonti |
-| Permison mínimu pa o uzuáriu | `GRANT ALL` pa tudu |
+| Permison mínimu pa uzuáriu | `GRANT ALL` pa tudu |
 | try-with-resources | Dexa konexon abertu |
 
 ```java
@@ -202,7 +202,7 @@ String pass = System.getenv("DATABASE_PASSWORD");
 | Éru | Kauza | Soluson |
 |-----|-------|---------|
 | `No suitable driver found` | Driver ka sta na classpath | Djunta `org.postgresql:postgresql:42.7.11` |
-| `Connection refused` | Servidor ka ta kori / porta eradu | `pg_isready`; verifika porta 5432 i `pg_hba.conf` |
+| `Connection refused` | Servidor ka ta kore / porta eradu | `pg_isready`; verifika porta 5432 i `pg_hba.conf` |
 | `password authentication failed` | Uzuáriu/senha eradu | Testa ku `psql -U uzuariu -d bazi` |
 | `too many connections` | Konexon vazadu | try-with-resources na tudu konexon |
-| Dadus inkonsistenti dipôs di falha | Falta `rollback()` | Nvolvi os statement nun transason |
+| Dadus inkonsistenti dipos di falha | Falta `rollback()` | Nvolvi statement nun transasan |

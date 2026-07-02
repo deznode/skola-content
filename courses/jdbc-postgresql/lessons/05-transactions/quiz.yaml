@@ -1,28 +1,28 @@
-# Quiz sidecar (draft source) for lesson m1-09 "Transasons — Tudu ô Nada".
+# Quiz sidecar (draft source) for lesson m1-05 "Transasons — Tudu ou Nada".
 # Publish copies this to content/courses/jdbc-postgresql/lessons/transactions/quiz.yaml.
 - question:
     kea: "Pa padron (autocommit), kuandu un `UPDATE` ta grava na bazi di dadus?"
   options:
     - text: { kea: "Imediatamenti — kada statement ta grava un pa un" }
       correct: true
-      explain: { kea: "Pa padron JDBC ta sta na autocommit: kada statement ta kometi imediatamenti. É pa es ki bu meste `setAutoCommit(false)` pa un transason." }
+      explain: { kea: "Pa padron JDBC ta sta na autocommit: kada statement ta kometi imediatamenti. É pa es ki bu meste `setAutoCommit(false)` pa un transasan." }
     - text: { kea: "Sô kuandu bu txoma `commit()`" }
       correct: false
-      explain: { kea: "Isu sô é verdadi **dipôs** di `setAutoCommit(false)`. Pa padron, ka ten ki txoma `commit()`." }
+      explain: { kea: "Isu sô é verdadi **dipos** di `setAutoCommit(false)`. Pa padron, ka ten ki txoma `commit()`." }
 - question:
-    kea: "Na un transason, kuzé ki `conn.rollback()` ta faze si o sigundu `UPDATE` falha?"
+    kea: "Na un transasan, kuzé ki `conn.rollback()` ta faze si sigundu `UPDATE` falha?"
   options:
-    - text: { kea: "Ta disfaze TUDU mudansa di a transason — komu si nada kontise" }
+    - text: { kea: "Ta disfaze TUDU mudansa di transasan — kumo si nada kontise" }
       correct: true
-      explain: { kea: "`rollback()` ta volta a bazi di dadus pa komu el staba antis di `setAutoCommit(false)` — atomisidadi: tudu ô nada." }
-    - text: { kea: "Ta disfaze sô o último `UPDATE`" }
+      explain: { kea: "`rollback()` ta volta bazi di dadus pa kumo el staba antis di `setAutoCommit(false)` — atomisidadi: tudu ou nada." }
+    - text: { kea: "Ta disfaze sô último `UPDATE`" }
       correct: false
-      explain: { kea: "Nau — `rollback()` ta disfaze **tudu** os statement dizdi o kumesu di a transason." }
+      explain: { kea: "Nau — `rollback()` ta disfaze **tudu** statement dizdi kumesu di transasan." }
 - question:
-    kea: "Undi bu debe pô `conn.setAutoCommit(true)`?"
+    kea: "Unde bu debe po `conn.setAutoCommit(true)`?"
   options:
-    - text: { kea: "Na o `finally` — pa restora o padron mésmu si un exeson akontese" }
+    - text: { kea: "Na `finally` — pa restora padron mésmu si un exsesan kontise" }
       correct: true
-      explain: { kea: "O `finally` ta kori sénpri, entãu a konexon ta volta pa autocommit sehá ki a transason funsiona ô falha." }
+      explain: { kea: "`finally` ta kore sénpri, entãu konexon ta volta pa autocommit sehá ki transasan funsiona ou falha." }
     - text: { kea: "Antis di `setAutoCommit(false)`" }
       correct: false

@@ -1,4 +1,4 @@
-# Exercises sidecar (draft source) for lesson m1-05 "Intendi ResultSet Más Fundu".
+# Exercises sidecar (draft source) for lesson m1-04 "ResultSet a Fundu".
 # Publish copies this to content/courses/jdbc-postgresql/lessons/understanding-resultset/exercises.yaml.
 # Keep `slug` stable (completed_exercises FK).
 - slug: koriji-vazamentu-konexon
@@ -7,7 +7,7 @@
   file: PegaUzuarius.java
   title: { kea: "Koriji un vazamentu di konexon" }
   prompt:
-    kea: "Es métodu ta funsiona — mas el ta **vaza** rekursus: a `Connection`, o `PreparedStatement`, i o `ResultSet` nunka ta fetxadu. Dipôs di txeu txamada, a aplikason ta krax ku `too many connections`. Koriji-l ku **try-with-resources**."
+    kea: "Es métodu ta funsiona — mas el ta **vaza** rekursus: `Connection`, `PreparedStatement`, i `ResultSet` nunka ta fitxadu. Dipos di txeu txamada, aplikasan ta krax ku `too many connections`. Koriji-l ku **try-with-resources**."
   starterCode: |
     List<Uzuariu> pegaUzuarius() throws SQLException {
         List<Uzuariu> uzuarius = new ArrayList<>();
@@ -17,7 +17,7 @@
         while (rs.next()) {
             uzuarius.add(new Uzuariu(rs.getInt("id"), rs.getString("nomi_uzuariu")));
         }
-        return uzuarius;  // conn, pstmt, rs nunka ta fetxadu!
+        return uzuarius;  // conn, pstmt, rs nunka ta fitxadu!
     }
   solutionCode: |
     List<Uzuariu> pegaUzuarius() throws SQLException {
@@ -33,4 +33,4 @@
         return uzuarius;
     }
   hint:
-    kea: "Pô a `Connection`, o `PreparedStatement`, i o `ResultSet` dentu di un sô `try ( … )` — es tudu ta fetxa automatikamenti na fin, mésmu ku exeson."
+    kea: "Po `Connection`, `PreparedStatement`, i `ResultSet` dentu di un sô `try ( … )` — es tudu ta fitxa automatikamenti na fin, mésmu ku exsesan."
