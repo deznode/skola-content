@@ -75,7 +75,7 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 ```
 
 <SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
-<QuizSet>
+<QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -125,6 +125,14 @@ String url = System.getenv("DATABASE_URL");
 String user = System.getenv("DATABASE_USER");
 String password = System.getenv("DATABASE_PASSWORD");
 ```
+
+<GlossaryText
+  text="Pa produson, uza [[connection pooling]] pa reuza konexon en bez di abri un nobu kada bez, guarda kredensial fora di kódiku, i da bu uzuáriu di bazi sô [[least privilege]]."
+  terms={{
+    "connection pooling": { en: "connection pooling", definition: "Un **pool** ki ta mante un konjuntu di konexon abertu prontu pa reuza — más rápidu ki abri un nobu kada bez, i ta evita éru `too many connections`. `HikariCP` é padron di indústria.", code: "HikariDataSource ds = new HikariDataSource(config);" },
+    "least privilege": { en: "least privilege", definition: "Da un uzuáriu di bazi sô permison mínimu ki el meste (p.e. só `SELECT`/`INSERT`, ka `DROP`) — pa limita danu si kredensial vaza." },
+  }}
+/>
 
 <LessonObjectives
   eyebrow="Antis di produson"

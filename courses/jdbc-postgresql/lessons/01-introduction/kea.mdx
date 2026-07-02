@@ -12,7 +12,12 @@ Imajina ki bu app di Java meste guarda uzuárius ki ta rejista, ou produtus di u
 
 ## Kuzé ki é JDBC?
 
-JDBC (Java Database Connectivity) é **API padron** ki ta permiti Java komunika ku kualker bazi di dadus SQL. Pensa na el kumo un **tradutor universal** entri bu kódiku i bazi di dadus: bu ta skrebe Java, JDBC ta traduzi-l pa kel ki bazi di dadus ta intende.
+<GlossaryText
+  text="JDBC (Java Database Connectivity) é un [[API]] padron ki ta permiti Java komunika ku kualker bazi di dadus SQL. Pensa na el kumo un **tradutor universal** entri bu kódiku i bazi di dadus: bu ta skrebe Java, JDBC ta traduzi-l pa kel ki bazi di dadus ta intende."
+  terms={{
+    "API": { en: "API", definition: "Application Programming Interface — un konjuntu di regra i métodu ki un programa ta uza pa fala ku otu software. JDBC é un API padron entri Java i kualker bazi SQL." },
+  }}
+/>
 
 **Pamodi prende JDBC, si izisti framework?**
 - É **fundasan** di tudu trabadju ku bazi di dadus na Java — mésmu Spring Data i Hibernate é un abstrasan ki ta sinta riba di el.
@@ -46,7 +51,12 @@ JDBC ta trabadja ku tres objetu — kada un ku un papel na konversa ku bazi di d
 
 ## JDBC diretu ou un framework (ORM)?
 
-Más tardi bu pode uza un ORM kumo Spring Data ou Hibernate. Ma prende JDBC primeru ta da-bu fundamentu ki bu meste:
+<GlossaryText
+  text="Más tardi bu pode uza un [[ORM]] kumo Spring Data ou Hibernate. Ma prende JDBC primeru ta da-bu fundamentu ki bu meste:"
+  terms={{
+    "ORM": { en: "ORM", definition: "Object-Relational Mapping — un framework (Spring Data, Hibernate) ki ta mapia klasi Java pa tabela di bazi i ta jera SQL pa bo. Más abstrasan, menus kontrolu ki JDBC diretu." },
+  }}
+/>
 
 <CompareTable
   title="JDBC diretu vs ORM"
@@ -72,8 +82,31 @@ Na es kursu, pasu a pasu, bu ta konstrui un programa Java real ki ta lé i skreb
 - Skrebe query seguru ki ta privini ataki di SQL injection
 - Jeri transasan — operasan ki ta susede ou falha tudu djuntu
 
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<CodeCloze
+  lang="java"
+  prompt="Kompleta kódiku ku es tres objetu di JDBC, na órden ki es ta entra pa un sô query."
+  template={[
+    "// 1. Abri linha pa bazi di dadus",
+    "{{0}} conn = DriverManager.getConnection(URL, USER, PASSWORD);",
+    "",
+    "// 2. Prepara i manda query SQL",
+    "{{1}} pstmt = conn.prepareStatement(\"SELECT version()\");",
+    "",
+    "// 3. Resebe resposta i perkore-l fila pa fila",
+    "{{2}} rs = pstmt.executeQuery();",
+  ]}
+  answers={["Connection", "PreparedStatement", "ResultSet"]}
+  hints={[
+    "Ta liga pa bazi di dadus (a 'txamada telefóniku')",
+    "Ta leva bu query SQL (a 'mensajen')",
+    "Ta konten dadus ki bazi ta devolve (a 'resposta')",
+  ]}
+  solved="Korretu! `Connection` ta abri linha, `PreparedStatement` ta manda query, i `ResultSet` ta traze dadus di volta."
+/>
+
 <SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
-<QuizSet>
+<QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />

@@ -22,7 +22,15 @@ Gosi ki bu sabe kuzé ki é JDBC, nu ta faze algu funsiona primeru: un programa 
 
 ## Pasu 1: Djunta driver
 
-JDBC meste **driver** di PostgreSQL pa traduzi txamadas Java pa protokolu di rede di bazi di dadus. Ku Maven, djunta es na bu `pom.xml`:
+<GlossaryText
+  text="JDBC meste un [[driver]] di PostgreSQL — un `.jar` ki ta traduzi txamadas Java pa protokolu di rede di bazi. Ku Maven bu ta djunta-l na `pom.xml`; sen Maven, bu ta po-l na bu [[classpath]] manualmenti."
+  terms={{
+    "driver": { en: "driver", definition: "Un `.jar` spesífiku pa un bazi (`org.postgresql`) ki ta implementa JDBC pa kel bazi — tradutor entri bu kódiku i protokolu di PostgreSQL." },
+    "classpath": { en: "classpath", definition: "Lista di lugar unde JVM ta buska klasi i `.jar` na ténpu di kore. Si driver ka sta li, bu ta odja `No suitable driver found`." },
+  }}
+/>
+
+Djunta es dependénsia na bu `pom.xml`:
 
 ```xml
 <dependency>
@@ -119,7 +127,12 @@ Kuandu bu txoma `DriverManager.getConnection(...)`:
 2. Driver ta abri un **socket** (un linha di rede) pa host i porta
 3. El ta otentika ku uzuáriu i senha, i ta devolve un objetu `Connection`
 
-Es `Connection` é karu i limitadu — pa isu nu ta **sénpri** uza try-with-resources, ki ta fitxa-l automatikamenti, mésmu si un exsesan kontise. Sen isu, konexon vazadu ta sgota bazi i bu app ta krax ku "too many connections".
+<GlossaryText
+  text="Es `Connection` é karu i limitadu — pa isu nu ta **sénpri** uza [[try-with-resources]], ki ta fitxa-l automatikamenti, mésmu si un exsesan kontise. Sen isu, konexon vazadu ta sgota bazi i bu app ta krax ku `too many connections`."
+  terms={{
+    "try-with-resources": { en: "try-with-resources", definition: "Un `try (...)` ki ta **fitxa automatikamenti** kualker rekursu abertu na se paréntesis (`Connection`, `PreparedStatement`, `ResultSet`) na fin di bloku — mésmu si un exsesan kontise. Padron di seguransa pa nunka vaza konexon.", code: "try (Connection conn = ...) { ... }" },
+  }}
+/>
 
 :::callout{type=info}
 Si bu odja `No suitable driver found`, `.jar` ka sta na classpath. Si bu odja `Connection refused`, bazi ka ta kore ou host/porta sta eradu. Nu ta odja es éru a fundu na lisan **Rezolve Problema**.
@@ -129,7 +142,7 @@ Si bu odja `No suitable driver found`, `.jar` ka sta na classpath. Si bu odja `C
 <TentaGosi showHeader={false} />
 
 <SectionHeading variant="quiz">Verifika konhesimentu</SectionHeading>
-<QuizSet>
+<QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />

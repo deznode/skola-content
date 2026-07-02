@@ -8,6 +8,28 @@ draft changes since the previous publish (source of truth: `topics/jdbc-postgres
 trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-02] — publish (components + glossary)
+
+### Added
+- L01: inline `<CodeCloze>` "Your turn" mapping the phone-call analogy onto real
+  code (blanks = `Connection`/`PreparedStatement`/`ResultSet`), replacing the
+  reflect exercise; `[[API]]` and `[[ORM]]` glossary terms.
+- L02: `<GlossaryText>` hover-definitions for `driver`, `classpath`, and
+  `try-with-resources`.
+- L06: `<GlossaryText>` hover-definitions for `connection pooling` and
+  `least privilege`.
+
+### Changed
+- All 6 lessons: `<QuizSet showHeader={false}>` under the quiz `<SectionHeading>`
+  to drop the duplicate section header.
+
+### Fixed
+- Kriolu: `órdi`→`órden`; `trazi`/`trazê`→`traze`; `manti`/`mantén`→`mante`
+  (-e infinitive convention).
+
+### Removed
+- L01 reflect `exercises.yaml` (superseded by the inline `<CodeCloze>`).
+
 ## [2026-07-02] — publish
 
 ### Changed
