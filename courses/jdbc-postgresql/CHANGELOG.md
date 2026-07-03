@@ -8,6 +8,15 @@ draft changes since the previous publish (source of truth: `topics/jdbc-postgres
 trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-03] — publish (title rename)
+
+### Changed
+- Course title: `Java JDBC ku PostgreSQL: Gia Konpletu pa Prinsipianti` →
+  `Java JDBC ku PostgreSQL` (drop the marketing subtitle; match sibling-course
+  house style).
+- Module title (`jdbc-guide`): `Gia Konpletu di JDBC` → `Fundamentus di JDBC`
+  (match the `Fundamentus di …` module pattern).
+
 ## [2026-07-02] — publish (components + glossary)
 
 ### Added

@@ -1,12 +1,12 @@
 slug: jdbc-postgresql
-title: "Java JDBC ku PostgreSQL: Gia Konpletu pa Prinsipianti"
+title: "Java JDBC ku PostgreSQL"
 level: beginner
 category: programming
 duration_minutes: 210
 instructor: Joaquim Costa
 translations:
   kea:
-    title: "Java JDBC ku PostgreSQL: Gia Konpletu pa Prinsipianti"
+    title: "Java JDBC ku PostgreSQL"
     description: Aprendi konekta Java ku PostgreSQL uzandu JDBC. Kel kursu ta ensiná-bu di konexon i JDBC URL, CRUD ku PreparedStatement, ResultSet, i transasons, te rezolve erru komun — tudu ku ezénplu prátiku.
     prerequisites: Konhesimentu báziku di Java (klasses, métodus, try/catch)
     outcomes: |
@@ -18,7 +18,7 @@ translations:
 modules:
   - slug: jdbc-guide
     title:
-      kea: "Gia Konpletu di JDBC"
+      kea: "Fundamentus di JDBC"
     lessons:
       - slug: introduction
         languages: [kea]

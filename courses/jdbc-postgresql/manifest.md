@@ -1,6 +1,6 @@
-# Java JDBC ku PostgreSQL: Gia Konpletu pa Prinsipianti — Published Assets
+# Java JDBC ku PostgreSQL — Published Assets
 
-**Published:** 2026-07-02
+**Published:** 2026-07-03
 **Source:** topics/jdbc-postgresql/
 
 ## Files
