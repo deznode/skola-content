@@ -16,12 +16,12 @@ objectives:
 
 # Disionárius i Dict Comprehension
 
-Imagina un livru di kontatusis: bu ta buska un nomi i logu bu ta atxa se númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamente asim — é un kolesons di **pares key-value** (xavi-valor).
+Imagina un livru di kontatus: bu ta buska un nomi i logu bu ta atxa se númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamenti asim — é un kolesan di **pares key-value** (xavi-valor).
 
-Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bo presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
+Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bu presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
 
 :::callout{type=info title="Antis di kumesa"}
-Es lisan ta konta ku **list comprehension** (Lisan 11) — dict comprehension ta uza o mesmu padrón `for`. Ten tanbe un base di listas i tuplas (Lisan 11–12) i di f-strings.
+Es lisan ta konta ku **list comprehension** (Lisan 11) — dict comprehension ta uza mesmu padrón `for`. Ten tanbe un base di listas i tuplas (Lisan 11–12) i di f-strings.
 :::
 
 ## Kria Disionárius
@@ -61,7 +61,7 @@ print(dados)  # {'nomi': 'Carla', 'idadi': 20}
 ```
 
 :::callout{type=tip}
-Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bo repeti un key, Python ta guarda só últimu valor sen da eru — kel pode kauza bugs sutíl!
+Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bu repeti un key, Python ta guarda só últimu valor sen da eru — kel pode kauza bugs sutíl!
 :::
 
 ## Asesa Valores
@@ -153,14 +153,14 @@ print(pratu.items())
 
 <DetailDisclosure
   items={[
-    { q: "Kumo verifika si un **xavi** ezisti?", tag: "Splika más", a: "Uza `in` — el ta verifika as **xavis**, ka os valores.", code: "\"nomi\" in estudanti  # True" },
+    { q: "Kumo verifika si un **xavi** ezisti?", tag: "Splika más", a: "Uza `in` — el ta verifika **xavis**, ka valores.", code: "\"nomi\" in estudanti  # True" },
     { q: "Kumo verifika si un **valor** ezisti?", tag: "Splika más", a: "Uza `in` djuntu ku `.values()`.", code: "\"Pedro\" in estudanti.values()  # True" },
   ]}
 />
 
 ## PITFALL: Referénsia vs Kópia
 
-Kel é un di erus más perigozu — kuandu bo "kopia" un disionáriu ku `=`, ka é kópia real!
+Kel é un di erus más perigozu — kuandu bu "kopia" un disionáriu ku `=`, ka é kópia real!
 
 ```python
 # PROBLEMA: = ta kria REFERÉNSIA (mesmu objetu!)
@@ -181,7 +181,7 @@ print(kopia_real["nota"]) # 95
 ```
 
 :::callout{type=tip}
-Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu! Nota: `.copy()` ta kopia só o nível di sima — si un disionáriu tene otu disionáriu dentu, kel di dentu inda ta partilhadu.
+Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu! Nota: `.copy()` ta kopia só nível di sima — si un disionáriu tene otu disionáriu dentu, kel di dentu inda ta partilhadu.
 :::
 
 ## Iterasan sobri Disionárius
@@ -232,14 +232,14 @@ total = sum(menu.values())
 print(f"\nTotal (tudu): {total} ECV")
 ```
 
-:::callout{type=tip}
-**Para i pensa** 🤔 — Antis di kontinua: dadu `nota = {"Djina": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Djina")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é o default; i `88`.)*
+:::callout{type=tip title="Para i pensa"}
+Antis di kontinua: dadu `nota = {"Djina": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Djina")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é default; i `88`.)*
 :::
 
 ## Disionárius Aninhadu (Nested)
 
 :::callout{type=note}
-**Seksan avansada — opcional.** Dict aninhadu ta pasa alen di os objetivu prinsipal di es lisan. Si bu ta kumesa, bu pode salta pa "Padruns Útil" i volta li dipos.
+**Seksan avansadu — opsional.** Dict aninhadu ta pasa alen di objetivu prinsipal di es lisan. Si bu ta kumesa, bu pode salta pa "Padruns Útil" i volta li dipos.
 :::
 
 Disionárius pode kontene otus disionárius — perfeitu pa dadus kompleksu:
@@ -394,10 +394,10 @@ print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Uza `.get(key, padron)` en bez di `[]` kuandu bu ka ten serteza ki a xavi izisti — `[]` ta da `KeyError`, `.get()` ta da un valor padron sen kebra o programa.</RezumuItem>
-  <RezumuItem term="Disionáriu">Ta gerda pares **key: value** dentu di `{}`. As xavi ten ki ser **úniku** i **imutável**.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Uza `.get(key, padron)` en bez di `[]` kuandu bu ka ten serteza ki xavi izisti — `[]` ta da `KeyError`, `.get()` ta da un valor padron sen kebra programa.</RezumuItem>
+  <RezumuItem term="Disionáriu">Ta guarda pares **key: value** dentu di `{}`. Xavi ten ki ser **úniku** i **imutável**.</RezumuItem>
   <RezumuItem term="Metodus">`.keys()`, `.values()`, `.items()` (pa iterá), más `.update()`, `.pop()`, `.copy()`.</RezumuItem>
-  <RezumuItem term="Comprehension">`{key: valor for item in iterável if kondisan}` pa transforma o filtra dadus.</RezumuItem>
-  <RezumuItem term="Frekuénsia">`frek.get(k, 0) + 1` é o padrón klásiku pa konta kantu bez kada elementu aparese.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`=` ta kria un **referénsia** a o mesmu objetu (uza `.copy()` pa un kópia real), i xavi duplikadu ta sobreskrebi silensiozu — o últimu ta ganha.</RezumuItem>
+  <RezumuItem term="Comprehension">`{key: valor for item in iterável if kondisan}` pa transforma ou filtra dadus.</RezumuItem>
+  <RezumuItem term="Frekuénsia">`frek.get(k, 0) + 1` é padrón klásiku pa konta kantu bez kada elementu aparese.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`=` ta kria un **referénsia** pa mesmu objetu (uza `.copy()` pa un kópia real), i xavi duplikadu ta sobreskrebi silensiozu — últimu ta ganha.</RezumuItem>
 </KeyTakeaways>

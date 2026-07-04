@@ -15,9 +15,9 @@
 - slug: testa-e-par
   language: python
   kind: code
-  title: { kea: "Funsan é_par i os se testu" }
+  title: { kea: "Funsan é_par i se testu" }
   prompt:
-    kea: "Skrebe un funsan `é_par(n: int) -> bool` ki ta da `True` si o númeru é par. Dipos skrebe 3 funsan di testu (par, ímpar, zero) ku `assert`. Roda ku `pytest`."
+    kea: "Skrebe un funsan `é_par(n: int) -> bool` ki ta da `True` si númeru é par. Dipos skrebe 3 funsan di testu (par, ímpar, zero) ku `assert`. Roda ku `pytest`."
   hint:
     kea: "`return n % 2 == 0`. Kada testu é un funsan ku nomi ki kumesa ku `test_`: `def test_par(): assert é_par(4) is True`. Zero é par (`é_par(0)` é `True`)."
   starterCode: |
@@ -47,9 +47,9 @@
   kind: code
   title: { kea: "Testu pa inverte_string" }
   prompt:
-    kea: "Skrebe testus pa un funsan `inverte_string(s: str) -> str` ki ta da a string invertidu. Testa ku un string normal, un string vaziu i un string ku un só karater. Dipos implementa a funsan."
+    kea: "Skrebe testus pa un funsan `inverte_string(s: str) -> str` ki ta da string invertidu. Testa ku un string normal, un string vaziu i un string ku un só karater. Dipos implementa funsan."
   hint:
-    kea: "Implementason: `return s[::-1]`. Os testu: `assert inverte_string(\"abc\") == \"cba\"`, `assert inverte_string(\"\") == \"\"`, `assert inverte_string(\"x\") == \"x\"`."
+    kea: "Implementason: `return s[::-1]`. Testu: `assert inverte_string(\"abc\") == \"cba\"`, `assert inverte_string(\"\") == \"\"`, `assert inverte_string(\"x\") == \"x\"`."
   starterCode: |
     # inverte.py
     def inverte_string(s: str) -> str:
@@ -76,9 +76,9 @@
   kind: code
   title: { kea: "TDD — klassifika_nota" }
   prompt:
-    kea: "Pratika TDD: primeru skrebe os testu pa `klassifika_nota(nota: float) -> str` (\"Exselenti\" si `>= 16`, \"Bon\" si `>= 12`, \"Sufisienti\" si `>= 10`, \"Insufisienti\" si `< 10`). Dipos implementa a funsan i roda `pytest`."
+    kea: "Pratika TDD: primeru skrebe testu pa `klassifika_nota(nota: float) -> str` (\"Exselenti\" si `>= 16`, \"Bon\" si `>= 12`, \"Sufisienti\" si `>= 10`, \"Insufisienti\" si `< 10`). Dipos implementa funsan i roda `pytest`."
   hint:
-    kea: "Skrebe os `assert` primeru (es ta faya pamodi a funsan inda ka izisti). Dipos implementa ku `if`/`elif` di o más altu pa o más baxu — a orden ta importa, kumo na Lisan 9."
+    kea: "Skrebe `assert` primeru (es ta faya pamodi funsan inda ka izisti). Dipos implementa ku `if`/`elif` di más altu pa más baxu — orden ta importa, kumo na Lisan 9."
   starterCode: |
     # nota.py
     def klassifika_nota(nota: float) -> str:
@@ -114,9 +114,9 @@
   kind: code
   title: { kea: "Testa ki un funsan lansa un eru" }
   prompt:
-    kea: "Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa un `ValueError` (pamodi un nota negativu ka faze sentidu). Uza `pytest.raises(ValueError)`. Atualiza a funsan pa lansa o eru."
+    kea: "Adisiona un testu ki verifika ki `klassifika_nota(-1)` ta lansa un `ValueError` (pamodi un nota negativu ka faze sentidu). Uza `pytest.raises(ValueError)`. Atualiza funsan pa lansa eru."
   hint:
-    kea: "Na a funsan, `if nota < 0: raise ValueError(...)`. Na o testu: `with pytest.raises(ValueError): klassifika_nota(-1)`. Ka skese o `import pytest`."
+    kea: "Na funsan, `if nota < 0: raise ValueError(...)`. Na testu: `with pytest.raises(ValueError): klassifika_nota(-1)`. Ka skese `import pytest`."
   starterCode: |
     # nota.py — atualiza pa rejeita nota negativu
     def klassifika_nota(nota: float) -> str:
@@ -150,7 +150,7 @@
   kind: explore
   title: { kea: "Splora pytest (fixtures, parametrize)" }
   prompt:
-    kea: "pytest ten ferramentas poderozu alén di `assert` — `@pytest.fixture` (preparason partilhadu), `@pytest.mark.parametrize` (kore un testu ku txeu input). Odja a dokumentason pa odja kumo skrebe testu más limpu."
+    kea: "pytest ten ferramentas poderozu alén di `assert` — `@pytest.fixture` (preparason partilhadu), `@pytest.mark.parametrize` (kore un testu ku txeu input). Odja dokumentasan pa odja kumo skrebe testu más limpu."
   resources:
     kea:
       - { label: "pytest — Get Started", url: "https://docs.pytest.org/en/stable/getting-started.html" }
@@ -158,8 +158,8 @@
 - slug: refleta-tdd
   language: python
   kind: reflect
-  title: { kea: "Refleta sobri o pensamentu TDD" }
+  title: { kea: "Refleta sobri pensamentu TDD" }
   prompt:
-    kea: "TDD é skrebe o testu **antis** di o kódiku: testu → implementa → verifika → repeti. Pensa nun funsan ki bu kreba skrebe. Skrebe ki testu bu ta skrebe primeru, i kumo es ta djuda-bu pensa na os kazu di borda (vaziu, negativu, zero) antis di kodifika."
+    kea: "TDD é skrebe testu **antis** di kódiku: testu → implementa → verifika → repeti. Pensa nun funsan ki bu kreba skrebe. Skrebe ki testu bu ta skrebe primeru, i kumo es ta djuda-bu pensa na kazu di borda (vaziu, negativu, zero) antis di kodifika."
   notePlaceholder:
     kea: "Funsan: …   ·   Testu ki skrebe primeru: …   ·   Kazu di borda ki TDD ta faze-bu pensa: …"

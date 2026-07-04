@@ -18,7 +18,7 @@ objectives:
 
 Imagina reseta di katxupa. Reseta ta dize ingredientis (midju, feijun, mandioka, lingisa...), kantidadi, i pasus pa prepara. Ma reseta ka é katxupa — é só instruson. Kada bez ki bo sigi reseta i kuzinha, bu ta kria un **katxupa real** — un pratu diferenti, ku si sabor própriu.
 
-Na programasan, **klasi** é kumo reseta — un moldi ki ta deskrebe kumo un koisa debe ser. **Objetu** é kel ki bu ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bu pode uza mesmu reseta pa faze katxupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
+Na programasan, **klasi** é kumo reseta — un moldi ki ta deskrebe kumo un kuza debe ser. **Objetu** é kel ki bu ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bu pode uza mesmu reseta pa faze katxupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
 
 ## Kria Klasi ku `class`
 
@@ -71,7 +71,7 @@ print(maria.idadi)   # 25
 
 ## `self` — O ki é?
 
-`self` é referénsia pa **objetu atuál** — kel ki ta ser kriadu o usadu. Pensa na `self` kumo "**nha**" (meu/nha). Kuandu bo skrebe `self.nomi = nomi`, é kumo dize "nha nomi é esi valór":
+`self` é referénsia pa **objetu atuál** — kel ki ta ser kriadu ou usadu. Pensa na `self` kumo "**nha**" (meu/nha). Kuandu bo skrebe `self.nomi = nomi`, é kumo dize "nha nomi é esi valór":
 
 ```python
 class Estudanti:
@@ -144,7 +144,7 @@ print(cesaria.fans)     # 0
 ```
 
 :::callout{type=tip}
-**Senpri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, o `None`. Defini fora di `__init__` pode kauza `AttributeError` na otus objetis.
+**Senpri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, ou `None`. Defini fora di `__init__` pode kauza `AttributeError` na otus objetis.
 :::
 
 ## Metodus di Instánsia
@@ -334,7 +334,7 @@ print(f"\n{len(aprovadus)} di {len(turma)} estudantis aprovadu!")
 ```
 
 :::callout{type=tip}
-Klasis é perfeitu pa modela kualker koisa di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asons** kel koisa tene.
+Klasis é perfeitu pa modela kualker kuza di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asons** kel kuza tene.
 :::
 
 ## Erus Komunis
@@ -387,10 +387,10 @@ print(p.idadi)  # None (ka da eru!)
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Definí **tudu** os atributu dentu di `__init__` (mesmu si o valor inisiál é `[]`, `0` o `None`) — definí-s fora pode kauza `AttributeError`.</RezumuItem>
-  <RezumuItem term="Klasi / objetu">A klasi é o moldi (a reseta); o objetu é un instánsia real kriadu a partir del (o pratu).</RezumuItem>
-  <RezumuItem term="__init__">O konstrutor — ta kore automátikamenti kuandu un objetu é kriadu, pa inisializa os atributu.</RezumuItem>
-  <RezumuItem term="self">A referénsia pa o objetu atuál (\"nha\") — **senpri** o primeru parámetru di kada metodu.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Definí **tudu** atributu dentu di `__init__` (mesmu si valor inisiál é `[]`, `0` ou `None`) — definí-s fora pode kauza `AttributeError`.</RezumuItem>
+  <RezumuItem term="Klasi / objetu">Klasi é moldi (reseta); objetu é un instánsia real kriadu a partir del (pratu).</RezumuItem>
+  <RezumuItem term="__init__">Konstrutor — ta kore automátikamenti kuandu un objetu é kriadu, pa inisializa atributu.</RezumuItem>
+  <RezumuItem term="self">Referénsia pa objetu atuál (\"nha\") — **senpri** primeru parámetru di kada metodu.</RezumuItem>
   <RezumuItem term="Instánsia">Variáveis di instánsia (`self.nomi`) i metodus pertense a kada objetu — kada un é **independenti**.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka skese o `self` kumo primeru parámetru di kada metodu, i ka skese di pasa os argumentu ki `__init__` ta pidi.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka skese `self` kumo primeru parámetru di kada metodu, i ka skese di pasa argumentu ki `__init__` ta pidi.</RezumuItem>
 </KeyTakeaways>

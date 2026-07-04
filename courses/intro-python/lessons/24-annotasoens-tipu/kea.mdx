@@ -9,7 +9,7 @@ lesson: 24
 duration: "15 min"
 objectives:
   - "Adisiona type hints na funsons i variáveis pa dokumenta tipu di dadus"
-  - "Uza sintaxi int | None (Python 3.10+) pa valóris opisionais"
+  - "Uza sintaxi int | None (Python 3.10+) pa valoris opsionais"
   - "Splika ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
 ---
 
@@ -29,7 +29,7 @@ def kalkula_total(presus, diskonto):
     return total - (total * diskonto / 100)
 ```
 
-Perguntas ki leitor ta faze: `presus` é un lista? Di ints o floats? `diskonto` é persentajen (0-100) o frasan (0-1)? O ki ta retorna?
+Perguntas ki leitor ta faze: `presus` é un lista? Di ints ou floats? `diskonto` é persentajen (0-100) ou frasan (0-1)? O ki ta retorna?
 
 **Ku type hints:**
 
@@ -82,7 +82,7 @@ ta_ativi: bool = True
 rezultadu: float
 ```
 
-Na prátika, pa variáveis simples, type hint é opisionál pamodi tipu ta ser óbviu. É más útil na funsan i kazus más kompleksu.
+Na prátika, pa variáveis simples, type hint é opsionál pamodi tipu ta ser óbviu. É más útil na funsan i kazus más kompleksu.
 
 ## Tipus di Container (Python 3.9+)
 
@@ -138,14 +138,14 @@ print(aprovadus)  # ['Maria', 'Ana']
 
 ## Union: `int | None` (Python 3.10+)
 
-Algunhas vezes, un funsan pode retorna un valór **o** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
+Algunhas vezes, un funsan pode retorna un valor **ou** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
 
 ```python
 def buska_estudanti(nomi: str, bazi: dict[str, int]) -> int | None:
     """Buska nota di estudanti. Retorna None si ka atxa."""
     return bazi.get(nomi)
 
-# Rezultadu pode ser int o None
+# Rezultadu pode ser int ou None
 notas = {"Kelvin": 16, "Edna": 14, "Nilton": 18}
 
 nota_kelvin: int | None = buska_estudanti("Kelvin", notas)
@@ -302,6 +302,6 @@ print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
   <RezumuItem variant="gold" term="Regra di oru">Type hints é **sujestoens, ka regras** — Python ka ta verifika-s na runtime. Es ta sirbi pa umanus, IDEs (autocomplete) i ferramentas kumo `mypy`.</RezumuItem>
   <RezumuItem term="Funsan">`def f(param: tipu) -> tipu_retorno:`. `-> None` pa funsan ki ka retorna nada.</RezumuItem>
   <RezumuItem term="Containers">Dezdi 3.9: `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`.</RezumuItem>
-  <RezumuItem term="Union">Dezdi 3.10: `int | None` pa un valor ki pode ser un tipu **o** `None`.</RezumuItem>
+  <RezumuItem term="Union">Dezdi 3.10: `int | None` pa un valor ki pode ser un tipu **ou** `None`.</RezumuItem>
   <RezumuItem>Uza-s senpri na funsan (parámetrus + retornu); opsional na variável óbviu. Benefísiu: midjór autocomplete, erus atxadu más sedu, kódiku más lijível.</RezumuItem>
 </KeyTakeaways>

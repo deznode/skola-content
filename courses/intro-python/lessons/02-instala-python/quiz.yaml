@@ -66,4 +66,4 @@
     - text: { kea: "Kuandu pasta `.venv` ta dizaparesi" }
       correct: false
       explain:
-        kea: "Pasta `.venv` ta fika undi el sta; ativasan ta muda só bu prompt."
+        kea: "Pasta `.venv` ta fika unde el sta; ativasan ta muda só bu prompt."

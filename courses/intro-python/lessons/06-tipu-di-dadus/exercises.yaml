@@ -79,11 +79,11 @@
   file: tipos.py
   title: { kea: "Preve i koriji TypeError" }
   prompt:
-    kea: "Ku `a = \"100\"`, `b = 50` i `c = 2.5`, dos di es operasons ta da `TypeError` i dos ta funsiona. Kore kódiku pa odja kal, i koriji as ki faya pa kada un da un rezultadu numériku."
+    kea: "Ku `a = \"100\"`, `b = 50` i `c = 2.5`, dos di es operasons ta da `TypeError` i dos ta funsiona. Kore kódiku pa odja kual, i koriji as ki faya pa kada un da un rezultadu numériku."
   hint:
-    kea: "`a` é un **string** (`\"100\"`), ka un númeru. `a + b` (str + int) i `a * c` (str × float) ta da `TypeError`. `b + c` (int + float) ta funsiona, i `a + str(b)` é dos string — ta konkatena. Pa kalkula ku `a`, konverti-l primeru ku `int(a)` o `float(a)`."
+    kea: "`a` é un **string** (`\"100\"`), ka un númeru. `a + b` (str + int) i `a * c` (str × float) ta da `TypeError`. `b + c` (int + float) ta funsiona, i `a + str(b)` é dos string — ta konkatena. Pa kalkula ku `a`, konverti-l primeru ku `int(a)` ou `float(a)`."
   starterCode: |
-    # tipos.py — kal ta funsiona? kal ta da TypeError? koriji as ki faya.
+    # tipos.py — kual ta funsiona? kual ta da TypeError? koriji as ki faya.
     a = "100"
     b = 50
     c = 2.5
@@ -107,7 +107,7 @@
   kind: explore
   title: { kea: "Splora tipus numérikus di Python" }
   prompt:
-    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i módulu `decimal` pa dinheru ezatu). Odja dokumentason pa odja o ki más izisti — ka meste dekora, só sabe undi buska."
+    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i módulu `decimal` pa dinheru ezatu). Odja dokumentason pa odja o ki más izisti — ka meste dekora, só sabe unde buska."
   resources:
     kea:
       - { label: "Python docs — Numeric Types (int, float, complex)", url: "https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" }
@@ -117,6 +117,6 @@
   kind: reflect
   title: { kea: "Refleta sobri un TypeError ki bu pode atxa" }
   prompt:
-    kea: "Pensa na un programa ki ta mistura textu ku númerus (p.ex. mostra un presu nun mensajen). Skrebe undi un `TypeError` ta pode parese, i kal di dos solusons (konverti ku `str()`/`int()` o uza un f-string) bu ta skodje i pamodi."
+    kea: "Pensa na un programa ki ta mistura textu ku númerus (p.ex. mostra un presu nun mensajen). Skrebe unde un `TypeError` ta pode parese, i kual di dos solusons (konverti ku `str()`/`int()` ou uza un f-string) bu ta skodje i pamodi."
   notePlaceholder:
-    kea: "Programa: …   ·   Undi TypeError ta parese: …   ·   Soluson skodjedu (str()/int() o f-string): …"
+    kea: "Programa: …   ·   Unde TypeError ta parese: …   ·   Soluson skodjedu (str()/int() ou f-string): …"

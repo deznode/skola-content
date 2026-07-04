@@ -8,7 +8,7 @@ module: 3
 lesson: 19
 duration: "15 min"
 objectives:
-  - "Splika lazy evaluation i pamodi el ta puopa memória"
+  - "Splika lazy evaluation i pamodi el ta poupa memória"
   - "Skrebe generator expressions ku sintaxi (x for x in ...)"
   - "Kria generator functions ku yield"
   - "Kompara uzu di memória entri listas i jeneradorus"
@@ -16,7 +16,7 @@ objectives:
 
 # Jeneradorus
 
-Imajina bu tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di un bez, bo komputador pode fika lentu ó krasá. Ma si bo só presiza un valór di kada bez — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valóris un pa un, só kuandu bo pidi.
+Imajina bu tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di un bez, bo komputador pode fika lentu ou krasá. Ma si bo só presiza un valor di kada bez — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valoris un pa un, só kuandu bo pidi.
 
 ## Problema: Listas Grandi ta Kume Memória
 
@@ -27,11 +27,11 @@ print(f"Lista tene {len(numeros)} elementus")
 # Kel lista ta okupa sérka di 80 MB di memória 😱
 ```
 
-Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ó sekuénsia infinita — bu ka presiza tudu na memória ao mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
+Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ou sekuénsia infinita — bu ka presiza tudu na memória na mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
 
 ## Generator Expressions
 
-Un **generator expression** é kómu un list comprehension, ma ku paréntesis `()` en bez di brackets `[]`:
+Un **generator expression** é kumo un list comprehension, ma ku paréntesis `()` en bez di brackets `[]`:
 
 ```python
 # List comprehension -- kria tudu na memória
@@ -49,7 +49,7 @@ print(type(gen))    # <class 'generator'>
 gen = (x ** 2 for x in range(5))
 print(gen)  # <generator object <genexpr> at 0x...>
 
-# Pa obter valóris, uza next() ó un loop
+# Pa obter valóris, uza next() ou un loop
 print(next(gen))  # 0
 print(next(gen))  # 1
 print(next(gen))  # 4
@@ -67,7 +67,7 @@ for valor in quadradus:
 ```
 
 :::callout{type=warning}
-Generator só pode ser iteradu **un bez**. Dipos di pasa tudu valóris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+Generator só pode ser iteradu **un bez**. Dipos di pasa tudu valoris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
 :::
 
 ## Generator Functions ku `yield`
@@ -92,9 +92,9 @@ for numeru in kontador(5):
 
 | `return` | `yield` |
 |----------|---------|
-| Termina funsan imediatamenti | **Pausa** funsan i devolvi un valór |
-| Funsan pérdi tudu stadu | Funsan **lembra** undi para |
-| Retorna un valór só | Pode produz múltiplus valóris |
+| Termina funsan imediatamenti | **Pausa** funsan i devolvi un valor |
+| Funsan pérdi tudu stadu | Funsan **lembra** unde para |
+| Retorna un valor só | Pode produz múltiplus valoris |
 | Funsan normal | Generator function |
 
 ```python
@@ -140,7 +140,7 @@ print(primeru_15)
 ```
 
 :::callout{type=tip}
-Un generator ku `while True` ta produz valóris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valóris bo kere pega ku `next()`, `islice()`, ó un `break` dentu di un loop.
+Un generator ku `while True` ta produz valoris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valoris bo kere pega ku `next()`, `islice()`, ou un `break` dentu di un loop.
 :::
 
 ## Ler Ficheru Grandi Linha pa Linha
@@ -148,7 +148,7 @@ Un generator ku `while True` ta produz valóris pa senpri — el é **infinitu**
 Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sen karrega tudu na memória:
 
 :::callout{type=info}
-Es izemplu ta uza `with open(...)` pa ler ficheru — bo ta prende operasons ku ficheru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo o generator ta entrega **un linha di kada bez**, sen po tudu o ficheru na memória.
+Es izemplu ta uza `with open(...)` pa ler ficheru — bu ta prende operasons ku ficheru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo generator ta entrega **un linha di kada bez**, sen po tudu ficheru na memória.
 :::
 
 ```python
@@ -207,7 +207,7 @@ print(total_lista == total_gen)  # True
 ```
 
 :::callout{type=tip}
-Kuandu bu ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `min()`, bu ka presiza paréntesis extru: `sum(x for x in range(10))` — sen `[]`!
+Kuandu bu ta pasa un generator diretu pa un funsan kumo `sum()`, `max()`, ou `min()`, bu ka presiza paréntesis extru: `sum(x for x in range(10))` — sen `[]`!
 :::
 
 ## Kuandu Uza Generator vs Lista
@@ -233,10 +233,10 @@ Kuandu bu ta pasa un generator diretu pa un funsan kómu `sum()`, `max()`, ó `m
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Uza un generator kuandu os dadus é grandi o infinitu, o kuandu bu só presiza itera un bez — el ta produz valor un pa un sen gerda tudu na memória.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Uza un generator kuandu dadus é grandi ou infinitu, ou kuandu bu só presiza itera un bez — el ta produz valor un pa un sen guarda tudu na memória.</RezumuItem>
   <RezumuItem term="Generator expression">`(expr for item in iterável)` — kumo un list comprehension, ma ku `()`.</RezumuItem>
-  <RezumuItem term="Generator function">Un funsan ku `yield` en bez di `return` — `yield` ta **pauza** i lenbra undi el para.</RezumuItem>
-  <RezumuItem term="next()">Ta pega o prósimu valor; `StopIteration` ta signifika ki akaba (o `for` ta trata-l sózin).</RezumuItem>
+  <RezumuItem term="Generator function">Un funsan ku `yield` en bez di `return` — `yield` ta **pauza** i lenbra unde el para.</RezumuItem>
+  <RezumuItem term="next()">Ta pega prósimu valor; `StopIteration` ta signifika ki akaba (`for` ta trata-l sózin).</RezumuItem>
   <RezumuItem>Pa ler un ficheru grandi linha pa linha, un generator ta evita karega tudu na memória.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Generator é **un-bez-só** — dipos di iteradu, sta vazio. Ka ten `len()` nen índisi; pa isu, uza un lista.</RezumuItem>
 </KeyTakeaways>

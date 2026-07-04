@@ -1,0 +1,265 @@
+---
+title: "Prosimus Pasus: Dataclasses i Alén"
+language: kea
+courseSlug: intro-python
+lessonSlug: prosimus-pasus
+slug: "prosimus-pasus"
+module: 4
+lesson: 33
+duration: "15 min"
+objectives:
+  - "Uza @dataclass pa kria klasis ku menus kódiku repetitivu"
+  - "Kompriendi o ki ta aprende dipos di es kursu i unde kontinua"
+---
+
+# Prosimus Pasus: Dataclasses i Alén
+
+**Parabéns! Bo txiga na final di kursu!** 🎉
+
+Di primeru `print("Ola Mundu!")` até klasis ku metodus majiku i sobrekarga di operador — bo feze un viaji inkrível. Bo kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bo deve sinti orgulhu.
+
+Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bo vida kumo programador mutu más fáxi: **dataclasses**. Depois, nos ta odja pa futuru — o ki bu pode aprende dipos.
+
+## `@dataclass` — Klasis Mais Simples
+
+Kuandu bo kria un klasi ki prinsipal trabadju é garda dadus (kuma Estudanti, Produtu, Kontatu), bu ta skrebe senpri mesmu kódiku repetitivu: `__init__`, `__repr__`, `__eq__`...
+
+Python tene un atalhu: `@dataclass` ta jera tudu es metodus automátikamenti!
+
+### Klasi Normal vs @dataclass
+
+**Sen dataclass (manéra tradisionál):**
+
+```python
+class Estudanti:
+    def __init__(self, nomi, idadi, kursu):
+        self.nomi = nomi
+        self.idadi = idadi
+        self.kursu = kursu
+
+    def __repr__(self):
+        return f"Estudanti(nomi='{self.nomi}', idadi={self.idadi}, kursu='{self.kursu}')"
+
+    def __eq__(self, otru):
+        return (self.nomi == otru.nomi and
+                self.idadi == otru.idadi and
+                self.kursu == otru.kursu)
+```
+
+**Ku dataclass (mesmu rezultadu, menus kódiku):**
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Estudanti:
+    nomi: str
+    idadi: int
+    kursu: str
+```
+
+**É só es!** Trés linhas na lugar di 12. `@dataclass` ta jera `__init__`, `__repr__`, i `__eq__` automátikamenti:
+
+```python
+# Kria objetu — __init__ jeradu automátikamenti
+maria = Estudanti("Maria", 22, "Python")
+joao = Estudanti("João", 25, "Data Science")
+
+# __repr__ jeradu automátikamenti
+print(maria)  # Estudanti(nomi='Maria', idadi=22, kursu='Python')
+
+# __eq__ jeradu automátikamenti
+maria2 = Estudanti("Maria", 22, "Python")
+print(maria == maria2)  # True — kompara pa valór!
+```
+
+:::callout{type=tip}
+`@dataclass` é perfetu pa klasis ki prinsipal objetivu é "garda dadus". Si bo klasi tene mutu lójika kompleksu, klasi tradisionál pode ser midjór.
+:::
+
+## Opsons di @dataclass
+
+### Valoris Padrón
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Produtu:
+    nomi: str
+    presu: float
+    kuantidadi: int = 1         # Valór padrón
+    disponível: bool = True     # Valór padrón
+
+# Pode omiti parámetrus ku valór padrón
+katxupa = Produtu("Katxupa", 350)
+print(katxupa)
+# Produtu(nomi='Katxupa', presu=350, kuantidadi=1, disponível=True)
+
+grogu = Produtu("Grogu di Santo Antão", 800, kuantidadi=6)
+print(grogu)
+# Produtu(nomi='Grogu di Santo Antão', presu=800, kuantidadi=6, disponível=True)
+```
+
+### frozen — Objetu ki Ka Pode Muda
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Koordenada:
+    latitude: float
+    longitude: float
+
+# Koordenadas di Praia
+praia = Koordenada(14.9195, -23.5087)
+print(praia)  # Koordenada(latitude=14.9195, longitude=-23.5087)
+
+# Ka pode muda!
+try:
+    praia.latitude = 0.0
+except AttributeError as e:
+    print(f"Eru: {e}")  # Eru: cannot assign to field 'latitude'
+```
+
+### Adisiona Bo Propriu Metodus
+
+`@dataclass` ka ta impedi-bu di adisiona metodus personalizadu:
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Ilha:
+    nomi: str
+    populasan: int
+    area_km2: float
+
+    def densidadi(self):
+        """Pesoas pa km²"""
+        return round(self.populasan / self.area_km2, 1)
+
+    def __str__(self):
+        """Override __str__ jeradu pa versan más bonitu"""
+        return f"🏝️ {self.nomi} — {self.populasan:,} abitantis"
+
+santiago = Ilha("Santiago", 313_912, 991)
+sal = Ilha("Sal", 42_827, 216)
+
+print(santiago)                # 🏝️ Santiago — 313,912 abitantis
+print(f"Densidadi: {santiago.densidadi()} pesoas/km²")  # Densidadi: 316.8 pesoas/km²
+print(repr(santiago))          # Ilha(nomi='Santiago', populasan=313912, area_km2=991)
+```
+
+Otru opsons útil: `order=True` (permite `sorted()` automátiku) i `field(default_factory=list)` pa valoris padrón mutável.
+
+## O ki Aprende Dipos?
+
+Bo gosi tene un bazi sólidu di Python. Li sta sinku kaminhu ki bu pode sigi:
+
+| | Área | Ferramentas | Izemplu |
+|--|------|------------|---------|
+| 🌐 | **Dezenvolvimentu Web** | Flask, Django, FastAPI | Kria websites i APIs |
+| 📊 | **Data Science** | pandas, numpy, matplotlib | Analiza dadus, kria gráfikus |
+| 🤖 | **Intelijensia Artifisial** | scikit-learn, PyTorch, LangChain | Machine learning, LLMs |
+| ⚡ | **Automasan** | BeautifulSoup, Selenium, bots | Web scraping, scripts, bots |
+| 📱 | **Mobile i Desktop** | Kivy, PyQt, Flet | Apps grafiku |
+
+```python
+# Ezemplu rápidu — un API ku Flask na 5 linhas:
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def ola():
+    return "Ola Kabu Verdi! 🇨🇻"
+```
+
+:::callout{type=tip}
+Ka tenta aprende tudu di un bez! Skolhe **un** kaminhu ki ta interesa-bu i mergulha fundu. Bu pode senpri voltar i aprende otus dipos.
+:::
+
+## Projetu Final Sujeridu: Jestan di Kontatu
+
+Pa prátika tudu ki bo prende na es kursu, kria un **Jestor di Kontatu** na terminál. Es projetu ta uza:
+
+- **Klasis i dataclasses** — `Kontatu`, `JestorKontatu`
+- **Listas i disionárius** — garda kontatus
+- **Funsons** — adisiona, buska, elimina
+- **Fixerus** — salva i karga di JSON
+- **Tratamentu di eru** — try/except pa entradas inválidu
+- **Metodus majiku** — `__str__`, `__repr__`, `__len__`
+
+```python
+from dataclasses import dataclass, field
+import json
+
+@dataclass
+class Kontatu:
+    nomi: str
+    telefoni: str
+    email: str = ""
+    sidadi: str = "Praia"
+
+    def __str__(self):
+        return f"📇 {self.nomi} — {self.telefoni} ({self.sidadi})"
+
+@dataclass
+class JestorKontatu:
+    kontatus: list[Kontatu] = field(default_factory=list)
+
+    def adisiona(self, kontatu: Kontatu):
+        self.kontatus.append(kontatu)
+        print(f"✅ {kontatu.nomi} adisionadu!")
+
+    def buska(self, nomi: str) -> list[Kontatu]:
+        return [k for k in self.kontatus if nomi.lower() in k.nomi.lower()]
+
+    def __len__(self):
+        return len(self.kontatus)
+
+    def __contains__(self, nomi: str):
+        return any(nomi.lower() in k.nomi.lower() for k in self.kontatus)
+
+# Ezemplu di uzu
+jestor = JestorKontatu()
+jestor.adisiona(Kontatu("Maria Santos", "991-2345", "maria@email.com", "Mindelo"))
+jestor.adisiona(Kontatu("João Évora", "995-6789", "joao@email.com"))
+jestor.adisiona(Kontatu("Ana Delgado", "993-1122", sidadi="Sal"))
+
+print(f"\nTotal di kontatus: {len(jestor)}")
+print("Maria" in jestor)   # True
+
+for k in jestor.buska("maria"):
+    print(k)  # 📇 Maria Santos — 991-2345 (Mindelo)
+```
+
+Es é un ponto di partida — bu pode kontinua ta adisiona funsons kuma salva na fixeru JSON, menu interativu, edita kontatu, i mais!
+
+## Parabéns — Bo É un Programador!
+
+Bo kaba di kompleta **Introdusan Konpletu a Python**. Nu ta odja pa trás pa tudu ki bo prende:
+
+**Módulu 1 — Fundamentus:** Variáveis, tipu di dadus, strings, operadoris, kondisionais, loops
+
+**Módulu 2 — Estruturas di Dadus:** Listas, tuplas, disionárius, konjuntus
+
+**Módulu 3 — Funsons i Fixerus:** Funsons, lambda, modulus, ambientis virtual, fixerus, tratamentu di eru, annotasons di tipu, testus
+
+**Módulu 4 — OOP:** Klasis, eransa, polimorfismu, enkapsolamentu, abstrasan, metodus majiku, sobrekarga di operador, dataclasses
+
+**Es é un bazi real.** Ku es konhesimentu, bu pode kumesa kualker kaminhu na programasan — web, data science, AI, automasan. Bu ka é un "prinsipianti" más — bo é un **programador**.
+
+Na komunidadi tékniku di Kabu Verdi, nos ta krese djuntu. Kada linha di kódiku ki bo skrebe é un pasu pa un futuru midjór — pa bo i pa nos tera.
+
+**Nu ta kria djuntu!** 🇨🇻
+
+## Rezumu
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Regra di oru">`@dataclass` ta jera `__init__`, `__repr__` i `__eq__` automátikamenti — trés linha na lugar di 12+ pa klasis ki trabadju prinsipal é gerda dadus.</RezumuItem>
+  <RezumuItem term="Opsons">`frozen=True` (imutável), `order=True` (komparável ku `sorted()`), i valoris padrón kumo `kuantidadi: int = 1`.</RezumuItem>
+  <RezumuItem term="Flexível">`@dataclass` ka ta limita — bu pode adisiona bu própriu metodu i sobreskrebe `__str__` jeradu.</RezumuItem>
+  <RezumuItem>Dipos di es kursu, skodje **un** kaminhu: Web (Flask/Django/FastAPI), Data Science (pandas), AI (PyTorch), Automasan ou Mobile — i mergulha fundu.</RezumuItem>
+  <RezumuItem variant="tip" term="Projetu">Pratika tudu ku un **Jestor di Kontatu** na terminál — klasis, dataclasses, listas, funsons, ficheru JSON, tratamentu di eru i metodus majiku, tudu djuntu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Bu ka é un prinsipianti más — bo é un **programador**. Nu ta kria djuntu! 🇨🇻</RezumuItem>
+</KeyTakeaways>

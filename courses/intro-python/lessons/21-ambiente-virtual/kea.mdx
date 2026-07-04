@@ -83,7 +83,7 @@ source .venv/bin/activate
 .venv\Scripts\Activate.ps1
 ```
 
-Kuandu ativadu, bo terminal ta mostra `(.venv)` na ínisiu:
+Kuandu ativadu, bo terminal ta mostra `(.venv)` na inísiu:
 
 ```bash
 (.venv) $ python --version
@@ -95,7 +95,7 @@ pip        24.0
 ```
 
 :::callout{type=tip}
-Si bu ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selesioná kómu interpretador Python. Klika "Yes"!
+Si bu ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selesioná kumo interpretador Python. Klika "Yes"!
 :::
 
 ### Pasu 3: Instala Pakotis
@@ -147,7 +147,7 @@ $ # Prompt volta pa normal -- bo sta fora di venv
 Kuandu Ana kere roda bo projetu, el só presiza:
 
 ```bash
-# 1. Klona ó kopia projetu
+# 1. Klona ou kopia projetu
 git clone https://github.com/nilton/gestor-notas.git
 cd gestor-notas
 
@@ -165,12 +165,12 @@ python main.py
 ```
 
 :::callout{type=tip}
-`pip install -r requirements.txt` ta ler kel ficheru i instala tudu pakotu listadu, ku versan exatu. É kómu un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
+`pip install -r requirements.txt` ta ler kel ficheru i instala tudu pakotu listadu, ku versan exatu. É kumo un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
 :::
 
 ## .gitignore: Nunka Manda .venv pa Git!
 
-Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka divi bai pa git**:
+Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka debe bai pa git**:
 
 ```bash
 # .gitignore
@@ -268,9 +268,9 @@ deactivate
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Senpri **ativa** o `.venv` antis di instala pakotu — si bu instala sen ativa, o pakotu ta bai pa o Python global.</RezumuItem>
-  <RezumuItem term="venv">Ta izola os pakotu di kada projetu (kumo kuzinhas separadu). Kria ku `python -m venv .venv`.</RezumuItem>
-  <RezumuItem term="Ativa / dezativa">`source .venv/bin/activate` (macOS/Linux) o `.venv\Scripts\activate` (Windows); `deactivate` pa sai.</RezumuItem>
-  <RezumuItem term="requirements.txt">`pip freeze > requirements.txt` ta salva os pakotu; `pip install -r requirements.txt` ta reproduz o ambiente na otu komputador.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri **ativa** `.venv` antis di instala pakotu — si bu instala sen ativa, pakotu ta bai pa Python global.</RezumuItem>
+  <RezumuItem term="venv">Ta izola pakotu di kada projetu (kumo kuzinhas separadu). Kria ku `python -m venv .venv`.</RezumuItem>
+  <RezumuItem term="Ativa / dezativa">`source .venv/bin/activate` (macOS/Linux) ou `.venv\Scripts\activate` (Windows); `deactivate` pa sai.</RezumuItem>
+  <RezumuItem term="requirements.txt">`pip freeze > requirements.txt` ta salva pakotu; `pip install -r requirements.txt` ta reproduz ambiente na otu komputador.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">**Nunka** manda `.venv/` pa git — po-l na `.gitignore` (djuntu ku `.env` i `__pycache__/`); el pode ser rekriadu di `requirements.txt`.</RezumuItem>
 </KeyTakeaways>

@@ -16,7 +16,7 @@
   kind: code
   title: { kea: "Skrebe i lé un ficheru di ilhas" }
   prompt:
-    kea: "Skrebe un lista di 5 ilha nun ficheru `ilhas.txt` (un ilha pa linha). Dipos lé o ficheru i mostra kada ilha ku se númeru: `1. Santiago`, `2. São Vicente`…"
+    kea: "Skrebe un lista di 5 ilha nun ficheru `ilhas.txt` (un ilha pa linha). Dipos lé ficheru i mostra kada ilha ku se númeru: `1. Santiago`, `2. São Vicente`…"
   hint:
     kea: "Pa skrebe, abri ku modu `\"w\"` i faze `f.write(ilha + \"\\n\")` pa kada un. Pa lé numerizadu, `with open(\"ilhas.txt\") as f:` i `for i, linha in enumerate(f, 1): print(f\"{i}. {linha.strip()}\")`. Senpri uza `with`."
   starterCode: |
@@ -41,9 +41,9 @@
   kind: code
   title: { kea: "Diáriu simples (append)" }
   prompt:
-    kea: "Kria un \"diáriu\": pidi un nota ku `input()`, adisiona-l a o ficheru `diariu.txt` ku modu `\"a\"`, i dipos mostra tudu as nota ki dja foi skrebedu."
+    kea: "Kria un \"diáriu\": pidi un nota ku `input()`, adisiona-l pa ficheru `diariu.txt` ku modu `\"a\"`, i dipos mostra tudu nota ki dja foi skrebedu."
   hint:
-    kea: "O modu `\"a\"` (append) ta po na fin sen apaga o ki dja sta la — `\"w\"` apaga tudu! Dipos di skrebe, abri ku `\"r\"` i perkore as linha pa mostra-s."
+    kea: "Modu `\"a\"` (append) ta po na fin sen apaga o ki dja sta la — `\"w\"` apaga tudu! Dipos di skrebe, abri ku `\"r\"` i perkore linha pa mostra-s."
   starterCode: |
     # diariu.py
     nota = input("Skrebe un nota: ")
@@ -66,9 +66,9 @@
   kind: code
   title: { kea: "Kalkula média di un ficheru" }
   prompt:
-    kea: "Lé un ficheru `notas.txt` (un númeru pa linha), kalkula a média, i skrebe o rezultadu nun ficheru novu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si o ficheru di notas izisti antis di tenta lé-l."
+    kea: "Lé un ficheru `notas.txt` (un númeru pa linha), kalkula média, i skrebe rezultadu nun ficheru novu `rezultadu.txt`. Uza `os.path.exists()` pa verifika si ficheru di notas izisti antis di tenta lé-l."
   hint:
-    kea: "`import os` i `if os.path.exists(\"notas.txt\"):`. Lé as linha, konverti kada un ku `float(linha)`, soma i divide pa a kuantidadi. Dipos abri `rezultadu.txt` ku `\"w\"` pa skrebe a média."
+    kea: "`import os` i `if os.path.exists(\"notas.txt\"):`. Lé linha, konverti kada un ku `float(linha)`, soma i divide pa kuantidadi. Dipos abri `rezultadu.txt` ku `\"w\"` pa skrebe média."
   starterCode: |
     # media.py
     import os
@@ -93,7 +93,7 @@
   kind: explore
   title: { kea: "Splora pathlib (kaminhus modernu)" }
   prompt:
-    kea: "`os.path` ta funsiona, ma o módulu modernu `pathlib` ta da un manera más limpu di traba ku kaminhus i ficheru (`Path(\"dadus\") / \"notas.txt\"`). Odja a dokumentason."
+    kea: "`os.path` ta funsiona, ma módulu modernu `pathlib` ta da un manera más limpu di traba ku kaminhus i ficheru (`Path(\"dadus\") / \"notas.txt\"`). Odja dokumentasan."
   resources:
     kea:
       - { label: "Python docs — pathlib (Object-oriented filesystem paths)", url: "https://docs.python.org/3/library/pathlib.html" }
@@ -101,8 +101,8 @@
 - slug: refleta-with-statement
   language: python
   kind: reflect
-  title: { kea: "Refleta sobri o `with` statement" }
+  title: { kea: "Refleta sobri `with` statement" }
   prompt:
-    kea: "O `with open(...) as f:` ta fexa o ficheru automátikamenti, mesmu si un eru akontese. Pensa nun programa ki abri un ficheru sen `with` (`f = open(...)`). Skrebe o ki ta pode kontise si un eru akontese antis di `f.close()`, i pamodi o `with` é más siguru."
+    kea: "`with open(...) as f:` ta fexa ficheru automátikamenti, mesmu si un eru akontese. Pensa nun programa ki abri un ficheru sen `with` (`f = open(...)`). Skrebe o ki ta pode kontise si un eru akontese antis di `f.close()`, i pamodi `with` é más siguru."
   notePlaceholder:
     kea: "Sen with (risku): …   ·   Ku with (siguru): …   ·   Pamodi: …"

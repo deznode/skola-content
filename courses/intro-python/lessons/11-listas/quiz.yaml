@@ -8,31 +8,31 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é a diferensa entri `lista.sort()` i `sorted(lista)`?"
+    kea: "Kal é diferensa entri `lista.sort()` i `sorted(lista)`?"
   options:
-    - text: { kea: "`.sort()` ta ordena a lista orijinal in-place (ta retorna `None`); `sorted()` ta retorna un lista nova sen toka na orijinal" }
+    - text: { kea: "`.sort()` ta ordena lista orijinal in-place (ta retorna `None`); `sorted()` ta retorna un lista nova sen toka na orijinal" }
       correct: true
     - text: { kea: "Es é igual — os dos ta retorna un lista nova" }
       correct: false
-    - text: { kea: "`.sort()` ta retorna un lista nova; `sorted()` ta muda a orijinal" }
+    - text: { kea: "`.sort()` ta retorna un lista nova; `sorted()` ta muda orijinal" }
       correct: false
     - text: { kea: "`sorted()` só ta funsiona ku númerus" }
       correct: false
 - question:
     kea: "O ki ta da `[n for n in range(1, 11) if n % 2 == 0]`?"
   options:
-    - text: { kea: "`[2, 4, 6, 8, 10]` — só os númerus par di 1 a 10" }
+    - text: { kea: "`[2, 4, 6, 8, 10]` — só númerus par di 1 a 10" }
       correct: true
-    - text: { kea: "`[1, 3, 5, 7, 9]` — só os ímpar" }
+    - text: { kea: "`[1, 3, 5, 7, 9]` — só ímpar" }
       correct: false
-    - text: { kea: "`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` — tudu os númerus" }
+    - text: { kea: "`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` — tudu númerus" }
       correct: false
     - text: { kea: "`[2, 4, 6, 8, 10, 12]` — par di 1 a 11" }
       correct: false
 - question:
     kea: "Bu tene `frutas = [\"manga\", \"papaia\"]` i bu kore `frutas[1:] = \"koku\"`. O ki ta kontise?"
   options:
-    - text: { kea: "`frutas` ta vira `[\"manga\", \"k\", \"o\", \"k\", \"u\"]` — slice assignment ku string ta spredi os karater; uza `[\"koku\"]`" }
+    - text: { kea: "`frutas` ta vira `[\"manga\", \"k\", \"o\", \"k\", \"u\"]` — slice assignment ku string ta spredi karater; uza `[\"koku\"]`" }
       correct: true
     - text: { kea: "`frutas` ta vira `[\"manga\", \"koku\"]` — funsiona normal" }
       correct: false
@@ -45,13 +45,13 @@
   options:
     - text: { kea: "`['São Vicente', 'Fogo']` — kumesa na índisi 1, para antis di 4, di dos en dos" }
       correct: true
-      explain: { kea: "Slice é `[start:stop:step]`: índisi 1 i 3 (4 é eksklusivu), ku passu 2." }
+      explain: { kea: "Slice é `[start:stop:step]`: índisi 1 i 3 (4 é eksklusivu), ku pasu 2." }
     - text: { kea: "`['São Vicente', 'Sal', 'Fogo']` — di índisi 1 te 4" }
       correct: false
-      explain: { kea: "Kel-li ta ignora o passu `2`; ku passu 2 só índisi 1 i 3 ta entra." }
+      explain: { kea: "Kel-li ta ignora pasu `2`; ku pasu 2 só índisi 1 i 3 ta entra." }
     - text: { kea: "`['Santiago', 'Sal', 'Santo Antão']` — di dos en dos di kumesu" }
       correct: false
-      explain: { kea: "O slice ta kumesa na índisi 1, ka na 0." }
+      explain: { kea: "Slice ta kumesa na índisi 1, ka na 0." }
     - text: { kea: "`['Sal', 'Fogo']` — índisi 2 i 3" }
       correct: false
       explain: { kea: "Start é 1 i step é 2, entun índisi 1 i 3." }

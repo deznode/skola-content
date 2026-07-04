@@ -8,7 +8,7 @@ module: 1
 lesson: 2
 duration: "30 min"
 objectives:
-  - "Instala Python 3.13+ na Windows, macOS o Linux"
+  - "Instala Python 3.13+ na Windows, macOS ou Linux"
   - "Konfigura VS Code ku extensan di Python"
   - "Kria i ativa un virtual environment (.venv)"
   - "Skrebe i roda bu primeru programa Python"
@@ -20,12 +20,12 @@ Antis di kumesa programá, nu meste prepara nos ferramentas. É manera un kuzinh
 
 ## Instala Python
 
-![Pasus di instalasan di Python na Windows, macOS i Linux](../../infographics/01-instala-python-plataformas.png)
+![Pasus di instalasan di Python na Windows, macOS i Linux](../../infographics/01-instala-python-plataformas.jpg)
 
 Python é grátis i disponível pa tudu sistema operasional. Bai na **[python.org/downloads](https://www.python.org/downloads/)** i faze download di versan más resenti (Python 3.13+).
 
 :::callout{type=info title="O ki é PATH?"}
-PATH é un lista di pastas undi sistema ta buska programas. Sen Python na PATH, óra ki bu skrebe `python` na terminal, sistema ka ta atxa-l. Na Windows, é por isu ki "Add python.exe to PATH" é importanti.
+PATH é un lista di pastas unde sistema ta buska programas. Sen Python na PATH, óra ki bu skrebe `python` na terminal, sistema ka ta atxa-l. Na Windows, é por isu ki "Add python.exe to PATH" é importanti.
 :::
 
 Skodje bu sistema operasional pa odja pasus di instalasan:
@@ -64,7 +64,7 @@ Skodje bu sistema operasional pa odja pasus di instalasan:
       label: 'Linux',
       icon: 'linux',
       content: [
-        { type: 'prose', t: 'Na maioria di distribuisons Linux (Ubuntu/Debian), Python dja ta ben instaladu. Pa atualiza o instala, uza `apt`:' },
+        { type: 'prose', t: 'Na maioria di distribuisons Linux (Ubuntu/Debian), Python dja ta ben instaladu. Pa atualiza ou instala, uza `apt`:' },
         { type: 'cmd', label: 'bash', lines: ['sudo apt update', 'sudo apt install python3 python3-venv python3-pip', 'python3 --version'], out: 'Python 3.13.2' },
         { type: 'callout', sev: 'warning', t: 'Na Linux, é importanti instala tanbe `python3-venv` pamodi el ta permiti bu kria virtual environments. Sen kel pakoti, `python -m venv` ta da eru.' },
       ],
@@ -81,7 +81,7 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
     {
       q: "Pamodi `python3` na macOS/Linux ma `python` na Windows?",
       tag: "Splika más",
-      a: "Na Linux, komandu `python` txeu bez ta pónta pa un versan antigu o el ka ta izisti. Na macOS modernu ka ten `python` pré-instaladu global. Pa kel razan, uza `python3` pa garanti ki bu ta uza versan ki bu instala. Na Windows, installer ta kria komandu `python`.",
+      a: "Na Linux, komandu `python` txeu bez ta pónta pa un versan antigu ou el ka ta izisti. Na macOS modernu ka ten `python` pré-instaladu global. Pa kel razan, uza `python3` pa garanti ki bu ta uza versan ki bu instala. Na Windows, installer ta kria komandu `python`.",
       code: "python3 --version",
     },
     {
@@ -98,7 +98,7 @@ Si bu tene dúvidas dipos di instala, klika pa splika más — ma bu pode sigi s
 />
 
 <GlossaryText
-  text="Ago ki Python sta instaladu, nu ta konfigura editor i kria un [[virtual environment]] — un espasu izoladu pa kada projetu. Sigi es kuatu fasis pa prepara tudu."
+  text="Gosi ki Python sta instaladu, nu ta konfigura editor i kria un [[virtual environment]] — un espasu izoladu pa kada projetu. Sigi es kuatu fasis pa prepara tudu."
   terms={{
     "virtual environment": { en: "virtual environment", definition: "Un espasu izoladu pa un projetu Python, ku si própriu kópia di Python i si próprius pakotis — pa un projetu ka kebra otu." },
   }}
@@ -174,7 +174,7 @@ Gosi, nu ta skrebe nos primeru programa Python.
 <SectionHeading level={3} variant="install">Kria Fixeru</SectionHeading>
 
 1. Na VS Code, klika na **New File** (o <Kbd keys="Ctrl+N" />)
-2. Salva kumo **`ola.py`** (File → Save, o <Kbd keys="Ctrl+S" />)
+2. Salva kumo **`ola.py`** (File → Save, ou <Kbd keys="Ctrl+S" />)
 
 :::callout{type=tip}
 Fixeru Python senpri tene extensan **`.py`**. Kel é manera Python sabe ki é un programa pa roda.
@@ -269,7 +269,7 @@ Kuandu `.venv` ta ativu, bu pode uza `python` (sen 3) na tudu sistema — virtua
 | Eru | Kauza | Soluson |
 |------|-------|---------|
 | `python ka ta axa` (Windows) | PATH ka ta konfiguradu | Roda installer otu bez, marka "Add to PATH" |
-| `python: command not found` (macOS) | Uza `python3` na lugar | Skrebe `python3` o ativa .venv primeru |
+| `python: command not found` (macOS) | Uza `python3` na lugar | Skrebe `python3` ou ativa .venv primeru |
 | PowerShell execution policy | Restrisan di seguransa | `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
 | `pip install` ta da eru | .venv ka ta ativu | Verifika ki `(.venv)` ta na prompt |
 | VS Code ka ta rekunhesi Python | Interpreter ka seleksionadu | Klika na barra di status → skodje .venv interpreter |
@@ -290,6 +290,6 @@ Kuandu `.venv` ta ativu, bu pode uza `python` (sen 3) na tudu sistema — virtua
   <RezumuItem term="Fixerus .py">fixerus Python tene extensan `.py`</RezumuItem>
   <RezumuItem term="Kria i ativa .venv">`python -m venv .venv` kria, `source .venv/bin/activate` (o `.venv\Scripts\activate`) ativa</RezumuItem>
   <RezumuItem term="Primeru programa">uza `input()` pa resebe dadus i `print()` pa mostra rezultadus</RezumuItem>
-  <RezumuItem variant="gold" term="Regra di oru">Senpri verifika ki `(.venv)` ta na bu prompt antis di instala pakotis o roda kódiku. Sen el ativu, tudu ta bai pa sistema interu.</RezumuItem>
-  <RezumuItem variant="warning" term="Erus kumuns">Maioria di prublemas di setup ben di tres kuzas: skese "Add to PATH" na Windows, uza `python` envés di `python3` na macOS, o `.venv` ka ativu — odja tabela "Erus Kumuns i Soluson" di riba.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri verifika ki `(.venv)` ta na bu prompt antis di instala pakotis ou roda kódiku. Sen el ativu, tudu ta bai pa sistema interu.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">Maioria di prublemas di setup ben di tres kuzas: skese "Add to PATH" na Windows, uza `python` envés di `python3` na macOS, ou `.venv` ka ativu — odja tabela "Erus Kumuns i Soluson" di riba.</RezumuItem>
 </KeyTakeaways>

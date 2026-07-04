@@ -9,7 +9,7 @@ lesson: 17
 duration: "20 min"
 objectives:
   - "Skrebe expresons lambda pa funsons kurtu di un linha"
-  - "Transforma dadus ku map() aplikandu un funsan a kada elementu"
+  - "Transforma dadus ku map() ki ta aplika un funsan pa kada elementu"
   - "Filtra elementus ku filter() bazadu na un kondisan"
   - "Kombina map() i filter() ku list() pa prosesamentu di dadus"
 ---
@@ -18,7 +18,7 @@ objectives:
 
 Na lisan anterio, nos aprende defini funsons ku `def`. Ma ás bez, bo presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsons anónimu ki bo skrebe na un linha. I ku **map()** i **filter()**, bu pode transforma i filtra dadus di lista interu sen skrebe loop manual.
 
-Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bu tene lista di presu na ECV i bu kre aplika diskontu a tudu, o filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
+Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bu tene lista di presu na ECV i bu kre aplika diskontu pa tudu, ou filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
 
 ## Lambda — Funsons Anónimu
 
@@ -71,12 +71,12 @@ for s in studantis:
 ```
 
 :::callout{type=tip}
-Lambda é pa funsons kurtu i simples. Si bo funsan presiza más di un linha o é komplikadu, uza `def` normal. Kódiku klaru senpri ganha!
+Lambda é pa funsons kurtu i simples. Si bo funsan presiza más di un linha ou é komplikadu, uza `def` normal. Kódiku klaru senpri ganha!
 :::
 
 ## Map — Transforma Tudu Elementus
 
-`map(funsan, iterável)` ta aplika un funsan a **kada elementu** di un iterável (lista, tuple, etc.) i retorna un objetu map. Uza `list()` pa konverte pa lista.
+`map(funsan, iterável)` ta aplika un funsan pa **kada elementu** di un iterável (lista, tuple, etc.) i retorna un objetu map. Uza `list()` pa konverte pa lista.
 
 ```python
 # Dobra tudu nùmerus
@@ -165,7 +165,7 @@ for a in apresentasons:
 
 ## Filter — Selisiona Elementus
 
-`filter(funsan, iterável)` ta mantene SÓ elementus undi funsan retorna `True`. É kumo un penera — só kel ki pasa na kondisan ta fika.
+`filter(funsan, iterável)` ta mantene SÓ elementus unde funsan retorna `True`. É kumo un penera — só kel ki pasa na kondisan ta fika.
 
 ```python
 # Filtra só nùmerus par
@@ -248,9 +248,9 @@ for s in xunbadus:
 
 ## Kombina Map i Filter
 
-![Pipeline di transformasan ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.png)
+![Pipeline di transformasan ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.jpg)
 
-Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeru filtra, dipos transforma (o vice-versa):
+Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeru filtra, dipos transforma (ou vice-versa):
 
 ```python
 # Pega só nùmerus par i kalkula kuadradu
@@ -362,10 +362,10 @@ Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (kumo `int`, `str.up
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">`map()` i `filter()` ta da objetus **lazy** — senpri konverti ku `list()` pa odja o rezultadu, senan bu ta odja só `<map object ...>`.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">`map()` i `filter()` ta da objetus **lazy** — senpri konverti ku `list()` pa odja rezultadu, senan bu ta odja só `<map object ...>`.</RezumuItem>
   <RezumuItem term="Lambda">Un funsan anónimu di un linha: `lambda x: x * 2` — pa koza kurtu; pa lójika komplikadu, uza `def`.</RezumuItem>
-  <RezumuItem term="map">`map(fn, iterável)` ta aplika a funsan a **tudu** elementu — transforma a lista interu.</RezumuItem>
-  <RezumuItem term="filter">`filter(fn, iterável)` ta mante **só** os elementu undi a funsan ta da `True`.</RezumuItem>
-  <RezumuItem term="Kombina">Filtra dipos transforma (o vice-versa) pa un pipeline poderozu di prosesamentu di dadus.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka pasa a funsan ku `()` — `map(dobra, ...)`, ka `map(dobra(), ...)`. I list comprehension é txeu bez más lijível ki `map`/`filter` ku lambda.</RezumuItem>
+  <RezumuItem term="map">`map(fn, iterável)` ta aplika funsan pa **tudu** elementu — transforma lista interu.</RezumuItem>
+  <RezumuItem term="filter">`filter(fn, iterável)` ta mantene **só** elementu unde funsan ta da `True`.</RezumuItem>
+  <RezumuItem term="Kombina">Filtra dipos transforma (ou vice-versa) pa un pipeline poderozu di prosesamentu di dadus.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka pasa funsan ku `()` — `map(dobra, ...)`, ka `map(dobra(), ...)`. I list comprehension é txeu bez más lijível ki `map`/`filter` ku lambda.</RezumuItem>
 </KeyTakeaways>

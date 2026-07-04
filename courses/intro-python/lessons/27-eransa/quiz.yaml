@@ -1,53 +1,43 @@
-# Quiz sidecar (draft source) for lesson m4-27 "Eransa (Simples i Múltiplu)".
+# Quiz sidecar (draft source) for lesson m4-27 "Eransa Simples".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/27-eransa/quiz.yaml; positions 0,1,2,3
-# correspond to <Quiz position={N}/> markers (FOUR quizzes).
+# content/courses/intro-python/lessons/27-eransa/quiz.yaml; positions 0,1,2
+# correspond to <Quiz position={N}/> markers (THREE quizzes).
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
-# These 4 questions were AI-drafted from the lesson body for review, NOT
-# finalized. A native Kriolu reviewer must approve/rewrite wording before
-# publish. languages_enabled = ["kea"] only (no `en` required).
+# Positions 0 & 1 were AI-drafted 2026-07-03 during the L27 split (simple
+# inheritance + override); position 2 was carried over verbatim from the
+# pre-split lesson. A native Kriolu reviewer must approve/rewrite wording
+# before publish. languages_enabled = ["kea"] only.
+- question:
+    kea: "Bu tene `class Taxi(Viatúra): pass`. O ki `Taxi` ta erda di `Viatúra`?"
+  options:
+    - text: { kea: "Tudu atributu i metodu (`__init__`, `liga()`, `deskrebe()`) — mésmu sen kódiku novu" }
+      correct: true
+    - text: { kea: "Nada — `pass` ta dexa klasi váziu" }
+      correct: false
+    - text: { kea: "Só metodu, ka atributu" }
+      correct: false
+    - text: { kea: "Só `__init__`" }
+      correct: false
+- question:
+    kea: "`Taxi` ta sobreskrebe `deskrebe()` i ta txoma `super().deskrebe()`. O ki `taxi.deskrebe()` ta returna?"
+  options:
+    - text: { kea: "Versan di pai + a parti novu: `Toyota Hilux (2020) — Taxi Lisensa: TX-1234 (Zona: Praia)`" }
+      correct: true
+    - text: { kea: "Só versan di pai: `Toyota Hilux (2020)`" }
+      correct: false
+    - text: { kea: "Só a parti novu: `Taxi Lisensa: TX-1234 (Zona: Praia)`" }
+      correct: false
+    - text: { kea: "Un eru — ka pode txoma `super()` dentu di un metodu sobreskrebedu" }
+      correct: false
 - question:
     kea: "Pa kuze ki ta sirbi `super().__init__(...)` nun klasi filhu?"
   options:
-    - text: { kea: "Ta txoma o konstrutor di a klasi pai pa inisializa os atributu erdadu, sen repeti o kódiku" }
+    - text: { kea: "Ta txoma konstrutor di klasi pai pa inisializa atributu erdadu, sen repeti kódiku" }
       correct: true
-    - text: { kea: "Ta kria un novu objetu di a klasi pai" }
+    - text: { kea: "Ta kria un novu objetu di klasi pai" }
       correct: false
-    - text: { kea: "Ta apaga os atributu di a klasi pai" }
+    - text: { kea: "Ta apaga atributu di klasi pai" }
       correct: false
-    - text: { kea: "Ta verifika si a klasi filhu é válidu" }
-      correct: false
-- question:
-    kea: "Pa eransa **simples** bu uza `super().__init__()`. I pa eransa **múltiplu** (vários pai)?"
-  options:
-    - text: { kea: "Txomada direta a kada pai: `Pai1.__init__(self, ...)` i `Pai2.__init__(self, ...)`" }
-      correct: true
-    - text: { kea: "Senpri `super().__init__()`, ki ta txoma tudu os pai" }
-      correct: false
-    - text: { kea: "Ka pode tene eransa múltiplu na Python" }
-      correct: false
-    - text: { kea: "`super().__init__()` repetidu un bez pa kada pai" }
-      correct: false
-- question:
-    kea: "Pa `class D(B, C)`, undi os dos B i C erda di A, kal é a orden di buska (MRO)?"
-  options:
-    - text: { kea: "`D → B → C → A → object` — di o filhu pa os pai, di skerda pa direita" }
-      correct: true
-    - text: { kea: "`D → A → B → C → object`" }
-      correct: false
-    - text: { kea: "`D → C → B → A → object` — di direita pa skerda" }
-      correct: false
-    - text: { kea: "A orden é aleatóriu" }
-      correct: false
-- question:
-    kea: "Bu tene `class Táksi(Viatúra)` i `taksi = Táksi()`. O ki ta da `isinstance(taksi, Viatúra)`?"
-  options:
-    - text: { kea: "`True` — graças a a eransa, un `Táksi` é tanbé un `Viatúra`" }
-      correct: true
-    - text: { kea: "`False` — `taksi` é un `Táksi`, ka un `Viatúra`" }
-      correct: false
-    - text: { kea: "Un eru — `isinstance` ka ta funsiona ku eransa" }
-      correct: false
-    - text: { kea: "`True` só si `Táksi` ka definí `__init__`" }
+    - text: { kea: "Ta verifika si klasi filhu é válidu" }
       correct: false

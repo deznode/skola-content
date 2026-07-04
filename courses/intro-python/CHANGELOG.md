@@ -8,6 +8,23 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-04] — publish
+
+### Added
+- M4: split the overloaded `eransa` lesson into `eransa` (single inheritance) and a new
+  `eransa-multiplu` lesson (multiple inheritance + MRO/C3, isinstance/issubclass) — course
+  grows 32 → 33 lessons; downstream M4 lessons renumbered 28→33.
+### Changed
+- Full Kriolu contextual proofread pass across all four modules (M1 L01–L10, M2 L11–L15,
+  M3 L16–L25, M4 L26–L33).
+- Deterministic ALUPEC orthography normalization across M1–M4.
+- Regenerated all infographics (PNG → JPG, 14 shipped); dropped unused infographic
+  `15-python-undi-uzadu`.
+- M4 example naming: Táksi → Taxi, Autokarru → Autokaru in the eransa lessons.
+### Fixed
+- `kal` → `kual` interrogative and assorted eransa Kriolu fixes.
+- `poupa` correction; aligned "or" → `ou` in code comments.
+
 ## [2026-06-30] — publish
 
 ### Changed

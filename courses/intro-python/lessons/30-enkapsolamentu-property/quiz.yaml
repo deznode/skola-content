@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-29 "Enkapsolamentu i @property".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/29-enkapsolamentu-property/quiz.yaml;
+# positions 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# These 4 questions were AI-drafted from the lesson body for review, NOT
+# finalized. A native Kriolu reviewer must approve/rewrite wording before
+# publish. languages_enabled = ["kea"] only (no `en` required).
+- question:
+    kea: "Na konvensan di Python, o ki ta signifika un atributu ku **dos** underscore (`self.__saldu`)?"
+  options:
+    - text: { kea: "Privadu — Python ta aplika name mangling pa protejé-l kontra asésu asidentál di fora" }
+      correct: true
+    - text: { kea: "Públiku — kualker un pode asésa-l" }
+      correct: false
+    - text: { kea: "Un konstanti ki ka pode muda" }
+      correct: false
+    - text: { kea: "Un atributu di klasi, partilhadu pa tudu objetu" }
+      correct: false
+- question:
+    kea: "Bu definí `self.__saldu` nun klasi `Konta`. Kumo Python ta transforma nomi internamenti (name mangling)?"
+  options:
+    - text: { kea: "`_Konta__saldu` — nomi di klasi ta ser djuntadu kumo prefixu" }
+      correct: true
+    - text: { kea: "El ta apaga atributu totalmenti" }
+      correct: false
+    - text: { kea: "`saldu` — el ta tira underscore" }
+      correct: false
+    - text: { kea: "`__saldu__` — el ta djunta underscore na fin" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi dekorador `@property`?"
+  options:
+    - text: { kea: "Ta transforma un metodu nun atributu — bu ta asésa-l sen paréntesis (`obj.presu`), ma un funsan ta kore pa trás" }
+      correct: true
+    - text: { kea: "Ta faze atributu públiku pa tudu jenti" }
+      correct: false
+    - text: { kea: "Ta apaga atributu dipos di lé-l" }
+      correct: false
+    - text: { kea: "Ta kria un novu objetu di klasi" }
+      correct: false
+- question:
+    kea: "Bu tene un `@property` `area` sen un `.setter`. O ki ta kontise si bu faze `forma.area = 100`?"
+  options:
+    - text: { kea: "Un `AttributeError` — sen un setter, property é **só-leitura**" }
+      correct: true
+    - text: { kea: "Ta muda valor di `area` pa `100`" }
+      correct: false
+    - text: { kea: "Ta kria un novu atributu `area`" }
+      correct: false
+    - text: { kea: "Nada — Python ta inora-l silensiozamenti" }
+      correct: false

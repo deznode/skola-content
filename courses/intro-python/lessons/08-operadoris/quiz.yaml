@@ -14,7 +14,7 @@
       correct: true
     - text: { kea: "`3.5` — divisan normal" }
       correct: false
-    - text: { kea: "`1` — `//` ta da o restu" }
+    - text: { kea: "`1` — `//` ta da restu" }
       correct: false
     - text: { kea: "`4` — ta aredonda pa riba" }
       correct: false
@@ -30,7 +30,7 @@
     - text: { kea: "`9` — só a adisan" }
       correct: false
 - question:
-    kea: "Ku o operador `and`, kuandu é ki o rezultadu é `True`?"
+    kea: "Ku operador `and`, kuandu é ki rezultadu é `True`?"
   options:
     - text: { kea: "Só kuandu **os dos** kondisons é `True`" }
       correct: true

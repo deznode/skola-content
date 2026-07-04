@@ -24,7 +24,7 @@
   prompt:
     kea: "Es programa ta da un `NameError`. Kopia kódiku inisial, kore-l pa odja eru, i koriji-l pa el imprimi tudu dos nomi."
   hint:
-    kea: "Ler última linha: `name 'Nomi' is not defined`. Python é **case sensitive** — `nomi`, `Nomi` i `NOMI` é tres variáveis diferenti. Só `nomi` i `NOMI` foi kriadu; `Nomi` (N maiúskulu) ka izisti. Skrebe `print(NOMI)` o defini `Nomi` antis."
+    kea: "Ler última linha: `name 'Nomi' is not defined`. Python é **case sensitive** — `nomi`, `Nomi` i `NOMI` é tres variáveis diferenti. Só `nomi` i `NOMI` foi kriadu; `Nomi` (N maiúskulu) ka izisti. Skrebe `print(NOMI)` ou defini `Nomi` antis."
   starterCode: |
     # nomis.py — es programa ta da un NameError. Koriji-l.
     nomi = "Cesária"
@@ -66,7 +66,7 @@
   prompt:
     kea: "Es bloku ta da un `SyntaxError` pamodi el ta kebra linha dipos di `+` sen `\\`. Koriji-l pa el soma tudu i imprimi `1500`."
   hint:
-    kea: "Fora di paréntesis, Python ka ta dexa kebra un linha simplismenti pamodi el termina ku `+`. Po un **backslash** (`\\`) na fin di primeru linha — o nton pói tudu soma dentu di paréntesis `( ... )`, ki ta permiti kebra sen `\\`."
+    kea: "Fora di paréntesis, Python ka ta dexa kebra un linha simplismenti pamodi el termina ku `+`. Po un **backslash** (`\\`) na fin di primeru linha — ou nton pói tudu soma dentu di paréntesis `( ... )`, ki ta permiti kebra sen `\\`."
   starterCode: |
     # soma.py — es bloku ta da un SyntaxError. Koriji-l.
     total = 100 + 200 + 300 +
@@ -87,7 +87,7 @@
   kind: explore
   title: { kea: "Splora konvensan di stilu PEP 8" }
   prompt:
-    kea: "Python tene un guia ofisial di stilu txomadu **PEP 8** — kumo nomia variáveis, kuantu spasus uza, undi po linha branku. Ka meste dekora-l; só sabe ki el izisti i undi buska."
+    kea: "Python tene un guia ofisial di stilu txomadu **PEP 8** — kumo nomia variáveis, kuantu spasus uza, unde po linha branku. Ka meste dekora-l; só sabe ki el izisti i unde buska."
   resources:
     kea:
       - { label: "PEP 8 — Style Guide for Python Code", url: "https://peps.python.org/pep-0008/" }

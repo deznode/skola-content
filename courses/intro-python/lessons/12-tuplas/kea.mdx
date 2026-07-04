@@ -16,13 +16,13 @@ objectives:
 
 # Tuplas
 
-Tuples é "prima" di listas — tanbe ta guarda kolesons ordenadu di elementus, ma ku un diferensa fundamental: **tuples é imutável**. Un bez ki bo kria un tuple, bu ka pode muda es elementus.
+Tuples é "prima" di listas — tanbe ta guarda kolesons ordenadu di elementus, ma ku un diferensa fundamental: **tuples é imutável**. Un bez ki bu kria un tuple, bu ka pode muda es elementus.
 
-Kel ta parese un limitasan, ma na verdadi é un vantajen: tuples é más rápidu, más seguru, i perfeitu pa dadus ki ka deve muda (kumo koordinadas geográfikas, datas di nasimentu, ó konfigurasons fixas).
+Kel ta parese un limitasan, ma na verdadi é un vantajen: tuples é más rápidu, más seguru, i perfeitu pa dadus ki ka debe muda (kumo koordinadas geográfikas, datas di nasimentu, ou konfigurasons fixas).
 
 ## Kria Tuples
 
-Pa kria un tuple, uza paréntesis `()` ó simplesmente vírgulas:
+Pa kria un tuple, uza paréntesis `()` ou simplesmente vírgulas:
 
 ```python
 # Ku paréntesis
@@ -55,7 +55,7 @@ Pa kria tuple ku un só elementu, senpri poe vírgula: `("Sal",)`. Sen vírgula,
 
 ## Imutabilidadi: Ka Pode Muda!
 
-![Tipus mutável (lista, dict, set) vs imutável (tuple, str, int)](../../infographics/07-mutavel-vs-imutavel.png)
+![Tipus mutável (lista, dict, set) vs imutável (tuple, str, int)](../../infographics/07-mutavel-vs-imutavel.jpg)
 
 Diferensa prinsipal entri tuple i lista: **ka pode muda tuple dipos di kria**.
 
@@ -71,7 +71,7 @@ print(ilhas[1:3])  # ('São Vicente', 'Sal')
 # ilhas[0] = "Maio"
 # TypeError: 'tuple' object does not support item assignment
 
-# Tanbe ka podi adisiona ó remove
+# Tanbe ka podi adisiona ou remove
 # ilhas.append("Brava")
 # AttributeError: 'tuple' object has no attribute 'append'
 ```
@@ -115,7 +115,7 @@ print(60 in numeros)   # False
 
 ## Konkatenasan i Repetisan
 
-Mesmu ki ka pode muda un tuple, bu pode kria **novas tuples** a partir di existentis:
+Mesmu ki ka pode muda un tuple, bu pode kria **novu tuples** a partir di existenti:
 
 ```python
 # Konkatenasan (+) — kria novu tuple
@@ -182,12 +182,12 @@ print(b)  # Praia
 ```
 
 :::callout{type=tip}
-Unpacking di tuples é manera más limpu di troka valores di variáveis — ka presiza di variável temporáriu!
+Unpacking di tuples é manera más limpu di troka valores di variávis — ka presiza di variável temporáriu!
 :::
 
 ### Star Unpacking (*) — Pega "Restu"
 
-Kuandu bu ka sabe ezatamente kantu elementus tene, uza `*` pa pega restu:
+Kuandu bu ka sabe ezatamenti kantu elementus tene, uza `*` pa pega restu:
 
 ```python
 numeros = (1, 2, 3, 4, 5, 6, 7, 8)
@@ -254,12 +254,12 @@ for nomi, lat, lon in sidadis:
 
 | Situasan | Uza Tuple | Uza Lista |
 |----------|-----------|-----------|
-| Dadus ki ka deve muda | Koordinadas, datas | — |
+| Dadus ki ka debe muda | Koordinadas, datas | — |
 | Kolesons ki ta kresi/diminui | — | Karrinhu di kompras |
 | Retorna múltiplus valores di funsan | `return min, max, avg` | — |
 | Keys di disionáriu | Tuples pode ser keys | Listas ka pode! |
 | Performansi importa | Tuple é más rápidu | — |
-| Bo presiza metodus kumo sort/append | — | Lista tene más metodus |
+| Bu presiza metodus kumo sort/append | — | Lista tene más metodus |
 
 ```python
 # Tuple kumo key di disionáriu (lista ka podi!)
@@ -314,10 +314,10 @@ for _, destinu, durasan, presu in voos_praia:
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Uza tuple pa dadus ki **ka deve muda** (koordenadas, datas, konfigurasons); uza lista pa kolesons ki ta kresi o diminui.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Uza tuple pa dadus ki **ka debe muda** (koordenadas, datas, konfigurasons); uza lista pa kolesons ki ta kresi ou diminui.</RezumuItem>
   <RezumuItem term="Tuple">Un kolesan **ordenadu** i **imutável** ku `()` — só ten 2 metodu, `.count()` i `.index()`.</RezumuItem>
   <RezumuItem term="Packing">Python ta kria un tuple sózin kuandu bu separa valores ku vírgula (`p = "Ana", 25`).</RezumuItem>
   <RezumuItem term="Unpacking">`nomi, idadi, ilha = pessoa` ta atribui kada elementu a un variável — i `a, b = b, a` ta troka valores sen variável temporáriu.</RezumuItem>
-  <RezumuItem term="Star unpacking">`primeiru, *restu = dados` — o `*` ta apanha o restu kumo un **lista**.</RezumuItem>
+  <RezumuItem term="Star unpacking">`primeiru, *restu = dados` — `*` ta apanha restu kumo un **lista**.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Tuple di un só elementu **presiza** vírgula: `("Sal",)`, ka `("Sal")`. I tenta muda un tuple ta da `TypeError`.</RezumuItem>
 </KeyTakeaways>

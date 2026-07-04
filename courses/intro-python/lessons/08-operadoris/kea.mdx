@@ -89,10 +89,10 @@ print(f"{eskudus} ECV = {euros:.2f} EUR")
 # 5000 ECV = 45.35 EUR
 ```
 
-### Par o Ímpar?
+### Par ou Ímpar?
 
 ```python
-# Truque ku módulu: verifica si númeru é par o ímpar
+# Truque ku módulu: verifica si númeru é par ou ímpar
 numeru = 17
 
 if numeru % 2 == 0:
@@ -147,12 +147,12 @@ print(saldo)   # 866
   ]}
   answers={["//", "%"]}
   hints={["Divisan interu (kosienti)", "Restu di divisan"]}
-  solved="Korretu! `//` ta da o kosienti interu (2) i `%` ta da o restu (50)."
+  solved="Korretu! `//` ta da kosienti interu (2) i `%` ta da restu (50)."
 />
 
 ## Operadoris di Komparasan
 
-Es operadoris ta kompara dois valoris i ta retorna `True` o `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bu ta prende na prósimu lisan.
+Es operadoris ta kompara dois valoris i ta retorna `True` ou `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bu ta prende na prósimu lisan.
 
 ```python
 # Igual i Diferenti
@@ -164,8 +164,8 @@ print(10 != 10)   # False
 # Maior i Menor
 print(10 > 5)     # True
 print(10 < 5)     # False
-print(10 >= 10)   # True   (maior ó igual)
-print(10 <= 9)    # False  (menor ó igual)
+print(10 >= 10)   # True   (maior ou igual)
+print(10 <= 9)    # False  (menor ou igual)
 ```
 
 :::callout{type=warning}
@@ -207,7 +207,7 @@ print(f"{nomi} pode vota? {pode_vota}")  # Nilton pode vota? False
 
 ## Operadoris Lójiku
 
-Operadoris lójiku ta kombina vários kondisons. Pensa es kumo "i", "ó", "ka" na Kriolu.
+Operadoris lójiku ta kombina vários kondisons. Pensa es kumo "i", "ou", "ka" na Kriolu.
 
 ### `and` — AMBOS ten ki ser True
 
@@ -300,7 +300,7 @@ print(not False)   # True
 
 ## Presedensia di Operadoris (Orden di Exekusan)
 
-![Presedensia di operadoris di Python](../../infographics/03-operador-precedensia.png)
+![Presedensia di operadoris di Python](../../infographics/03-operador-precedensia.jpg)
 
 Python ta sigi un orden espesífiku kuandu tene vários operadoris na mesmu expresan. É igualzinhu ki matemátika — multiplikasan antis di adisan.
 
@@ -383,7 +383,7 @@ print(-7 // 2)   # -4  ← aredonda pa BAXU, ka pa zeru!
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Na dúvida sobri a orden, uza **paréntesis** — `(2 + 3) * 4` é más klaru ki konfia na presedensia. Kódiku klaru ganha di kódiku kurtu.</RezumuItem>
-  <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é o restu; `**` é potensia.</RezumuItem>
+  <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é restu; `**` é potensia.</RezumuItem>
   <RezumuItem term="Komparasan">`==`, `!=`, `>`, `<`, `>=`, `<=` ta da senpri `True`/`False`.</RezumuItem>
   <RezumuItem term="Lójiku">`and` (os dos `True`), `or` (algun `True`), `not` (inverti).</RezumuItem>
   <RezumuItem term="Presedensia">`**` > `* / // %` > `+ -` > komparasan > `not` > `and` > `or`.</RezumuItem>

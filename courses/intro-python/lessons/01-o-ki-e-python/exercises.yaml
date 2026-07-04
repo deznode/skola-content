@@ -8,7 +8,7 @@
   kind: code
   title: { kea: "Kore bu primeru programa" }
   prompt:
-    kea: "Sen instala nada, bu pode kore Python diretu na navegador. Vizita un sandbox online (por izemplu [Python Tutor](https://pythontutor.com/python-compiler.html) o [Programiz](https://www.programiz.com/python-programming/online-compiler/)), skrebe un programa ki ta mostra `Ola! Ben-vindu a Python!` na tela, i klika **Run**. **Parabens — bu kaba di kore bu primeru programa Python!**"
+    kea: "Sen instala nada, bu pode kore Python diretu na navegador. Vizita un sandbox online (por izemplu [Python Tutor](https://pythontutor.com/python-compiler.html) ou [Programiz](https://www.programiz.com/python-programming/online-compiler/)), skrebe un programa ki ta mostra `Ola! Ben-vindu a Python!` na tela, i klika **Run**. **Parabens — bu kaba di kore bu primeru programa Python!**"
   hint:
     kea: "Uza funsan `print()` pa mostra testu na tela. Mensajen ta ba dentu di aspas, sima `print(\"...\")`."
   starterCode: |
@@ -29,7 +29,7 @@
   kind: reflect
   title: { kea: "Pensa na un problema" }
   prompt:
-    kea: "Pensa na un problema na bu dia-a-dia ki bu ta gosta di rezolvi ku programasan (organiza bu lista di kompras, kalkulá gastos di mes, o kontrola stok di un loja). Skrebe un frazi ku kel problema."
+    kea: "Pensa na un problema na bu dia-a-dia ki bu ta gosta di rezolvi ku programasan (organiza bu lista di kompras, kalkulá gastos di mes, ou kontrola stok di un loja). Skrebe un frazi ku kel problema."
   notePlaceholder:
     kea: "Skrebe li kel problema ki bu kre rezolvi ku programasan..."
 - slug: splora-github-trending

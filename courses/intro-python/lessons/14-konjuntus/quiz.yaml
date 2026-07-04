@@ -21,52 +21,52 @@
 - question:
     kea: "Ku `a = {1, 2, 3}` i `b = {2, 3, 4}`, o ki ta da `a & b`?"
   options:
-    - text: { kea: "`{2, 3}` — o `&` (intersection) ta da os elementus ki ta sta na os **dos** sets" }
+    - text: { kea: "`{2, 3}` — `&` (intersection) ta da elementus ki ta sta na **dos** sets" }
       correct: true
-    - text: { kea: "`{1, 2, 3, 4}` — tudu os elementus" }
+    - text: { kea: "`{1, 2, 3, 4}` — tudu elementus" }
       correct: false
     - text: { kea: "`{1}` — só o ki ta sta na `a`" }
       correct: false
-    - text: { kea: "`{1, 4}` — o ki ka ta sta na os dos" }
+    - text: { kea: "`{1, 4}` — o ki ka ta sta na dos" }
       correct: false
 - question:
     kea: "Pamodi un buska `x in meu_set` é más rápidu ki `x in minha_lista` pa kolesons grandi?"
   options:
-    - text: { kea: "Set ta uza hashing — a buska é O(1) (tempu konstanti); na lista é O(n) (ta verifika kada elementu)" }
+    - text: { kea: "Set ta uza hashing — buska é O(1) (tempu konstanti); na lista é O(n) (ta verifika kada elementu)" }
       correct: true
-    - text: { kea: "Set é senpre más pikinin ki lista" }
+    - text: { kea: "Set é senpri más pikinin ki lista" }
       correct: false
-    - text: { kea: "Lista ka ta suporta o operador `in`" }
+    - text: { kea: "Lista ka ta suporta operador `in`" }
       correct: false
     - text: { kea: "Es é igual — ka ten diferensa di velosidadi" }
       correct: false
 - question:
     kea: "O ki ta da `{x for x in range(5) if x % 2 == 0}`?"
   options:
-    - text: { kea: "`{0, 2, 4}` — un set comprehension ku só os par di 0 a 4" }
+    - text: { kea: "`{0, 2, 4}` — un set comprehension ku só par di 0 a 4" }
       correct: true
-      explain: { kea: "Ku txaves `{}` i sen `key: value` é un **set comprehension**: só os `x` par di `range(5)`." }
+      explain: { kea: "Ku txaves `{}` i sen `key: value` é un **set comprehension**: só `x` par di `range(5)`." }
     - text: { kea: "`[0, 2, 4]` — un lista" }
       correct: false
       explain: { kea: "Txaves `{}` ta da un set, ka un lista (kel sería `[...]`)." }
     - text: { kea: "`{0: 0, 2: 2, 4: 4}` — un disionáriu" }
       correct: false
       explain: { kea: "Sen `key: value` ka é dict comprehension — é un set." }
-    - text: { kea: "`{0, 1, 2, 3, 4}` — tudu os númeru" }
+    - text: { kea: "`{0, 1, 2, 3, 4}` — tudu númeru" }
       correct: false
-      explain: { kea: "O filtru `if x % 2 == 0` ta dexa só os par." }
+      explain: { kea: "Filtru `if x % 2 == 0` ta dexa só par." }
 - question:
     kea: "Ku `notas = [15, 18, 15, 12, 18]`, o ki ta da `len(set(notas))`?"
   options:
-    - text: { kea: "`3` — `set()` ta tira os duplikadu, dexandu `{15, 18, 12}`" }
+    - text: { kea: "`3` — `set()` ta tira duplikadu, dexandu `{15, 18, 12}`" }
       correct: true
       explain: { kea: "Auto-deduplikasan: `set(notas)` é `{12, 15, 18}`, ki tene 3 elementu úniku." }
-    - text: { kea: "`5` — o tamanhu di a lista orijinal" }
+    - text: { kea: "`5` — tamanhu di lista orijinal" }
       correct: false
-      explain: { kea: "`set()` ta elimina os repetidu primeru, entun ka é 5." }
+      explain: { kea: "`set()` ta elimina repetidu primeru, entun ka é 5." }
     - text: { kea: "`2` — só os ki ta repete" }
       correct: false
-      explain: { kea: "`set()` ta guarda kada valor úniku un bez, ka só os repetidu." }
+      explain: { kea: "`set()` ta guarda kada valor úniku un bez, ka só repetidu." }
     - text: { kea: "Un eru — ka pode po `len()` nun set" }
       correct: false
       explain: { kea: "`len()` ta funsiona nun set normalmenti." }

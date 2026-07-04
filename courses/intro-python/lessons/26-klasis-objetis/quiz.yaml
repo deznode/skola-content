@@ -8,46 +8,46 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Pa kuze ki ta sirbi o metodu `__init__` nun klasi?"
+    kea: "Pa kuze ki ta sirbi metodu `__init__` nun klasi?"
   options:
-    - text: { kea: "É o konstrutor — ta kore automátikamenti kuandu un objetu novu é kriadu, pa inisializa os se atributu" }
+    - text: { kea: "É konstrutor — ta kore automátikamenti kuandu un objetu novu é kriadu, pa inisializa se atributu" }
       correct: true
-    - text: { kea: "Ta apaga o objetu di a memória" }
+    - text: { kea: "Ta apaga objetu di memória" }
       correct: false
-    - text: { kea: "Ta imprimi o objetu na ekran" }
+    - text: { kea: "Ta imprimi objetu na ekran" }
       correct: false
-    - text: { kea: "É a primeru funsan ki bu ten ki txoma manualmenti" }
+    - text: { kea: "É primeru funsan ki bu ten ki txoma manualmenti" }
       correct: false
 - question:
     kea: "O ki é `self` nun metodu di klasi?"
   options:
-    - text: { kea: "Un referénsia pa o objetu atuál (\"nha\") — Python ta pasa-l automátikamenti kumo primeru parámetru" }
+    - text: { kea: "Un referénsia pa objetu atuál (\"nha\") — Python ta pasa-l automátikamenti kumo primeru parámetru" }
       correct: true
-    - text: { kea: "O nomi di a klasi" }
+    - text: { kea: "Nomi di klasi" }
       correct: false
-    - text: { kea: "Un variável global partilhadu pa tudu os objetu" }
+    - text: { kea: "Un variável global partilhadu pa tudu objetu" }
       correct: false
     - text: { kea: "Un palavra opsional ki bu pode tira" }
       correct: false
 - question:
-    kea: "Kal é a diferensa entri un **klasi** i un **objetu**?"
+    kea: "Kal é diferensa entri un **klasi** i un **objetu**?"
   options:
-    - text: { kea: "A klasi é o moldi (a reseta); o objetu é un instánsia real kriadu a partir di a klasi (o pratu)" }
+    - text: { kea: "Klasi é moldi (reseta); objetu é un instánsia real kriadu a partir di klasi (pratu)" }
       correct: true
-    - text: { kea: "Es é a mesmu kuza ku nomi diferenti" }
+    - text: { kea: "Es é mesmu kuza ku nomi diferenti" }
       correct: false
-    - text: { kea: "O objetu é o moldi; a klasi é a instánsia" }
+    - text: { kea: "Objetu é moldi; klasi é instánsia" }
       correct: false
     - text: { kea: "Un klasi só pode kria un objetu" }
       correct: false
 - question:
-    kea: "Pamodi é midjór definí tudu os atributu dentu di `__init__`?"
+    kea: "Pamodi é midjór definí tudu atributu dentu di `__init__`?"
   options:
-    - text: { kea: "Pa garanti ki kada objetu ten os atributu dezdi o iníisu — definí-s fora pode kauza `AttributeError`" }
+    - text: { kea: "Pa garanti ki kada objetu ten atributu dezdi iníisu — definí-s fora pode kauza `AttributeError`" }
       correct: true
-    - text: { kea: "Pamodi `__init__` é o úniku lugar undi `self` izisti" }
+    - text: { kea: "Pamodi `__init__` é úniku lugar unde `self` izisti" }
       correct: false
-    - text: { kea: "Pa faze o objetu kore más rápidu" }
+    - text: { kea: "Pa faze objetu kore más rápidu" }
       correct: false
     - text: { kea: "Ka ten razan — pode ser na kualker lugar" }
       correct: false

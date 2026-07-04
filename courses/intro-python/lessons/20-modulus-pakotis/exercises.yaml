@@ -37,9 +37,9 @@
   kind: code
   title: { kea: "Kria un módulu conversor" }
   prompt:
-    kea: "Kria un ficheru `conversor.py` ku as funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu ficheru, importa-s i testa."
+    kea: "Kria un ficheru `conversor.py` ku funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu ficheru, importa-s i testa."
   hint:
-    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Aredonda o rezultadu ku `round(..., 2)`."
+    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Aredonda rezultadu ku `round(..., 2)`."
   starterCode: |
     # conversor.py
     TAXA = 110.265
@@ -73,7 +73,7 @@
   prompt:
     kea: "Kria un pasta `utils/` ku un `__init__.py`, un módulu `validasan.py` (funsan `valida_email(email)`) i un módulu `formatu.py` (funsan `formata_ecv(valor)` ki ta retorna p.ex. `\"1.500$00 ECV\"`). Importa tudu di `main.py`."
   hint:
-    kea: "O `__init__.py` pode importa as funsons: `from .validasan import valida_email`. Pa o email, un check simples: `\"@\" in email and \".\" in email`. Pa o formatu ECV, o `$` ta separa os escudos di os centavos."
+    kea: "`__init__.py` pode importa funsons: `from .validasan import valida_email`. Pa email, un check simples: `\"@\" in email and \".\" in email`. Pa formatu ECV, `$` ta separa escudos di centavos."
   starterCode: |
     # utils/validasan.py
     def valida_email(email):
@@ -108,9 +108,9 @@
 - slug: splora-standard-library
   language: python
   kind: explore
-  title: { kea: "Splora a standard library" }
+  title: { kea: "Splora standard library" }
   prompt:
-    kea: "A standard library di Python é enormi — `math`, `random`, `os`, `json`, `csv`, `datetime`, `re` é só un prova. Odja a referensia ofisial pa odja tudu o ki ben ku Python sen instala nada."
+    kea: "Standard library di Python é enormi — `math`, `random`, `os`, `json`, `csv`, `datetime`, `re` é só un prova. Odja referensia ofisial pa odja tudu o ki ben ku Python sen instala nada."
   resources:
     kea:
       - { label: "Python docs — The Python Standard Library", url: "https://docs.python.org/3/library/" }
@@ -120,6 +120,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `__name__ == \"__main__\"`" }
   prompt:
-    kea: "O bloku `if __name__ == \"__main__\":` só ta kore kuandu o ficheru é izekutadu diretu, ka kuandu é importadu. Pensa nun módulu ki bu kreba kria (p.ex. o `conversor.py`). Skrebe o ki bu ta po dentu di kel bloku, i pamodi el ka devia kore na o import."
+    kea: "Bloku `if __name__ == \"__main__\":` só ta kore kuandu ficheru é izekutadu diretu, ka kuandu é importadu. Pensa nun módulu ki bu kreba kria (p.ex. `conversor.py`). Skrebe o ki bu ta po dentu di kel bloku, i pamodi el ka debe kore na import."
   notePlaceholder:
-    kea: "Módulu: …   ·   O ki ta entra na o bloku __main__: …   ·   Pamodi ka devia kore na import: …"
+    kea: "Módulu: …   ·   O ki ta entra na bloku __main__: …   ·   Pamodi ka debe kore na import: …"

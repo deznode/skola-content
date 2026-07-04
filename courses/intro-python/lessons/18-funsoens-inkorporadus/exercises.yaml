@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Menu numeradu ku enumerate()" }
   prompt:
-    kea: "Dadu a lista `[\"Santiago\", \"Fogo\", \"Sal\", \"Boa Vista\", \"Santo Antão\"]`, uza `enumerate()` pa mostra un menu numeradu (kumesandu na 1). Dipos simula un eskolha i mostra `Bu skodje: [ilha]`."
+    kea: "Dadu lista `[\"Santiago\", \"Fogo\", \"Sal\", \"Boa Vista\", \"Santo Antão\"]`, uza `enumerate()` pa mostra un menu numeradu (kumesandu na 1). Dipos simula un eskolha i mostra `Bu skodje: [ilha]`."
   hint:
-    kea: "`for num, ilha in enumerate(ilhas, start=1):` ta da o índisi (kumesandu na 1) i o valor djuntu. Pa a eskolha, lenbra ki a lista kumesa na índisi 0, anton `ilhas[eskolha - 1]`."
+    kea: "`for num, ilha in enumerate(ilhas, start=1):` ta da índisi (kumesandu na 1) i valor djuntu. Pa eskolha, lenbra ki lista kumesa na índisi 0, anton `ilhas[eskolha - 1]`."
   starterCode: |
     # menu.py
     ilhas = ["Santiago", "Fogo", "Sal", "Boa Vista", "Santo Antão"]
@@ -41,9 +41,9 @@
   kind: code
   title: { kea: "Ranking ku zip() i sorted()" }
   prompt:
-    kea: "Dadu dos lista (`nomis` i `notas`), uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipos uza `sorted()` ku `key` pa mostra o ranking di midjór pa pior."
+    kea: "Dadu dos lista (`nomis` i `notas`), uza `zip()` pa kria un disionáriu `{nomi: nota}`. Dipos uza `sorted()` ku `key` pa mostra ranking di midjór pa pior."
   hint:
-    kea: "`dict(zip(nomis, notas))` ta kria o disionáriu. Pa o ranking: `sorted(d.items(), key=lambda x: x[1], reverse=True)` ta ordena os par pa nota, di o más altu."
+    kea: "`dict(zip(nomis, notas))` ta kria disionáriu. Pa ranking: `sorted(d.items(), key=lambda x: x[1], reverse=True)` ta ordena par pa nota, di más altu."
   starterCode: |
     # ranking.py
     nomis = ["Kelvin", "Edna", "Nilton", "Carla"]
@@ -66,7 +66,7 @@
   kind: code
   title: { kea: "Validador ku any() i all()" }
   prompt:
-    kea: "Skrebe un funsan `valida_lista(dados)` ki uza `all()` pa verifika si tudu elementu é un númeru (`isinstance`), i `any()` pa verifika si algun é negativu. Si tudu é númeru, retorna a lista `sorted()`; senan retorna un mensajen di eru."
+    kea: "Skrebe un funsan `valida_lista(dados)` ki uza `all()` pa verifika si tudu elementu é un númeru (`isinstance`), i `any()` pa verifika si algun é negativu. Si tudu é númeru, retorna lista `sorted()`; senan retorna un mensajen di eru."
   hint:
     kea: "`all(isinstance(x, (int, float)) for x in dados)` ta da `True` si tudu é númeru. `any(x < 0 for x in dados)` ta deteta negativu. Uza `isinstance(x, (int, float))` pa seita int i float."
   starterCode: |
@@ -94,9 +94,9 @@
   kind: code
   title: { kea: "Relatóriu di vendas" }
   prompt:
-    kea: "Ku as tres lista na o kódiku inisial (produtu, presu, kuantidadi), uza `zip()` pa kalkula o total di kada produtu (presu × kuantidadi), `sorted()` pa ordena pa total (más altu primeru) i `enumerate()` pa mostra un lista numeradu."
+    kea: "Ku tres lista na kódiku inisial (produtu, presu, kuantidadi), uza `zip()` pa kalkula total di kada produtu (presu × kuantidadi), `sorted()` pa ordena pa total (más altu primeru) i `enumerate()` pa mostra un lista numeradu."
   hint:
-    kea: "Ku `zip(produtus, presus, kuantidadis)` bu pega os tres djuntu nun loop. Kria un lista di `(nomi, total)`, ordena ku `sorted(..., key=lambda x: x[1], reverse=True)`, i numera ku `enumerate(..., start=1)`."
+    kea: "Ku `zip(produtus, presus, kuantidadis)` bu pega tres djuntu nun loop. Kria un lista di `(nomi, total)`, ordena ku `sorted(..., key=lambda x: x[1], reverse=True)`, i numera ku `enumerate(..., start=1)`."
   starterCode: |
     # vendas.py
     produtus = ["Katxupa", "Grogu", "Ponche", "Morabeza T-shirt"]
@@ -119,9 +119,9 @@
 - slug: splora-builtins
   language: python
   kind: explore
-  title: { kea: "Splora as funsons inkorporadu" }
+  title: { kea: "Splora funsons inkorporadu" }
   prompt:
-    kea: "Python tene dezenas di funsan inkorporadu alén di es — `min`, `max`, `sum`, `reversed`, `abs`, `round`. Odja a lista ofisial pa odja tudu o ki bu tene a dispozisan sen importa nada."
+    kea: "Python tene dezenas di funsan inkorporadu alén di es — `min`, `max`, `sum`, `reversed`, `abs`, `round`. Odja lista ofisial pa odja tudu o ki bu tene na dispozisan sen importa nada."
   resources:
     kea:
       - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }
@@ -131,6 +131,6 @@
   kind: reflect
   title: { kea: "Refleta sobri kódiku Pythonic" }
   prompt:
-    kea: "`for i in range(len(lista))` ta funsiona, ma `enumerate()` é más Pythonic. Pensa nun loop ki bu dja skrebe ku `range(len(...))`. Skrebe kumo bu ta riskrebe-l ku `enumerate()` o `zip()`, i pamodi é más kraru."
+    kea: "`for i in range(len(lista))` ta funsiona, ma `enumerate()` é más Pythonic. Pensa nun loop ki bu dja skrebe ku `range(len(...))`. Skrebe kumo bu ta riskrebe-l ku `enumerate()` ou `zip()`, i pamodi é más klaru."
   notePlaceholder:
     kea: "Loop antigu (range(len)): …   ·   Versan ku enumerate/zip: …   ·   Pamodi é midjór: …"

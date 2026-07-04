@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Manipula un lista di kompras" }
   prompt:
-    kea: "Kria un lista `kompras` ku 5 íten di merkadu. Dipos adisiona 2 íten ku `.append()`, inseri `\"banana\"` na pozisan 2 ku `.insert()`, tira o últimu íten ku `.pop()`, i mostra a lista final i kuantu íten el tene."
+    kea: "Kria un lista `kompras` ku 5 íten di merkadu. Dipos adisiona 2 íten ku `.append()`, inseri `\"banana\"` na pozisan 2 ku `.insert()`, tira últimu íten ku `.pop()`, i mostra lista final i kuantu íten el tene."
   hint:
-    kea: "`.append(x)` ta po na fin; `.insert(2, \"banana\")` ta po na índisi 2; `.pop()` (sen argumentu) ta tira o últimu. Pa konta os íten, uza `len(kompras)`."
+    kea: "`.append(x)` ta po na fin; `.insert(2, \"banana\")` ta po na índisi 2; `.pop()` (sen argumentu) ta tira últimu. Pa konta íten, uza `len(kompras)`."
   starterCode: |
     # kompras.py
     kompras = ["arrós", "fijon", "azeti", "atum", "sebola"]
@@ -44,9 +44,9 @@
   kind: code
   title: { kea: "List comprehensions ku presus" }
   prompt:
-    kea: "Dadu `presus = [250, 500, 180, 750, 320, 90, 450]` (ECV), uza list comprehension pa kria tres listas: só os presus asima di `300`, os presus ku 15% di diskontu, i os presus konvertidu pa EUR (`1 EUR = 110 ECV`)."
+    kea: "Dadu `presus = [250, 500, 180, 750, 320, 90, 450]` (ECV), uza list comprehension pa kria tres listas: só presus asima di `300`, presus ku 15% di diskontu, i presus konvertidu pa EUR (`1 EUR = 110 ECV`)."
   hint:
-    kea: "Filtru: `[p for p in presus if p > 300]`. Transformasan: `[p * 0.85 for p in presus]` pa o diskontu. Konversan: `[round(p / 110, 2) for p in presus]`."
+    kea: "Filtru: `[p for p in presus if p > 300]`. Transformasan: `[p * 0.85 for p in presus]` pa diskontu. Konversan: `[round(p / 110, 2) for p in presus]`."
   starterCode: |
     # presus.py
     presus = [250, 500, 180, 750, 320, 90, 450]
@@ -68,11 +68,11 @@
 - slug: analiza-temperaturas
   language: python
   kind: code
-  title: { kea: "Analiza temperaturas di a semana" }
+  title: { kea: "Analiza temperaturas di semana" }
   prompt:
-    kea: "Ku `temperaturas = [28, 31, 25, 33, 29, 35, 27]` (na Praia), kalkula a média, o máksimu i o mínimu, i kria un lista ku os dias \"kenti\" (asima di `30` grau) uzandu list comprehension."
+    kea: "Ku `temperaturas = [28, 31, 25, 33, 29, 35, 27]` (na Praia), kalkula média, máksimu i mínimu, i kria un lista ku dias \"kenti\" (asima di `30` grau) uzandu list comprehension."
   hint:
-    kea: "Uza as funsons inkorporadu: `sum(temperaturas) / len(temperaturas)` pa a média, `max(...)` i `min(...)`. Pa os dias kenti: `[t for t in temperaturas if t > 30]`."
+    kea: "Uza funsons inkorporadu: `sum(temperaturas) / len(temperaturas)` pa média, `max(...)` i `min(...)`. Pa dias kenti: `[t for t in temperaturas if t > 30]`."
   starterCode: |
     # temp.py
     temperaturas = [28, 31, 25, 33, 29, 35, 27]
@@ -97,7 +97,7 @@
   prompt:
     kea: "Es programa debe djunta `\"leti\"` na lista `kompras`, ma dipos `kompras` ta fika `None`. Diskubri pamodi i koriji-l."
   hint:
-    kea: "`.append()` ta muda a lista na lugar i ta retorna `None` — anton `kompras = kompras.append(\"leti\")` ta po `kompras` igual a `None`. Txoma `kompras.append(\"leti\")` sen o `kompras =`."
+    kea: "`.append()` ta muda lista na lugar i ta retorna `None` — anton `kompras = kompras.append(\"leti\")` ta po `kompras` igual a `None`. Txoma `kompras.append(\"leti\")` sen `kompras =`."
   starterCode: |
     # kompras.py — pamodi ki "kompras" ta fika None? Koriji-l.
     kompras = ["arrós", "fijon"]
@@ -113,7 +113,7 @@
   kind: explore
   title: { kea: "Splora tudu os metodus di lista" }
   prompt:
-    kea: "Lista tene más metodus alén di es (kumo `.extend()`, `.copy()`, `.sort(key=...)`). Odja a dokumentason ofisial pa odja o ki más izisti i kumo ordena ku un xavi personalizadu."
+    kea: "Lista tene más metodus alén di es (kumo `.extend()`, `.copy()`, `.sort(key=...)`). Odja dokumentason ofisial pa odja o ki más izisti i kumo ordena ku un xavi personalizadu."
   resources:
     kea:
       - { label: "Python docs — More on Lists (metodus)", url: "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" }
@@ -123,7 +123,7 @@
   kind: explore
   title: { kea: "Splora comprehension aninhadu" }
   prompt:
-    kea: "Comprehensions pode ser aninhadu — un comprehension dentu di otu — pa kria listas di listas (p.ex. un tabela di multiplikasan ó pares di koordinadas). Es é avansadu i opcional. Odja a dokumentason i tenta kria un tabela 3×3."
+    kea: "Comprehensions pode ser aninhadu — un comprehension dentu di otu — pa kria listas di listas (p.ex. un tabela di multiplikasan ou pares di koordinadas). Es é avansadu i opsional. Odja dokumentason i tenta kria un tabela 3×3."
   resources:
     kea:
       - { label: "Python docs — Nested List Comprehensions", url: "https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions" }
@@ -132,6 +132,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `.sort()` versus `sorted()`" }
   prompt:
-    kea: "`lista.sort()` ta muda a lista orijinal (in-place) i ta retorna `None`; `sorted(lista)` ta da un lista nova i ka ta toka na orijinal. Skrebe nun kazu undi bu ta uza kada un, i o ki ta kontise si bu faze `x = lista.sort()`."
+    kea: "`lista.sort()` ta muda lista orijinal (in-place) i ta retorna `None`; `sorted(lista)` ta da un lista nova i ka ta toka na orijinal. Skrebe nun kazu unde bu ta uza kada un, i o ki ta kontise si bu faze `x = lista.sort()`."
   notePlaceholder:
     kea: "Kazu pa .sort(): …   ·   Kazu pa sorted(): …   ·   O ki `x = lista.sort()` ta da (i pamodi): …"

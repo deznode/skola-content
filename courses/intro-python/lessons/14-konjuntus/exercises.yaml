@@ -16,9 +16,9 @@
   kind: code
   title: { kea: "Letras komun entri dos palavra" }
   prompt:
-    kea: "Kria dos set ku as letra di dos palavra (p.ex. `\"katxupa\"` i `\"funana\"`). Mostra as letra ki os dos ta partilha (intersection `&`) i as letra ki só un di es tene (symmetric difference `^`)."
+    kea: "Kria dos set ku letra di dos palavra (p.ex. `\"katxupa\"` i `\"funana\"`). Mostra letra ki dos ta partilha (intersection `&`) i letra ki só un di es tene (symmetric difference `^`)."
   hint:
-    kea: "`set(\"katxupa\")` ta da un set di letra úniku. O `&` ta da o ki ta sta na os dos; o `^` ta da o ki ta sta nun o notu, ma **ka** na os dos."
+    kea: "`set(\"katxupa\")` ta da un set di letra úniku. `&` ta da o ki ta sta na dos; `^` ta da o ki ta sta nun ou notu, ma **ka** na dos."
   starterCode: |
     # letras.py
     a = set("katxupa")
@@ -38,9 +38,9 @@
   kind: code
   title: { kea: "Deduplikador di email" }
   prompt:
-    kea: "Tene un lista di email ki pode tene duplikadu. Uza un `set` pa tira os duplikadu, i mostra kuantu email tinha antis i kuantu fika dipos di limpa."
+    kea: "Tene un lista di email ki pode tene duplikadu. Uza un `set` pa tira duplikadu, i mostra kuantu email tinha antis i kuantu fika dipos di limpa."
   hint:
-    kea: "`set(emails)` ta tira os duplikadu automátikamenti. Konta ku `len()` antis (na lista) i dipos (na set). Pa volta a un lista: `list(set(emails))`."
+    kea: "`set(emails)` ta tira duplikadu automátikamenti. Konta ku `len()` antis (na lista) i dipos (na set). Pa volta pa un lista: `list(set(emails))`."
   starterCode: |
     # email.py
     emails = [
@@ -66,9 +66,9 @@
   kind: code
   title: { kea: "Analiza di playlist" }
   prompt:
-    kea: "Kria dos playlist kumo set di nomi di múzika. Mostra: tudu as múzika kombinadu (union `|`), as múzika ki ta sta na os dos (intersection `&`), i as múzika ki só ta sta na a playlist 1 (difference `-`)."
+    kea: "Kria dos playlist kumo set di nomi di múzika. Mostra: tudu múzika kombinadu (union `|`), múzika ki ta sta na dos (intersection `&`), i múzika ki só ta sta na playlist 1 (difference `-`)."
   hint:
-    kea: "`p1 | p2` é o union (tudu); `p1 & p2` é a intersection (na os dos); `p1 - p2` é o ki ta sta na `p1` ma **ka** na `p2`."
+    kea: "`p1 | p2` é union (tudu); `p1 & p2` é intersection (na dos); `p1 - p2` é o ki ta sta na `p1` ma **ka** na `p2`."
   starterCode: |
     # playlist.py
     p1 = {"Sodade", "Petit Pays", "Nha Cretcheu", "Tunuka"}
@@ -90,9 +90,9 @@
   kind: code
   title: { kea: "Set comprehension — vogais úniku" }
   prompt:
-    kea: "Tene un palavra (p.ex. `\"morabeza\"`). Uza un **set comprehension** pa kria un set ku só as vogais (`a e i o u`) ki ta parsi na palavra. A sintaxi é `{expr for x in ... if kondison}`."
+    kea: "Tene un palavra (p.ex. `\"morabeza\"`). Uza un **set comprehension** pa kria un set ku só vogais (`a e i o u`) ki ta parsi na palavra. Sintaxi é `{expr for x in ... if kondison}`."
   hint:
-    kea: "Mesmu lójika di list comprehension, ma ku txaves `{}`: `{letra for letra in palavra if letra in \"aeiou\"}`. O set ta tira os duplikadu automátikamenti."
+    kea: "Mesmu lójika di list comprehension, ma ku txaves `{}`: `{letra for letra in palavra if letra in \"aeiou\"}`. Set ta tira duplikadu automátikamenti."
   starterCode: |
     # vogais.py
     palavra = "morabeza"
@@ -109,7 +109,7 @@
   kind: explore
   title: { kea: "Splora frozenset i operasons di set" }
   prompt:
-    kea: "Set é mutável, ma `frozenset` é a versan imutável — bu pode uza-l kumo xavi di disionáriu o elementu di otu set. Odja a dokumentason di os tipu set."
+    kea: "Set é mutável, ma `frozenset` é versan imutável — bu pode uza-l kumo xavi di disionáriu ou elementu di otu set. Odja dokumentason di tipu set."
   resources:
     kea:
       - { label: "Python docs — Set Types (set, frozenset)", url: "https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset" }
@@ -119,6 +119,6 @@
   kind: reflect
   title: { kea: "Refleta sobri set versus lista" }
   prompt:
-    kea: "Set ta da elementus úniku i un buska `in` super rápidu (O(1)), ma ka ten orden nen índisi. Pensa nun kazu ki bu ta uza set (p.ex. verifika si un utilizador dja vota) i otu undi bu **ka** pode (p.ex. un fila ku orden). Skrebe pamodi."
+    kea: "Set ta da elementus úniku i un buska `in` super rápidu (O(1)), ma ka ten orden nen índisi. Pensa nun kazu ki bu ta uza set (p.ex. verifika si un utilizador dja vota) i otu unde bu **ka** pode (p.ex. un fila ku orden). Skrebe pamodi."
   notePlaceholder:
-    kea: "Kazu pa set: …   ·   Kazu undi set ka ta sirbi: …   ·   Pamodi (úniku? orden? buska?): …"
+    kea: "Kazu pa set: …   ·   Kazu unde set ka ta sirbi: …   ·   Pamodi (úniku? orden? buska?): …"

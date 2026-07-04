@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Manipula un perfil (disionáriu)" }
   prompt:
-    kea: "Kria un disionáriu `meu_perfil` ku nomi, idadi, ilha i 3 hobi (kumo un lista). Dipos adisiona un `\"email\"`, atualiza a `idadi`, i mostra tudu os par ku un loop `.items()`."
+    kea: "Kria un disionáriu `meu_perfil` ku nomi, idadi, ilha i 3 hobi (kumo un lista). Dipos adisiona un `\"email\"`, atualiza `idadi`, i mostra tudu par ku un loop `.items()`."
   hint:
-    kea: "Pa adisiona o atualiza: `perfil[\"email\"] = ...` i `perfil[\"idadi\"] = ...`. Pa mostra os par, `for xavi, valor in meu_perfil.items(): print(...)`."
+    kea: "Pa adisiona ou atualiza: `perfil[\"email\"] = ...` i `perfil[\"idadi\"] = ...`. Pa mostra par, `for xavi, valor in meu_perfil.items(): print(...)`."
   starterCode: |
     # perfil.py
     meu_perfil = {
@@ -51,9 +51,9 @@
   kind: code
   title: { kea: "Kontador di frekuénsia" }
   prompt:
-    kea: "Ku a lista `[\"funana\", \"morabeza\", \"katxupa\", \"grogu\", \"sodadi\", \"morabeza\", \"funana\", \"funana\"]`, kria un disionáriu di frekuénsia ki ta konta kuantas bez kada palavra ta parese. Dipos mostra a palavra ki más ta parese."
+    kea: "Ku lista `[\"funana\", \"morabeza\", \"katxupa\", \"grogu\", \"sodadi\", \"morabeza\", \"funana\", \"funana\"]`, kria un disionáriu di frekuénsia ki ta konta kuantas bez kada palavra ta parese. Dipos mostra palavra ki más ta parese."
   hint:
-    kea: "O padron klásiku é `frek[p] = frek.get(p, 0) + 1` dentu di un loop — `.get(p, 0)` ta da `0` si a palavra inda ka ta na disionáriu. Pa a más frekuenti: `max(frek, key=frek.get)`."
+    kea: "Padron klásiku é `frek[p] = frek.get(p, 0) + 1` dentu di un loop — `.get(p, 0)` ta da `0` si palavra inda ka ta na disionáriu. Pa más frekuenti: `max(frek, key=frek.get)`."
   starterCode: |
     # frekuensia.py
     palavras = ["funana", "morabeza", "katxupa", "grogu", "sodadi", "morabeza", "funana", "funana"]
@@ -77,9 +77,9 @@
   kind: code
   title: { kea: "Disionáriu aninhadu di ilhas" }
   prompt:
-    kea: "Kria un disionáriu aninhadu ku 3 ilha, kada un ku `\"populasan\"`, `\"area_km2\"` i `\"kapital\"`. Uza dict comprehension pa kria un disionáriu novu só ku as ilha di populasan asima di `50000`. Pa kada un, kalkula a densidadi (populasan / area)."
+    kea: "Kria un disionáriu aninhadu ku 3 ilha, kada un ku `\"populasan\"`, `\"area_km2\"` i `\"kapital\"`. Uza dict comprehension pa kria un disionáriu novu só ku ilha di populasan asima di `50000`. Pa kada un, kalkula densidadi (populasan / area)."
   hint:
-    kea: "Dict comprehension ku filtru: `{nomi: d for nomi, d in ilhas.items() if d[\"populasan\"] > 50000}`. Pa a densidadi, asesa os kampu aninhadu: `d[\"populasan\"] / d[\"area_km2\"]`."
+    kea: "Dict comprehension ku filtru: `{nomi: d for nomi, d in ilhas.items() if d[\"populasan\"] > 50000}`. Pa densidadi, asesa kampu aninhadu: `d[\"populasan\"] / d[\"area_km2\"]`."
   starterCode: |
     # ilhas.py
     ilhas = {
@@ -109,9 +109,9 @@
   file: perfil.py
   title: { kea: "Koriji un KeyError" }
   prompt:
-    kea: "Es programa ta da un `KeyError: 'idadi'` pamodi a xavi `\"idadi\"` ka ezisti na disionáriu. Koriji-l pa el ka kebra mésmu kuandu a xavi ka sta la."
+    kea: "Es programa ta da un `KeyError: 'idadi'` pamodi xavi `\"idadi\"` ka ezisti na disionáriu. Koriji-l pa el ka kebra mésmu kuandu xavi ka sta la."
   hint:
-    kea: "`perfil[\"idadi\"]` ta lansa `KeyError` si a xavi ka ezisti. Uza `perfil.get(\"idadi\", padron)` — el ta da un valor padron envês di kebra."
+    kea: "`perfil[\"idadi\"]` ta lansa `KeyError` si xavi ka ezisti. Uza `perfil.get(\"idadi\", padron)` — el ta da un valor padron en bez di kebra."
   starterCode: |
     # perfil.py — es programa ta da un KeyError. Koriji-l.
     perfil = {"nomi": "Tóni", "ilha": "Fogo"}
@@ -127,9 +127,9 @@
   file: kopia.py
   title: { kea: "Koriji un kópia ki ka é independenti" }
   prompt:
-    kea: "Es programa kre guarda un kópia di o menu antis di subi os presu, ma na fin os dos disionáriu ten os presu novu. Koriji-l pa `menu_orijinal` fika sen muda."
+    kea: "Es programa kre guarda un kópia di menu antis di subi presu, ma na fin dos disionáriu ten presu novu. Koriji-l pa `menu_orijinal` fika sen muda."
   hint:
-    kea: "`menu_orijinal = menu` ka ta kria un kópia — é o mesmu objetu. Uza `menu.copy()` pa un kópia independenti."
+    kea: "`menu_orijinal = menu` ka ta kria un kópia — é mesmu objetu. Uza `menu.copy()` pa un kópia independenti."
   starterCode: |
     # kopia.py — menu_orijinal ka deve muda, ma el ta muda. Koriji-l.
     menu = {"katxupa": 450, "grogu": 150}
@@ -151,7 +151,7 @@
   kind: explore
   title: { kea: "Splora collections (Counter, defaultdict)" }
   prompt:
-    kea: "O padron `.get(k, 0) + 1` pa konta é tan kumun ki Python ten un atadju: `collections.Counter`. I `defaultdict` ta evita o `KeyError`. Odja a dokumentason di o módulu `collections`."
+    kea: "Padron `.get(k, 0) + 1` pa konta é tan kumun ki Python ten un atadju: `collections.Counter`. I `defaultdict` ta evita `KeyError`. Odja dokumentason di módulu `collections`."
   resources:
     kea:
       - { label: "Python docs — collections.Counter", url: "https://docs.python.org/3/library/collections.html#collections.Counter" }
@@ -161,6 +161,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `.get()` versus `[]`" }
   prompt:
-    kea: "`d[\"xavi\"]` ta da `KeyError` si a xavi ka izisti; `d.get(\"xavi\", padron)` ta da un valor padron sen eru. Pensa nun programa ki ta lé dadus di utilizador (p.ex. un formulário ku kampu opsionál). Skrebe undi bu ta uza `.get()` i pamodi."
+    kea: "`d[\"xavi\"]` ta da `KeyError` si xavi ka izisti; `d.get(\"xavi\", padron)` ta da un valor padron sen eru. Pensa nun programa ki ta ler dadus di utilizador (p.ex. un formuláriu ku kampu opsionál). Skrebe unde bu ta uza `.get()` i pamodi."
   notePlaceholder:
     kea: "Kampu opsionál: …   ·   Pamodi `.get()` é más seguru: …   ·   Valor padron skodjedu: …"

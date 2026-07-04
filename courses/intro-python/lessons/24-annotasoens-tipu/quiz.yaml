@@ -12,31 +12,31 @@
   options:
     - text: { kea: "Ta funsiona i ta da `\"OlaMundu\"` — type hints é sujestoens, Python ka ta verifika-s na runtime" }
       correct: true
-    - text: { kea: "Un `TypeError` — Python ta obriga os tipu" }
+    - text: { kea: "Un `TypeError` — Python ta obriga tipu" }
       correct: false
-    - text: { kea: "Un `ValueError` — as strings ka pode ser somadu" }
+    - text: { kea: "Un `ValueError` — strings ka pode ser somadu" }
       correct: false
-    - text: { kea: "O programa ka ta kompila" }
-      correct: false
-- question:
-    kea: "O ki ta signifika o tipu di retornu `int | None`?"
-  options:
-    - text: { kea: "A funsan pode retorna un `int` **o** `None` (p.ex. kuandu ka atxa un rezultadu)" }
-      correct: true
-    - text: { kea: "A funsan ta retorna senpri os dos, int i None" }
-      correct: false
-    - text: { kea: "O `|` é un operador bit-a-bit, ka un tipu" }
-      correct: false
-    - text: { kea: "A funsan ta retorna un int dividi pa None" }
+    - text: { kea: "Programa ka ta kompila" }
       correct: false
 - question:
-    kea: "Pa kuze ki ta sirbi os type hints, si es ka ta muda nada na runtime?"
+    kea: "O ki ta signifika tipu di retornu `int | None`?"
   options:
-    - text: { kea: "Pa dokumenta o kódiku pa umanus, pa midjór autocomplete na o IDE, i pa ferramentas kumo `mypy` deteta erus sen kore o programa" }
+    - text: { kea: "Funsan pode retorna un `int` **ou** `None` (p.ex. kuandu ka atxa un rezultadu)" }
       correct: true
-    - text: { kea: "Pa faze o programa kore más rápidu" }
+    - text: { kea: "Funsan ta retorna senpri dos, int i None" }
       correct: false
-    - text: { kea: "Pa obriga os tipu i da `TypeError` si es ka bate" }
+    - text: { kea: "`|` é un operador bit-a-bit, ka un tipu" }
+      correct: false
+    - text: { kea: "Funsan ta retorna un int dividi pa None" }
+      correct: false
+- question:
+    kea: "Pa kuze ki ta sirbi type hints, si es ka ta muda nada na runtime?"
+  options:
+    - text: { kea: "Pa dokumenta kódiku pa umanus, pa midjór autocomplete na IDE, i pa ferramentas kumo `mypy` deteta erus sen kore programa" }
+      correct: true
+    - text: { kea: "Pa faze programa kore más rápidu" }
+      correct: false
+    - text: { kea: "Pa obriga tipu i da `TypeError` si es ka bate" }
       correct: false
     - text: { kea: "Ka ta sirbi pa nada — es é só dekorativu" }
       correct: false

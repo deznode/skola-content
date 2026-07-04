@@ -17,7 +17,7 @@
   kind: code
   title: { kea: "Adisiona type hints" }
   prompt:
-    kea: "Adisiona type hints na as dos funsan na o kódiku inisial. `area_retangulu` ta resebe dos número i ta da un número; `buska_ilha` ta resebe un lista di string i un string, i ta da un string **o** `None`."
+    kea: "Adisiona type hints na dos funsan na kódiku inisial. `area_retangulu` ta resebe dos número i ta da un número; `buska_ilha` ta resebe un lista di string i un string, i ta da un string **ou** `None`."
   hint:
     kea: "Sintaxi: `param: tipu` i `-> tipu_retorno`. Pa `area_retangulu(largura: float, altura: float) -> float`. Pa `buska_ilha(nomis: list[str], alvu: str) -> str | None` (el pode retorna `None`)."
   starterCode: |
@@ -47,7 +47,7 @@
   prompt:
     kea: "Skrebe un funsan `konverti_temperatura(valor: float, di: str, pa: str) -> float | None` ki ta konverti entri `\"C\"` (Celsius), `\"F\"` (Fahrenheit) i `\"K\"` (Kelvin). Retorna `None` si un unidadi ka é rekonxedu."
   hint:
-    kea: "Konverti primeru pa Celsius, dipos di Celsius pa o destinu. Si o `di` o o `pa` ka é `\"C\"`, `\"F\"` o `\"K\"`, retorna `None`. O tipu di retornu `float | None` ta avisa ki pode ser un float o `None`."
+    kea: "Konverti primeru pa Celsius, dipos di Celsius pa destinu. Si `di` ou `pa` ka é `\"C\"`, `\"F\"` ou `\"K\"`, retorna `None`. Tipu di retornu `float | None` ta avisa ki pode ser un float ou `None`."
   starterCode: |
     # temp.py
     def konverti_temperatura(valor: float, di: str, pa: str) -> float | None:
@@ -85,7 +85,7 @@
   prompt:
     kea: "Kria un funsan `estatistikas(numerus: list[int | float]) -> dict[str, float]` ki ta retorna un disionáriu ku `\"soma\"`, `\"média\"`, `\"mínima\"` i `\"máksima\"`."
   hint:
-    kea: "Uza as funsons inkorporadu: `sum(numerus)`, `sum(...)/len(...)`, `min(numerus)`, `max(numerus)`. O tipu di retornu `dict[str, float]` ta dize ki as xavi é string i os valor é float."
+    kea: "Uza funsons inkorporadu: `sum(numerus)`, `sum(...)/len(...)`, `min(numerus)`, `max(numerus)`. Tipu di retornu `dict[str, float]` ta dize ki xavi é string i valor é float."
   starterCode: |
     # stats.py
     def estatistikas(numerus: list[int | float]) -> dict[str, float]:
@@ -108,9 +108,9 @@
 - slug: splora-mypy-typing
   language: python
   kind: explore
-  title: { kea: "Splora mypy i o módulu typing" }
+  title: { kea: "Splora mypy i módulu typing" }
   prompt:
-    kea: "Type hints brilha kuandu un ferramenta kumo `mypy` ta verifika-s sen kore o programa. O módulu `typing` (i `mypy`) ten más ferramentas — `Optional`, `Callable`, `Any`. Odja a dokumentason."
+    kea: "Type hints brilha kuandu un ferramenta kumo `mypy` ta verifika-s sen kore programa. Módulu `typing` (i `mypy`) ten más ferramentas — `Optional`, `Callable`, `Any`. Odja dokumentasan."
   resources:
     kea:
       - { label: "mypy — Optional static type checker for Python", url: "https://mypy.readthedocs.io/en/stable/" }
@@ -120,6 +120,6 @@
   kind: reflect
   title: { kea: "Refleta sobri type hints na runtime" }
   prompt:
-    kea: "Type hints é **sujestoens**, ka regras — Python ka ta verifika-s kuandu o programa ta kore (`soma(\"a\", \"b\")` ta funsiona inda). Skrebe pa kuze ki es ta sirbi (umanus, IDE, mypy), i pamodi es inda ta vale a pena mesmu sen muda o runtime."
+    kea: "Type hints é **sujestoens**, ka regras — Python ka ta verifika-s kuandu programa ta kore (`soma(\"a\", \"b\")` ta funsiona inda). Skrebe pa kuze ki es ta sirbi (umanus, IDE, mypy), i pamodi es inda ta vale a pena mesmu sen muda runtime."
   notePlaceholder:
     kea: "O ki type hints ta faze (i ka faze): …   ·   Pa kuze ki es ta sirbi: …   ·   Pamodi vale a pena: …"

@@ -23,7 +23,7 @@
   options:
     - text: { kea: "Un `NameError` — Python é case sensitive, i `Print` ka é mesmu kuza ki `print`" }
       correct: true
-    - text: { kea: "Nada — Python ka ta liga pa maiúskulu o minúskulu" }
+    - text: { kea: "Nada — Python ka ta liga pa maiúskulu ou minúskulu" }
       correct: false
     - text: { kea: "Un `SyntaxError` antis di programa kore" }
       correct: false

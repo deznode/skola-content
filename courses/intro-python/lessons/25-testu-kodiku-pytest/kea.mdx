@@ -23,7 +23,7 @@ Imajina ki Carla ta kria un programa pa kalkula presu di katxupa na si restorant
 
 - **Kaptura bugs** antis di uzuáriu atxa
 - **Konfiansa pa muda kódiku** — si testus ta pasa, nada ka ta kebra
-- **Dokumentasan viva** — testus ta mostra kumo funsan deve konportá
+- **Dokumentasan viva** — testus ta mostra kumo funsan debe konportá
 - **Ta poupa tempu** — midjór testu automátiku na 1 segundu ki testu manuál na 5 minutu
 
 ## assert — Funsamentu di Tudu Testu
@@ -56,7 +56,7 @@ pytest --version
 
 ## Primeru Testu
 
-Nu ta kria un funsan i testa el. Primeru, nos kria un fixeru ku funsan:
+Nu ta kria un funsan i testa el. Primeru, nos kria un ficheru ku funsan:
 
 **`kalkuladora.py`:**
 
@@ -80,7 +80,7 @@ def dividi(a: float, b: float) -> float | None:
     return a / b
 ```
 
-Gosi, kria un fixeru di testu. **Regra importanti:** nomi ten ki kumesa ku `test_` o akaba ku `_test.py`:
+Gosi, kria un ficheru di testu. **Regra importanti:** nomi ten ki kumesa ku `test_` ou akaba ku `_test.py`:
 
 **`test_kalkuladora.py`:**
 
@@ -176,7 +176,7 @@ pytest -v
 ```
 
 pytest ta mostra:
-- **Undi** fayo (fixeru + funsan di testu)
+- **Unde** fayo (fixeru + funsan di testu)
 - **O ki** esperava (`== 5`)
 - **O ki** resebeu (`6`)
 - **Kemu** ta txoma (`soma(2, 3)`)
@@ -307,7 +307,7 @@ pytest test_utils.py -v
 ```
 
 :::callout{type=tip}
-`pytest.raises(ValueError)` é un forma spesiál di testa ki un funsan **deve** lansa un eru. Si funsan ka lansa ValueError, testu fayo!
+`pytest.raises(ValueError)` é un forma spesiál di testa ki un funsan **debe** lansa un eru. Si funsan ka lansa ValueError, testu fayo!
 :::
 
 ## Pensamentu Test-Driven (TDD Leve)
@@ -384,12 +384,12 @@ pytest test_validador.py -v
 | Regra | Izemplu |
 |-------|---------|
 | Fixeru kumesa ku `test_` | `test_kalkuladora.py` |
-| O fixeru akaba ku `_test.py` | `kalkuladora_test.py` |
+| Ficheru akaba ku `_test.py` | `kalkuladora_test.py` |
 | Funsan di testu kumesa ku `test_` | `def test_soma():` |
 | Nomi deskritivi | `test_soma_ku_numerus_negativu` |
 
 :::callout{type=tip}
-Nomi di testu deve dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.
+Nomi di testu debe dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.
 :::
 
 ## Struktura di Projetu ku Testus
@@ -428,10 +428,10 @@ nha_projetu/
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Testus é un investimentu — más tempu gosi, mutu menus bugs dipos. Si os testu ta pasa, bu pode muda o kódiku ku konfiansa.</RezumuItem>
-  <RezumuItem term="assert">Ta verifika ki un kondisan é verdaderu; si ka é, ta lansa `AssertionError` i o testu faya.</RezumuItem>
-  <RezumuItem term="pytest">Ta diskubri i kore tudu as funsan `test_*` sózin. Ficheru `test_*.py`; funsan `def test_*()`. Roda ku `pytest` o `pytest -v`.</RezumuItem>
-  <RezumuItem term="pytest.raises">`with pytest.raises(Error):` ta testa ki un funsan **deve** lansa un exseson espesífiku.</RezumuItem>
-  <RezumuItem term="TDD">Skrebe o testu primeru → implementa o mínimu pa pasa → verifika → repeti.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">Nomi di testu deskritivu ta sirbi kumo dokumentason: `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Testus é un investimentu — más tempu gosi, mutu menus bugs dipos. Si testu ta pasa, bu pode muda kódiku ku konfiansa.</RezumuItem>
+  <RezumuItem term="assert">Ta verifika ki un kondisan é verdaderu; si ka é, ta lansa `AssertionError` i testu faya.</RezumuItem>
+  <RezumuItem term="pytest">Ta diskubri i kore tudu funsan `test_*` sózin. Ficheru `test_*.py`; funsan `def test_*()`. Roda ku `pytest` ou `pytest -v`.</RezumuItem>
+  <RezumuItem term="pytest.raises">`with pytest.raises(Error):` ta testa ki un funsan **debe** lansa un exseson espesífiku.</RezumuItem>
+  <RezumuItem term="TDD">Skrebe testu primeru → implementa mínimu pa pasa → verifika → repeti.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Nomi di testu deskritivu ta sirbi kumo dokumentasan: `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.</RezumuItem>
 </KeyTakeaways>

@@ -8,9 +8,9 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é a diferensa entri `d[\"email\"]` i `d.get(\"email\")` kuandu a xavi `\"email\"` **ka izisti**?"
+    kea: "Kal é diferensa entri `d[\"email\"]` i `d.get(\"email\")` kuandu xavi `\"email\"` **ka izisti**?"
   options:
-    - text: { kea: "`d[\"email\"]` ta lansa un `KeyError`; `d.get(\"email\")` ta da `None` (o un valor padron) sen eru" }
+    - text: { kea: "`d[\"email\"]` ta lansa un `KeyError`; `d.get(\"email\")` ta da `None` (ou un valor padron) sen eru" }
       correct: true
     - text: { kea: "Os dos ta da `None`" }
       correct: false
@@ -19,9 +19,9 @@
     - text: { kea: "`d.get(\"email\")` ta kria a xavi automátikamenti" }
       correct: false
 - question:
-    kea: "Bu kore `kopia = orijinal` (os dos disionáriu) i dipos `kopia[\"nota\"] = 95`. O ki ta kontise ku `orijinal`?"
+    kea: "Bu kore `kopia = orijinal` (dos disionáriu) i dipos `kopia[\"nota\"] = 95`. O ki ta kontise ku `orijinal`?"
   options:
-    - text: { kea: "`orijinal[\"nota\"]` tanbe ta vira `95` — `=` ta kria un **referénsia** a o mesmu objetu, ka un kópia. Uza `.copy()` pa un kópia independenti" }
+    - text: { kea: "`orijinal[\"nota\"]` tanbe ta vira `95` — `=` ta kria un **referénsia** pa mesmu objetu, ka un kópia. Uza `.copy()` pa un kópia independenti" }
       correct: true
     - text: { kea: "`orijinal` ka ta muda — `=` ta kria senpri un kópia" }
       correct: false
@@ -30,13 +30,13 @@
     - text: { kea: "Só `kopia` ta muda, ma `orijinal` ta da `KeyError`" }
       correct: false
 - question:
-    kea: "Pa kuze ki ta sirbi o padron `frek[k] = frek.get(k, 0) + 1`?"
+    kea: "Pa kuze ki ta sirbi padron `frek[k] = frek.get(k, 0) + 1`?"
   options:
-    - text: { kea: "Pa konta frekuénsia — `.get(k, 0)` ta da `0` si a xavi inda ka izisti, dipos ta soma 1" }
+    - text: { kea: "Pa konta frekuénsia — `.get(k, 0)` ta da `0` si xavi inda ka izisti, dipos ta soma 1" }
       correct: true
-    - text: { kea: "Pa apaga a xavi `k` di o disionáriu" }
+    - text: { kea: "Pa apaga xavi `k` di disionáriu" }
       correct: false
-    - text: { kea: "Pa kopia o disionáriu `frek`" }
+    - text: { kea: "Pa kopia disionáriu `frek`" }
       correct: false
     - text: { kea: "Pa verifika si `k` é un xavi válidu" }
       correct: false
@@ -48,7 +48,7 @@
       explain: { kea: "`{key_expr: value_expr for item in iterável}`: pa kada `n` di 1 a 3, xavi é `n` i valor é `n ** 2`." }
     - text: { kea: "`[1, 4, 9]` — un lista di kuadradus" }
       correct: false
-      explain: { kea: "Ku `{}` i `xavi: valor` o rezultadu é un disionáriu, ka un lista." }
+      explain: { kea: "Ku `{}` i `xavi: valor`, rezultadu é un disionáriu, ka un lista." }
     - text: { kea: "`{1, 4, 9}` — un set" }
       correct: false
       explain: { kea: "Ku `:` entri xavi i valor é un dict comprehension; sen `:` sería un set." }
@@ -56,17 +56,17 @@
       correct: false
       explain: { kea: "`range(1, 4)` ta para antis di 4, entun só 1, 2, 3." }
 - question:
-    kea: "Na `for k, v in nota.items():`, o ki kada volta di o loop ta da?"
+    kea: "Na `for k, v in nota.items():`, o ki kada volta di loop ta da?"
   options:
-    - text: { kea: "Un par — `k` ta risibi a xavi i `v` ta risibi o valor korrespondenti" }
+    - text: { kea: "Un par — `k` ta risibi xavi i `v` ta risibi valor korrespondenti" }
       correct: true
-      explain: { kea: "`.items()` ta da kada par `(xavi, valor)`, ki o loop ta separa pa `k` i `v`." }
-    - text: { kea: "Só as xavis, un di kada bez" }
+      explain: { kea: "`.items()` ta da kada par `(xavi, valor)`, ki loop ta separa pa `k` i `v`." }
+    - text: { kea: "Só xavis, un di kada bez" }
       correct: false
-      explain: { kea: "Só xavis sería `for k in nota:` o `nota.keys()`; `.items()` ta da xavi i valor." }
-    - text: { kea: "Só os valores, un di kada bez" }
+      explain: { kea: "Só xavis sería `for k in nota:` ou `nota.keys()`; `.items()` ta da xavi i valor." }
+    - text: { kea: "Só valores, un di kada bez" }
       correct: false
-      explain: { kea: "Pa só valores uza `.values()`; `.items()` ta da os dos." }
+      explain: { kea: "Pa só valores uza `.values()`; `.items()` ta da dos." }
     - text: { kea: "Un lista ku tudu os par di un bez" }
       correct: false
-      explain: { kea: "O loop ta prosesa un par di kada volta, ka tudu di un bez." }
+      explain: { kea: "Loop ta prosesa un par di kada volta, ka tudu di un bez." }

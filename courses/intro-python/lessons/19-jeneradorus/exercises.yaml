@@ -16,7 +16,7 @@
   kind: code
   title: { kea: "Generator expression di pares" }
   prompt:
-    kea: "Skrebe un **generator expression** ki ta produz os númeru par di 0 a 50. Uza un `for` loop pa imprimi tudu os valor."
+    kea: "Skrebe un **generator expression** ki ta produz númeru par di 0 a 50. Uza un `for` loop pa imprimi tudu valor."
   hint:
     kea: "Un generator expression é kumo un list comprehension, ma ku paréntesis `()`: `(x for x in range(0, 51) if x % 2 == 0)`. Dipos `for v in gen: print(v)`."
   starterCode: |
@@ -37,9 +37,9 @@
   kind: code
   title: { kea: "Generator function di moedas ECV" }
   prompt:
-    kea: "Kria un **generator function** `moedas_ecv()` ki ta produz os valor di moeda kabu-verdianu: 1, 5, 10, 20, 50, 100 (un di kada bez ku `yield`). Itera sobri el ku `next()`."
+    kea: "Kria un **generator function** `moedas_ecv()` ki ta produz valor di moeda kabu-verdianu: 1, 5, 10, 20, 50, 100 (un di kada bez ku `yield`). Itera sobri el ku `next()`."
   hint:
-    kea: "Dentu di a funsan, `for v in [1, 5, 10, 20, 50, 100]: yield v`. O `yield` ta pauza a funsan i ta devolvi un valor; kada `next()` ta kontinua undi el para."
+    kea: "Dentu di funsan, `for v in [1, 5, 10, 20, 50, 100]: yield v`. `yield` ta pauza funsan i ta devolvi un valor; kada `next()` ta kontinua unde el para."
   starterCode: |
     # moedas.py
     def moedas_ecv():
@@ -68,9 +68,9 @@
   kind: code
   title: { kea: "Fibonacci limitadu" }
   prompt:
-    kea: "Skrebe un generator function `fibonacci(limite)` ki ta produz a sekuénsia di Fibonacci i ta para kuandu o valor ta pasa o `limite`. Testa-l ku `limite=100`."
+    kea: "Skrebe un generator function `fibonacci(limite)` ki ta produz sekuénsia di Fibonacci i ta para kuandu valor ta pasa `limite`. Testa-l ku `limite=100`."
   hint:
-    kea: "Kumesa ku `a, b = 0, 1`. Nun `while a <= limite:` faze `yield a` i dipos `a, b = b, a + b`. O `while` ku a kondisan ta para sózin kuandu o valor pasa o limite."
+    kea: "Kumesa ku `a, b = 0, 1`. Nun `while a <= limite:` faze `yield a` i dipos `a, b = b, a + b`. `while` ku kondisan ta para sózin kuandu valor pasa limite."
   starterCode: |
     # fib.py
     def fibonacci(limite):
@@ -93,7 +93,7 @@
   kind: explore
   title: { kea: "Splora itertools" }
   prompt:
-    kea: "O módulu `itertools` tene ferramentas poderozu pa traba ku jeneradorus i sekuénsia — `islice` (limita un generator infinitu), `count`, `cycle`, `chain`. Odja a dokumentason."
+    kea: "Módulu `itertools` tene ferramentas poderozu pa traba ku jeneradorus i sekuénsia — `islice` (limita un generator infinitu), `count`, `cycle`, `chain`. Odja dokumentasan."
   resources:
     kea:
       - { label: "Python docs — itertools", url: "https://docs.python.org/3/library/itertools.html" }
@@ -103,6 +103,6 @@
   kind: reflect
   title: { kea: "Refleta sobri generator versus lista" }
   prompt:
-    kea: "Generator ta produz valor un pa un (puopa memória), ma só pode ser iteradu un bez i ka ten `len()` nen índisi. Pensa nun kazu di dadus grandi (un ficheru, un sekuénsia infinita). Skrebe pamodi un generator é midjór la, i undi un lista sería nesesáriu."
+    kea: "Generator ta produz valor un pa un (poupa memória), ma só pode ser iteradu un bez i ka ten `len()` nen índisi. Pensa nun kazu di dadus grandi (un ficheru, un sekuénsia infinita). Skrebe pamodi un generator é midjór la, i unde un lista sería nesesáriu."
   notePlaceholder:
-    kea: "Kazu pa generator: …   ·   Kazu undi meste lista: …   ·   Pamodi (memória? un-bez-só? índisi?): …"
+    kea: "Kazu pa generator: …   ·   Kazu unde meste lista: …   ·   Pamodi (memória? un-bez-só? índisi?): …"

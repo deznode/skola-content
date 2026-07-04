@@ -17,7 +17,7 @@
   kind: code
   title: { kea: "Klasifikador di IMC" }
   prompt:
-    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` o más é \"Obezidadi\"."
+    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` ou más é \"Obezidadi\"."
   hint:
     kea: "Konverti dos input ku `float()`. Pa kategorias, testa di más baxu pa más altu — `if imc < 18.5:` ... `elif imc < 25:` ... `elif imc < 30:` ... `else:`. Orden ta importa: primeru `True` ta ganha."
   starterCode: |
@@ -49,9 +49,9 @@
   kind: code
   title: { kea: "Konversor di moeda" }
   prompt:
-    kea: "Pidi un montanti i moeda di orijen (`ECV`, `EUR` o `USD`), i mostra valor na otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje kálkulu ku `if`/`elif`/`else` sigundu moeda."
+    kea: "Pidi un montanti i moeda di orijen (`ECV`, `EUR` ou `USD`), i mostra valor na otas dos moedas. Uza `1 EUR = 110 ECV` i `1 USD = 100 ECV`. Skodje kálkulu ku `if`/`elif`/`else` sigundu moeda."
   hint:
-    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa kes otus. Si moeda é `EUR`, montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` o `EUR`. Pa `else`, mostra ki moeda ka é válidu."
+    kea: "Konverti tudu pa ECV primeru, dipos di ECV pa kes otus. Si moeda é `EUR`, montanti en ECV é `montanti * 110`. Uza `.upper()` na moeda pa seita `eur` ou `EUR`. Pa `else`, mostra ki moeda ka é válidu."
   starterCode: |
     # moeda.py
     montanti = float(input("Montanti? "))
@@ -78,9 +78,9 @@
   kind: code
   title: { kea: "Klasifikador di triángulu" }
   prompt:
-    kea: "Pidi 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) o \"Eskalenu\" (tudu diferenti)."
+    kea: "Pidi 3 ladu di un triángulu. Primeru verifika si es ta forma un triángulu válidu (a soma di kualker dos ladu ten ki ser maior ki terseru). Si sin, klasifika-l: \"Ekiláteru\" (3 ladu igual), \"Isóseles\" (2 igual) ou \"Eskalenu\" (tudu diferenti)."
   hint:
-    kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu o un `else` pa kazu inválidu."
+    kea: "Validade: `a + b > c and a + c > b and b + c > a`. Pa klasifika: si `a == b == c` é ekiláteru; si `a == b or b == c or a == c` é isóseles; senan é eskalenu. Uza un `if` aninhadu ou un `else` pa kazu inválidu."
   starterCode: |
     # triangulu.py
     a = float(input("Ladu 1? "))

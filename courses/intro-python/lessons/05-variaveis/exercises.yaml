@@ -130,7 +130,7 @@
   kind: explore
   title: { kea: "Splora funsons di konversan" }
   prompt:
-    kea: "`int()`, `float()`, `str()` i `bool()` é só algun di funsons inkorporadu di Python. Odja lista ofisial pa odja o ki más izisti — ka meste dekora-s, só sabe undi buska."
+    kea: "`int()`, `float()`, `str()` i `bool()` é só algun di funsons inkorporadu di Python. Odja lista ofisial pa odja o ki más izisti — ka meste dekora-s, só sabe unde buska."
   resources:
     kea:
       - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }
@@ -140,6 +140,6 @@
   kind: reflect
   title: { kea: "Refleta sobri input() i konversan" }
   prompt:
-    kea: "`input()` ta retorna senpri string. Pensa na un programa ki bu kreba faze ki ta pidi un númeru pa utilizador. Skrebe undi bu ta presizaba `int()` o `float()`, i o ki ta kontise si bu skese di konverti."
+    kea: "`input()` ta retorna senpri string. Pensa na un programa ki bu kreba faze ki ta pidi un númeru pa utilizador. Skrebe unde bu ta presizaba `int()` o `float()`, i o ki ta kontise si bu skese di konverti."
   notePlaceholder:
-    kea: "Programa: …   ·   Undi meste konverti: …   ·   Eru si skese (TypeError? ValueError?): …"
+    kea: "Programa: …   ·   Unde meste konverti: …   ·   Eru si skese (TypeError? ValueError?): …"

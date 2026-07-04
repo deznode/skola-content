@@ -8,44 +8,44 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Bu kre gerda un inventáriu undi kada produtu ta mapia pa se presu i stoki. Kal estrutura é a midjór?"
+    kea: "Bu kre guarda un inventáriu unde kada produtu ta mapia pa se presu i stoki. Kal estrutura é midjór?"
   options:
     - text: { kea: "Disionáriu — ta mapia un xavi (nomi di produtu) pa un valor, ku buska rápidu" }
       correct: true
       explain: { kea: "Disionáriu ta mapia `nomi → {presu, stoki}` ku asesu rápidu pa xavi — perfeitu pa inventáriu." }
-    - text: { kea: "Lista — só ta gerda valores na orden" }
+    - text: { kea: "Lista — só ta guarda valores na orden" }
       correct: false
-      explain: { kea: "Lista ka ta mapia un nomi a un valor; pa buska un produtu bu tinha ki perkore tudu." }
+      explain: { kea: "Lista ka ta mapia un nomi pa un valor; pa buska un produtu bu tinha ki perkore tudu." }
     - text: { kea: "Tuple — pamodi os presus ka ta muda" }
       correct: false
       explain: { kea: "Tuple é imutável, ma stoki ta muda ku vendas — entun ka serbi pa inventáriu." }
-    - text: { kea: "Set — pa garanti ki os produtu é úniku" }
+    - text: { kea: "Set — pa garanti ki produtu é úniku" }
       correct: false
       explain: { kea: "Set ka ta mapia valores nen ta guarda presu/stoki — só ta guarda elementus úniku." }
 - question:
-    kea: "Bu tene un lista di email ku duplikadu i bu kre só os úniku. Ki estrutura ta rezolvi-l más fásil?"
+    kea: "Bu tene un lista di email ku duplikadu i bu kre só úniku. Ki estrutura ta rezolve-l más fásil?"
   options:
-    - text: { kea: "Set — `set(emails)` ta tira os duplikadu automátikamenti" }
+    - text: { kea: "Set — `set(emails)` ta tira duplikadu automátikamenti" }
       correct: true
-      explain: { kea: "Auto-deduplikasan: `set(emails)` ta dexa só os valor úniku." }
+      explain: { kea: "Auto-deduplikasan: `set(emails)` ta dexa só valor úniku." }
     - text: { kea: "Tuple — pamodi é imutável" }
       correct: false
       explain: { kea: "Imutabilidadi ka ta tira duplikadu — un tuple pode tene valores repetidu." }
     - text: { kea: "Otu lista — kopiandu un pa un" }
       correct: false
       explain: { kea: "Funsiona, ma é más trabadju ki un `set()`, ki ta dedup di un bez." }
-    - text: { kea: "Disionáriu — ku os email kumo valores" }
+    - text: { kea: "Disionáriu — ku email kumo valores" }
       correct: false
-      explain: { kea: "Pa dedup simples, set é más diretu; dict ta serbi má si bu kre kontá ó mapia." }
+      explain: { kea: "Pa dedup simples, set é más diretu; dict ta serbi má si bu kre konta ou mapia." }
 - question:
-    kea: "Pa un to-do list undi a orden ta importa i bu ta djunta i tira tarefa, ki estrutura bu ta skodje?"
+    kea: "Pa un to-do list unde orden ta importa i bu ta djunta i tira tarefa, ki estrutura bu ta skodje?"
   options:
-    - text: { kea: "Lista — ta mante a orden i ta dexa `.append()`, `.insert()` i `.remove()`" }
+    - text: { kea: "Lista — ta mante orden i ta dexa `.append()`, `.insert()` i `.remove()`" }
       correct: true
-      explain: { kea: "Lista ta guarda a orden i ta dexa modifika konteúdu — ideal pa tarefas." }
+      explain: { kea: "Lista ta guarda orden i ta dexa modifika konteúdu — ideal pa tarefas." }
     - text: { kea: "Set — pamodi é más rápidu" }
       correct: false
-      explain: { kea: "Set ka ten orden, entun ka serbi kuandu a sekuénsia di tarefa ta importa." }
+      explain: { kea: "Set ka ten orden, entun ka serbi kuandu sekuénsia di tarefa ta importa." }
     - text: { kea: "Tuple — pamodi é más siguru" }
       correct: false
       explain: { kea: "Tuple é imutável — bu ka pode djunta nen tira tarefa." }
@@ -53,32 +53,32 @@
       correct: false
       explain: { kea: "Lista djá ta da índisi automátiku i ta mante orden — dict é dizenkontru li." }
 - question:
-    kea: "Ku `notas = [17, 14, 16, 12, 15]`, ki ekspreson ta da a **média**?"
+    kea: "Ku `notas = [17, 14, 16, 12, 15]`, ki ekspreson ta da **média**?"
   options:
-    - text: { kea: "`sum(notas) / len(notas)` — soma di tudu a dividi pa kantidadi" }
+    - text: { kea: "`sum(notas) / len(notas)` — soma di tudu dividi pa kantidadi" }
       correct: true
-      explain: { kea: "Média = soma ÷ kantidadi; `sum()` ta soma i `len()` ta da a kantidadi." }
+      explain: { kea: "Média = soma ÷ kantidadi; `sum()` ta soma i `len()` ta da kantidadi." }
     - text: { kea: "`max(notas) / len(notas)`" }
       correct: false
-      explain: { kea: "`max()` ta da só a nota más altu, ka a soma di tudu." }
+      explain: { kea: "`max()` ta da só nota más altu, ka soma di tudu." }
     - text: { kea: "`sum(notas)`" }
       correct: false
-      explain: { kea: "Kel-li é só a soma; falta dividi pa `len(notas)`." }
+      explain: { kea: "Kel-li é só soma; falta dividi pa `len(notas)`." }
     - text: { kea: "`len(notas) / sum(notas)`" }
       correct: false
-      explain: { kea: "A divizon ta envertidu — é soma a dividi pa kantidadi, ka o kontráriu." }
+      explain: { kea: "Divizon ta envertidu — é soma dividi pa kantidadi, ka kontráriu." }
 - question:
-    kea: "Bu kre tira duplikadu di un lista MA mante a orden orijinal. Pamodi `list(set(emails))` ka ta basta?"
+    kea: "Bu kre tira duplikadu di un lista MA mante orden orijinal. Pamodi `list(set(emails))` ka ta basta?"
   options:
-    - text: { kea: "Pamodi set ka ten orden — `set()` pode baralha os elementu; pa mante orden uza un loop ku un set `vistu` (ó `dict.fromkeys()`)" }
+    - text: { kea: "Pamodi set ka ten orden — `set()` pode baralha elementu; pa mante orden uza un loop ku un set `vistu` (ou `dict.fromkeys()`)" }
       correct: true
-      explain: { kea: "`set()` ta tira os duplikadu ma ta perde a orden; o padrón `vistu = set()` ó `dict.fromkeys()` ta dedup *i* ta guarda a orden." }
+      explain: { kea: "`set()` ta tira duplikadu ma ta perde orden; padrón `vistu = set()` ou `dict.fromkeys()` ta dedup *i* ta guarda orden." }
     - text: { kea: "Pamodi `set()` ka ta tira duplikadu" }
       correct: false
-      explain: { kea: "Set *ta* tira duplikadu — o problema é só ki el ta perde a orden." }
+      explain: { kea: "Set *ta* tira duplikadu — problema é só ki el ta perde orden." }
     - text: { kea: "Pamodi `list()` ka ta funsiona ku un set" }
       correct: false
-      explain: { kea: "`list(set(...))` ta funsiona; o úniku problema é a orden." }
+      explain: { kea: "`list(set(...))` ta funsiona; úniku problema é orden." }
     - text: { kea: "Pamodi email ka pode sta nun set" }
       correct: false
       explain: { kea: "Strings (emails) é imutável, entun es pode sta nun set sen problema." }

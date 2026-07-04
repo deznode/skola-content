@@ -16,7 +16,7 @@ objectives:
 
 # Listas i List Comprehension
 
-Imagina bu tene un lista di ilhas ki bu kre vizita, un lista di presus di merkadu, ó nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesons di dadus na orden.
+Imagina bu tene un lista di ilhas ki bu kre vizita, un lista di presus di merkadu, ou nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesons di dadus na orden.
 
 Lista é un di estruturas más usadu na Python — é **mutável** (bu pode muda dipos di kria), **ordenadu** (elementus ta mantene es pozisan), i pode guarda **kualker tipu di dadu**.
 
@@ -75,7 +75,7 @@ print(ilhas[-5])  # Santiago (primeiru)
 
 ## Slicing: Korta Pedasus di Lista
 
-Slicing ta permiti bo pega un pedasu di lista uzandu `[start:stop:step]`:
+Slicing ta permiti bu pega un pedasu di lista uzandu `[start:stop:step]`:
 
 ```python
 ilhas = ["Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"]
@@ -203,18 +203,18 @@ print(notis_ordenadu)  # [78, 85, 88, 92, 95]
 ```
 
 :::callout{type=tip}
-`sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bu ka kre perdi lista orijinal.
+`sort()` ta muda lista orijinal. `sorted()` ta kria un lista novu. Uza `sorted()` kuandu bu ka kre perde lista orijinal.
 :::
 
 ### Otus Metodus Útil (referénsia)
 
-Es metodus é útil ma ka é o korason di o lisan — lé-s rápidu gosi i volta li kumo referénsia kuandu bu meste-s. Abri kada un pa odja un izemplu:
+Es metodus é útil ma ka é korason di lisan — lé-s rápidu gosi i volta li kumo referénsia kuandu bu meste-s. Abri kada un pa odja un izemplu:
 
 <DetailDisclosure
   items={[
     { q: "`.count(x)` — kantu bez un valor ta parese", tag: "Referénsia", a: "Ta konta kantu bez `x` ta parese na lista.", code: "notis.count(92)  # 2" },
-    { q: "`.index(x)` — pozisan di primeru okorrénsia", tag: "Referénsia", a: "Ta da o índisi di primeru `x`; ta da `ValueError` si ka atxa.", code: "notis.index(95)  # 3" },
-    { q: "`x in lista` — verifika si un elementu ezisti", tag: "Referénsia", a: "Ta da `True` ó `False`.", code: "92 in notis  # True" },
+    { q: "`.index(x)` — pozisan di primeru okorrénsia", tag: "Referénsia", a: "Ta da índisi di primeru `x`; ta da `ValueError` si ka atxa.", code: "notis.index(95)  # 3" },
+    { q: "`x in lista` — verifika si un elementu ezisti", tag: "Referénsia", a: "Ta da `True` ou `False`.", code: "92 in notis  # True" },
     { q: "`len()`, `sum()`, `min()`, `max()` — funsons built-in", tag: "Referénsia", a: "Funsiona diretu ku listas di númeru.", code: "sum(notis)  # 615" },
   ]}
 />
@@ -225,7 +225,7 @@ Antis di pasa pa comprehension: dadu `notis = [85, 92, 78]`, o ki `notis.append(
 
 ## List Comprehension
 
-![Anatomia di list comprehension: [espresan for item in iterável if kondisan]](../../infographics/08-list-comprehension-anatomia.png)
+![Anatomia di list comprehension: [espresan for item in iterável if kondisan]](../../infographics/08-list-comprehension-anatomia.jpg)
 
 List comprehension é un manera eleganti i konpaktu di kria listas novas. É un di featuris más sabi di Python:
 
@@ -282,7 +282,7 @@ print(presus_eur)  # [3.18, 4.55, 1.36, 7.27]
 ```
 
 :::callout{type=note}
-**Avansadu (opcional):** comprehensions pode ser *aninhadu* (un comprehension dentu di otu) pa kria listas di listas, kumo un tabela di multiplikasan. Kel li ta pasa alen di es lisan — odja o izersísiu **"Splora comprehension aninhadu"** na fin si bu kre splora-l.
+**Avansadu (opsional):** comprehensions pode ser *aninhadu* (un comprehension dentu di otu) pa kria listas di listas, kumo un tabela di multiplikasan. Kel li ta pasa alen di es lisan — odja izersísiu **"Splora comprehension aninhadu"** na fin si bu kre splora-l.
 :::
 
 ## Izemplu Prátiku: Jestan di Turma
@@ -334,10 +334,10 @@ for r in rezumu:
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">`.sort()` ta muda a lista orijinal in-place (i ta retorna `None`); `sorted()` ta da un lista nova. Uza `sorted()` kuandu bu ka kre perde a orijinal.</RezumuItem>
-  <RezumuItem term="Lista">Un kolesan **ordenadu** i **mutável** ku `[]` — pode gerda kualker tipu.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">`.sort()` ta muda lista orijinal in-place (i ta retorna `None`); `sorted()` ta da un lista nova. Uza `sorted()` kuandu bu ka kre perde-l.</RezumuItem>
+  <RezumuItem term="Lista">Un kolesan **ordenadu** i **mutável** ku `[]` — pode guarda kualker tipu.</RezumuItem>
   <RezumuItem term="Indexasan / slicing">Índisi ta kumesa na 0; índisi negativu ta konta di trás; `[start:stop:step]` ta korta (`stop` eksklusivu).</RezumuItem>
   <RezumuItem term="Metodus">`append()`, `insert()`, `remove()`, `pop()`, `sort()`, `reverse()`, `clear()`.</RezumuItem>
-  <RezumuItem term="Comprehension">`[espresan for item in iterável if kondisan]` — a manera eleganti di kria listas.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`IndexError` (índisi fora di rangu) i o pitfall di slice assignment ku string — `frutas[1:] = "koku"` ta spredi os karater; senpri atribui un **lista**.</RezumuItem>
+  <RezumuItem term="Comprehension">`[espresan for item in iterável if kondisan]` — manera eleganti di kria listas.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`IndexError` (índisi fora di rangu) i pitfall di slice assignment ku string — `frutas[1:] = "koku"` ta spredi karater; senpri atribui un **lista**.</RezumuItem>
 </KeyTakeaways>

@@ -18,11 +18,11 @@ objectives:
 
 Na lisan 3, nos prende a **ler** erus. Gosi nos ta prende a **trata** kes — a faze programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
 
-Imajina un kaixa eletrónika na Praia ki ta para tudu bez ki algen ta mete numeru eradu. Kel ka é atxeitável! Programa profisionál ten ki reagí: mostra mensajen klaru, pidi di novu, o sigi ku otru alternativa.
+Imajina un kaixa eletrónika na Praia ki ta para tudu bez ki algen ta mete numeru eradu. Kel ka é atxeitável! Programa profisionál ten ki reagí: mostra mensajen klaru, pidi di novu, ou sigi ku otru alternativa.
 
 ## Báziku: try/except
 
-`try` ta dizi a Python: "Tenta es kódiku. Si da eru, ka para — faze kel otru koza."
+`try` ta dizi pa Python: "Tenta es kódiku. Si da eru, ka para — faze kel otru koza."
 
 ```python
 # Sen tratamentu — programa ta para!
@@ -85,7 +85,7 @@ Senpri mete `Exception` (catch-all) na **últimu lugar**. Python ta verifika han
 
 ## else — Só Roda Si Ka Teve Eru
 
-`else` ta roda **somente si `try` akaba sen nenhun exsesan**. É perfeitu pa kódiku ki deve roda só kuandu tudu korri ben:
+`else` ta roda **somente si `try` akaba sen nenhun exsesan**. É perfeitu pa kódiku ki debe roda só kuandu tudu korri ben:
 
 ```python
 def prosesa_nota(tekstu):
@@ -114,7 +114,7 @@ prosesa_nota("25")     # Nota 25.0 fora di rangu (0-20)!
 # MODU ERADU — tudu na try ta maská erus
 try:
     nota = float(tekstu)
-    # Si es linha ta da eru, bo ka sabe si é di float() o di otru koza
+    # Si es linha ta da eru, bo ka sabe si é di float() ou di otru koza
     guarda_na_bazi(nota)
 except ValueError:
     print("Eru!")  # Undi exatamenti?
@@ -130,7 +130,7 @@ else:
 
 ## finally — SENPRI Roda
 
-`finally` ta roda **senpri** — si teve eru o si ka teve. É perfeitu pa limpeza: fexá ficheru, fexá koneksan di bazi di dadus, libera rekursu.
+`finally` ta roda **senpri** — si teve eru ou si ka teve. É perfeitu pa limpeza: fexá ficheru, fexá koneksan di bazi di dadus, libera rekursu.
 
 ```python
 def ler_konfigurasan(kaminhu):
@@ -168,7 +168,7 @@ def ler_konfigurason_melhor(kaminhu):
 
 ## Fluxu Konpletu: try/except/else/finally
 
-![Fluxu di try / except / else / finally](../../infographics/13-try-except-fluxu.png)
+![Fluxu di try / except / else / finally](../../infographics/13-try-except-fluxu.jpg)
 
 ```python
 def transferi_saldu(konta_origem, konta_destinu, montanti):
@@ -209,7 +209,7 @@ transferi_saldu(konta_maria, konta_joao, 9000)  # Faya: saldu insufisienti
 
 ## raise — Lansa Bo Própriu Eru
 
-`raise` ta dizi a Python: "Es é un problema! Para i aviza kemi ta uza nha funsan."
+`raise` ta dizi pa Python: "Es é un problema! Para i aviza kemi ta uza nha funsan."
 
 ```python
 def kalkula_média(notas):
@@ -236,8 +236,8 @@ except TypeError as e:
 
 Uza `raise` kuandu:
 - Argumentu inválidu ta txega na bo funsan
-- Kondisan di negósiu ka é satisfeitu (saldu insufisienti, idade inválidu)
-- Bu kre informá kódigu ki ta txoma bo funsan ki algu koreu mal
+- Kondisan di negósiu ka é satisfeitu (saldu insufisienti, idadi inválidu)
+- Bu kre informá kódiku ki ta txoma bo funsan ki algu koreu mal
 
 ```python
 def registra_estudanti(nomi, idadi):
@@ -266,10 +266,10 @@ print(estudanti)  # {'nomi': 'Djina', 'idadi': 22}
 
 ## Exsesons Personalizadu
 
-Pa projetus grandi, bu pode kria bo própriu klasis di exsesan. Es ta faze kódiku más klaru i fáxi di manté:
+Pa projetus grandi, bu pode kria bo própriu klasis di exsesan. Es ta faze kódiku más klaru i fáxi di mantene:
 
 :::callout{type=info title="Forward-ref"}
-Sintaxi di `class` é o tópiku di **Módulu 4** (lisan 26 +). Pa gosi, só odja ki bu pode kria un tipu novu di eru ku ~3 linha di kódiku — detalhi di klasis ta ben dipos.
+Sintaxi di `class` é tópiku di **Módulu 4** (lisan 26 +). Pa gosi, só odja ki bu pode kria un tipu novu di eru ku ~3 linha di kódiku — detalhi di klasis ta ben dipos.
 :::
 
 ```python
@@ -341,7 +341,7 @@ except FileNotFoundError as e:
 
 ## Ierarkia di Exsesons (Vizun Rápidu)
 
-![Ierarkia di exsesons di Python — BaseException, Exception, ValueError, TypeError, etc.](../../infographics/14-ierarkia-di-exsesan.png)
+![Ierarkia di exsesons di Python — BaseException, Exception, ValueError, TypeError, etc.](../../infographics/14-ierarkia-di-exsesan.jpg)
 
 ```text
 BaseException
@@ -373,9 +373,9 @@ Senpri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `Keyboar
 ## Rezumu
 <KeyTakeaways>
   <RezumuItem variant="gold" term="Regra di oru">Kaptura exseson **espesífiku** (`ValueError`, `ZeroDivisionError`…), ka un `except:` solu — asin bu sabe exatamenti o ki koreu mal.</RezumuItem>
-  <RezumuItem term="try / except">Tenta un kódiku i kaptura o eru si el akontese — po os espesífiku primeru, `Exception` na o fin.</RezumuItem>
-  <RezumuItem term="else / finally">`else` só ta kore si o `try` ka teve eru; `finally` ta kore **senpri** (limpeza: fexa ficheru, libera rekursu).</RezumuItem>
-  <RezumuItem term="raise">Ta lansa un eru di o bu própriu kódiku — pa sinaliza un argumentu inválidu o un kondisan di negósiu ki ka é satisfeitu.</RezumuItem>
-  <RezumuItem term="Personalizadu">`class MeuError(Exception)` ta da un tipu di eru spesífiku di o bu projetu. `as e` ta da asesu a mensajen i atributus.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka po tudu o kódiku dentu di o `try` — só o ki **pode** faya; o restu na o `else`, senan bu ta maská di undi o eru ben.</RezumuItem>
+  <RezumuItem term="try / except">Tenta un kódiku i kaptura eru si el akontese — po kes espesífiku primeru, `Exception` na fin.</RezumuItem>
+  <RezumuItem term="else / finally">`else` só ta kore si `try` ka teve eru; `finally` ta kore **senpri** (limpeza: fexa ficheru, libera rekursu).</RezumuItem>
+  <RezumuItem term="raise">Ta lansa un eru di bu própriu kódiku — pa sinaliza un argumentu inválidu ou un kondisan di negósiu ki ka é satisfeitu.</RezumuItem>
+  <RezumuItem term="Personalizadu">`class MeuError(Exception)` ta da un tipu di eru spesífiku di bu projetu. `as e` ta da asesu a mensajen i atributus.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka po tudu kódiku dentu di `try` — só o ki **pode** faya; restu na `else`, senan bu ta maská di unde eru ben.</RezumuItem>
 </KeyTakeaways>

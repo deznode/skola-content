@@ -16,7 +16,7 @@ objectives:
 
 # Strings: Metodus i Formatasan
 
-Na lisan anteriol, bo prende tipu di dadus — i string é un di kes tipu ki bu ta uza más na programasan. Tudu bez ki bo trabadja ku nomi, mensaji, enderesu, ó kualker textu, bu ta uza string. Python ten dezenas di metodus inkorporadu ki ta fasilitá manipulasan di textu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
+Na lisan anteriol, bo prende tipu di dadus — i string é un di kes tipu ki bu ta uza más na programasan. Tudu bez ki bo trabadja ku nomi, mensaji, enderesu, ou kualker textu, bu ta uza string. Python ten dezenas di metodus inkorporadu ki ta fasilitá manipulasan di textu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
 
 :::callout{type=tip}
 **Ka preokupa si bu ka kompriendi tudu kódiku gosi.** Lisan-li é so pa **metodus di string i f-strings**. Bu ta odja `if`, `for`, lista (`[...]`) i disionariu (`{...}`) na alguns izemplus prátiku — kes ta ben más tardi: `if` na Lisan 9, `for` na Lisan 10, lista na Lisan 11, disionariu na Lisan 13, `enumerate()` na Lisan 18. Repara na o ki ta kontise ku string, ka na strutura ki ta envolvi-l.
@@ -62,7 +62,7 @@ print(saudasan)         # "OLA MUNDU"
 
 ## Limpa Espasu (Whitespace Methods)
 
-Kuandu bo resebe input di utilizador ó ler dadus di ficheru, mutas bez tene espasus sobra na inísiu ó final. `.strip()` ta resolve es problema.
+Kuandu bo resebe input di utilizador ou ler dadus di ficheru, mutas bez tene espasus sobra na inísiu ou final. `.strip()` ta resolve es problema.
 
 ```python
 # .strip() — tira espasu di ambos ladus
@@ -130,7 +130,7 @@ for i, iten in enumerate(itens, 1):
 Python ten vários metodus pa buska konteúdu dentu di un string.
 
 ```python
-# .find() — retorna índisi di primeru okorensia, ó -1 si ka atxa
+# .find() — retorna índisi di primeru okorensia, ou -1 si ka atxa
 mensaji = "Funana é músika di Kabu Verdi"
 print(mensaji.find("Kabu"))    # 22
 print(mensaji.find("morna"))   # -1 (ka atxa)
@@ -146,7 +146,7 @@ print(textu.count("na"))  # 2
 ```
 
 ```python
-# .startswith() i .endswith() — verifica início ó final
+# .startswith() i .endswith() — verifica início ou final
 ficheru = "relatoriu_2026.pdf"
 
 print(ficheru.startswith("relatoriu"))  # True
@@ -199,7 +199,7 @@ print(telefone_limpu)  # "+2389912345"
 
 ## Klasifikasan di String (Classification Methods)
 
-Es metodus ta verifika ki tipu di karáteris un string tene. Tudu ta retorna `True` ó `False`.
+Es metodus ta verifika ki tipu di karáteris un string tene. Tudu ta retorna `True` ou `False`.
 
 ```python
 # .isdigit() — só dígitus?
@@ -300,7 +300,7 @@ print(formatadu)  # "+238 991-23-45"
 
 ## f-strings — Formatasan Prinsipal
 
-f-strings é forma prinsipal i modérna pa formata strings na Python. Basta koloka `f` antis di aspas i uza `{}`  pa inseri variáveis ó expresons.
+f-strings é forma prinsipal i modérna pa formata strings na Python. Basta koloka `f` antis di aspas i uza `{}`  pa inseri variáveis ou expresons.
 
 ```python
 # Báziku: f-string
@@ -389,9 +389,9 @@ Antis di pratika, vira es kartas pa fixa o ki kada metodu ta faze. Klika pa odja
     { term: "split()", def: "Ta kebra un string nun lista, separandu pa un karáter (spasu é padran)." },
     { term: "join()", def: "Ta djunta un lista nun sô string, uzandu un separador." },
     { term: "replace()", def: "Ta substitui tudu okorensia di un textu pa otru." },
-    { term: "find()", def: "Ta da índisi di primeru okorensia, ó -1 si ka atxa." },
-    { term: "startswith()", def: "Ta verifika si un string ta kumesa ku un textu; ta da True ó False." },
-    { term: "isdigit()", def: "Ta verifika si tudu karáter é dígitu; ta da True ó False." },
+    { term: "find()", def: "Ta da índisi di primeru okorensia, ou -1 si ka atxa." },
+    { term: "startswith()", def: "Ta verifika si un string ta kumesa ku un textu; ta da True ou False." },
+    { term: "isdigit()", def: "Ta verifika si tudu karáter é dígitu; ta da True ou False." },
   ]}
 />
 
@@ -405,7 +405,7 @@ Antis di pratika, vira es kartas pa fixa o ki kada metodu ta faze. Klika pa odja
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">String é **imutável** — metodus kumo `.upper()` ó `.replace()` ka ta muda original; es ta retorna un string novu ki bu ten ki garda (`nomi = nomi.upper()`).</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">String é **imutável** — metodus kumo `.upper()` ou `.replace()` ka ta muda original; es ta retorna un string novu ki bu ten ki garda (`nomi = nomi.upper()`).</RezumuItem>
   <RezumuItem term="Kazu i limpeza">`.upper()`, `.lower()`, `.title()` pa muda kazu; `.strip()` pa tira spasus — esensial pa input di utilizador.</RezumuItem>
   <RezumuItem term="Split/Join">`.split()` ta kebra string pa lista; `"sep".join()` ta djunta lista pa string.</RezumuItem>
   <RezumuItem term="Slicing">`s[start:stop:step]` ta korta un parti; `s[::-1]` ta inverti.</RezumuItem>

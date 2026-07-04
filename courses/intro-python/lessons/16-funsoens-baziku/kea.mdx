@@ -23,7 +23,7 @@ Funsons é un dos konseitus más importanti di Python. Es ta permite bo organiza
 
 ## Kria Funsan ku `def`
 
-![Anatomia di funsan: def, parámetrus, docstring, korpu, return](../../infographics/10-anatomia-di-funsan.png)
+![Anatomia di funsan: def, parámetrus, docstring, korpu, return](../../infographics/10-anatomia-di-funsan.jpg)
 
 Pa defini un funsan na Python, bo uza keyword `def`, seguidu di nomi di funsan i paréntesis:
 
@@ -38,7 +38,7 @@ saudasan()   # Bon dia! Morabeza! (pode txoma kuantas bez bo kre)
 ```
 
 ```python
-# Funsan ki verifica si nùmeru é par o ímpar
+# Funsan ki verifica si nùmeru é par ou ímpar
 def par_o_impar(numeru):
     if numeru % 2 == 0:
         print(f"{numeru} é par")
@@ -50,7 +50,7 @@ par_o_impar(10)   # 10 é par
 ```
 
 :::callout{type=tip}
-Nomi di funsan debe ser deskritivu i uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjor ki `kt` o `func1`.
+Nomi di funsan debe ser deskritivu i uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjór ki `kt` ou `func1`.
 :::
 
 ## Parámetrus i Argumentus
@@ -79,7 +79,7 @@ kalkula_area(10, 8)   # Área: 80 m²
 
 ## Parámetrus Predefinidu (Default Parameters)
 
-Bu pode da un valor predefinidu a un parámetru. Si ningen ka pasa argumentu, Python ta uza kel valor predefinidu.
+Bu pode da un valor predefinidu pa un parámetru. Si ningen ka pasa argumentu, Python ta uza kel valor predefinidu.
 
 ```python
 def saudasan(nomi="Vizitanti"):
@@ -384,8 +384,8 @@ Senpri pensa na **kazu bazi** primeru kuandu bu ta skrebe funsan rekursiva. Sen 
 <KeyTakeaways>
   <RezumuItem variant="gold" term="Regra di oru">`return` ta manda un valor di volta pa uza más tardi; `print` só ta mostra na ekran. Un funsan sen `return` ta retorna `None`.</RezumuItem>
   <RezumuItem term="def">Ta defini un funsan — nomi deskritivu na snake_case. Parámetrus ta na definisan; argumentus ta na txomada.</RezumuItem>
-  <RezumuItem term="Predefinidu">Un parámetru ku valor predefinidu ta da un valor si ningen ka pasa argumentu — i ten ki ben **dipos** di os sen valor predefinidu.</RezumuItem>
+  <RezumuItem term="Predefinidu">Un parámetru ku valor predefinidu ta da un valor si ningen ka pasa argumentu — i ten ki ben **dipos** di kes sen valor predefinidu.</RezumuItem>
   <RezumuItem term="*args / **kwargs">`*args` ta apanha argumentu pozisionál (tuple); `**kwargs` ta apanha nomiadu (dict). Orden: normais → `*args` → `**kwargs`.</RezumuItem>
-  <RezumuItem term="Docstrings">Un string na iníisu di a funsan ta dokumenta o ki el ta faze — `help(funsan)` ta mostra-l.</RezumuItem>
+  <RezumuItem term="Docstrings">Un string na inísiu di funsan ta dokumenta o ki el ta faze — `help(funsan)` ta mostra-l.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Un funsan rekursiva **senpri** presiza un kazu bazi — sen el, Python ta da `RecursionError`.</RezumuItem>
 </KeyTakeaways>

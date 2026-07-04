@@ -1,5 +1,5 @@
 ---
-title: "Eransa (Simples i Múltiplu)"
+title: "Eransa Simples"
 language: kea
 courseSlug: intro-python
 lessonSlug: eransa
@@ -8,17 +8,16 @@ module: 4
 lesson: 27
 duration: "20 min"
 objectives:
-  - "Implementa eransa simples ku super() pa riuza kódiku di klasi pai"
-  - "Implementa eransa múltiplu ku txomada direta Parent.__init__(self, ...)"
-  - "Kompriendi Method Resolution Order (MRO) i orden di buska di metodus"
-  - "Uza isinstance() i issubclass() pa verifika tipu di objetu"
+  - "Implementa eransa simples pa un klasi filhu erda atributus i metodus di un klasi pai"
+  - "Uza super().__init__() pa reuza konstrutor di pai sen repeti kódiku"
+  - "Sobreskrebe (override) un metodu erdadu pa mudá komportamentu di filhu"
 ---
 
-# Eransa (Simples i Múltiplu)
+# Eransa Simples
 
-Djina tene olus verdi di si mai i altura di si pai. Ela erda karakterístikas di dos — ka presiza "inventa" olus o altura di zero, es ven di si famía. I Djina inda tene si própriu trabus únikis: si rizu, si manera di fala, si talentu pa toka violun.
+Djina tene odjus verdi di se mai i altura di se pai. El ta erda karakterístikas di dos — ka presiza "inventa" odjus ou altura di zero, es ven di se famía. I Djina inda tene se própriu trabus únikis: se rizu, se manera di fala, se talentu pa toka violun.
 
-Na programasan, **eransa** funsiona mesmu manera. Un klasi filhu ta **erda** tudu atributus i metodus di klasi pai, i ainda pode adisiona si própriu koisa o muda kel ki erda. Isu ta evita repetisan di kódiku i ta kria un ierárkia naturál — mesmu kumo árvori genealójika.
+Na programasan, **eransa** ta funsiona mesmu manera. Un klasi filhu ta **erda** tudu atributus i metodus di klasi pai, i ainda pode adisiona se própriu kuza ou muda kel ki erda. Isu ta evita repetisan di kódiku i ta kria un ierárkia naturál — mesmu kumo árvori genealójika.
 
 ## Eransa Simples
 
@@ -39,21 +38,21 @@ class Viatúra:
         return f"{self.marka} {self.modelu} ({self.anu})"
 
 # Klasi filhu — erda di Viatúra
-class Táksi(Viatúra):
+class Taxi(Viatúra):
     pass  # Ka adisiona nada novu — só erda tudu di Viatúra
 
-# Táksi tene TUDU ki Viatúra tene!
-taksi = Táksi("Toyota", "Hilux", 2020)
-taksi.liga()              # 🚗 Toyota Hilux ta ligá!
-print(taksi.deskrebe())   # Toyota Hilux (2020)
-print(taksi.marka)        # Toyota
+# Taxi tene TUDU ki Viatúra tene!
+taxi = Taxi("Toyota", "Hilux", 2020)
+taxi.liga()              # 🚗 Toyota Hilux ta ligá!
+print(taxi.deskrebe())   # Toyota Hilux (2020)
+print(taxi.marka)        # Toyota
 ```
 
-Mesmu ku `Táksi` tene `pass` (váziu), el erda `__init__`, `liga()`, i `deskrebe()` di `Viatúra`. É kumo un fidju ki tene tudu trabus di pai sen faze nada estraordinária.
+Mesmu ku `Taxi` tene `pass` (váziu), el ta erda `__init__`, `liga()`, i `deskrebe()` di `Viatúra`. É kumo un fidju ki tene tudu trabus di pai sen faze nada estraordinária.
 
 ## `super()` — Txoma Konstrutor di Pai
 
-Normalmenti, klasi filhu kre **adisiona** atributus novu alémd di kel ki pai dja tene. Pa isu, bo uza `super().__init__()` pa txoma konstrutor di pai primeru, dipos adisiona bo koisa:
+Normalmenti, klasi filhu kre **adisiona** atributus novu alén di kel ki pai dja tene. Pa isu, bo uza `super().__init__()` pa txoma konstrutor di pai primeru, dipos adisiona bo kuza:
 
 ```python
 class Viatúra:
@@ -69,11 +68,11 @@ class Viatúra:
         return f"{self.marka} {self.modelu} ({self.anu})"
 
 
-class Táksi(Viatúra):
+class Taxi(Viatúra):
     def __init__(self, marka, modelu, anu, lisensa, zona):
         # Txoma konstrutor di pai pa inisializa marka, modelu, anu
         super().__init__(marka, modelu, anu)
-        # Adisiona atributus própriu di Táksi
+        # Adisiona atributus própriu di Taxi
         self.lisensa = lisensa
         self.zona = zona
         self.korridas = 0
@@ -86,15 +85,15 @@ class Táksi(Viatúra):
     def deskrebe(self):
         """Sobreskrebe métudu di pai ku informasan extra"""
         bazi = super().deskrebe()  # Txoma versan di pai
-        return f"{bazi} — Táksi Lisensa: {self.lisensa} (Zona: {self.zona})"
+        return f"{bazi} — Taxi Lisensa: {self.lisensa} (Zona: {self.zona})"
 
 
-# Kria táksi
-taksi_praia = Táksi("Toyota", "Hilux", 2020, "TX-1234", "Praia")
-taksi_praia.liga()             # 🚗 Toyota Hilux ta ligá! (erdadu di Viatúra)
-taksi_praia.fazi_korrida()     # 🚕 Korrida #1 na zona Praia
-taksi_praia.fazi_korrida()     # 🚕 Korrida #2 na zona Praia
-print(taksi_praia.deskrebe())  # Toyota Hilux (2020) — Táksi Lisensa: TX-1234 (Zona: Praia)
+# Kria taxi
+taxi_praia = Taxi("Toyota", "Hilux", 2020, "TX-1234", "Praia")
+taxi_praia.liga()             # 🚗 Toyota Hilux ta ligá! (erdadu di Viatúra)
+taxi_praia.fazi_korrida()     # 🚕 Korrida #1 na zona Praia
+taxi_praia.fazi_korrida()     # 🚕 Korrida #2 na zona Praia
+print(taxi_praia.deskrebe())  # Toyota Hilux (2020) — Taxi Lisensa: TX-1234 (Zona: Praia)
 ```
 
 ```python
@@ -126,179 +125,9 @@ evu.karega()     # 🔋 BYD Dolphin karegadu! Bateria: 60 kWh
 `super()` ta dize "txoma versan di nha pai pa es métudu". Uza `super().__init__()` pa ka repeti kódiku ki pai dja ta faze. Depois, adisiona só kel ki é novu.
 :::
 
-## Eransa Múltiplu
-
-Python ta permiti un klasi erda di **vários pais** (diferenti di algunus línguas kumo Java). Pa eransa múltiplu, bu ta uza txomada **direta** a kada pai:
-
-```python
-class Artista:
-    def __init__(self, nomi, jeneru_muzikál):
-        self.nomi = nomi
-        self.jeneru_muzikál = jeneru_muzikál
-
-    def atua(self):
-        print(f"🎤 {self.nomi} ta atua {self.jeneru_muzikál}!")
-
-
-class Kompozitor:
-    def __init__(self, instrumentu, núm_kompozisons):
-        self.instrumentu = instrumentu
-        self.núm_kompozisons = núm_kompozisons
-
-    def kompoe(self, títulu):
-        self.núm_kompozisons += 1
-        print(f"🎼 Kompozisan #{self.núm_kompozisons}: '{títulu}'")
-
-
-class MúzikuKompletu(Artista, Kompozitor):
-    def __init__(self, nomi, jeneru_muzikál, instrumentu, núm_kompozisons):
-        # Txomada direta a kada pai — pa eransa múltiplu
-        Artista.__init__(self, nomi, jeneru_muzikál)
-        Kompozitor.__init__(self, instrumentu, núm_kompozisons)
-        self.álbuns = []
-
-    def lansa_álbun(self, nomi_álbun):
-        """Lansa un álbun novu"""
-        self.álbuns.append(nomi_álbun)
-        print(f"💿 Álbun '{nomi_álbun}' lansadu! Total: {len(self.álbuns)} álbuns")
-
-    def perfil(self):
-        """Mostra perfil kompletu"""
-        print(f"\n{'='*40}")
-        print(f"  🎵 {self.nomi}")
-        print(f"  Jéneru: {self.jeneru_muzikál}")
-        print(f"  Instrumentu: {self.instrumentu}")
-        print(f"  Kompozisons: {self.núm_kompozisons}")
-        print(f"  Álbuns: {len(self.álbuns)}")
-        print(f"{'='*40}\n")
-
-
-# Kria un múziku konpletu
-cesaria = MúzikuKompletu("Cesária Évora", "Morna", "Voz", 50)
-cesaria.atua()                         # 🎤 Cesária Évora ta atua Morna!
-cesaria.kompoe("Mar Azul")             # 🎼 Kompozisan #51: 'Mar Azul'
-cesaria.lansa_álbun("Voz d'Amor")      # 💿 Álbun 'Voz d'Amor' lansadu!
-cesaria.lansa_álbun("Cabo Verde")      # 💿 Álbun 'Cabo Verde' lansadu!
-cesaria.perfil()
-# ========================================
-#   🎵 Cesária Évora
-#   Jéneru: Morna
-#   Instrumentu: Voz
-#   Kompozisons: 51
-#   Álbuns: 2
-# ========================================
-```
-
-:::callout{type=tip}
-Pa eransa **simples** (un só pai), uza `super().__init__()`. Pa eransa **múltiplu** (vários pais), uza `Pai.__init__(self, ...)` pa kada pai. É regra di ouru!
-:::
-
-## Method Resolution Order (MRO)
-
-Kuandu un klasi erda di vários pais, Python presiza sabi **ki orden** pa buska metodus. Es orden txoma **MRO** (Method Resolution Order). Python ta sigi algoritmu C3 — di filhu pa pai, di skerda pa direita:
-
-```python
-class A:
-    def saudasan(self):
-        print("Ola di A!")
-
-class B(A):
-    def saudasan(self):
-        print("Ola di B!")
-
-class C(A):
-    def saudasan(self):
-        print("Ola di C!")
-
-class D(B, C):
-    pass  # Ka defini saudasan — vai buska na pais
-
-d = D()
-d.saudasan()  # Ola di B!  ← pamodi B ven antis di C
-
-# Verifika MRO
-print(D.__mro__)
-# (<class 'D'>, <class 'B'>, <class 'C'>, <class 'A'>, <class 'object'>)
-# Orden: D → B → C → A → object
-```
-
-```python
-# Ezemplu prátiku di MRO ku kultura CV
-class Morabeza:
-    def kualidadi(self):
-        return "Morabeza (ospitalidadi)"
-
-class Kriativdadi:
-    def kualidadi(self):
-        return "Kriativdadi"
-
-class Kaboverdianu(Morabeza, Kriativdadi):
-    pass  # Erda di dos
-
-kv = Kaboverdianu()
-print(kv.kualidadi())   # Morabeza (ospitalidadi)  ← Morabeza ven primeiru
-
-# Pa ve orden di buska
-for klasi in Kaboverdianu.__mro__:
-    print(f"  → {klasi.__name__}")
-#   → Kaboverdianu
-#   → Morabeza
-#   → Kriativdadi
-#   → object
-```
-
-:::callout{type=tip}
-Si bu ka sabe ki métudu ta ser txomadu, uza `Klasi.__mro__` o `Klasi.mro()` pa ve orden ezata di buska.
-:::
-
-## `isinstance()` i `issubclass()`
-
-Python ta fornese dos funsons pa verifika relasan entri objetis i klasis:
-
-```python
-class Viatúra:
-    pass
-
-class Táksi(Viatúra):
-    pass
-
-class Autokarru(Viatúra):
-    pass
-
-# Kria objetis
-taksi = Táksi()
-bus = Autokarru()
-
-# isinstance() — verifica si objetu é instánsia di un klasi
-print(isinstance(taksi, Táksi))      # True — taksi É un Táksi
-print(isinstance(taksi, Viatúra))    # True — taksi TAMBÉN é un Viatúra (erdansa!)
-print(isinstance(taksi, Autokarru))  # False — taksi KA é un Autokarru
-
-# issubclass() — verifica si un klasi é filhu di otru
-print(issubclass(Táksi, Viatúra))      # True — Táksi é filhu di Viatúra
-print(issubclass(Autokarru, Viatúra))  # True — Autokarru é filhu di Viatúra
-print(issubclass(Táksi, Autokarru))    # False — Táksi ka é filhu di Autokarru
-print(issubclass(Viatúra, Viatúra))    # True — klasi é subklasi di si mesmu
-```
-
-```python
-# Uzu prátiku: funsan ki ta aseta diferentis tipu
-def prosesa_viatúra(v):
-    """Prosesa kualker tipu di viatúra"""
-    if not isinstance(v, Viatúra):
-        print("❌ Isu ka é un viatúra!")
-        return
-
-    print(f"✅ Prosesandu: {type(v).__name__}")
-
-prosesa_viatúra(taksi)     # ✅ Prosesandu: Táksi
-prosesa_viatúra(bus)        # ✅ Prosesandu: Autokarru
-prosesa_viatúra("minibus")  # ❌ Isu ka é un viatúra!
-```
-
 ## Izemplu Prátiku: Sistema di Trabadjoris
 
-Nu ta kria un sistema ierárkiku pa un enpresa na Praia:
+Nu ta kria un sistema ierárkiku pa un enpresa na Praia. Un klasi bazi `Trabadjor` ta guarda o ki tudu trabadjor tene en komun; kada tipu di trabadjor ta **erda** di el i ta **sobreskrebe** `apresenta()`:
 
 ```python
 class Trabadjor:
@@ -391,31 +220,23 @@ for t in trabadjoris:
 #     Saláriu anuál: 1,170,000 ECV
 ```
 
-```python
-# isinstance() ta funsiona ku ierarkia
-print(isinstance(prof, Profesór))    # True
-print(isinstance(prof, Trabadjor))   # True  ← Profesór É un Trabadjor
-print(isinstance(prof, Médiku))      # False ← Profesór KA é un Médiku
+Kada klasi filhu ta erda `saláriu_anuál()` sen repeti-l, i kada un ta **sobreskrebe** `apresenta()` pa mostra o ki é spesífiku di el. Isu é eransa simples na prátika: reuza o ki é komun, personaliza o ki é diferenti.
 
-# Konta tipu di trabadjoris
-médikus = [t for t in trabadjoris if isinstance(t, Médiku)]
-print(f"\nTotal médikus: {len(médikus)}")  # Total médikus: 1
-```
+:::callout{type=note}
+Eransa inda tene más: **eransa múltiplu** (un klasi ku vários pai), **MRO** (orden di buska di metodus) i `isinstance()`. Pa gosi, foka na eransa di **un só** pai ku `super()` — dipos nu ta ba más lonji.
+:::
 
 ## Tenta Gosi
 <TentaGosi />
 
 ## Testa bu Konhesimentu
 <QuizSet>
-  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Pa eransa **simples** (un pai), uza `super().__init__()`; pa eransa **múltiplu** (vários pai), uza `Pai.__init__(self, ...)` direta pa kada pai.</RezumuItem>
-  <RezumuItem term="Eransa">`class Filhu(Pai):` ta erda tudu os atributu i metodu di o pai — reuza kódiku sen repetisan.</RezumuItem>
-  <RezumuItem term="super()">Ta txoma o konstrutor (o un metodu) di o pai — bu adisiona só o ki é novu.</RezumuItem>
-  <RezumuItem term="MRO">Method Resolution Order ta determina a orden di buska: filhu → pai (skerda pa direita) → avós. `Klasi.__mro__` ta mostra-l.</RezumuItem>
-  <RezumuItem term="isinstance / issubclass">`isinstance(obj, Klasi)` (inklui eransa); `issubclass(Filhu, Pai)`.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">Bu pode **sobreskrebe** un metodu na o filhu pa mudá o komportamentu erdadu — i txoma a versan di o pai ku `super().metodu()`.</RezumuItem>
+  <RezumuItem variant="gold" term="Eransa">`class Filhu(Pai):` ta erda tudu atributu i metodu di pai — reuza kódiku sen repetisan.</RezumuItem>
+  <RezumuItem term="super()">Ta txoma konstrutor (ou un metodu) di pai — bu adisiona só o ki é novu.</RezumuItem>
+  <RezumuItem variant="tip" term="Sobreskrita (override)">Bu pode **sobreskrebe** un metodu na filhu pa mudá komportamentu erdadu — i inda txoma versan di pai ku `super().metodu()`.</RezumuItem>
 </KeyTakeaways>

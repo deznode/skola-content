@@ -16,9 +16,9 @@
   kind: code
   title: { kea: "Konversor di moeda ku map()" }
   prompt:
-    kea: "Uza `map()` pa konverti un lista di presus na ECV pa Euro (taxa: `1 EUR = 110.265 ECV`). Aredonda pa 2 kaza desimal i konverti o rezultadu pa un lista."
+    kea: "Uza `map()` pa konverti un lista di presus na ECV pa Euro (taxa: `1 EUR = 110.265 ECV`). Aredonda pa 2 kaza desimal i konverti rezultadu pa un lista."
   hint:
-    kea: "`list(map(lambda p: round(p / 110.265, 2), presus))`. Lenbra: sen o `list(...)`, `map()` ta da un objetu lazy, ka un lista."
+    kea: "`list(map(lambda p: round(p / 110.265, 2), presus))`. Lenbra: sen `list(...)`, `map()` ta da un objetu lazy, ka un lista."
   starterCode: |
     # moeda.py
     presus_ecv = [500, 1200, 3500, 8000, 15000]
@@ -37,9 +37,9 @@
   kind: code
   title: { kea: "Filtra studantis ku filter()" }
   prompt:
-    kea: "Dadu un lista di disionáriu `[{\"nomi\": ..., \"nota\": N}, ...]`, uza `filter()` pa kria dos lista: os aprovadu (`nota >= 10`) i os distintu (`nota >= 16`)."
+    kea: "Dadu un lista di disionáriu `[{\"nomi\": ..., \"nota\": N}, ...]`, uza `filter()` pa kria dos lista: aprovadu (`nota >= 10`) i distintu (`nota >= 16`)."
   hint:
-    kea: "`list(filter(lambda s: s[\"nota\"] >= 10, studantis))` pa os aprovadu. Repeti ku `>= 16` pa os distintu. Kada filter ta da só os elementu undi a kondisan é `True`."
+    kea: "`list(filter(lambda s: s[\"nota\"] >= 10, studantis))` pa aprovadu. Repeti ku `>= 16` pa distintu. Kada filter ta da só elementu unde kondisan é `True`."
   starterCode: |
     # studantis.py
     studantis = [
@@ -69,9 +69,9 @@
   kind: code
   title: { kea: "Prosesador di nomis (map + filter)" }
   prompt:
-    kea: "Di a lista `[\"maria\", \"JOÃO\", \"ana\", \"PEDRO\"]`, uza `map()` pa normaliza tudu pa formatu título (primeru letra maiúskula). Dipos uza `filter()` pa mante só os nomi ku más di 3 letra."
+    kea: "Di lista `[\"maria\", \"JOÃO\", \"ana\", \"PEDRO\"]`, uza `map()` pa normaliza tudu pa formatu título (primeru letra maiúskula). Dipos uza `filter()` pa mante só nomi ku más di 3 letra."
   hint:
-    kea: "Pa normaliza: `map(str.title, nomis)` o `map(lambda n: n.title(), nomis)`. Dipos `filter(lambda n: len(n) > 3, ...)` sobri o rezultadu — ka skese o `list()` na fin."
+    kea: "Pa normaliza: `map(str.title, nomis)` ou `map(lambda n: n.title(), nomis)`. Dipos `filter(lambda n: len(n) > 3, ...)` sobri rezultadu — ka skese `list()` na fin."
   starterCode: |
     # nomis.py
     nomis = ["maria", "JOÃO", "ana", "PEDRO"]
@@ -90,9 +90,9 @@
   kind: code
   title: { kea: "Pipeline kompletu (filter + map)" }
   prompt:
-    kea: "Di un lista di produtu `[{\"nomi\": ..., \"presu\": N, \"stoku\": N}]`, uza `filter()` pa pega só os ki ta na stoku (`stoku > 0`), dipos `map()` pa aplika 10% di diskontu na o presu di kada un."
+    kea: "Di un lista di produtu `[{\"nomi\": ..., \"presu\": N, \"stoku\": N}]`, uza `filter()` pa pega só os ki ta na stoku (`stoku > 0`), dipos `map()` pa aplika 10% di diskontu na presu di kada un."
   hint:
-    kea: "Primeru filtra: `filter(lambda p: p[\"stoku\"] > 0, produtus)`. Dipos map sobri o rezultadu: `map(lambda p: {**p, \"presu\": round(p[\"presu\"] * 0.9)}, ...)`. Po o `filter` dentu di o `map`."
+    kea: "Primeru filtra: `filter(lambda p: p[\"stoku\"] > 0, produtus)`. Dipos map sobri rezultadu: `map(lambda p: {**p, \"presu\": round(p[\"presu\"] * 0.9)}, ...)`. Po `filter` dentu di `map`."
   starterCode: |
     # produtus.py
     produtus = [
@@ -120,7 +120,7 @@
   kind: explore
   title: { kea: "Splora functools i itertools" }
   prompt:
-    kea: "Alén di `map`/`filter`, Python tene `functools.reduce` (pa kombina tudu nun valor) i o módulu `itertools` (pa loops eficienti). Odja a dokumentason — ferramentas poderozu pa prosesa dadus."
+    kea: "Alén di `map`/`filter`, Python tene `functools.reduce` (pa kombina tudu nun valor) i módulu `itertools` (pa loops eficienti). Odja dokumentasan — ferramentas poderozu pa prosesa dadus."
   resources:
     kea:
       - { label: "Python docs — functools (reduce, etc.)", url: "https://docs.python.org/3/library/functools.html" }
@@ -130,6 +130,6 @@
   kind: reflect
   title: { kea: "Refleta sobri map/filter versus comprehension" }
   prompt:
-    kea: "`list(map(lambda x: x*2, nums))` i `[x*2 for x in nums]` ta da o mesmu. Pensa nun transformasan ki bu kreba faze. Skrebe kal forma bu ta skodje — map/filter o list comprehension — i pamodi (lijibilidadi? bu dja tene un funsan pronta?)."
+    kea: "`list(map(lambda x: x*2, nums))` i `[x*2 for x in nums]` ta da mesmu. Pensa nun transformasan ki bu kreba faze. Skrebe kual forma bu ta skodje — map/filter ou list comprehension — i pamodi (lijibilidadi? bu dja tene un funsan pronta?)."
   notePlaceholder:
     kea: "Transformasan: …   ·   Forma skodjedu: …   ·   Pamodi: …"

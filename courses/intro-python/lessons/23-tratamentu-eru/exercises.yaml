@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Divizan seguru ku try/except" }
   prompt:
-    kea: "Skrebe un funsan `dividi_seguru(a, b)` ki ta retorna `a / b`. Si `b` é zero, retorna `\"Ka pode dividi pa zero\"`; si `a` o `b` ka é númeru, retorna `\"Argumentus inválidus\"`. Uza try/except ku exseson espesífiku."
+    kea: "Skrebe un funsan `dividi_seguru(a, b)` ki ta retorna `a / b`. Si `b` é zero, retorna `\"Ka pode dividi pa zero\"`; si `a` ou `b` ka é númeru, retorna `\"Argumentus inválidus\"`. Uza try/except ku exseson espesífiku."
   hint:
-    kea: "Kaptura `ZeroDivisionError` pa o zero i `TypeError` pa os tipu eradu — kada un nun `except` separadu. Po o `return a / b` dentu di o `try`."
+    kea: "Kaptura `ZeroDivisionError` pa zero i `TypeError` pa tipu eradu — kada un nun `except` separadu. Po `return a / b` dentu di `try`."
   starterCode: |
     # divizan.py
     def dividi_seguru(a, b):
@@ -47,9 +47,9 @@
   kind: code
   title: { kea: "Pidi idadi ku validasan" }
   prompt:
-    kea: "Skrebe un programa ki ta pidi a idadi ku `input()`. Si o utilizador mete algu ki ka é un númeru, pidi di nóvu (un loop `while` ku try/except). Só para kuandu el mete un númeru válidu entri 1 i 120."
+    kea: "Skrebe un programa ki ta pidi idadi ku `input()`. Si utilizador mete algu ki ka é un númeru, pidi di nóvu (un loop `while` ku try/except). Só para kuandu el mete un númeru válidu entri 1 i 120."
   hint:
-    kea: "Po o `int(input(...))` dentu di un `try`; o `except ValueError:` ta apanha o textu ki ka é númeru. Uza `while True:` i `break` kuandu a idadi sta entri 1 i 120."
+    kea: "Po `int(input(...))` dentu di un `try`; `except ValueError:` ta apanha textu ki ka é númeru. Uza `while True:` i `break` kuandu idadi sta entri 1 i 120."
   starterCode: |
     # idadi.py
     while True:
@@ -75,9 +75,9 @@
   kind: code
   title: { kea: "Exseson personalizadu" }
   prompt:
-    kea: "Kria un exseson personalizadu `IdadiInvaliduError` i un funsan `valida_idadi(idadi)` ki ta lansa-l (`raise`) si a idadi é negativu o maior ki 150. Testa-l ku try/except."
+    kea: "Kria un exseson personalizadu `IdadiInvaliduError` i un funsan `valida_idadi(idadi)` ki ta lansa-l (`raise`) si idadi é negativu ou maior ki 150. Testa-l ku try/except."
   hint:
-    kea: "Pa kria a exseson: `class IdadiInvaliduError(Exception): pass` (3 linha — a sintaxi di klasi ta ben na Módulu 4). Dentu di a funsan, `raise IdadiInvaliduError(\"...\")` si a kondisan ka é válidu."
+    kea: "Pa kria exseson: `class IdadiInvaliduError(Exception): pass` (3 linha — sintaxi di klasi ta ben na Módulu 4). Dentu di funsan, `raise IdadiInvaliduError(\"...\")` si kondisan ka é válidu."
   starterCode: |
     # valida.py
     class IdadiInvaliduError(Exception):
@@ -107,9 +107,9 @@
   kind: code
   title: { kea: "Média di ficheru ku tratamentu" }
   prompt:
-    kea: "Skrebe un programa ki lé un ficheru di notas (un númeru pa linha), kaptura `FileNotFoundError` si o ficheru ka izisti, kaptura `ValueError` pa as linha ki ka é númeru, i na fin (`else`) mostra a média das notas válidu."
+    kea: "Skrebe un programa ki lé un ficheru di notas (un númeru pa linha), kaptura `FileNotFoundError` si ficheru ka izisti, kaptura `ValueError` pa linha ki ka é númeru, i na fin (`else`) mostra média di notas válidu."
   hint:
-    kea: "Po o `open(...)` dentu di o `try`; o `except FileNotFoundError:` pa o ficheru ki ka izisti. Dentu di o loop, un `try/except ValueError` pa pula as linha ki ka é númeru. O `else` di o `try` di fora ta kalkula a média."
+    kea: "Po `open(...)` dentu di `try`; `except FileNotFoundError:` pa ficheru ki ka izisti. Dentu di loop, un `try/except ValueError` pa pula linha ki ka é númeru. `else` di `try` di fora ta kalkula média."
   starterCode: |
     # media.py
     try:
@@ -147,11 +147,11 @@
   language: python
   kind: debug
   file: dividi.py
-  title: { kea: "Koriji un except ku o tipu eradu" }
+  title: { kea: "Koriji un except ku tipu eradu" }
   prompt:
-    kea: "Es programa ta tenta protejé a divizan ku `try/except`, ma el inda ta kebra ku un `ZeroDivisionError`. O `except` sta ku o tipu eradu. Koriji-l."
+    kea: "Es programa ta tenta protejé divizan ku `try/except`, ma el inda ta kebra ku un `ZeroDivisionError`. `except` sta ku tipu eradu. Koriji-l."
   hint:
-    kea: "O kódiku ta kaptura `ValueError`, ma `10 / 0` ta lansa `ZeroDivisionError` — un tipu diferenti, anton o `except` ka ta apanha-l. Troka `except ValueError` pa `except ZeroDivisionError`."
+    kea: "Kódiku ta kaptura `ValueError`, ma `10 / 0` ta lansa `ZeroDivisionError` — un tipu diferenti, anton `except` ka ta apanha-l. Troka `except ValueError` pa `except ZeroDivisionError`."
   starterCode: |
     # dividi.py — o except ta apanha o tipu eradu; el inda ta kebra. Koriji-l.
     try:
@@ -169,9 +169,9 @@
 - slug: splora-ierarkia-exsesons
   language: python
   kind: explore
-  title: { kea: "Splora a ierarkia di exsesons" }
+  title: { kea: "Splora ierarkia di exsesons" }
   prompt:
-    kea: "Tudu os eru di Python ta erda di `Exception` (i `BaseException`). Konxe a ierarkia ta djuda-bu kaptura o nível sertu. Odja a árvure ofisial di exseption inkorporadu."
+    kea: "Tudu eru di Python ta erda di `Exception` (i `BaseException`). Konxe ierarkia ta djuda-bu kaptura nível sertu. Odja árvure ofisial di exseption inkorporadu."
   resources:
     kea:
       - { label: "Python docs — Built-in Exceptions", url: "https://docs.python.org/3/library/exceptions.html" }
@@ -181,6 +181,6 @@
   kind: reflect
   title: { kea: "Refleta sobri kaptura espesífiku" }
   prompt:
-    kea: "A regra di oru é kaptura exseson espesífiku (`ValueError`, `ZeroDivisionError`), ka un `except:` solu. Pensa nun programa ki bu kreba protejé. Skrebe ki exsesons espesífiku bu ta kaptura, i o ki ta pode kontise si bu uza un `except:` jenériku ki apanha tudu."
+    kea: "Regra di oru é kaptura exseson espesífiku (`ValueError`, `ZeroDivisionError`), ka un `except:` solu. Pensa nun programa ki bu kreba protejé. Skrebe ki exsesons espesífiku bu ta kaptura, i o ki ta pode kontise si bu uza un `except:` jenériku ki apanha tudu."
   notePlaceholder:
     kea: "Programa: …   ·   Exsesons espesífiku: …   ·   Riskus di un except: jenériku: …"

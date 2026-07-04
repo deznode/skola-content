@@ -21,7 +21,7 @@ Kuandu bo programa ta krési, bu ka pode po tudu na un ficheru só. Python ta pe
 
 ## O ki é un Módulu?
 
-Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ó variáveis. Kuandu bo faze `import`, bu ta trazi kel kódiku pa bo programa.
+Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ou variáveis. Kuandu bo faze `import`, bu ta trazi kel kódiku pa bo programa.
 
 ```python
 # Python tene txeu módulus built-in prontu pa uza
@@ -71,7 +71,7 @@ print(f"Data di oji: {gosi.strftime('%d/%m/%Y')}")
 ```
 
 :::callout{type=tip}
-Evita `from modulo import *` — el ta importa TUDU i bu ka ta sabi di undi kada funsan ben. Kel ta kria konfuzun i bugs difísil di atxa.
+Evita `from modulo import *` — el ta importa TUDU i bu ka ta sabi di unde kada funsan ben. Kel ta kria konfuzan i bugs difísil di atxa.
 :::
 
 ## Standard Library: Módulus ki Dja Ben ku Python
@@ -159,7 +159,7 @@ aniversáriu = datetime.strptime("15/01/1973", "%d/%m/%Y")
 print(f"Dia: {aniversáriu.day}, Mes: {aniversáriu.month}")
 ```
 
-Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bo ta prende kada un kuandu bo presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
+Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bu ta prende kada un kuandu bo presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
 
 :::callout{type=tip}
 Standard library é enormi! Kel li é só un prova. Vizita [docs.python.org/3/library](https://docs.python.org/3/library/) pa esplora tudu módulus disponível.
@@ -200,7 +200,7 @@ Senpri instala pakotis dentu di un **ambiente virtual** (`.venv`). Nos ta prende
 
 ## Kria Pakotis Personalizadu
 
-Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ó más módulus:
+Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ou más módulus:
 
 ```text
 meu_projetu/
@@ -234,7 +234,7 @@ def konta_palavras(texto):
 ```
 
 ```python
-# utilidadis/__init__.py (podi ser vazio, ó importa kusas prinsipal)
+# utilidadis/__init__.py (podi ser vazio, ou importa kusas prinsipal)
 from .matematika import soma, media
 from .texto import limpa, konta_palavras
 ```
@@ -254,7 +254,7 @@ print(konta_palavras("Nu ta kria djuntu"))  # 4
 
 ## Padron `__name__ == "__main__"`
 
-Kuandu Python ta roda un ficheru, el ta define `__name__` kómu `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
+Kuandu Python ta roda un ficheru, el ta define `__name__` kumo `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
 
 ```python
 # kalkuladora.py
@@ -282,7 +282,7 @@ python kalkuladora.py
 ```
 
 :::callout{type=tip}
-Kel padron é perfeitu pa po kódiku di testu ó ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kómu módulu.
+Kel padron é perfeitu pa po kódiku di testu ou ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kumo módulu.
 :::
 
 ## Struktura di un Projetu Real
@@ -313,10 +313,10 @@ gestor_notas/
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Organiza o projetu na módulus i pakotis ta faze o kódiku más fáxi di ler, mante i reuza — ka po tudu nun ficheru só.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Organiza projetu na módulus i pakotis ta faze kódiku más fáxi di ler, mantene i reuza — ka po tudu nun ficheru só.</RezumuItem>
   <RezumuItem term="Módulu">Un ficheru `.py` ku kódiku reutilizável. Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`.</RezumuItem>
   <RezumuItem term="Standard library">Módulus prontu ki ben ku Python: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`.</RezumuItem>
   <RezumuItem term="pip">`pip install nome_pakotu` pa pakotis di terseru ki ka ben ku Python.</RezumuItem>
-  <RezumuItem term="Pakotu">Un pasta ku un `__init__.py` + un o más módulu.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">`if __name__ == "__main__":` ta dexa kódiku ki só ta kore kuandu o ficheru é izekutadu diretu — perfeitu pa testes ki ka devia kore na o import. I evita `from módulu import *`.</RezumuItem>
+  <RezumuItem term="Pakotu">Un pasta ku un `__init__.py` + un ou más módulu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`if __name__ == "__main__":` ta dexa kódiku ki só ta kore kuandu ficheru é izekutadu diretu — perfeitu pa testes ki ka debe kore na import. I evita `from módulu import *`.</RezumuItem>
 </KeyTakeaways>

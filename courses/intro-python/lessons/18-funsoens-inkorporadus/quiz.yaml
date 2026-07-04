@@ -8,9 +8,9 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Bu kre o índisi i o valor a o mesmu tempu nun loop. Ki funsan é a forma Pythonic?"
+    kea: "Bu kre índisi i valor na mesmu tempu nun loop. Ki funsan é forma Pythonic?"
   options:
-    - text: { kea: "`enumerate(lista)` — ta da o índisi i o valor djuntu, sen meste `range(len(lista))`" }
+    - text: { kea: "`enumerate(lista)` — ta da índisi i valor djuntu, sen meste `range(len(lista))`" }
       correct: true
     - text: { kea: "`range(len(lista))` i dipos `lista[i]`" }
       correct: false
@@ -19,33 +19,33 @@
     - text: { kea: "`sorted(lista)`" }
       correct: false
 - question:
-    kea: "Bu faze `zip()` di dos lista di tamañu diferenti (un ku 5, otu ku 3). O ki ta kontise?"
+    kea: "Bu faze `zip()` di dos lista di tamanhu diferenti (un ku 5, otu ku 3). O ki ta kontise?"
   options:
-    - text: { kea: "`zip()` ta para kuandu o más kurtu akaba — só 3 par" }
+    - text: { kea: "`zip()` ta para kuandu más kurtu akaba — só 3 par" }
       correct: true
-    - text: { kea: "Ta da un `ValueError` — as lista ten ki tene mesmu tamañu" }
+    - text: { kea: "Ta da un `ValueError` — lista ten ki tene mesmu tamanhu" }
       correct: false
-    - text: { kea: "Ta prixinxe os ki falta ku `None`" }
+    - text: { kea: "Ta prixinxe kes ki falta ku `None`" }
       correct: false
-    - text: { kea: "Ta da 5 par, ku os úlimu repetidu" }
+    - text: { kea: "Ta da 5 par, ku últimu repetidu" }
       correct: false
 - question:
-    kea: "Kal é a diferensa entri `any()` i `all()`?"
+    kea: "Kal é diferensa entri `any()` i `all()`?"
   options:
     - text: { kea: "`any()` ta da `True` si **algun** elementu é `True`; `all()` só si **tudu** é `True`" }
       correct: true
     - text: { kea: "`any()` só si tudu é `True`; `all()` si algun é `True`" }
       correct: false
-    - text: { kea: "Es é a mesmu kuza" }
+    - text: { kea: "Es é mesmu kuza" }
       correct: false
-    - text: { kea: "`any()` ta konta os `True`; `all()` ta konta os `False`" }
+    - text: { kea: "`any()` ta konta `True`; `all()` ta konta `False`" }
       correct: false
 - question:
     kea: "Pamodi `isinstance(valor, int)` é preferidu sobri `type(valor) == int`?"
   options:
     - text: { kea: "`isinstance()` ta rekonxe subtipus (hereditariedadi) — p.ex. `isinstance(True, int)` é `True`, ma `type(True) == int` é `False`" }
       correct: true
-    - text: { kea: "`isinstance()` é más rápidu, ma da o mesmu rezultadu" }
+    - text: { kea: "`isinstance()` é más rápidu, ma da mesmu rezultadu" }
       correct: false
     - text: { kea: "`type()` ka ta funsiona ku números" }
       correct: false

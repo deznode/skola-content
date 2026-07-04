@@ -19,13 +19,13 @@
     - text: { kea: "Un módulu di Python pa matemátika" }
       correct: false
 - question:
-    kea: "Kal é a diferensa entri `map()` i `filter()`?"
+    kea: "Kal é diferensa entri `map()` i `filter()`?"
   options:
-    - text: { kea: "`map()` ta **transforma** kada elementu; `filter()` ta **selesiona** só os elementu undi a funsan ta da `True`" }
+    - text: { kea: "`map()` ta **transforma** kada elementu; `filter()` ta **selesiona** só elementu unde funsan ta da `True`" }
       correct: true
     - text: { kea: "`map()` ta selesiona; `filter()` ta transforma" }
       correct: false
-    - text: { kea: "Es é a mesmu kuza" }
+    - text: { kea: "Es é mesmu kuza" }
       correct: false
     - text: { kea: "`map()` só ta funsiona ku númerus; `filter()` só ku strings" }
       correct: false
@@ -41,13 +41,13 @@
     - text: { kea: "Un `TypeError`" }
       correct: false
 - question:
-    kea: "Kumo bu ta pasa a funsan `dobra` pa `map()`?"
+    kea: "Kumo bu ta pasa funsan `dobra` pa `map()`?"
   options:
-    - text: { kea: "`map(dobra, lista)` — sen os paréntesis; `dobra()` ta txoma-l imediatamenti i ta da un eru" }
+    - text: { kea: "`map(dobra, lista)` — sen paréntesis; `dobra()` ta txoma-l imediatamenti i ta da un eru" }
       correct: true
-    - text: { kea: "`map(dobra(), lista)` — ku os paréntesis" }
+    - text: { kea: "`map(dobra(), lista)` — ku paréntesis" }
       correct: false
-    - text: { kea: "`map(lista, dobra)` — a lista primeru" }
+    - text: { kea: "`map(lista, dobra)` — lista primeru" }
       correct: false
     - text: { kea: "`dobra.map(lista)`" }
       correct: false

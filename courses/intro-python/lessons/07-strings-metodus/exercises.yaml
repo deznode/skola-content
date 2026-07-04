@@ -111,7 +111,7 @@
   kind: explore
   title: { kea: "Splora tudu os metodus di string" }
   prompt:
-    kea: "String tene dezenas di metodus — `.upper()`, `.split()`, `.replace()` é só algun. Odja lista ofisial pa odja o ki más izisti; ka meste dekora, só sabe undi buska kuandu bu meste."
+    kea: "String tene dezenas di metodus — `.upper()`, `.split()`, `.replace()` é só algun. Odja lista ofisial pa odja o ki más izisti; ka meste dekora, só sabe unde buska kuandu bu meste."
   resources:
     kea:
       - { label: "Python docs — String Methods", url: "https://docs.python.org/3/library/stdtypes.html#string-methods" }
@@ -121,6 +121,6 @@
   kind: reflect
   title: { kea: "Refleta sobri limpa input di utilizador" }
   prompt:
-    kea: "Input di utilizador ta ben txeu di bez 'suju' — spasus a más, maiúskulas inkonsistenti. Pensa nun kampu ki bu ta pidi (email, nomi, resposta sim/nun). Skrebe kal metodus di string bu ta enkadea pa limpa-l (p.ex. `.strip().lower()`) i pamodi."
+    kea: "Input di utilizador ta ben txeu di bez 'suju' — spasus a más, maiúskulas inkonsistenti. Pensa nun kampu ki bu ta pidi (email, nomi, resposta sim/nun). Skrebe kual metodus di string bu ta enkadea pa limpa-l (p.ex. `.strip().lower()`) i pamodi."
   notePlaceholder:
     kea: "Kampu: …   ·   Metodus enkadeadu: …   ·   Pamodi (o ki ta evita): …"

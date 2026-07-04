@@ -1,0 +1,212 @@
+---
+title: "Eransa Múltiplu i MRO"
+language: kea
+courseSlug: intro-python
+lessonSlug: eransa-multiplu
+slug: "eransa-multiplu"
+module: 4
+lesson: 28
+duration: "20 min"
+objectives:
+  - "Implementa eransa múltiplu ku txomada direta Parent.__init__(self, ...)"
+  - "Kompriendi Method Resolution Order (MRO / C3) i orden di buska di metodus"
+  - "Uza isinstance() i issubclass() pa verifika tipu i relasan di eransa"
+---
+
+# Eransa Múltiplu i MRO
+
+Na lisan pasadu, un klasi filhu erda di **un só** pai. Ma algun kuza é dos kuza na mesmu tempu: Cesária Évora era **artista** (ta atua) i **kompozitor** (ta skrebe múzika). Un `EstudantiAtleta` é estudanti i atleta. Na Python, un klasi pode erda di **vários pai** na mesmu tempu — isu txoma **eransa múltiplu**. Ma kuandu dos pai tene un metodu ku mesmu nomi, kual ki ta ganha? Pa responde isu nu meste kompriende **MRO**.
+
+## Eransa Múltiplu
+
+Python ta permiti un klasi erda di **vários pais** (diferenti di algunus linguajen kumo Java). Pa eransa múltiplu, bu ta uza txomada **direta** pa kada pai:
+
+```python
+class Artista:
+    def __init__(self, nomi, jeneru_muzikál):
+        self.nomi = nomi
+        self.jeneru_muzikál = jeneru_muzikál
+
+    def atua(self):
+        print(f"🎤 {self.nomi} ta atua {self.jeneru_muzikál}!")
+
+
+class Kompozitor:
+    def __init__(self, instrumentu, núm_kompozisons):
+        self.instrumentu = instrumentu
+        self.núm_kompozisons = núm_kompozisons
+
+    def kompoe(self, títulu):
+        self.núm_kompozisons += 1
+        print(f"🎼 Kompozisan #{self.núm_kompozisons}: '{títulu}'")
+
+
+class MúzikuKompletu(Artista, Kompozitor):
+    def __init__(self, nomi, jeneru_muzikál, instrumentu, núm_kompozisons):
+        # Txomada direta a kada pai — pa eransa múltiplu
+        Artista.__init__(self, nomi, jeneru_muzikál)
+        Kompozitor.__init__(self, instrumentu, núm_kompozisons)
+        self.álbuns = []
+
+    def lansa_álbun(self, nomi_álbun):
+        """Lansa un álbun novu"""
+        self.álbuns.append(nomi_álbun)
+        print(f"💿 Álbun '{nomi_álbun}' lansadu! Total: {len(self.álbuns)} álbuns")
+
+    def perfil(self):
+        """Mostra perfil kompletu"""
+        print(f"\n{'='*40}")
+        print(f"  🎵 {self.nomi}")
+        print(f"  Jéneru: {self.jeneru_muzikál}")
+        print(f"  Instrumentu: {self.instrumentu}")
+        print(f"  Kompozisons: {self.núm_kompozisons}")
+        print(f"  Álbuns: {len(self.álbuns)}")
+        print(f"{'='*40}\n")
+
+
+# Kria un múziku konpletu
+cesaria = MúzikuKompletu("Cesária Évora", "Morna", "Voz", 50)
+cesaria.atua()                         # 🎤 Cesária Évora ta atua Morna!
+cesaria.kompoe("Mar Azul")             # 🎼 Kompozisan #51: 'Mar Azul'
+cesaria.lansa_álbun("Voz d'Amor")      # 💿 Álbun 'Voz d'Amor' lansadu!
+cesaria.lansa_álbun("Cabo Verde")      # 💿 Álbun 'Cabo Verde' lansadu!
+cesaria.perfil()
+# ========================================
+#   🎵 Cesária Évora
+#   Jéneru: Morna
+#   Instrumentu: Voz
+#   Kompozisons: 51
+#   Álbuns: 2
+# ========================================
+```
+
+:::callout{type=tip}
+Pa eransa **simples** (un só pai), uza `super().__init__()`. Pa eransa **múltiplu** (vários pais), uza `Pai.__init__(self, ...)` pa kada pai — un manera simplis i sigura pa prinsipianti. (`super()` tanbe ta funsiona ku eransa múltiplu, ma é un tópiku más avansadu.)
+:::
+
+## Method Resolution Order (MRO)
+
+Kuandu un klasi erda di vários pais, Python presiza sabi **ki orden** pa buska metodus. Es orden txoma **MRO** (Method Resolution Order). Python ta sigi algoritmu **C3**: kada klasi ta ben antis di ses pais, i un pai kompartilhadu (kuma `A`) só ta aparese **dipos di tudu ses fidjus** (`B` i `C`):
+
+```python
+class A:
+    def saudasan(self):
+        print("Ola di A!")
+
+class B(A):
+    def saudasan(self):
+        print("Ola di B!")
+
+class C(A):
+    def saudasan(self):
+        print("Ola di C!")
+
+class D(B, C):
+    pass  # Ka defini saudasan — vai buska na pais
+
+d = D()
+d.saudasan()  # Ola di B!  ← pamodi B ven antis di C
+
+# Verifika MRO
+print(D.__mro__)
+# (<class 'D'>, <class 'B'>, <class 'C'>, <class 'A'>, <class 'object'>)
+# Orden: D → B → C → A → object
+```
+
+:::callout{type=note}
+Repara: `A` ta aparese **un só bez**, mésmu ki `B` i `C` tudu dos erda di el — i el ta ben **dipos** di `B` i `C`, ka entri es. É izatamenti pa kel-li ki C3 ta sirbi: el ta evita duplikason i konfuzan na ierárkia.
+:::
+
+```python
+# Ezemplu prátiku di MRO ku kultura CV
+class Morabeza:
+    def kualidadi(self):
+        return "Morabeza (ospitalidadi)"
+
+class Kriativdadi:
+    def kualidadi(self):
+        return "Kriativdadi"
+
+class Kaboverdianu(Morabeza, Kriativdadi):
+    pass  # Erda di dos
+
+kv = Kaboverdianu()
+print(kv.kualidadi())   # Morabeza (ospitalidadi)  ← Morabeza ven primeiru
+
+# Pa ve orden di buska
+for klasi in Kaboverdianu.__mro__:
+    print(f"  → {klasi.__name__}")
+#   → Kaboverdianu
+#   → Morabeza
+#   → Kriativdadi
+#   → object
+```
+
+:::callout{type=tip}
+Si bu ka sabe ki métudu ta ser txomadu, uza `Klasi.__mro__` ou `Klasi.mro()` pa ve orden ezata di buska.
+:::
+
+## `isinstance()` i `issubclass()`
+
+Python ta fornese dos funsons pa verifika relasan entri objetis i klasis:
+
+```python
+class Viatúra:
+    pass
+
+class Taxi(Viatúra):
+    pass
+
+class Autokaru(Viatúra):
+    pass
+
+# Kria objetis
+taxi = Taxi()
+bus = Autokaru()
+
+# isinstance() — verifica si objetu é instánsia di un klasi
+print(isinstance(taxi, Taxi))      # True — taxi É un Taxi
+print(isinstance(taxi, Viatúra))    # True — taxi TAMBÉN é un Viatúra (erdansa!)
+print(isinstance(taxi, Autokaru))  # False — taxi KA é un Autokaru
+
+# issubclass() — verifica si un klasi é filhu di otru
+print(issubclass(Taxi, Viatúra))      # True — Taxi é filhu di Viatúra
+print(issubclass(Autokaru, Viatúra))  # True — Autokaru é filhu di Viatúra
+print(issubclass(Taxi, Autokaru))    # False — Taxi ka é filhu di Autokaru
+print(issubclass(Viatúra, Viatúra))    # True — klasi é subklasi di si mesmu
+```
+
+```python
+# Uzu prátiku: funsan ki ta aseta diferentis tipu
+def prosesa_viatúra(v):
+    """Prosesa kualker tipu di viatúra"""
+    if not isinstance(v, Viatúra):
+        print("❌ Isu ka é un viatúra!")
+        return
+
+    print(f"✅ Prosesandu: {type(v).__name__}")
+
+prosesa_viatúra(taxi)     # ✅ Prosesandu: Taxi
+prosesa_viatúra(bus)        # ✅ Prosesandu: Autokaru
+prosesa_viatúra("minibus")  # ❌ Isu ka é un viatúra!
+```
+
+:::callout{type=tip}
+`isinstance(obj, Klasi)` ta konta ku eransa — un `Taxi` é tanbé un `Viatúra`. Uza-l en bez di `type(obj) == Klasi` kuandu bu kre aseta filhu tambe.
+:::
+
+## Tenta Gosi
+<TentaGosi />
+
+## Testa bu Konhesimentu
+<QuizSet>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
+</QuizSet>
+
+## Rezumu
+<KeyTakeaways>
+  <RezumuItem variant="gold" term="Eransa múltiplu">`class Filhu(Pai1, Pai2):` — na `__init__`, txoma `Pai1.__init__(self, ...)` i `Pai2.__init__(self, ...)` direta pa kada pai.</RezumuItem>
+  <RezumuItem term="MRO">Method Resolution Order ta determina orden di buska. Ku C3: kada klasi ben antis di ses pai, i un pai kompartilhadu ben dipos di tudu ses fidju. `Klasi.__mro__` ta mostra-l.</RezumuItem>
+  <RezumuItem term="isinstance / issubclass">`isinstance(obj, Klasi)` verifika si un objetu é di un klasi (inklui eransa); `issubclass(Filhu, Pai)` verifika relasan entri klasis.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Kuandu dos pai tene un metodu ku mesmu nomi, MRO ta disidi kual ki ganha — primeru na orden `__mro__`.</RezumuItem>
+</KeyTakeaways>

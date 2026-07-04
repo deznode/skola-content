@@ -95,7 +95,7 @@ Segridu más importanti: **senpri kumesa ler di última linha**. É la ki respos
     },
     {
       m: 2,
-      title: "Pasu 2 — Undi koreu mal",
+      title: "Pasu 2 — Unde koreu mal",
       body: "Fixeru `kalkula.py`, linha 4, funsan `kalkula_media`. Seta `^` ta aponta direitamenti pa `/` — é operasan ki fadja.",
     },
     {
@@ -190,7 +190,7 @@ if idadi > 18
 
 **Kauzas kumun:**
 - Skise `:` dipos di `if`, `for`, `while`, `def`, `class`
-- Skise fitxa paréntesis `)`, brackets `]`, o braces `}`
+- Skise fitxa paréntesis `)`, brackets `]`, ou braces `}`
 - Uza `=` (atribuisan) na lugar di `==` (komparasan) na kondisionais
 
 :::callout{type=tip}
@@ -250,7 +250,7 @@ mensajen = "Bu tene " + idadi + " anu"
 Seta `^` ta mostra exatamenti unde string ta bate ku int!
 
 **Kauzas kumun:**
-- Djunta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` o f-string)
+- Djunta string ku int: `"Ola" + 5` (uza `"Ola" + str(5)` ou f-string)
 - Txoma algu ki ka é funsan: `x = 5; x()` (TypeError: 'int' is not callable)
 - Manda argumentu eradu pa funsan
 
@@ -368,8 +368,8 @@ print(nota)  # Sen nota
       kind: "text",
       vals: [
         "Djunta `:`, `)`, `]` ki falta",
-        "Defini variável o verifika ortografia",
-        "Uza `str()`, `int()` o f-string",
+        "Defini variável ou verifika ortografia",
+        "Uza `str()`, `int()` ou f-string",
         "Verifika `len()` antis",
         "Uza `.get(xavi, padran)`",
       ],
@@ -381,9 +381,9 @@ print(nota)  # Sen nota
 <Flashcard
   showHeader={false}
   cards={[
-    { term: "SyntaxError", def: "Gramátika eradu: Python ka kompriende o kódiku. É úniku eru ki ta parese antis di kore. Txeu bez faltou dos pontu, paréntesis o brackets." },
-    { term: "NameError", def: "Un nomi ka foi difinidu inda — variável ka kriadu, o un eru di ortografia. Defini-l antis di uza-l." },
-    { term: "TypeError", def: "Tipus inkompatível, p.ex. djunta string ku int. Konverti ku str() o int(), o uza un f-string." },
+    { term: "SyntaxError", def: "Gramátika eradu: Python ka kompriende kódiku. É úniku eru ki ta parese antis di kore. Txeu bez faltou dos pontu, paréntesis ou brackets." },
+    { term: "NameError", def: "Un nomi ka foi difinidu inda — variável ka kriadu, ou un eru di ortografia. Defini-l antis di uza-l." },
+    { term: "TypeError", def: "Tipus inkompatível, p.ex. djunta string ku int. Konverti ku str() ou int(), ou uza un f-string." },
     { term: "IndexError", def: "Índisi fora di rangu: lista ka ten kel pozisan. Índisi ta kumesa na 0, i último é len(lista) menus 1." },
     { term: "KeyError", def: "Xavi ka ezisti na disionáriu. Uza .get(xavi, padran) pa evita eru." },
   ]}
@@ -436,7 +436,7 @@ print(f"Média di presu: {media} ECV")
 Aplika 3 pasus:
 1. **LER:** `IndexError: list index out of range` — índisi fora di rangu
 2. **ATXA:** Linha 6, `lista_di_presus[i]` — seta mostra ki problema é na asesu pa lista
-3. **PENSA:** `range(1, 5)` ta da `1, 2, 3, 4`. Ma `lista_di_presus[4]` ka ezisti pamodi índisis ta bai di 0 a 3. Soluson: `range(len(lista_di_presus))` o `range(0, 4)`.
+3. **PENSA:** `range(1, 5)` ta da `1, 2, 3, 4`. Ma `lista_di_presus[4]` ka ezisti pamodi índisis ta bai di 0 a 3. Soluson: `range(len(lista_di_presus))` ou `range(0, 4)`.
 
 ```python
 # Korrejidu!

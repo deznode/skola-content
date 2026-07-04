@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Klasi Produtu" }
   prompt:
-    kea: "Kria un klasi `Produtu` ku os atributu `nomi`, `presu` (ECV) i `stoki`. Adisiona os metodu `vende(kantidadi)` (ta reduzi o stoki si tene sufisienti) i `repon(kantidadi)` (ta aumenta o stoki)."
+    kea: "Kria un klasi `Produtu` ku atributu `nomi`, `presu` (ECV) i `stoki`. Adisiona metodu `vende(kantidadi)` (ta reduzi stoki si tene sufisienti) i `repon(kantidadi)` (ta aumenta stoki)."
   hint:
-    kea: "Inisializa tudu na `__init__(self, nomi, presu, stoki)`. Na `vende`, verifika `if kantidadi <= self.stoki:` antis di faze `self.stoki -= kantidadi`. Ka skese o `self` kumo primeru parámetru di kada metodu."
+    kea: "Inisializa tudu na `__init__(self, nomi, presu, stoki)`. Na `vende`, verifika `if kantidadi <= self.stoki:` antis di faze `self.stoki -= kantidadi`. Ka skese `self` kumo primeru parámetru di kada metodu."
   starterCode: |
     # produtu.py
     class Produtu:
@@ -58,9 +58,9 @@
   kind: code
   title: { kea: "Klasi Restoranti" }
   prompt:
-    kea: "Kria un klasi `Restoranti` ku os atributu `nomi`, `sidadi` i `menu` (un disionáriu pratu→presu). Adisiona `adisiona_pratu(nomi, presu)`, `mostra_menu()` i `fazi_pedidu(lista_pratu)` ki ta retorna o total na ECV."
+    kea: "Kria un klasi `Restoranti` ku atributu `nomi`, `sidadi` i `menu` (un disionáriu pratu→presu). Adisiona `adisiona_pratu(nomi, presu)`, `mostra_menu()` i `fazi_pedidu(lista_pratu)` ki ta retorna total na ECV."
   hint:
-    kea: "Inisializa `self.menu = {}` na `__init__`. Na `adisiona_pratu`, `self.menu[nomi] = presu`. Na `fazi_pedidu`, soma `self.menu[p]` pa kada pratu na a lista (uza `.get()` pa pratu ki ka izisti)."
+    kea: "Inisializa `self.menu = {}` na `__init__`. Na `adisiona_pratu`, `self.menu[nomi] = presu`. Na `fazi_pedidu`, soma `self.menu[p]` pa kada pratu na lista (uza `.get()` pa pratu ki ka izisti)."
   starterCode: |
     # restoranti.py
     class Restoranti:
@@ -103,9 +103,9 @@
   kind: code
   title: { kea: "Klasi Jogador" }
   prompt:
-    kea: "Kria un klasi `Jogador` ku os atributu `nomi`, `ekipa`, `golus` (kumesa na 0) i `jogus` (kumesa na 0). Adisiona `joga(golus_markadu)` i `media_golus()`. Kria 3 jogador i mostra ken ki tene a midjór média."
+    kea: "Kria un klasi `Jogador` ku atributu `nomi`, `ekipa`, `golus` (kumesa na 0) i `jogus` (kumesa na 0). Adisiona `joga(golus_markadu)` i `media_golus()`. Kria 3 jogador i mostra ken ki tene midjór média."
   hint:
-    kea: "Na `joga`, `self.jogus += 1` i `self.golus += golus_markadu`. Na `media_golus`, kuidadu ku divizan pa zero: `self.golus / self.jogus if self.jogus else 0`. Pa o midjór, `max(jogadoris, key=lambda j: j.media_golus())`."
+    kea: "Na `joga`, `self.jogus += 1` i `self.golus += golus_markadu`. Na `media_golus`, kuidadu ku divizan pa zero: `self.golus / self.jogus if self.jogus else 0`. Pa midjór, `max(jogadoris, key=lambda j: j.media_golus())`."
   starterCode: |
     # jogador.py
     class Jogador:
@@ -146,7 +146,7 @@
   prompt:
     kea: "Kria un klasi `Biblioteka` ku un lista di livru (kada livru un disionáriu ku `\"títulu\"`, `\"autor\"`, `\"disponível\"`). Adisiona `adisiona_livru(títulu, autor)`, `empresta_livru(títulu)` i `devolve_livru(títulu)`."
   hint:
-    kea: "Inisializa `self.livrus = []`. Pa `empresta`, atxa o livru pa títulu i po `\"disponível\" = False` (si dja sta emprestadu, avisa). `devolve` ta faze o kontráriu. Un loop sobri `self.livrus` ta atxa o sertu."
+    kea: "Inisializa `self.livrus = []`. Pa `empresta`, atxa livru pa títulu i po `\"disponível\" = False` (si dja sta emprestadu, avisa). `devolve` ta faze kontráriu. Un loop sobri `self.livrus` ta atxa sertu."
   starterCode: |
     # biblioteka.py
     class Biblioteka:
@@ -200,9 +200,9 @@
   file: konta.py
   title: { kea: "Koriji un self ki sta en falta" }
   prompt:
-    kea: "O metodu `deposita` ta da un `NameError: name 'saldu' is not defined`. Falta a referénsia pa o objetu atuál. Koriji-l pa o saldu atualiza pa 150."
+    kea: "Metodu `deposita` ta da un `NameError: name 'saldu' is not defined`. Falta referénsia pa objetu atuál. Koriji-l pa saldu atualiza pa 150."
   hint:
-    kea: "Dentu di un metodu, os atributu di o objetu ten ki ser asesadu ku `self.` — `self.saldu`, ka `saldu` solu. Uza `self.saldu += montanti`."
+    kea: "Dentu di un metodu, atributu di objetu ten ki ser asesadu ku `self.` — `self.saldu`, ka `saldu` solu. Uza `self.saldu += montanti`."
   starterCode: |
     # konta.py — es ta da un NameError. Koriji-l.
     class Konta:
@@ -232,7 +232,7 @@
   kind: explore
   title: { kea: "Splora @dataclass" }
   prompt:
-    kea: "Skrebe `__init__` pa kada klasi é repetitivu. O dekorador `@dataclass` ta jeri-l sózin a partir di os atributu. Odja a dokumentason — un atadju poderozu pa klasis ki só ta gerda dadus."
+    kea: "Skrebe `__init__` pa kada klasi é repetitivu. Dekorador `@dataclass` ta jeri-l sózin a partir di atributu. Odja dokumentason — un atadju poderozu pa klasis ki só ta gerda dadus."
   resources:
     kea:
       - { label: "Python docs — dataclasses", url: "https://docs.python.org/3/library/dataclasses.html" }
@@ -242,6 +242,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `self`" }
   prompt:
-    kea: "`self` é a referénsia pa o objetu atuál — kumo dize \"nha\". Pensa nun klasi ki bu kreba kria (p.ex. un karu, un konta, un estudanti). Skrebe ki atributu (`self.x`) i ki metodu el ta tene, i pamodi kada objetu ten ki tene se própriu kópia di os atributu."
+    kea: "`self` é referénsia pa objetu atuál — kumo dize \"nha\". Pensa nun klasi ki bu kreba kria (p.ex. un karu, un konta, un estudanti). Skrebe ki atributu (`self.x`) i ki metodu el ta tene, i pamodi kada objetu ten ki tene se própriu kópia di atributu."
   notePlaceholder:
     kea: "Klasi: …   ·   Atributu (self.x): …   ·   Metodu: …   ·   Pamodi kada objetu é independenti: …"

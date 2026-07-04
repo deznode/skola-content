@@ -8,35 +8,35 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é a diferensa entri abri un ficheru ku modu `\"w\"` i ku modu `\"a\"`?"
+    kea: "Kal é diferensa entri abri un ficheru ku modu `\"w\"` i ku modu `\"a\"`?"
   options:
-    - text: { kea: "`\"w\"` ta **apaga** tudu o konteúdu ki tinha i kumesa di novu; `\"a\"` ta **adisiona** na fin sen apaga nada" }
+    - text: { kea: "`\"w\"` ta **apaga** tudu konteúdu ki tinha i kumesa di novu; `\"a\"` ta **adisiona** na fin sen apaga nada" }
       correct: true
     - text: { kea: "`\"w\"` ta adisiona; `\"a\"` ta apaga" }
       correct: false
-    - text: { kea: "Es é igual — os dos ta skrebe" }
+    - text: { kea: "Es é igual — dos ta skrebe" }
       correct: false
     - text: { kea: "`\"w\"` é pa lé; `\"a\"` é pa skrebe" }
       correct: false
 - question:
     kea: "Pamodi é midjór uza `with open(...) as f:` en bez di `f = open(...)`?"
   options:
-    - text: { kea: "O `with` ta **fexa** o ficheru automátikamenti kuandu o bloku akaba — mesmu si un eru akontese" }
+    - text: { kea: "`with` ta **fexa** ficheru automátikamenti kuandu bloku akaba — mesmu si un eru akontese" }
       correct: true
-    - text: { kea: "O `with` é más rápidu pa lé ficheru grandi" }
+    - text: { kea: "`with` é más rápidu pa lé ficheru grandi" }
       correct: false
-    - text: { kea: "O `with` ta kria o ficheru si el ka izisti" }
+    - text: { kea: "`with` ta kria ficheru si el ka izisti" }
       correct: false
     - text: { kea: "Ka ten diferensa — es é só stilu" }
       correct: false
 - question:
-    kea: "Bu tenta abri un ficheru ku modu `\"r\"` ma o ficheru ka izisti. O ki ta kontise?"
+    kea: "Bu tenta abri un ficheru ku modu `\"r\"` ma ficheru ka izisti. O ki ta kontise?"
   options:
-    - text: { kea: "Un `FileNotFoundError` — pa lé, o ficheru ten ki izisti (verifika ku `os.path.exists()` antis)" }
+    - text: { kea: "Un `FileNotFoundError` — pa lé, ficheru ten ki izisti (verifika ku `os.path.exists()` antis)" }
       correct: true
     - text: { kea: "Python ta kria un ficheru vaziu automátikamenti" }
       correct: false
     - text: { kea: "Ta retorna un string vaziu sen eru" }
       correct: false
-    - text: { kea: "Ta abri o ficheru na modu `\"w\"` en bez" }
+    - text: { kea: "Ta abri ficheru na modu `\"w\"` en bez" }
       correct: false

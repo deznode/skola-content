@@ -21,10 +21,10 @@ objectives:
 Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizan baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
 
 <GlossaryText
-  text="Un programa ta toma desizan avaliandu un [[kondisan]] — un pergunta ki ta da `True` ó `False` (un valor [[boolean]])."
+  text="Un programa ta toma desizan avaliandu un [[kondisan]] — un pergunta ki ta da `True` ou `False` (un valor [[boolean]])."
   terms={{
-    kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ó `False` — pa izemplu idadi >= 18. É o ki un if ta verifika antis di disidi." },
-    boolean: { en: "boolean", definition: "Tipu di dadu ku dos valor sô: True ó False. Tudu komparasan (==, >, <...) ta produzi un boolean." },
+    kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ou `False` — pa izemplu idadi >= 18. É o ki un if ta verifika antis di disidi." },
+    boolean: { en: "boolean", definition: "Tipu di dadu ku dos valor sô: True ou False. Tudu komparasan (==, >, <...) ta produzi un boolean." },
   }}
 />
 
@@ -34,7 +34,7 @@ Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`
 
 ## If i Else Báziku
 
-![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizan.png)
+![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizan.jpg)
 
 Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta bloku di kódiku dentu. Si é `False`, el ta pula pa `else`.
 
@@ -49,14 +49,14 @@ Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta
     { t: '    print("Bo é menor di idadi.")', m: 3 },
   ]}
   notes={[
-    { m: 1, title: "Avalia kondisan", body: "Python ta avalia `idadi >= 18` — ta da `True` ó `False`." },
+    { m: 1, title: "Avalia kondisan", body: "Python ta avalia `idadi >= 18` — ta da `True` ou `False`." },
     { m: 2, title: "Si é True", body: "Si kondisan é `True`, ta izekuta bloku **indentadu** dipos di `if`." },
     { m: 3, title: "Si é False", body: "Si é `False`, Python ta salta diretu pa bloku `else`." },
   ]}
 />
 
 :::callout{type=warning}
-Nunka skise `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabe ki kódiku ta pertensi pa kál bloku.
+Nunka skise `:` dipos di `if` i `else`. Python ta uza indentasan (4 espasu) pa sabe ki kódiku ta pertensi pa kual bloku.
 :::
 
 Ma uzus simples:
@@ -201,7 +201,7 @@ elif operasan == "/":
     else:
         print("Eru: Ka pode dividi pa zeru!")
 else:
-    print(f"Operasan '{operasan}' ka é válidu. Uza +, -, * ó /.")
+    print(f"Operasan '{operasan}' ka é válidu. Uza +, -, * ou /.")
 ```
 
 :::callout{type=tip}

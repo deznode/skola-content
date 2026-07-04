@@ -25,7 +25,7 @@
       correct: true
     - text: { kea: "Un `SyntaxError` — `if` ka pode sta na un linha" }
       correct: false
-    - text: { kea: "Ta imprimi `\"adultu\"` o `\"menor\"` diretu na ekran" }
+    - text: { kea: "Ta imprimi `\"adultu\"` ou `\"menor\"` diretu na ekran" }
       correct: false
     - text: { kea: "Ta da senpri `\"adultu\"` pa `status`" }
       correct: false

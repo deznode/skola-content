@@ -10,33 +10,33 @@
 - question:
     kea: "Pa kuze ki ta sirbi un ambiente virtual (`.venv`)?"
   options:
-    - text: { kea: "Ta izola os pakotu di kada projetu — kada projetu tene se própriu versan, sen interferi ku os otus" }
+    - text: { kea: "Ta izola pakotu di kada projetu — kada projetu tene se própriu versan, sen interferi ku otus" }
       correct: true
-    - text: { kea: "Ta faze o kódiku kore más rápidu" }
+    - text: { kea: "Ta faze kódiku kore más rápidu" }
       correct: false
-    - text: { kea: "Ta instala Python na o komputador" }
+    - text: { kea: "Ta instala Python na komputador" }
       correct: false
-    - text: { kea: "Ta konekta o projetu a a internet" }
+    - text: { kea: "Ta konekta projetu pa internet" }
       correct: false
 - question:
-    kea: "Kumo bu ta salva i dipos restaura a lista di pakotu di un projetu?"
+    kea: "Kumo bu ta salva i dipos restaura lista di pakotu di un projetu?"
   options:
     - text: { kea: "`pip freeze > requirements.txt` pa salva; `pip install -r requirements.txt` pa restaura" }
       correct: true
     - text: { kea: "`pip save` pa salva; `pip load` pa restaura" }
       correct: false
-    - text: { kea: "Kopia a pasta `.venv/` pa o git" }
+    - text: { kea: "Kopia pasta `.venv/` pa git" }
       correct: false
     - text: { kea: "`pip list > requirements.txt` pa salva; `pip get` pa restaura" }
       correct: false
 - question:
-    kea: "Pamodi a pasta `.venv/` ka devia bai pa git?"
+    kea: "Pamodi pasta `.venv/` ka debe bai pa git?"
   options:
     - text: { kea: "El tene miláris di ficheru, é spesífiku pa kada komputador, i pode ser rekriadu di `requirements.txt` — anton ta na `.gitignore`" }
       correct: true
-    - text: { kea: "Pamodi el tene o kódiku sekretu di o projetu" }
+    - text: { kea: "Pamodi el tene kódiku sekretu di projetu" }
       correct: false
     - text: { kea: "Pamodi git ka ta seita pasta ku ponto na nomi" }
       correct: false
-    - text: { kea: "El devia bai pa git senpri — é importante partilha-l" }
+    - text: { kea: "El debe bai pa git senpri — é importante partilha-l" }
       correct: false

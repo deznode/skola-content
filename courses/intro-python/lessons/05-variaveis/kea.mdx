@@ -26,9 +26,9 @@ Nes lisan, nu ta prende kumo kria variáveis, ki regras di nomi tene, kumo reseb
 Na Python, bu ta kria un variável sinplismenti: bu ta atribui un valor ku `=`. Ka presiza deklara tipu antis — Python ta diskubri-l sózin.
 
 <GlossaryText
-  text="Es komportamentu — undi bu ka ta deklara tipu, i el pode muda kuandu bu re-atribui — ta txoma-s [[tipu dinámiku]]."
+  text="Es komportamentu — unde bu ka ta deklara tipu, i el pode muda kuandu bu re-atribui — ta txoma-s [[tipu dinámiku]]."
   terms={{
-    "tipu dinámiku": { en: "dynamic typing", definition: "Un sistema undi tipu di un variável é diskubridu na momentu di izekusan i pode muda kuandu bu atribui un valor novu — ka presiza deklara-l antis." },
+    "tipu dinámiku": { en: "dynamic typing", definition: "Un sistema unde tipu di un variável é diskubridu na momentu di izekusan i pode muda kuandu bu atribui un valor novu — ka presiza deklara-l antis." },
   }}
 />
 
@@ -37,7 +37,7 @@ Na Python, bu ta kria un variável sinplismenti: bu ta atribui un valor ku `=`. 
 nomi = "Amilcar"       # str (textu)
 idadi = 25             # int (númeru interu)
 altura = 1.75          # float (númeru desimal)
-estudanti = True       # bool (verdaderu ó falsu)
+estudanti = True       # bool (verdaderu ou falsu)
 ```
 
 Bu pode tanbe atribui vários valores na mesmu linha:
@@ -74,7 +74,7 @@ Python ten regras ki bu ten ki sigi pa nomis di variáveis:
 <SectionHeading level={3} variant="concept">Regras Obrigatóriu</SectionHeading>
 
 ```python
-# Nomis VÁLIDU — komesa ku letra ó underscore
+# Nomis VÁLIDU — komesa ku letra ou underscore
 nomi = "Gil"
 _idadi = 30
 nomi_kompletu = "Gil Santos"
@@ -94,7 +94,7 @@ nota1 = 85
       vals: ['2nomi = "Gil"', 'nomi2 = "Gil"'],
     },
     {
-      label: "Spasu ó hífen",
+      label: "Spasu ou hífen",
       kind: "code",
       vals: ['nomi-kompletu = "Gil"', 'nomi_kompletu = "Gil"'],
     },
@@ -107,7 +107,7 @@ nota1 = 85
 />
 
 :::callout{type=warning}
-Uza un palavra di Python kumo `print` ó `list` kumo nomi di variável ka ta da eru na momentu — ma ta **kebra** kel funsan pa restu di programa. Evita-l.
+Uza un palavra di Python kumo `print` ou `list` kumo nomi di variável ka ta da eru na momentu — ma ta **kebra** kel funsan pa restu di programa. Evita-l.
 :::
 
 ### Konvensons (PEP 8)
@@ -147,7 +147,7 @@ Bo futuru ta agrádese kuandu bu uza nomis klaru. Imagina ler bo kódiku dipos d
 
 ## Verifika Tipu ku `type()`
 
-Funsan `type()` ta mostra tipu di kualker valor ó variável:
+Funsan `type()` ta mostra tipu di kualker valor ou variável:
 
 ```python
 nomi = "Lara"
@@ -208,7 +208,7 @@ Kuandu bu roda:
 `input()` senpri ta retorna **string**, mesmu si utilizador skrebe un númeru — nton `idadi + 5` ta da `TypeError: can only concatenate str to str`.
 :::
 
-Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ó `float()`):
+Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ou `float()`):
 
 <CodeDiff
   lang="python"
@@ -224,7 +224,7 @@ Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ó `float()`):
 />
 
 :::callout{type=tip}
-Senpri lenbra — `input()` ta retorna string. Si bu kre númeru, uza `int()` ó `float()` pa konverti.
+Senpri lenbra — `input()` ta retorna string. Si bu kre númeru, uza `int()` ou `float()` pa konverti.
 :::
 
 ## Konversan di Tipu (Type Casting)
@@ -409,9 +409,9 @@ Kuandu bu roda:
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">`input()` ta retorna **senpri** un string — si bu kre un númeru, konverti ku `int()` o `float()` antis di kalkula.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">`input()` ta retorna **senpri** un string — si bu kre un númeru, konverti ku `int()` ou `float()` antis di kalkula.</RezumuItem>
   <RezumuItem term="Variáveis">Kaxas pa garda dados — kria ku `=`. Python ta diskubri tipu sózin (dynamic typing).</RezumuItem>
-  <RezumuItem term="Nomis">Debe kumesa ku letra o `_`, uza `snake_case`, i ser **deskritivu** (`presu_katxupa`, ka `x`).</RezumuItem>
+  <RezumuItem term="Nomis">Debe kumesa ku letra ou `_`, uza `snake_case`, i ser **deskritivu** (`presu_katxupa`, ka `x`).</RezumuItem>
   <RezumuItem term="type()">Ta mostra tipu di un valor — un ferramenta útil pa debugging.</RezumuItem>
   <RezumuItem term="Konversan">`int()`, `float()`, `str()`, `bool()` ta muda entri tipus.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">`ValueError` ta parese kuandu konversan ka é posível (`int("Maria")`); `TypeError` kuandu bu ta mistura tipus (`"25" + 5`).</RezumuItem>

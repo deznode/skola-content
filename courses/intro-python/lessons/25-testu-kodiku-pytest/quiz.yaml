@@ -8,46 +8,46 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "O ki ta kontise kuandu un `assert` faya (a kondisan é `False`)?"
+    kea: "O ki ta kontise kuandu un `assert` faya (kondisan é `False`)?"
   options:
-    - text: { kea: "Python ta lansa un `AssertionError` — o testu faya" }
+    - text: { kea: "Python ta lansa un `AssertionError` — testu faya" }
       correct: true
-    - text: { kea: "Nada — `assert` ta ignora a kondisan" }
+    - text: { kea: "Nada — `assert` ta ignora kondisan" }
       correct: false
-    - text: { kea: "O programa ta kontinua, ma ku un avizu" }
+    - text: { kea: "Programa ta kontinua, ma ku un avizu" }
       correct: false
-    - text: { kea: "Ta retorna `False` di a funsan" }
+    - text: { kea: "Ta retorna `False` di funsan" }
       correct: false
 - question:
-    kea: "Kumo pytest ta diskubri os testu na un ficheru?"
+    kea: "Kumo pytest ta diskubri testu na un ficheru?"
   options:
-    - text: { kea: "O ficheru kumesa ku `test_` (o akaba ku `_test.py`) i as funsan kumesa ku `test_`" }
+    - text: { kea: "Ficheru kumesa ku `test_` (ou akaba ku `_test.py`) i funsan kumesa ku `test_`" }
       correct: true
-    - text: { kea: "Tudu funsan na o ficheru é un testu" }
+    - text: { kea: "Tudu funsan na ficheru é un testu" }
       correct: false
-    - text: { kea: "Só as funsan ku un dekorador `@test`" }
+    - text: { kea: "Só funsan ku un dekorador `@test`" }
       correct: false
-    - text: { kea: "Bu ten ki lista kada testu nun ficheru de konfigurason" }
+    - text: { kea: "Bu ten ki lista kada testu nun ficheru di konfigurasan" }
       correct: false
 - question:
-    kea: "Kumo bu ta testa ki un funsan **deve** lansa un `ValueError`?"
+    kea: "Kumo bu ta testa ki un funsan **debe** lansa un `ValueError`?"
   options:
-    - text: { kea: "Ku `with pytest.raises(ValueError): funsan(...)` — o testu ta pasa só si o eru é lansadu" }
+    - text: { kea: "Ku `with pytest.raises(ValueError): funsan(...)` — testu ta pasa só si eru é lansadu" }
       correct: true
     - text: { kea: "Ku `assert funsan(...) == ValueError`" }
       correct: false
-    - text: { kea: "Ku un `try`/`except` dentu di o testu" }
+    - text: { kea: "Ku un `try`/`except` dentu di testu" }
       correct: false
     - text: { kea: "Ka ten manera di testa erus ku pytest" }
       correct: false
 - question:
-    kea: "Na o pensamentu TDD (Test-Driven Development), ki ordi bu ta sigi?"
+    kea: "Na pensamentu TDD (Test-Driven Development), ki órden bu ta sigi?"
   options:
-    - text: { kea: "Skrebe o testu primeru (el ta faya), dipos implementa o kódiku mínimu pa pasa, dipos verifika i repeti" }
+    - text: { kea: "Skrebe testu primeru (el ta faya), dipos implementa kódiku mínimu pa pasa, dipos verifika i repeti" }
       correct: true
-    - text: { kea: "Skrebe tudu o kódiku primeru, dipos os testu na o fin" }
+    - text: { kea: "Skrebe tudu kódiku primeru, dipos testu na fin" }
       correct: false
-    - text: { kea: "Skrebe só o kódiku — TDD ka ta uza testu" }
+    - text: { kea: "Skrebe só kódiku — TDD ka ta uza testu" }
       correct: false
-    - text: { kea: "Roda o programa manualmenti antis di kada mudansa" }
+    - text: { kea: "Roda programa manualmenti antis di kada mudansa" }
       correct: false

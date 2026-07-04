@@ -86,6 +86,8 @@ modules:
         languages: [kea]
       - slug: eransa
         languages: [kea]
+      - slug: eransa-multiplu
+        languages: [kea]
       - slug: polimorfismu-abstrasan
         languages: [kea]
       - slug: enkapsolamentu-property

@@ -1,0 +1,53 @@
+# Quiz sidecar (draft source) for lesson m4-28 "Eransa Múltiplu i MRO".
+# Draft-canonical per ADR-0026. Publish copies this VERBATIM to
+# content/courses/intro-python/lessons/28-eransa-multiplu/quiz.yaml; positions
+# 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
+#
+# ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
+# Positions 0-2 were carried verbatim from the pre-split m4-27 lesson; position
+# 3 (issubclass) was AI-drafted 2026-07-03 during the L27 split. A native Kriolu
+# reviewer must approve/rewrite wording before publish. languages_enabled=["kea"].
+- question:
+    kea: "Pa eransa **simples** bu uza `super().__init__()`. I pa eransa **múltiplu** (vários pai)?"
+  options:
+    - text: { kea: "Txomada direta pa kada pai: `Pai1.__init__(self, ...)` i `Pai2.__init__(self, ...)`" }
+      correct: true
+    - text: { kea: "Senpri `super().__init__()`, ki ta txoma tudu pai" }
+      correct: false
+    - text: { kea: "Ka pode tene eransa múltiplu na Python" }
+      correct: false
+    - text: { kea: "`super().__init__()` repetidu un bez pa kada pai" }
+      correct: false
+- question:
+    kea: "Pa `class D(B, C)`, unde os dos B i C erda di A, kual é orden di buska (MRO)?"
+  options:
+    - text: { kea: "`D → B → C → A → object` — kada klasi antis di ses pai, i A (kompartilhadu) dipos di B i C" }
+      correct: true
+    - text: { kea: "`D → A → B → C → object`" }
+      correct: false
+    - text: { kea: "`D → B → A → C → object` — kada pai ku tudu ses avó primeru" }
+      correct: false
+    - text: { kea: "Orden é aleatóriu" }
+      correct: false
+- question:
+    kea: "Bu tene `class Taxi(Viatúra)` i `taxi = Taxi()`. O ki ta da `isinstance(taxi, Viatúra)`?"
+  options:
+    - text: { kea: "`True` — grasas a eransa, un `Taxi` é tanbé un `Viatúra`" }
+      correct: true
+    - text: { kea: "`False` — `taxi` é un `Taxi`, ka un `Viatúra`" }
+      correct: false
+    - text: { kea: "Un eru — `isinstance` ka ta funsiona ku eransa" }
+      correct: false
+    - text: { kea: "`True` só si `Taxi` ka definí `__init__`" }
+      correct: false
+- question:
+    kea: "Ku `class Taxi(Viatúra)`, o ki `issubclass(Taxi, Viatúra)` ta da?"
+  options:
+    - text: { kea: "`True` — `Taxi` é un subklasi (filhu) di `Viatúra`" }
+      correct: true
+    - text: { kea: "`False` — `issubclass` só ta funsiona ku objetis, ka klasis" }
+      correct: false
+    - text: { kea: "`True` só si `Taxi` tene un `__init__` própriu" }
+      correct: false
+    - text: { kea: "Un eru" }
+      correct: false

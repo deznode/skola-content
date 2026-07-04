@@ -8,7 +8,7 @@ module: 2
 lesson: 14
 duration: "20 min"
 objectives:
-  - "Kria sets ku chaves {} ó ku set()"
+  - "Kria sets ku txaves {} ou ku set()"
   - "Uza auto-deduplikasan pa elimina valóris repetidu"
   - "Testa membership ku 'in' na tempu O(1)"
   - "Aplika operasons matemátiku: union, intersection, difference"
@@ -19,9 +19,9 @@ objectives:
 
 # Konjuntus (Sets)
 
-Imagina ki bu tene un lista di 500 nomi di estudanti ki registra pa un evento — ma alguns registra dos ó tres bez. Kumo ki bu ta tira os duplikadus i, dipos, verifika rápidu si un pesoa sta na lista? Pa kel-li Python tene un ferramenta spesial: o **set**.
+Imagina ki bu tene un lista di 500 nomi di estudanti ki registra pa un evento — ma alguns registra dos ou tres bez. Kumo ki bu ta tira duplikadus i, dipos, verifika rápidu si un pesoa sta na lista? Pa kel-li Python tene un ferramenta spesial: **set**.
 
-Na matemátika, un konjuntu é un grupu di elementus úniku — sen repetisan. Python tene exatamenti kel konseitu: `set`. Sets é perfeitu kuandu bo presiza garanti ki kada elementu aparesi un bez só, ó kuandu bo presiza verifika rápidu si un elementu ezisti. Nos ta uza sets pa tudu tipu di koza — dezdi removi duplikadus te kompara listas di dadus.
+Na matemátika, un konjuntu é un grupu di elementus úniku — sen repetisan. Python tene ezatamenti kel konseitu: `set`. Sets é perfeitu kuandu bu presiza garanti ki kada elementu aparesi un bez só, ou kuandu bu presiza verifika rápidu si un elementu ezisti. Nu ta uza sets pa tudu tipu di koza — dezdi remove duplikadus te kompara listas di dadus.
 
 ## Kria Sets
 
@@ -61,7 +61,7 @@ Si bu presiza asesu pa índisi, uza un lista. Si bu presiza elementus úniku i b
 
 ## Auto-Deduplikasan
 
-Kuandu bo kria un set, Python ta elimina automatikamenti tudu elementu repetidu:
+Kuandu bu kria un set, Python ta elimina automatikamenti tudu elementu repetidu:
 
 ```python
 # Notas di exami ku repetisan
@@ -117,7 +117,7 @@ print(f"Password tene karakter spesial: {tene_spesial}")  # True
 ```
 
 :::callout{type=tip}
-Kuandu bo presiza verifika si un valór ezisti dentu di un kolesan grandi, konverti pa set primeru. Pa 1 milhan di elementus, set ta responde instantaneamenti, lista ta leva tempu.
+Kuandu bu presiza verifika si un valór ezisti dentu di un kolesan grandi, konverti pa set primeru. Pa 1 milhan di elementus, set ta responde instantaneamenti, lista ta leva tempu.
 :::
 
 ## Operasons Matemátiku
@@ -142,7 +142,7 @@ print(f"Na ambos kursus: {ambos}")  # {'Ana', 'Pedro'}
 so_python = python_estudantis - javascript_estudantis
 print(f"Só Python: {so_python}")  # {'Maria', 'João', 'Carla'}
 
-# SYMMETRIC DIFFERENCE (^) -- na un ó otu, ma NAU ambos
+# SYMMETRIC DIFFERENCE (^) -- na un ou otu, ma NAU ambos
 exklusivu = python_estudantis ^ javascript_estudantis
 print(f"Só na un kursus: {exklusivu}")
 # {'Maria', 'João', 'Carla', 'Nilton', 'Kelvin', 'Edna'}
@@ -164,11 +164,11 @@ print(f"Só Santiago: {so_santiago}")
 print(f"Só São Vicente: {so_sv}")
 ```
 
-Es kuadru ta rezumi os kuatru operason, ku o rezultadu pa `python_estudantis` i `javascript_estudantis` di sima:
+Es kuadru ta rezumi kuatru operasan, ku rezultadu pa `python_estudantis` i `javascript_estudantis` di sima:
 
 <CompareTable
   title="Operasons di konjuntus"
-  cornerLabel="Operason"
+  cornerLabel="Operasan"
   cols={[
     { name: "Union", syntax: "a | b", accent: "blue" },
     { name: "Intersection", syntax: "a & b", accent: "teal" },
@@ -177,10 +177,10 @@ Es kuadru ta rezumi os kuatru operason, ku o rezultadu pa `python_estudantis` i 
   ]}
   rows={[
     { label: "O ki ta da", kind: "text", vals: [
-      "Tudu estudanti di os dos kursu",
+      "Tudu estudanti di dos kursu",
       "Estudanti na **ambos** kursu",
       "Estudanti só na `a` (Python), ka na `b`",
-      "Estudanti na un kursu ma **ka** na os dos",
+      "Estudanti na un kursu ma **ka** na dos",
     ] },
     { label: "Rezultadu", kind: "text", vals: [
       "`{Maria, João, Ana, Pedro, Carla, Nilton, Kelvin, Edna}`",
@@ -267,9 +267,9 @@ if numeru in quadradus:
     print(f"{numeru} é un quadradu perfeitu!")
 ```
 
-## Padrones Komun: Removi Duplikadus Preservandu Órdin
+## Padrons Komun: Remove Duplikadus Preservandu Órdin
 
-`set()` ta removi duplikadus, ma el ta perdi órdin orijinal. Pa preserva órdin:
+`set()` ta remove duplikadus, ma el ta perde órdin orijinal. Pa preserva órdin:
 
 ```python
 # Problema: removi duplikadus ma mante órdin
@@ -314,7 +314,7 @@ print(playlist_limpu)
 | Elementus é mutável (listas, dicts) | | ✓ |
 
 :::callout{type=tip}
-Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bu ka pode po listas ó disionárius dentu di un set.
+Sets só ta aseita elementus **imutável** (hashable): números, strings, tuplas. Bu ka pode po listas ou disionárius dentu di un set.
 :::
 
 ```python
@@ -335,10 +335,10 @@ validu = {1, "hello", (1, 2, 3), 3.14}  # números, strings, tuplas — tudu imu
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu presiza elementus **úniku** o un buska `in` super rápidu nun kolesan grandi, uza un set — a buska é O(1), muitu más rápidu ki na lista (O(n)).</RezumuItem>
-  <RezumuItem term="Set">Un kolesan di elementus **úniku** i **sen orden** — auto-deduplikasan: os repetidu ta desaparese sózin.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu presiza elementus **úniku** ou un buska `in` super rápidu nun kolesan grandi, uza un set — buska é O(1), muitu más rápidu ki na lista (O(n)).</RezumuItem>
+  <RezumuItem term="Set">Un kolesan di elementus **úniku** i **sen orden** — auto-deduplikasan: repetidu ta desaparese sózin.</RezumuItem>
   <RezumuItem term="Operasons">`|` (union), `&` (intersection), `-` (difference), `^` (symmetric difference).</RezumuItem>
   <RezumuItem term="Metodus">`.add()` pa djunta; `.discard()` pa tira sen eru (`.remove()` ta da `KeyError` si ka izisti).</RezumuItem>
   <RezumuItem term="Comprehension">`{expr for item in iterável if kondisan}` — i `dict.fromkeys()` pa dedup preservandu orden.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">`{}` ta kria un **disionáriu** vazio, ka un set — uza `set()`. I set só ta seita elementus imutável (hashable) — ka lista nen dict.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`{}` ta kria un **disionáriu** vazio, ka un set — uza `set()`. I set só ta aseita elementus imutável (hashable) — ka lista nen dict.</RezumuItem>
 </KeyTakeaways>

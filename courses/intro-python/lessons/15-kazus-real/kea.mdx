@@ -11,22 +11,22 @@ objectives:
   - "Aplika listas pa jestan di tarefas"
   - "Uza listas ku funsons built-in pa analiza dadus"
   - "Konstrui inventárius ku disionárius"
-  - "Removi duplikadus ku sets preservandu órdin"
-  - "Kombina múltiplu estruturas di dadus pa rezolvi problemas real"
+  - "Remove duplikadus ku sets preservandu órdin"
+  - "Kombina múltiplu estruturas di dadus pa rezolve problemas real"
 ---
 
 # Kazus Real ku Estruturas di Dadus
 
-Nos dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, i konjuntus. Gosi é óra di po tudu djuntu! Na kel lisan li, nos ta rezolvi problemas reais ki bu ta nkontra na dia-a-dia kumo programador. Kada izemplu ta mostra kumé ki bu ta skolhe estrutura sertu pa situasan sertu.
+Nu dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, i konjuntus. Gosi é óra di po tudu djuntu! Na kel lisan li, nu ta rezolve problemas reais ki bu ta nkontra na dia-a-dia kumo programador. Kada izemplu ta mostra kumé ki bu ta skodje estrutura sertu pa situasan sertu.
 
-![Komparasan di 4 estruturas: lista, tuple, disionáriu, konjuntu](../../infographics/06-4-estruturas-komparasan.png)
+![Komparasan di 4 estruturas: lista, tuple, disionáriu, konjuntu](../../infographics/06-4-estruturas-komparasan.jpg)
 
 ## Lista di Tarefa (To-Do List)
 
-Listas é perfeitu pa jestan di tarefas — bu pode djunta, elimina, i reorganiza elementus. Nos ta kria un sistema simples di tarefas:
+Listas é perfeitu pa jestan di tarefas — bu pode djunta, elimina, i reorganiza elementus. Nu ta kria un sistema simples di tarefas:
 
 :::callout{type=note title="Kual estrutura — i pamodi?"}
-Pa tarefas nu ta uza un **lista**: a orden ta importa i nu meste djunta, tira i reorganiza elementus.
+Pa tarefas nu ta uza un **lista**: orden ta importa i nu meste djunta, tira i reorganiza elementus.
 :::
 
 ```python
@@ -45,7 +45,7 @@ for i, tarefa in enumerate(tarefas, 1):
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Depós di kuatru `.append()`, o ki `len(tarefas)` ta da? *(Resposta: `4`.)*
+Dipos di kuatru `.append()`, o ki `len(tarefas)` ta da? *(Resposta: `4`.)*
 :::
 
 ```python
@@ -81,12 +81,12 @@ print(f"⚠️ Tarefas urgenti: {urgenti}")
 ```
 
 :::callout{type=tip}
-Listas é ótimus kuandu bo presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasan.
+Listas é ótimus kuandu bu presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasan.
 :::
 
 ## Nota di Estudanti (Student Grades)
 
-Listas kombina perfeitamenti ku funsons built-in (`sum`, `max`, `min`, `len`, `sorted`) pa analiza dadus numérikiu:
+Listas kombina perfeitamenti ku funsons built-in (`sum`, `max`, `min`, `len`, `sorted`) pa analiza dadus numériku:
 
 :::callout{type=note title="Kual estrutura — i pamodi?"}
 Pa notas nu ta uza un **lista** di númeru — asi nu pode aplika funsons built-in (`sum`, `max`, `min`, `len`) pa analiza.
@@ -113,7 +113,7 @@ Ku `notas_maria = [17, 14, 16, 12, 15]`, o ki `sum(notas_maria) / len(notas_mari
 :::
 
 :::callout{type=info title="Pa frenti: funsons (Módulu 3)"}
-Li nu ta uza `def` pa kria un **funsan** — un manera di djunta kódiku ki nu pode txoma várias bez. Funsons é o tema di Módulu 3; pa gosi, só presiza intende ki `def klasifika_nota(nota)` ta da un nomi a un bloku di kódiku ki ta risibi un nota i ta da se klasifikasan.
+Li nu ta uza `def` pa kria un **funsan** — un manera di djunta kódiku ki nu pode txoma várias bez. Funsons é tema di Módulu 3; pa gosi, só presiza intende ki `def klasifika_nota(nota)` ta da un nomi pa un bloku di kódiku ki ta risibi un nota i ta da se klasifikasan.
 :::
 
 ```python
@@ -135,7 +135,7 @@ for i in range(len(nomis_materia)):
     klasifikasan = klasifika_nota(nota)
     print(f"  {materia}: {nota}/20 - {klasifikasan}")
 
-# Konta kuantus é "Bon" ó milhor
+# Konta kuantus é "Bon" ou milhor
 aprovadu = sum(1 for nota in notas_maria if nota >= 10)
 print(f"\nMatérias aprovadu: {aprovadu}/{len(notas_maria)}")
 ```
@@ -226,7 +226,7 @@ for prod, info in stock_baxu.items():
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Depós di vende 3 garafa di grogu (di 15), ki produtu ta entra na lista di stoki baxu (`< 20`)? *(Resposta: grogu, ku 12.)*
+Dipos di vende 3 garafa di grogu (di 15), ki produtu ta entra na lista di stoki baxu (`< 20`)? *(Resposta: grogu, ku 12.)*
 :::
 
 :::callout{type=tip}
@@ -235,10 +235,10 @@ Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é m�
 
 ## Removi Duplikadus (Sets + Lists)
 
-Sets é arma perfetu pa deteta i elimina duplikadus. Nos ta ve diferenti senárius:
+Sets é arma perfetu pa deteta i elimina duplikadus. Nu ta ve diferenti senárius:
 
 :::callout{type=note title="Kual estrutura — i pamodi?"}
-Pa tira duplikadus nu ta uza un **set**: el ta garanti elementus úniku. Pa mante a orden orijinal, kombina ku un lista (o padrón `vistu`).
+Pa tira duplikadus nu ta uza un **set**: el ta garanti elementus úniku. Pa mante orden orijinal, kombina ku un lista (padrón `vistu`).
 :::
 
 ```python
@@ -271,7 +271,7 @@ for emali in kontatus_limpu:
 ```
 
 :::callout{type=tip title="Para i pensa"}
-A lista `kontatus` ten 8 email ku duplikadus. Kuantu email úniku `len(set(kontatus))` ta da? *(Resposta: 5.)*
+Lista `kontatus` ten 8 email ku duplikadus. Kuantu email úniku `len(set(kontatus))` ta da? *(Resposta: 5.)*
 :::
 
 ```python
@@ -308,7 +308,7 @@ print(f"Klientis só na Praia: {klients_so_praia}")
 
 ## Izemplu Final: Kombina Tudu Estruturas
 
-Gosi nos ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolvi un problema más konpleksu — un sistema di jestan di evento kultural:
+Gosi nu ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolve un problema más konpleksu — un sistema di jestan di evento kultural:
 
 ```python
 # 🎵 Sistema di Jestan di Festival di Músika na Praia
@@ -374,15 +374,15 @@ ilhas = {ilha for _, _, ilha in artistas}
 print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 ```
 
-## Rezumu: Kuandu Skolhe Kual Estrutura
+## Rezumu: Kuandu Skodje Kual Estrutura
 
-![Decision tree: kual estrutura di dadus uza?](../../infographics/09-kuandu-uza-kual.png)
+![Decision tree: kual estrutura di dadus uza?](../../infographics/09-kuandu-uza-kual.jpg)
 
 | Estrutura | Uza Kuandu... | Izemplu |
 |-----------|--------------|---------|
 | **Lista** | Presiza órdin, modifikasan, repetisan | Tarefas, notas, playlist |
 | **Tupla** | Dadus fixu ki ka ta muda | Koordenadas, registrus, retornu múltiplu |
-| **Disionáriu** | Mapeia xavi pa valór, buska rápidu | Inventáriu, konfigasons, kontadoris |
+| **Disionáriu** | Mapeia xavi pa valór, buska rápidu | Inventáriu, konfigurasons, kontadoris |
 | **Set** | Elementus úniku, membership testing, operasons di konjuntus | Deduplikasan, filtragem, komparasan |
 
 :::callout{type=tip}
@@ -399,10 +399,10 @@ Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" 
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Skodje a estrutura sertu ta faze o kódiku más simples i rápidu. Na dúvida: "Tene nomi?" → dict; "pode repeti + orden?" → lista; "ka muda?" → tuple; "presiza ser úniku?" → set.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Skodje estrutura sertu ta faze kódiku más simples i rápidu. Na dúvida: "Tene nomi?" → dict; "pode repeti + orden?" → lista; "ka muda?" → tuple; "presiza ser úniku?" → set.</RezumuItem>
   <RezumuItem term="Lista">Ideal pa dadus **ordenadu** ku modifikasan — tarefas, notas, registrus. Ta kombina ku `sum`, `max`, `min`, `sorted`, `len`.</RezumuItem>
-  <RezumuItem term="Disionáriu">A midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>
-  <RezumuItem term="Set">Ta rezolve elegante os problema di duplikasan i pertensa.</RezumuItem>
-  <RezumuItem>Os problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa o ki el ta faze midjór.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">Pa perkore dos lista djuntu, uza `range(len(...))` ku índisi; pa konta frekuénsia, uza o padrun `.get(xavi, 0) + 1` (Lisan 13).</RezumuItem>
+  <RezumuItem term="Disionáriu">Midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>
+  <RezumuItem term="Set">Ta rezolve elegante problema di duplikasan i pertensa.</RezumuItem>
+  <RezumuItem>Problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa o ki el ta faze midjór.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Pa perkore dos lista djuntu, uza `range(len(...))` ku índisi; pa konta frekuénsia, uza padrun `.get(xavi, 0) + 1` (Lisan 13).</RezumuItem>
 </KeyTakeaways>

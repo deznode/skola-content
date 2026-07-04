@@ -10,13 +10,13 @@
 - question:
     kea: "Kumo bu ta kria un tuple ku **un só** elementu?"
   options:
-    - text: { kea: "Ku un vírgula: `(\"Sal\",)` — sen a vírgula, `(\"Sal\")` é só un string" }
+    - text: { kea: "Ku un vírgula: `(\"Sal\",)` — sen vírgula, `(\"Sal\")` é só un string" }
       correct: true
-    - text: { kea: "`(\"Sal\")` — os paréntesis djá ta basta" }
+    - text: { kea: "`(\"Sal\")` — paréntesis djá ta basta" }
       correct: false
     - text: { kea: "`[\"Sal\"]` — ku kolxetis" }
       correct: false
-    - text: { kea: "`tuple(\"Sal\")` é a úniku manera" }
+    - text: { kea: "`tuple(\"Sal\")` é úniku manera" }
       correct: false
 - question:
     kea: "Bu tene `ilhas = (\"Santiago\", \"Sal\")` i bu tenta `ilhas[0] = \"Maio\"`. O ki ta kontise?"
@@ -27,12 +27,12 @@
       correct: false
     - text: { kea: "Un `IndexError` — `0` é fora di rangu" }
       correct: false
-    - text: { kea: "Nada — Python ta ignora a atribuisan" }
+    - text: { kea: "Nada — Python ta ignora atribuisan" }
       correct: false
 - question:
     kea: "Dipos di `primeiru, *restu = (1, 2, 3, 4)`, o ki é `restu`?"
   options:
-    - text: { kea: "`[2, 3, 4]` — o `*` ta apanha o restu kumo un **lista**" }
+    - text: { kea: "`[2, 3, 4]` — `*` ta apanha restu kumo un **lista**" }
       correct: true
     - text: { kea: "`(2, 3, 4)` — un tuple" }
       correct: false
@@ -43,15 +43,15 @@
 - question:
     kea: "Dipos di `primeiru, *meiu, ultimu = (10, 20, 30, 40, 50)`, o ki é `meiu`?"
   options:
-    - text: { kea: "`[20, 30, 40]` — o `*` na meiu ta apanha tudu elementu entri `primeiru` i `ultimu`, kumo un **lista**" }
+    - text: { kea: "`[20, 30, 40]` — `*` na meiu ta apanha tudu elementu entri `primeiru` i `ultimu`, kumo un **lista**" }
       correct: true
-      explain: { kea: "`primeiru` apanha `10`, `ultimu` apanha `50`, i `*meiu` fika ku tudu o restu na meiu — senpri un lista." }
+      explain: { kea: "`primeiru` apanha `10`, `ultimu` apanha `50`, i `*meiu` fika ku tudu restu na meiu — senpri un lista." }
     - text: { kea: "`(20, 30, 40)` — un tuple" }
       correct: false
       explain: { kea: "Star unpacking ta da senpri un **lista**, nunka un tuple." }
     - text: { kea: "`30` — só o elementu di meiu" }
       correct: false
-      explain: { kea: "`*meiu` ta apanha tudu o restu, ka un só elementu." }
+      explain: { kea: "`*meiu` ta apanha tudu restu, ka un só elementu." }
     - text: { kea: "Un eru — `*` ka pode sta na meiu di dos variávis" }
       correct: false
-      explain: { kea: "O `*` pode sta na kualker pozisan, te na meiu entri dos variávis fixu." }
+      explain: { kea: "`*` pode sta na kualker pozisan, te na meiu entri dos variávis fixu." }

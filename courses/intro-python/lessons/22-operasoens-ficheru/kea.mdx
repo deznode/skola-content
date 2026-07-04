@@ -11,20 +11,20 @@ objectives:
   - "Ler konteúdu di ficheru ku modu 'r' i prosesa linha pa linha"
   - "Skrebe i adisiona konteúdu ku modus 'w' i 'a'"
   - "Uza statement with (context manager) pa garanti ki ficheru ta fexá senpri"
-  - "Trabadja ku kaminhu di fixeru uzandu módulu os.path"
+  - "Trabadja ku kaminhu di ficheru uzandu módulu os.path"
 ---
 
 # Operasons ku Ficheru
 
-Programas di mundu real presiza guarda dadus — nota di estudantis, lista di klientes, konfigurasan di aplikasan. Tudu es ta vivi na **ficheru** na disku. Na es lisan, nos ta prende kumo ler, skrebe, i adisiona konteúdu na fixerus uzandu Python.
+Programas di mundu real presiza guarda dadus — nota di estudantis, lista di klientes, konfigurasan di aplikasan. Tudu es ta vivi na **ficheru** na disku. Na es lisan, nos ta prende kumo ler, skrebe, i adisiona konteúdu na ficherus uzandu Python.
 
 Imajina ki bu ta kria un programa pa registra vendas na merkadu di Sukupira na Praia. Kada venda presiza fika gravadu nun ficheru pa ka perdi kuandu programa fexá!
 
 ## Modus di Ficheru
 
-![Modus di ficheru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-ficheru.png)
+![Modus di ficheru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-ficheru.jpg)
 
-Antis di abri un ficheru, bo presiza dizi a Python **o ki bu kre faze** ku el. Es é modus prinsipais:
+Antis di abri un ficheru, bo presiza dizi pa Python **o ki bu kre faze** ku el. Es é modus prinsipais:
 
 | Modu | Signifikadu | Konportamentu |
 |------|-------------|---------------|
@@ -149,7 +149,7 @@ with open("ilhas_kv.txt", "w") as ficheru:
 ## (Opsional · avansadu) Modu `'w+'` — Skrebe i Ler (ku seek)
 
 :::callout{type=info}
-Es seksan é **opsional** — pa kumesa, os trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bo presiza ler i skrebe mesmu ficheru na un só operasan.
+Es seksan é **opsional** — pa kumesa, trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bo presiza ler i skrebe mesmu ficheru na un só operasan.
 :::
 
 `'w+'` dixa bo skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bo presiza uza `seek(0)` pa volta pa kumesu!
@@ -171,7 +171,7 @@ with open("notas_maria.txt", "w+") as ficheru:
     print(f"Ku seek: '{konteúdu}'")  # Mostra tudu!
 ```
 
-## Kaminhu di Fixeru ku `os.path`
+## Kaminhu di Ficheru ku `os.path`
 
 Kuandu programa ta roda na diferenti sistéma (Windows, macOS, Linux), kaminhus di ficheru é diferenti:
 - Windows: `C:\Users\Maria\documentus\notas.txt`
@@ -192,7 +192,7 @@ print(kaminhu)
 si_ezisti = os.path.exists("vendas.txt")
 print(f"Ficheru ezisti? {si_ezisti}")
 
-# Verifika si é ficheru o pasta
+# Verifika si é ficheru ou pasta
 print(os.path.isfile("vendas.txt"))    # True si é ficheru
 print(os.path.isdir("documentus"))     # True si é pasta
 
@@ -275,7 +275,7 @@ with open("ficheru_ki_ka_ezisti.txt", "r") as f:
 # FileNotFoundError: [Errno 2] No such file or directory
 ```
 
-**Soluson:** Verifika antis di abri, o uza try/except (prósimu lisan!):
+**Soluson:** Verifika antis di abri, ou uza try/except (prósimu lisan!):
 
 ```python
 import os
@@ -295,7 +295,7 @@ with open("dadus_importanti.txt", "w") as f:
     f.write("Ops...")  # Tudu anteriu ta bai pa senpri!
 ```
 
-**Soluson:** Uza `'a'` pa adisiona, o ler primeru i dipos skrebe.
+**Soluson:** Uza `'a'` pa adisiona, ou ler primeru i dipos skrebe.
 
 ### 3. Skise `seek(0)` ku `'w+'`
 
@@ -320,10 +320,10 @@ with open("testu.txt", "w+") as f:
 
 ## Rezumu
 <KeyTakeaways>
-  <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa o ficheru automátikamenti, mesmu si un eru akontese.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa ficheru automátikamenti, mesmu si un eru akontese.</RezumuItem>
   <RezumuItem term="Modus">`"r"` (lé), `"w"` (skrebe — **apaga** tudu!), `"a"` (adisiona na fin), `"w+"` (skrebe + lé).</RezumuItem>
-  <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), o `for linha in ficheru` (linha pa linha — midjór pa ficheru grandi).</RezumuItem>
+  <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), ou `for linha in ficheru` (linha pa linha — midjór pa ficheru grandi).</RezumuItem>
   <RezumuItem term="Skrebe">`write(string)` i `writelines(lista)` — ka ta po `\n` sózin, bu ten ki inkluí-l.</RezumuItem>
   <RezumuItem term="os.path">`os.path.join()` pa kaminhus kompatível, `os.path.exists()` pa verifika si un ficheru izisti.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Modu `"w"` ta **destrui** tudu o konteúdu anteriu — uza `"a"` si bu kre mante-l. I `"r"` nun ficheru ki ka izisti ta da `FileNotFoundError`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Modu `"w"` ta **destrui** tudu konteúdu anteriu — uza `"a"` si bu kre mantene-l. I `"r"` nun ficheru ki ka izisti ta da `FileNotFoundError`.</RezumuItem>
 </KeyTakeaways>

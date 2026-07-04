@@ -17,7 +17,7 @@
   kind: code
   title: { kea: "Kalkuladora di troku" }
   prompt:
-    kea: "Pidi o presu di un produtu i kuantu o klienti pagá. Kalkula o troku, i dipos kuantas nota di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda. Uza `//` (divisan interu) i `%` (restu)."
+    kea: "Pidi presu di un produtu i kuantu klienti pagá. Kalkula troku, i dipos kuantas nota di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda. Uza `//` (divisan interu) i `%` (restu)."
   hint:
     kea: "`troku = pagamentu - presu`. Pa kontar as nota di 200: `troku // 200`; o ki sobra: `troku % 200`. Dipos repeti pa as nota di 100 sobri o restu. Lenbra konverti o `input()` ku `int()`."
   starterCode: |
@@ -45,7 +45,7 @@
   kind: code
   title: { kea: "Verifikador di idadi" }
   prompt:
-    kea: "Pidi o nomi i a idadi di un pesoa. Uza operadoris di komparasan pa mostra si el pode vota (`>= 18`), konduz (`>= 18`) i aposenta (`>= 65`). Mostra kada rezultadu (`True`/`False`) ku un f-string."
+    kea: "Pidi nomi i idadi di un pesoa. Uza operadoris di komparasan pa mostra si el pode vota (`>= 18`), konduz (`>= 18`) i aposenta (`>= 65`). Mostra kada rezultadu (`True`/`False`) ku un f-string."
   hint:
     kea: "Un komparasan kumo `idadi >= 18` ta da diretu un boolean (`True`/`False`) — bu pode garda-l nun variável (`pode_vota = idadi >= 18`) i mostra-l nun f-string. Konverti a idadi ku `int(input(...))`."
   starterCode: |
@@ -72,7 +72,7 @@
   kind: code
   title: { kea: "Kalkuladora di IMC" }
   prompt:
-    kea: "Pidi o pezu (kg) i a altura (m). Kalkula o IMC ku `pezu / altura ** 2` i mostra a kategoria: abaxu di `18.5` é \"Abaxu di pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", i `30` o más é \"Obezidadi\"."
+    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC ku `pezu / altura ** 2` i mostra kategoria: abaxu di `18.5` é \"Abaxu di pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", i `30` ou más é \"Obezidadi\"."
   hint:
     kea: "Konverti os dos input ku `float(...)`. O `**` (esponensasan) ta kore antis di `/`, anton `pezu / altura ** 2` ta kalkula `altura ** 2` primeru. Pa skodje a kategoria, uza `if`/`elif`/`else` (un previu di Lisan 9). Bu pode enkadea komparasons: `18.5 <= imc < 25`."
   starterCode: |
@@ -105,9 +105,9 @@
   file: media.py
   title: { kea: "Koriji a presedensia di operadoris" }
   prompt:
-    kea: "Es programa debe kalkula a média di tres nota (debe ser `80.0`), ma `media` ta sai mutu altu. O problema é a presedensia di os operadoris. Koriji-l."
+    kea: "Es programa debe kalkula média di tres nota (debe ser `80.0`), ma `media` ta sai mutu altu. Problema é presedensia di operadoris. Koriji-l."
   hint:
-    kea: "Na `nota1 + nota2 + nota3 / 3`, o `/` ta kore **antis** di o `+`, anton só `nota3` ta ser divididu pa 3. Po as somas dentu di paréntesis: `(nota1 + nota2 + nota3) / 3`."
+    kea: "Na `nota1 + nota2 + nota3 / 3`, `/` ta kore **antis** di `+`, anton só `nota3` ta ser divididu pa 3. Po somas dentu di paréntesis: `(nota1 + nota2 + nota3) / 3`."
   starterCode: |
     # media.py — a média ta sai mutu altu. Koriji a presedensia.
     nota1 = 80

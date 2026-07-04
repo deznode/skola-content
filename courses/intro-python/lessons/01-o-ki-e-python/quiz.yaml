@@ -52,7 +52,7 @@
     - text: { kea: "Konfigurasan di redi", en: "Network configuration" }
       correct: false
       explain:
-        kea: "Konfigurasan di redi ka é undi Python ta brilha más."
+        kea: "Konfigurasan di redi ka é unde Python ta brilha más."
         en: "Network configuration isn't where Python stands out most."
 - question:
     kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"

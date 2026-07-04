@@ -16,9 +16,9 @@
   kind: code
   title: { kea: "Kontrol di presensia" }
   prompt:
-    kea: "Kria un sistema undi bu djunta o nomi di estudanti ki ta txiga na aula (pode repeti si txiga txeu dia). Uza un **lista** pa mante o registru kompletu i un **set** pa sabe kuantu estudanti **úniku** tinha."
+    kea: "Kria un sistema unde bu djunta nomi di estudanti ki ta txiga na aula (pode repeti si txiga txeu dia). Uza un **lista** pa mante registru kompletu i un **set** pa sabe kuantu estudanti **úniku** tinha."
   hint:
-    kea: "Adisiona kada txigada a a lista ku `.append()`. Pa os úniku, `set(registru)` ta tira os repetidu — `len(set(registru))` é o nu di estudanti distintu."
+    kea: "Adisiona kada txigada na lista ku `.append()`. Pa úniku, `set(registru)` ta tira repetidu — `len(set(registru))` é nu di estudanti distintu."
   starterCode: |
     # presensia.py
     registru = []
@@ -43,9 +43,9 @@
   kind: code
   title: { kea: "Karrinhu di konpra" }
   prompt:
-    kea: "Kria un **disionáriu** di presus pa un merkadu. Dipos kria un **lista** (karrinhu) ku os produtu ki o klienti skodje (pode repeti). Kalkula o total i mostra un rezumu ku a kantidadi di kada produtu."
+    kea: "Kria un **disionáriu** di presus pa un merkadu. Dipos kria un **lista** (karrinhu) ku produtu ki klienti skodje (pode repeti). Kalkula total i mostra un rezumu ku kantidadi di kada produtu."
   hint:
-    kea: "Pa o total, soma `presus[p]` pa kada `p` na karrinhu. Pa a kantidadi di kada produtu, uza o padron di frekuénsia ku un disionáriu: `konta[p] = konta.get(p, 0) + 1` (Lisan 13)."
+    kea: "Pa total, soma `presus[p]` pa kada `p` na karrinhu. Pa kantidadi di kada produtu, uza padron di frekuénsia ku un disionáriu: `konta[p] = konta.get(p, 0) + 1` (Lisan 13)."
   starterCode: |
     # karrinhu.py
     presus = {"banana": 50, "atum": 350, "pan": 30, "leti": 90}
@@ -73,9 +73,9 @@
   kind: code
   title: { kea: "Komparador di playlists" }
   prompt:
-    kea: "Dos amigu (Nilton i Edna) tene kada un un lista di múzika favoritu. Uza **sets** pa atxa: as múzika ki os dos ta gosta, as múzika ki só Nilton ta gosta, i o total di múzika úniku entri os dos."
+    kea: "Dos amigu (Nilton i Edna) tene kada un un lista di múzika favoritu. Uza **sets** pa atxa: múzika ki dos ta gosta, múzika ki só Nilton ta gosta, i total di múzika úniku entri dos."
   hint:
-    kea: "Konverti as lista pa set primeru. `nilton & edna` é o ki os dos ta gosta; `nilton - edna` é só Nilton; `len(nilton | edna)` é o total úniku."
+    kea: "Konverti lista pa set primeru. `nilton & edna` é o ki dos ta gosta; `nilton - edna` é só Nilton; `len(nilton | edna)` é total úniku."
   starterCode: |
     # playlists.py
     nilton = ["Sodade", "Petit Pays", "Tunuka", "Nha Cretcheu"]
@@ -96,7 +96,7 @@
   kind: explore
   title: { kea: "Splora kumo skodje a estrutura sertu" }
   prompt:
-    kea: "A diferensa entri lista, tuple, dict i set ta determina o ki é fásil (i rápidu) faze. Odja un komparason di os tipu inkorporadu i o módulu `collections` pa estruturas más spesializadu."
+    kea: "Diferensa entri lista, tuple, dict i set ta determina o ki é fásil (i rápidu) faze. Odja un komparasan di tipu inkorporadu i módulu `collections` pa estruturas más spesializadu."
   resources:
     kea:
       - { label: "Python docs — Data Structures (tutorial)", url: "https://docs.python.org/3/tutorial/datastructures.html" }
@@ -106,6 +106,6 @@
   kind: reflect
   title: { kea: "Refleta sobri skodje a estrutura" }
   prompt:
-    kea: "Un boa heurístika: \"O dadu tene nomi?\" → dict; \"pode repeti i orden ta importa?\" → lista; \"ka pode muda?\" → tuple; \"presiza ser úniku?\" → set. Pensa nun programa ki bu kreba faze i skrebe ki estrutura bu ta skodje pa kada parti del."
+    kea: "Un boa heurístika: \"Dadu tene nomi?\" → dict; \"pode repeti i orden ta importa?\" → lista; \"ka pode muda?\" → tuple; \"presiza ser úniku?\" → set. Pensa nun programa ki bu kreba faze i skrebe ki estrutura bu ta skodje pa kada parti del."
   notePlaceholder:
     kea: "Programa: …   ·   Parti ku dict/lista/tuple/set: …   ·   Pamodi: …"

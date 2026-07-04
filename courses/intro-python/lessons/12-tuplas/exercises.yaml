@@ -17,9 +17,9 @@
   kind: code
   title: { kea: "Unpacking di un perfil" }
   prompt:
-    kea: "Kria un tuple `meu_perfil` ku nomi, idadi, ilha i kursu. Uza **unpacking** pa atribui kada valor a un variável separadu, i imprimi-s ku un f-string."
+    kea: "Kria un tuple `meu_perfil` ku nomi, idadi, ilha i kursu. Uza **unpacking** pa atribui kada valor pa un variável separadu, i imprimi-s ku un f-string."
   hint:
-    kea: "Pa unpacking, o nu di variável na eskerda ten ki bate ku o nu di elementu na tuple: `nomi, idadi, ilha, kursu = meu_perfil`. Dipos po-s nun f-string."
+    kea: "Pa unpacking, nu di variável na eskerda ten ki bate ku nu di elementu na tuple: `nomi, idadi, ilha, kursu = meu_perfil`. Dipos po-s nun f-string."
   starterCode: |
     # perfil.py
     meu_perfil = ("Tóni", 23, "Santiago", "Informátika")
@@ -37,9 +37,9 @@
   kind: code
   title: { kea: "Star unpacking di notas" }
   prompt:
-    kea: "Ku `dados = (\"Amilcar\", \"amilcar@cv.edu\", 88, 75, 92, 85, 79, 96)`, uza **star unpacking** pa separa o nomi, o email i tudu as notas nun lista. Dipos kalkula i mostra a média, a nota máksimu i a mínimu."
+    kea: "Ku `dados = (\"Amilcar\", \"amilcar@cv.edu\", 88, 75, 92, 85, 79, 96)`, uza **star unpacking** pa separa nomi, email i tudu notas nun lista. Dipos kalkula i mostra média, nota máksimu i mínimu."
   hint:
-    kea: "`nomi, email, *notas = dados` — o `*notas` ta apanha tudu o restu kumo un lista. Dipos `sum(notas) / len(notas)`, `max(notas)` i `min(notas)`."
+    kea: "`nomi, email, *notas = dados` — `*notas` ta apanha tudu restu kumo un lista. Dipos `sum(notas) / len(notas)`, `max(notas)` i `min(notas)`."
   starterCode: |
     # notas.py
     dados = ("Amilcar", "amilcar@cv.edu", 88, 75, 92, 85, 79, 96)
@@ -61,9 +61,9 @@
   kind: code
   title: { kea: "Tuple di tuples — ilhas" }
   prompt:
-    kea: "Kria un tuple di tuples ku informasan di 4 ilha, kada un `(nomi, populasan, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Dipos kalkula a populasan total i atxa a ilha ku más pesoa."
+    kea: "Kria un tuple di tuples ku informasan di 4 ilha, kada un `(nomi, populasan, area_km2)`. Itera ku unpacking i mostra kada ilha formatadu. Dipos kalkula populasan total i atxa ilha ku más pesoa."
   hint:
-    kea: "Itera ku unpacking diretu: `for nomi, pop, area in ilhas:`. Pa o total, soma as populasan nun loop (`total += pop`). Pa a ilha ku más pesoa, kompara kada un nun loop i guarda o maior."
+    kea: "Itera ku unpacking diretu: `for nomi, pop, area in ilhas:`. Pa total, soma populasan nun loop (`total += pop`). Pa ilha ku más pesoa, kompara kada un nun loop i guarda maior."
   starterCode: |
     # ilhas.py
     ilhas = (
@@ -102,9 +102,9 @@
   file: ponto.py
   title: { kea: "Koriji un tuple imutável" }
   prompt:
-    kea: "Es programa ta da un `TypeError` kuandu el tenta muda o primeru valor di o tuple `ponto`. Tuples é **imutável**! Koriji-l pa `ponto` fika `(5, 4)`."
+    kea: "Es programa ta da un `TypeError` kuandu el tenta muda primeru valor di tuple `ponto`. Tuples é **imutável**! Koriji-l pa `ponto` fika `(5, 4)`."
   hint:
-    kea: "`ponto[0] = 5` ta da `TypeError: 'tuple' object does not support item assignment`. Un tuple ka pode ser mudadu — kria un tuple novu: `ponto = (5, ponto[1])` (o `(5, 4)`)."
+    kea: "`ponto[0] = 5` ta da `TypeError: 'tuple' object does not support item assignment`. Un tuple ka pode ser mudadu — kria un tuple novu: `ponto = (5, ponto[1])` (ou `(5, 4)`)."
   starterCode: |
     # ponto.py — es programa ta da un TypeError. Koriji-l.
     ponto = (3, 4)
@@ -120,7 +120,7 @@
   kind: explore
   title: { kea: "Splora namedtuple" }
   prompt:
-    kea: "Kuandu un tuple ten txeu kampu, é fásil skese o ki é `v[3]`. `collections.namedtuple` ta dexa-bu da nomi a kada kampu (`voo.presu` en bez di `voo[3]`). Odja a dokumentason."
+    kea: "Kuandu un tuple ten txeu kampu, é fásil skese o ki é `v[3]`. `collections.namedtuple` ta dexa-bu da nomi pa kada kampu (`voo.presu` en bez di `voo[3]`). Odja dokumentason."
   resources:
     kea:
       - { label: "Python docs — collections.namedtuple", url: "https://docs.python.org/3/library/collections.html#collections.namedtuple" }
@@ -130,6 +130,6 @@
   kind: reflect
   title: { kea: "Refleta sobri tuple versus lista" }
   prompt:
-    kea: "Tuple é imutável i más rápidu; lista é mutável i ten más metodus. Pensa nun par di dadus di o mundu real (p.ex. koordenadas di un lugar, o un karrinhu di kompras). Skrebe kal bu ta gerda nun tuple i kal nun lista, i pamodi."
+    kea: "Tuple é imutável i más rápidu; lista é mutável i ten más metodus. Pensa nun par di dadus di mundu real (p.ex. koordenadas di un lugar, ou un karrinhu di kompras). Skrebe kual bu ta guarda nun tuple i kual nun lista, i pamodi."
   notePlaceholder:
     kea: "Dadu pa tuple (imutável): …   ·   Dadu pa lista (mutável): …   ·   Pamodi: …"

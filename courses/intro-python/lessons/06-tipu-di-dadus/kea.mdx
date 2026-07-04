@@ -22,11 +22,11 @@ Na Lisan 5 bu dja konxe es kuatu tipus i `type()`. Gosi nu ta entra na detalhi: 
 
 ## 4 Tipus Fundamentais
 
-![Sistema di tipus di Python: int, float, str, bool](../../infographics/02-tipu-di-dadus-python.png)
+![Sistema di tipus di Python: int, float, str, bool](../../infographics/02-tipu-di-dadus-python.jpg)
 
 ### Integer (`int`) — Númerus Interus
 
-Númerus sen puntu desimal: positivu, negativu ó zeru.
+Númerus sen puntu desimal: positivu, negativu ou zeru.
 
 ```python
 # Izemplus di int
@@ -38,7 +38,7 @@ zero = 0
 print(type(populasan))  # <class 'int'>
 ```
 
-Undi uza `int`:
+Unde uza `int`:
 - Kontadoris (kantidadi di estudantis, anus, pájinas)
 - Idadis
 - Indexis (pozisan na un lista)
@@ -69,7 +69,7 @@ temperatura = -2.5
 print(type(presu_katxupa))  # <class 'float'>
 ```
 
-Undi uza `float`:
+Unde uza `float`:
 - Presus i valores monetárius
 - Medidas (altura, pezu, distánsia)
 - Resultadus di divisan
@@ -99,7 +99,7 @@ Kel é un limitasan di kumo komputador ta armazena númerus desimais. Pa maioria
 
 ### String (`str`) — Textu
 
-Textu dentu di aspas (simples ó dublu).
+Textu dentu di aspas (simples ou dublu).
 
 ```python
 # Izemplus di str
@@ -111,7 +111,7 @@ vazio = ""  # String vazio — tanbe é válidu
 print(type(nomi))  # <class 'str'>
 ```
 
-Bu pode uza aspas simples (`'`) ó dublu (`"`) — rezultadu é mesmu:
+Bu pode uza aspas simples (`'`) ou dublu (`"`) — rezultadu é mesmu:
 
 ```python
 # Tudu kel é válidu
@@ -150,9 +150,9 @@ Senpri uza **f-strings** pa mistura textu ku variáveis. É más limpu ki konkat
 
 *(F-strings ten más kapasidadi — formatasan, debug, ekspresons dentu. Bu ta prende más na Lisan 7.)*
 
-### Boolean (`bool`) — Verdaderu ó Falsu
+### Boolean (`bool`) — Verdaderu ou Falsu
 
-Só tene 2 valores: `True` ó `False` (ku T i F maiúskulu!).
+Só tene 2 valores: `True` ou `False` (ku T i F maiúskulu!).
 
 ```python
 # Izemplus di bool
@@ -250,7 +250,7 @@ Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze
   lang="python"
   filename="mensajen.py"
   title="Soma di string ku int"
-  note="Ka pode `+` un `str` ku un `int`. Konverti ku `str(idadi)`, ó — midjór — uza un f-string."
+  note="Ka pode `+` un `str` ku un `int`. Konverti ku `str(idadi)`, ou — midjór — uza un f-string."
   diff={[
     { type: "ctx", t: 'nomi = "Maria"' },
     { type: "ctx", t: "idadi = 25" },
@@ -290,7 +290,7 @@ Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze
 />
 
 :::callout{type=tip}
-Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ó `str()`.
+Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ou `str()`.
 :::
 
 <SectionHeading level={3} variant="practice">Tenta: Koriji os Tipus</SectionHeading>
@@ -427,7 +427,7 @@ print(isinstance(valor, float))   # False
 print(isinstance(valor, str))     # False
 
 # Verifica vários tipus di un bez
-print(isinstance(valor, (int, float)))  # True — é int ó float
+print(isinstance(valor, (int, float)))  # True — é int ou float
 ```
 
 :::callout{type=tip}
@@ -446,9 +446,9 @@ Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja
     { term: "int()", def: "Ta konverti un valor pa interu, kortandu (trunkandu) parti desimal." },
     { term: "float()", def: "Ta konverti un valor pa númeru desimal — float(42) ta da 42.0." },
     { term: "str()", def: 'Ta konverti kualker valor pa textu — str(42) ta da textu "42".' },
-    { term: "bool()", def: "Ta konverti un valor pa True ó False — 0, textu vaziu i None ta da False; tudu otu ta da True." },
+    { term: "bool()", def: "Ta konverti un valor pa True ou False — 0, textu vaziu i None ta da False; tudu otu ta da True." },
     { term: "round()", def: "Ta aredonda un desimal pa interu más prósimu — round(3.9) ta da 4." },
-    { term: "isinstance()", def: "Ta verifika si un valor é di un sertu tipu i ta da True ó False — más profisional ki type() == pa kel verifikasan." },
+    { term: "isinstance()", def: "Ta verifika si un valor é di un sertu tipu i ta da True ou False — más profisional ki type() == pa kel verifikasan." },
   ]}
 />
 
@@ -462,7 +462,7 @@ Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika tipus ku `type()` — kuazi senpri soluson é konverti un valor ku `int()`, `float()` o `str()`.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu bu atxa un `TypeError`, verifika tipus ku `type()` — kuazi senpri soluson é konverti un valor ku `int()`, `float()` ou `str()`.</RezumuItem>
   <RezumuItem term="4 tipus">`int` (interus), `float` (desimais), `str` (textu) i `bool` (`True`/`False`) é tipus fundamentais.</RezumuItem>
   <RezumuItem term="f-strings">Midjór manera di mistura textu ku variáveis — más limpu ki `+`, i ta evita `TypeError`.</RezumuItem>
   <RezumuItem>Divisan `/` ta retorna **senpri** float — `10 / 5` é `2.0`, ka `2`.</RezumuItem>

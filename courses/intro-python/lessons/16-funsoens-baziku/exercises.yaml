@@ -19,7 +19,7 @@
   prompt:
     kea: "Skrebe un funsan `konverte_temp(temp, di, pa)` ki konverte entri Celsius, Fahrenheit i Kelvin. P.ex. `konverte_temp(100, \"C\", \"F\")` debe retorna `212.0`."
   hint:
-    kea: "Konverti primeru pa Celsius kumo \"piví\", dipos di Celsius pa o destinu. `C→F`: `c * 9/5 + 32`; `C→K`: `c + 273.15`. Uza `if`/`elif` pa o `di` i pa o `pa`, i `return` o rezultadu."
+    kea: "Konverti primeru pa Celsius kumo \"piví\", dipos di Celsius pa destinu. `C→F`: `c * 9/5 + 32`; `C→K`: `c + 273.15`. Uza `if`/`elif` pa `di` i pa `pa`, i `return` rezultadu."
   starterCode: |
     # temp.py
     def konverte_temp(temp, di, pa):
@@ -52,9 +52,9 @@
   kind: code
   title: { kea: "Validador di forsa di senha" }
   prompt:
-    kea: "Skrebe un funsan `verifika_forsa(senha)` ki retorna `\"fraku\"` (menus di 6 karater), `\"médiu\"` (6+ ku letra i númeru) o `\"forti\"` (8+ ku maiúskula, minúskula, númeru i karater spesiál)."
+    kea: "Skrebe un funsan `verifika_forsa(senha)` ki retorna `\"fraku\"` (menus di 6 karater), `\"médiu\"` (6+ ku letra i númeru) ou `\"forti\"` (8+ ku maiúskula, minúskula, númeru i karater spesiál)."
   hint:
-    kea: "Uza `any(c.isdigit() for c in senha)`, `any(c.isupper() ...)`, `any(c.islower() ...)` i `any(c in \"!@#$%...\" ...)` pa testa. Verifika o kazu **forti** primeru, dipos o **médiu**, senan **fraku**."
+    kea: "Uza `any(c.isdigit() for c in senha)`, `any(c.isupper() ...)`, `any(c.islower() ...)` i `any(c in \"!@#$%...\" ...)` pa testa. Verifika kazu **forti** primeru, dipos **médiu**, senan **fraku**."
   starterCode: |
     # senha.py
     def verifika_forsa(senha):
@@ -84,9 +84,9 @@
   kind: code
   title: { kea: "Soma rekursiva" }
   prompt:
-    kea: "Skrebe un funsan **rekursiva** `soma_ate(n)` ki retorna a soma di tudu os númeru di 1 até n. P.ex. `soma_ate(5)` → `15` (1+2+3+4+5)."
+    kea: "Skrebe un funsan **rekursiva** `soma_ate(n)` ki retorna soma di tudu númeru di 1 até n. P.ex. `soma_ate(5)` → `15` (1+2+3+4+5)."
   hint:
-    kea: "Pensa na o **kazu bazi** primeru: `soma_ate(1)` é `1` (o `soma_ate(0)` é `0`). O kazu rekursivu: `n + soma_ate(n - 1)`. Sen o kazu bazi, Python ta da `RecursionError`."
+    kea: "Pensa na **kazu bazi** primeru: `soma_ate(1)` é `1` (ou `soma_ate(0)` é `0`). Kazu rekursivu: `n + soma_ate(n - 1)`. Sen kazu bazi, Python ta da `RecursionError`."
   starterCode: |
     # soma.py
     def soma_ate(n):
@@ -108,9 +108,9 @@
   kind: code
   title: { kea: "Perfil flexível ku **kwargs" }
   prompt:
-    kea: "Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe un `nomi` obrigatóriu i kuantu info adisionál ki o utilizador kre (ilha, idadi, profisan…), i retorna un disionáriu kompletu."
+    kea: "Skrebe un funsan `kria_perfil(nomi, **info)` ki resebe un `nomi` obrigatóriu i kuantu info adisionál ki utilizador kre (ilha, idadi, profisan…), i retorna un disionáriu kompletu."
   hint:
-    kea: "`**info` ta apanha os argumentu nomiadu kumo un disionáriu. Kria un dict ku o nomi i dipos djunta o restu: `perfil = {\"nomi\": nomi}` i `perfil.update(info)` (o `{\"nomi\": nomi, **info}`)."
+    kea: "`**info` ta apanha argumentu nomiadu kumo un disionáriu. Kria un dict ku nomi i dipos djunta restu: `perfil = {\"nomi\": nomi}` i `perfil.update(info)` (ou `{\"nomi\": nomi, **info}`)."
   starterCode: |
     # perfil.py
     def kria_perfil(nomi, **info):
@@ -131,9 +131,9 @@
   file: dobru.py
   title: { kea: "Koriji un return ki sta en falta" }
   prompt:
-    kea: "A funsan `dobru` debe devolve o dobru di un númeru, ma `print(rezultadu)` ta mostra `None`. O kódiku ka ta da eru. Diskubri pamodi i koriji-l."
+    kea: "Funsan `dobru` debe devolve dobru di un númeru, ma `print(rezultadu)` ta mostra `None`. Kódiku ka ta da eru. Diskubri pamodi i koriji-l."
   hint:
-    kea: "Un funsan sen `return` ta devolve `None` automátikamenti. A linha `n * 2` ta kalkula o valor ma ka ta devolve-l — meste un `return` na frenti."
+    kea: "Un funsan sen `return` ta devolve `None` automátikamenti. Linha `n * 2` ta kalkula valor ma ka ta devolve-l — meste un `return` na frenti."
   starterCode: |
     # dobru.py — pamodi ki "rezultadu" ta sai None? Koriji a funsan.
     def dobru(n):
@@ -153,7 +153,7 @@
   kind: explore
   title: { kea: "Splora parámetrus di funsan" }
   prompt:
-    kea: "Python tene regras ríkas pa parámetrus — keyword-only (`*`), positional-only (`/`), i o módulu `functools` pa funsons avansadu. Odja a dokumentason pa intende a orden i as opsons."
+    kea: "Python tene regras ríkas pa parámetrus — keyword-only (`*`), positional-only (`/`), i módulu `functools` pa funsons avansadu. Odja dokumentasan pa intende orden i opsons."
   resources:
     kea:
       - { label: "Python docs — Defining Functions (tutorial)", url: "https://docs.python.org/3/tutorial/controlflow.html#defining-functions" }
@@ -163,6 +163,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `return` versus `print`" }
   prompt:
-    kea: "`print()` ta mostra un valor na ekran; `return` ta manda-l di volta pa ken txoma a funsan (pa uza-l más tardi). Skrebe o ki ta kontise si bu uza `print` undi bu devia uza `return`, i pamodi un funsan ki só ta `print` ta retorna `None`."
+    kea: "`print()` ta mostra un valor na ekran; `return` ta manda-l di volta pa ken txoma funsan (pa uza-l más tardi). Skrebe o ki ta kontise si bu uza `print` unde bu debe uza `return`, i pamodi un funsan ki só ta `print` ta retorna `None`."
   notePlaceholder:
     kea: "Kazu pa return: …   ·   Kazu pa print: …   ·   O ki `x = funsan_ku_print()` ta da (i pamodi): …"
