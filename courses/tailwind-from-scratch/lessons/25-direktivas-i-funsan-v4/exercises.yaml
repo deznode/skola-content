@@ -1,0 +1,61 @@
+- slug: kria-tarja-promo
+  language: css
+  kind: code
+  title: { kea: "Kria un klasi `.tarja-promo` ku `@apply`" }
+  prompt: { kea: "Na `input.css`, kria un klasi `.tarja-promo` ku `@apply` ki ta djunta: `bg-koral`, `text-white`, `font-bold`, `text-sm`, `uppercase`, `tracking-wide`, `px-3`, `py-1`, `rounded-full`. Uza-l pa marka un pakoti di turizmu no Resort Brava ku etiketa **PROMO**." }
+  hint: { kea: "`@apply` ta bai dentru di un regra CSS normal — `.tarja-promo { @apply … ; }`." }
+  starterCode: |
+    /* input.css */
+    @import "tailwindcss";
+
+    .tarja-promo {
+      /* TODO: adiziona os utilidadis ku @apply */
+    }
+  solutionCode: |
+    /* input.css */
+    @import "tailwindcss";
+
+    .tarja-promo {
+      @apply bg-koral text-white font-bold text-sm uppercase tracking-wide px-3 py-1 rounded-full;
+    }
+
+    /* Uzu no HTML: */
+    /* <span class="tarja-promo">PROMO</span> */
+
+- slug: kria-utility-skroll-suavi
+  language: css
+  kind: code
+  title: { kea: "Kria un `@utility skroll-suavi`" }
+  prompt: { kea: "Kria un utilidadi `@utility skroll-suavi` ki ta define `scroll-behavior: smooth;` i `scroll-margin-top: 4rem;`. Aplika-l na `<html>` di Resort Brava. Konfirma ki `lg:skroll-suavi` tambén ta funsiona — variantis ta funsiona otomátiku ku `@utility`." }
+  hint: { kea: "`@utility nomi { … }` ta kria a klasi; variantis sima `lg:` ta funsiona sen skrebe más nada." }
+  starterCode: |
+    @utility skroll-suavi {
+      /* TODO: define scroll-behavior i scroll-margin-top */
+    }
+  solutionCode: |
+    @utility skroll-suavi {
+      scroll-behavior: smooth;
+      scroll-margin-top: 4rem;
+    }
+
+    /* Uzu no HTML: <html class="skroll-suavi lg:skroll-suavi"> */
+
+- slug: koriji-reference-css-modules
+  language: css
+  kind: debug
+  file: card.module.css
+  title: { kea: "Koriji un komponenti scoped sen `@reference`" }
+  prompt: { kea: "Es `card.module.css` (CSS Modules) ta da eru na build pamodi `@apply` **ka ten asesu pa tokens** fora di `input.css`. Diskubri o ki ta falta i koriji-l." }
+  starterCode: |
+    /* card.module.css */
+    .card {
+      @apply bg-white shadow-md rounded-lg p-6;
+    }
+  hint: { kea: "Fora di `input.css` prinsipal, `@apply` PRESIZA `@reference` no topu di fixeru." }
+  solutionCode: |
+    /* card.module.css */
+    @reference "../input.css";
+
+    .card {
+      @apply bg-white shadow-md rounded-lg p-6;
+    }

@@ -1,0 +1,334 @@
+---
+title: "Vite, Webpack i PostCSS"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: vite-webpack-postcss
+slug: "vite-webpack-postcss"
+module: 4
+lesson: 26
+duration: "25 min"
+objectives:
+  - "Splika pamodi Vite é eskolha padran pa projetus Tailwind v4 na 2026"
+  - "Konfigura `@tailwindcss/vite` ku trez linha"
+  - "Konfigura `@tailwindcss/postcss` pa projetus Next.js i Angular"
+  - "Konfigura `@tailwindcss/webpack` pa kaza antigu"
+  - "Lembra ki `autoprefixer` i `postcss-import` ka é más nesesáriu"
+---
+
+# Vite, Webpack i PostCSS
+
+CLI v4 funsiona ben pa pájina HTML statiku. Ma kuandu projetu kresi — múltiplu fixeru JavaScript, módulu npm, framework tipu React ou Vue — bo presiza un **build tool más kompletu**.
+
+Es lisan ta kobri trez kaminhus: **Vite** (rekomenda pa 2026), **PostCSS** (pa Next.js/Angular), i **Webpack** (antigu).
+
+<SectionHeading variant="concept" seq={1}>Pamodi un Build Tool?</SectionHeading>
+
+CLI v4 só ta kompila CSS. Ma projetu real ten más:
+
+| Presiza | CLI v4 | Build tool |
+|---|---|---|
+| Kompila CSS | ✅ | ✅ |
+| Bundle múltiplu JS | ❌ | ✅ |
+| Import di módulus npm | ❌ | ✅ |
+| Hot Module Reload (HMR) | ❌ | ✅ |
+| TypeScript, JSX, Vue, Svelte | ❌ | ✅ |
+| Otimizasan di assets (imajens, fonti) | ❌ | ✅ |
+
+**Bottom line:** kualker projetu ku JavaScript modernu **ten** un build tool. Tailwind ta integra-l kumo plugin.
+
+<SectionHeading variant="concept" seq={2}>Trez Kaminhus en 2026</SectionHeading>
+
+Trez kaminhus ta liga Tailwind v4 ku un build tool. Kada un ten un pakoti propi i un kontestu unde el ta gana:
+
+<CompareTable
+  title="Vite vs PostCSS vs Webpack"
+  cornerLabel="Aspetu"
+  cols={[
+    { name: "Vite", syntax: "@tailwindcss/vite", accent: "blue" },
+    { name: "PostCSS", syntax: "@tailwindcss/postcss", accent: "teal" },
+    { name: "Webpack", syntax: "@tailwindcss/webpack", accent: "orange" },
+  ]}
+  rows={[
+    { label: "Kuandu uza", kind: "text", vals: ["Projetus novu, Vue, Svelte, Astro, Nuxt, React+Vite", "Next.js, Angular, kaza unde Vite ka é opsan", "Kódiku antigu ki dja ten Webpack konfiguradu"] },
+    { label: "Rekomendasan 2026", kind: "text", vals: ["**Kumesa li**", "Kuandu Vite ka é opsan", "Só pa kódiku antigu"] },
+  ]}
+/>
+
+**Regra di ouro pa 2026:** **kumesa ku Vite**. Só sai di Vite si bo ten razan spesífiku.
+
+<SectionHeading variant="install">Kaminhu A — Vite (Rekomenda)</SectionHeading>
+
+Vite é build tool modernu — rápidu (ESM nativu en dev), kompletu (HMR, TypeScript, JSX, etc.), simples (un só konfig).
+
+### Inisializa projetu
+
+```bash
+pnpm create vite@latest resort-brava-vite -- --template vanilla-ts
+cd resort-brava-vite
+pnpm install
+```
+
+Si bo kre React ou Vue: troka `vanilla-ts` ku `react-ts` ou `vue-ts`.
+
+### Instala Tailwind ku plugin Vite
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/vite
+```
+
+### Konfigura `vite.config.ts`
+
+```typescript
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+**Trez linha.** Es é tudu konfigurasan di Tailwind ki bo presiza ku Vite.
+
+### Kria `src/style.css`
+
+```css
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-mar-700: oklch(0.38 0.14 235);
+  --color-sol-300: oklch(0.85 0.13 75);
+  --font-display: "Crimson Pro", serif;
+}
+```
+
+### Importa no entry point
+
+```typescript
+// src/main.ts
+import './style.css';
+import './app';  // (resta di kódiku bo)
+```
+
+### Korre
+
+```bash
+pnpm dev
+```
+
+<TerminalBlock
+  title="pnpm dev"
+  lines={[
+    { type: "cmd", t: "pnpm dev" },
+    { type: "out", t: "  VITE v5.4  ready in 190 ms" },
+    { type: "out", t: "  ➜  Local:   http://localhost:5173/" },
+  ]}
+/>
+
+Vite ta abri na `http://localhost:5173`. HMR ta funsiona — kada save ta atualiza imediatamenti, sen rekarrega.
+
+```bash
+pnpm build
+# dist/ ta kontén HTML + CSS + JS num bundle, pronti pa deploy
+```
+
+**Tudu funsiona:** TypeScript, módulus npm, HMR, scan otomátiku di Tailwind. Sen autoprefixer, sen postcss-import — Vite + Tailwind v4 ta inkluí tudu.
+
+<SectionHeading variant="install">Kaminhu B — PostCSS (Next.js, Angular)</SectionHeading>
+
+Next.js 15+ ka uza Vite — el ten Turbopack/Webpack propi. Pa Tailwind funsiona li, uza plugin PostCSS.
+
+### Instala
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/postcss postcss
+```
+
+### Konfigura `postcss.config.mjs`
+
+```javascript
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+**Só un plugin.** Es é tudu.
+
+### `app/globals.css` (Next.js)
+
+```css
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-mar-700: oklch(0.38 0.14 235);
+  /* ... resta di tokens ... */
+}
+```
+
+```typescript
+// app/layout.tsx
+import './globals.css';
+
+export default function RootLayout({ children }) {
+  return <html lang="kea"><body>{children}</body></html>;
+}
+```
+
+### Lembra — `autoprefixer` i `postcss-import` ka presiza
+
+Si bo ten tutoriais v3 anterior, bo ta odja un `postcss.config.mjs` ku trez plugin. Na v4, dos di es ta sai:
+
+<CodeDiff
+  lang="javascript"
+  filename="postcss.config.mjs"
+  title="PostCSS: di v3 pa v4"
+  note="`autoprefixer` i `postcss-import` sai — Tailwind v4 ta inkluí ambos internamenti. Fika un só plugin: `@tailwindcss/postcss`."
+  diff={[
+    { type: "ctx", t: "export default {" },
+    { type: "ctx", t: "  plugins: {" },
+    { type: "del", t: '    "postcss-import": {},' },
+    { type: "del", t: "    tailwindcss: {}," },
+    { type: "del", t: "    autoprefixer: {}," },
+    { type: "add", t: '    "@tailwindcss/postcss": {},' },
+    { type: "ctx", t: "  }," },
+    { type: "ctx", t: "};" },
+  ]}
+/>
+
+**v4 ta inkluí ambos otomátiku.** Tira-s di kualker konfig antigu — só un plugin: `@tailwindcss/postcss`.
+
+<SectionHeading variant="install">Kaminhu C — Webpack (Antigu)</SectionHeading>
+
+Si bo projetu dja ten Webpack i bo ka pode migra pa Vite, uza plugin Webpack.
+
+### Instala
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/webpack
+```
+
+### Konfigura `webpack.config.js`
+
+```javascript
+const tailwindcss = require('@tailwindcss/webpack');
+
+module.exports = {
+  mode: 'development',
+  // ... resta di konfig ...
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          tailwindcss,
+        ],
+      },
+    ],
+  },
+};
+```
+
+### `src/style.css`
+
+```css
+@import "tailwindcss";
+```
+
+**Repara:** sen `postcss-loader`, sen `autoprefixer-loader`, sen `postcss-import-loader`. **Un só loader.**
+
+:::callout{type=tip}
+Si bo projetu existe konfig Webpack ku tudu es loader v3 — tira-s tudu i troka ku `@tailwindcss/webpack`. Konfig ta kresi más kurtu, build ta sai más rápidu.
+:::
+
+<SectionHeading variant="concept" seq={3}>Komparasan Diretu — Tempu di Build</SectionHeading>
+
+Komparasan na projetu médiu (500 fixeru fonti, 50KB CSS final):
+
+| Tool | Build inisial | HMR (un mudansa) |
+|---|---|---|
+| **Vite + Tailwind v4** | ~100ms | ~5ms |
+| **PostCSS + Tailwind v4** | ~150ms | ~10ms |
+| **Webpack + Tailwind v4** | ~400ms | ~50ms |
+| Webpack + Tailwind v3 (referénsia) | ~1500ms | ~300ms |
+
+**v4 + Vite ta sai ~15× más rápidu ki Webpack v3.** Es é Oxide engine + Vite ESM na asan.
+
+<SectionHeading variant="concept" seq={4}>O ki Muda di v3? Resumu</SectionHeading>
+
+| Item | v3 | v4 |
+|---|---|---|
+| Pakoti Tailwind | `tailwindcss` | `tailwindcss` (núcleu) + plugin spesífiku |
+| Plugin Vite | (ka tinha ofisial) | `@tailwindcss/vite` |
+| Plugin PostCSS | `tailwindcss` direta | `@tailwindcss/postcss` |
+| Plugin Webpack | (loader generiku) | `@tailwindcss/webpack` |
+| `autoprefixer` | Nesesáriu | **Tiradu** (núcleu v4) |
+| `postcss-import` | Nesesáriu | **Tiradu** (núcleu v4) |
+| `tailwind.config.js` | Sentru di konfig | **Trokadu pa `@theme` na CSS** |
+| `content: []` | Manual | **Auto-skaneamentu** |
+| PostCSS v7 | Suporta | **Só v8+** |
+
+<SectionHeading variant="install">Esemplu Prátiku — Migra Resort Brava di CLI pa Vite</SectionHeading>
+
+Bo dja ten Resort Brava ku CLI (di Lisan 23). Vamus move-l pa Vite — gana HMR i estrutura más profisional.
+
+```bash
+# 1. Krio nova pasta Vite
+pnpm create vite@latest resort-brava-vite -- --template vanilla
+cd resort-brava-vite
+
+# 2. Instala Tailwind ku Vite plugin
+pnpm add -D tailwindcss @tailwindcss/vite
+
+# 3. Atualiza vite.config.js
+cat > vite.config.js <<'EOF'
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({ plugins: [tailwindcss()] })
+EOF
+
+# 4. Kopia o teu input.css di Lisan 23 pa src/style.css
+
+# 5. Atualiza index.html — tira <link rel="stylesheet" href="dist/style.css">
+#    i adisiona na <body>: <script type="module" src="/src/main.js"></script>
+
+# 6. Krio src/main.js:
+echo 'import "./style.css";' > src/main.js
+
+# 7. Korre
+pnpm dev
+```
+
+**Mudansas xavi:**
+- `<link rel="stylesheet">` ta sai. Vite ta injeta CSS otomátiku.
+- HMR otomátiku — kada save ta atualiza pájina **sen rekarrega**.
+- `pnpm build` ta gera `dist/` ku CSS + JS minifikadu, prontu pa deploy (Cloudflare, Netlify, etc.).
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Vite pa 2026">eskolha padran — más rápidu, más simples, ESM nativu. `@tailwindcss/vite` ta integra Tailwind en trez linha.</RezumuItem>
+  <RezumuItem term="PostCSS">`@tailwindcss/postcss` é pa Next.js, Angular i kaza non-Vite.</RezumuItem>
+  <RezumuItem term="Webpack">`@tailwindcss/webpack` é pa kódiku antigu (v4.2+).</RezumuItem>
+  <RezumuItem term="Mesmu input.css">funsiona ku tudu trez kaminhus — só pakoti i konfig di build muda.</RezumuItem>
+  <RezumuItem term="Sen config.js">ka ten `tailwind.config.js`, ka ten `content: []` — kontinua na `@theme` no CSS.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`autoprefixer` i `postcss-import` ka é más nesesáriu — Tailwind v4 ta inkluí-s; tira-s di kualker konfig antigu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Kumesa ku Vite; só sai di el ku un razan spesífiku.</RezumuItem>
+</KeyTakeaways>

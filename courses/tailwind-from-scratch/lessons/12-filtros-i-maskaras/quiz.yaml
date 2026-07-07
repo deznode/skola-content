@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, kal klasi ki bo ta uza pa substitui o antigu `blur` di v3?"
+  options:
+    - text: { kea: "`blur-sm` — na v4, `blur` bare ka izisti, sempri ten sufixu" }
+      correct: true
+      explain: { kea: "Sertu. `blur-sm` (4px) é o mesmu ki o `blur` di v3. Na v4 kada filtru ten un sufixu di tamanhu." }
+    - text: { kea: "`blur` — funsiona igual ki na v3" }
+      correct: false
+      explain: { kea: "Na v4, `blur` sozinhu ka izisti. Bo meste uza un sufixu: `blur-xs`, `blur-sm`, `blur-md`…" }
+
+- question:
+    kea: "Pa `backdrop-blur-md` kria efeitu di glassmorphism, kuze ki o elementu meste tene?"
+  options:
+    - text: { kea: "Un fundu semi-transparenti, sima `bg-sky-700/85`" }
+      correct: true
+      explain: { kea: "Sertu. Si o fundu é sólidu, ka ten nada pa deixa luz pasa — kor ta tapa tudu o ki sta atrás." }
+    - text: { kea: "Un fundu sólidu, sima `bg-sky-700`" }
+      correct: false
+      explain: { kea: "Un fundu sólidu ta tapa tudu. Pa o blur di o ki sta atrás apareseu, o fundu meste deixa luz pasa (`/85`)." }
+
+- question:
+    kea: "Kuze ki filtros `backdrop-*` ta afeta?"
+  options:
+    - text: { kea: "O ki sta atrás di o elementu, ka o elementu mes" }
+      correct: true
+      explain: { kea: "Sertu. `backdrop-blur`, `backdrop-saturate`… ta aplika a o ki sta atrás — es é o segredu di glassmorphism." }
+    - text: { kea: "O próprio elementu, sima `blur` normal" }
+      correct: false
+      explain: { kea: "Kel é o filtru normal (`blur`, `brightness`). O prefixu `backdrop-` ta muda pa o ki sta atrás di o elementu." }

@@ -1,0 +1,60 @@
+- slug: aplika-fade-up-hero
+  language: html
+  kind: code
+  title: { kea: "Entrada suavi na hero" }
+  prompt: { kea: "Na `<head>` di Resort Brava, adisiona un blok `<style type=\"text/tailwindcss\">` ku `--animate-fade-up` i `@keyframes fade-up`. Dipos aplika `animate-fade-up` a hero **h2**, **p** i boton, ku `animation-delay` diferenti pa kada un. Konfirma ki karrega pajina ten un entrada suavi." }
+  hint: { kea: "Uza `style=\"animation-delay: 0.15s\"` na parágrafu i `0.3s` na boton pa faze o stagger." }
+  starterCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        /* TODO: --animate-fade-up */
+      }
+      /* TODO: @keyframes fade-up */
+    </style>
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --animate-fade-up: fade-up 0.6s ease-out forwards;
+      }
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+
+    <h2 class="animate-fade-up ...">Ben Vindo</h2>
+    <p class="animate-fade-up ..." style="animation-delay: 0.15s">Vive Brava...</p>
+    <a class="animate-fade-up ..." style="animation-delay: 0.3s">Olha kuartus</a>
+
+- slug: sinal-scroll-bounce
+  language: html
+  kind: code
+  title: { kea: "Sinal di scroll" }
+  prompt: { kea: "Adisiona un sinal di scroll no fin di hero ku a klasi built-in `animate-bounce`. Konfirma ki o ponti ta salta sen para." }
+  hint: { kea: "`animate-bounce` é built-in — ka meste `@keyframes`. So poi-l na un `<div>` ku un seta." }
+  solutionCode: |
+    <div class="animate-bounce text-amber-500 text-3xl">↓</div>
+
+- slug: anima-shimmer
+  language: css
+  kind: code
+  title: { kea: "Animasan shimmer personalizadu" }
+  prompt: { kea: "Defini un animasan personalizadu `--animate-shimmer` ki ta anima un gradient di un lado pa otu. Aplika-l a un `<div>` ku un fundu di gradient i konfirma ki ten un brilhu ki ta kore." }
+  hint: { kea: "Anima `background-position` di `-200% 0` te `200% 0`, i poi `[background-size:200%_100%]` na elementu." }
+  starterCode: |
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --animate-shimmer: shimmer 1.5s linear infinite;
+      }
+      @keyframes shimmer {
+        0%   { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+    </style>
+
+    <div class="animate-shimmer bg-linear-to-r from-amber-200 via-amber-100 to-amber-200 [background-size:200%_100%] h-16 rounded-lg"></div>

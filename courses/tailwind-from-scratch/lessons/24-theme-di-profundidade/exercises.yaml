@@ -1,0 +1,43 @@
+- slug: adisiona-tokens-marka
+  language: css
+  kind: code
+  title: { kea: "Adisiona dos tokens novu" }
+  prompt:
+    kea: "Na `@theme` di Resort Brava, adisiona dos tokens: `--color-koral` (un kor, ex. `oklch(0.65 0.20 25)`) i `--radius-card: 1rem`. Dipos uza-s nun **card di izemplu** ku `bg-koral` i `rounded-card`. Konfirma ki tudu utilidadi ta gera automátiku, sen mexe en `tailwind.config.js`."
+  hint:
+    kea: "Un token ku prefixu `--color-*` ta da `bg-*`, `text-*`, `border-*`; un token `--radius-*` ta da `rounded-*`."
+  code: |
+    @theme {
+      /* Adisiona li os dos tokens */
+    }
+  why:
+    kea: "Es é o padran xavi: kria un variavel ku prefixu sertu → utilidadis ta aparece sen registru en JavaScript."
+
+- slug: eksperimenta-spacing
+  language: css
+  kind: code
+  title: { kea: "Eksperimenta ku --spacing" }
+  prompt:
+    kea: "Muda `--spacing` di padran (`0.25rem`) pa `0.2rem` — odja tudu pájina fika **konpaktu**. Dipos muda pa `0.35rem` — pájina ta sai ku más spasu. **Sen muda klasi ninhun no HTML**, só un linha CSS."
+  hint:
+    kea: "`p-4` = 4 × `--spacing`. Ku `0.2rem`, `p-4` ta sai `0.8rem`; ku `0.35rem`, ta sai `1.4rem`."
+  code: |
+    @theme {
+      --spacing: 0.25rem;   /* muda es linha */
+    }
+  why:
+    kea: "Un só variavel ta kontrola tudu utilidadi di tamanhu (`p-*`, `m-*`, `w-*`, `h-*`) — un linha ta atualiza txeu utilidadis di un bez."
+
+- slug: refleta-inkrementa-vs-substitui
+  language: css
+  kind: reflect
+  title: { kea: "Inkrementa ou substitui?" }
+  prompt:
+    kea: "Kria un projetu di teste ku `--color-*: initial` i só trez kores: `--color-blanku`, `--color-pretu`, `--color-azul`. Skrebe HTML ku `bg-blue-500` — konfirma ki **ka funsiona** (kor padran tiradu). Dipos uza `bg-azul` — funsiona. Splika ku bo palavras: kuandu ki `@theme` ta **inkrementa** valores pa la di padran, i kuandu ki el ta **substitui** padran?"
+  notePlaceholder:
+    kea: "Skrebe li o ki bo odja i o ki bo konklui…"
+  modelPoints:
+    kea:
+      - "Sen `initial`, `@theme` ta **djunta** bo tokens novu pa riba di padran — kores Tailwind kontinua ta funsiona."
+      - "Ku `--color-*: initial`, bo ta **tira** tudu paleta padran promeru — só bo tokens ta izisti dipos."
+      - "`--*: initial` ta zerar tudu tema (kor, fonti, spacing…) — sistema kompletamenti personalizadu di zero."

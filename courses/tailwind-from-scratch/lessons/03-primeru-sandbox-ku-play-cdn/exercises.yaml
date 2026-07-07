@@ -1,0 +1,62 @@
+- slug: konstrui-bon-dia-sandbox
+  language: html
+  kind: code
+  title: { kea: "Konstrui o sandbox 'Bon dia Kabu Verdi'" }
+  prompt: { kea: "Kria un `index.html` ku o Play CDN i o blok `@theme`, dipos adiziona o kartan di saudasan. Abri-l ku Live Server i konfirma ki bu ta odja o kartan ku fundu di areia i o boton azul di mar." }
+  hint: { kea: "O `<script>` di Play CDN i o `<style type=\"text/tailwindcss\">` ta bai tudu dos na `<head>`." }
+  starterCode: |
+    <!doctype html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
+          @theme {
+            --color-mar: #006994;
+            --color-areia: #f4e4bc;
+          }
+        </style>
+      </head>
+      <body class="bg-areia min-h-screen flex items-center justify-center p-6">
+        <!-- TODO: adiziona o kartan li dentu -->
+      </body>
+    </html>
+  solutionCode: |
+    <body class="bg-areia min-h-screen flex items-center justify-center p-6">
+      <div class="bg-white rounded-lg shadow-md max-w-md w-full p-8 text-center">
+        <h1 class="text-4xl font-bold text-mar mb-2">Bon dia Kabu Verdi!</h1>
+        <p class="text-gray-600 mb-6">Bu primeru sandbox di Tailwind v4 sta a funsiona.</p>
+        <button class="bg-mar hover:bg-mar/80 text-white font-medium px-6 py-2 rounded-md transition">Komesa Aprende</button>
+      </div>
+    </body>
+
+- slug: adiziona-token-sol
+  language: html
+  kind: code
+  title: { kea: "Adiziona un token novu: --color-sol" }
+  prompt: { kea: "Na bu blok `@theme`, adiziona un terseiru token: `--color-sol: #ffb700` (o kor di sol di Sal). Dipos muda o títulu pa uza `text-sol` en bez di `text-mar`. Salva i odja o kor muda." }
+  hint: { kea: "Tokens ta vira klasis otomatikamenti: `--color-sol` ta da-u `text-sol`, `bg-sol` i `border-sol`." }
+  starterCode: |
+    @theme {
+      --color-mar: #006994;
+      --color-areia: #f4e4bc;
+    }
+  solutionCode: |
+    @theme {
+      --color-mar: #006994;
+      --color-areia: #f4e4bc;
+      --color-sol: #ffb700;
+    }
+    <!-- i na o títulu: -->
+    <h1 class="text-4xl font-bold text-sol mb-2">Bon dia Kabu Verdi!</h1>
+
+- slug: refleta-tokens-personalizadu
+  language: html
+  kind: reflect
+  title: { kea: "Repara: tokens pursonalisadu ta funsiona sima os ofisial" }
+  prompt: { kea: "Adiziona un sigundu boton ku `class=\"bg-sol text-mar\"`. Repara kumo Tailwind ta uza os tokens ki bu defini (`bg-sol`, `text-mar`) exatamenti sima el ta uza os ofisial (`bg-blue-600`). Ten algu spesial pa bu na isu? Skrebe 1–2 frazi." }
+  code: |
+    <button class="bg-sol text-mar font-medium px-6 py-2 rounded-md">
+      Sigundu boton
+    </button>
+  notePlaceholder: { kea: "Skrebe li o ki bu repara…" }

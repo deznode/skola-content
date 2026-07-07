@@ -1,0 +1,191 @@
+---
+title: "Columns"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: columns
+slug: "columns"
+module: 3
+lesson: 16
+duration: "10 min"
+objectives:
+  - "Aplika layout di multiplu kolunas CSS ku `columns-{N}` o `columns-{tamanho}`"
+  - "Kontrola spasu entri kolunas ku `gap-*`"
+  - "Konxe `aspect-*` pa kontrola razon di imajens dentu di kolunas"
+  - "Sabe kuandu uza `columns` vs `flex`/`grid`"
+---
+
+# Columns
+
+Tailwind ten 3 grandes ferramentas di layout: **`columns`** (es lisan), **`flex`** (prósimu) i **`grid`** (dipos di kel). Tudu trez son útil ma resolvi problemas diferenti.
+
+`columns` é más simples i menos uzadu. Funsiona kumo **kolunas di un jornal** — bo da un kontainer un númeru di kolunas, i konteúdu **ta distribui otomatikamenti**. Otimu pa galerias di imajens, textu longu, listas vertikalmenti distribuidu.
+
+<SectionHeading variant="concept" seq={1}>Sintaxi Báziku</SectionHeading>
+
+```html
+<div class="columns-3">
+  <img src="img1.jpg">
+  <img src="img2.jpg">
+  <img src="img3.jpg">
+  <img src="img4.jpg">
+  <img src="img5.jpg">
+  <img src="img6.jpg">
+</div>
+```
+
+Browser ta distribui 6 imajens a 3 kolunas (2 imajens kada). Kuze bo ten **ka mesti faze nada manualmenti** — ta distribui sozinhu.
+
+<SectionHeading variant="concept" seq={2}>Valoris di Kolunas</SectionHeading>
+
+### Númeru Izatu — `columns-{N}`
+
+```html
+<div class="columns-1">1 koluna</div>
+<div class="columns-2">2 kolunas</div>
+<div class="columns-3">3 kolunas</div>
+<div class="columns-4">4 kolunas</div>
+<!-- te columns-12 -->
+```
+
+### Por Tamanhu Mínimu — `columns-{size}`
+
+En bez di númeru fiksu, bo pode dize "kada koluna ten **no mínimu** un tamanhu, browser disidi kuantas kabe":
+
+```html
+<div class="columns-3xs">Min 16rem (256px)</div>
+<div class="columns-2xs">Min 18rem (288px)</div>
+<div class="columns-xs">Min 20rem (320px)</div>
+<div class="columns-sm">Min 24rem (384px)</div>
+<div class="columns-md">Min 28rem (448px)</div>
+<div class="columns-lg">Min 32rem (512px)</div>
+<div class="columns-xl">Min 36rem (576px)</div>
+<div class="columns-2xl">Min 42rem (672px)</div>
+```
+
+Es é klásiku pa **galerias responsivu**: kuandu janela é ekran grandi, ten 4 kolunas; kuandu diminui, vira 2; vira 1 no telefoni. Tudu sen un só prefixu responsivu.
+
+```html
+<div class="columns-xs">
+  <img src="brava1.jpg">
+  <img src="brava2.jpg">
+  <img src="brava3.jpg">
+  <img src="brava4.jpg">
+  <img src="brava5.jpg">
+</div>
+```
+
+Es ta da: ~5 kolunas na 1920px, ~3 na 1024px, ~2 na 640px, ~1 na 320px. **Otimu pa galeria di imajens.**
+
+<SectionHeading variant="concept" seq={3}>Spasu Entri Kolunas ku `gap-*`</SectionHeading>
+
+Default ta poi un spasu pikinu entri kolunas. Pa kontrola:
+
+```html
+<div class="columns-3 gap-4">Espasu di 1rem entri kolunas</div>
+<div class="columns-3 gap-8">Espasu di 2rem</div>
+<div class="columns-3 gap-0">Sen spasu</div>
+```
+
+Mesmu skala di spacing di Lisan 6.
+
+<SectionHeading variant="concept" seq={4}>Razon di Imajens ku `aspect-*`</SectionHeading>
+
+Pa galerias di imajens, razon konsistenti son importanti. `aspect-*` forsa un razon. Repara kumo un só kontainer ta konbina trez razon diferenti:
+
+<AnnotatedCode
+  lang="html"
+  filename="galeria.html"
+  title="Trez razon nun só galeria"
+  code={[
+    { t: '<div class="columns-3 gap-4">', m: 1 },
+    { t: '  <img class="w-full aspect-square" src="brava1.jpg">', m: 2 },
+    { t: '  <img class="w-full aspect-video" src="brava2.jpg">', m: 3 },
+    { t: '  <img class="w-full aspect-[3/4]" src="brava3.jpg">', m: 4 },
+    { t: '</div>', m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Kontainer", body: "`columns-3` ta faze trez kolunas i `gap-4` ta poi 1rem entri es." },
+    { m: 2, title: "aspect-square", body: "Forsa razon **1:1** — imajen ta fika kuadradu, ka importa se tamanhu original." },
+    { m: 3, title: "aspect-video", body: "Forsa razon **16:9** — o formatu klásiku di vídeu." },
+    { m: 4, title: "aspect-[3/4]", body: "Un valor **arbitráriu** — 3:4, un formatu portrait." },
+  ]}
+/>
+
+Valoris padran:
+- **`aspect-square`** — 1:1
+- **`aspect-video`** — 16:9
+- **`aspect-auto`** — natural (default)
+
+Arbitráriu: `aspect-[3/4]`, `aspect-[21/9]` (ultrawide).
+
+<SectionHeading variant="concept" seq={5}>Evita Kebra na Meiu ku `break-inside-avoid`</SectionHeading>
+
+Si bo ten kards ku altura ka definidu, browser pode kebra-l na meiu di dos kolunas. Antis di odja a solusan, pensa na kumo `columns` ta trata kada karta:
+
+<MisconceptionConfront
+  belief="Kuandu bo poi kards dentu di un `columns`, browser ta mante kada karta interu — nunka ta kebra-l entri dos kolunas."
+  myth="`columns` ta trata kada karta sima un bloku ki ka pode separa."
+  real="Browser ta distribui konteúdu koluna pa koluna, sima textu di jornal. Si un karta ka kabe na fin di un koluna, el ta kebra: parti riba na koluna 1, parti baxu na koluna 2."
+  takeaway="Poi `break-inside-avoid` na kada karta pa forsa-l fika interu nun só koluna."
+/>
+
+Ku `break-inside-avoid`, o bloku ta fika integralmenti nun só koluna:
+
+```html
+<div class="columns-3">
+  <div class="break-inside-avoid">
+    <h3>Karta ki ka pode kebra</h3>
+    <p>Konteúdu ki fika integralmenti na un só koluna</p>
+  </div>
+</div>
+```
+
+<SectionHeading variant="concept" seq={6}>Kuandu Uza `columns`?</SectionHeading>
+
+| Senáriu | Skodje |
+|---|---|
+| Galeria di imajens ku altura diferenti (Pinterest-style) | **`columns`** |
+| Lista vertikal di artigus pa le | **`columns`** |
+| Layout di duas kolunas iguais ku konteúdu diferenti | **`grid`** (prósimu lisan) |
+| Layout di item sentralizadu (boton na meiu) | **`flex`** (prósimu lisan) |
+| Bloku ku altura igual i kontrolu detalhadu di pozisan | **`grid`** |
+
+`columns` é poderozu kuandu konteúdu é **igual i ta distribui sozinhu**. Pa layout más kontroladu, `grid` é midjór.
+
+:::callout{type=info}
+Resort Brava ka ten galeria ainda. Si futuru ten un seksan "Galeria di Imajens", `columns-xs` seria perfeitu pa faze un layout Pinterest-style. Pa es lisan, nu ta demo na un fixeru separadu i ka toka na Resort Brava.
+:::
+
+<SectionHeading variant="practice">Repete pa Lembra</SectionHeading>
+<Flashcard
+  showHeader={false}
+  deckId="tailwind-columns-utilities"
+  cards={[
+    { term: "columns-3", def: "Numeru fiksu di kolunas: sempri 3. Di columns-1 te columns-12." },
+    { term: "columns-xs", def: "Largura minimu di koluna (20rem); browser ta disidi kuantas kabe. Responsivu otomatiku." },
+    { term: "gap-4", def: "Spasu entri kolunas — 1rem. Mesmu skala di spacing di tudu Tailwind." },
+    { term: "aspect-square", def: "Forsa razon 1:1 na un imajen — kuadradu." },
+    { term: "aspect-video", def: "Forsa razon 16:9 — formatu di video." },
+    { term: "break-inside-avoid", def: "Evita ki un bloku kebra na meiu di dos kolunas." },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="columns-{size}">largura mínimu di koluna, browser disidi kuantas kabe — galeria responsivu otomátiku sen un só prefixu.</RezumuItem>
+  <RezumuItem term="columns-{N}">numeru fiksu di kolunas (1–12).</RezumuItem>
+  <RezumuItem term="gap-*">spasu entri kolunas, mesmu skala di spacing di Lisan 6.</RezumuItem>
+  <RezumuItem term="aspect-*">razon di imajens (`square`, `video`, ou arbitráriu sima `aspect-[3/4]`).</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">sen `break-inside-avoid`, un karta ku altura ka definidu pode kebra entri dos kolunas.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">uza `columns` pa galerias i textu longu; pa layout kontroladu, uza `grid` (prósimu).</RezumuItem>
+</KeyTakeaways>

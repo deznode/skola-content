@@ -1,0 +1,51 @@
+- slug: aplika-hover-lift-kards
+  language: html
+  kind: code
+  title: { kea: "Kards ki ta levanta na hover" }
+  prompt: { kea: "Aplika hover scale + transition a un kard di Resort Brava. Konfirma ki o kard levanta-se di forma suavi kuandu rato passa riba." }
+  hint: { kea: "Kombina `hover:scale-105`, `hover:shadow-lg` i `transition duration-200 ease-out` na mesmu elementu." }
+  starterCode: |
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+      <h3 class="text-lg font-bold">Kuartu Vista Mar</h3>
+      <p class="text-slate-500">Djunta ku o son di undas.</p>
+    </div>
+  solutionCode: |
+    <div class="bg-white p-6 rounded-lg shadow-sm hover:scale-105 hover:shadow-lg transition duration-200 ease-out">
+      <h3 class="text-lg font-bold">Kuartu Vista Mar</h3>
+      <p class="text-slate-500">Djunta ku o son di undas.</p>
+    </div>
+
+- slug: rota-i-krese-imajen
+  language: html
+  kind: code
+  title: { kea: "Imajen ki ta rota i ta krese" }
+  prompt: { kea: "Adisiona un imajen (`<img>` ku `https://picsum.photos/300/300`) na karta \"Kuartus\" i aplika `hover:rotate-3 hover:scale-110 transition duration-500` a imajen. Konfirma ki imajen ta rota i ta krese di forma suavi." }
+  hint: { kea: "Poi `transition duration-500` na o `<img>` djuntu ku os klasis di `hover:` — sen `transition`, o movimentu ta salta seku." }
+  starterCode: |
+    <div class="bg-white p-4 rounded-lg shadow-sm">
+      <img src="https://picsum.photos/300/300" class="rounded-md" />
+      <h3 class="mt-3 font-bold">Kuartus</h3>
+    </div>
+  solutionCode: |
+    <div class="bg-white p-4 rounded-lg shadow-sm">
+      <img src="https://picsum.photos/300/300"
+           class="rounded-md hover:rotate-3 hover:scale-110 transition duration-500" />
+      <h3 class="mt-3 font-bold">Kuartus</h3>
+    </div>
+
+- slug: konstrui-flip-kard-3d
+  language: html
+  kind: code
+  title: { kea: "Konstrui un flip-kard 3D" }
+  prompt: { kea: "Konstrui un flip-kard 3D fora di `main`. Poi `perspective-distant` na o elementu **pai** i `transform-3d hover:rotate-y-180 transition duration-700` na o **fidju**. Hover i odja o karta vira sima pajina di livru." }
+  hint: { kea: "`perspective-*` ta bai na o pai; `transform-3d` + `rotate-y-*` na o fidju. Sen `perspective` na o pai, o 3D ta parese flat." }
+  starterCode: |
+    <div class="perspective-distant">
+      <!-- TODO: adiziona o fidju ku transform-3d i hover:rotate-y-180 -->
+    </div>
+  solutionCode: |
+    <div class="perspective-distant">
+      <div class="bg-white p-8 rounded-lg shadow-lg transform-3d hover:rotate-y-180 transition duration-700">
+        FRENTE
+      </div>
+    </div>

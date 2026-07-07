@@ -1,0 +1,265 @@
+---
+title: "Animasan"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: animasan
+slug: "animasan"
+module: 3
+lesson: 20
+duration: "20 min"
+objectives:
+  - "Aplika animasan built-in: `animate-spin`, `animate-pulse`, `animate-bounce`, `animate-ping`"
+  - "Konxe diferensa entri animasan i transisan"
+  - "Defini animasan personalizadu na v4 ku `@theme { --animate-* }` + `@keyframes`"
+  - "Aplika animasan personalizadu kumo klasi otomátiku (`animate-fade-in`)"
+  - "Aplika animasan di entrada suavi a Resort Brava"
+---
+
+# Animasan
+
+Transisan (lisan pasadu) ta ativa **kuandu un kuza muda** — hover, klike, foku. Animasan ta kore **sen fin ou em loop** — sen para, ou ta repeti es siklu sen fin.
+
+Tailwind ten 4 animasan built-in, i v4 ta da un manera elegant pa defini animasan personalizadu.
+
+<SectionHeading variant="concept" seq={1}>Transisan vs Animasan</SectionHeading>
+
+Antis di kria kualker kuza, é bon separa es dos ideias. Transisan ta liga un stadu a otu; animasan ta kore sosinhu.
+
+<CompareTable
+  showHeader={false}
+  title="Transisan vs Animasan"
+  cornerLabel="Aspetu"
+  cols={[
+    { name: "Transisan", accent: "teal" },
+    { name: "Animasan", accent: "orange" },
+  ]}
+  rows={[
+    { label: "Ativadu pa", kind: "text", vals: ["Un evento (hover, klike, foku)", "Otomátiku, ta repeti sen para"] },
+    { label: "Presiza un evento", kind: "bool", vals: [true, false] },
+    { label: "Ta repeti sen fin", kind: "bool", vals: [false, true] },
+    { label: "Klasi Tailwind", kind: "code", vals: ["transition", "animate-*"] },
+    { label: "Kazu tipiku", kind: "text", vals: ["Boton ki ta muda kor na hover", "Spinner di loading"] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>Animasan Built-in</SectionHeading>
+
+### `animate-spin` — Rotasan Infinitu
+
+```html
+<svg class="animate-spin size-8" viewBox="0 0 24 24">
+  <path d="..."/>
+</svg>
+```
+
+1 segundu di rotasan, linear, infinitu. **Kazu klásiku:** loading spinners.
+
+### `animate-pulse` — Pulsan di Opasidadi
+
+```html
+<div class="animate-pulse h-12 bg-slate-200 rounded">
+  Skeleton di loading
+</div>
+```
+
+Opasidadi vai di 100% a 50% i volta — un efeitu suavi. **Kazu klásiku:** skeleton loaders na pajina ki ta karrega dadus.
+
+### `animate-bounce` — Saltu Vertikal
+
+```html
+<div class="animate-bounce">↓</div>
+```
+
+Sobi i baxa 25% di altura. **Kazu klásiku:** sinal di scroll ("kore pa baxu pa odja mais").
+
+### `animate-ping` — Efeitu di Alerta
+
+```html
+<span class="relative">
+  <span class="absolute inset-0 animate-ping bg-red-500 rounded-full opacity-75"></span>
+  <span class="bg-red-500 rounded-full size-4"></span>
+</span>
+```
+
+`animate-ping` ta krese i fade — kumo un efeitu di alerta. **Kazu klásiku:** badge di "novu" ou ponti burmedju di alerta.
+
+### `animate-none` — Para Animasan
+
+```html
+<div class="animate-pulse hover:animate-none">
+  Para di pulsa kuandu rato passa
+</div>
+```
+
+<SectionHeading variant="concept" seq={3}>Animasan Personalizadu na v4</SectionHeading>
+
+Na v3, kria animasan personalizadu era na `tailwind.config.js`. Na v4, é tudu CSS diretu ku `@theme` i `@keyframes` — repara o ki muda:
+
+<CodeDiff
+  lang="css"
+  filename="Animasan personalizadu"
+  title="Di v3 (config JS) pa v4 (CSS puru)"
+  note="Na v4 ka ten `tailwind.config.js` — animasan ta ser definidu diretu na CSS ku `@theme` i `@keyframes`, sen JavaScript."
+  diff={[
+    { type: "del", t: "/* v3 — tailwind.config.js — ka ta funsiona na v4 */" },
+    { type: "del", t: "module.exports = {" },
+    { type: "del", t: "  theme: { extend: {" },
+    { type: "del", t: "    animation: { 'fade-in': 'fade-in 0.5s ease-out' }," },
+    { type: "del", t: "    keyframes: { 'fade-in': {" },
+    { type: "del", t: "      '0%':   { opacity: '0' }," },
+    { type: "del", t: "      '100%': { opacity: '1' } } }," },
+    { type: "del", t: "  } }," },
+    { type: "del", t: "}" },
+    { type: "add", t: "/* v4 — diretu na CSS */" },
+    { type: "add", t: "@theme {" },
+    { type: "add", t: "  --animate-fade-in: fade-in 0.5s ease-out;" },
+    { type: "add", t: "}" },
+    { type: "add", t: "@keyframes fade-in {" },
+    { type: "add", t: "  0%   { opacity: 0; transform: translateY(8px); }" },
+    { type: "add", t: "  100% { opacity: 1; transform: translateY(0); }" },
+    { type: "add", t: "}" },
+  ]}
+/>
+
+**Kuze gosta?** O token `--animate-fade-in` ta jera a klasi `animate-fade-in` otomatikamenti — sen JS, sen build step. So aplika-l:
+
+```html
+<h2 class="animate-fade-in">Aparesi suavi</h2>
+```
+
+Kre un segundu animasan? Adisiona otu token `--animate-wiggle` ku se `@keyframes` — mesmu padran:
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --animate-wiggle: wiggle 1s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50%      { transform: rotate(3deg); }
+  }
+</style>
+
+<button class="hover:animate-wiggle">Trembe na hover</button>
+```
+
+<SectionHeading variant="concept" seq={4}>Estrutura di `@keyframes`</SectionHeading>
+
+Un `@keyframes` ta difini kada momentu di a animasan. Bu pode uza persentajen (`0%`, `50%`, `100%`) ou os palavras `from` / `to`:
+
+```css
+@keyframes nomi-di-animasan {
+  0%   { ... }   /* = from */
+  50%  { ... }
+  100% { ... }   /* = to   */
+}
+```
+
+Nu ta odja un izemplu mais komplexu — un efeitu di kor di sky ki ta krese i fika transparenti:
+
+<AnnotatedCode
+  lang="css"
+  filename="sky-pulse"
+  title="Un @keyframes momentu-pa-momentu"
+  code={[
+    { t: "@theme {", m: 1 },
+    { t: "  --animate-sky-pulse: sky-pulse 2s ease-in-out infinite;", m: 1 },
+    { t: "}", m: 0 },
+    { t: "@keyframes sky-pulse {", m: 2 },
+    { t: "  0%, 100% { box-shadow: 0 0 0 0 rgb(56 189 248 / 0.7); }", m: 3 },
+    { t: "  50%      { box-shadow: 0 0 0 20px rgb(56 189 248 / 0); }", m: 4 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Token → klasi", body: "`--animate-sky-pulse` ta jera a klasi `animate-sky-pulse` otomatikamenti. `2s ease-in-out infinite` = durasan, kurva i repetison." },
+    { m: 2, title: "@keyframes", body: "Li bu ta difini kada momentu di a animasan, di `0%` te `100%`." },
+    { m: 3, title: "Inísiu i fin", body: "Na `0%` i `100%` (mesmu valor) a animasan ta kumesa i termina igual — sonbra na se lugar." },
+    { m: 4, title: "Meiu", body: "Na `50%` a sonbra ta krese pa 20px i fika transparenti — kel é o efeitu ki bu ta odja." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={5}>Padran Stagger: Animasan ku Delay</SectionHeading>
+
+Da animasan a 3 kards ku delay ki ta krese — kada un ta entra poku dipos di otu:
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --animate-fade-up: fade-up 0.6s ease-out forwards;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="grid grid-cols-3 gap-4">
+  <div class="animate-fade-up opacity-0" style="animation-delay: 0s">Karta 1</div>
+  <div class="animate-fade-up opacity-0" style="animation-delay: 0.2s">Karta 2</div>
+  <div class="animate-fade-up opacity-0" style="animation-delay: 0.4s">Karta 3</div>
+</div>
+```
+
+`forwards` na animasan ta mantene o valor final dipos di termina — sen el, elementu ta volta a `0` opasidadi.
+
+<SectionHeading variant="install">Aplika a Resort Brava</SectionHeading>
+
+Nu ta adisiona un animasan di entrada suavi a hero — kontéudu ta apareseu ku fade-in kuandu pajina ta karrega.
+
+### Antis (di Lisan 19)
+
+```html
+<section id="hero" class="relative flex flex-col justify-center space-y-4 min-h-[40vh] md:min-h-[50vh]">
+  <h2 class="text-amber-600 text-3xl ...">Ben Vindo</h2>
+  <p class="...">Vive Brava sima nunka...</p>
+  <a class="...">Olha kuartus</a>
+</section>
+```
+
+### Dipos
+
+Adisiona un blok `<style>` na `<head>`:
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --animate-fade-up: fade-up 0.6s ease-out forwards;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+```
+
+Adisiona klasi a elementus di hero, ku `animation-delay` pa faze o stagger:
+
+```html
+<section id="hero" class="relative flex flex-col justify-center space-y-4 min-h-[40vh] md:min-h-[50vh]">
+  <h2 class="animate-fade-up text-amber-600 text-3xl ...">Ben Vindo</h2>
+  <p class="animate-fade-up text-slate-700 ..." style="animation-delay: 0.15s">Vive Brava sima nunka...</p>
+  <a class="animate-fade-up bg-amber-500 ..." style="animation-delay: 0.3s">Olha kuartus</a>
+</section>
+```
+
+Karega pajina i kontéudu di hero ta apareseu di forma suavi: títulu primeru, parágrafu 150ms dipos, boton 300ms dipos. Un entrada elegant.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Animasan na v4">defini-l diretu na CSS ku `@theme { --animate-* }` + `@keyframes` — sen `tailwind.config.js`, sen JavaScript.</RezumuItem>
+  <RezumuItem term="4 built-in">`animate-spin`, `animate-pulse`, `animate-bounce`, `animate-ping` — i `animate-none` pa para.</RezumuItem>
+  <RezumuItem term="Token vira klasi">un token `--animate-fade-in` ta jera a klasi `animate-fade-in` otomatikamenti.</RezumuItem>
+  <RezumuItem term="Stagger">`animation-delay` ku valoris ki ta krese ta da un entrada elegant.</RezumuItem>
+  <RezumuItem variant="warning" term="forwards">sen el, a animasan ta volta a se stadu inisial dipos di termina.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">transisan pa hover ou klike; animasan pa loop ou entrada di pajina.</RezumuItem>
+</KeyTakeaways>

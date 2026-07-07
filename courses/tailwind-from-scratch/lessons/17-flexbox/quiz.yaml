@@ -1,0 +1,29 @@
+- question:
+    kea: "Nun container `flex-row`, kal eixu ki `justify-*` ta kontrola?"
+  options:
+    - text: { kea: "O eixu prinsipal — pozisan horizontal di filhus" }
+      correct: true
+      explain: { kea: "Pa `flex-row`, o eixu prinsipal é horizontal, i `justify-*` (start/center/between/…) ta kontrola-l. `items-*` ta kuida di o eixu kruzadu (vertikal)." }
+    - text: { kea: "O eixu kruzadu — alinhamentu vertikal di filhus" }
+      correct: false
+      explain: { kea: "Kel é `items-*`. Pa `flex-row`, `justify-*` ta kontrola o eixu prinsipal (horizontal)." }
+
+- question:
+    kea: "Na Tailwind v4, kal é o nomi korretu pa o antigu `flex-grow`?"
+  options:
+    - text: { kea: "`grow` — v4 ta tira o prefixu `flex-`" }
+      correct: true
+      explain: { kea: "v4 ta simplifika: `flex-grow` → `grow`, `flex-shrink` → `shrink`. O prefixu `flex-` ka é presizu." }
+    - text: { kea: "`flex-grow` — inda é o mesmu na v4" }
+      correct: false
+      explain: { kea: "Na v4 o nomi muda pa `grow`. O `flex-grow` antigu (v3) ka é o padran korretu pa es kursu." }
+
+- question:
+    kea: "Kuze ki ta substitui os `mr-4` hacks pa poi espasu entri links di un nav flex?"
+  options:
+    - text: { kea: "`gap-*` — un só klasi na container, sen kazu spesial pa o último filhu" }
+      correct: true
+      explain: { kea: "`gap-4` na container ta poi espasu entri tudu filhus otomatikamenti — ka meste `mr-*` na kada un nen un kazu spesial pa o último." }
+    - text: { kea: "`p-4` — padding na kada link" }
+      correct: false
+      explain: { kea: "`p-4` ta da padding dentu di kada link, ka espasu entri es. Pa spasu entri filhus di un flex, uza `gap-*`." }

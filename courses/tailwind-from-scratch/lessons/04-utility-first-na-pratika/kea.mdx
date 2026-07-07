@@ -1,0 +1,263 @@
+---
+title: "Utility-First na Prátika"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: utility-first-na-pratika
+slug: "utility-first-na-pratika"
+module: 2
+lesson: 4
+duration: "20 min"
+objectives:
+  - "Konverti un komponenti di CSS tradisional pa klasis di utilidadi Tailwind"
+  - "Rekonhesi velosidadi di iterasan ku utilidadis — testa kor, padding, sonbra na segundus"
+  - "Aplika klasis v4 ki muda nomi: `shadow-sm`, `rounded-sm`, `shadow-xl` (ka más `shadow` o `rounded` sen sufiksu)"
+  - "Konxe página Resort Brava ki bu ta konstrui na Modulus 2 i 3"
+---
+
+# Utility-First na Prátika
+
+Na Lisan 1 di es kursu, nu papia di **kuze ki é utility-first**. Na Lisan 3, nu odja un kamada di klasis na bu página "Bon dia Kabu Verdi". Gosi é tempu di pega na es konseitu i poi na prátika di verdadi — konverti un komponenti tradisional di CSS i sinti velosidadi di Tailwind na bu própriu prátika.
+
+Na fin di es lisan, bu ta konxe tanbé un página spesial: **Resort Brava**. É un website di un resort fiktísiu na Ilha di Brava ki bu ta konstrui, pedasu a pedasu, na prósimus 19 lisan. Tudu kuza ki bu ta aprendi — kor, layout, animasan — bu ta aplika-l ali.
+
+<SectionHeading variant="concept" seq={1}>Kumesa ku un Problema Reál</SectionHeading>
+
+Imajina ki bu ta jeri un guesthouse pikinoti na Mindelo i bu kre kria un alerta na bu painel di rezervas. Kuandu un guest kre kansela, ten ki aparese un karton di konfirmasan.
+
+Bu inkomesa ku CSS tradisional. Aki é kumo el ten ki fika:
+
+```html
+<div class="alerta">
+  <img class="alerta-ikoni" src="warning.svg" />
+  <div class="alerta-korpu">
+    <h4 class="alerta-titulu">Kansela rezerva?</h4>
+    <p class="alerta-mensajen">Bu ka pode disfaze kel asan.</p>
+  </div>
+</div>
+
+<style>
+  .alerta {
+    display: flex;
+    align-items: center;
+    max-width: 24rem;
+    margin: 3rem auto 0;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  .alerta-ikoni {
+    width: 3rem;
+    height: 3rem;
+  }
+  .alerta-korpu {
+    margin-left: 1rem;
+  }
+  .alerta-titulu {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: black;
+  }
+  .alerta-mensajen {
+    color: #64748b;
+  }
+</style>
+```
+
+Ka é txeu kódiku — ma ten alguns problemas:
+
+1. **Bu ten ki inventa sinku nomi di klasis** (`.alerta`, `.alerta-ikoni`, `.alerta-korpu`, `.alerta-titulu`, `.alerta-mensajen`). Es ka ten valor — só ta liga HTML ku CSS.
+2. **Kre testa ku padding más grandi?** Tene ki dexa HTML, bai pa CSS, muda `padding`, volta pa browser. Pa kada teste.
+3. **Si bu kre adisiona un segundu alerta** (un "Konfirma rezerva?" verdi), tene ki kria klasis novu: `.alerta-sukseso`, `.alerta-sukseso-titulu`... ou duplika tudu.
+
+<SectionHeading variant="concept" seq={2}>Mesmu Komponenti, ku Tailwind</SectionHeading>
+
+Nu ta konverti el. **Sen skrebe un linha di CSS.** Kada utilidadi ta troka un só propriedadi di CSS — repara kada grupu:
+
+<AnnotatedCode
+  lang="html"
+  filename="alerta.html"
+  title="Kada utilidadi = un só propriedadi di CSS"
+  code={[
+    { t: '<div class="flex items-center max-w-sm mx-auto mt-12 p-6 rounded-lg bg-white shadow-xl">', m: 1 },
+    { t: '  <img class="w-12 h-12" src="warning.svg" />', m: 2 },
+    { t: '  <div class="ml-4">', m: 3 },
+    { t: '    <h4 class="text-xl font-medium text-black">Kansela rezerva?</h4>', m: 4 },
+    { t: '    <p class="text-slate-500">Bu ka pode disfaze kel asan.</p>', m: 5 },
+    { t: '  </div>', m: 0 },
+    { t: '</div>', m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Karton", body: "`flex` `items-center` ta ativa Flexbox i alinha itens. `max-w-sm` `mx-auto` `mt-12` ta poi largura, sentra i margin. `p-6` `rounded-lg` `bg-white` `shadow-xl`: padding, kanto redondu, fundu branku i sonbra." },
+    { m: 2, title: "Ikoni", body: "`w-12 h-12` ta poi largura i altura di 3rem na ikoni." },
+    { m: 3, title: "Korpu", body: "`ml-4` ta da margin-left di 1rem — spacing intri ikoni i textu." },
+    { m: 4, title: "Títulu", body: "`text-xl font-medium text-black` ta kontrola tamanho, pezu i kor di títulu." },
+    { m: 5, title: "Mensajen", body: "`text-slate-500` ta da un kor sinzentu intermédiu pa mensajen." },
+  ]}
+/>
+
+Mesmu rezultadu vizual. Mas:
+
+- **Ka un nomi inventadu** — kada klasi ten un nomi spesífiku ku un só funsan
+- **Sen `<style>` blok** — tudu vivi na HTML
+- **Mudansa rápidu** — bu pode trokar `shadow-xl` pa `shadow-md` na segundu, sen sair di fixeru
+
+:::callout{type=tip}
+Repara klasis sima `rounded-lg`, `shadow-xl` i `text-xl`. Kada utilidadi ten un **sufiksu di tamanho klaru** — ka ten un default invizivel. Na v3, bu podia skrebe só `shadow` o `rounded` i ta funsiona. Na v4, ka ten más default — bu ten ki ser explisitu: `shadow-xs`, `shadow-sm`, `shadow-md`, `shadow-lg`, `shadow-xl`, `shadow-2xl`. Mesmu pa `rounded-xs/sm/md/lg/xl`.
+:::
+
+<SectionHeading variant="concept" seq={3}>Velosidadi di Iterasan</SectionHeading>
+
+Aki é unde Tailwind ta brilha. Imajina ki bu odja resultadu i pensa: "karton ta pidi más sonbra, i un poku más spacing intri ikoni i textu."
+
+Ku CSS tradisional, bu tene ki:
+1. Abri fixeru di CSS
+2. Atxa klasi `.alerta` (kuze era kel nomi? skrolla...)
+3. Muda `box-shadow`
+4. Atxa `.alerta-korpu`
+5. Muda `margin-left`
+6. Salva, volta pa browser
+7. Olha resultadu, repete
+
+Ku Tailwind, é dretu na HTML — `shadow-xl` → `shadow-2xl`, `ml-4` → `ml-6`. Salva. Prontu.
+
+<CodeDiff
+  lang="html"
+  filename="alerta — antis / dipos"
+  title="Seis iterasan, zero CSS"
+  note="Seis mudansas: sonbra, padding, kanto, largura, tamanho di ikoni, spacing. **Sen abri un fixeru di CSS.**"
+  diff={[
+    { type: "del", t: '<div class="flex items-center max-w-sm mx-auto mt-12 p-6 rounded-lg bg-white shadow-xl">' },
+    { type: "add", t: '<div class="flex items-center max-w-md mx-auto mt-12 p-8 rounded-xl bg-white shadow-2xl">' },
+    { type: "del", t: '  <img class="w-12 h-12" src="warning.svg" />' },
+    { type: "add", t: '  <img class="w-16 h-16" src="warning.svg" />' },
+    { type: "del", t: '  <div class="ml-4">...</div>' },
+    { type: "add", t: '  <div class="ml-6">...</div>' },
+    { type: "ctx", t: '</div>' },
+  ]}
+/>
+
+`max-w-sm` → `max-w-md` (karton más largu). `p-6` → `p-8` (más padding). `rounded-lg` → `rounded-xl` (más kanto). `shadow-xl` → `shadow-2xl` (sonbra más drama). `w-12 h-12` → `w-16 h-16` (ikoni más grandi). `ml-4` → `ml-6` (más spacing).
+
+Seis mudansas. **Sen abri un fixeru di CSS.**
+
+:::callout{type=tip}
+Es velosidadi é pamodi designers di frontend ta fala ki Tailwind ta dispensa Figma. Bu pode prototipa diretu na browser — sen Figma, sen Photoshop, sen un fluxu di "primeru dezenha, dipos kódiku". Bu dezenha **kuandu** bu ta kodifika.
+:::
+
+<SectionHeading variant="concept" seq={4}>Klasis Komuns na es Izemplu</SectionHeading>
+
+Tudu klasis ki nu uza riba ta aparese na prósimus lisan — gosi é só pa kontextu. Tenta lembra kuze ki kada un ta faze:
+
+<Flashcard
+  showHeader={false}
+  deckId="tailwind-utility-first-utils"
+  title="Klasis di utilidadi"
+  cards={[
+    { term: "flex", def: "Ativa layout di Flexbox." },
+    { term: "items-center", def: "Alinha itens vertikalmenti na sentru." },
+    { term: "max-w-sm", def: "Largura máxima di 24rem (~384px)." },
+    { term: "mx-auto", def: "Margin otomátiku na X — ta sentra elementu." },
+    { term: "p-6", def: "Padding di tudu lados di 1.5rem." },
+    { term: "rounded-lg", def: "Bordu redondu di 0.5rem." },
+    { term: "shadow-xl", def: "Sonbra estendidu." },
+    { term: "text-xl", def: "Tamanho di letra di 1.25rem." },
+    { term: "font-medium", def: "Pezu di fonti di 500." },
+    { term: "text-slate-500", def: "Kor di textu sinzentu intermédiu." },
+  ]}
+/>
+
+Kada un é **un só propriedadi di CSS**. Sen mistura. Sen surpreza.
+
+<SectionHeading variant="concept" seq={5}>Konxe Resort Brava</SectionHeading>
+
+Gosi é momentu di apresenta projetu ki bu ta konstrui durante prósimus 19 lisan.
+
+**Resort Brava** é un website fiktísiu pa un guesthouse pikinoti na **Ilha di Brava**. El ten un página úniku — un *landing page* — ki ta inkomesa konpletu sen stilu (só HTML) i ta ganha **un kamada di stilu kada lisan**.
+
+### Kumo ta funsiona
+
+- Kada lisan di Módulu 2 i 3 ta adisiona un kamada di stilu
+- Lisan 4 (es lisan): bu ta odja página na se estadu inisial — só HTML, sen klasis
+- Lisan 5: bu ta poi kor
+- Lisan 6: bu ta organiza spacing
+- ... te Lisan 22 (modu sukuru): página é konpletu, profisional, prontu pa intrega pa kliente
+
+Na fin di es lisan, bu ta kria fixeru novu i kola estrutura inisial. **Sen stilu**. Lisan di gosi diante ta poi mágika.
+
+### Estrutura inisial
+
+Aki é HTML ki bu ta kria na izersisiu di es lisan. Repara: **un só klasi di Tailwind** na tudu fixeru (`min-h-screen` na `<body>` só pa ka tene konteúdu ta aparese kola na topu).
+
+```html
+<!doctype html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resort Brava</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen">
+    <header>
+      <h1>Resort Brava</h1>
+      <nav>
+        <a href="#kuartus">Kuartus</a>
+        <a href="#aktividadis">Aktividadis</a>
+        <a href="#kontaktu">Kontaktu</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h2>Ben Vindo</h2>
+        <p>Vive Brava sima nunka. Mar, monte, kalor — un só lugar.</p>
+        <a href="#kuartus">Olha kuartus</a>
+      </section>
+
+      <section id="kuartus">
+        <h3>Kuartus</h3>
+        <p>Três tipus di kuartus pa kada tipu di vizita.</p>
+      </section>
+
+      <section id="aktividadis">
+        <h3>Aktividadis</h3>
+        <p>Trilhus, snorkeling, gastronomia lokal.</p>
+      </section>
+
+      <section id="kontaktu">
+        <h3>Kontaktu</h3>
+        <p>resorbrava@exemplu.cv · +238 281 0000</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Resort Brava · Vila Nova Sintra, Brava</p>
+    </footer>
+  </body>
+</html>
+```
+
+Si bu abri es ku Live Server gosi, bu ta odja un página konpletu di textu preta sobri fundu branku — **un dokumentu**, ka un website. Letras alinhadu pa skerda, sen kor, sen spacing intensional. **É di propósitu.**
+
+Kada lisan di Módulu 2 i 3 ta transforma kel dokumentu nun página profisional.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Utility-first">konverti un komponenti di CSS tradisional pa klasis di utilidadi, sen skrebe un `<style>` blok.</RezumuItem>
+  <RezumuItem term="Sen inventa nomis">kada utilidadi dja ten un nomi spesífiku (sima `shadow-xl`, `mt-12`, `text-slate-500`) — bu ka meste kria klasis.</RezumuItem>
+  <RezumuItem term="Velosidadi di iterasan">tipu, salva, odja. Sen skrolla CSS, sen liga HTML ku CSS a mon.</RezumuItem>
+  <RezumuItem variant="warning" term="Sufiksu na v4">`shadow-sm/md/lg/xl/2xl`, `rounded-xs/sm/md/lg/xl`. Ka más `shadow` o `rounded` sen sufiksu.</RezumuItem>
+  <RezumuItem term="Resort Brava">página ki bu ta konstrui durante prósimus 19 lisan — ta inkomesa sen stilu (HTML puru) i ta ganha stilu lisan a lisan.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">prototipa diretu na browser — bu dezenha kuandu bu ta kodifika, sen sair di HTML.</RezumuItem>
+</KeyTakeaways>

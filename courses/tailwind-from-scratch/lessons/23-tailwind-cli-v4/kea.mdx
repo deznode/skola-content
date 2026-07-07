@@ -1,0 +1,310 @@
+---
+title: "Tailwind CLI v4"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: tailwind-cli-v4
+slug: "tailwind-cli-v4"
+module: 4
+lesson: 23
+duration: "25 min"
+objectives:
+  - "Splika pamodi Play CDN ka sirbi pa produsan"
+  - "Konfigura un projetu novu ku `pnpm`, `tailwindcss`, i `@tailwindcss/cli`"
+  - "Skrebe `input.css` ku un só linha: `@import \"tailwindcss\";`"
+  - "Migra `@theme` i `@custom-variant` di inline `<style>` pa `input.css`"
+  - "Konstrui ku `--watch` i ligar `dist/style.css` no HTML"
+---
+
+# Tailwind CLI v4
+
+Te li, Resort Brava ta uza **Play CDN** — `<script src="...@tailwindcss/browser@4">` ta kompila Tailwind no browser kada bez ki pájina ta karega. Es funsiona pa eksperimenta, ma **ka sirbi pa produsan**: extra ~150KB di JS, kompilasan na klienti, sen kontrolu di cache.
+
+Es lisan ta levanta Resort Brava pa **build real** ku CLI v4. Nada komplikadu — un komandu na terminal ki ta kompila CSS final pa `dist/style.css`.
+
+<SectionHeading variant="concept" seq={1}>Pamodi Sai di CDN?</SectionHeading>
+
+Play CDN i CLI v4 ta faze mesmu Tailwind, ma o kaminhu é diferenti. Repara unde kada un ta gana:
+
+<CompareTable
+  title="Play CDN vs CLI v4"
+  cornerLabel="Aspetu"
+  cols={[
+    { name: "Play CDN", accent: "orange" },
+    { name: "CLI v4", accent: "blue" },
+  ]}
+  rows={[
+    { label: "Kompilasan", kind: "text", vals: ["Browser, kada karga", "Build time, un bez"] },
+    { label: "Tamanhu JS", kind: "text", vals: ["+150KB di runtime", "0 (só CSS final)"] },
+    { label: "Cache", kind: "text", vals: ["Inkonsistenti", "CSS ku hash, cache browser"] },
+    { label: "Pronta pa produsan", kind: "bool", vals: [false, true] },
+    { label: "Velosidadi", kind: "text", vals: ["Bon pa demos", "Oxide engine: 5× full / 100× incremental"] },
+  ]}
+/>
+
+Play CDN ten un só objetivu: **deixa-bo eksperimenta sen instalar nada**. Pa kualker projeto ki bo ta entrega, **sai di CDN logu**.
+
+<SectionHeading variant="concept" seq={2}>Di v3 pa v4: O ki Muda</SectionHeading>
+
+Si bo seguir tutoriais v3 antigu, bo ta odja outru workflow. **Kuazi tudu muda na v4.** O midjór izemplu é o fixeru CSS di entrada — na v3 el pidia trez direktivas, na v4 é un só linha:
+
+<CodeDiff
+  lang="css"
+  filename="input.css"
+  title="Di trez `@tailwind` pa un `@import`"
+  note="Un só `@import \"tailwindcss\";` ta inkluí base, komponenti i utilidadis — ka ten más trez direktivas separadu."
+  diff={[
+    { type: "del", t: '/* v3 — kaduku na v4 */' },
+    { type: "del", t: '@tailwind base;' },
+    { type: "del", t: '@tailwind components;' },
+    { type: "del", t: '@tailwind utilities;' },
+    { type: "add", t: '/* v4 — todu ki bo presiza */' },
+    { type: "add", t: '@import "tailwindcss";' },
+  ]}
+/>
+
+**Diferensas prinsipal:**
+
+1. **NO komandu `init`** — ka ten komandu ki ta jera config
+2. **NO `tailwind.config.js`** — `@theme` ta vivi dentru di `input.css`
+3. **NO `content: []`** — Tailwind ta skaneia tudu fixeru di kódiku por default (HTML, JS, JSX, etc.)
+4. **NO `@tailwind base/components/utilities`** — un só `@import "tailwindcss";` ta inkluí tudu
+5. **Pakoti `@tailwindcss/cli` é separadu** — núcleu `tailwindcss` ka inkluí CLI
+
+<SectionHeading variant="install">Migra Resort Brava pa CLI</SectionHeading>
+
+Nu ta migra Resort Brava di CDN pa CLI. Es ta torna-l un projetu real.
+
+### 1. Inisia Projetu
+
+```bash
+mkdir resort-brava && cd resort-brava
+pnpm init
+```
+
+`pnpm init` ta kria `package.json` báziku. Sem perguntas — `pnpm` ta gera defaults.
+
+### 2. Instala Tailwind + CLI
+
+```bash
+pnpm add -D tailwindcss @tailwindcss/cli
+```
+
+Es ta instala dos pakoti kumo **dev dependencies** (`-D`):
+
+- `tailwindcss` — núcleu (engine Oxide, utilidadis, namespaces)
+- `@tailwindcss/cli` — komandu di linha pa kompila
+
+Bu ta verifika na `package.json`:
+
+```json
+{
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
+```
+
+### 3. Kria `input.css`
+
+Es é o fixeru-fonti di CSS:
+
+```css
+/* input.css */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-mar-50: oklch(0.97 0.02 235);
+  --color-mar-100: oklch(0.93 0.05 235);
+  --color-mar-300: oklch(0.75 0.10 235);
+  --color-mar-500: oklch(0.55 0.16 235);
+  --color-mar-700: oklch(0.38 0.14 235);
+  --color-mar-800: oklch(0.30 0.12 235);
+  --color-mar-900: oklch(0.22 0.10 235);
+
+  --color-sol-100: oklch(0.95 0.07 75);
+  --color-sol-300: oklch(0.85 0.13 75);
+  --color-sol-500: oklch(0.72 0.18 75);
+  --color-sol-600: oklch(0.65 0.20 75);
+  --color-sol-700: oklch(0.55 0.18 75);
+
+  --font-display: "Crimson Pro", serif;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+```
+
+**Repara:**
+
+- Un só `@import "tailwindcss";` — ka trez `@tailwind` direktivas
+- `@theme` i `@custom-variant` movidu di inline `<style>` pa aki
+- `@keyframes` tambén — vivi dentru di CSS, ka dentru di HTML
+- **Tudu konfigurasan é nun lugar.** Un só fixeru di verdadi.
+
+### 4. Adisiona Scripts na `package.json`
+
+```json
+{
+  "scripts": {
+    "build": "@tailwindcss/cli -i ./input.css -o ./dist/style.css --minify",
+    "watch": "@tailwindcss/cli -i ./input.css -o ./dist/style.css --watch"
+  }
+}
+```
+
+**Flag-flag:**
+
+| Flag | O ki ta faze |
+|---|---|
+| `-i ./input.css` | Ficheru di entrada (input) |
+| `-o ./dist/style.css` | Ficheru di saída (output) — kel ki HTML ta uza |
+| `--watch` | Rebuild otomátiku kuandu ten mudansa |
+| `--minify` | Diminui tamanhu pa produsan (sen spasus, sen komentariu) |
+
+### 5. Atualiza `index.html`
+
+```html
+<!doctype html>
+<html lang="kea" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resort Brava</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&display=swap">
+    <link rel="stylesheet" href="dist/style.css">
+    <script>
+      if (localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <!-- ... mesmu kódiku ki antes ... -->
+  </body>
+</html>
+```
+
+**Mudansas:**
+
+- ❌ Tira `<script src=".../@tailwindcss/browser@4">`
+- ❌ Tira `<style type="text/tailwindcss">...</style>` (movidu pa `input.css`)
+- ✅ Adisiona `<link rel="stylesheet" href="dist/style.css">`
+
+### 6. Build i Roda
+
+```bash
+pnpm run watch
+```
+
+Saída na terminal:
+
+<TerminalBlock
+  title="pnpm run watch"
+  lines={[
+    { type: "cmd", t: "pnpm run watch" },
+    { type: "out", t: "≈ tailwindcss v4.3.0" },
+    { type: "ok",  t: "Done in 87ms" },
+  ]}
+/>
+
+Tailwind ta skaneia tudu HTML, JS, etc. no diretóriu i ta gera `dist/style.css` ku **só klasis ki bo uza**. Salva un fixeru — rebuild en milissegundus.
+
+Abri `index.html` ku Live Server. Resort Brava ta funsiona kompletamenti — ma gosi sen JS extra, sen kompilasan na browser.
+
+<SectionHeading variant="install">Estrutura di Projetu Final</SectionHeading>
+
+Dipos di tudu, bu projetu ten es forma. Repara kal fixeru bu ta skrebe i kal ki é **jeradu**:
+
+<FileTree
+  nodes={[
+    { id: "root", depth: 0, kind: "folder", name: "resort-brava/", note: "Raís di projetu." },
+    { id: "pkg", depth: 1, kind: "file", name: "package.json", note: "Pakoti + scripts `build` i `watch`." },
+    { id: "input", depth: 1, kind: "file", name: "input.css", badge: "bo skrebe", note: "Fixeru-fonti di CSS — `@import`, `@theme`, `@custom-variant`." },
+    { id: "html", depth: 1, kind: "file", name: "index.html", badge: "bo skrebe", note: "Ta liga `dist/style.css` ku un `<link>`." },
+    { id: "dist", depth: 1, kind: "folder", name: "dist/", muted: true, note: "**Jeradu** pa CLI — adisiona na `.gitignore`." },
+    { id: "style", depth: 2, kind: "file", name: "style.css", muted: true, note: "O CSS final ki HTML ta uza. Nunka edita-l a mon." },
+  ]}
+/>
+
+**Regra di ouro:** `dist/` é **jeradu**. Nunka edita-l direta. Adisiona `dist/` na `.gitignore`.
+
+```bash
+echo "node_modules/" >> .gitignore
+echo "dist/" >> .gitignore
+```
+
+<SectionHeading variant="concept" seq={3}>Watch vs Build</SectionHeading>
+
+| Komandu | Kuandu uza |
+|---|---|
+| `pnpm run watch` | Dezenvolvimentu — rebuild kada save |
+| `pnpm run build` | Deploy — minifikadu, un bez |
+
+Pa produsan:
+
+```bash
+pnpm run build
+# dist/style.css ten ~10-30KB minifikadu (sén klasis ka uza)
+```
+
+Kompara: Play CDN ta sirbi ~150KB di JS + tempu di kompilasan na klienti. CLI ta sirbi ~20KB di CSS statiku.
+
+:::callout{type=tip}
+Si bo skaneia un klasi novu (ex. `bg-red-200`) i ka aparesi: konfirma ki `pnpm run watch` ta korre. CLI ta odja só fixeru ki izisti kuandu el inisia — si bo adisiona un fixeru novu, restart watch.
+:::
+
+<SectionHeading variant="concept" seq={4}>Auto-Skaneamentu di Ficheru</SectionHeading>
+
+Na v3, bo tinha ki spesifika `content: ["./*.html", "./js/*.js"]`. Na v4, **Tailwind ta skaneia otomátiku** tudu fixeru di kódiku no diretóriu (HTML, JS, JSX, TSX, Vue, Svelte, etc.) — i ta skodje só klasis ki bo realmenti uza.
+
+Si bo presiza skaneiar fixeru fora di lokal padran (ex. un fixeru na `vendor/`), uza `@source`:
+
+```css
+@import "tailwindcss";
+@source "../legacy/components/**/*.html";
+```
+
+`@source` é forma v4 di adisiona path extras — substitui `content: []` di v3.
+
+<SectionHeading variant="concept" seq={5}>Sen `tailwind.config.js`?!</SectionHeading>
+
+Si bo dja konxe v3, falta di konfig.js pode konfundi-bo. Ma:
+
+- **Tokens** (`--color-*`, `--font-*`, etc.) → `@theme` no CSS
+- **Plugins** → `@plugin "nomi-pakoti";` no CSS
+- **Path personalizadu** → `@source "..."` no CSS
+- **Variantis personalizadu** → `@custom-variant ...` no CSS
+- **Utilidadis personalizadu** → `@utility ...` no CSS (Lisan 25)
+
+**Tudu na CSS.** Nada na JavaScript. Un só sintaxi pa aprender.
+
+:::callout{type=tip}
+Si bo presiza mante JS config pa migrasan (raru): `@config "./tailwind.config.js";` na `input.css`. Ma evita es — é só pa migrasan, ka pa kódiku novu.
+:::
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Sai di CDN pa produsan">Play CDN é pa eksperimenta (~150KB di JS + kompilasan no klienti); kualker projeto real ta uza CLI v4.</RezumuItem>
+  <RezumuItem term="Pakoti v4">`tailwindcss` (núcleu) + `@tailwindcss/cli` (komandu) — instala separadu ku `-D`.</RezumuItem>
+  <RezumuItem term="Un só import">`@import "tailwindcss";` substitui trez `@tailwind` direktivas; `@theme` i `@custom-variant` vivi no CSS.</RezumuItem>
+  <RezumuItem term="Auto-skaneamentu">ka ten `content: []` — Tailwind ta odja tudu fixeru di kódiku otomátiku; uza `@source` pa lokal extra.</RezumuItem>
+  <RezumuItem variant="warning" term="`dist/` é jeradu">nunka edita `dist/style.css` a mon — adisiona `dist/` na `.gitignore`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`--watch` pa dezenvolvimentu (rebuild kada save), `--minify` pa produsan (un bez).</RezumuItem>
+</KeyTakeaways>

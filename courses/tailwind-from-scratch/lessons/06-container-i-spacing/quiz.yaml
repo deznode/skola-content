@@ -1,0 +1,29 @@
+- question:
+    kea: "Bu poi `container` na un `<main>` ma o konteúdu ka ta sentra na ekrans grandi. O ki ta falta?"
+  options:
+    - text: { kea: "`mx-auto` — `container` ka ta sentra sozinhu" }
+      correct: true
+      explain: { kea: "`container` so ta limita o `max-width`. Pa sentra na meiu di página, bu meste djunta `mx-auto`." }
+    - text: { kea: "Nada — `container` ta sentra otomatikamenti sima na Bootstrap" }
+      correct: false
+      explain: { kea: "Kel-li é un diferensa di Bootstrap: Tailwind é di propósitu baxu-nível, i `container` ka ta sentra sen `mx-auto`." }
+
+- question:
+    kea: "Na Tailwind v4 bu muda `--spacing` di `0.25rem` pa `0.3rem`. O ki ta kontise ku `p-4`, `m-8` i `gap-6`?"
+  options:
+    - text: { kea: "Tudu skala di spacing ta krese ~20% — un só token ta jera tudu utilidadi" }
+      correct: true
+      explain: { kea: "Na v4 ten un só token base. Kada utilidadi é un multiplu di el, enton muda o base ta muda tudu skala di un bez." }
+    - text: { kea: "So `p-4` ta muda; `m-8` i `gap-6` ten se própriu valor separadu" }
+      correct: false
+      explain: { kea: "Kel era v3, ku un mapa enorme di valoris separadu. V4 ta deriva tudu di un só token `--spacing`." }
+
+- question:
+    kea: "Bu ten tres `<section>` block un atras di otru i bu kre spasu igual entri es. Kal klasi é korretu?"
+  options:
+    - text: { kea: "`space-y-*` na o kontainer — el ta funsiona ku elementus block sen presiza flex" }
+      correct: true
+      explain: { kea: "`space-y-*` ta poi margin entri fidjus adjasenti. `gap-*` tanbe ta da spasu, ma so dentu di un kontainer flex ou grid." }
+    - text: { kea: "`gap-6` diretu na o kontainer block" }
+      correct: false
+      explain: { kea: "`gap-*` so ta funsiona ku flex ou grid. Pa elementus block normal, uza `space-y-*`." }

@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é a diferensa entri `columns-3` i `columns-xs`?"
+  options:
+    - text: { kea: "`columns-3` ta forsa sempri 3 kolunas; `columns-xs` ta da un largura mínimu i o browser ta disidi kuantas kabe" }
+      correct: true
+      explain: { kea: "`columns-{N}` é un númeru fiksu. `columns-{size}` (sima `columns-xs`) é responsivu otomátiku — más kolunas na ekran grandi, menus na telefoni, sen prefixu responsivu." }
+    - text: { kea: "Es é a mésmu kuza — `xs` é so otru nomi pa `columns-3`" }
+      correct: false
+      explain: { kea: "Nau. `columns-xs` ta fixa a **largura mínimu** di koluna (20rem), ka o **númeru** di kolunas." }
+
+- question:
+    kea: "Kuze ki `break-inside-avoid` ta faze num layout di `columns`?"
+  options:
+    - text: { kea: "Ta evita ki un bloku kebra na meiu di dos kolunas — fika interu nun só koluna" }
+      correct: true
+      explain: { kea: "Sen el, un karta ku altura ka definidu pode kebra: parti riba na un koluna, parti baxu na otru." }
+    - text: { kea: "Ta adisiona spasu entri kolunas" }
+      correct: false
+      explain: { kea: "Spasu entri kolunas é `gap-*`. `break-inside-avoid` ta kontrola unde un bloku pode kebra." }
+
+- question:
+    kea: "Bo kre un galeria Pinterest-style ku imajens di altura diferenti ki ta distribui sozinhu. Kal ferramenta é midjór?"
+  options:
+    - text: { kea: "`columns` — konteúdu ki ta distribui sozinhu na kolunas é exatamenti unde el ta brilha" }
+      correct: true
+      explain: { kea: "`columns` é poderozu kuandu konteúdu é igual i ta distribui otomatikamenti, sima un galeria o textu longu." }
+    - text: { kea: "`grid` — sempri é a midjór skolha pa kualker layout" }
+      correct: false
+      explain: { kea: "`grid` é midjór pa layout **kontroladu** ku pozisan detalhadu. Pa un galeria ki ta distribui sozinhu, `columns` é más simples." }

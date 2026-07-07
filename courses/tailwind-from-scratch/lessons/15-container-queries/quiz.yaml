@@ -1,0 +1,29 @@
+- question:
+    kea: "Un `@md:` container query ta responde a kal largura?"
+  options:
+    - text: { kea: "A largura di **kontainer** (o elementu pai markadu ku `@container`)" }
+      correct: true
+      explain: { kea: "Es é o pontu di container queries: es ta skuta o pai, ka a janela. Un karta na un sidebar di 200px ka ta aktiva `@md:`, mesmu si o viewport é 1500px." }
+    - text: { kea: "A largura di **viewport** (a janela di browser)" }
+      correct: false
+      explain: { kea: "Kel é a media query normal (`md:`). Container query (`@md:`) ta skuta o kontainer pai, ka o viewport." }
+
+- question:
+    kea: "Pa un filhu pode uza `@sm:`, `@md:`, etc., o ki bo meste poi na o elementu pai?"
+  options:
+    - text: { kea: "A klasi `@container`" }
+      correct: true
+      explain: { kea: "`@container` ta marka o pai kumo kontainer di query. Sen el, os variantis `@md:` na filhus ka ten kontainer pa skuta." }
+    - text: { kea: "A klasi `@sm:` diretamenti na o pai" }
+      correct: false
+      explain: { kea: "Os `@sm:`/`@md:` ta bai na filhus. O pai meste `@container` pa kria o kontainer di query." }
+
+- question:
+    kea: "O ki `@container-size` (v4.3) ta da ki un `@container` normal ka ten?"
+  options:
+    - text: { kea: "Altura (block-size) pa queries, ku unidadis `cqb`/`cqh`" }
+      correct: true
+      explain: { kea: "Un `@container` normal ta da só largura (inline-size). `@container-size` ta kria un size container ki tambén ta da altura." }
+    - text: { kea: "Variantis nomeadu pa altura, sima `@h-sm:`" }
+      correct: false
+      explain: { kea: "`@container-size` **ka ta** introdusi variantis nomeadu pa altura — e ta da unidadis `cqb`/`cqh` dentu di un size container." }

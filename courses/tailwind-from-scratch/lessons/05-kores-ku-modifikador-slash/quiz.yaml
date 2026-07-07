@@ -1,0 +1,29 @@
+- question:
+    kea: "Bu kre un fundu azul ku só 50% di opasidadi na Tailwind v4. Kal é a manera sertu?"
+  options:
+    - text: { kea: "`bg-blue-500/50` — o modifikador `/` ta da opasidadi na v4" }
+      correct: true
+      explain: { kea: "O sufiksu `/50` ta bai diretu na klasi di kor. Es é o padran di v4 pa opasidadi." }
+    - text: { kea: "`bg-blue-500 bg-opacity-50` — os dos klasis djuntu" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3. Os klasis `bg-opacity-*` **ka existe na v4** — bu meste uza o modifikador `/`." }
+
+- question:
+    kea: "Kantu tonalidadis kada kor ten na Tailwind v4, i pa kuze ki serve o 950?"
+  options:
+    - text: { kea: "11 tonalidadis (50–950); v4 adisiona o 950 pa más kontrasti na temas sukuru" }
+      correct: true
+      explain: { kea: "v3 tinha 50–900. v4 adisiona o 950 (kuazi pretu) pa da más kontrasti na temas sukuru." }
+    - text: { kea: "10 tonalidadis (50–900), mesmu ki v3" }
+      correct: false
+      explain: { kea: "Kel era v3. Na v4 kada kor ten 11 tonalidadis pamodi o 950 é novu." }
+
+- question:
+    kea: "Bu presiza un kor exatu di un logo ki ka sta na paleta di Tailwind. O ki bu ta faze?"
+  options:
+    - text: { kea: "`bg-[#006994]` — kor arbitráriu entri parêntesis kuadradu" }
+      correct: true
+      explain: { kea: "Kores arbitráriu (`bg-[#hex]`, `text-[rgb(...)]`) ta funsiona pa kualker valor fora di paleta." }
+    - text: { kea: "Nau — só os 22 kores di paleta ta funsiona" }
+      correct: false
+      explain: { kea: "Tailwind ta seta kores arbitráriu ku `bg-[#hex]`. Pa un kor ki ta repete, midjór dífini un token na `@theme`." }

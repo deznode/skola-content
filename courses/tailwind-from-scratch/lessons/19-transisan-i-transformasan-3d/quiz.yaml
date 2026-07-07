@@ -1,0 +1,29 @@
+- question:
+    kea: "Bu kre ki un kard ta krese na hover, ma **só** o scale ta anima — ka os kores. Kal klasi ta anima só transformasan?"
+  options:
+    - text: { kea: "`transition-transform`" }
+      correct: true
+      explain: { kea: "`transition-transform` ta anima só `scale`, `rotate`, `translate` i `skew` — na hover effects é o más uzadu." }
+    - text: { kea: "`transition-colors`" }
+      correct: false
+      explain: { kea: "`transition-colors` ta anima só kores (bg, text, border) — ka o `scale`. Pa o scale, uza `transition-transform` (ou `transition` pa tudu)." }
+
+- question:
+    kea: "Pa un `rotate-y-45` ten sentidu vizual 3D, kuze ki o elementu **pai** meste ten?"
+  options:
+    - text: { kea: "`perspective-*` (ex: `perspective-distant`)" }
+      correct: true
+      explain: { kea: "`perspective-*` ta bai na o pai — el ta da a profundidadi. Sen el, o `rotate-y` ta parese só un flat 2D." }
+    - text: { kea: "`transform-3d`" }
+      correct: false
+      explain: { kea: "`transform-3d` ta bai na o **fidju** (o elementu ki ta rota), ka na o pai. O pai é ki meste o `perspective-*`." }
+
+- question:
+    kea: "Kuze ki `active:scale-95` ta faze nun boton?"
+  options:
+    - text: { kea: "Boton ta diminui un poku kuandu apertadu — feedback di klike" }
+      correct: true
+      explain: { kea: "`active:` ta aplika enkuantu o boton sta apertadu; `scale-95` ta poi-l a 95% — sensasan di material ki ta responde a o dedu." }
+    - text: { kea: "Boton ta rota 95° kuandu apertadu" }
+      correct: false
+      explain: { kea: "`scale-95` é tamanhu (95%), ka rotasan. Rotasan ta ser `rotate-*`. O `active:` ta da o efeitu só enkuantu o boton sta apertadu." }

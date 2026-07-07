@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, o ki `@theme {}` realmenti ta faze?"
+  options:
+    - text: { kea: "Ta defini variavel CSS ki Tailwind ta uza pa gera utilidadis" }
+      correct: true
+      explain: { kea: "Es é o pensamentu xavi di v4: `@theme` ka ta konfigura Tailwind na JavaScript — el ta defini `--*` variavel CSS, i kada prefixu ta mapeia pa un família di utilidadis." }
+    - text: { kea: "Ta konfigura Tailwind atravé di un objetu JavaScript, sima `tailwind.config.js` di v3" }
+      correct: false
+      explain: { kea: "Kel é o modelu di v3. En v4 tudu ta viv na CSS — sen `tailwind.config.js`, sen `extend`." }
+
+- question:
+    kea: "Bo muda `--spacing` di `0.25rem` pa `0.2rem`. O ki ta kontise ku `p-4`?"
+  options:
+    - text: { kea: "`p-4` ta sai `0.8rem` — pamodi `p-4` = 4 × `--spacing`, i tudu utilidadi di tamanhu ta atualiza djuntu" }
+      correct: true
+      explain: { kea: "`--spacing` é base universal: kada utilidadi numérika ta multiplika-l. Un só linha ta muda `p-*`, `m-*`, `w-*`, `h-*`, `gap-*`, etc." }
+    - text: { kea: "Nada ta muda — bo ten ki ajusta `p-4` pa `p-[0.8rem]` na kada elementu manualmenti" }
+      correct: false
+      explain: { kea: "Ka meste. `--spacing` ta kontrola tudu utilidadi di tamanhu di un bez — kel é o ki torna-l tan poderozu." }
+
+- question:
+    kea: "Bo ten `--font-sans: var(--font-inter)` pamodi `next/font` ta mete `--font-inter` na `:root`. Kal blok bo debe uza?"
+  options:
+    - text: { kea: "`@theme inline {}` — pamodi o value ten un `var()`" }
+      correct: true
+      explain: { kea: "Regra di ouro: si o value ten un `var()`, uza `@theme inline {}`. El ta avalia a referénsia na tempu di build, en bez di salva-l literalmenti — utilidadis ta sai limpu." }
+    - text: { kea: "`@theme {}` normal — el ta resolvi `var()` na browser sen problema" }
+      correct: false
+      explain: { kea: "`@theme {}` normal ta salva o `var()` literalmenti; kumo `var(--font-inter)` ka izisti na tempu di build, klasi ta sai kebradu. Pa var() ten ki ser `@theme inline`." }

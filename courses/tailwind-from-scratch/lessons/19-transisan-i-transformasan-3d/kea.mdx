@@ -1,0 +1,250 @@
+---
+title: "Transisan i Transformasan 3D"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: transisan-i-transformasan-3d
+slug: "transisan-i-transformasan-3d"
+module: 3
+lesson: 19
+duration: "20 min"
+objectives:
+  - "Aplika transformasan 2D: `translate-*`, `scale-*`, `rotate-*`, `skew-*`"
+  - "Konxe v4 3D transforms: `rotate-x-*`, `rotate-y-*`, `perspective-*`, `transform-3d`"
+  - "Aplika transisan suavi ku `transition`, `duration-*`, `ease-*`"
+  - "Kombina hover + scale + transition pa kards ki ta responde"
+  - "Aplika a Resort Brava — kards ki ta levanta-se na hover"
+---
+
+# Transisan i Transformasan 3D
+
+Botan muda kor na hover, ma é imediatu — flicker. Kards muda sombra, ma sentidu ka é klaru pamodi nada moveu. Transformasan + transisan é o ki ta da vida suavi: kards ki ta levanta, botan ki ta krese pikinu, ikon ki ta rota.
+
+I v4 traze un kapasidadi grandi: **transformasan 3D nativu**. v3 era só 2D.
+
+<SectionHeading variant="concept" seq={1}>Transformasan 2D — Movimentu Padran</SectionHeading>
+
+### `translate-*` — Move
+
+```html
+<div class="translate-x-4">Moveu 1rem pa direita</div>
+<div class="-translate-y-2">Moveu 0.5rem pa riba (negativu)</div>
+<div class="translate-x-1/2">Moveu 50% pa direita (relativu a tamanho di elementu)</div>
+```
+
+### `scale-*` — Tamanhu
+
+```html
+<div class="scale-50">50% di tamanho</div>
+<div class="scale-100">Padraun (sen muda)</div>
+<div class="scale-110">110% — un poku más grandi</div>
+<div class="scale-150">150% — grandi</div>
+```
+
+Valoris: 0, 50, 75, 90, 95, 100, 105, 110, 125, 150. Tambén `scale-x-*` i `scale-y-*` independenti.
+
+### `rotate-*` — Rotasan
+
+```html
+<div class="rotate-3">3° (pikinu inklinasan)</div>
+<div class="rotate-12">12°</div>
+<div class="rotate-45">45°</div>
+<div class="-rotate-45">-45° (kontráriu)</div>
+<div class="rotate-180">180° (de kabesa)</div>
+```
+
+Valoris: 0, 1, 2, 3, 6, 12, 45, 90, 180.
+
+### `skew-*` — Inklinasan
+
+```html
+<div class="skew-x-12">Inklinadu 12° na X</div>
+<div class="skew-y-3">Inklinadu 3° na Y</div>
+```
+
+Otimu pa banners ku stilus dinámiku.
+
+### `transform-origin-*` — Ponto di Rotasan
+
+Default, transformasan ta rota na **sentru** di elementu. Pa muda:
+
+```html
+<div class="rotate-45 origin-top-left">Gira no kantu top-left</div>
+<div class="rotate-45 origin-bottom-right">Gira no kantu bottom-right</div>
+<div class="rotate-45 origin-center">Gira no centro (default)</div>
+```
+
+<SectionHeading variant="concept" seq={2}>Transformasan 3D — Novu na v4</SectionHeading>
+
+v4 ta abri todu mundu di 3D ku CSS. v3 era só 2D — es é un kapasidadi ki so izisti na v4.
+
+### `rotate-x-*` / `rotate-y-*` / `rotate-z-*`
+
+```html
+<div class="rotate-x-45">Rota 45° na eixu X (flip horizontal)</div>
+<div class="rotate-y-45">Rota 45° na eixu Y (flip vertical)</div>
+<div class="rotate-z-45">Rota 45° na eixu Z (= rotate normal)</div>
+```
+
+Otimu pa flipping kards, kards ki ta vira.
+
+### `perspective-*` — Profundidadi 3D
+
+Pa rotasan 3D ten sentidu vizual, pai meste ten `perspective`. Valoris: `perspective-near`, `perspective-normal`, `perspective-distant`, `perspective-none`, ou arbitráriu (`perspective-[1000px]`).
+
+### `transform-3d`
+
+Por padran, transformasan son **flat** — na 2D. Pa ativa 3D verdaderu, poi `transform-3d` na o elementu ki ta rota.
+
+Es tres pesa — `perspective-*` na pai, `transform-3d` + `rotate-y-*` na fidju — ta djunta pa faze un flip-kard. Odja linha-pa-linha unde kada un ta bai:
+
+<AnnotatedCode
+  lang="html"
+  filename="flip-kard.html"
+  title="Flip-kard 3D — kada pesa na se lugar"
+  code={[
+    { t: '<div class="perspective-distant">', m: 1 },
+    { t: '  <div class="transform-3d', m: 2 },
+    { t: '              rotate-y-45 hover:rotate-y-0', m: 3 },
+    { t: '              transition duration-500">', m: 4 },
+    { t: '    Karta ki ta vira pa frenti no hover', m: 0 },
+    { t: '  </div>', m: 0 },
+    { t: '</div>', m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Perspective na o pai", body: "`perspective-distant` ta bai na o elementu **pai**. Sen el, kalker rotasan 3D ta parese flat — sen profundidadi." },
+    { m: 2, title: "Ativa 3D", body: "`transform-3d` na o **fidju** ta ativa 3D verdaderu. Sen el, o `rotate-y` ta fika só un flat 2D." },
+    { m: 3, title: "Stadu inisial i hover", body: "`rotate-y-45` é o stadu di partida (viradu); `hover:rotate-y-0` ta poi o karta di frenti kuandu rato passa riba." },
+    { m: 4, title: "Movimentu suavi", body: "`transition duration-500` ta faze o movimentu kore devagar (500ms), en bez di salta di un bez." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={3}>Transisan — Movimentu Suavi</SectionHeading>
+
+Sen transisan, transformasan é imediatu. Adisiona transisan:
+
+```html
+<button class="hover:scale-110 transition">
+  Botaun ki ta krese na hover
+</button>
+```
+
+### Família di Klasis
+
+```html
+<button class="transition">Anima tudu</button>
+<button class="transition-colors">Só kores</button>
+<button class="transition-opacity">Só opasidadi</button>
+<button class="transition-shadow">Só sombra</button>
+<button class="transition-transform">Só transformasan (scale, rotate, translate, skew)</button>
+<button class="transition-none">Sen transisan</button>
+```
+
+`transition-transform` é di klasi más uzadu pa hover effects (scale, rotate).
+
+### `duration-*` — Tempu
+
+```html
+<button class="transition duration-75">75ms — rapidu</button>
+<button class="transition duration-150">150ms (default)</button>
+<button class="transition duration-300">300ms — suavi</button>
+<button class="transition duration-700">700ms — lentu</button>
+<button class="transition duration-1000">1000ms — dramátiku</button>
+```
+
+### `ease-*` — Ritmu di Velosidadi
+
+```html
+<button class="transition ease-linear">Linear — velosidadi konstanti</button>
+<button class="transition ease-in">Ease-in — komesa devagar</button>
+<button class="transition ease-out">Ease-out — termina devagar (más natural)</button>
+<button class="transition ease-in-out">Ease-in-out — komesa i termina devagar</button>
+```
+
+`ease-out` é di más natural pa hover effects.
+
+<SectionHeading variant="concept" seq={4}>Padrons di Hover i Click</SectionHeading>
+
+### Kart "Lift" na Hover
+
+```html
+<div class="bg-white p-6 rounded-lg shadow-sm hover:scale-105 hover:shadow-lg transition duration-200 ease-out">
+  Karta ki ta levanta-se na hover
+</div>
+```
+
+Es kombina: `scale-105` (5% más grandi), `shadow-lg` (sombra major), `transition duration-200 ease-out`. Resultadu: karta ki ta parese vivu sob rato.
+
+### Boton "Click"
+
+```html
+<button class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700 hover:scale-105 active:scale-95 transition duration-150">
+  Klika
+</button>
+```
+
+`active:scale-95` ta da feedback di klike (boton **diminui pikinu** kuandu apertadu) — sensasan di material.
+
+<SectionHeading variant="practice">Repete pa Lembra</SectionHeading>
+
+Es lisan traze txeu utilidadis pikinu. Vira kada karta i konfirma ki bu ta lembra o ki kada un ta faze:
+
+<Flashcard
+  showHeader={false}
+  deckId="tailwind-transisan-transformasan-3d"
+  cards={[
+    { term: "scale-110", def: "110% — un poku más grandi." },
+    { term: "-translate-y-2", def: "Move 0.5rem pa riba (valor negativu)." },
+    { term: "rotate-45", def: "Rota 45° na eixu Z." },
+    { term: "skew-x-12", def: "Inklinadu 12° na eixu X." },
+    { term: "transition-transform", def: "Anima só transformasan: scale, rotate, translate, skew." },
+    { term: "duration-300", def: "Transisan di 300ms — suavi." },
+    { term: "ease-out", def: "Termina devagar — o más natural pa hover." },
+    { term: "active:scale-95", def: "Boton diminui pikinu kuandu apertadu — feedback di klike." },
+    { term: "transform-3d", def: "Ativa 3D verdaderu na o fidju (sen el, ta fika flat)." },
+    { term: "perspective-distant", def: "Da profundidadi 3D — bai na o elementu pai." },
+  ]}
+/>
+
+<SectionHeading variant="install">Aplika a Resort Brava</SectionHeading>
+
+Gora nu ta poi tudu isu na projetu. Os kards di Resort Brava (di Lisan 18) ta ganha un lift na hover, i o boton di hero ta ganha feedback di klike:
+
+<CodeDiff
+  lang="html"
+  filename="resort-brava — kards + boton di hero"
+  title="Antis i dipos: kards ki ta levanta"
+  note="Só dos mudansas: `hover:scale-105 hover:shadow-lg transition duration-200 ease-out` na o kard, i `hover:scale-105 active:scale-95` na o boton."
+  diff={[
+    { type: "del", t: '<section class="... shadow-sm rounded-lg border ... hover:shadow-md transition-shadow">' },
+    { type: "add", t: '<section class="... shadow-sm rounded-lg border ... hover:shadow-lg hover:scale-105 transition duration-200 ease-out">' },
+    { type: "ctx", t: '  ...' },
+    { type: "del", t: '  <a class="bg-amber-500 ...">Olha kuartus</a>' },
+    { type: "add", t: '  <a class="bg-amber-500 ... hover:scale-105 active:scale-95">Olha kuartus</a>' },
+    { type: "ctx", t: '</section>' },
+  ]}
+/>
+
+- **Kards:** `hover:scale-105 hover:shadow-lg transition duration-200 ease-out` — kards levanta-se i ganha sombra na hover (kombina ku `transition-colors` di Lisan 13)
+- **Boton di hero:** `hover:scale-105 active:scale-95` — feedback di klike vivu
+
+Abri na browser, passa rato sobri kards. Sentidu di **produtu real, polidu**.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="transition">é o ki ta transforma un salta seku nun movimentu suavi — sen el, kada mudansa é imediatu.</RezumuItem>
+  <RezumuItem term="2D transforms">`translate-*`, `scale-*`, `rotate-*`, `skew-*` (+ `-` pa negativu); `transform-origin-*` kontrola o ponto di rotasan.</RezumuItem>
+  <RezumuItem term="3D transforms (v4)">`rotate-x-*`, `rotate-y-*`, `rotate-z-*` + `perspective-*` + `transform-3d` — novu na v4.</RezumuItem>
+  <RezumuItem term="duration + ease">`duration-*` kontrola o tempu, `ease-*` o ritmu; `ease-out` é o más natural pa hover.</RezumuItem>
+  <RezumuItem variant="warning" term="Erru kumun">`perspective-*` ta bai na o **pai**, ka na o elementu ki ta rota — sen el, o 3D ta parese flat.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Padran di hover-lift: `hover:scale-105 hover:shadow-lg transition duration-200 ease-out`; `active:scale-95` ta da sensasan di klike.</RezumuItem>
+</KeyTakeaways>

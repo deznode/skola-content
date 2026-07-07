@@ -1,0 +1,76 @@
+- slug: aplika-dark-mode-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Aplika dark mode a Resort Brava" }
+  prompt: { kea: "Adisiona `@custom-variant dark` na bu blok `<style>`, poi `dark:` variantis na `<body>` i no boton di toggle, i adisiona o script na `<head>`. Konfirma: (a) toggle no header ta funsiona; (b) reload ta mantene a skolha; (c) si bu sistema sta en dark mode, Brava ta komesa en dark sen bu klika nada." }
+  hint: { kea: "O `@custom-variant dark (&:where(.dark, .dark *));` ta bai antes di `@theme`, i o script ku `matchMedia` ta bai na `<head>`." }
+  starterCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --color-mar-900: #0b2a3a;
+      }
+    </style>
+
+    <body class="min-h-screen bg-sol-100 text-slate-900">
+      <button id="dark-toggle" class="px-2 py-1 rounded-md bg-mar-800/50 text-white">
+        <span class="dark:hidden">🌙</span>
+        <span class="hidden dark:inline">☀️</span>
+      </button>
+      <!-- TODO: adisiona dark: variantis i o script -->
+    </body>
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+
+      @theme {
+        --color-mar-900: #0b2a3a;
+      }
+    </style>
+
+    <script>
+      if (localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
+    <body class="min-h-screen bg-sol-100 dark:bg-mar-900 text-slate-900 dark:text-slate-100">
+      <button id="dark-toggle" class="px-2 py-1 rounded-md bg-mar-800/50 dark:bg-mar-700 text-white">
+        <span class="dark:hidden">🌙</span>
+        <span class="hidden dark:inline">☀️</span>
+      </button>
+      <script>
+        document.getElementById('dark-toggle').addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+      </script>
+    </body>
+
+- slug: dark-variantis-no-footer
+  language: html
+  kind: code
+  title: { kea: "Adisiona dark variantis no footer" }
+  prompt: { kea: "O footer di Resort Brava inda ka ten `dark:` variantis. Adisiona-l `dark:bg-slate-950` i `dark:text-slate-400` pa el adapta tambén na modu sukuru." }
+  hint: { kea: "Kada utilidadi klaru ta parea ku un `dark:` — pensa: ki fundu i ki kor di textu funsiona en dark?" }
+  starterCode: |
+    <footer class="bg-slate-100 text-slate-600 p-8 text-center">
+      <p>Resort Brava — Ilha di Brava, Kabu Verdi</p>
+    </footer>
+  solutionCode: |
+    <footer class="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 p-8 text-center">
+      <p>Resort Brava — Ilha di Brava, Kabu Verdi</p>
+    </footer>
+
+- slug: refleta-token-dark-propriu
+  language: html
+  kind: reflect
+  title: { kea: "Un identidadi própriu na modu sukuru" }
+  prompt: { kea: "Defini un token `--color-noiti: #0a1420` (un azul di noiti) na `@theme` i uza-l kumo dark bg (`dark:bg-noiti`) en bez di `mar-900`. Repara kumo o token pursonalisadu ta da a Resort Brava un identidadi própriu mesmu en modu sukuru. Skrebe 1–2 frazi riba di kuze ki muda." }
+  code: |
+    @theme {
+      --color-noiti: #0a1420;
+    }
+    <!-- i na o body: -->
+    <body class="min-h-screen bg-sol-100 dark:bg-noiti text-slate-900 dark:text-slate-100">
+  notePlaceholder: { kea: "Skrebe li o ki bu repara…" }

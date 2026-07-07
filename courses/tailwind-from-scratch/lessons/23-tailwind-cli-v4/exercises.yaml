@@ -1,0 +1,40 @@
+- slug: inisia-projetu-cli
+  language: bash
+  kind: setup
+  title: { kea: "Inisia un projetu novu ku CLI v4" }
+  prompt: { kea: "Kria un pasta `resort-brava-cli/`, roda `pnpm init`, i instala **`tailwindcss`** + **`@tailwindcss/cli`** kumo dev dependencies (`-D`). Konfirma ki os dos pakoti ta apareseu na `package.json`." }
+  command: |
+    mkdir resort-brava-cli && cd resort-brava-cli
+    pnpm init
+    pnpm add -D tailwindcss @tailwindcss/cli
+  expectedOutput: |
+    devDependencies:
+    + @tailwindcss/cli ^4.3.0
+    + tailwindcss ^4.3.0
+    Done
+
+- slug: kria-input-css-i-build
+  language: css
+  kind: code
+  title: { kea: "Skrebe `input.css` i konstrui `dist/style.css`" }
+  prompt: { kea: "Kria un `input.css` ku **un só linha** — `@import \"tailwindcss\";`. Adisiona os scripts `build` i `watch` na `package.json`, kria un `index.html` mínimu ku `<h1 class=\"text-3xl font-bold text-sky-700\">Test</h1>`, i roda `pnpm run watch`. Konfirma ki `dist/style.css` é jeradu i ki o `<h1>` ta apareseu ku stilu." }
+  hint: { kea: "O `<link rel=\"stylesheet\" href=\"dist/style.css\">` ten ki sta no `<head>` di `index.html` — sen el, o CSS jeradu ka ta liga ku a pájina." }
+  starterCode: |
+    /* input.css */
+  solutionCode: |
+    /* input.css */
+    @import "tailwindcss";
+
+- slug: build-produsan-minify
+  language: bash
+  kind: setup
+  title: { kea: "Kompara o tamanhu ku i sen `--minify`" }
+  prompt: { kea: "Primeru roda o build **sen** `--minify` i repara o tamanhu di `dist/style.css`. Dipos roda `pnpm run build` (ki dja ten `--minify`) i kompara — o fixeru minifikadu ten ki ser más pikinu." }
+  command: |
+    npx @tailwindcss/cli -i ./input.css -o ./dist/style.css
+    pnpm run build
+    ls -lh dist/style.css
+  expectedOutput: |
+    Done in 91ms
+    Done in 84ms
+    dist/style.css   ~14K   (minifikadu)

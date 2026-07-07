@@ -1,0 +1,246 @@
+---
+title: "Filtros i Máskaras"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: filtros-i-maskaras
+slug: "filtros-i-maskaras"
+module: 2
+lesson: 12
+duration: "20 min"
+objectives:
+  - "Aplika filtros (`blur-*`, `brightness-*`, `contrast-*`, `grayscale`, `sepia`, `hue-rotate-*`)"
+  - "Konxe skala shifted di v4: `blur-xs/sm/md` — sen klasi bare `blur`"
+  - "Uza `backdrop-*` pa filtros aplikadu a kuza atrás (glassmorphism)"
+  - "Aplika `mask-*` (novidadi v4.1) pa imajens i overlays elegantes"
+  - "Aplika glassmorphism a header di Resort Brava — fin di Módulu 2"
+---
+
+# Filtros i Máskaras
+
+Resort Brava ten dimensan visual. Cards redondu, header sticky, hero ku peso. Ma página inda parsi un dokumentu **statiku** — fotografia di un produtu, ka **un produtu vivu**.
+
+Filtros é o ki ta da kel sensasan di profundidadi modernu: imajens ki da-i un toke artistiku, headers ku glassmorphism, overlays sutil. Es lisan kompleta Módulu 2 — i ta da Resort Brava un fin moderno.
+
+<SectionHeading variant="concept" seq={1}>Skala di blur muda na v4</SectionHeading>
+
+Mesmu padran ki sombra (Lisan 10) i rounded (Lisan 11): **na v4, `blur` sozinhu ka izisti**. Sempri ten sufixu. Si bo ben di v3, es é un eru fásil pa faze:
+
+<MisconceptionConfront
+  belief="Na Tailwind v4, `blur` sozinhu (sen sufixu) ta poi un elementu fora di foku — mesmu ki na v3."
+  myth="`blur` bare ta funsiona sima txeu otus klasi: un valor default ta ser aplikadu automatikamenti."
+  real="Na v4, `blur` bare **ka izisti**. Kada filtru ten sempri un sufixu di tamanhu — `blur-xs`, `blur-sm`, `blur-md`…"
+  proof={[
+    '<!-- v3 (kaduku) -->',
+    '<div class="blur">...</div>',
+    '<!-- v4 (korretu) -->',
+    '<div class="blur-sm">...</div>',
+  ]}
+  takeaway="`blur-sm` (4px) é o mesmu ki o antigu `blur` di v3. Mesmu padran di `shadow-*` (Lisan 10) i `rounded-*` (Lisan 11)."
+/>
+
+<SectionHeading variant="concept" seq={2}>Blur — Foku Suavi</SectionHeading>
+
+Blur ta poi un elementu **fora di foku**. Otimu pa fundu di loading, splash imajens, o estadu desativadu.
+
+```html
+<img src="brava.jpg" class="blur-sm">         <!-- foku suavi -->
+<div class="bg-sky-200 blur-lg p-8">Textu blur</div>
+<img src="thumb.jpg" class="blur-xs hover:blur-none transition">  <!-- (hover é M3) -->
+```
+
+**Skala kompleta:**
+
+| Klasi | Tamanhu |
+|---|---|
+| `blur-none` | 0 (sen blur — pa anula) |
+| `blur-xs` | 2px |
+| `blur-sm` | 4px (substitui v3 `blur`) |
+| `blur-md` | 8px |
+| `blur-lg` | 12px |
+| `blur-xl` | 16px |
+| `blur-2xl` | 24px |
+| `blur-3xl` | 40px |
+
+<SectionHeading variant="concept" seq={3}>Filtros di Kor i Luz</SectionHeading>
+
+Un família di filtros ta transforma kor i luz di un imajen — brilho, kontrasti, saturasan, i más.
+
+**Brilho i kontrasti — `brightness-*`, `contrast-*`:**
+
+```html
+<img src="foto.jpg" class="brightness-50">  <!-- Más sukuru (50% de brilho) -->
+<img src="foto.jpg" class="brightness-100">  <!-- Default (sen muda) -->
+<img src="foto.jpg" class="brightness-125">  <!-- Más klaru (125%) -->
+<img src="foto.jpg" class="brightness-150">  <!-- Bem klaru -->
+
+<img src="foto.jpg" class="contrast-50">  <!-- Kontrasti baxu — lavadu -->
+<img src="foto.jpg" class="contrast-100">  <!-- Default -->
+<img src="foto.jpg" class="contrast-125">  <!-- Más vívidu -->
+```
+
+Valoris: 0, 50, 75, 100 (default), 125, 150, 200.
+
+**Grayscale i sepia — filtros klásiku:**
+
+```html
+<img src="foto.jpg" class="grayscale">  <!-- Pretu i branku -->
+<img src="foto.jpg" class="grayscale-50">  <!-- Tendi pa pretu/branku ma sustenta poko kor -->
+
+<img src="foto.jpg" class="sepia">  <!-- Filtru sepia — tom antigu di fotografia -->
+<img src="foto.jpg" class="sepia-50">  <!-- Sepia poko -->
+```
+
+**Hue-rotate — rotasan di kor:**
+
+```html
+<img src="foto.jpg" class="hue-rotate-15">  <!-- Rota cor 15° -->
+<img src="foto.jpg" class="hue-rotate-90">  <!-- Rota 90° — muda dramatikamente -->
+<img src="foto.jpg" class="hue-rotate-180">  <!-- Rota 180° — kor opostu -->
+<img src="foto.jpg" class="-hue-rotate-30">  <!-- Rota negativu -->
+```
+
+Otimu pa konsigi variantes di kor di mesmu imajen sen edita.
+
+**Invert — negativu:**
+
+```html
+<img src="foto.jpg" class="invert">  <!-- Inverti tudu kor (negativu fotográfiku) -->
+<img src="foto.jpg" class="invert-50">  <!-- Inverti 50% — efeitu sutil -->
+```
+
+**Saturasan — `saturate-*`:**
+
+```html
+<img src="foto.jpg" class="saturate-0">  <!-- Dessaturadu = grayscale -->
+<img src="foto.jpg" class="saturate-50">  <!-- Kor más suavi -->
+<img src="foto.jpg" class="saturate-100">  <!-- Default -->
+<img src="foto.jpg" class="saturate-150">  <!-- Más vívidu -->
+<img src="foto.jpg" class="saturate-200">  <!-- Saturadu intensu -->
+```
+
+`saturate-150` é truki ki ta poi fotos parse más *vivu* sen filtra dramatikamente.
+
+<SectionHeading variant="concept" seq={4}>`drop-shadow-*` — Sombra di Elementu (Ka Box)</SectionHeading>
+
+Diferenti di `shadow-*` (ki ta da sombra a kaixa retangular), `drop-shadow-*` ta segui **forma di elementu**. Otimu pa SVG i PNG ku transparensia.
+
+```html
+<svg class="drop-shadow-md">...ícon...</svg>
+<img src="logo.png" class="drop-shadow-lg">  <!-- PNG ku transparensia -->
+```
+
+<SectionHeading variant="concept" seq={5}>Backdrop Filters — Magia di Glassmorphism</SectionHeading>
+
+Li é **unde Tailwind ta brilha**. `backdrop-*` filtros ta aplika a kuza **atrás** di elementu, ka a elementu mes. Es é segredu di glassmorphism.
+
+```html
+<header class="bg-sky-700/85 backdrop-blur-md">
+  Header semi-transparenti ku tudu atrás suavi
+</header>
+```
+
+**Família:**
+
+- `backdrop-blur-{none,xs,sm,md,lg,xl,2xl,3xl}`
+- `backdrop-brightness-*`
+- `backdrop-contrast-*`
+- `backdrop-grayscale`
+- `backdrop-saturate-*`
+- `backdrop-sepia`
+
+:::callout{type=tip}
+Pa `backdrop-blur` funsiona, elementu meste tene un **bg semi-transparenti**. `bg-sky-700/85` (85% di opasidadi) deixa luz pasa. Si bo poi `bg-sky-700` sólidu, ka ten nada pa blur — kor sólidu ta tapa tudu.
+:::
+
+<SectionHeading variant="concept" seq={6}>Mix-Blend-Mode — Mistura Kor</SectionHeading>
+
+Bo pode mistura un elementu ku o ki sta atrás:
+
+```html
+<div class="bg-red-500 mix-blend-multiply">Multiplika ku fundu</div>
+<div class="bg-amber-300 mix-blend-overlay">Overlay artistiku</div>
+<div class="bg-sky-300 mix-blend-screen">Screen — klareza</div>
+```
+
+Modus: `multiply`, `screen`, `overlay`, `darken`, `lighten`, `color-dodge`, `color-burn`, `hard-light`, `soft-light`, `difference`, `exclusion`, `hue`, `saturation`, `color`, `luminosity`.
+
+Ka ten regra — eksperimenta i odja.
+
+<SectionHeading variant="concept" seq={7}>Máskaras — `mask-*` (NOVU na v4.1)</SectionHeading>
+
+v4.1 traze familia kompletu di máskaras kumo utilidadis (antes era CSS arbitráriu). Kada utilidadi ta fade parti di un imajen pa transparenti:
+
+<AnnotatedCode
+  lang="html"
+  filename="máskaras"
+  title="Máskaras: linear, radial i direksan"
+  code={[
+    { t: '<img class="mask-linear-from-50%" src="foto.jpg">', m: 1 },
+    { t: '<img class="mask-radial-from-50% mask-radial-to-90%" src="foto.jpg">', m: 2 },
+    { t: '<img class="mask-l-from-50%" src="foto.jpg">', m: 3 },
+    { t: '<img class="mask-t-from-50%" src="foto.jpg">', m: 3 },
+    { t: '<img class="mask-x-from-50%" src="foto.jpg">', m: 3 },
+  ]}
+  notes={[
+    { m: 1, title: "Máskara linear (fade)", body: "Imajen klaru no topu, fade out a transparenti no fundu (de 50%)." },
+    { m: 2, title: "Máskara radial (sirkulu di luz)", body: "Imajen klaru no sentru, fade a transparenti nos kantus." },
+    { m: 3, title: "Direksan i pozisan", body: "`mask-l-*` ta fade pa skerda, `mask-t-*` pa topu, `mask-x-*` horizontalu duplu." },
+  ]}
+/>
+
+Otimu pa hero ku imajen ki ta fundi na fundu di página, o overlay di galeria.
+
+<SectionHeading variant="install">Aplika a Resort Brava: Glassmorphism</SectionHeading>
+
+Es é últimu pasu di Módulu 2. Nu ta da header un toke moderno: glassmorphism. Repara o ki muda entri o header di Lisan 11 i o versan novu:
+
+<CodeDiff
+  lang="html"
+  filename="Resort Brava — header"
+  title="Header: antis i dipos di glassmorphism"
+  note="Trés mudansas: `/85` di opasidadi pa deixa luz pasa, `backdrop-blur-md` pa poi fora di foku o ki sta atrás, i `backdrop-saturate-150` pa aumenta a saturasan di o ki sta atrás."
+  diff={[
+    { type: "del", t: '<header class="sticky top-0 z-10 bg-linear-to-r from-sky-700 to-sky-800 text-white px-6 py-4 shadow-md border-b border-sky-900/30">' },
+    { type: "add", t: '<header class="sticky top-0 z-10 bg-linear-to-r from-sky-700/85 to-sky-800/85 backdrop-blur-md backdrop-saturate-150 text-white px-6 py-4 shadow-md border-b border-sky-900/30">' },
+  ]}
+/>
+
+Abri na browser, skrolla pa baxu. Kontéudu ta pasa **atrás** di header ku un brilho suavi i blur forti. Es é mesmu efeitu di sites di Apple, Stripe, Linear. I bo konstrui-l ku 3 klasi.
+
+### Resort Brava — Estadu Final di Módulu 2
+
+Vamos odja tudu kuza ki bo aplika na Módulu 2:
+
+- **Lisan 4:** Konversan di stilu inline a utilities (alert)
+- **Lisan 5:** Kores, paleta i slash modifier (Resort Brava ganha kor)
+- **Lisan 6:** Spacing — padding, margin, space-y (Resort Brava ganha rítmu)
+- **Lisan 7:** Tipografia — tamanhu, peso, tracking (hierarkia visual)
+- **Lisan 8:** Tamanhu — min-h, max-w (hero ku prezensa)
+- **Lisan 9:** Layout/position — sticky header, z-index
+- **Lisan 10:** Fundus, gradientes, sombras — kards ki ta flutua, gradient
+- **Lisan 11:** Borduras i rais — kards redondu, kantus suavi
+- **Lisan 12:** Filtros i máskaras — glassmorphism no header
+
+**Resultadu:** un página landing moderno, vivu, profissional. Sen un só linha di JavaScript. Sen flex o grid (es ben na M3). Só **utilidadis di stilu i vizual**.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Glassmorphism">`bg-{kor}/85 backdrop-blur-md backdrop-saturate-150` — o padran ki ta da header un toke moderno.</RezumuItem>
+  <RezumuItem term="Skala di blur">`blur-xs/sm/md` — na v4 **nunka** bare `blur`; sempri ten sufixu.</RezumuItem>
+  <RezumuItem term="Filtros di imajen">`brightness`, `contrast`, `grayscale`, `sepia`, `hue-rotate`, `saturate`, `invert`.</RezumuItem>
+  <RezumuItem term="`backdrop-*`">filtros aplikadu a kuza atrás di elementu — ka a elementu mes.</RezumuItem>
+  <RezumuItem term="`drop-shadow-*`">segui forma di elementu (ka retangular) — pa SVG/PNG ku transparensia.</RezumuItem>
+  <RezumuItem term="`mask-*`">novu na v4.1 — máskaras linear, radial i direksan.</RezumuItem>
+  <RezumuItem variant="warning" term="Bg sólidu ka ta blur">pa `backdrop-blur`, o fundu meste ser semi-transparenti (`/85`) — sólidu ta tapa tudu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`saturate-150` ta poi fotos parse más vivu sen filtra dramatikamente.</RezumuItem>
+</KeyTakeaways>

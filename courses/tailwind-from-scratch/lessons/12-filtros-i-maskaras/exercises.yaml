@@ -1,0 +1,48 @@
+- slug: aplika-glassmorphism-header
+  language: html
+  kind: code
+  title: { kea: "Aplika glassmorphism a header di Resort Brava" }
+  prompt: { kea: "Muda o header di Resort Brava ku as tres mudansas: opasidadi `/85` nos dos kor di gradient, `backdrop-blur-md` i `backdrop-saturate-150`. Si scroll for difísil pa testa, duplika seksan **Aktividadis** trez vezes pa ten konteúdu pa skrolla. Abri na browser i konfirma ki bo ta odja o efeitu di backdrop blur kuandu kontéudu pasa atrás." }
+  hint: { kea: "Sen un fundu semi-transparenti (`/85`), ka ten nada pa `backdrop-blur` mostra — kor sólidu ta tapa tudu o ki sta atrás." }
+  starterCode: |
+    <header class="sticky top-0 z-10 bg-linear-to-r from-sky-700 to-sky-800 text-white px-6 py-4 shadow-md border-b border-sky-900/30">
+      <!-- TODO: adiziona opasidadi /85 + backdrop-blur-md + backdrop-saturate-150 -->
+      Resort Brava
+    </header>
+  solutionCode: |
+    <header class="sticky top-0 z-10 bg-linear-to-r from-sky-700/85 to-sky-800/85 backdrop-blur-md backdrop-saturate-150 text-white px-6 py-4 shadow-md border-b border-sky-900/30">
+      Resort Brava
+    </header>
+
+- slug: fundu-imajen-hero
+  language: html
+  kind: code
+  title: { kea: "Adiziona un imajen di fundu no hero" }
+  prompt: { kea: "Adiziona un imajen di Brava kumo fundu di hero. Poi un `<div>` absolutu kumo primeru filho di hero, ku `brightness-75` i `saturate-150` pa o textu le bom pa riba. Konfirma ki imajen fika atras, ku brilho más baxu." }
+  hint: { kea: "`-z-10` ta poi o `<div>` di fundu atrás di o kontéudu; `brightness-75` ta baxa o brilho pa o textu branku destaka." }
+  starterCode: |
+    <section class="relative">
+      <!-- TODO: adiziona o div di imajen di fundu li -->
+      <h1 class="text-white text-4xl font-bold">Resort Brava</h1>
+    </section>
+  solutionCode: |
+    <section class="relative">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-...')] bg-cover bg-center -z-10 brightness-75 saturate-150"></div>
+      <h1 class="text-white text-4xl font-bold">Resort Brava</h1>
+    </section>
+
+- slug: maskara-linear-hero
+  language: html
+  kind: code
+  title: { kea: "Aplika un máskara linear no hero" }
+  prompt: { kea: "Adiziona `mask-b-from-80%` no kontainer di hero (o no imajen di fundu di izersisiu anterior). O kontéudu di hero ta fade pa transparenti no fundu — un transisan elegante pa prósimu seksan." }
+  hint: { kea: "`mask-b-from-80%` ta mantene o topu klaru i ta fade a transparenti no fundu (bottom), a partir di 80%." }
+  starterCode: |
+    <section class="relative">
+      <!-- TODO: adiziona mask-b-from-80% aki -->
+      <h1 class="text-white text-4xl font-bold">Resort Brava</h1>
+    </section>
+  solutionCode: |
+    <section class="relative mask-b-from-80%">
+      <h1 class="text-white text-4xl font-bold">Resort Brava</h1>
+    </section>

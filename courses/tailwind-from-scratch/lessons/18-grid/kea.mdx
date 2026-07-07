@@ -1,0 +1,243 @@
+---
+title: "Grid"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: grid
+slug: "grid"
+module: 3
+lesson: 18
+duration: "25 min"
+objectives:
+  - "Aplika `grid` ku `grid-cols-N` i `grid-rows-N` pa kolunas i rows iguais"
+  - "Domina spanning ku `col-span-*` i `row-span-*`"
+  - "Uza valoris arbitráriu (`grid-cols-[200px_1fr_1fr]`) pa tamanhu definidu di tracks"
+  - "Kombina `gap-x-*` i `gap-y-*` pa spacing kontroladu"
+  - "Aplika Grid a Resort Brava — kards na fila responsivu"
+---
+
+# Grid
+
+Flexbox é poderozu pa **komponenti** (navs, kards, botan). Grid é poderozu pa **layouts inteiru** — kuandu bo presiza di kontrolu en **dos eixu** ao mesmu tempu.
+
+Flexbox ta poi filhus na fila ou koluna. Grid ta poi-l na un **mapa di kuadradus**. Filhu pode okupa 1 kuadradu, ou 2, ou un linha kompletu. É kumo Excel pa CSS.
+
+Pa 95% di kazus, **flex é más simples**. Ma kuandu flex ka kabe (galerias komplikadu, dashboards), grid é a resposta.
+
+<SectionHeading variant="concept" seq={1}>Grid vs Flexbox — kal ki uza kuandu</SectionHeading>
+
+Es dos ferramenta ka ta luta un kontra otru — es ta kompleta un a otru. A pergunta ka é "kal ki é midjór", ma sin "kal ki es kazu ta pidi":
+
+<CompareTable
+  title="Flexbox vs Grid"
+  cornerLabel="Aspetu"
+  cols={[
+    { name: "Flexbox", accent: "teal" },
+    { name: "Grid", accent: "blue" },
+  ]}
+  rows={[
+    { label: "Eixus di kontrolu", kind: "text", vals: ["Un eixu (fila **ou** koluna)", "Dos eixu ao mesmu tempu"] },
+    { label: "Pa kuze ki ta servi", kind: "text", vals: ["Komponenti (navs, kards, menus)", "Layouts inteiru (páginas, dashboards)"] },
+    { label: "Kuandu uza", kind: "text", vals: ["Konteúdu ki ta flui nun direksan", "Struktura di kuadradus definidu"] },
+    { label: "Regra jeneral", kind: "text", vals: ["Skolha default (95% di kazus)", "Kuandu flex ka kabe"] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>Kria un grid ku `grid-cols-N`</SectionHeading>
+
+```html
+<div class="grid grid-cols-3">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+  <div>Item 5</div>
+  <div>Item 6</div>
+</div>
+```
+
+- **`grid`** ta poi `display: grid`
+- **`grid-cols-3`** ta poi 3 kolunas iguais
+
+Browser ta poi 6 itens en 2 linhas di 3 kolunas. **Otomatikamenti.**
+
+Bo pode skolhe kualker numeru di kolunas iguais, te `grid-cols-12`:
+
+```html
+<div class="grid grid-cols-1">1 koluna (default)</div>
+<div class="grid grid-cols-2">2 kolunas iguais</div>
+<div class="grid grid-cols-3">3 kolunas iguais</div>
+<div class="grid grid-cols-4">4 kolunas iguais</div>
+<!-- te grid-cols-12 -->
+```
+
+12 é máximu padran (kumo Bootstrap, pamodi 12 é dividi pa 2, 3, 4 i 6).
+
+### Responsivu — Padran di Layout Inteiru
+
+```html
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  <!-- 1 koluna no telefoni → 2 no tablet → 3 no laptop → 4 no desktop -->
+</div>
+```
+
+Es é **padran más kumun di grid na web**.
+
+<SectionHeading variant="concept" seq={3}>`gap-*` — Spasu Entri Kuadradus</SectionHeading>
+
+Mesmu kumo flex:
+
+```html
+<div class="grid grid-cols-3 gap-4">Espasu di 1rem en tudu direksan</div>
+<div class="grid grid-cols-3 gap-x-2 gap-y-8">Espasu diferenti horizontal/vertikal</div>
+```
+
+<SectionHeading variant="concept" seq={4}>Spanning — Filhu ki Okupa Multiplu Kuadradus</SectionHeading>
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div class="col-span-3 bg-sky-100">Hero — okupa 3 kolunas</div>
+  <div class="bg-white p-4">Karta 1</div>
+  <div class="bg-white p-4">Karta 2</div>
+  <div class="bg-white p-4">Karta 3</div>
+  <div class="col-span-2 bg-white p-4">Karta wider — 2 kolunas</div>
+  <div class="bg-white p-4">Karta 4</div>
+</div>
+```
+
+- **`col-span-N`** — filhu okupa N kolunas
+- **`row-span-N`** — filhu okupa N rows
+- **`col-span-full`** — okupa **tudu** kolunas disponivel
+
+Es é unde grid brilha — flexbox **ka pode faze es**.
+
+<SectionHeading variant="concept" seq={5}>`grid-rows-N` — Rows Definidu</SectionHeading>
+
+Default, rows ta krese otomatikamenti. Pa kontrola:
+
+```html
+<div class="grid grid-cols-3 grid-rows-2 h-96 gap-4">
+  <!-- 6 spasus dentu di un altura fíxu di 24rem -->
+</div>
+```
+
+<SectionHeading variant="concept" seq={6}>Tamanhu Personalizadu — Valor Arbitráriu</SectionHeading>
+
+Kuandu bo presiza di kolunas ki **ka son iguais** — ex: sidebar fiksu di 200px + main flexível — uza valor arbitráriu:
+
+```html
+<div class="grid grid-cols-[200px_1fr] gap-4">
+  <aside>Sidebar fíxu di 200px</aside>
+  <main>Main ki okupa tudu spasu ki sobra (1fr = "1 frasan di kuza ki sobra")</main>
+</div>
+```
+
+**Sintaxi:**
+- Separa kolunas ku `_` (underscore, ka spasu — Tailwind ka aseita spasu na klasi)
+- `1fr` = "krese pa okupa spasu ki sobra" (kumo `flex-1`)
+- Valoris pode ser `px`, `rem`, `%`, `fr`, `min-content`, `max-content`, `minmax(min, max)`
+
+Un izemplu ku trez tracks, splikadu linha-pa-linha:
+
+<AnnotatedCode
+  lang="html"
+  filename="grid arbitráriu"
+  title="Le o grid-cols arbitráriu"
+  code={[
+    { t: '<div class="grid grid-cols-[200px_1fr_1fr] gap-4">', m: 1 },
+    { t: '  <aside>Sidebar 200px</aside>', m: 2 },
+    { t: '  <main>50% di kel ki sobra</main>', m: 3 },
+    { t: '  <main>50% di kel ki sobra</main>', m: 0 },
+    { t: '</div>', m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Trez tracks", body: "`grid-cols-[200px_1fr_1fr]` ta difini **trez kolunas**: un fíxu di `200px` i dos `1fr`. Separa-s ku `_` (underscore) — Tailwind ka aseita spasu na klasi." },
+    { m: 2, title: "Koluna fíxu", body: "Es `<aside>` ta okupa a primera koluna — sempri `200px`, ka ta muda." },
+    { m: 3, title: "1fr = spasu ki sobra", body: "`1fr` = 'un frasan di spasu ki sobra'. Dos `1fr` ta parti kel spasu igual — 50% kada un. É kumo `flex-1`." },
+  ]}
+/>
+
+### `auto-fit` / `auto-fill` — Grid Auto-Responsivu
+
+```html
+<div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+  <!-- Kuantas kolunas ka 250px kabe? Browser disidi. -->
+</div>
+```
+
+Es é "Pinterest mode" sen media queries. Otimu pa galerias di kards.
+
+<SectionHeading variant="concept" seq={7}>Itens na Pozisan Fiksu — `col-start-N` / `col-end-N`</SectionHeading>
+
+Pa kontrolu izatu di pozisan:
+
+```html
+<div class="grid grid-cols-6 gap-4">
+  <div class="col-start-2 col-end-5">Komesa na koluna 2, termina antes di koluna 5 (okupa 2,3,4)</div>
+</div>
+```
+
+Igual: `col-start-2 col-span-3`.
+
+Mesmu padran pa rows: `row-start-N`, `row-end-N`.
+
+<SectionHeading variant="install">Aplika Grid a Resort Brava</SectionHeading>
+
+Li ven a maior mudansa di estrutura di Resort Brava na tudu o módulu. Trez seksan "Kuartus / Aktividadis / Kontaktu" son **ideal pa un grid di 3 kolunas**. Antis, es ta stack vertikalmenti ku `space-y`; gosi nu ta envolvi-s nun grid:
+
+<CodeDiff
+  lang="html"
+  filename="index.html — main"
+  title="Trez seksan vira un grid di 3 kolunas"
+  note="Kards stack vertikalmenti na mobile i vira 3 kolunas lado a lado na tablet+ (`md:grid-cols-3`). Kards manten se stilus — só envolvidu na grid."
+  diff={[
+    { type: "ctx", t: '<main class="container mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8 md:space-y-12">' },
+    { type: "ctx", t: '  <section id="hero" class="...">...</section>' },
+    { type: "del", t: '  <section id="kuartus" class="...">...</section>' },
+    { type: "del", t: '  <section id="aktividadis" class="...">...</section>' },
+    { type: "del", t: '  <section id="kontaktu" class="...">...</section>' },
+    { type: "add", t: '  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">' },
+    { type: "add", t: '    <section id="kuartus" class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100 hover:shadow-md transition-shadow">...</section>' },
+    { type: "add", t: '    <section id="aktividadis" class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100 hover:shadow-md transition-shadow">...</section>' },
+    { type: "add", t: '    <section id="kontaktu" class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100 hover:shadow-md transition-shadow">...</section>' },
+    { type: "add", t: '  </div>' },
+    { type: "ctx", t: '</main>' },
+  ]}
+/>
+
+Abri na browser na desktop: 3 kards lado a lado, iguais en altura. Risiza pa mobile: stack vertikalmenti. **Es é momentu ki Resort Brava parsi un produktu real komersial.**
+
+<SectionHeading variant="practice">Repasa os Utilidadi</SectionHeading>
+<Flashcard
+  showHeader={false}
+  title="Utilidadis di grid"
+  deckId="tailwind-grid-utilities"
+  cards={[
+    { term: "grid grid-cols-3", def: "Ta poi display grid ku 3 kolunas iguais." },
+    { term: "gap-4", def: "Spasu di 1rem entri tudu kuadradus (mesmu di flex)." },
+    { term: "col-span-2", def: "Filhu ta okupa 2 kolunas." },
+    { term: "col-span-full", def: "Filhu ta okupa tudu kolunas disponivel." },
+    { term: "grid-cols-[200px_1fr]", def: "Kolunas ki ka son iguais: un fíxu di 200px + un flexível." },
+    { term: "auto-fit + minmax()", def: "Grid auto-responsivu — browser ta disidi kuantas kolunas kabe, sen media query." },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="grid + grid-cols-N">layout en kuadradus — a base di tudu grid.</RezumuItem>
+  <RezumuItem term="gap-*">spasu entri kuadradus (mesmu di flex).</RezumuItem>
+  <RezumuItem term="col-span-N / row-span-N">filhu ta okupa N kuadradus; `col-span-full` ta okupa tudu koluna.</RezumuItem>
+  <RezumuItem term="Arbitráriu">`grid-cols-[200px_1fr_1fr]` — kontrolu izatu; `_` separa tracks, `1fr` = spasu ki sobra.</RezumuItem>
+  <RezumuItem term="auto-fit + minmax()">grid auto-responsivu sen media queries.</RezumuItem>
+  <RezumuItem variant="warning" term="Padran klásiku">`grid-cols-1 md:grid-cols-2 lg:grid-cols-3` — más kolunas ku ekran más grandi.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">flex pa komponenti, grid pa layout di página — es dos ta kompleta un a otru.</RezumuItem>
+</KeyTakeaways>

@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, kal é o prefiksu korretu pa un gradient linear pa direita?"
+  options:
+    - text: { kea: "`bg-linear-to-r`" }
+      correct: true
+      explain: { kea: "Na v4, gradient linear ta uza `bg-linear-to-*`. O `bg-gradient-to-*` di v3 ka ta funsiona más." }
+    - text: { kea: "`bg-gradient-to-r`" }
+      correct: false
+      explain: { kea: "Kel é a sintaxi di v3 — na v4 el ka ta funsiona. Uza `bg-linear-to-r`." }
+
+- question:
+    kea: "Na v4, o klasi bare `shadow` (sen sufixu) ta da un sombra default?"
+  options:
+    - text: { kea: "Nau — na v4 kada sombra ten ki ten sufixu, sima `shadow-sm` o `shadow-md`" }
+      correct: true
+      explain: { kea: "O bare `shadow` era default na v3. Na v4 el ka izisti — `shadow-sm` é o ki más parsi ku o antigu default." }
+    - text: { kea: "Sin — `shadow` sozinhu inda é o default na v4" }
+      correct: false
+      explain: { kea: "Kel era verdadi na v3. Na v4 tudu sombra meste un sufixu explisitu." }
+
+- question:
+    kea: "Kuze ki `inset-shadow-sm` ta faze, diferenti di `shadow-sm`?"
+  options:
+    - text: { kea: "Ta poi a sombra **pa dentru** (internu) — bom pa inputs" }
+      correct: true
+      explain: { kea: "`inset-shadow-*` é família nova di v4 pa sombra internu; `shadow-*` ta poi a sombra pa fora." }
+    - text: { kea: "Ta poi a sombra kolorida pa fora ku más opasidadi" }
+      correct: false
+      explain: { kea: "Kor i opasidadi ta ben di `shadow-<kor>/<opasidadi>`; o `inset-` é o ki ta poi a sombra pa dentru." }

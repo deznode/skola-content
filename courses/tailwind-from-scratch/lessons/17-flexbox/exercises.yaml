@@ -1,0 +1,57 @@
+- slug: flex-nav-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Nav flex na Resort Brava" }
+  prompt: { kea: "Na `m2-resort-brava/index.html`, troka o nav pa Flexbox. Removi tudu `mr-4` (o `gap-*` ta substitui-l), poi `flex flex-col md:flex-row gap-2 md:gap-6`. Konfirma na browser: nav ta stack na **koluna** no mobile i vira **fila** no desktop." }
+  hint: { kea: "`flex-col` ta poi filhus na koluna; `md:flex-row` ta vira fila só a partir di `md`. `gap-*` ta troka os `mr-*`." }
+  starterCode: |
+    <nav class="mt-2">
+      <a class="text-sky-100 block md:inline-block mr-0 md:mr-4">Kuartus</a>
+      <a class="text-sky-100 block md:inline-block mr-0 md:mr-4">Aktividadis</a>
+      <a class="text-sky-100 block md:inline-block">Kontaktu</a>
+    </nav>
+  solutionCode: |
+    <nav class="mt-2 flex flex-col md:flex-row gap-2 md:gap-6">
+      <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white">Kuartus</a>
+      <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white">Aktividadis</a>
+      <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white">Kontaktu</a>
+    </nav>
+
+- slug: footer-flex-justify-between
+  language: html
+  kind: code
+  title: { kea: "Footer ku justify-between" }
+  prompt: { kea: "Kria un footer flex ku o copyright na **skerda** i dos links pikinu na **direita**. Uza `flex justify-between items-center`. Adisiona os links **Privacidadi** i **Termu**." }
+  hint: { kea: "`justify-between` ta poi espasu entri filhus, sen espasu na pontas — logo un grupu ta fika na skerda i otu na direita." }
+  starterCode: |
+    <footer>
+      <p>&copy; 2024 Resort Brava</p>
+    </footer>
+  solutionCode: |
+    <footer class="flex justify-between items-center px-6 py-4">
+      <p class="text-sm">&copy; 2024 Resort Brava</p>
+      <div class="flex gap-4 text-sm">
+        <a href="#">Privacidadi</a>
+        <a href="#">Termu</a>
+      </div>
+    </footer>
+
+- slug: baseline-last-vs-baseline
+  language: html
+  kind: reflect
+  title: { kea: "items-baseline-last vs items-baseline" }
+  prompt: { kea: "Testa es dos linhas na browser. Splika ku bu palavras: pamodi `items-baseline-last` ta alinha o `span` diferenti di `items-baseline` kuandu o `h1` ten txeu linhas?" }
+  code: |
+    <div class="flex items-baseline gap-2">
+      <h1 class="text-5xl">Resort Brava</h1>
+      <span class="text-sm">desdi 2024</span>
+    </div>
+    <div class="flex items-baseline-last gap-2">
+      <h1 class="text-5xl">Resort Brava</h1>
+      <span class="text-sm">desdi 2024</span>
+    </div>
+  modelPoints:
+    kea:
+      - "`items-baseline` ta alinha pa **primeru** linha di baseline di kada filhu."
+      - "`items-baseline-last` (v4.1) ta alinha pa **última** linha di textu — util kuandu un filhu kebra na várias linhas."
+  notePlaceholder: { kea: "Skrebe li…" }

@@ -1,0 +1,49 @@
+- slug: instala-ferramentas-base
+  language: bash
+  kind: setup
+  title: { kea: "Instala i verifika as ferramentas base" }
+  prompt: { kea: "Instala **Node.js ≥ 20**, **Git** i **VS Code** (si bu inda ka tene-s). Dipos konfirma na terminal ki tudu tres ta responde ku un versan." }
+  command: |
+    node --version
+    npm --version
+    git --version
+  expectedOutput: |
+    v20.18.0
+    10.8.2
+    git version 2.45.0
+
+- slug: instala-extensan-vscode
+  language: bash
+  kind: setup
+  title: { kea: "Instala as extensan di VS Code" }
+  prompt: { kea: "Instala **Tailwind CSS IntelliSense**, **Live Server** i **Prettier**. Bu pode faze-l pa interfás di extensan (`Ctrl/Cmd + Shift + X`) o ku es tres komandu na terminal." }
+  command: |
+    code --install-extension bradlc.vscode-tailwindcss
+    code --install-extension ritwickdey.liveserver
+    code --install-extension esbenp.prettier-vscode
+  expectedOutput: |
+    Extension 'bradlc.vscode-tailwindcss' was successfully installed.
+    Extension 'ritwickdey.liveserver' was successfully installed.
+    Extension 'esbenp.prettier-vscode' was successfully installed.
+
+- slug: testa-hot-reload
+  language: html
+  kind: code
+  title: { kea: "Testa o hot reload di Live Server" }
+  prompt: { kea: "Kria un `index.html` ku un `<h1>` ki ten **bu nomi**. Abri-l ku Live Server (**Go Live**), dipos muda o nomi na kódiku, salva, i odja o browser ta atualiza sosinhu — sen klika `F5`." }
+  hint: { kea: "Si mudansa ka ta apareseu, konfirma ki Live Server ta korre: bu ta odja un disko verdi (`Go Live` / `Port: 5500`) na fundu di VS Code." }
+  starterCode: |
+    <!doctype html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Anbienti di Teste</title>
+      </head>
+      <body>
+        <h1>Olá, N é [bu nomi]!</h1>
+      </body>
+    </html>
+  solutionCode: |
+    <body>
+      <h1>Olá, N é Djunga!</h1>
+    </body>

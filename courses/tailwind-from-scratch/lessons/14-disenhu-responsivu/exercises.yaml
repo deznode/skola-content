@@ -1,0 +1,61 @@
+- slug: aplika-responsividadi-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Torna Resort Brava responsivu" }
+  prompt: { kea: "Na `m2-resort-brava/index.html`, aplika as mudansas responsivu do header i do hero: klasi sen prefixu pa mobile, i overrides `md:` pa tablet pa riba. Salva, abri na browser i risiza janela (o uza DevTools \"Toggle device toolbar\") pa konfirma ki tudu apresenta bem na **375px** (telefoni), **768px** (tablet) i **1280px** (laptop)." }
+  hint: { kea: "Kumesa pa `header`: `px-4 py-3 md:px-6 md:py-4`, i o `h1` di `text-2xl` pa `md:text-3xl`." }
+  starterCode: |
+    <header class="...px-6 py-4">
+      <h1 class="text-3xl font-bold tracking-tight">Resort Brava</h1>
+    </header>
+
+    <section id="hero" class="relative space-y-4 min-h-[50vh]">
+      <h2 class="text-amber-600 text-5xl font-bold tracking-tight">Ben Vindo</h2>
+    </section>
+  solutionCode: |
+    <header class="...px-4 py-3 md:px-6 md:py-4">
+      <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Resort Brava</h1>
+    </header>
+
+    <section id="hero" class="relative space-y-4 min-h-[40vh] md:min-h-[50vh]">
+      <h2 class="text-amber-600 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Ben Vindo</h2>
+    </section>
+
+- slug: adisiona-breakpoint-3xl
+  language: html
+  kind: code
+  title: { kea: "Adisiona un breakpoint personalizadu 3xl" }
+  prompt: { kea: "Na bloku `<style type=\"text/tailwindcss\">`, adisiona `--breakpoint-3xl: 1920px` dentu di `@theme`. Dipos aplika `3xl:text-7xl` no `h2` di hero. Si bo ten monitor 4K, konfirma ki textu ta krese; si ka, simula ku DevTools." }
+  hint: { kea: "Un token `--breakpoint-3xl` ta jera o prefixu `3xl:` otomatikamenti — ka meste más nada." }
+  starterCode: |
+    <style type="text/tailwindcss">
+      @theme {
+      }
+    </style>
+
+    <h2 class="text-amber-600 text-3xl md:text-5xl lg:text-6xl">Ben Vindo</h2>
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --breakpoint-3xl: 1920px;
+      }
+    </style>
+
+    <h2 class="text-amber-600 text-3xl md:text-5xl lg:text-6xl 3xl:text-7xl">Ben Vindo</h2>
+
+- slug: preve-hidden-md-block
+  language: html
+  kind: predict
+  title: { kea: "Preve kuandu un elementu ta apareseu" }
+  prompt: { kea: "Un `div` ten `class=\"hidden md:block\"`. Nun ekran di **500px** di largura, kuze ki ta kontise ku es `div`?" }
+  starterCode: |
+    <div class="hidden md:block">Aktividadis</div>
+  options:
+    - 'Ta fika skondidu (hidden)'
+    - 'Ta apareseu normal (block)'
+    - 'Ta da erru'
+    - 'Ta apareseu só metadi'
+  correct: 0
+  output: |
+    500px < 768px  →  hidden ta ganha, elementu ka ta apareseu
+  why: { kea: "`hidden` ta aplika a tudu ekran; `md:block` só ta liga di **768px pa riba**. A 500px nu inda sta baxu di `md` — o elementu fika skondidu." }

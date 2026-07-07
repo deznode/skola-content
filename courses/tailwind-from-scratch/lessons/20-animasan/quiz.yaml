@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é a diferensa prinsipal entri un transisan i un animasan?"
+  options:
+    - text: { kea: "Transisan ta presiza un evento (hover, klike); animasan pode kore sosinhu ou em loop" }
+      correct: true
+      explain: { kea: "Transisan ta liga stadu A a stadu B kuandu un kuza muda. Animasan pode kore otomatikamenti i repeti sen fin." }
+    - text: { kea: "Es é a mesmu kuza — so o nomi ki ta muda" }
+      correct: false
+      explain: { kea: "Nau. Transisan presiza un mudansa di stadu; animasan pode kore sen nenhun evento." }
+
+- question:
+    kea: "Na Tailwind v4, unde ki bu ta defini un animasan personalizadu?"
+  options:
+    - text: { kea: "Diretu na CSS ku `@theme { --animate-* }` i `@keyframes`" }
+      correct: true
+      explain: { kea: "Na v4 ka ten `tailwind.config.js` — konfigurasan ta bibe na CSS. O token `--animate-*` ta jera a klasi." }
+    - text: { kea: "Na `tailwind.config.js`, na `theme.extend.animation`" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3. Na v4, o fixeru `tailwind.config.js` dja ka izisti pa isu." }
+
+- question:
+    kea: "Bu defini o token `--animate-fade-in`. Kal klasi ki Tailwind ta jera otomatikamenti?"
+  options:
+    - text: { kea: "`animate-fade-in`" }
+      correct: true
+      explain: { kea: "O prefiksu `--animate-` ta vira `animate-` — o restu di o nomi ta fika igual." }
+    - text: { kea: "`fade-in-animate`" }
+      correct: false
+      explain: { kea: "Nau — Tailwind ta troka `--animate-` pa `animate-`, i ta mantene o restu (`fade-in`)." }

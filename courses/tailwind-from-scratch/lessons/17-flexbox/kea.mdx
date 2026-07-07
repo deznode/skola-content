@@ -1,0 +1,313 @@
+---
+title: "Flexbox"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: flexbox
+slug: "flexbox"
+module: 3
+lesson: 17
+duration: "25 min"
+objectives:
+  - "Aplika `flex` ku direksan (`flex-row`, `flex-col`) i wrap (`flex-wrap`)"
+  - "Domina `justify-*` (eixu prinsipal) i `items-*` (eixu kruzadu)"
+  - "Konxe v4 utilidadis ku nomi novu: `grow` (ka `flex-grow`), `shrink` (ka `flex-shrink`)"
+  - "Aplika kuzas novu di v4.1: `items-baseline-last`, `justify-center-safe`"
+  - "Aplika Flexbox a Resort Brava — nav horizontal limpu, hero sentradu"
+---
+
+# Flexbox
+
+Te li, layout di Resort Brava ta uza padran di **bloku** (cada elementu na se linha). Es funsiona, ma é limitadu — nav links ten `mr-4` hacky, hero sentru ka é klásiku, footer ka tene direita-pa-skerda. Flexbox é o ki ta resolvi tudu.
+
+Flex ten 95% di kazus di layout di komponenti (botan, navs, kards, headers). É **menos poderozu ki grid** pa página inteiru, ma **muito más simples**. Sabi flex, sabi 80% di layout.
+
+<SectionHeading variant="concept" seq={1}>Kria un Flex Container</SectionHeading>
+
+```html
+<div class="flex">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+```
+
+`flex` ta poi `display: flex` na pai. Filhus ta okupa **mesma linha** (fila horizontal).
+
+<SectionHeading variant="concept" seq={2}>Direksan — `flex-row` / `flex-col`</SectionHeading>
+
+```html
+<div class="flex flex-row">Filhus na fila (default)</div>
+<div class="flex flex-col">Filhus na koluna (vertikal)</div>
+<div class="flex flex-row-reverse">Fila ku ordi invertidu</div>
+<div class="flex flex-col-reverse">Koluna ku ordi invertidu</div>
+```
+
+**Padran klásiku** — koluna no mobile, fila no desktop (lembra Lisan 14):
+
+```html
+<nav class="flex flex-col md:flex-row gap-2 md:gap-6">
+  <a>Link 1</a>
+  <a>Link 2</a>
+</nav>
+```
+
+<SectionHeading variant="concept" seq={3}>`gap-*` — Spasu Entri Filhus</SectionHeading>
+
+Substitui perfeitamenti `mr-*` hack:
+
+```html
+<!-- Antis -->
+<nav>
+  <a class="mr-4">Link</a>
+  <a class="mr-4">Link</a>
+  <a>Link</a>  <!-- último sen mr -->
+</nav>
+
+<!-- Ku flex i gap -->
+<nav class="flex gap-4">
+  <a>Link</a>
+  <a>Link</a>
+  <a>Link</a>
+</nav>
+```
+
+`gap-*` é limpu, ka ten kazu spesial pa "último".
+
+<SectionHeading variant="concept" seq={4}>Alinhamentu — `justify-*` i `items-*`</SectionHeading>
+
+Li é unde Flexbox brilha. Dos eixus:
+
+- **Eixu prinsipal** — direksan di `flex-row` o `flex-col`
+- **Eixu kruzadu** — perpendikular
+
+### `justify-*` — Eixu Prinsipal
+
+Pa `flex-row` (default), `justify-*` kontrola pozisan **horizontal**:
+
+```html
+<div class="flex justify-start">[1][2][3]              </div>
+<div class="flex justify-center">     [1][2][3]        </div>
+<div class="flex justify-end">              [1][2][3]  </div>
+<div class="flex justify-between">[1]    [2]    [3]    </div>
+<div class="flex justify-around">  [1]   [2]   [3]     </div>
+<div class="flex justify-evenly">   [1]   [2]   [3]    </div>
+```
+
+- **`justify-between`** — espasu entri filhus, sen espasu na pontas
+- **`justify-around`** — espasu igual a volta di kada filhu
+- **`justify-evenly`** — espasu izatamenti igual entri tudu
+
+### `items-*` — Eixu Kruzadu
+
+Pa `flex-row`, `items-*` kontrola alinhamentu **vertikal**:
+
+```html
+<div class="flex items-stretch h-32">Filhus ta stika a altura (default)</div>
+<div class="flex items-start h-32">Filhus na topu</div>
+<div class="flex items-center h-32">Filhus sentradu vertikal</div>
+<div class="flex items-end h-32">Filhus no fundu</div>
+<div class="flex items-baseline h-32">Alinhadu pa baseline di textu</div>
+```
+
+`items-center` é di klasi más útil di Flexbox. Funsiona pa sentra **kualker kuza** vertikalmenti.
+
+### Sentru Verdaderu — `flex items-center justify-center`
+
+Kombinasan ki **resolvi anus di problema** na CSS:
+
+```html
+<div class="flex items-center justify-center h-screen">
+  <h1>Sentradu vertikal i horizontal — finalmenti.</h1>
+</div>
+```
+
+Na un container real — un header, pa izemplu — es klasis ta funsiona djuntu. Repara o ki kada un ta faze:
+
+<AnnotatedCode
+  lang="html"
+  filename="header.html"
+  title="Anatomia di un flex container"
+  code={[
+    { t: '<header class="flex items-center justify-between gap-4">', m: 1 },
+    { t: '  <span>Logo</span>', m: 2 },
+    { t: '  <nav>Links</nav>', m: 2 },
+    { t: '</header>', m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "O container", body: "`flex` ta liga flexbox. `items-center` ta sentra na **eixu kruzadu** (vertikal), `justify-between` ta poi espasu entri filhus na **eixu prinsipal** (horizontal), i `gap-4` ta da spasu limpu entri filhus." },
+    { m: 2, title: "Os filhus", body: "Kada filhu diretu di container ta vira un **flex item** — logo na skerda, nav na direita, sen un só `mr-*` hack." },
+  ]}
+/>
+
+Es dos eixus i `gap-*` é o korason di Flexbox. Antis di kontinua, repete-s te ki es fika naturáll:
+
+<Flashcard
+  title="Alinhamentu di flex — repete pa lembra"
+  deckId="tailwind-flexbox-alinhamentu"
+  cards={[
+    { term: "justify-center", def: "Sentra filhus na eixu prinsipal (horizontal pa flex-row).", code: "flex justify-center" },
+    { term: "justify-between", def: "Espasu entri filhus, sen espasu na pontas.", code: "flex justify-between" },
+    { term: "items-center", def: "Sentra filhus na eixu kruzadu (vertikal pa flex-row).", code: "flex items-center" },
+    { term: "items-stretch", def: "Filhus ta stika pa okupa tudu altura (default).", code: "flex items-stretch" },
+    { term: "gap-4", def: "Poi spasu igual entri filhus, substitui mr-* hacks.", code: "flex gap-4" },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={5}>Wrap — `flex-wrap`</SectionHeading>
+
+Default: Filhus tudu na un só linha (ta diminui si presiza). Pa kebra:
+
+```html
+<div class="flex flex-wrap gap-2">
+  <span class="bg-sky-100 px-3 py-1 rounded-full">Tag 1</span>
+  <span class="bg-sky-100 px-3 py-1 rounded-full">Tag 2</span>
+  <!-- ... muitas tags ... -->
+</div>
+```
+
+Si ka kabe na un linha, tags ta kebra pa prósimu linha. Otimu pa tag clouds, listas di filtru.
+
+<SectionHeading variant="concept" seq={6}>Tamanhu di Filhus — Avizu: v4 Muda Nomi</SectionHeading>
+
+**Mudansa importanti di v3 a v4:**
+
+```html
+<!-- v3 (kaduku) -->
+<div class="flex-grow flex-shrink-0">...</div>
+
+<!-- v4 (korretu) -->
+<div class="grow shrink-0">...</div>
+```
+
+v4 tira prefixu `flex-` pa simplifika.
+
+### `grow` — Krese pa Okupa Espasu
+
+```html
+<div class="flex">
+  <div class="grow">Eu ta okupa tudu spasu ki sobra</div>
+  <div>Eu fika ku tamanho naturáll</div>
+</div>
+```
+
+### `shrink-0` — Ka Pode Diminui
+
+```html
+<div class="flex">
+  <img class="size-16 shrink-0">  <!-- ka diminui mesmu si spasu apertadu -->
+  <p>Textu ki pode diminui</p>
+</div>
+```
+
+### Frasan — `basis-*`
+
+`basis-*` ta defini tamanhu **inisial** di filhu (antes di grow/shrink):
+
+```html
+<div class="flex gap-4">
+  <div class="basis-1/4">25%</div>
+  <div class="basis-1/2">50%</div>
+  <div class="basis-1/4">25%</div>
+</div>
+```
+
+### Order — Muda Pozisan
+
+```html
+<div class="flex">
+  <div class="order-3">Vou na fin (3°)</div>
+  <div class="order-1">Vou primeru (1°)</div>
+  <div class="order-2">Vou segundu (2°)</div>
+</div>
+```
+
+Otimu pa muda ordi sen reorganiza HTML.
+
+<SectionHeading variant="concept" seq={7}>Kuzas Novu di v4.1</SectionHeading>
+
+### `items-baseline-last`
+
+Alinha eixu kruzadu pa **última linha** di textu di filhu:
+
+```html
+<div class="flex items-baseline-last">
+  <h1 class="text-5xl">Títulu</h1>
+  <span class="text-sm">subtítulu</span>  <!-- alinhadu ku última linha di h1 -->
+</div>
+```
+
+### `justify-center-safe`
+
+Kumo `justify-center`, ma si kontéudu é maior ki kontainer, ta uza `start` en bez (evita overflow ki korta textu):
+
+```html
+<div class="flex justify-center-safe overflow-hidden">
+  <div class="w-[200%]">Konteúdu maior ki pai — segura na start</div>
+</div>
+```
+
+<SectionHeading variant="install">Aplika Flexbox a Resort Brava</SectionHeading>
+
+Kuze klásiku ki M3 ta da: trokar nav `mr-4` hack pa flex limpu.
+
+<CodeDiff
+  lang="html"
+  filename="index.html — nav"
+  title="Nav di Resort Brava: di mr-4 hack pa flex gap"
+  note="Removi tudu `mr-*`. `flex flex-col md:flex-row` ta poi links na koluna no mobile i na fila no desktop; `gap-2 md:gap-6` ta da spasu limpu."
+  diff={[
+    { type: "del", t: '<nav class="mt-2">' },
+    { type: "del", t: '  <a class="... block md:inline-block mr-0 md:mr-4 ...">Kuartus</a>' },
+    { type: "del", t: '  <a class="... block md:inline-block mr-0 md:mr-4 ...">Aktividadis</a>' },
+    { type: "del", t: '  <a class="... block md:inline-block ...">Kontaktu</a>' },
+    { type: "add", t: '<nav class="mt-2 flex flex-col md:flex-row gap-2 md:gap-6">' },
+    { type: "add", t: '  <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white ...">Kuartus</a>' },
+    { type: "add", t: '  <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white ...">Aktividadis</a>' },
+    { type: "add", t: '  <a class="text-sky-100 text-sm uppercase tracking-wide hover:text-white ...">Kontaktu</a>' },
+    { type: "ctx", t: '</nav>' },
+  ]}
+/>
+
+E sentra hero vertikalmenti dentu di seu min-height:
+
+```html
+<section id="hero" class="relative flex flex-col justify-center space-y-4 min-h-[40vh] md:min-h-[50vh]">
+```
+
+E header ku justify-between pa logo na skerda + nav na direita:
+
+```html
+<header class="...flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-6...">
+  <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Resort Brava</h1>
+  <nav class="flex flex-col md:flex-row gap-2 md:gap-6">...</nav>
+</header>
+```
+
+**Mudansas:**
+
+- **Nav:** `flex flex-col md:flex-row gap-2 md:gap-6` — limpu, sen `mr-*` hacks
+- **Header:** vira flex justify-between na desktop — h1 na skerda, nav na direita
+- **Hero:** `flex flex-col justify-center` — kontéudu sentradu vertikalmenti dentu di min-height
+
+Resort Brava gosi ten un nav **professional** ki adapta a mobile/desktop, hero sentradu, header alinhadu kumo padran di un produktu real.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Dos eixus">`justify-*` ta kontrola o eixu prinsipal, `items-*` o eixu kruzadu — o korason di Flexbox.</RezumuItem>
+  <RezumuItem term="`flex`">`flex-row`/`flex-col` + `flex-wrap` = container ku direksan i wrap.</RezumuItem>
+  <RezumuItem term="`gap-*`">substitui `mr-*` hacks pa spasu entri filhus — sen kazu spesial pa "último".</RezumuItem>
+  <RezumuItem term="Sentru verdaderu">`flex items-center justify-center` ta sentra kualker kuza — ka más hacks.</RezumuItem>
+  <RezumuItem term="v4 muda nomi">`grow` (ka `flex-grow`), `shrink` (ka `flex-shrink`) — v4 tira o prefixu `flex-`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`justify-between` + `items-center` é padran di headers/navs — ka mistura eixu prinsipal ku kruzadu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">v4.1 traze `items-baseline-last` i `justify-center-safe` pa kazus di alinhamentu difísil.</RezumuItem>
+</KeyTakeaways>

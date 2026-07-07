@@ -1,0 +1,321 @@
+---
+title: "Container i Spacing"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: container-i-spacing
+slug: "container-i-spacing"
+module: 2
+lesson: 6
+duration: "15 min"
+objectives:
+  - "Uza klasi `container` pa konstrui max-width responsivu sen media query manual"
+  - "Domina utilidadis di margin (`m-*`, `mx/my-*`, `mt/mr/mb/ml-*`) i padding (`p-*` familia)"
+  - "Kompriende kumo v4 ten un só token `--spacing` ki ta jera tudu skala"
+  - "Uza `gap-*` i `space-x/y-*` pa rítmu konsistenti entri fidjus"
+  - "Aplika spacing a Resort Brava — primeru rítmu di rispira"
+---
+
+# Container i Spacing
+
+Na lisan pasadu, Resort Brava ganha kor. Ma si bu bai odja-l na browser, tudu sta **kola** — textu na bordu, seksan sima un blok sen rispira. Spacing é kuza ki ta transforma un dokumentu HTML krudu nun página ki odju ta sigi ku konfortu.
+
+Tailwind v4 ten **un sistema úniku di spacing**: un só token base, multipladu pa todu utilidadi. Konxe kel sistema é konxe metadi di Tailwind.
+
+<SectionHeading variant="concept" seq={1}>Klasi `container` — Largura ku Limiti</SectionHeading>
+
+`container` é un klasi ki ta poi un elementu na 100% di largura na ekrans pikinu i ta para na un máximu na ekrans grandi. Sen es, kontéudu ta stika di un bordu te otru — difísil di ler na monitor di 24 polegadas.
+
+```html
+<main class="container mx-auto px-6">
+  <h1>Resort Brava</h1>
+</main>
+```
+
+Es ta da:
+
+| Ekran | `max-width` di container |
+|---|---|
+| < 640px | 100% (sen limiti) |
+| ≥ 640px (`sm`) | 640px |
+| ≥ 768px (`md`) | 768px |
+| ≥ 1024px (`lg`) | 1024px |
+| ≥ 1280px (`xl`) | 1280px |
+| ≥ 1536px (`2xl`) | 1536px |
+
+Repara dos kuza:
+
+1. **`mx-auto`** — `container` ka ta sentra konteudu sozinhu. Bu meste djunta `mx-auto` (margin x = auto) pa sentra na meiu di página. Kel-li é diferenti di Bootstrap, ki ta sentra automatikamenti. Tailwind é di propósitu **baxu-nível**.
+2. **`px-6`** — sen padding horizontal, textu ta toka bordu na ekrans pikinu. Senpri kombina `container` ku `px-*`.
+
+:::callout{type=tip}
+Si bu ten kontéudu más narrow (izemplu: artigu di blog), uza `max-w-3xl` ou `max-w-5xl` en bez di `container`. `container` é más útil pa layouts inteiru di página.
+:::
+
+Kel padran `container mx-auto px-*` ta repeti na kuazi tudu página. Inche os dos klasis ki ta falta pa fixa-l na memória:
+
+<CodeCloze
+  lang="html"
+  title="Kompleta o container"
+  prompt="Container so ta limita o max-width. Pa sentra i pa da rispira horizontal, ten dos klasis ki el senpri meste."
+  template={[
+    '<main class="container {{0}} {{1}}">',
+    '  <h1>Resort Brava</h1>',
+    "</main>",
+  ]}
+  answers={["mx-auto", "px-6"]}
+  hints={["Sentra o container na meiu di página (margin x = auto)", "Padding horizontal pa textu ka toka bordu"]}
+  solved="Sertu! `mx-auto` ta sentra, `px-6` ta da rispira horizontal — tudu container ta pidi es dos."
+/>
+
+<SectionHeading variant="concept" seq={2}>Token Úniku di v4: `--spacing`</SectionHeading>
+
+Tailwind v3 ten un mapa enorme di valoris di spacing: `0`, `0.5`, `1`, `1.5`, `2`, `2.5`... kada un definidu separadamenti. Tailwind v4 ta tira tudu kel komplexidadi.
+
+**Na v4, ten un só token:**
+
+```css
+@theme {
+  --spacing: 0.25rem;  /* = 4px (default) */
+}
+```
+
+Kada utilidadi di spacing é **multiplikadu** kel base. Es ten lojika simpli:
+
+| Klasi | Kálkulu | Pixels (16px base) |
+|---|---|---|
+| `p-1` | `1 × 0.25rem` | 4px |
+| `p-2` | `2 × 0.25rem` | 8px |
+| `p-4` | `4 × 0.25rem` | 16px |
+| `p-6` | `6 × 0.25rem` | 24px |
+| `p-8` | `8 × 0.25rem` | 32px |
+| `p-12` | `12 × 0.25rem` | 48px |
+| `p-16` | `16 × 0.25rem` | 64px |
+
+Si bu kre **tudu skala más larga**, muda un só linha:
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --spacing: 0.3rem;  /* tudu spacing ganha +20% */
+  }
+</style>
+```
+
+Mesmu `p-0.5` ta funsiona (= 0.125rem = 2px). I `p-px` ta gera 1px (kasu spesial). Tudu otru valor sigi mesmu fórmula.
+
+A skala é fásil di deriva na kabesa dipos di un poku prátika. Repete es kartas te bu jera kada valor sen pensa:
+
+<Flashcard
+  title="Skala di spacing"
+  deckId="tailwind-spacing-scale"
+  cards={[
+    { term: "p-1", def: "1 × 0.25rem = 4px" },
+    { term: "p-2", def: "2 × 0.25rem = 8px" },
+    { term: "p-4", def: "4 × 0.25rem = 16px" },
+    { term: "p-6", def: "6 × 0.25rem = 24px" },
+    { term: "p-8", def: "8 × 0.25rem = 32px" },
+    { term: "p-12", def: "12 × 0.25rem = 48px" },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={3}>Modelu di Kaxa: Margin i Padding</SectionHeading>
+
+Kada elementu na página é un **kaxa** ku kamadas: konteúdu na sentru, padding a volta di el, un bordu, i margin pa fora. Margin é o spasu **fora**; padding é o spasu **dentu**. Klika kada elementu pa odja kada kamada:
+
+<BoxModel
+  showHeader={false}
+  elements={[
+    {
+      id: "kartxon",
+      depth: 0,
+      tag: "div",
+      sel: ".kartxon-kuartu",
+      display: "block",
+      boxSizing: "border-box",
+      box: { margin: 16, border: 1, padding: 24, w: 288, h: 160 },
+      note: "`m-4` ta da 16px di margin — spasu **fora** di kaxa. `p-6` ta da 24px di padding — spasu **dentu**, entri o bordu i o konteúdu.",
+    },
+    {
+      id: "boton",
+      depth: 1,
+      tag: "button",
+      sel: ".boton",
+      display: "inline-block",
+      boxSizing: "border-box",
+      box: { margin: { t: 16, r: 0, b: 0, l: 0 }, border: 0, padding: { t: 8, r: 16, b: 8, l: 16 }, w: 112, h: 20 },
+      note: "`px-4 py-2` = o padding ki ta da o boton se tamanhu. `mt-4` = 16px di margin so na topu, spasu **fora** pa separa-l di riba.",
+    },
+  ]}
+/>
+
+### Margin — Spasu **Fora** di Elementu
+
+Margin é distansia entri elementu i vizinhus. Tailwind tene utilidadis pa kada direksan:
+
+```html
+<div class="m-4">m = tudu kuatru ladus</div>
+<div class="mx-4">mx = ladu eskerda + direita</div>
+<div class="my-4">my = topu + fundu</div>
+<div class="mt-4">mt = topu (top)</div>
+<div class="mr-4">mr = direita (right)</div>
+<div class="mb-4">mb = baxu (bottom)</div>
+<div class="ml-4">ml = eskerda (left)</div>
+```
+
+**Valoris spesial:**
+
+- **`m-auto`** — auto na tudu kuatru ladus (rar useful)
+- **`mx-auto`** — sentra horizontal (kasu klassiku ku `container`)
+- **`-m-4`** — margin **negativu** (kombina `m-` + `-` antes di númeru)
+
+```html
+<!-- Hero ku títulu ki ta sobre-passa container -->
+<h1 class="-mt-8">Resort Brava</h1>
+```
+
+### Padding — Spasu **Dentu** di Elementu
+
+Padding tene mesmu família di klasis, ma é distansia dentu di bordu te kontéudu:
+
+```html
+<button class="px-4 py-2 bg-sky-600 text-white">
+  Odja kuartus
+</button>
+```
+
+`px-4 py-2` = 16px horizontal, 8px vertikal. Es é **padran di boton na Tailwind**.
+
+| Família | Margin | Padding |
+|---|---|---|
+| Tudu ladus | `m-N` | `p-N` |
+| X (esq + dir) | `mx-N` | `px-N` |
+| Y (topu + fundu) | `my-N` | `py-N` |
+| Lados individual | `mt/mr/mb/ml-N` | `pt/pr/pb/pl-N` |
+
+<SectionHeading variant="concept" seq={4}>`gap-*` i `space-*` — Spacing Entri Fidjus</SectionHeading>
+
+Kuandu bu ten un kontainer ku múltiplu elementus, ka adisiona margin pa kada un. Uza un di dos padran:
+
+### `space-y-*` / `space-x-*` — Spasu Entri Elementus Adjasenti
+
+```html
+<div class="space-y-4">
+  <h3>Títulu</h3>
+  <p>Parágrafu 1</p>
+  <p>Parágrafu 2</p>
+</div>
+```
+
+Es ta poi 1rem (16px) di spasu **entri** kada elementu. Nota: ka tene spasu antes di primeru nen dipos di último. Tailwind aplika `margin-top` na segundu, terseru, kuartu fidju (uza seletor `> :not([hidden]) ~ :not([hidden])`).
+
+### `gap-*` — Pa Flex i Grid (Prósimu Lisans)
+
+```html
+<nav class="flex gap-6">
+  <a href="#kuartus">Kuartus</a>
+  <a href="#aktividadis">Aktividadis</a>
+</nav>
+```
+
+`gap-*` funsiona dentu di kontainer flex ou grid. Kumo nu inda ka studa flex (M3), pa gosi uza `space-x-*` na elementus inline.
+
+:::callout{type=tip}
+`gap-*` é más limpu ki `space-*` modernu — ka ten kel problema di fidju primeru/último. Ma `gap-*` mesti flex ou grid pa funsiona. Pa elementus block (kumo `<section>` un atras di otru), `space-y-*` é kel skolha korretu.
+:::
+
+<SectionHeading variant="install">Aplika Spacing a Resort Brava</SectionHeading>
+
+Lembra di Resort Brava na fin di Lisan 5: kor sta, ma tudu kola. Nu ta poi rítmu.
+
+### Antis (di Lisan 5)
+
+```html
+<body class="min-h-screen bg-amber-50 text-slate-900">
+  <header class="bg-sky-700 text-white">
+    <h1>Resort Brava</h1>
+    <nav>...</nav>
+  </header>
+  <main>
+    <section id="hero">...</section>
+    <section id="kuartus">...</section>
+  </main>
+</body>
+```
+
+### Dipos (gosi)
+
+```html
+<body class="min-h-screen bg-amber-50 text-slate-900">
+  <header class="bg-sky-700 text-white px-6 py-4">
+    <h1>Resort Brava</h1>
+    <nav class="mt-2">
+      <a href="#kuartus" class="text-sky-100 mr-4">Kuartus</a>
+      <a href="#aktividadis" class="text-sky-100 mr-4">Aktividadis</a>
+      <a href="#kontaktu" class="text-sky-100">Kontaktu</a>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-6 py-12 space-y-12">
+    <section id="hero" class="space-y-4">
+      <h2 class="text-amber-600">Ben Vindo</h2>
+      <p class="text-slate-700">Vive Brava sima nunka. Mar, monte, kalor — un só lugar.</p>
+      <a href="#kuartus" class="bg-amber-500 text-white px-4 py-2">Odja kuartus</a>
+    </section>
+
+    <section id="kuartus" class="space-y-2">
+      <h3 class="text-sky-700">Kuartus</h3>
+      <p class="text-slate-600">Três tipus di kuartus pa kada tipu di vizita.</p>
+    </section>
+
+    <section id="aktividadis" class="space-y-2">
+      <h3 class="text-sky-700">Aktividadis</h3>
+      <p class="text-slate-600">Trilhus, snorkeling, gastronomia lokal.</p>
+    </section>
+
+    <section id="kontaktu" class="space-y-2">
+      <h3 class="text-sky-700">Kontaktu</h3>
+      <p class="text-slate-600">resortbrava@exemplu.cv · +238 281 0000</p>
+    </section>
+  </main>
+
+  <footer class="bg-slate-800 text-slate-300 px-6 py-6">
+    <p>© 2026 Resort Brava · Vila Nova Sintra, Brava</p>
+  </footer>
+</body>
+```
+
+**Mudansas:**
+
+- **Header:** `px-6 py-4` — padding internu pa ki títulu i nav ka toka bordu
+- **Nav `mt-2`** — pikinu spasu antes di nav, separa di títulu
+- **Nav links:** `mr-4` na primeru dos (último ka mesti)
+- **`<main>`:** `container mx-auto px-6 py-12 space-y-12`
+  - `container mx-auto px-6` — max-width responsivu i sentradu
+  - `py-12` — 48px di padding vertikal dentu di main
+  - `space-y-12` — 48px **entri kada `<section>`**
+- **Hero `space-y-4`** — rítmu dentu di hero entri h2, p, boton
+- **Boton:** `px-4 py-2` — padran di boton
+- **Otru seksan:** `space-y-2` — rítmu apertadu entri títulu i parágrafu
+- **Footer:** `px-6 py-6` — mesmu padran ki header
+
+Si bu abri na browser gosi, Resort Brava dja ten **rispira**. Kontéudu ten lugar pa rispira, ler é gostu.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Un só token `--spacing`">na v4, tudu skala (`p-1`, `p-2`, `p-12`...) é multiplu di 0.25rem — muda o base, muda tudu di un bez.</RezumuItem>
+  <RezumuItem term="`container`">100% na ekrans pikinu, `max-width` na ekrans grandi (5 breakpoints sm/md/lg/xl/2xl).</RezumuItem>
+  <RezumuItem term="Modelu di kaxa">margin = spasu **fora** di elementu; padding = spasu **dentu**, entri bordu i konteúdu.</RezumuItem>
+  <RezumuItem term="Família di spacing">`m`/`p` + ladu (`x`, `y`, `t`, `r`, `b`, `l`) + skala.</RezumuItem>
+  <RezumuItem variant="warning" term="`container` ka ta sentra sozinhu">senpri kombina `container` ku `mx-auto` (pa sentra) i `px-*` (pa rispira horizontal).</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`space-y-*` pa elementus block un atras di otru; `gap-*` so dentu di flex ou grid (prósimus lisans).</RezumuItem>
+</KeyTakeaways>

@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal build tool é rekomenda pa un projetu Tailwind v4 novu na 2026?"
+  options:
+    - text: { kea: "Vite — más rápidu, ESM nativu, un só konfig di trez linha" }
+      correct: true
+      explain: { kea: "Regra di ouro pa 2026: kumesa ku Vite. Só sai di el si bo ten un razan spesífiku (ex. un projetu Next.js ou Webpack ki dja existi)." }
+    - text: { kea: "Webpack — el é o padran pa tudu projetu novu" }
+      correct: false
+      explain: { kea: "Webpack é só pa kódiku antigu ki dja ten Webpack konfiguradu. Pa projetu novu, uza Vite." }
+
+- question:
+    kea: "Na Tailwind v4, o ki kontise ku `autoprefixer` i `postcss-import` na `postcss.config.mjs`?"
+  options:
+    - text: { kea: "Ka é más nesesáriu — Tailwind v4 ta inkluí ambos internamenti; fika un só plugin `@tailwindcss/postcss`" }
+      correct: true
+      explain: { kea: "V4 ta inkluí autoprefixing i imports no núcleu. Tira-s di kualker konfig v3 antigu." }
+    - text: { kea: "Bo ten ki adisiona ambos manual, sima na v3" }
+      correct: false
+      explain: { kea: "Kel era v3. Na v4 es ta sai — mante-s ta duplika o ki Tailwind dja ta faze." }
+
+- question:
+    kea: "Bo sta konstrui un projetu Next.js. Kal plugin di Tailwind v4 bo ta uza?"
+  options:
+    - text: { kea: "`@tailwindcss/postcss` — Next.js ka uza Vite, el ten Turbopack/Webpack propi" }
+      correct: true
+      explain: { kea: "Pa Next.js i Angular, o kaminhu é o plugin PostCSS ku un `postcss.config.mjs`." }
+    - text: { kea: "`@tailwindcss/vite` — el funsiona ku kualker framework" }
+      correct: false
+      explain: { kea: "`@tailwindcss/vite` só funsiona kuandu Vite é o build tool. Next.js ka uza Vite — uza o plugin PostCSS." }

@@ -1,0 +1,95 @@
+- slug: konstrui-resort-brava-starter
+  language: html
+  kind: code
+  title: { kea: "Konstrui o starter di Resort Brava" }
+  prompt: { kea: "Kria un pasta novu `m2-resort-brava/` na bu desktop i, dentu, un fixeru `index.html` ku a estrutura inisial — **só HTML, sen klasis di Tailwind** (só `min-h-screen` na `<body>`). Abri-l ku Live Server i konfirma ki bu ta odja un página di textu preta sen stilu. **Guarda es fixeru — bu ta uza-l na prósimus lisan.**" }
+  hint: { kea: "O `<script>` di Play CDN ta bai na `<head>`. O `<body>` ten un só klasi: `min-h-screen`." }
+  starterCode: |
+    <!doctype html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resort Brava</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      </head>
+      <body class="min-h-screen">
+        <header>
+          <h1>Resort Brava</h1>
+          <nav>
+            <a href="#kuartus">Kuartus</a>
+            <a href="#aktividadis">Aktividadis</a>
+            <a href="#kontaktu">Kontaktu</a>
+          </nav>
+        </header>
+
+        <main>
+          <section id="hero">
+            <h2>Ben Vindo</h2>
+            <p>Vive Brava sima nunka. Mar, monte, kalor — un só lugar.</p>
+            <a href="#kuartus">Olha kuartus</a>
+          </section>
+
+          <section id="kuartus">
+            <h3>Kuartus</h3>
+            <p>Três tipus di kuartus pa kada tipu di vizita.</p>
+          </section>
+
+          <section id="aktividadis">
+            <h3>Aktividadis</h3>
+            <p>Trilhus, snorkeling, gastronomia lokal.</p>
+          </section>
+
+          <section id="kontaktu">
+            <h3>Kontaktu</h3>
+            <p>resorbrava@exemplu.cv · +238 281 0000</p>
+          </section>
+        </main>
+
+        <footer>
+          <p>© 2026 Resort Brava · Vila Nova Sintra, Brava</p>
+        </footer>
+      </body>
+    </html>
+
+- slug: muda-dos-utilidadi-alerta
+  language: html
+  kind: code
+  title: { kea: "Muda dos utilidadi na alerta" }
+  prompt: { kea: "Volta pa o komponenti di alerta di es lisan. Muda **dos klasis**: un di sonbra (`shadow-sm`, `shadow-md` o `shadow-2xl`) i un di bordu (`rounded-sm`, `rounded-md` o `rounded-xl`). Salva i odja o vizual muda. Lembra: na v4 **ka pode skrebe só `shadow` o só `rounded`** — bu ten ki ser explisitu ku sufiksu." }
+  hint: { kea: "Só troka o sufiksu: `shadow-xl` → `shadow-2xl`, `rounded-lg` → `rounded-xl`. O restu di a linha ta fika igual." }
+  starterCode: |
+    <div class="flex items-center max-w-sm mx-auto mt-12 p-6 rounded-lg bg-white shadow-xl">
+      <img class="w-12 h-12" src="warning.svg" />
+      <div class="ml-4">
+        <h4 class="text-xl font-medium text-black">Kansela rezerva?</h4>
+        <p class="text-slate-500">Bu ka pode disfaze kel asan.</p>
+      </div>
+    </div>
+  solutionCode: |
+    <div class="flex items-center max-w-sm mx-auto mt-12 p-6 rounded-xl bg-white shadow-2xl">
+      <img class="w-12 h-12" src="warning.svg" />
+      <div class="ml-4">
+        <h4 class="text-xl font-medium text-black">Kansela rezerva?</h4>
+        <p class="text-slate-500">Bu ka pode disfaze kel asan.</p>
+      </div>
+    </div>
+
+- slug: alerta-sukseso-verdi
+  language: html
+  kind: reflect
+  title: { kea: "Duplika a alerta num versan di sukseso" }
+  prompt: { kea: "Duplika o komponenti di alerta i transforma a sigunda kópia num alerta di **sukseso** — verdi en bez di branku (`bg-white` → `bg-green-100`, `text-black` → `text-green-900`, `text-slate-500` → `text-green-700`). Si bu ka konxe nomis di kor inda, ka preokupa. Dipos skrebe: **kantu fixeru di CSS** bu ten ki abri pa faze es mudansa?" }
+  code: |
+    <div class="flex items-center max-w-sm mx-auto mt-12 p-6 rounded-lg bg-white shadow-xl">
+      <img class="w-12 h-12" src="check.svg" />
+      <div class="ml-4">
+        <h4 class="text-xl font-medium text-black">Konfirma rezerva?</h4>
+        <p class="text-slate-500">Nu ta manda bu konfirmasan pa email.</p>
+      </div>
+    </div>
+  modelPoints:
+    kea:
+      - "Zero fixeru di CSS — tudu mudansa é na klasis di HTML."
+      - "Só o kor ta muda; a estrutura (`flex`, `p-6`, `rounded-lg`) ta fika igual."
+  notePlaceholder: { kea: "Skrebe li…" }

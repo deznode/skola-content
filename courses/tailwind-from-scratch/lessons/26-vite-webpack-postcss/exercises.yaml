@@ -1,0 +1,63 @@
+- slug: inisia-projetu-vite
+  language: bash
+  kind: setup
+  title: { kea: "Inisia un projetu Vite" }
+  prompt: { kea: "Inisia un projetu Vite novu txomadu `resort-brava-vite`, instala `@tailwindcss/vite` i korre o dev server. Konfirma ki HMR ta funsiona — kada save di HTML/CSS ta refleta na browser **sen rekarregamentu**." }
+  command: |
+    pnpm create vite@latest resort-brava-vite -- --template vanilla-ts
+    cd resort-brava-vite
+    pnpm add -D tailwindcss @tailwindcss/vite
+    pnpm dev
+  expectedOutput: |
+      VITE v5.4  ready in 190 ms
+      ➜  Local:   http://localhost:5173/
+
+- slug: konfigura-postcss-nextjs
+  language: bash
+  kind: setup
+  title: { kea: "Konfigura Tailwind num projetu Next.js" }
+  prompt: { kea: "Kria un projetu Next.js ku `pnpm create next-app`, instala `@tailwindcss/postcss` + `postcss`, konfigura `postcss.config.mjs` ku un só plugin i poi `@import \"tailwindcss\";` na `app/globals.css`. Konfirma ki un klasi tipu `bg-blue-500` ta funsiona na `app/page.tsx`." }
+  command: |
+    pnpm create next-app@latest resort-brava-next
+    cd resort-brava-next
+    pnpm add -D tailwindcss @tailwindcss/postcss postcss
+  expectedOutput: |
+    Success! Created resort-brava-next
+    devDependencies: tailwindcss, @tailwindcss/postcss, postcss
+
+- slug: migra-webpack-v4
+  language: javascript
+  kind: code
+  title: { kea: "Migra un webpack.config.js pa v4" }
+  prompt: { kea: "Es `webpack.config.js` v3 ten trez loader pa CSS. Skrebe o ekivalenti v4 — troka `postcss-loader` (ku `tailwindcss` + `autoprefixer`) pa un só `@tailwindcss/webpack`. Konta kuantas linha bo poupa." }
+  hint: { kea: "Importa o plugin ku `require('@tailwindcss/webpack')` i poi-l diretu na `use`, dipos di `css-loader`." }
+  starterCode: |
+    // webpack.config.js — v3 (antigu)
+    module.exports = {
+      module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: [
+              'style-loader',
+              'css-loader',
+              'postcss-loader',   // ku tailwindcss + autoprefixer na postcss.config.js
+            ],
+          },
+        ],
+      },
+    };
+  solutionCode: |
+    // webpack.config.js — v4
+    const tailwindcss = require('@tailwindcss/webpack');
+
+    module.exports = {
+      module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader', tailwindcss],
+          },
+        ],
+      },
+    };

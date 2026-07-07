@@ -1,0 +1,66 @@
+- slug: aplika-tokens-marka-brava
+  language: html
+  kind: code
+  title: { kea: "Aplika os tokens di marka a Resort Brava" }
+  prompt: { kea: "Na bu blok `@theme`, defini `--color-mar-700`, `--color-mar-800`, `--color-sol-500` i `--font-display`. Dipos tira tudu `sky-*` i troka pa `mar-*`, tudu `amber-*` pa `sol-*`, i adisiona `font-display` no `h1` i no `h2`. Salva i konfirma na browser ki tudu ta funsiona ku a nova identidadi." }
+  hint: { kea: "Os tokens ta vira klasis otomatikamenti: `--color-mar-700` ta da-u `bg-mar-700`, `text-mar-700`, `from-mar-700`, etc." }
+  starterCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        <!-- TODO: defini mar-700, mar-800, sol-500 i --font-display -->
+        --animate-fade-up: fade-up 0.6s ease-out forwards;
+      }
+    </style>
+
+    <h1 class="text-3xl font-bold">Resort Brava</h1>
+    <header class="bg-linear-to-r from-sky-700/85 to-sky-800/85"></header>
+    <h2 class="text-amber-600">Ben Vindo</h2>
+    <a class="bg-amber-500">Olha kuartus</a>
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --color-mar-700: oklch(0.38 0.14 235);
+        --color-mar-800: oklch(0.30 0.12 235);
+        --color-sol-500: oklch(0.72 0.18 75);
+        --font-display: "Crimson Pro", serif;
+        --animate-fade-up: fade-up 0.6s ease-out forwards;
+      }
+    </style>
+
+    <h1 class="font-display text-3xl font-bold">Resort Brava</h1>
+    <header class="bg-linear-to-r from-mar-700/85 to-mar-800/85"></header>
+    <h2 class="font-display text-mar-700">Ben Vindo</h2>
+    <a class="bg-sol-500">Olha kuartus</a>
+
+- slug: defini-paleta-areia
+  language: html
+  kind: code
+  title: { kea: "Defini un paleta nova: --color-areia" }
+  prompt: { kea: "Defini un kategoria nova `--color-areia-50`, `--color-areia-100`, `--color-areia-500` i `--color-areia-700` (kor di areia di praia). Dipos aplika-l a un seksan (ex: `Kontaktu`) ku `bg-areia-50 border-areia-700`. Repara kumo os tokens novu ta funsiona sima os ofisial." }
+  hint: { kea: "Un só token di kor sima `--color-areia-500` ta jera `bg-areia-500`, `text-areia-500`, `border-areia-500` — ka meste skrebe CSS a mon." }
+  starterCode: |
+    @theme {
+      <!-- TODO: defini areia-50, areia-100, areia-500, areia-700 -->
+    }
+  solutionCode: |
+    @theme {
+      --color-areia-50: oklch(0.97 0.02 85);
+      --color-areia-100: oklch(0.93 0.04 85);
+      --color-areia-500: oklch(0.78 0.09 85);
+      --color-areia-700: oklch(0.55 0.08 85);
+    }
+
+    <section class="bg-areia-50 border border-areia-700 p-6">
+      <h2 class="text-areia-700">Kontaktu</h2>
+    </section>
+
+- slug: refleta-spacing-token
+  language: html
+  kind: reflect
+  title: { kea: "Eksperimenta o token úniku di --spacing" }
+  prompt: { kea: "Adisiona `--spacing: 0.3rem` a bu blok `@theme`. Salva i abri na browser: tudu `p-*`, `m-*`, `gap-*`, `w-*`, `h-*` ta fika **más grandi** (skala +20%). Kompara ku a versan normal, dipos volta a default. Skrebe 1-2 frazi: pamodi ki muda un só token ta afeta tudu spacing di site?" }
+  code: |
+    @theme {
+      --spacing: 0.3rem;
+    }
+  notePlaceholder: { kea: "Skrebe li o ki bu repara…" }

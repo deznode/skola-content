@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind, kumo ki bu ta da un stilu di hover a un boton?"
+  options:
+    - text: { kea: "Ku un varianti (prefixu) antes di a utilidadi: `hover:bg-sky-700`" }
+      correct: true
+      explain: { kea: "A sintaxi é sempri `{varianti}:{utilidadi}`. `hover:` é un prefixu ki bo poi antes di kualker utilidadi." }
+    - text: { kea: "Ku un propriedadi separadu txomadu `hover` na un fixeru CSS" }
+      correct: false
+      explain: { kea: "Tailwind ka ten un 'stilu di hover' separadu — hover é un varianti ki bo konbina ku a utilidadi na mesmu klasi." }
+
+- question:
+    kea: "Bo kre ki o textu dentu di un karta muda di kor kuandu o rato pasa riba di karta inteira. Ki abordajen ki ta funsiona?"
+  options:
+    - text: { kea: "Poi `group` na o pai, i `group-hover:text-sky-600` na o filhu" }
+      correct: true
+      explain: { kea: "O pai markadu ku `group` ativa o `group-hover:` di kualker filhu kuandu el resebe hover." }
+    - text: { kea: "Poi `hover:text-sky-600` diretu na o filhu" }
+      correct: false
+      explain: { kea: "`hover:` na o filhu so ta ativa kuandu o rato pasa riba di **o filhu**, ka riba di karta inteira. Pa isu meste `group`/`group-hover:`." }
+
+- question:
+    kea: "Na Tailwind v4, kal é a manera korretu di marka un utilidadi kumo `!important`?"
+  options:
+    - text: { kea: "Ku o `!` na fin di klasi: `flex!`" }
+      correct: true
+      explain: { kea: "Na v4 o `!` pasa pa fin di klasi. `flex!` ta le kumo 'flex, importanti' — más natural." }
+    - text: { kea: "Ku o `!` na frenti di klasi: `!flex`" }
+      correct: false
+      explain: { kea: "Kel é a sintaxi di v3. Na v4 o `!` na frenti dja ka ta funsiona — el ta ben na fin." }

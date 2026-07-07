@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é a diferensa entri `w-full` i `w-screen`?"
+  options:
+    - text: { kea: "`w-full` é 100% di kontainer pai; `w-screen` é 100vw di viewport i ta ignora pai" }
+      correct: true
+      explain: { kea: "`w-full` ta respeita padding di pai; `w-screen` ta toma tudu largura di janela, i pode sobre-passa padding di un kontainer." }
+    - text: { kea: "Es é a mesmu kuza — dos nomis pa 100% di largura" }
+      correct: false
+      explain: { kea: "Nau. `w-full` é relativu a pai (`100%`), `w-screen` é relativu a viewport (`100vw`)." }
+
+- question:
+    kea: "Kuze ki a klasi `size-16` ta faze?"
+  options:
+    - text: { kea: "Ta poi largura **i** altura djuntu (4rem) na un só klasi" }
+      correct: true
+      explain: { kea: "`size-*` é shorthand di v4 pa `w-*` + `h-*` — otimu pa ícons, avatars i thumbnails kuadradu." }
+    - text: { kea: "Ta poi só largura, sima `w-16`" }
+      correct: false
+      explain: { kea: "`w-16` ta poi só largura. `size-16` ta poi largura **i** altura na mesmu tempu." }
+
+- question:
+    kea: "Pa kuze ki ta servi `max-w-prose` na un parágrafu di textu?"
+  options:
+    - text: { kea: "Ta limita largura a ~65 caraktér — largura fásil pa odju ler" }
+      correct: true
+      explain: { kea: "Linhas txeu longu ta kansa odju. `max-w-prose` ta limita largura pa ~65 caraktér i ta manti textu fásil pa ler." }
+    - text: { kea: "Ta poi o parágrafu ta okupa tudu largura di viewport" }
+      correct: false
+      explain: { kea: "Kel seria kontráriu — `max-w-prose` ta **limita** largura, ka spandi el." }

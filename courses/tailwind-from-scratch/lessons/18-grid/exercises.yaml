@@ -1,0 +1,62 @@
+- slug: grid-tres-kolunas-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Grid di 3 kolunas na Resort Brava" }
+  prompt: { kea: "Envolvi os trez seksan **Kuartus / Aktividadis / Kontaktu** nun `<div>` ku `grid grid-cols-1 md:grid-cols-3 gap-6`. Na desktop es ta fika 3 kards lado a lado; na mobile es ta stack vertikalmenti." }
+  hint: { kea: "Ka muda os stilus di kada `<section>` — só envolvi-s na un `<div>` di grid." }
+  starterCode: |
+    <main class="container mx-auto px-4 py-8 space-y-8">
+      <section id="hero">...</section>
+      <!-- Envolvi os trez seksan di baxu nun grid -->
+      <section id="kuartus" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+      <section id="aktividadis" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+      <section id="kontaktu" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+    </main>
+  solutionCode: |
+    <main class="container mx-auto px-4 py-8 space-y-8">
+      <section id="hero">...</section>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section id="kuartus" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+        <section id="aktividadis" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+        <section id="kontaktu" class="bg-white p-6 rounded-lg shadow-sm">...</section>
+      </div>
+    </main>
+
+- slug: galeria-col-span-full
+  language: html
+  kind: code
+  title: { kea: "Seksan Galeria ku col-span-full" }
+  prompt: { kea: "Adisiona un seksan **Galeria** ku `col-span-full` pa okupa tudu largura di grid. Dentu, kria un `grid grid-cols-2 md:grid-cols-4 gap-2` ku 4 imajens." }
+  hint: { kea: "Uza `https://picsum.photos/400/300?random=N` (troka N pa 1, 2, 3, 4) pa imajens di testu." }
+  starterCode: |
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section id="kuartus">...</section>
+      <!-- Adisiona seksan Galeria li -->
+    </div>
+  solutionCode: |
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section id="kuartus">...</section>
+      <section id="galeria" class="col-span-full">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+          <img src="https://picsum.photos/400/300?random=1" alt="" />
+          <img src="https://picsum.photos/400/300?random=2" alt="" />
+          <img src="https://picsum.photos/400/300?random=3" alt="" />
+          <img src="https://picsum.photos/400/300?random=4" alt="" />
+        </div>
+      </section>
+    </div>
+
+- slug: eksperimenta-auto-fit
+  language: html
+  kind: reflect
+  title: { kea: "Eksperimenta auto-fit" }
+  prompt: { kea: "Kria un grid ku `auto-fit` i 6 kards dentu. Risiza a janela di browser i skrebe kuze ki ta kontise ku o numeru di kolunas." }
+  code: |
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+      <!-- 6 kards li dentu -->
+    </div>
+  modelPoints:
+    kea:
+      - "O numeru di kolunas ta muda sozinhu — sen nenhun media query."
+      - "Kada koluna ten pelu menus 200px; browser ta poi kuantas kabe na largura."
+  notePlaceholder: { kea: "Skrebe li…" }

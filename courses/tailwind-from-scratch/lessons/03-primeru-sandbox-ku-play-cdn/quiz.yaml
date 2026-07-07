@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é o URL sertu pa karga Tailwind v4 via Play CDN?"
+  options:
+    - text: { kea: "`https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4`" }
+      correct: true
+      explain: { kea: "Es é o script novu di v4. O antigu `cdn.tailwindcss.com` era v3 i ka ta funsiona ku a sintaksi di v4." }
+    - text: { kea: "`https://cdn.tailwindcss.com`" }
+      correct: false
+      explain: { kea: "Kel é o CDN di **v3**. Na v4 o URL mudou pa `@tailwindcss/browser@4`." }
+
+- question:
+    kea: "Na Play CDN v4, unde ki bu ta poi konfigurasan sima kor pursonalisadu?"
+  options:
+    - text: { kea: "Num blok `<style type=\"text/tailwindcss\">` ku `@theme { }`" }
+      correct: true
+      explain: { kea: "Konfigurasan é CSS na v4. O atributu `type=\"text/tailwindcss\"` ta sinaliza ki o blok ten ki ser kompiladu." }
+    - text: { kea: "Num `<script>` ku `tailwind.config = { ... }`" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3 (JavaScript). Na v4, konfigurasan ta vivi na CSS ku `@theme`." }
+
+- question:
+    kea: "Dipos di defini `--color-mar` na `@theme`, kal klasi ta funsiona sen skrebe más nada?"
+  options:
+    - text: { kea: "`bg-mar`, `text-mar`, `border-mar` — o token ta vira klasi otomatikamenti" }
+      correct: true
+      explain: { kea: "Kada token di kor na `@theme` ta jera as utilidadis korrespondenti, sima os kor ofisial di Tailwind." }
+    - text: { kea: "Nenhun — bu meste skrebe CSS `.mar { }` a mon" }
+      correct: false
+      explain: { kea: "Nau. Tudu grasa di `@theme`: defini o token i Tailwind ta kria `bg-mar`, `text-mar`, etc. pa bu." }

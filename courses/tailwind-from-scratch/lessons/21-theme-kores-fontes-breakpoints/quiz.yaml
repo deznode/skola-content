@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, unde ki bu ta defini kores, fontis i breakpoints personalizadu?"
+  options:
+    - text: { kea: "Direta na CSS, dentu di un blok `@theme { }`" }
+      correct: true
+      explain: { kea: "Na v4, konfigurasan ta vivi na CSS. Kores, fontis i breakpoints ta bai tudu dentu di `@theme`." }
+    - text: { kea: "Nun fixeru `tailwind.config.js` ku JavaScript" }
+      correct: false
+      explain: { kea: "Kel era a manera di **v3**. Na v4, `tailwind.config.js` é antigu — konfigurasan ta pasa pa CSS ku `@theme`." }
+
+- question:
+    kea: "Bu defini `--color-brand-500` na `@theme`. Kal klasis ta jera otomatikamenti?"
+  options:
+    - text: { kea: "`bg-brand-500`, `text-brand-500`, `border-brand-500` — o namespace `--color-*` ta jera-s" }
+      correct: true
+      explain: { kea: "O prefixu `--color-*` ta determina os utilidadis: kada token di kor ta jera `bg-`, `text-`, `border-`, etc." }
+    - text: { kea: "Nenhun — bu meste skrebe `.brand-500 { }` a mon" }
+      correct: false
+      explain: { kea: "Nau. Tudu grasa di `@theme`: defini o token i Tailwind ta kria as klasis pa bu." }
+
+- question:
+    kea: "Na v4, o ki ta kontise ku os kores default (sima `blue-500`) kuandu bu defini un token novu sima `--color-brand-500`?"
+  options:
+    - text: { kea: "Es ta kontinua ta funsiona — defini un token novu ka ta removi os defaults" }
+      correct: true
+      explain: { kea: "Na v4 os defaults ta fika sempri disponivel. `bg-blue-500` i `bg-brand-500` ta funsiona tudu dos." }
+    - text: { kea: "Es ka ta funsiona más — un token novu ta substitui tudu a paleta default" }
+      correct: false
+      explain: { kea: "Só si bu **redefini** un token existenti (sima `--color-blue-500: red`) é ki bu ta override-l. Un nomi novu ka ten konflitu ku os defaults." }

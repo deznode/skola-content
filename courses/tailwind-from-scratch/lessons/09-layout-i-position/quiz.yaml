@@ -1,0 +1,29 @@
+- question:
+    kea: "Un elementu ku `absolute` ta pozisiona relativu a kuze?"
+  options:
+    - text: { kea: "A pai más prósimu ku `relative`, `absolute`, `fixed` ou `sticky` — o a `<body>` si ninhun izisti" }
+      correct: true
+      explain: { kea: "Pa isu ki `relative` na pai é a regra numeru un: sen el, o badge `absolute` ta salta pa kantu di `<body>`." }
+    - text: { kea: "Sempri relativu a `<body>`, ka importa o pai" }
+      correct: false
+      explain: { kea: "So kuandu ninhun pai tene `relative`/`absolute`/`fixed`/`sticky` é ki el ta uza `<body>`." }
+
+- question:
+    kea: "Pa un header `sticky` para no topu, kuze ki é nesesáriu?"
+  options:
+    - text: { kea: "Un `top-*` (ou outra direksan) defina, i un pai sen `overflow-hidden`" }
+      correct: true
+      explain: { kea: "Sen `top-0`, sticky ka sabe unde para; i un pai ku `overflow-hidden` ta kebra el — o kauza más kumun." }
+    - text: { kea: "Un `z-index` altu sima `z-9999`" }
+      correct: false
+      explain: { kea: "`z-index` ta kontrola só ki elementu ta fika riba — el ka ta faze `sticky` funsiona." }
+
+- question:
+    kea: "Pamodi ka é bon idea uza `z-9999` na un header sticky?"
+  options:
+    - text: { kea: "A skala `z-0` a `z-50` é más di sufisient; un valor sima `z-9999` ta kria konfuzan i ka é nesesáriu" }
+      correct: true
+      explain: { kea: "Padran klaru — `z-10` pa header, `z-20` pa dropdown, `z-50` pa modal — ta evita konfuzan." }
+    - text: { kea: "`z-9999` ta faze a página fika más lentu" }
+      correct: false
+      explain: { kea: "O valor di `z-index` ka ta muda velosidadi di página — el ta kontrola só ki elementu ta fika riba." }

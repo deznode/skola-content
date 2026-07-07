@@ -1,0 +1,29 @@
+- question:
+    kea: "Pamodi ki Tailwind v4 ka ta rekomenda `@apply` pa maioria di kazu?"
+  options:
+    - text: { kea: "El ta rompe a filosofia utility-first — komponentes (React/Vue) é a forma rekomenda pa reutiliza stilus" }
+      correct: true
+      explain: { kea: "`@apply` ta torna-bu pa CSS tradisional ku nomis di klasi i ta da dos sítius pa manté. Komponentes dja ta da-u klasi reutilizavel." }
+    - text: { kea: "Pamodi `@apply` é más lentu ki utilidadis na HTML" }
+      correct: false
+      explain: { kea: "Velosidadi ka é a razon. O problema é ki `@apply` ta evita utility-first — o ponto forti di Tailwind." }
+
+- question:
+    kea: "Bu ta skrebe `@apply` dentru di un `<style scoped>` di un komponenti Vue. O ki bu PRESIZA adisiona no topu pa ka da eru?"
+  options:
+    - text: { kea: "`@reference \"../input.css\";` — importa os tokens só pa konsulta" }
+      correct: true
+      explain: { kea: "Style blocks scoped é izoladu — sen `@reference`, `@apply` ka ten asesu pa os tokens i ta da eru." }
+    - text: { kea: "`@import \"tailwindcss\";` — pa karega Tailwind di novu" }
+      correct: false
+      explain: { kea: "Isu ta duplika tudu preflight i CSS na kada komponenti. `@reference` é a manera sertu — el ta importa só pa konsulta." }
+
+- question:
+    kea: "Kal é a diferensa entri `@utility` (v4) i o `@layer utilities` (v3)?"
+  options:
+    - text: { kea: "`@utility` ta da suporti otomátiku pa tudu variantis (`hover:`, `md:`, `dark:`); `@layer utilities` nau" }
+      correct: true
+      explain: { kea: "Kel é a razon pa uza `@utility` na v4 — a klasi novu ta funsiona ku variantis sen skrebe más nada." }
+    - text: { kea: "Nun diferensa — es é a mesmu kuza ku nomi diferenti" }
+      correct: false
+      explain: { kea: "Ten un diferensa importanti: `@layer utilities` di v3 ka tinha suporti pa variantis; `@utility` di v4 ten." }

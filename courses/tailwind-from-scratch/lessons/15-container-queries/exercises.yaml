@@ -1,0 +1,57 @@
+- slug: karta-hospedeira-dos-lugaris
+  language: html
+  kind: code
+  title: { kea: "Karta di hospedeira en dos lugaris" }
+  prompt: { kea: "Kria un fixeru `m3-container-queries.html` ku o Play CDN. Konstrui un karta di hospedeira (avatar + nome + bio) ku container queries, dipos poi o **mesmu** karta dos vezes: un na un sidebar di 250px (`w-64`), otru na un main wider (`w-full max-w-2xl`). Konfirma ki es ten un apresentasan diferenti." }
+  hint: { kea: "Marka kada envolvedor ku `@container` i uza `@md:flex-row` na karta. O `w-64` ta manti o sidebar pikinu, pur isu `@md:` ka ta aktiva la." }
+  starterCode: |
+    <!doctype html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      </head>
+      <body class="p-6 flex gap-6">
+        <!-- Sidebar pikinu -->
+        <aside class="w-64 @container">
+          <!-- TODO: poi o karta li dentu -->
+        </aside>
+        <!-- Main wider -->
+        <main class="w-full max-w-2xl @container">
+          <!-- TODO: poi o MESMU karta li -->
+        </main>
+      </body>
+    </html>
+  solutionCode: |
+    <div class="flex flex-col @md:flex-row gap-4 p-4 bg-white rounded-lg shadow-sm">
+      <img src="camila.jpg" class="size-16 @md:size-20 rounded-full">
+      <div>
+        <h3 class="font-bold">Camila</h3>
+        <p class="text-sm text-slate-600">Mindelo · São Vicente</p>
+        <p class="hidden @md:block text-sm mt-2">Hospedeira di 5 stadu.</p>
+      </div>
+    </div>
+
+- slug: container-size-altura
+  language: html
+  kind: code
+  title: { kea: "Experimenta `@container-size` (v4.3)" }
+  prompt: { kea: "Konstrui un kontainer ku altura fixu (`@container-size h-80`) i un filhu ki uza unidadi di altura di kontainer — `h-[50cqb]` pa o filhu ten **metadi** di altura di pai. Dipos muda a altura di pai (ex: `h-64` → `h-96`) i repara ki o filhu ta muda tanbé." }
+  hint: { kea: "`@container-size` ta kria un size container ki ta da altura pa queries; `cqb` = 1% di altura di kontainer, pur isu `50cqb` = metadi." }
+  starterCode: |
+    <div class="@container-size h-80 bg-slate-200 p-2">
+      <!-- TODO: poi un filhu ku h-[50cqb] li -->
+    </div>
+  solutionCode: |
+    <div class="@container-size h-80 bg-slate-200 p-2">
+      <div class="h-[50cqb] bg-teal-500 rounded">
+        Metadi di altura di pai
+      </div>
+    </div>
+
+- slug: refleta-komponenti-reuzavel
+  language: html
+  kind: reflect
+  title: { kea: "Pensa nun komponenti reuzavel" }
+  prompt: { kea: "Pensa nun website di Kabu Verdi ki bo pode kria (un hotel, un restoranti, un festa di música). Kal **komponenti reuzavel** — un karta, un banner — ta apareci en kontestus di largura diferenti i ta ganha ku container queries? Skrebe 1–2 frazi sobri unde el ta ser uzadu." }
+  notePlaceholder: { kea: "Skrebe li o komponenti i unde el ta apareci…" }

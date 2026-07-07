@@ -1,0 +1,34 @@
+- slug: aplika-spacing-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Aplika spacing a Resort Brava" }
+  prompt: { kea: "Na `m2-resort-brava/index.html`, aplika tudu mudansas di spacing di es lisan: `container mx-auto px-6 py-12 space-y-12` na `<main>`, `px-6 py-4` na header, `space-y-4` na hero, i `px-4 py-2` na boton. Salva i abri na browser — konfirma ki header ten padding, seksans ten spasu entri si, i konteúdu sta sentradu na ekrans grandi." }
+  hint: { kea: "Kumesa pa `<main>`: sen `container mx-auto`, konteúdu ka ta sentra na ekrans grandi." }
+  solutionCode: |
+    <main class="container mx-auto px-6 py-12 space-y-12">
+      <section id="hero" class="space-y-4">
+        <h2 class="text-amber-600">Ben Vindo</h2>
+        <p class="text-slate-700">Vive Brava sima nunka.</p>
+        <a href="#kuartus" class="bg-amber-500 text-white px-4 py-2">Odja kuartus</a>
+      </section>
+    </main>
+
+- slug: inspesiona-container-breakpoints
+  language: html
+  kind: reflect
+  title: { kea: "Inspesiona o container na DevTools" }
+  prompt: { kea: "Abri DevTools (`F12`, taba **Elements**) i inspesiona a klasi `container` na `<main>`. Muda o tamanhu di janela di browser i observa kumo o `max-width` ta muda na kada breakpoint (640, 768, 1024, 1280, 1536). Ka mesti faze kódiku — só observa i nota o ki bu odja." }
+  notePlaceholder: { kea: "Skrebe li o ki bu observa…" }
+
+- slug: kustomiza-token-spacing
+  language: html
+  kind: code
+  title: { kea: "Kustomiza o token `--spacing`" }
+  prompt: { kea: "Adisiona un blok `<style type=\"text/tailwindcss\">` ku `@theme { --spacing: 0.3rem; }` na `index.html`. Salva, abri na browser — tudu spacing ta fika ~20% más grandi di un só bez. Dipos tira-l pa volta a default, só pa bu odja o efeitu." }
+  hint: { kea: "O blok `<style type=\"text/tailwindcss\">` ta bai na `<head>`, dipos di o script di Play CDN." }
+  solutionCode: |
+    <style type="text/tailwindcss">
+      @theme {
+        --spacing: 0.3rem;
+      }
+    </style>

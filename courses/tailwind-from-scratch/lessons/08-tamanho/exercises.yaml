@@ -1,0 +1,53 @@
+- slug: aplika-tamanhu-hero
+  language: html
+  kind: code
+  title: { kea: "Da prezensa a hero di Resort Brava" }
+  prompt: { kea: "Aplika `min-h-[50vh]` na `<section id=\"hero\">` i `max-w-2xl` na parágrafu di hero. Salva, abri na browser, i muda tamanhu di janela. Konfirma ki hero sempri toma **min 50%** di altura, i parágrafu ka stika alén di un largura fásil pa ler." }
+  hint: { kea: "`min-h-[50vh]` ta bai na section, `max-w-2xl` ta bai na `<p>`." }
+  starterCode: |
+    <section id="hero" class="space-y-4">
+      <h2 class="text-amber-600 text-5xl font-bold tracking-tight">Ben Vindo</h2>
+      <p class="text-slate-700 text-lg leading-relaxed">Vive Brava sima nunka...</p>
+      <a class="bg-amber-500 text-white px-4 py-2 font-semibold">Olha kuartus</a>
+    </section>
+  solutionCode: |
+    <section id="hero" class="space-y-4 min-h-[50vh]">
+      <h2 class="text-amber-600 text-5xl font-bold tracking-tight">Ben Vindo</h2>
+      <p class="text-slate-700 text-lg leading-relaxed max-w-2xl">Vive Brava sima nunka...</p>
+      <a class="bg-amber-500 text-white px-4 py-2 font-semibold">Olha kuartus</a>
+    </section>
+
+- slug: avatar-kuadradu-ku-size
+  language: html
+  kind: code
+  title: { kea: "Avatar kuadradu ku `size-*`" }
+  prompt: { kea: "Na seksan **Kontaktu**, adisiona un imajen di avatar di stafi ku `<img>` i klasis `size-12 rounded-full`. Uza un imajen di internet (ex: `https://i.pravatar.cc/100`). Konfirma na browser ki imajen é un kuadradu 48×48 (`size-12` = 3rem)." }
+  hint: { kea: "`size-12` ta poi largura **i** altura djuntu — ka meste `w-12 h-12` separadu." }
+  starterCode: |
+    <section id="kontaktu">
+      <h2 class="text-2xl font-bold">Kontaktu</h2>
+      <!-- TODO: adisiona o avatar li -->
+    </section>
+  solutionCode: |
+    <section id="kontaktu">
+      <h2 class="text-2xl font-bold">Kontaktu</h2>
+      <img class="size-12 rounded-full" src="https://i.pravatar.cc/100" alt="Stafi">
+    </section>
+
+- slug: refleta-hscreen-vs-minh
+  language: html
+  kind: reflect
+  title: { kea: "`h-screen` vs `min-h-[50vh]` na hero" }
+  prompt: { kea: "Salva o hero ku `h-screen` primeru, abri, i muda tamanhu di ekran. Dipos salva ku `min-h-[50vh]`. Kal ki bu gosta más, i pamodi? (Ka ten resposta korreta — kontestu di página é o ki ta defini.)" }
+  code: |
+    <!-- Opsan A -->
+    <section id="hero" class="h-screen space-y-4">...</section>
+
+    <!-- Opsan B -->
+    <section id="hero" class="min-h-[50vh] space-y-4">...</section>
+  modelPoints:
+    kea:
+      - "`h-screen` ta fixa altura a 100vh — hero ta toma tudu ekran, sen importa kuantu konteúdu ten."
+      - "`min-h-[50vh]` ta garanti mínimu ma ta deixa hero krese si konteúdu for más grandi."
+      - "Pa un landing page ku txeu konteúdu, `min-h` txeu bez é más flexível ki `h-screen`."
+  notePlaceholder: { kea: "Skrebe li kal ki bu skoji i pamodi…" }

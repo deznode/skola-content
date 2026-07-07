@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é a manera sertu di konfigura dark mode na Tailwind v4?"
+  options:
+    - text: { kea: "`@custom-variant dark (&:where(.dark, .dark *));` na CSS" }
+      correct: true
+      explain: { kea: "Na v4 konfigurasan é na CSS. O `@custom-variant` ta defini o varianti `dark:` ku un padran selector-based." }
+    - text: { kea: "`darkMode: 'class'` na `tailwind.config.js`" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3 (JavaScript config). Na v4 kel linha sumiu — uza `@custom-variant`." }
+
+- question:
+    kea: "Bu poi `dark:bg-slate-900` na un `<div>`, ma a página fika sempri klaru. Kuze ki falta?"
+  options:
+    - text: { kea: "A klasi `dark` na `<html>` — o varianti `dark:` só ta aplika kuandu el sta li" }
+      correct: true
+      explain: { kea: "Selector-based dark mode ta spera pa klasi `dark`. Sen JavaScript ki ta poi el na `<html>`, nada ka ta muda." }
+    - text: { kea: "Nada — Tailwind ta deteta o sistema operativu sozinhu i ta troka" }
+      correct: false
+      explain: { kea: "Tailwind ka ta odja o sistema sozinhu. É bu kódiku (ku `matchMedia`) ki ten ki poi a klasi `dark`." }
+
+- question:
+    kea: "Pamodi ki nu ta poi o script di dark mode na `<head>`, antes di `<body>`?"
+  options:
+    - text: { kea: "Pa evita o \"flash of unstyled content\" — a klasi `dark` ta aplika antes di a página renderiza" }
+      correct: true
+      explain: { kea: "Si o script kore dipos, o ekran ta fika klaru por mili-segundus antes di JS ativa dark. No `<head>` isu ka ta kontise." }
+    - text: { kea: "Pa o `localStorage` funsiona — el só ta karega na `<head>`" }
+      correct: false
+      explain: { kea: "`localStorage` ta funsiona di kualker lugar. A razon é evita o flash klaru antes di a página pinta." }

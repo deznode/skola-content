@@ -1,0 +1,296 @@
+---
+title: "@theme — Kores, Fontis, Breakpoints"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: theme-kores-fontes-breakpoints
+slug: "theme-kores-fontes-breakpoints"
+module: 3
+lesson: 21
+duration: "25 min"
+objectives:
+  - "Kompriende `@theme` kumo manera v4 di konfigura Tailwind (sen `tailwind.config.js`)"
+  - "Personaliza kores ku `@theme { --color-{nomi}-{tonalidadi}: oklch(...) }`"
+  - "Personaliza fontis ku `@theme { --font-{name}: '...' }`"
+  - "Personaliza breakpoints, spacing, shadows, rounded ku kada namespace"
+  - "Aplika tokens di marka a Resort Brava — un só fonte di verdadi pa kores i fontis"
+---
+
+# @theme — Kores, Fontis, Breakpoints
+
+Te li, nu uza `@theme` `n` vezes — pa `--breakpoint-3xl` (Lisan 14), `--spacing` (Lisan 6), `--animate-fade-up` (Lisan 20), `--container-*` (Lisan 15). Es lisan ta djunta tudu i mostra **manera kompletu di konfigura Tailwind v4**.
+
+Mensajen prinsipal: `tailwind.config.js` é **antigu**. v4 ta konfigura **direta na CSS**. Es ka é só mudansa di formatu — é un sistema más poderozu.
+
+<SectionHeading variant="concept" seq={1}>Mudansa di Konseitu: v3 → v4</SectionHeading>
+
+### v3 — Konfigurasan kumo JavaScript
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { 500: '#0284c7' }
+      },
+      fontFamily: {
+        display: ['Crimson Pro', 'serif']
+      }
+    }
+  }
+}
+```
+
+### v4 — Konfigurasan kumo CSS
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --color-brand-500: oklch(0.65 0.18 240);
+    --font-display: "Crimson Pro", serif;
+  }
+</style>
+```
+
+**Kuandu bo defini `--color-brand-500`, klasis `bg-brand-500`, `text-brand-500`, `border-brand-500` etc. son jeradu otomatikamenti.**
+
+Es é **kontráriu di fluxu**: en bez di konfigura JavaScript ki jera CSS, bo skrebe CSS direta i Tailwind ta usa-l.
+
+<SectionHeading variant="concept" seq={2}>Namespaces: Konvensan di Nomi</SectionHeading>
+
+Cada tipu di token ten un namespace (prefixu). Kel ta determina ki utilidadis son jeradu:
+
+| Namespace | Jera klasis |
+|---|---|
+| `--color-*` | `bg-*`, `text-*`, `border-*`, `ring-*`, `shadow-*` (kuandu uza `shadow-{kor}`), `accent-*`, etc. |
+| `--font-*` | `font-{name}` |
+| `--text-*` | `text-{name}` (tamanhu di fonti) |
+| `--spacing` | `p-*`, `m-*`, `gap-*`, `w-*`, `h-*` (multiplu) |
+| `--breakpoint-*` | Variantis responsivu (`sm:`, `md:`, etc.) |
+| `--container-*` | Tamanhu di `container` i kontainer queries |
+| `--radius-*` | `rounded-*` |
+| `--shadow-*` | `shadow-*` |
+| `--blur-*` | `blur-*` |
+| `--animate-*` | `animate-*` |
+| `--font-weight-*` | `font-*` (weights) |
+| `--tracking-*` | `tracking-*` |
+| `--leading-*` | `leading-*` |
+| `--ease-*` | `ease-*` |
+
+O ponto prinsipal: **kores, fontis i breakpoints ta vivi tudu dentu di un só blok `@theme`** — o prefixu ta disidi ki utilidadis son jeradu. Un só blok, kada namespace ku se papel:
+
+<AnnotatedCode
+  lang="css"
+  filename="style.css — @theme"
+  title="Un só blok, tudu os namespaces"
+  code={[
+    { t: "@theme {", m: 0 },
+    { t: "  --color-brand-500: oklch(0.55 0.18 240);", m: 1 },
+    { t: '  --font-display: "Crimson Pro", serif;', m: 2 },
+    { t: "  --breakpoint-3xl: 1920px;", m: 3 },
+    { t: "  --spacing: 0.25rem;", m: 4 },
+    { t: "  --radius-mega: 3rem;", m: 5 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "--color-*", body: "Un kor ta jera `bg-brand-500`, `text-brand-500`, `border-brand-500` i más — tudu otomatikamenti." },
+    { m: 2, title: "--font-*", body: "Un família di fonti ta jera a klasi `font-display`." },
+    { m: 3, title: "--breakpoint-*", body: "Un breakpoint ta jera un variante responsivu novu — `3xl:` (ex: `3xl:flex`)." },
+    { m: 4, title: "--spacing", body: "Un token úniku — tudu `p-*`, `m-*`, `gap-*`, `w-*`, `h-*` son multiplu di el." },
+    { m: 5, title: "--radius-*", body: "Un valor di rounded ta jera a klasi `rounded-mega`." },
+  ]}
+/>
+
+Antis di kontinua, repete os namespaces prinsipal te ki es fika natural — unde ki bo defini un token, i ki klasi bo ta ganha:
+
+<Flashcard
+  title="Namespaces di @theme"
+  deckId="tailwind-theme-namespaces"
+  cards={[
+    { term: "--color-*", def: "Jera bg-, text-, border-, ring- pa un kor.", code: "--color-brand-500 → bg-brand-500" },
+    { term: "--font-*", def: "Jera a klasi font-{nomi} pa un família di fonti.", code: "--font-display → font-display" },
+    { term: "--text-*", def: "Jera un tamanhu di fonti.", code: "--text-tiny → text-tiny" },
+    { term: "--spacing", def: "Token úniku — tudu p-, m-, gap-, w-, h- son multiplu di el." },
+    { term: "--breakpoint-*", def: "Jera un variante responsivu novu.", code: "--breakpoint-3xl → 3xl:" },
+    { term: "--radius-*", def: "Jera a klasi rounded-{nomi}.", code: "--radius-mega → rounded-mega" },
+    { term: "--animate-*", def: "Jera a klasi animate-{nomi} pa un animasan.", code: "--animate-fade-up → animate-fade-up" },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={3}>`--color-*`: Kores ku OKLCH</SectionHeading>
+
+v4 ta uza **OKLCH** kumo sistema interno (lembra Lisan 5). OKLCH é mais perceptual ki RGB — kores ku mesmu "L" parese ten mesmu nivel di klaru.
+
+```css
+@theme {
+  --color-brand-50: oklch(0.97 0.02 240);   /* muito klaru */
+  --color-brand-100: oklch(0.93 0.04 240);
+  --color-brand-200: oklch(0.85 0.08 240);
+  --color-brand-300: oklch(0.75 0.12 240);
+  --color-brand-400: oklch(0.65 0.15 240);
+  --color-brand-500: oklch(0.55 0.18 240);  /* default — saturasaun max */
+  --color-brand-600: oklch(0.45 0.18 240);
+  --color-brand-700: oklch(0.38 0.16 240);
+  --color-brand-800: oklch(0.30 0.14 240);
+  --color-brand-900: oklch(0.22 0.10 240);
+  --color-brand-950: oklch(0.15 0.06 240);  /* muito sukuru */
+}
+```
+
+Bo pode tambén uza hex o rgb si OKLCH é difisil:
+
+```css
+@theme {
+  --color-brand-500: #0284c7;
+  --color-brand-700: #0369a1;
+}
+```
+
+(Ma OKLCH ten **vantajen real:** muda só "L" ta jera tonalidadi konsistenti.)
+
+Klasis jeradu otomatikamenti:
+
+```html
+<div class="bg-brand-500 text-brand-50 border-brand-700">
+  Tudu funsiona — Tailwind dezenha kel klasi base ofu tokens
+</div>
+```
+
+<SectionHeading variant="concept" seq={4}>`--font-*`, `--breakpoint-*` i o restu</SectionHeading>
+
+O mesmu padran ta aplika pa tudu os otu namespaces. Os fontis:
+
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=Inter:wght@400;500;700&display=swap">
+
+<style type="text/tailwindcss">
+  @theme {
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-display: "Crimson Pro", serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+</style>
+
+<h1 class="font-display">Crimson Pro pa títulu</h1>
+<body class="font-sans">Inter pa textu kotidianu</body>
+<code class="font-mono">JetBrains Mono pa kódiku</code>
+```
+
+Repara: `--font-sans` override default. **Mas tudu utilidadi base ki uza `font-sans` (kumo `<body>` default) ta gosi uza Inter.**
+
+Os breakpoints (lembra Lisan 14):
+
+```css
+@theme {
+  --breakpoint-3xl: 1920px;
+  --breakpoint-tv: 2560px;
+}
+```
+
+Klasis `3xl:`, `tv:` funsiona otomatikamenti.
+
+`--spacing` é un token úniku — muda-l i tudu skala di spacing ta muda djuntu (lembra Lisan 6):
+
+```css
+@theme {
+  --spacing: 0.3rem;  /* tudu skala +20% más larga */
+}
+```
+
+`p-2`, `m-4`, `gap-6` — tudu son multiplu.
+
+I os namespaces di stilu — `--radius-*`, `--shadow-*`, `--blur-*`, `--animate-*`:
+
+```css
+@theme {
+  --radius-mega: 3rem;
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.1);
+  --blur-extreme: 80px;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;  /* lembra Lisan 20 */
+}
+```
+
+Jera klasis `rounded-mega`, `shadow-card`, `blur-extreme`, `animate-fade-up`.
+
+<SectionHeading variant="concept" seq={5}>Override sen Extend</SectionHeading>
+
+Na v3, bo tinha **dos opsan** na `tailwind.config.js`:
+
+1. **`theme.colors.brand = ...`** — substitui tudu kores (perigozu)
+2. **`theme.extend.colors.brand = ...`** — adisiona ku defaults (kazu kumun)
+
+**Na v4, é simples:** defini un token ka removi defaults. Defaults son sempri disponivel a menos ki bo override-l di forma eksplisitu.
+
+```css
+/* v4: --color-blue-500 default sempri ta funsiona */
+/* só si bo redefini, ai overridi */
+@theme {
+  --color-blue-500: red;  /* gosi bg-blue-500 ta da burmedju — perigozu */
+}
+```
+
+Pa adisiona (kazu kumun), só **defini nomi novu** — kel ka ta ten konflitu ku defaults:
+
+```css
+@theme {
+  --color-brand-500: oklch(0.55 0.18 240);  /* novu */
+}
+```
+
+`bg-blue-500` kontinua ta funsiona, `bg-brand-500` funsiona tambén.
+
+<SectionHeading variant="install">Aplika a Resort Brava — Tokens di Marka</SectionHeading>
+
+Resort Brava ta uza `sky-*` i `amber-*` desdi M1. Es son kores genériku. Bamus pa criar tokens di marka **Brava**: un kor di mar (`mar-*`), un kor di sol (`sol-*`), i un fonti spesial pa os títulus (`--font-display`).
+
+<CodeDiff
+  lang="html"
+  filename="index.html"
+  title="Resort Brava: di kores genériku pa tokens di marka"
+  note="Mesmu struktura. Só os tokens ta muda: `sky-*` → `mar-*`, `amber-*` → `sol-*`, i un `--font-display` novu pa os títulus."
+  diff={[
+    { type: "ctx", t: '<style type="text/tailwindcss">' },
+    { type: "ctx", t: "  @theme {" },
+    { type: "add", t: "    --color-mar-700: oklch(0.38 0.14 235);" },
+    { type: "add", t: "    --color-mar-800: oklch(0.30 0.12 235);" },
+    { type: "add", t: "    --color-sol-500: oklch(0.72 0.18 75);" },
+    { type: "add", t: '    --font-display: "Crimson Pro", serif;' },
+    { type: "ctx", t: "    --animate-fade-up: fade-up 0.6s ease-out forwards;" },
+    { type: "ctx", t: "  }" },
+    { type: "ctx", t: "</style>" },
+    { type: "del", t: '<h1 class="text-3xl font-bold">Resort Brava</h1>' },
+    { type: "add", t: '<h1 class="font-display text-3xl font-bold">Resort Brava</h1>' },
+    { type: "del", t: '<header class="bg-linear-to-r from-sky-700/85 to-sky-800/85">' },
+    { type: "add", t: '<header class="bg-linear-to-r from-mar-700/85 to-mar-800/85">' },
+    { type: "del", t: '<h2 class="text-amber-600">Ben Vindo</h2>' },
+    { type: "add", t: '<h2 class="font-display text-mar-700">Ben Vindo</h2>' },
+    { type: "del", t: '<a class="bg-amber-500">Olha kuartus</a>' },
+    { type: "add", t: '<a class="bg-sol-500">Olha kuartus</a>' },
+  ]}
+/>
+
+Resultadu: Resort Brava ten **identidadi propriu**. Sky/amber é o ki kualker site uza. Mar/sol é **Brava**. I pamodi tudu es tokens ta vivi nun só blok `@theme`, muda un kor é muda-l pa tudu site.
+
+:::callout{type=tip}
+Pa projetus real, bo ta defini 4-6 paletas: primary (marka), neutral (cinza), success (verdi), warning (amarelu), danger (burmedju), info (azul). I 2-3 fontis (display, body, mono). Tudu dentu di `@theme`. **Manutensan é simples: muda token, tudu site adapta.**
+:::
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="@theme">v4 = konfigurasan direta na CSS ku `@theme {}` — sen `tailwind.config.js`. Kores, fontis i breakpoints ta vivi tudu li.</RezumuItem>
+  <RezumuItem term="Namespaces">o prefixu ta determina ki klasis son jeradu — `--color-brand-500` → `bg-brand-500`, `text-brand-500`, etc.</RezumuItem>
+  <RezumuItem term="OKLCH">sistema rekomendadu pa kores (ma hex/rgb tambén funsiona); muda só "L" ta jera tonalidadi konsistenti.</RezumuItem>
+  <RezumuItem term="Override">é eksplisitu — defini un nomi novu pa adisiona, redefini un existenti pa override.</RezumuItem>
+  <RezumuItem variant="warning" term="Erru kumun">redefini un kor default (`--color-blue-500: red`) ta kebra tudu `bg-blue-500` na site — só redefini un default kuandu bu kre mesmu muda-l pa tudu lugar.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">pa un marka, defini 2-6 paletas i 2-3 fontis ku tokens — manutensan ta vira un só lugar.</RezumuItem>
+</KeyTakeaways>

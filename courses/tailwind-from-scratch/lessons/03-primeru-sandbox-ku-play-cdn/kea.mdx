@@ -1,0 +1,308 @@
+---
+title: "Primeru Sandbox ku Play CDN v4"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: primeru-sandbox-ku-play-cdn
+slug: "primeru-sandbox-ku-play-cdn"
+module: 1
+lesson: 3
+duration: "20 min"
+objectives:
+  - "Konfigura un sandbox di Tailwind v4 num fixeru HTML úniku"
+  - "Uza Play CDN (@tailwindcss/browser@4) pa testa klasis sen instalasan"
+  - "Defini tokens pursonalisadu ku `@theme` na un blok `<style type=\"text/tailwindcss\">`"
+  - "Konstrui un página 'Bon dia Kabu Verdi' pa testa anbienti"
+---
+
+# Primeru Sandbox ku Play CDN v4
+
+Dja bu instala Node, Git, VS Code i extensan. Dja bu konfirma ki Live Server ta funsiona. Gosi nu meste **ver Tailwind ta korre** — primera bez, ku bu próprius odjus.
+
+Pa es tipu di sperimentasan, ka meste instala Tailwind kompletu na bu komputador. Nu so kre kria un página, tipa klasis, i odja kor i spacing ta apareseu na browser. Pa isu, ten un atalhu: **Play CDN**.
+
+<SectionHeading variant="concept" seq={1}>O ki é Play CDN?</SectionHeading>
+
+Play CDN é **versan di browser di Tailwind**. En bez di instala el ku `npm`, bu ta poi un `<script>` na `<head>` di bu HTML, i Tailwind ta korre **diretu na browser**.
+
+<CompareTable
+  title="Play CDN vs Instalasan Kompletu"
+  cornerLabel="Aspetu"
+  cols={[
+    { name: "Play CDN", accent: "teal" },
+    { name: "Instalasan Kompletu", accent: "blue" },
+  ]}
+  rows={[
+    { label: "Tempu pa konfigura", kind: "text", vals: ["Nul (un `<script>`)", "Algumas minutus"] },
+    { label: "Velosidadi", kind: "text", vals: ["Más lentu (ta kompila na browser)", "Rápidu (motor Oxide)"] },
+    { label: "Tamanho di página", kind: "text", vals: ["~300 KB", "~5 KB (só klasis uzadu)"] },
+    { label: "Pa kuze ki ta servi", kind: "text", vals: ["Aprende, sperimenta, prototipu", "Sítius reais, produsaun"] },
+  ]}
+/>
+
+Pa es lisan, Play CDN é skolha **perfeitu**. Nu so kre aprende klasis. Nu ka ta dizenvolvi un produtu.
+
+:::callout{type=tip}
+Play CDN é só pa **aprendizajen i prototipus**. Ka uza el na un website real. Pa produsaun, nu ta uza Tailwind CLI o Vite (Modulu 4). Mas pa modulus 1-3 di es kursu, Play CDN ta da-u tudu kuza ki bu presiza.
+:::
+
+<SectionHeading variant="install">Konfigura Play CDN v4</SectionHeading>
+
+Atensan: ten un diferensa kritiku entri v3 i v4. O kódiku antigu di v3 **ka ta funsiona** na v4 — repara o ki muda:
+
+<CodeDiff
+  lang="html"
+  filename="index.html — head"
+  title="Play CDN: di v3 pa v4"
+  note="Dos mudansas: o URL novu (`@tailwindcss/browser@4`), i konfigurasan ki pasa di JavaScript pa CSS (`@theme`)."
+  diff={[
+    { type: "del", t: '<!-- v3 — KA USA -->' },
+    { type: "del", t: '<script src="https://cdn.tailwindcss.com"></script>' },
+    { type: "del", t: '<script>' },
+    { type: "del", t: "  tailwind.config = { theme: { extend: { colors: { brand: '#1e90ff' } } } }" },
+    { type: "del", t: '</script>' },
+    { type: "add", t: '<!-- v4 — manera sertu -->' },
+    { type: "add", t: '<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>' },
+    { type: "add", t: '<style type="text/tailwindcss">' },
+    { type: "add", t: '  @theme {' },
+    { type: "add", t: '    --color-brand: #1e90ff;' },
+    { type: "add", t: '  }' },
+    { type: "add", t: '</style>' },
+  ]}
+/>
+
+Dos diferensas inportanti:
+
+1. **URL nova:** `cdn.jsdelivr.net/npm/@tailwindcss/browser@4` (ka más `cdn.tailwindcss.com`)
+2. **Konfigurasan é CSS, ka JavaScript:** bu ta poi `<style type="text/tailwindcss">` ku un blok `@theme {}`
+
+O atributu `type="text/tailwindcss"` é kritiku — el ta sinaliza Tailwind ki kel blok di stilu **ka é CSS normal**, ma sin un blok di konfigurasan ki ten ki ser kompiladu antis di apareseu na página.
+
+<SectionHeading variant="install">Konstrui "Bon dia Kabu Verdi"</SectionHeading>
+
+Nu ta kria un página simples ki ta saúda vizitanti i ta uza klasis di Tailwind v4. Es vai ser **primeru testu real** di anbienti.
+
+### Pasu 1: Kria un Folder Novu
+
+```bash
+mkdir bon-dia-sandbox
+cd bon-dia-sandbox
+code .
+```
+
+### Pasu 2: Kria `index.html` ku Estrutura Báziku
+
+Kria un fixeru novu `index.html` ku tipu HTML5:
+
+```html
+<!doctype html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bon dia Kabu Verdi</title>
+  </head>
+  <body>
+    <h1>Bon dia Kabu Verdi!</h1>
+  </body>
+</html>
+```
+
+Abri ku Live Server (`Go Live` na fundu di VS Code). Bu ta odja un `<h1>` sen stilu — letras pretas, sen kor, fonti default di browser.
+
+### Pasu 3: Adiziona Play CDN
+
+Na `<head>`, adiziona script di Play CDN antis di `</head>`:
+
+```html
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bon dia Kabu Verdi</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+```
+
+Salva. Página ta atualiza sosinhu — ma vista é mesmu. Pamodi? Pamodi nu inda ka adisiona klasis.
+
+### Pasu 4: Adiziona Klasis di Tailwind
+
+Muda `<h1>` pa ten stilu:
+
+```html
+<h1 class="text-4xl font-bold text-blue-600">
+  Bon dia Kabu Verdi!
+</h1>
+```
+
+Salva. Vista — bu `<h1>` é **grandi, bold, i azul**. Sen skrebe un linha di CSS.
+
+### Pasu 5: Konstrui un Kartan di Saudasan
+
+Nu ta konstrui algu más kompletu. Trokar tudu konteúdu di `<body>` pa:
+
+```html
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white rounded-lg shadow-md max-w-md w-full p-8 text-center">
+    <h1 class="text-4xl font-bold text-blue-600 mb-2">
+      Bon dia Kabu Verdi!
+    </h1>
+    <p class="text-gray-600 mb-6">
+      Bu primeru sandbox di Tailwind v4 sta a funsiona.
+    </p>
+    <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-md transition">
+      Komesa Aprende
+    </button>
+  </div>
+</body>
+```
+
+Salva. Página ta apareseu sima un **kartan sentradu**, ku fundu sinzentu, ku sonbra suabi i un boton azul.
+
+Ka skrebe un linha di CSS. **Tudu é klasis.**
+
+:::callout{type=tip}
+Repara klasis sima `rounded-lg`, `shadow-md`, `px-6` i `py-2`. Es ta segui konvensaun di v4 — kada utilidadi ten un sufiksu di tamanho klaru. Na v3, `rounded` (sen sufiksu) era default pa medium; na v4, bu ten ki ser explisitu: `rounded-sm`, `rounded-md`, `rounded-lg`.
+:::
+
+<SectionHeading variant="install">Pursonaliza ku `@theme`</SectionHeading>
+
+Gosi vamus poi un toki di Kabu Verdi. Imajina ki nu kre uza un kor di **azul di mar di Boavista** pa marka — ka kor jenériku di Tailwind, ma un kor spesífiku ku bu skoji.
+
+Adiziona un blok `<style type="text/tailwindcss">` na `<head>`, dipos di script di Play CDN:
+
+```html
+<style type="text/tailwindcss">
+  @theme {
+    --color-mar: #006994;
+    --color-areia: #f4e4bc;
+  }
+</style>
+```
+
+Es defini dos tokens novu — `--color-mar` (azul di mar) i `--color-areia` (kor di areia). Gosi bu pode uza el sima kualker klasi di Tailwind: `bg-mar`, `text-mar`, `border-mar`, `bg-areia`, etc.
+
+Atualiza `<body>` pa troka os kor jenériku pa bu tokens:
+
+<CodeDiff
+  lang="html"
+  filename="index.html — body"
+  title="Di kor jenériku pa tokens di Kabu Verdi"
+  note="Mesmu struktura — só o kor ta muda. Os tokens `mar` i `areia` ta funsiona exatamenti sima kualker klasi ofisial di Tailwind."
+  diff={[
+    { type: "del", t: '<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">' },
+    { type: "add", t: '<body class="bg-areia min-h-screen flex items-center justify-center p-6">' },
+    { type: "ctx", t: '  <div class="bg-white rounded-lg shadow-md max-w-md w-full p-8 text-center">' },
+    { type: "del", t: '    <h1 class="text-4xl font-bold text-blue-600 mb-2">' },
+    { type: "add", t: '    <h1 class="text-4xl font-bold text-mar mb-2">' },
+    { type: "ctx", t: '      Bon dia Kabu Verdi!' },
+    { type: "ctx", t: '    </h1>' },
+    { type: "del", t: '    <button class="bg-blue-600 hover:bg-blue-700 text-white ...">' },
+    { type: "add", t: '    <button class="bg-mar hover:bg-mar/80 text-white ...">' },
+    { type: "ctx", t: '      Komesa Aprende' },
+    { type: "ctx", t: '    </button>' },
+  ]}
+/>
+
+Salva. Página ta muda: fundu é kor di areia, títulu i boton é azul di mar.
+
+Repara `hover:bg-mar/80` — kel `/80` é **modifikador di opasidadi di v4**. Kuandu bu pasa mouse riba di boton, kor ta fika 80% opaku (= 20% transparenti). Na v3, isu era `hover:bg-opacity-80` (un klasi separadu); na v4, é só un sufiksu.
+
+<SectionHeading variant="install">Kódiku Kompletu</SectionHeading>
+
+Pa konferi, bu `index.html` final ten ki ser sima es:
+
+```html
+<!doctype html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bon dia Kabu Verdi</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-mar: #006994;
+        --color-areia: #f4e4bc;
+      }
+    </style>
+  </head>
+  <body class="bg-areia min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg shadow-md max-w-md w-full p-8 text-center">
+      <h1 class="text-4xl font-bold text-mar mb-2">
+        Bon dia Kabu Verdi!
+      </h1>
+      <p class="text-gray-600 mb-6">
+        Bu primeru sandbox di Tailwind v4 sta a funsiona.
+      </p>
+      <button class="bg-mar hover:bg-mar/80 text-white font-medium px-6 py-2 rounded-md transition">
+        Komesa Aprende
+      </button>
+    </div>
+  </body>
+</html>
+```
+
+**Un só fixeru.** Sen `node_modules/`, sen `package.json`, sen `tailwind.config.js`. Anbienti perfeitu pa aprendizajen.
+
+<SectionHeading variant="concept" seq={2}>Limitasan di Play CDN</SectionHeading>
+
+Antis di bu fika xokadu, é inportanti sabi pamodi nu ka ta uza Play CDN na websites reais:
+
+| Problema | Splikasan |
+|----------|-----------|
+| **Velosidadi** | Tailwind ta kompila na browser kada bez ki página ta karrega — txeu más lentu |
+| **Tamanho** | Páginas ta faze download di ~300 KB di JavaScript di Tailwind, mesmu si bu so uza 5 klasis |
+| **Sen tree-shaking** | Tudu klasis di Tailwind sta dispunivel — ka ten "purging" |
+| **Sen build step** | Bu ka pode uza `@apply`, `@source`, `@utility` o otus diretivas avansadu |
+| **Inkonpativel ku motores di buska** | Google i otus ta odja kódiku antis di Tailwind ronda — pode prejudika SEO |
+
+Pa Modulus 1-3, nun di es problemas ta importa — nu sta aprende. Mas na Modulu 4 nu ta migra pa Tailwind CLI i Vite, ki ta resolvi tudu.
+
+<SectionHeading variant="install">Diagnostiku: Si Algu Ka Funsiona</SectionHeading>
+
+Si bu página ta apareseu **sen stilu** (`<h1>` é preto, sen sonbra, sen kor), abri kada verifikasan i konfirma:
+
+<DetailDisclosure
+  items={[
+    {
+      q: 'O skript ta karga?',
+      tag: 'Verifika',
+      a: 'Abri a konsola di browser (`F12 → Console`). Ten un erru tipu "Failed to load resource"? Konfirma o URL di Play CDN.',
+    },
+    {
+      q: 'Bu ten internet?',
+      tag: 'Verifika',
+      a: 'Play CDN é remotu — sen internet, ka ta funsiona. (Live Server é lokal, ma Play CDN nau.)',
+    },
+    {
+      q: 'O atributu `type` ta sertu?',
+      tag: 'Verifika',
+      a: 'O `<style>` ten ki ser exatamenti `type="text/tailwindcss"`. Si bu skrebe `type="text/css"`, Tailwind ka ta kompila o blok `@theme`.',
+    },
+    {
+      q: 'Bu salva o fixeru?',
+      tag: 'Verifika',
+      a: 'Live Server so ta atualiza dipos di un `Ctrl/Cmd + S`. Mesmu ku formatu otomátiku ligadu, bu meste salva eksplisitamenti.',
+    },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Play CDN">un só `<script>` i Tailwind v4 ta korre na browser — midjór pa aprende i prototipa.</RezumuItem>
+  <RezumuItem term="URL di v4">`cdn.jsdelivr.net/npm/@tailwindcss/browser@4` — ka más `cdn.tailwindcss.com` (ki era v3).</RezumuItem>
+  <RezumuItem term="Config na CSS">`<style type="text/tailwindcss">` ku un blok `@theme {}` — ka más JavaScript.</RezumuItem>
+  <RezumuItem term="Tokens vira klasis">un token sima `--color-mar` ta da `bg-mar`, `text-mar`, `border-mar` otomatikamenti.</RezumuItem>
+  <RezumuItem term="Modifikador di opasidadi">`hover:bg-mar/80` é opasidadi na v4 — ka más `bg-opacity-80` separadu.</RezumuItem>
+  <RezumuItem variant="warning" term="Ka pa produsaun">Play CDN é só pa aprende i prototipa; websites reais ta uza Tailwind CLI o Vite (Modulu 4).</RezumuItem>
+</KeyTakeaways>

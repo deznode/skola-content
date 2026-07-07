@@ -1,0 +1,47 @@
+- slug: header-sticky-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Header sticky pa Resort Brava" }
+  prompt: { kea: "Aplika `sticky top-0 z-10` a header di Resort Brava. Skrolla pa baxu i konfirma ki header sempri sta vizivel." }
+  hint: { kea: "`sticky top-0` ta faze el para no topu; `z-10` ta faze el fika riba di konteúdu." }
+  starterCode: |
+    <header class="bg-sky-700 text-white px-6 py-4">
+      <h1>Resort Brava</h1>
+      <nav class="mt-2">...</nav>
+    </header>
+  solutionCode: |
+    <header class="sticky top-0 z-10 bg-sky-700 text-white px-6 py-4">
+      <h1>Resort Brava</h1>
+      <nav class="mt-2">...</nav>
+    </header>
+
+- slug: badge-novu-absolute
+  language: html
+  kind: code
+  title: { kea: "Badge NOVU na kantu di seksan" }
+  prompt: { kea: "Adisiona un badge **NOVU** na kantu di seksan **Kuartus**. Poi `relative` na seksan, kria un `<span>` filhu ku `absolute top-2 right-2`. Konfirma ki badge sta na kantu top-right." }
+  hint: { kea: "Sen `relative` na pai, `absolute` ta pozisiona relativu a `<body>` — ka na seksan." }
+  starterCode: |
+    <section class="p-6 bg-slate-100">
+      <h2>Kuartus</h2>
+    </section>
+  solutionCode: |
+    <section class="relative p-6 bg-slate-100">
+      <span class="absolute top-2 right-2 bg-amber-500 text-white text-xs px-2 py-1">NOVU</span>
+      <h2>Kuartus</h2>
+    </section>
+
+- slug: boton-volta-pa-topu-fixed
+  language: html
+  kind: code
+  title: { kea: "Boton fixu Volta pa topu" }
+  prompt: { kea: "Adisiona un boton **Volta pa topu** no kantu bottom-right di página ku `fixed bottom-4 right-4 z-20`. Ku konteúdu longu (poi `min-h-screen` no hero o duplika seksan), konfirma ki boton ka ta muda pozisan na skrolla." }
+  hint: { kea: "`fixed` ta fika fixu na viewport — boton ka ta skrolla ku o restu di página." }
+  starterCode: |
+    <button class="bg-sky-700 text-white px-4 py-2">
+      Volta pa topu
+    </button>
+  solutionCode: |
+    <button class="fixed bottom-4 right-4 z-20 bg-sky-700 text-white px-4 py-2">
+      Volta pa topu
+    </button>

@@ -1,0 +1,29 @@
+- question:
+    kea: "Bo meste kria un layout di página inteiru ku kontrolu na kolunas **i** rows ao mesmu tempu. Kal ki ta kabe midjór?"
+  options:
+    - text: { kea: "Grid — el ta kontrola dos eixu ao mesmu tempu" }
+      correct: true
+      explain: { kea: "Grid ta poi filhus nun mapa di kuadradus (dos eixu). Flexbox ta kontrola só un eixu di kada bez — fila **ou** koluna." }
+    - text: { kea: "Flexbox — el é sempri a skolha pa kualker layout" }
+      correct: false
+      explain: { kea: "Flexbox brilha pa komponenti nun só eixu. Pa layout di página en dos eixu, grid é a resposta." }
+
+- question:
+    kea: "Kuze ki `col-span-full` ta faze a un filhu di grid?"
+  options:
+    - text: { kea: "Ta poi el okupa tudu kolunas disponivel na grid" }
+      correct: true
+      explain: { kea: "`col-span-full` é otimu pa un hero ou un seksan galeria ki meste okupa tudu largura." }
+    - text: { kea: "Ta kria un koluna novu na grid" }
+      correct: false
+      explain: { kea: "El ka ta kria kolunas — el ta faze un filhu ki dja izisti okupa tudu kolunas ki dja ten." }
+
+- question:
+    kea: "Na `grid-cols-[200px_1fr_1fr]`, pamodi ki nu ta uza `_` (underscore) i ka un spasu?"
+  options:
+    - text: { kea: "Pamodi Tailwind ka aseita spasu dentu di un nomi di klasi" }
+      correct: true
+      explain: { kea: "Un spasu ta kebra a klasi en dos. O underscore ta manten tudu djuntu, i Tailwind ta traduzi-l pa spasu na CSS final." }
+    - text: { kea: "Pamodi o underscore ta faze o grid krese más rápidu" }
+      correct: false
+      explain: { kea: "Ka ten diferensa di velosidadi — é só a manera ki Tailwind ta pidi pa skrebe valoris arbitráriu ku várius parti." }

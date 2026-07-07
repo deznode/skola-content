@@ -1,0 +1,54 @@
+- slug: aplika-tipografia-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Aplika tipografia a Resort Brava" }
+  prompt: { kea: "Aplika o kompletu tipografia di riba a `m2-resort-brava/index.html`. Abri na browser i kompara ku versan antis — hierarkia visual dja sta klaru, mesmu sen muda kor." }
+  hint: { kea: "Kumesa pa `h1`: `text-3xl font-bold tracking-tight`. Dipos nav links: `text-sm uppercase tracking-wide`." }
+  starterCode: |
+    <h1>Resort Brava</h1>
+    <a class="text-sky-100 mr-4">Kuartus</a>
+    <h2 class="text-amber-600">Ben Vindo</h2>
+    <p class="text-slate-700">Vive Brava sima nunka...</p>
+    <h3 class="text-sky-700">Kuartus</h3>
+  solutionCode: |
+    <h1 class="text-3xl font-bold tracking-tight">Resort Brava</h1>
+    <a class="text-sky-100 mr-4 text-sm uppercase tracking-wide">Kuartus</a>
+    <h2 class="text-amber-600 text-5xl font-bold tracking-tight">Ben Vindo</h2>
+    <p class="text-slate-700 text-lg leading-relaxed">Vive Brava sima nunka...</p>
+    <h3 class="text-sky-700 text-2xl font-semibold">Kuartus</h3>
+
+- slug: adisiona-fonti-google
+  language: html
+  kind: code
+  title: { kea: "Adisiona un fonti di Google Fonts" }
+  prompt: { kea: "Adisiona un fonti di Google Fonts a Resort Brava. Skoji **Playfair Display** pa serif. Adisiona token `--font-serif` na `<style type=\"text/tailwindcss\">` i aplika `font-serif` no h1. Konfirma na browser ki h1 muda di sans pa serif." }
+  hint: { kea: "Kopia o `<link>` di Google Fonts pa `<head>`, dipos poi `--font-serif: \"Playfair Display\", serif;` dentu di `@theme`." }
+  starterCode: |
+    <head>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+    <h1 class="font-serif">Resort Brava</h1>
+  solutionCode: |
+    <head>
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+      <style type="text/tailwindcss">
+        @theme {
+          --font-serif: "Playfair Display", serif;
+        }
+      </style>
+    </head>
+    <h1 class="font-serif">Resort Brava</h1>
+
+- slug: testa-text-shadow
+  language: html
+  kind: reflect
+  title: { kea: "Testa `text-shadow` no hero" }
+  prompt: { kea: "No h2 di hero, tenta dos variantis: ku `text-shadow-sm` di v4.1, i sen. Si bo ten odjus afinadu, kuze ta da pa hero un sensasan más \"elevadu\"? Salva ku versan ki bo gosta más." }
+  code: |
+    <h2 class="text-amber-600 text-5xl font-bold tracking-tight text-shadow-sm">Ben Vindo</h2>
+  modelPoints:
+    kea:
+      - "Ku `text-shadow-sm`, o títulu ta parsi un poku elevadu di fundu."
+      - "Sen sombra, o rezultadu ta fika más limpu i diretu — midjór pa dizains minimalista."
+  notePlaceholder: { kea: "Skrebe li kal versan bo gosta más i pamodi…" }

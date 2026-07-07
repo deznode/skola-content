@@ -1,0 +1,64 @@
+- slug: pinta-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Pinta Resort Brava" }
+  prompt: { kea: "Adisiona kores a Resort Brava sima nu fez riba. Abri fixeru `m2-resort-brava/index.html`: poi `bg-sky-700 text-white` na header, `bg-amber-50 text-slate-900` na body, i `text-amber-600` na títulu. Salva i konfirma na browser ki bu ta odja header azul, fundu kor di areia i títulu kor di sol." }
+  hint: { kea: "Fundu di areia é `bg-amber-50`; header azul di mar é `bg-sky-700`; títulu di sol é `text-amber-600`." }
+  starterCode: |
+    <body class="min-h-screen">
+      <header>
+        <h1>Resort Brava</h1>
+        <nav>
+          <a href="#kuartus">Kuartus</a>
+          <a href="#aktividadis">Aktividadis</a>
+          <a href="#kontaktu">Kontaktu</a>
+        </nav>
+      </header>
+      <main>
+        <section id="hero">
+          <h2>Ben Vindo</h2>
+          <a href="#kuartus">Odja kuartus</a>
+        </section>
+      </main>
+    </body>
+  solutionCode: |
+    <body class="min-h-screen bg-amber-50 text-slate-900">
+      <header class="bg-sky-700 text-white">
+        <h1>Resort Brava</h1>
+        <nav>
+          <a href="#kuartus" class="text-sky-100">Kuartus</a>
+          <a href="#aktividadis" class="text-sky-100">Aktividadis</a>
+          <a href="#kontaktu" class="text-sky-100">Kontaktu</a>
+        </nav>
+      </header>
+      <main>
+        <section id="hero">
+          <h2 class="text-amber-600">Ben Vindo</h2>
+          <a href="#kuartus" class="bg-amber-500 text-white">Odja kuartus</a>
+        </section>
+      </main>
+    </body>
+
+- slug: aplika-modifikador-opasidadi
+  language: html
+  kind: code
+  title: { kea: "Aplika modifikador `/` di opasidadi" }
+  prompt: { kea: "Adisiona o **modifikador `/`** a kuatru elementus pa testa opasidadi: `bg-amber-500/80` na boton (más suabi), `text-slate-700/70` na un parágrafu, `border-sky-600/50` na un input, i `shadow-purple-500/30` na un karton. Salva i odja diferensa." }
+  hint: { kea: "O sufiksu ta bai diretu na klasi di kor: `bg-amber-500/80`, ka `bg-amber-500 bg-opacity-80`." }
+  solutionCode: |
+    <button class="bg-amber-500/80 text-white px-6 py-2">Boton más suabi</button>
+    <p class="text-slate-700/70">Parágrafu sekundáriu</p>
+    <input class="border-2 border-sky-600/50" />
+    <div class="shadow-lg shadow-purple-500/30">Karton ku sonbra suabi</div>
+
+- slug: skodje-kor-arbitrariu
+  language: html
+  kind: reflect
+  title: { kea: "Skodje un kor arbitráriu pa marka" }
+  prompt: { kea: "Imajina ki Resort Brava ten un kor di marka exatu (ex. `#006994`, azul di mar di Boavista) ki ka sta na paleta di Tailwind. Pinta seksan 'Aktividadis' ku `bg-[#006994]`. Kuandu é ki é midjór uza un kor arbitráriu sima es en bez di un kor di paleta sima `bg-sky-700`? Skrebe 1–2 frazi." }
+  code: |
+    <section id="aktividadis" class="bg-[#006994] text-white">
+      <h3 class="text-amber-300">Aktividadis</h3>
+      <p>Pasada di barku, kaminhada i praia na Brava.</p>
+    </section>
+  notePlaceholder: { kea: "Skrebe li o ki bu repara…" }

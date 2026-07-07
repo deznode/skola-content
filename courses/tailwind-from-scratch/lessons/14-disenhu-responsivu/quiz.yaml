@@ -1,0 +1,29 @@
+- question:
+    kea: "Kada varianti responsivu di Tailwind (`sm:`, `md:`, `lg:`…) é baseadu na kuze?"
+  options:
+    - text: { kea: "`min-width` — ta aplika di kel tamanhu pa riba" }
+      correct: true
+      explain: { kea: "Kel é o padran mobile-first: klasi sen prefixu = mobile, i kada varianti ta liga a partir di se `min-width` pa riba." }
+    - text: { kea: "`max-width` — ta aplika di kel tamanhu pa baxu" }
+      correct: false
+      explain: { kea: "Kel é o kontráriu. `max-*:` (ex: `max-md:`) é o ki ta aplika pa baxu — ma é só pa kazus raru." }
+
+- question:
+    kea: "A klasi `md:text-4xl` ta aplika kuandu?"
+  options:
+    - text: { kea: "Di 768px pa riba (tablet, laptop, desktop)" }
+      correct: true
+      explain: { kea: "`md:` é `min-width: 768px`. O stilu ta liga na 768px i fika pa tudu tamanhu más grandi." }
+    - text: { kea: "Só exatamenti na 768px, ka más ka menus" }
+      correct: false
+      explain: { kea: "Un breakpoint ka é un ponta úniku — é un mínimu. `md:` ta aplika di 768px **pa riba**, sen limiti superior." }
+
+- question:
+    kea: "Na Tailwind v4, unde ki bo ta personaliza os breakpoints?"
+  options:
+    - text: { kea: "Num bloku `@theme` na CSS: `@theme { --breakpoint-sm: 600px; }`" }
+      correct: true
+      explain: { kea: "Na v4 konfigurasan é na CSS. Un token sima `--breakpoint-3xl` ta jera o prefixu `3xl:` otomatikamenti." }
+    - text: { kea: "Na `tailwind.config.js`, na `theme.screens`" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3. Na v4 `tailwind.config.js` sta kaduku — konfigurasan ta vivi na CSS ku `@theme`." }

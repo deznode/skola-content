@@ -1,0 +1,15 @@
+- slug: splora-tailwind-showcase
+  language: html
+  kind: explore
+  title: { kea: "Splora Showcase di Tailwind" }
+  prompt: { kea: "Vizita a **Showcase** di Tailwind i tenta identifika 5 klasis di utilidadi na HTML (kor, spacing, fonti, etc.)." }
+  resources:
+    kea:
+      - { label: "Tailwind CSS — Showcase", url: "https://tailwindcss.com/showcase" }
+
+- slug: refleta-website-kabu-verdi
+  language: html
+  kind: reflect
+  title: { kea: "Pensa na bu própriu projetu" }
+  prompt: { kea: "Pensa na un website ki bu ta gostaba di kria pa un negósiu o organizasan na Kabu Verdi. Skrebe un frazi pa diskrebe el." }
+  notePlaceholder: { kea: "Skrebe li…" }

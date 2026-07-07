@@ -1,0 +1,235 @@
+---
+title: "Layout i Position"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: layout-i-position
+slug: "layout-i-position"
+module: 2
+lesson: 9
+duration: "15 min"
+objectives:
+  - "Aplika utilidadis di display: `block`, `inline`, `inline-block`, `hidden`"
+  - "Domina `position`: `static`, `relative`, `absolute`, `fixed`, `sticky`"
+  - "Pozisiona elementus ku `top-*`, `right-*`, `bottom-*`, `left-*` i `inset-*`"
+  - "Kontrola pilha vertikal di elementus ku `z-*`"
+  - "Aplika `sticky` na header di Resort Brava — primeru lojika di interasan"
+---
+
+# Layout i Position
+
+Resort Brava ten tipografia i tamanhu. Vizitanti ta skrolla pa baxu i ... header ta dezaparesi. Pa página longu, é kaza ki vizitanti ten ki volta pa topu so pa nav. Nu pode rezolvi es ku un só klasi: `sticky`.
+
+Es lisan é tudu sobre **kontrolu di unde un elementu ta poi na DOM**. Sen flex o grid (es ben na M3), nu inda ten ferramenta poderozu: position, display i z-index.
+
+<SectionHeading variant="concept" seq={1}>Display — block, inline, inline-block, hidden</SectionHeading>
+
+HTML ten dos tipu di elementu:
+- **Block** (`<div>`, `<p>`, `<section>`) — toma tudu largura, kebra linha
+- **Inline** (`<span>`, `<a>`, `<strong>`) — só tomo largura ki konteúdu pidi, ka kebra linha
+
+Tailwind ta da klasi pa **muda kel kompurtamentu**:
+
+```html
+<span class="block">Era inline, gosi é block — toma tudu largura</span>
+<div class="inline">Era block, gosi é inline</div>
+<span class="inline-block">Inline ma aseita largura/altura</span>
+<div class="hidden">Ka ta apareci — display: none</div>
+```
+
+`inline-block` é spesial: parsi inline (fika na linha) ma aseita `w-*`, `h-*`, `mt-*`, `mb-*`. Otimu pa boton o ícon.
+
+`hidden` = `display: none`. Elementu ka ezisti pa layout. **Diferensa di `invisible`** (ki nu ka studa inda): `invisible` ta sumi visualmenti ma sustenta spasu. `hidden` ta tira di tudu.
+
+<SectionHeading variant="concept" seq={2}>Position — sinku valoris</SectionHeading>
+
+CSS ten 5 modus di posisionamentu. Tailwind ten un klasi pa kada — le kada un i o ki el ta faze:
+
+<AnnotatedCode
+  lang="html"
+  filename="position — sinku valoris"
+  title="Sinku modus di posisionamentu"
+  code={[
+    { t: '<div class="static">Default — flui na dokumentu</div>', m: 1 },
+    { t: '<div class="relative">Flui ma aseita ofset</div>', m: 2 },
+    { t: '<div class="absolute">Tira di flux normal</div>', m: 3 },
+    { t: '<div class="fixed">Fixu na viewport</div>', m: 4 },
+    { t: '<div class="sticky">Flui te un kanto, dipos fika fixu</div>', m: 5 },
+  ]}
+  notes={[
+    { m: 1, title: "static", body: "Valor default. Elementu ta flui na dokumentu i ka ta aseita `top`/`right`/`bottom`/`left`." },
+    { m: 2, title: "relative", body: "Flui normal, ma ta aseita ofset — i ta sirvi pa baze pa filhu `absolute`." },
+    { m: 3, title: "absolute", body: "Tira di flux normal. Pozisiona relativu a pai más prósimu ku `relative`, `absolute`, `fixed` ou `sticky`." },
+    { m: 4, title: "fixed", body: "Fixu na viewport — ka ta skrolla ku página." },
+    { m: 5, title: "sticky", body: "Flui te txiga na un kanto, dipos fika fixu na lugar." },
+  ]}
+/>
+
+### `relative` — Báze pa Filhus Absolutu
+
+`relative` sozinhu ka muda visualmente nada. **Sirvi pa kria báze** pa filhus `absolute`.
+
+```html
+<div class="relative w-64 h-64 bg-slate-200">
+  <span class="absolute top-2 right-2 bg-red-500 text-white px-2">NOVU</span>
+</div>
+```
+
+Es ta poi un badge "NOVU" na kantu top-right di kontainer.
+
+### `absolute` — Liberadu di Flux
+
+`absolute` ta tira elementu di flux normal. Pozisan é relativu a **pai más prósimu ki tene `relative`, `absolute`, `fixed` o `sticky`** — o, si ninhun izisti, relativu a `<body>`.
+
+```html
+<div class="relative h-64 bg-sky-100">
+  <span class="absolute top-0 left-0 bg-sky-700 text-white px-2">Top-Left</span>
+  <span class="absolute top-0 right-0 bg-sky-700 text-white px-2">Top-Right</span>
+  <span class="absolute bottom-0 left-0 bg-sky-700 text-white px-2">Bottom-Left</span>
+  <span class="absolute bottom-0 right-0 bg-sky-700 text-white px-2">Bottom-Right</span>
+</div>
+```
+
+### `fixed` — Sempri na Viewport
+
+```html
+<button class="fixed bottom-4 right-4 bg-amber-500 px-4 py-2">
+  Volta pa topu
+</button>
+```
+
+Es boton ta apareci sempri na kantu bottom-right, mesmu kuandu vizitanti skrolla. Klásiku pa "chat" o "scroll-to-top".
+
+### `sticky` — Híbridu Mágiku
+
+`sticky` é o ki ta resolvi problema di header ki dezaparesi:
+
+```html
+<header class="sticky top-0 bg-white z-10">
+  <h1>Resort Brava</h1>
+</header>
+```
+
+Header ta skrolla **djuntu ku página normalmente**. Ma kuandu el txiga na `top: 0`, ta **para i fika fixu**. Vizitanti pode skrolla milha di kontéudu — header sempri sta lá.
+
+:::callout{type=tip}
+Pa `sticky` funsiona, dos kuza é nesesáriu: (1) `top-*` (ou outra direksan) defina unde para; (2) pai ka pode tene `overflow-hidden` ou `overflow-auto`. Si sticky ka funsiona, kel kuza sigundu é o kauza más kumun.
+:::
+
+Antis di sigi pa ofset, dobra kada klasi na kabesa i konfirma bo memória:
+
+<Flashcard
+  title="Sinku modus di position"
+  deckId="tailwind-position-values"
+  cards={[
+    { term: "static", def: "Valor default. Elementu ta flui na dokumentu i ka ta aseita top/right/bottom/left." },
+    { term: "relative", def: "Flui normal, ma ta aseita ofset i ta sirvi pa baze pa filhu absolute." },
+    { term: "absolute", def: "Tira di flux normal. Pozisiona relativu a pai más prósimu ku position." },
+    { term: "fixed", def: "Fixu na viewport. Ka ta skrolla ku página." },
+    { term: "sticky", def: "Flui te txiga na un kanto, dipos fika fixu na lugar." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={3}>top / right / bottom / left — unde pozisiona</SectionHeading>
+
+Es ofset valoris uza mesmu skala di spacing:
+
+```html
+<div class="absolute top-4 right-4">4 = 1rem di kantu top-right</div>
+<div class="absolute top-0 left-0">No kantu top-left</div>
+<div class="sticky top-0">Para no topu (top: 0)</div>
+```
+
+Tambén suporta frasan, viewport, full:
+
+```html
+<div class="absolute top-1/2">Metadi pa baxu di pai</div>
+<div class="absolute top-1/4 left-1/4">Un kuartu di pai</div>
+```
+
+### `inset-*` — Atalho pa Tudu Direksan
+
+```html
+<div class="absolute inset-0">Stika di kantu a kantu (top-0 right-0 bottom-0 left-0)</div>
+<div class="absolute inset-x-0 top-0">Stika horizontal no topu</div>
+<div class="absolute inset-y-0 left-0">Stika vertical no skerda</div>
+```
+
+`inset-0` é un di klasi más uzadu pa overlay full-screen (modal, lightbox).
+
+<SectionHeading variant="concept" seq={4}>Z-index — ki kuze ta riba di otru?</SectionHeading>
+
+Kuandu múltipl elementus ta poi na mesmu lugar, browser meste sabe ki kuze ta ganha. Z-index ta kontrola es:
+
+| Klasi | z-index |
+|---|---|
+| `z-0` | 0 (default) |
+| `z-10` | 10 |
+| `z-20` | 20 |
+| `z-30` | 30 |
+| `z-40` | 40 |
+| `z-50` | 50 |
+| `z-auto` | auto |
+
+**Padran pa Resort Brava sticky header:**
+
+- Konteúdu normal: z-0 (default)
+- Header sticky: `z-10` (riba di konteúdu)
+- Dropdown menu (futuru): `z-20`
+- Modal/overlay: `z-50`
+
+Nunka uza númeru grandi (`z-9999`) — komes a misturadu i nínguen ta entendi mes pa ki é. Skala 10/20/30 é más di sufisient pa 99% di paginas.
+
+<SectionHeading variant="install">Aplika layout i position a Resort Brava</SectionHeading>
+
+Antis (di Lisan 8), header ta skrolla ku página i ta dezaparesi. Ku dos klasi, el ta fika sempri na topu — repara o ki muda:
+
+<CodeDiff
+  lang="html"
+  filename="index.html — header"
+  title="Header di Resort Brava: di normal pa sticky"
+  note="Dos klasi ta rezolvi tudu: `sticky top-0` pa el para no topu, i `z-10` pa el fika riba di konteúdu."
+  diff={[
+    { type: "del", t: '<header class="bg-sky-700 text-white px-6 py-4">' },
+    { type: "add", t: '<header class="sticky top-0 z-10 bg-sky-700 text-white px-6 py-4">' },
+    { type: "ctx", t: '  <h1>Resort Brava</h1>' },
+    { type: "ctx", t: '  <nav class="mt-2">...</nav>' },
+    { type: "ctx", t: '</header>' },
+  ]}
+/>
+
+**Mudansas:**
+
+- **`sticky top-0`** — header ta skrolla normalmente, ma kuandu txiga no topu, **para lá**
+- **`z-10`** — pa nada di hero o seksan pasa por riba di header
+- **`bg-sky-700` mante** — sen fundu sólidu, sticky header ta parsi transparenti (textu pa baxu ta sangra atrás)
+
+I tudu di hero rebebi `relative`, prontu pa overlays na Lisan 10:
+
+```html
+<section id="hero" class="relative space-y-4 min-h-[50vh]">
+  ...
+</section>
+```
+
+Abri na browser, skrolla pa baxu. Header ta segui ku bo. **Es é pekena mudansa, ma ezperiénsia salta dos nível.**
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Regra di oru">`relative` na pai é nesesáriu pa filhu `absolute` pozisiona sertu — kel é regra numeru un.</RezumuItem>
+  <RezumuItem term="Display">`block`, `inline`, `inline-block`, `hidden` (= `display: none`).</RezumuItem>
+  <RezumuItem term="Position">`static` (default), `relative`, `absolute`, `fixed`, `sticky`.</RezumuItem>
+  <RezumuItem term="Ofset">`top-*`, `right-*`, `bottom-*`, `left-*` + atalho `inset-*` / `inset-x-*` / `inset-y-*`.</RezumuItem>
+  <RezumuItem term="sticky" code>kombina `sticky` + `top-0` + bg sólidu — header ki ta para no topu na skrolla.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">nunka uza un númeru di z-index sima `z-9999` — a skala `z-0` a `z-50` é sufisienti i ka ta kria konfuzan.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">si `sticky` ka funsiona, konfirma ki pai ka ten `overflow-hidden` — kel é o kauza más kumun.</RezumuItem>
+</KeyTakeaways>

@@ -1,0 +1,29 @@
+- question:
+    kea: "Pamodi ki Play CDN ka sirbi pa un website di produsan?"
+  options:
+    - text: { kea: "El ta kompila Tailwind no browser kada karga — ~150KB di JS extra + sen kontrolu di cache" }
+      correct: true
+      explain: { kea: "Play CDN ta faze o trabadju na klienti kada bez ki a pájina ta karega. CLI v4 ta kompila un bez na build time i ta sirbi só o CSS final." }
+    - text: { kea: "Play CDN ka ten as mesmu utilidadis ki o CLI" }
+      correct: false
+      explain: { kea: "Os dos ta da as mesmu klasis di Tailwind. A diferensa é **unde** i **kantu bez** ta kompila — ka o ki ta dispunivel." }
+
+- question:
+    kea: "Na Tailwind v4, kantu linha bu meste na `input.css` pa inkluí base, komponenti i utilidadis?"
+  options:
+    - text: { kea: "Un só — `@import \"tailwindcss\";`" }
+      correct: true
+      explain: { kea: "Un só `@import` ta substitui as trez direktivas `@tailwind base/components/utilities` di v3." }
+    - text: { kea: "Trez — un `@tailwind` pa kada kamada" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3. Na v4, `@tailwind base/components/utilities` ka funsiona — uza un só `@import`." }
+
+- question:
+    kea: "Kal fixeru bu **nunka** ta edita a mon nun projetu CLI v4?"
+  options:
+    - text: { kea: "`dist/style.css` — el é jeradu pa CLI; adisiona `dist/` na `.gitignore`" }
+      correct: true
+      explain: { kea: "`dist/style.css` é o CSS final ki CLI ta gera di `input.css`. Kualker mudansa a mon ta ser perdidu no prósimu build." }
+    - text: { kea: "`input.css` — el é jeradu pa CLI" }
+      correct: false
+      explain: { kea: "É o kontráriu: `input.css` é o fixeru-fonti ki **bo** ta skrebe; `dist/style.css` é o ki é jeradu." }

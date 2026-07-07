@@ -1,0 +1,289 @@
+---
+title: "Tipografia"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: tipografia
+slug: "tipografia"
+module: 2
+lesson: 7
+duration: "20 min"
+objectives:
+  - "Aplika família di fonti (`font-sans`/`serif`/`mono`) i tamanhu (`text-xs` a `text-9xl`)"
+  - "Konxe peso (`font-thin` a `font-black`), traking i alinhamentu di textu"
+  - "Uza dekorasan di textu (`underline`, `decoration-*`) i transformasan (`uppercase`, `capitalize`)"
+  - "Konxe novidadis di v4: `text-shadow-*` (v4.1) i `font-features-*` (v4.2)"
+  - "Adisiona fonti personalizadu na `@theme {}` — manera v4 (sen `tailwind.config.js`)"
+---
+
+# Tipografia
+
+Spacing traze rítmu pa Resort Brava — ma kontéudu inda ta le tudu igual. h1, h2, p — tudu mesmu tamanhu, mesmu peso. Tipografia é o ki ta da **voz** a textu: títulu ki ta brada, parágrafu ki ta dialoga, etiketa ki ta sussura.
+
+Tailwind v4 ten más di 80 utilidadis di tipografia, ma só sinku família é o ki bo ta uza 95% di tempu. Bamus pa kel sinku.
+
+<SectionHeading variant="concept" seq={1}>Família di Fonti — `font-sans`/`serif`/`mono`</SectionHeading>
+
+Trez família ten klasi própriu:
+
+```html
+<p class="font-sans">Sans-serif — modernu, limpu, padraun di web</p>
+<p class="font-serif">Serif — tradisional, formal</p>
+<p class="font-mono">Mono — pa código i tablas</p>
+```
+
+Default é `font-sans` — ka mesti adisiona klasi. Tudu textu na Resort Brava é sans-serif sen ki nu poi nada.
+
+### Fonti Personalizadu — Manera v4
+
+Si bo kre uza un fonti spesífiku (izemplu: "Inter" o "Crimson Pro"), v3 ta poi tudu na `tailwind.config.js`. **v4 ta uza `@theme` direta na CSS:**
+
+<AnnotatedCode
+  lang="html"
+  filename="index.html — head"
+  title="Un fonti personalizadu na v4, linha-pa-linha"
+  code={[
+    { t: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">', m: 1 },
+    { t: '<style type="text/tailwindcss">', m: 2 },
+    { t: '  @theme {', m: 2 },
+    { t: '    --font-sans: "Inter", system-ui, sans-serif;', m: 3 },
+    { t: '    --font-display: "Crimson Pro", serif;', m: 3 },
+    { t: '  }', m: 0 },
+    { t: '</style>', m: 0 },
+    { t: '<h1 class="font-display">Resort Brava</h1>', m: 4 },
+  ]}
+  notes={[
+    { m: 1, title: "Karrega fonti", body: "O `<link>` ta faze download di 'Inter' di Google Fonts — só pesus 400 i 700." },
+    { m: 2, title: "Config na CSS", body: "Na v4, konfigurasan ta bai na un blok `@theme` dentu di `<style type=\"text/tailwindcss\">` — **ka na `tailwind.config.js`**." },
+    { m: 3, title: "Tokens di fonti", body: "`--font-sans` ta troka o default; `--font-display` é un **token personalizadu** novu." },
+    { m: 4, title: "Uza kumo klasi", body: "Ku o token definidu, `font-display` ta passa a klasi válidu otomatikamenti." },
+  ]}
+/>
+
+Repara: `--font-display` é **token personalizadu**. Ku el definidu, `font-display` ta passa a klasi válidu otomatikamenti. Es é poderozu di v4 — **konfigurasan é CSS, ka JavaScript**.
+
+<SectionHeading variant="concept" seq={2}>Tamanhu i Peso — `text-*` i `font-*`</SectionHeading>
+
+### Tamanhu — `text-xs` a `text-9xl`
+
+13 tamanhu stadar:
+
+| Klasi | Tamanhu (default) |
+|---|---|
+| `text-xs` | 12px |
+| `text-sm` | 14px |
+| `text-base` | 16px (default) |
+| `text-lg` | 18px |
+| `text-xl` | 20px |
+| `text-2xl` | 24px |
+| `text-3xl` | 30px |
+| `text-4xl` | 36px |
+| `text-5xl` | 48px |
+| `text-6xl` | 60px |
+| `text-7xl` | 72px |
+| `text-8xl` | 96px |
+| `text-9xl` | 128px |
+
+Padran:
+- **h1 di página:** `text-4xl` o `text-5xl`
+- **h2/h3 di seksan:** `text-2xl` o `text-3xl`
+- **Parágrafu normal:** `text-base` (default — sen klasi)
+- **Etiketas i meta:** `text-sm` o `text-xs`
+
+### Peso — `font-thin` a `font-black`
+
+9 pesus:
+
+```html
+<p class="font-thin">100 — thin</p>
+<p class="font-extralight">200</p>
+<p class="font-light">300</p>
+<p class="font-normal">400 — default</p>
+<p class="font-medium">500</p>
+<p class="font-semibold">600</p>
+<p class="font-bold">700</p>
+<p class="font-extrabold">800</p>
+<p class="font-black">900 — más pezadu</p>
+```
+
+:::callout{type=tip}
+Nem tudu fonti ten tudu pesus. Si bo karrega "Inter" só ku `wght@400;700`, klasis `font-thin` o `font-medium` ka ta funsiona — browser ta fika ku peso más prósimu.
+:::
+
+<SectionHeading variant="concept" seq={3}>Spasamentu i Alinhamentu</SectionHeading>
+
+### Letter Spacing — `tracking-*`
+
+```html
+<h1 class="tracking-tighter">Resort Brava</h1>   <!-- -0.05em -->
+<h1 class="tracking-tight">Resort Brava</h1>     <!-- -0.025em -->
+<h1 class="tracking-normal">Resort Brava</h1>    <!-- 0 (default) -->
+<h1 class="tracking-wide">Resort Brava</h1>      <!-- 0.025em -->
+<h1 class="tracking-wider">Resort Brava</h1>     <!-- 0.05em -->
+<h1 class="tracking-widest">Resort Brava</h1>    <!-- 0.1em -->
+```
+
+`tracking-tight` é klásiku pa títulus grandi (textu na tamanhu grandi ta parsi spasozu di + sen). `tracking-wide` + `uppercase` é padran di etiketa kategoria.
+
+### Line Height — `leading-*`
+
+Altura di linha kontrola rítmu vertikal di textu:
+
+```html
+<p class="leading-tight">Linhas perto un di otru — bom pa títulus grandi</p>
+<p class="leading-normal">Default — bom pa kódiku</p>
+<p class="leading-relaxed">Más spasu — bom pa parágrafu</p>
+<p class="leading-loose">Lots di spasu — pa textu longu</p>
+```
+
+Padran: `leading-relaxed` ta poi parágrafus fásil pa ler.
+
+### Alinhamentu — `text-{left|center|right|justify}`
+
+```html
+<p class="text-left">Default — skerda</p>
+<p class="text-center">Sentru</p>
+<p class="text-right">Direita</p>
+<p class="text-justify">Justifikadu — textu strikadu na dos ladus</p>
+```
+
+<SectionHeading variant="concept" seq={4}>Dekorasan i Transformasan</SectionHeading>
+
+### Dekorasan — `underline`, `line-through`, `no-underline`
+
+```html
+<a class="underline">Link sublinhadu</a>
+<s class="line-through">Textu kruzadu</s>
+<a class="no-underline">Link sen sublinhadu</a>
+```
+
+Bo pode konfigura kor, peso i ofset:
+
+```html
+<a class="underline decoration-sky-500 decoration-2 underline-offset-4">
+  Link sublinhadu sky, gosu, ku ofset
+</a>
+```
+
+Pa stilu di linha: `decoration-solid` (default), `decoration-double`, `decoration-dotted`, `decoration-dashed`, `decoration-wavy`.
+
+### Transformasan — `uppercase`/`lowercase`/`capitalize`
+
+```html
+<p class="uppercase">tudu maiúskula</p>      <!-- TUDU MAIÚSKULA -->
+<p class="lowercase">TUDU MINÚSKULA</p>      <!-- tudu minúskula -->
+<p class="capitalize">cada palavra grandi</p> <!-- Cada Palavra Grandi -->
+<p class="normal-case">Padraun, ka muda nada</p>
+```
+
+`uppercase tracking-wide text-xs` é padran di etiketa di kategoria — kumo "NOTIFIKASAUN" na un alert o "KUARTUS" na nav.
+
+<SectionHeading variant="concept" seq={5}>Novidadis di v4 — `text-shadow-*` i `font-features-*`</SectionHeading>
+
+### `text-shadow-*` (v4.1)
+
+Tailwind v4.1 traze sombra di textu **finalmenti** kumo utilidadi:
+
+```html
+<h1 class="text-shadow-sm">Sombra suavi</h1>
+<h1 class="text-shadow-md">Sombra moderadu</h1>
+<h1 class="text-shadow-lg">Sombra grandi</h1>
+<h1 class="text-shadow-xl">Sombra muito grandi</h1>
+```
+
+Bo pode adisiona kor di sombra:
+
+```html
+<h1 class="text-shadow-lg text-shadow-sky-500/50">
+  Sombra sky ku 50% opasidadi
+</h1>
+```
+
+Es izisti so na v3 ku CSS arbitráriu — gosi é klasi direitu.
+
+### `font-features-*` (v4.2)
+
+v4.2 adisiona kontrolu di OpenType features:
+
+```html
+<p class="font-stretch-condensed">Letra apertada (si fonti suporta)</p>
+<p class="ordinal">1<sup>st</sup> 2<sup>nd</sup> — superscript otomatiku</p>
+<p class="slashed-zero">Zeru ku barra: 0</p>
+<p class="tabular-nums">1234 — números tudu mesmu largura (bom pa tabla)</p>
+<p class="lining-nums">Números modernu (kunsistenti)</p>
+<p class="oldstyle-nums">Números antigu (ku desensu)</p>
+```
+
+Es ka ta funsiona ku tudu fonti — fonti meste suporta features. Mas pa fontis modernu (Inter, Crimson Pro) é ferramenta poderozu.
+
+<SectionHeading variant="concept" seq={6}>Aplika Tipografia a Resort Brava</SectionHeading>
+
+Nu ten o markup di Lisan 6 sen nenhun klasi di tipografia. Só ku klasis novu — sen muda kor — hierarkia visual ta apareseu:
+
+<CodeDiff
+  lang="html"
+  filename="m2-resort-brava/index.html"
+  title="Mesmu markup, gosi ku tipografia"
+  note="Só klasis di tipografia adisionadu — nenhun kor ta muda. Hierarkia visual dja sta klaru."
+  diff={[
+    { type: "del", t: '<h1>Resort Brava</h1>' },
+    { type: "add", t: '<h1 class="text-3xl font-bold tracking-tight">Resort Brava</h1>' },
+    { type: "del", t: '<a class="text-sky-100 mr-4">Kuartus</a>' },
+    { type: "add", t: '<a class="text-sky-100 mr-4 text-sm uppercase tracking-wide">Kuartus</a>' },
+    { type: "del", t: '<h2 class="text-amber-600">Ben Vindo</h2>' },
+    { type: "add", t: '<h2 class="text-amber-600 text-5xl font-bold tracking-tight">Ben Vindo</h2>' },
+    { type: "del", t: '<p class="text-slate-700">Vive Brava sima nunka...</p>' },
+    { type: "add", t: '<p class="text-slate-700 text-lg leading-relaxed">Vive Brava sima nunka...</p>' },
+    { type: "del", t: '<h3 class="text-sky-700">Kuartus</h3>' },
+    { type: "add", t: '<h3 class="text-sky-700 text-2xl font-semibold">Kuartus</h3>' },
+  ]}
+/>
+
+**Mudansas:**
+
+- **h1:** `text-3xl font-bold tracking-tight` — títulu di marka, grandu i konfianti
+- **Nav links:** `text-sm uppercase tracking-wide` — etiketa di navegasan, leve i klásiku
+- **Hero h2:** `text-5xl font-bold tracking-tight` — eroi di página, gritante
+- **Hero p:** `text-lg leading-relaxed` — parágrafu importante ku rispira
+- **Seksan h3:** `text-2xl font-semibold` — títulus di seksan, klaru ma sen kompetir ku hero
+- **Footer p:** `text-sm` (na praktika) — texto fino di rodapé
+
+<SectionHeading variant="practice">Repasa Klasis</SectionHeading>
+
+Antis di poi mon na obra, repasa família, tamanhu, peso i spasamentu. Vira kada karta i marka o ki bo dja sabi:
+
+<Flashcard
+  showHeader={false}
+  deckId="tailwind-tipografia-utilidadis"
+  cards={[
+    { term: "font-sans", def: "Família sans-serif — modernu, limpu. É o default.", code: "class=\"font-sans\"", lang: "html" },
+    { term: "font-mono", def: "Família mono — pa código i tablas.", code: "class=\"font-mono\"", lang: "html" },
+    { term: "text-base", def: "Tamanhu default — 16px. Parágrafu normal.", code: "class=\"text-base\"", lang: "html" },
+    { term: "text-4xl", def: "36px — típiku pa h1 di página.", code: "class=\"text-4xl\"", lang: "html" },
+    { term: "font-bold", def: "Peso 700.", code: "class=\"font-bold\"", lang: "html" },
+    { term: "font-black", def: "Peso 900 — más pezadu.", code: "class=\"font-black\"", lang: "html" },
+    { term: "tracking-tight", def: "Letter spacing apertadu — klásiku pa títulus grandi.", code: "class=\"tracking-tight\"", lang: "html" },
+    { term: "leading-relaxed", def: "Altura di linha ku más spasu — bom pa parágrafu.", code: "class=\"leading-relaxed\"", lang: "html" },
+    { term: "uppercase", def: "Muda tudu letra pa maiúskula.", code: "class=\"uppercase\"", lang: "html" },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Fonti na v4">un fonti personalizadu ta bai na `@theme { --font-display: "..."; }` direta na CSS — sen `tailwind.config.js`.</RezumuItem>
+  <RezumuItem term="Família">`font-sans` (default), `font-serif`, `font-mono`.</RezumuItem>
+  <RezumuItem term="Tamanhu">`text-xs` a `text-9xl` (13 stadios); `font-thin` (100) a `font-black` (900) pa peso.</RezumuItem>
+  <RezumuItem term="Tracking i leading">`tracking-tight` pa títulus grandi; `leading-relaxed` pa parágrafus fásil pa ler.</RezumuItem>
+  <RezumuItem term="Novidadis v4">`text-shadow-*` (v4.1) i `font-features-*` (v4.2, tabular-nums, slashed-zero...) — gosi klasis nativu.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">si fonti ka karga un peso (`wght@400;700`), `font-thin` o `font-medium` ka ta funsiona — browser ta fika ku peso más prósimu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`uppercase tracking-wide text-xs` é padran di etiketa di kategoria — kumo "KUARTUS" na nav.</RezumuItem>
+</KeyTakeaways>

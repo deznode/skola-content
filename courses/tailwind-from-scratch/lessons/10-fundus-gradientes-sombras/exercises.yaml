@@ -1,0 +1,44 @@
+- slug: aplika-fundus-a-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Da profundidadi a Resort Brava" }
+  prompt: { kea: "Na `m2-resort-brava/index.html`, aplika o gradient i sombra na header (`bg-linear-to-r from-sky-700 to-sky-800 shadow-md`) i o padran di karta (`bg-white p-6 shadow-sm`) na tudu trez seksan: **kuartus**, **aktividadis** i **kontaktu**. Abri na browser i konfirma ki seksan parsi kards ki ta flutua." }
+  hint: { kea: "O padran di karta é sempri o mésmu: `bg-white p-6 shadow-sm`. Aplika-l igual na kada `<section>`." }
+  starterCode: |
+    <header class="sticky top-0 z-10 bg-sky-700 text-white px-6 py-4">
+      Resort Brava
+    </header>
+    <section id="kuartus" class="space-y-2">
+      <h3 class="text-sky-700 text-2xl font-semibold">Kuartus</h3>
+    </section>
+  solutionCode: |
+    <header class="sticky top-0 z-10 bg-linear-to-r from-sky-700 to-sky-800 text-white px-6 py-4 shadow-md">
+      Resort Brava
+    </header>
+    <section id="kuartus" class="space-y-2 bg-white p-6 shadow-sm">
+      <h3 class="text-sky-700 text-2xl font-semibold">Kuartus</h3>
+    </section>
+
+- slug: skoji-variant-di-header
+  language: html
+  kind: reflect
+  title: { kea: "Skoji o gradient di header" }
+  prompt: { kea: "Tenta os dos variantes di header li i skoji ki vizualmenti bu gosta más. Skrebe 1–2 frazi pa splika bu skolha." }
+  code: |
+    <!-- Variant A: dos kores -->
+    <header class="bg-linear-to-r from-sky-700 to-sky-800 ...">
+
+    <!-- Variant B: trez kores, diagonal -->
+    <header class="bg-linear-to-br from-sky-600 via-cyan-600 to-sky-800 ...">
+  notePlaceholder: { kea: "Skrebe li o ki bu skoji i pamodi…" }
+
+- slug: sombra-koloridu-no-boton
+  language: html
+  kind: code
+  title: { kea: "Adisiona un sombra koloridu no boton" }
+  prompt: { kea: "No boton di hero, adisiona `shadow-lg shadow-amber-500/40`. Djuntu ku `bg-amber-500`, o boton parsi ta brilha. Salva si bu gosta." }
+  hint: { kea: "`shadow-amber-500/40` é un sombra amber ku 40% di opasidadi — o `/40` é o modifikador di opasidadi di v4." }
+  starterCode: |
+    <a class="bg-amber-500 text-white px-4 py-2 font-semibold">Olha kuartus</a>
+  solutionCode: |
+    <a class="bg-amber-500 text-white px-4 py-2 font-semibold shadow-lg shadow-amber-500/40">Olha kuartus</a>

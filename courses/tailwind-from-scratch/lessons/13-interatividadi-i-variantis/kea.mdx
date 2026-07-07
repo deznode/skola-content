@@ -1,0 +1,289 @@
+---
+title: "Interatividadi i Variantis"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: interatividadi-i-variantis
+slug: "interatividadi-i-variantis"
+module: 3
+lesson: 13
+duration: "20 min"
+objectives:
+  - "Aplika varianti di stadu: `hover:`, `focus:`, `active:`, `disabled:`"
+  - "Uza `group`/`group-hover:` pa stilu di filhus ativadu pa pai"
+  - "Konxe pozisan di `!` na v4 — é **sufixu** (`flex!`), ka prefixu (`!flex`)"
+  - "Konxe variantis novu di v4: `not-*` (negasan), `**:` (aninhadu), `pointer-fine`/`pointer-coarse`"
+  - "Aplika hover, focus, transition a Resort Brava — primeru lojika viva"
+---
+
+# Interatividadi i Variantis
+
+Resort Brava parsi un página real, ma é **antigu**. Vizitanti ta pasa rato riba di un boton — nada akontesi. Klika — nada di feedback vizual. Es lisan ta da kel **komportamentu vivu**: hover, focus, active, transisan suavi.
+
+Tailwind ka ten "stilu di hover" kumo propriedadi separadu. En bez, é un **varianti** (prefixu) ki bo poi antes di kualker utilidadi.
+
+<SectionHeading variant="concept" seq={1}>Variantis di Stadu — Sintaxi Konstanti</SectionHeading>
+
+Sintaxi: `{varianti}:{utilidadi}`.
+
+```html
+<button class="bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white px-4 py-2">
+  Klika
+</button>
+```
+
+- **Default:** `bg-sky-600` — kor normal
+- **`hover:bg-sky-700`** — kuandu rato ta passa riba, fika más sukuru
+- **`active:bg-sky-800`** — kuandu boton é klikadu (apertadu), inda más sukuru
+
+Kombinasan:
+
+```html
+<input class="border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 focus:outline-none">
+```
+
+| Varianti | Ativadu kuandu |
+|---|---|
+| `hover:` | Rato pasa riba (ka funsiona na touch) |
+| `focus:` | Elementu ki resebe foku (klika ku tab) |
+| `focus-visible:` | Foku só kuandu ben di tekla (acessibilidadi) |
+| `active:` | Boton é apertadu (mouse down) |
+| `disabled:` | Si elementu ten atributu `disabled` |
+| `visited:` | Pa links já vizitadu |
+| `checked:` | Checkbox/radio ki sta marka |
+
+Un manera bon di fixa es mapa é testa bo mesmu: pa kada varianti, lembra **kuandu** ki el ta ativa antis di vira o karta.
+
+<Flashcard
+  title="Varianti ↔ kuandu el ta ativa"
+  deckId="tailwind-state-variants"
+  cards={[
+    { term: "hover:", def: "O rato ta pasa riba di elementu (ka funsiona na tela touch)." },
+    { term: "focus:", def: "O elementu ta resebe foku, tipu kuandu bu navega te el ku a tekla tab." },
+    { term: "active:", def: "O elementu sta apertadu kel momentu (mouse down)." },
+    { term: "disabled:", def: "O elementu ten o atributu disabled i sta desativadu." },
+    { term: "group-hover:", def: "O pai markadu ku group ta resebe hover, i o filhu ta muda." },
+    { term: "peer-invalid:", def: "O irmon markadu ku peer sta invalidu, tipu un email eradu." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>`group` — Pai Ativa Estilu di Filhu</SectionHeading>
+
+Kaza komum: bo ten un karta, i kre **textu dentu** muda kuandu rato pasa riba di karta inteira.
+
+```html
+<a href="..." class="group block p-6 bg-white shadow-sm rounded-lg hover:shadow-lg">
+  <h3 class="text-slate-900 group-hover:text-sky-600">Karta</h3>
+  <p class="text-slate-600 group-hover:text-slate-800">Konteúdu</p>
+</a>
+```
+
+**Pasus:**
+1. Pai ten `group` (markadu kumo grupu)
+2. Filhu ten `group-hover:{utilidadi}` — aplika kuandu **pai** ten hover
+
+Resultadu: passa rato na kualker lugar di karta — textu dentu responde.
+
+Tambén ten `group-focus:`, `group-active:`, `group-disabled:`.
+
+<SectionHeading variant="concept" seq={3}>`peer` — Irmon</SectionHeading>
+
+Similar a group, ma pa elementu **irmon seguinti**:
+
+```html
+<input type="email" class="peer ...">
+<p class="hidden peer-invalid:block text-red-500">Email ka é válidu</p>
+```
+
+Kuandu input ten stadu `:invalid`, parágrafu apareci. Otimu pa form errors.
+
+<SectionHeading variant="concept" seq={4}>Pseudo-Classes Posisionais</SectionHeading>
+
+```html
+<ul>
+  <li class="first:font-bold last:text-slate-400 odd:bg-slate-50 even:bg-white">...</li>
+</ul>
+```
+
+- **`first:`** — primeru filhu
+- **`last:`** — último filhu
+- **`odd:`** / **`even:`** — alternansa (zebra-stripes na tabelas)
+- **`only:`** — só filhu (kuandu ten 1)
+- **`empty:`** — elementu sen konteúdu
+
+<SectionHeading variant="concept" seq={5}>Cursor, Seleksan i Scroll</SectionHeading>
+
+Alén di stadu, ten utilidadis ki ta kontrola kumo o utilizador ta interaji ku a página: forma di kursor, seleksan di textu, i o kumportamentu di scroll.
+
+### Cursors — `cursor-*`
+
+```html
+<a class="cursor-pointer">Default pa link</a>
+<div class="cursor-wait">Loadendo...</div>
+<button class="cursor-not-allowed" disabled>Ka pode klika</button>
+<img src="foto.jpg" class="cursor-zoom-in">  <!-- Klika pa amplia -->
+<div class="cursor-grab">Ta poderá pega</div>
+<div class="cursor-grabbing">Ta pega</div>
+```
+
+### Seleksan di Textu — `select-*`
+
+```html
+<div class="select-none">Textu ka pode ser selesionadu</div>
+<div class="select-all">Klika ↛ seleciona tudu</div>
+<div class="select-text">Default — selesiona pesa pa pesa</div>
+```
+
+`select-none` é poderozu pa botan i ikon (evita un seleksan sen kere no duplu-click).
+
+### Scroll Suavi — `scroll-smooth`
+
+Si bo ten links `#anchor` na página, default é salta imediatu pa el (ke parsi flicker). Poi na `<html>`:
+
+```html
+<html class="scroll-smooth">
+  ...
+  <a href="#kontaktu">Va pa kontaktu</a>
+  <section id="kontaktu">...</section>
+</html>
+```
+
+Klika no link gosi ta scroll suavi.
+
+<SectionHeading variant="concept" seq={6}>`!` é Sufixu na v4 (Ka Prefixu)</SectionHeading>
+
+![Mudansa di `!important`: v3 prefixu (`!flex`) vs v4 sufixu (`flex!`)](../../infographics/07-important-suffix.jpg)
+
+<MisconceptionConfront
+  belief="Na Tailwind v4, `!flex` (ku o `!` na frenti) inda ta marka un utilidadi kumo `!important`."
+  myth="O `!` ta ben sempri na frenti di klasi, sima na v3 i sima na CSS normal."
+  real="Na v4 o `!` pasa pa **fin** di klasi: `flex!`, ka `!flex`. O `!` na frenti dja ka ta funsiona."
+  proof={[
+    '<!-- v3 (ka ta funsiona na v4) -->',
+    '<div class="!flex">flex importante</div>',
+    '<!-- v4 (korretu) -->',
+    '<div class="flex!">flex importante</div>',
+  ]}
+  takeaway="O `!` ta ben na fin. Es muda permiti `flex!` ser le kumo 'flex, importanti', ki é más natural."
+/>
+
+:::callout{type=tip}
+Nunka uza `!important` kumo ferramenta padran. É mais sinal di problema na estrutura di klasi ki solusan verdaderu. Reservu pa kazus raru (ex: substitui un library di terseru parti ki ka pode kontrola).
+:::
+
+<SectionHeading variant="concept" seq={7}>Variantis Novu na v4</SectionHeading>
+
+### `not-*` — Negasan
+
+```html
+<input class="not-disabled:hover:bg-sky-100">
+<!-- Hover só funsiona si input NÃO ta disabled -->
+```
+
+Kombina kualker varianti ku `not-`.
+
+### `**:` — Aninhadu (Ka Só Diretu Filhu)
+
+```html
+<article class="**:rounded-lg">
+  <!-- Tudu elementu aninhadu (a kualker profundidadi) ganha rounded-lg -->
+  <img>
+  <section>
+    <img>  <!-- es tambén -->
+  </section>
+</article>
+```
+
+`**:` é alternativa poderozu a `*:` (só filhus diretu).
+
+### `pointer-fine:` / `pointer-coarse:`
+
+```html
+<button class="px-4 py-2 pointer-fine:hover:bg-sky-700 pointer-coarse:active:bg-sky-700">
+  Botaun
+</button>
+```
+
+- `pointer-fine:` — só aplika ku rato/trackpad (ka touch)
+- `pointer-coarse:` — só aplika ku tela touch
+
+Otimu pa interfaces ki funsiona midjor en mobile vs desktop.
+
+### `inert:` — Pa Elementus ku `[inert]` Atributu
+
+```html
+<form class="inert:opacity-50">
+  <input>  <!-- visualmenti desativadu kuandu form ten [inert] -->
+</form>
+```
+
+<SectionHeading variant="concept" seq={8}>Transisan — Movimentu Suavi</SectionHeading>
+
+Hover sen transisan ta muda imediatu. Adisiona transisan:
+
+```html
+<button class="bg-sky-600 hover:bg-sky-700 transition duration-200">
+  Klika
+</button>
+```
+
+- **`transition`** — anima tudu propriedadi suportadu
+- **`transition-colors`** — só kores
+- **`duration-200`** — 200ms (default é 150ms)
+
+(Más detalhi na Lisan 19.)
+
+<SectionHeading variant="install">Aplika Interatividadi a Resort Brava</SectionHeading>
+
+### Antis (di Lisan 12)
+
+```html
+<html lang="kea">
+<a class="text-sky-100 mr-4 text-sm uppercase tracking-wide">Kuartus</a>
+<a class="bg-amber-500 text-white px-4 py-2 font-semibold shadow-md rounded-md">Olha kuartus</a>
+<section class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100">
+```
+
+### Dipos
+
+O `<a>` di hero é o elementu ki ta karga mais variantis. Le linha-pa-linha pa odja kada mudansa:
+
+<AnnotatedCode
+  lang="html"
+  filename="m2-resort-brava/index.html"
+  title="Kada mudansa di interatividadi, linha-pa-linha"
+  code={[
+    { t: '<html lang="kea" class="scroll-smooth">', m: 1 },
+    { t: '<a class="text-sky-100 mr-4 text-sm uppercase tracking-wide hover:text-white hover:underline underline-offset-4 transition-colors">Kuartus</a>', m: 2 },
+    { t: '<a class="bg-amber-500 text-white px-4 py-2 font-semibold shadow-md rounded-md hover:bg-amber-600 focus:ring-2 focus:ring-amber-300 focus:outline-none active:bg-amber-700 transition-colors">Olha kuartus</a>', m: 3 },
+    { t: '<section class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100 hover:shadow-md transition-shadow">', m: 4 },
+  ]}
+  notes={[
+    { m: 1, title: "scroll-smooth", body: "`scroll-smooth` na `<html>` — links `#kuartus` i otus ta skrolla suavi en bez di salta imediatu." },
+    { m: 2, title: "Nav links", body: "`hover:text-white hover:underline underline-offset-4 transition-colors` — o link responde a rato ku kor i sublinhadu." },
+    { m: 3, title: "Boton di hero", body: "Stadu di `hover:`, `focus:` i `active:`, ku un `ring` di foku pa akssesibilidadi." },
+    { m: 4, title: "Cards", body: "`hover:shadow-md transition-shadow` — o kard ta levanta-se kuandu rato pasa riba." },
+  ]}
+/>
+
+Abri na browser, passa rato. Sentidu di vida.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Variantis">prefixu di stadu — `hover:`, `focus:`, `active:`, `disabled:`, `visited:`, `checked:` — ki bo poi antes di kualker utilidadi.</RezumuItem>
+  <RezumuItem term="`group`">pai markadu ku `group` + `group-hover:` na filhu = pai ativa estilu di filhu.</RezumuItem>
+  <RezumuItem term="`peer`">irmon seguinti ativa estilu — `peer` + `peer-invalid:` é otimu pa erros di form.</RezumuItem>
+  <RezumuItem term="Pseudo-posisional">`first:`, `last:`, `odd:`, `even:` pa filhus pa pozisan.</RezumuItem>
+  <RezumuItem variant="warning" term="`!` é sufixu na v4">`flex!`, ka `!flex` — o `!` na frenti dja ka ta funsiona.</RezumuItem>
+  <RezumuItem term="Variantis novu v4">`not-*` (negasan), `**:` (aninhadu), `pointer-fine`/`pointer-coarse`, `inert:`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`transition` ta da hover un mudansa suavi — sen el, mudansa é imediatu i seku.</RezumuItem>
+</KeyTakeaways>

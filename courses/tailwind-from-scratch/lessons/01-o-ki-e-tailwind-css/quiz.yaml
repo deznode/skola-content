@@ -1,0 +1,29 @@
+- question:
+    kea: "Kada klasi di utilidadi na Tailwind ta kontrola kantu propriedadi di CSS?"
+  options:
+    - text: { kea: "Un só propriedadi" }
+      correct: true
+      explain: { kea: "Kel é o prinsípiu di utility-first: `text-center`, `bg-blue-500`, `p-4` — kada un ta faze un só kuza." }
+    - text: { kea: "Tudu propriedadis di un komponenti (kor, spacing, fonti) di un bez" }
+      correct: false
+      explain: { kea: "Kel é kuma Bootstrap ta funsiona (component-first), ka Tailwind." }
+
+- question:
+    kea: "Pamodi ki utility-first ta redusi 'CSS naming fatigue' kompara ku CSS tradisional?"
+  options:
+    - text: { kea: "Pamodi utilidadis dja ten nomis klaru — bu ka meste inventa nomi di klasi pa kada komponenti" }
+      correct: true
+      explain: { kea: "Sen Tailwind, bu ta pensa `.btn-primariu`, `.alert-body`… Ku Tailwind, bu ta uza nomis ki dja izisti (`bg-blue-500`, `p-4`)." }
+    - text: { kea: "Pamodi Tailwind ta jera nomis di klasi otomatikamenti pa bu" }
+      correct: false
+      explain: { kea: "Tailwind ka ta jera nenhun nomi — utilidadis dja ten nomis fixu na framework." }
+
+- question:
+    kea: "Un ekipa kre lansa un MVP rápidu sen txeu personalizasan vizual, i tudu mundu na ekipa dja konxe Bootstrap. Kal framework é más apropriadu?"
+  options:
+    - text: { kea: "Bootstrap — konponentes prontu ta djuda lansa mas rápidu kuandu personalizasan ka é prioridadi" }
+      correct: true
+      explain: { kea: "Bootstrap ta gana kuandu velosidadi > identidadi vizual própriu — kel é o trade-off diskutidu na lisan." }
+    - text: { kea: "Tailwind — sénpri é a skolha midjor" }
+      correct: false
+      explain: { kea: "Lisan ta splika ki 'nenhun é midjor' — depende di kontestu. Pa un MVP rápidu sen personalizasan, Bootstrap pode ser sufisienti." }

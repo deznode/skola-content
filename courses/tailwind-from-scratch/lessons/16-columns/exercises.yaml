@@ -1,0 +1,65 @@
+- slug: konstrui-galeria-columns-xs
+  language: html
+  kind: code
+  title: { kea: "Konstrui un galeria ku `columns-xs`" }
+  prompt: { kea: "Kria un fixeru novu `m3-galeria-brava.html` ku o Play CDN (`@tailwindcss/browser@4`). Dentu di un `<main class=\"container mx-auto p-6\">`, poi un `<div class=\"columns-xs gap-4\">` ku 8 imajens (uza `https://picsum.photos/400/600?random=N`). Risiza janela i odja kuantas kolunas ta forma." }
+  hint: { kea: "`columns-xs` ta da un largura mínimu di 20rem — o browser ta disidi kuantas kolunas kabe, sen bo skrebe prefixu responsivu." }
+  starterCode: |
+    <!doctype html>
+    <html lang="kea">
+      <head>
+        <meta charset="UTF-8" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      </head>
+      <body>
+        <main class="container mx-auto p-6">
+          <!-- TODO: poi o <div class="columns-xs gap-4"> ku 8 imajens li -->
+        </main>
+      </body>
+    </html>
+  solutionCode: |
+    <main class="container mx-auto p-6">
+      <div class="columns-xs gap-4">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=1">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=2">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=3">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=4">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=5">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=6">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=7">
+        <img class="w-full mb-4" src="https://picsum.photos/400/600?random=8">
+      </div>
+    </main>
+
+- slug: forsa-razon-ku-aspect
+  language: html
+  kind: code
+  title: { kea: "Forsa un razon ku `aspect-*`" }
+  prompt: { kea: "Na bu galeria, adisiona `aspect-square` a tudu imajens i konfirma ki tudu fika 1:1 (kuadradu). Dipos muda pa `aspect-video` (16:9) i odja kumo galeria muda di aspetu." }
+  hint: { kea: "`aspect-*` ta bai na kada `<img>`, djuntu ku `w-full` — asin a imajen ta inche a largura di koluna i o razon ta forsa a altura." }
+  starterCode: |
+    <img class="w-full mb-4" src="https://picsum.photos/400/600?random=1">
+  solutionCode: |
+    <!-- 1:1 kuadradu -->
+    <img class="w-full aspect-square mb-4" src="https://picsum.photos/400/600?random=1">
+    <!-- dipos, troka pa 16:9 -->
+    <img class="w-full aspect-video mb-4" src="https://picsum.photos/400/600?random=1">
+
+- slug: splika-break-inside-avoid
+  language: html
+  kind: reflect
+  title: { kea: "Splika `break-inside-avoid` ku bu palavras" }
+  prompt: { kea: "Adisiona un karta unitáriu dentu di un `columns-3` (foto + títulu). Uza `break-inside-avoid` na karta. Dipos splika: pamodi ki `columns` pode kebra un karta na meiu, i kumo `break-inside-avoid` ta rezolvi-l? Kuandu ki bo ta meste-l?" }
+  code: |
+    <div class="columns-3 gap-4">
+      <div class="break-inside-avoid bg-white p-4 mb-4 rounded-lg shadow-sm">
+        <img class="w-full" src="https://picsum.photos/400/300?random=1">
+        <h3 class="mt-2 font-bold">Karta unitáriu</h3>
+      </div>
+    </div>
+  modelPoints:
+    kea:
+      - "`columns` ta trata konteúdu sima un fluxu — un karta pode kebra entri dos kolunas."
+      - "`break-inside-avoid` ta forsa o bloku fika interu nun só koluna."
+      - "É importanti pa kards o kualker bloku ki ka pode kebra na meiu."
+  notePlaceholder: { kea: "Skrebe li o ki bo repara…" }

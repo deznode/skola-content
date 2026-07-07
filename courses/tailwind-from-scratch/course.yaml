@@ -1,0 +1,94 @@
+slug: tailwind-from-scratch
+title: "Fundamentus di Tailwind CSS v4"
+level: beginner
+category: programming
+duration_minutes: 525
+instructor: Joaquim Costa
+# Draft course — kept out of production until ready. Excluded from default
+# `pnpm gen:catalog` discovery and from the catalog-drift-guard hook, so it
+# never reaches db/migration / prod. Generate locally with:
+#   pnpm gen:catalog --course=tailwind-from-scratch --out=apps/api/src/main/resources/db/seed/dev
+# NOTE: not durable across `/skola:pipeline-publish` — write_course_yaml
+# regenerates this file from content.json and drops test_only; re-add after any republish.
+# Reason: microlearn not yet published, code/m3-resort-brava still pending authoring.
+test_only: true
+translations:
+  kea:
+    title: "Fundamentus di Tailwind CSS v4"
+    description: Aprendi Tailwind CSS v4 di zero. Kel kursu ta ensiná-bu utility-first CSS, novidadis di v4 (Oxide engine, `@theme`, CSS-first config), i kumo konstrui interfaci responsivu — kulminandu na un pájina di turizmu real pa Resort Brava, na Kabu Verdi.
+    prerequisites: Konhesimentu básiku di HTML i CSS
+    outcomes: |
+      Skrebe stilu ku utility classes di Tailwind CSS v4
+      Konfigura tema ku `@theme` (kores, fontis, breakpoints) diretu na CSS
+      Konstrui layout responsivu ku Flexbox, Grid i Container Queries
+      Adisiona interatividadi ku variantis (`hover:`, `focus:`, `dark:`) i animasoens
+      Prepara projetu pa produsan ku Vite, i konxe alternativas (Webpack, PostCSS)
+modules:
+  - slug: komesa-ku-tailwind-v4
+    title:
+      kea: "Komesa ku Tailwind v4"
+    lessons:
+      - slug: o-ki-e-tailwind-css
+        languages: [kea]
+      - slug: anbienti-di-dezenvolvimentu
+        languages: [kea]
+      - slug: primeru-sandbox-ku-play-cdn
+        languages: [kea]
+  - slug: stilu-i-vizual
+    title:
+      kea: "Stilu i Vizual"
+    lessons:
+      - slug: utility-first-na-pratika
+        languages: [kea]
+      - slug: kores-ku-modifikador-slash
+        languages: [kea]
+      - slug: container-i-spacing
+        languages: [kea]
+      - slug: tipografia
+        languages: [kea]
+      - slug: tamanho
+        languages: [kea]
+      - slug: layout-i-position
+        languages: [kea]
+      - slug: fundus-gradientes-sombras
+        languages: [kea]
+      - slug: borduras-i-rais
+        languages: [kea]
+      - slug: filtros-i-maskaras
+        languages: [kea]
+  - slug: layout-i-movimentu
+    title:
+      kea: "Layout i Movimentu"
+    lessons:
+      - slug: interatividadi-i-variantis
+        languages: [kea]
+      - slug: disenhu-responsivu
+        languages: [kea]
+      - slug: container-queries
+        languages: [kea]
+      - slug: columns
+        languages: [kea]
+      - slug: flexbox
+        languages: [kea]
+      - slug: grid
+        languages: [kea]
+      - slug: transisan-i-transformasan-3d
+        languages: [kea]
+      - slug: animasan
+        languages: [kea]
+      - slug: theme-kores-fontes-breakpoints
+        languages: [kea]
+      - slug: modu-sukuru
+        languages: [kea]
+  - slug: anbienti-di-produsaun
+    title:
+      kea: "Anbienti di Produsan"
+    lessons:
+      - slug: tailwind-cli-v4
+        languages: [kea]
+      - slug: theme-di-profundidade
+        languages: [kea]
+      - slug: direktivas-i-funsan-v4
+        languages: [kea]
+      - slug: vite-webpack-postcss
+        languages: [kea]

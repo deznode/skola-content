@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal klasi di `tracking` é klásiku pa títulus grandi?"
+  options:
+    - text: { kea: "`tracking-tight`" }
+      correct: true
+      explain: { kea: "Sertu — `tracking-tight` é padran pa títulus grandi. Textu na tamanhu grandi ta parsi spasozu di + sen, i el ta poi letras más djuntu." }
+    - text: { kea: "`tracking-widest`" }
+      correct: false
+      explain: { kea: "`tracking-widest` (0.1em) ta bin más pa etiketas ku `uppercase` — ka pa títulus grandi." }
+
+- question:
+    kea: "Na Tailwind v4, unde bo ta konfigura un fonti personalizadu?"
+  options:
+    - text: { kea: "Num blok `@theme` na CSS" }
+      correct: true
+      explain: { kea: "Sertu — v4 ta uza `@theme` direta na CSS: **konfigurasan é CSS, ka JavaScript**." }
+    - text: { kea: "Na `tailwind.config.js`, kumo v3" }
+      correct: false
+      explain: { kea: "Kel era manera di v3. Na v4, un token sima `--font-display` ta bai na `@theme {}` na CSS." }
+
+- question:
+    kea: "`text-shadow-*` kumo utilidadi nativu ben na kal versan?"
+  options:
+    - text: { kea: "v4.1" }
+      correct: true
+      explain: { kea: "Sertu. Antis, sombra di textu so era pusível ku CSS arbitráriu; v4.1 traze el kumo klasi direitu." }
+    - text: { kea: "v3" }
+      correct: false
+      explain: { kea: "Na v3 bo ta meste CSS arbitráriu pa sombra di textu — v4.1 é ki traze el kumo utilidadi nativu." }

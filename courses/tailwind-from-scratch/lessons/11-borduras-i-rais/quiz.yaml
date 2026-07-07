@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, kal é o kor default di un bordura kuandu bo poi `border` sen spesifika kor?"
+  options:
+    - text: { kea: "`currentColor` — o kor di textu di elementu" }
+      correct: true
+      explain: { kea: "Es é a mudansa más grandi di v4. Na v3 era `gray-200` otomatikamenti; na v4 bo meste spesifika o kor ku `border-{kor}`." }
+    - text: { kea: "`gray-200` — un sinzentu klaru otomatikamenti" }
+      correct: false
+      explain: { kea: "Kel era o komportamentu di v3. Na v4 o default mudou pa `currentColor` — pa isu bo meste sempri spesifika o kor." }
+
+- question:
+    kea: "Na Tailwind v4, kal klasi di rais **ka izisti** más?"
+  options:
+    - text: { kea: "`rounded` sen sufixu — tudu rais ten ki ten un sufixu (`rounded-sm`, `rounded-md`…)" }
+      correct: true
+      explain: { kea: "Na v4, `rounded` sozinhu foi tiradu. `rounded-sm` (4px) ta substitui o antigu `rounded` di v3." }
+    - text: { kea: "`rounded-full`" }
+      correct: false
+      explain: { kea: "`rounded-full` inda izisti — el ta da un sirkulu si o elementu é kuadradu." }
+
+- question:
+    kea: "Kal é a diferensa prinsipal entri `outline` i `border` no layout?"
+  options:
+    - text: { kea: "`outline` ka ta okupa spasu no layout; `border` ta okupa" }
+      correct: true
+      explain: { kea: "Pa isu `outline` é otimu pa stadios di foku (`:focus`) — el ta fika riba sen okupa spasu." }
+    - text: { kea: "Es dos ta okupa mesmu spasu; só o kor ta muda" }
+      correct: false
+      explain: { kea: "Nau — `border` ta afeta o tamanho di kaixa, ma `outline` ta fika riba sen afeta o layout." }

@@ -1,0 +1,29 @@
+- question:
+    kea: "Na Tailwind v4, bu pode skrebe só `shadow` o só `rounded` sen sufiksu?"
+  options:
+    - text: { kea: "Nau — na v4 kada utilidadi ten ki ser explisitu: `shadow-sm`, `shadow-md`, `rounded-lg`, etc." }
+      correct: true
+      explain: { kea: "Na v3, `shadow` o `rounded` solu ta funsiona ku un default invizivel. Na v4 ka ten más default — bu ten ki skodje o sufiksu di tamanho." }
+    - text: { kea: "Sin — `shadow` i `rounded` ta funsiona igual na tudu versan" }
+      correct: false
+      explain: { kea: "Kel era o kaminhu di v3. Na v4, `shadow` o `rounded` sen sufiksu ka ta da o rezultadu ki bu spera." }
+
+- question:
+    kea: "Kal é un vantajen di konverti o komponenti pa klasis di utilidadi?"
+  options:
+    - text: { kea: "Ka meste inventa nomis di klasi, i bu ta itera diretu na HTML — tipu, salva, odja" }
+      correct: true
+      explain: { kea: "Sen `<style>` blok i sen liga HTML ku CSS a mon: kada mudansa é un troka di klasi na mesmu fixeru." }
+    - text: { kea: "O browser ta jera o CSS automatikamenti pa kada nomi di klasi ki bu inventa" }
+      correct: false
+      explain: { kea: "Tailwind ka ta jera nomis — as utilidadi dja ten nomis fixu. Kel é o kontráriu di inventa klasis." }
+
+- question:
+    kea: "Kumo ki o projetu Resort Brava ta inkomesa na Módulu 2?"
+  options:
+    - text: { kea: "Un dokumentu HTML konpletu sen stilu, ki ta ganha un kamada di stilu kada lisan" }
+      correct: true
+      explain: { kea: "Bu ta kola a estrutura inisial (só HTML) i kada lisan di Módulu 2 i 3 ta adisiona stilu, te página fika profisional." }
+    - text: { kea: "Un página ku stilu kompletu ki bu ta simplifika lisan a lisan" }
+      correct: false
+      explain: { kea: "É o kontráriu: ta inkomesa sen stilu (HTML puru) i ta ganha un kamada di stilu kada lisan." }

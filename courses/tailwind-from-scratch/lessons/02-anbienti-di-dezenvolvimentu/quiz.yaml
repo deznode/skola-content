@@ -1,0 +1,29 @@
+- question:
+    kea: "Kal é o versan mínimu di Node.js ki Tailwind v4 ta presiza?"
+  options:
+    - text: { kea: "Node 20 o más novu — o motor Oxide ta presiza-l" }
+      correct: true
+      explain: { kea: "Tailwind v4 ta korre riba di Oxide, o motor novu na Rust, ki ta presiza **Node 20+**. Versons 16 o 18 é antigu dimás." }
+    - text: { kea: "Node 16 — kualker versan ta funsiona" }
+      correct: false
+      explain: { kea: "Node 16/18 é antigu dimás pa v4. Si bu ten un, atualiza pa Node 20 o más novu." }
+
+- question:
+    kea: "Kuze ki **Live Server** ta da-u kuandu bu salva un fixeru?"
+  options:
+    - text: { kea: "Rekarregamentu otomátiku (hot reload) — o browser ta atualiza sen bu klika `F5`" }
+      correct: true
+      explain: { kea: "Live Server ta korre bu HTML num servidor lokal i ta rekarrega o página kada bez ki bu salva. Nada di `refresh` a mon." }
+    - text: { kea: "Un servidor públiku pa poi bu site na internet" }
+      correct: false
+      explain: { kea: "Live Server é só lokal (`127.0.0.1:5500`), pa dezenvolvimentu. Pa poi un site na internet, nu ta uza deploy pa Netlify o Vercel." }
+
+- question:
+    kea: "Na Tailwind v4, unde ki konfigurasan (kor, tokens) ta vivi?"
+  options:
+    - text: { kea: "Na CSS, ku un blok `@theme` — ka ten `tailwind.config.js`" }
+      correct: true
+      explain: { kea: "v4 sumiu o `tailwind.config.js`: bu ta defini tokens diretu na CSS ku `@theme`. Nu ta odja isu na prósimu lisan." }
+    - text: { kea: "Nun fixeru `tailwind.config.js` skritu na JavaScript" }
+      correct: false
+      explain: { kea: "Kel era a manera di v3. Na v4, `tailwind.config.js` ka existi — konfigurasan é na CSS ku `@theme`." }

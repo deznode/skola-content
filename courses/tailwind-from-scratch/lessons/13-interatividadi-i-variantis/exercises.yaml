@@ -1,0 +1,43 @@
+- slug: aplika-interatividadi-resort-brava
+  language: html
+  kind: code
+  title: { kea: "Aplika interatividadi a Resort Brava" }
+  prompt: { kea: "Aplika tudu mudansas di interatividadi a `m2-resort-brava/index.html`. Konfirma na browser ki: links di nav muda di kor i ganha sublinhadu na hover; o boton muda di kor na hover/active i ten un `ring` di foku; o cards ganha sombra ku hover." }
+  hint: { kea: "Poi `scroll-smooth` na `<html>`, i na o `<a>` di hero djunta `hover:`, `focus:ring-2` i `active:` ku `transition-colors`." }
+  starterCode: |
+    <html lang="kea">
+      <a class="text-sky-100 mr-4 text-sm uppercase tracking-wide">Kuartus</a>
+      <a class="bg-amber-500 text-white px-4 py-2 font-semibold shadow-md rounded-md">Olha kuartus</a>
+      <section class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100">
+  solutionCode: |
+    <html lang="kea" class="scroll-smooth">
+      <a class="text-sky-100 mr-4 text-sm uppercase tracking-wide hover:text-white hover:underline underline-offset-4 transition-colors">Kuartus</a>
+      <a class="bg-amber-500 text-white px-4 py-2 font-semibold shadow-md rounded-md hover:bg-amber-600 focus:ring-2 focus:ring-amber-300 focus:outline-none active:bg-amber-700 transition-colors">Olha kuartus</a>
+      <section class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100 hover:shadow-md transition-shadow">
+
+- slug: form-kontaktu-ku-peer
+  language: html
+  kind: code
+  title: { kea: "Validasan viva ku `peer`" }
+  prompt: { kea: "Adisiona un kontaktu form pikinu no fin di seksan Kontaktu. Uza un `<input type=\"email\">` ku a klasi `peer`, i un `<p>` ku `peer-invalid:block` pa mostra un erru. Konfirma ki validasan apareci si bu skrebe `abc` sen `@`." }
+  hint: { kea: "O `<p>` di erru ta kumesa ku `hidden` i so ta apareseu ku `peer-invalid:block` kuandu o input markadu ku `peer` sta invalidu." }
+  starterCode: |
+    <form>
+      <!-- TODO: input ku peer + p ku peer-invalid -->
+    </form>
+  solutionCode: |
+    <form>
+      <input type="email" placeholder="bu@email.cv" class="peer border border-slate-300 focus:border-sky-500 focus:outline-none px-3 py-2 rounded-md">
+      <p class="hidden peer-invalid:block text-red-500 text-sm">Email inválidu</p>
+    </form>
+
+- slug: konverti-important-sufixu
+  language: html
+  kind: code
+  title: { kea: "Konverti pa o `!` sufixu di v4" }
+  prompt: { kea: "Konverti **un** klasi di boton pa uza o `!` sufixu di v4. Si bu ten `bg-amber-500` ki bu kre forsa, muda pa `bg-amber-500!`. Inspesiona ku DevTools i konfirma ki a klasi ten `!important`." }
+  hint: { kea: "Na v4 o `!` ta ben na **fin** di klasi (`bg-amber-500!`), ka na frenti (`!bg-amber-500`)." }
+  starterCode: |
+    <button class="bg-amber-500 text-white px-4 py-2 rounded-md">Olha kuartus</button>
+  solutionCode: |
+    <button class="bg-amber-500! text-white px-4 py-2 rounded-md">Olha kuartus</button>

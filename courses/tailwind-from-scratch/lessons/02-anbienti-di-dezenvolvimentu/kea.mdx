@@ -1,0 +1,260 @@
+---
+title: "Anbienti di Dezenvolvimentu"
+language: kea
+courseSlug: tailwind-from-scratch
+lessonSlug: anbienti-di-dezenvolvimentu
+slug: "anbienti-di-dezenvolvimentu"
+module: 1
+lesson: 2
+duration: "20 min"
+objectives:
+  - "Instala Node.js i Git na bu komputador"
+  - "Konfigura VS Code ku extensan nesesáriu pa Tailwind v4"
+  - "Splika pamodi Tailwind CSS IntelliSense ta konprende `@theme` na v4"
+  - "Liga un website HTML básiku ku Live Server pa odja mudansas en tempu real"
+---
+
+# Anbienti di Dezenvolvimentu
+
+Antis di skrebe un linha di Tailwind, nu meste prepara komputador. Bon notísia: anbienti é leve. Sen Docker, sen banku di dadus, sen konfigurasan konplikadu. So **tres ferramentas** i bu sta prontu pa kria.
+
+Na es lisan, bu ta instala tudu ki é presizu i odja bu primeru "Olá Mundu" ta atualiza na tempu real.
+
+<SectionHeading variant="install">O ki Nu Meste Instala</SectionHeading>
+
+Pa konstrui websites ku Tailwind v4, lista é kurtu:
+
+| Ferramenta | Pa kuze ki ta servi | Verifikasan |
+|------------|---------------------|-------------|
+| **Node.js** ≥ 20 | Ta korre Tailwind v4 (motor Oxide presiza Node 20+) | `node --version` |
+| **Git** | Versionamentu di kódiku i deploy pa GitHub/Netlify/Vercel | `git --version` |
+| **VS Code** | Editor di textu ku extensan pa Tailwind | Abri aplikativu |
+
+É tudu. Ka tene Java, ka tene Python, ka tene Docker. Só HTML, CSS i un poku di JavaScript.
+
+:::callout{type=tip}
+Si dja bu ten un Node.js instaladu ma é versan antigu (16, 18), atualiza pa **Node 20 o más novu**. Tailwind v4 ta presiza el — i ferramentas modernu di frontend gosi sta tudu na Node 20+.
+:::
+
+<SectionHeading variant="install">Instala as Ferramentas Base</SectionHeading>
+
+O download di kada ferramenta ta muda un poku di sistema pa sistema. Skoji bu tab i sigi só bu kaminhu:
+
+<PlatformTabs
+  tabs={[
+    {
+      label: "Windows",
+      icon: "windows",
+      content: [
+        { type: "steps", items: [
+          "**Node.js** — faze download di installer **LTS** `.exe` di [nodejs.org](https://nodejs.org) i kore-l (klika Next te kaba).",
+          "**Git** — faze download di [git-scm.com](https://git-scm.com); na installer, marka **\"Git Bash\"**.",
+          "**VS Code** — faze download di [code.visualstudio.com](https://code.visualstudio.com) i kore o installer.",
+        ] },
+        { type: "cmd", label: "PowerShell", lines: ["node --version", "npm --version", "git --version"], out: "v20.18.0   ·   10.8.2   ·   git version 2.45.0" },
+        { type: "callout", sev: "tip", t: "Si `node --version` ta mostra v16 o v18, atualiza pa **Node 20+** — Tailwind v4 ta presiza-l." },
+      ],
+    },
+    {
+      label: "macOS",
+      icon: "apple",
+      content: [
+        { type: "steps", items: [
+          "**Node.js** — faze download di `.pkg` **LTS** di [nodejs.org](https://nodejs.org) i kore-l.",
+          "**Git** — instala ku o installer di [git-scm.com](https://git-scm.com), o ku `xcode-select --install`.",
+          "**VS Code** — faze download di [code.visualstudio.com](https://code.visualstudio.com) i poi-l na pasta **Applications**.",
+        ] },
+        { type: "cmd", label: "Terminal", lines: ["node --version", "npm --version", "git --version"], out: "v20.18.0   ·   10.8.2   ·   git version 2.45.0" },
+        { type: "callout", sev: "tip", t: "Na macOS o terminal ta ben pronto — abri **Terminal.app** o o terminal di VS Code (`Cmd + ~`)." },
+      ],
+    },
+    {
+      label: "Linux",
+      icon: "linux",
+      content: [
+        { type: "steps", items: [
+          "**Node.js** — instala o **LTS** di [nodejs.org](https://nodejs.org) o ku `nvm` (rekomendadu pa jiri versons).",
+          "**Git** — `sudo apt install git` (Debian/Ubuntu) o o ekivalenti di bu sistema.",
+          "**VS Code** — instala o pakote `.deb` o `.rpm` di [code.visualstudio.com](https://code.visualstudio.com).",
+        ] },
+        { type: "cmd", label: "bash", lines: ["node --version", "npm --version", "git --version"], out: "v20.18.0   ·   10.8.2   ·   git version 2.45.0" },
+        { type: "callout", sev: "warning", t: "Evita o `apt install nodejs` di distribuisons antigu — el txeu bez ta poi un Node < 20. Uza o LTS ofisial o `nvm`." },
+      ],
+    },
+  ]}
+/>
+
+Si bu odja os númerus di versan na tres komandu, sukseso. **`npm`** (Node Package Manager) ta ben djuntu ku Node — nu ta uza el pa instala Tailwind nun prósimu modulu.
+
+:::callout{type=tip}
+Bu ka meste sabi Git pa segui es kursu — nu ka ta uza komandu di Git diretamenti. Ma el é instaladu pamodi alguns ferramentas (sima Vercel CLI) ta presiza di el.
+:::
+
+<SectionHeading variant="install">Extensan Essensial pa Tailwind v4</SectionHeading>
+
+Aki é unde mágika ta inkomesa. Es tres extensan ta trasforma VS Code num laboratóriu di Tailwind.
+
+### 1. Tailwind CSS IntelliSense
+
+Es é **fundamental**. Sen el, bu ta tipa nomis di klasi di kabesa. Ku el, VS Code ta autokonpleta klasis, mostra pré-vista di kor, i avisa kuandu bu ten un erru.
+
+**Kumo instala:**
+1. Na VS Code, klika ikoni di **Extensan** na lateral (o `Ctrl/Cmd + Shift + X`)
+2. Buska **"Tailwind CSS IntelliSense"** (autor: Tailwind Labs)
+3. Klika **Install**
+
+```html
+<!-- Bu ta tipa "bg-bl" i VS Code ta sujiri -->
+<div class="bg-bl|">
+       ↓ autokonpleta
+       bg-black
+       bg-blue-50
+       bg-blue-100
+       bg-blue-200
+       ...
+</div>
+```
+
+:::callout{type=tip}
+Extensan di Tailwind IntelliSense é **konsiente di v4** — el ta konprende `@theme` na bu CSS i ta sujiri tokens pursonalisadu ki bu defini. Si bu skrebe `@theme { --color-resort: #1e90ff; }`, extensan ta poi `bg-resort`, `text-resort` na lista di sujestan otomatikamenti.
+:::
+
+### 2. Live Server
+
+Live Server ta korre bu HTML num servidor lokal (`http://127.0.0.1:5500`) i ta **rekarrega página otomatikamenti** kuandu bu salva un fixeru. Sen el, bu ta presiza klika "refresh" tudu bez.
+
+**Kumo instala:**
+1. Buska **"Live Server"** na extensan (autor: Ritwick Dey)
+2. Klika **Install**
+
+**Kumo uza:**
+- Abri kualker fixeru `.html`
+- Klika boton **"Go Live"** na fundu di VS Code (kantu inferior direitu)
+- Browser ta abri otomatikamenti
+
+Salva fixeru — página ta atualiza sosinhu. Nada di `F5`.
+
+### 3. Prettier (Opsional ma Rekomendadu)
+
+Prettier ta formata bu kódiku otomatikamenti kuandu bu salva. Ta poi indentasan konsistenti i ta organiza klasis di Tailwind di un manera lójiku.
+
+**Kumo instala:**
+1. Buska **"Prettier - Code formatter"** (autor: Prettier)
+2. Klika **Install**
+
+**Konfigurasan ki nu rekomenda** (na `Settings → User → JSON`):
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2
+}
+```
+
+Ku `formatOnSave: true`, kada bez ki bu salva un fixeru, Prettier ta limpa el sosinhu.
+
+<SectionHeading variant="install">Testa Anbienti: "Olá Mundu" ku Live Server</SectionHeading>
+
+Nu ta konfirma ki tudu ta funsiona: bu ta kria un fixeru di teste i odja el ta atualiza na tempu real.
+
+### Pasu 1: Kria un Folder
+
+Na bu desktop o na unde bu gosta di guarda projetus, kria un folder novu:
+
+```bash
+mkdir tailwind-teste
+cd tailwind-teste
+```
+
+### Pasu 2: Abri ku VS Code
+
+```bash
+code .
+```
+
+O abri VS Code i seri **File → Open Folder** i skoji folder `tailwind-teste`.
+
+### Pasu 3: Kria `index.html`
+
+Na VS Code, kria un fixeru novu txamadu `index.html` i poi:
+
+```html
+<!doctype html>
+<html lang="kea">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anbienti di Teste</title>
+  </head>
+  <body>
+    <h1>Olá Kabu Verdi!</h1>
+    <p>Si bu sta odja es mensajen, anbienti sta a funsiona.</p>
+  </body>
+</html>
+```
+
+### Pasu 4: Inisia Live Server
+
+Klika **"Go Live"** na fundu di VS Code (kantu inferior direitu). Browser ta abri ku bu página.
+
+### Pasu 5: Tenta Hot Reload
+
+Sen fitxa browser, volta pa VS Code i muda mensajen:
+
+```html
+<h1>Olá Kabu Verdi! 🇨🇻</h1>
+```
+
+Salva fixeru (`Ctrl/Cmd + S`). **Sen klika nada na browser**, página ta atualiza otomatikamenti.
+
+Si bandera apareseu sen bu faze nada, **bu anbienti sta perfeitu**. Bu sta prontu pa Tailwind v4.
+
+<SectionHeading variant="concept" seq={1}>Pa Kuze ki Nu Ka Ta Uza Otus Ferramentas?</SectionHeading>
+
+Ten un razaun pa kada esklusaun:
+
+| Ferramenta | Pamodi nu **ka** ta uza el | Ki nu uza na lugar |
+|------------|---------------------------|---------------------|
+| `tailwind.config.js` | Ka existe na v4 — konfigurasan é na CSS ku `@theme` | `@theme {}` na bu CSS |
+| Webpack | Pisadu i konplikadu pa inisia | Vite (na Modulu 4) |
+| PostCSS standalone | Tailwind v4 ten Oxide engine — ka presiza | `@tailwindcss/vite` o CLI |
+| Autoprefixer | Ben inkluidu na Tailwind v4 | Otomátiku |
+| `postcss-import` | Ben inkluidu na Tailwind v4 | Otomátiku |
+
+Tailwind v4 sumiu un montaun di komplexidadi. Bu so meste Node, Git, VS Code i tres extensan. Nada más.
+
+<SectionHeading variant="concept" seq={2}>Anbienti pa Trabalhu Remotu na Kabu Verdi</SectionHeading>
+
+Na Kabu Verdi, internet pode ser instavel — na Praia, na Mindelo, o na kualker ilha. Bon notísia: anbienti ta funsiona offline dipos di instalasan:
+
+- **Live Server** ta korre lokal — sen internet, página ta inda atualiza
+- **VS Code i extensan** ten ki ser diskarregadu un bez, dipos ta funsiona offline
+- **Tailwind v4** (kuandu nu instala na Modulu 4) ta ben pa bu `node_modules/` — ta funsiona offline tanbé
+
+Únika kuza ki ta presiza di internet é:
+- Download di Node.js, Git, VS Code i extensan (un bez)
+- Konsulta dokumentasan di Tailwind ([tailwindcss.com/docs](https://tailwindcss.com/docs))
+- Deploy pa Netlify / Vercel (no fin di un projetu)
+
+Resto é tudu lokal — bon notísia si bu sta num lugar ku internet más lentu.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem variant="gold" term="Anbienti leve">Node.js ≥ 20, Git i VS Code — sen Docker, sen banku di dadus, sen konfigurasan konplikadu.</RezumuItem>
+  <RezumuItem term="Tres extensan">Tailwind CSS IntelliSense, Live Server i Prettier.</RezumuItem>
+  <RezumuItem term="IntelliSense é v4">el ta konprende `@theme` i ta sujiri os tokens pursonalisadu ki bu defini.</RezumuItem>
+  <RezumuItem term="Live Server">hot reload — salva un fixeru i página ta atualiza sosinhu, sen `F5`.</RezumuItem>
+  <RezumuItem term="v4 sen config">ka ten `tailwind.config.js`, ka presiza Webpack o PostCSS sozinhu, ka presiza autoprefixer — tudu ben inkluidu.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Tudu ta funsiona offline dipos di instalasan — bon pa kontextu di internet instavel.</RezumuItem>
+</KeyTakeaways>
