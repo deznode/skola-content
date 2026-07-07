@@ -24,16 +24,47 @@
 // throws a false positive on content Velite compiles just fine.
 import { compile } from "@mdx-js/mdx";
 import remarkDirective from "remark-directive";
-import { readFile } from "node:fs/promises";
-import { glob } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import path from "node:path";
 
 function stripFrontmatter(content) {
   return content.replace(/^---\n[\s\S]*?\n---\n?/, "");
 }
 
+// Portable recursive walk for lesson MDX under courses/<slug>/lessons/<NN-slug>/*.mdx.
+// Avoids fs.promises.glob (Node 22+ only) so this runs on the Node 20 CI pins elsewhere.
+async function* findLessonMdx(root) {
+  let coursesEntries;
+  try {
+    coursesEntries = await readdir(path.join(root, "courses"), { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const course of coursesEntries) {
+    if (!course.isDirectory()) continue;
+    const lessonsDir = path.join(root, "courses", course.name, "lessons");
+    let lessonDirs;
+    try {
+      lessonDirs = await readdir(lessonsDir, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+    for (const lesson of lessonDirs) {
+      if (!lesson.isDirectory()) continue;
+      const lessonPath = path.join(lessonsDir, lesson.name);
+      const files = await readdir(lessonPath, { withFileTypes: true });
+      for (const file of files) {
+        if (file.isFile() && file.name.endsWith(".mdx")) {
+          yield path.join(lessonPath, file.name);
+        }
+      }
+    }
+  }
+}
+
 let failures = 0;
 
-for await (const file of glob("courses/*/lessons/*/*.mdx")) {
+for await (const file of findLessonMdx(process.cwd())) {
   const raw = await readFile(file, "utf8");
   const body = stripFrontmatter(raw);
   try {
