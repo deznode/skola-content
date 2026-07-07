@@ -4,14 +4,6 @@ level: beginner
 category: programming
 duration_minutes: 525
 instructor: Joaquim Costa
-# Draft course — kept out of production until ready. Excluded from default
-# `pnpm gen:catalog` discovery and from the catalog-drift-guard hook, so it
-# never reaches db/migration / prod. Generate locally with:
-#   pnpm gen:catalog --course=tailwind-from-scratch --out=apps/api/src/main/resources/db/seed/dev
-# NOTE: not durable across `/skola:pipeline-publish` — write_course_yaml
-# regenerates this file from content.json and drops test_only; re-add after any republish.
-# Reason: microlearn not yet published, code/m3-resort-brava still pending authoring.
-test_only: true
 translations:
   kea:
     title: "Fundamentus di Tailwind CSS v4"

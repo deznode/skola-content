@@ -8,6 +8,11 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-07-07] — hand-edit
+
+### Changed
+- Removed `test_only: true` from `course.yaml`. User decision: it's fine to promote the course to production now — visibility will be gated via the admin portal instead of keeping the whole course out of the catalog. `code/m3-resort-brava` and the microlearn units remain outstanding and can be added in a follow-up publish without re-gating.
+
 ## [2026-07-07] — publish
 
 ### Added
