@@ -19,7 +19,7 @@
       explain: { kea: "Kel era v3, ku un mapa enorme di valoris separadu. V4 ta deriva tudu di un só token `--spacing`." }
 
 - question:
-    kea: "Bu ten tres `<section>` block un atras di otru i bu kre spasu igual entri es. Kal klasi é korretu?"
+    kea: "Bu ten tres `<section>` block un atras di otru i bu kre spasu igual entri es. Kual klasi é korretu?"
   options:
     - text: { kea: "`space-y-*` na o kontainer — el ta funsiona ku elementus block sen presiza flex" }
       correct: true

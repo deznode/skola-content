@@ -19,7 +19,7 @@
       explain: { kea: "Isu ta duplika tudu preflight i CSS na kada komponenti. `@reference` é a manera sertu — el ta importa só pa konsulta." }
 
 - question:
-    kea: "Kal é a diferensa entri `@utility` (v4) i o `@layer utilities` (v3)?"
+    kea: "Kual é a diferensa entri `@utility` (v4) i o `@layer utilities` (v3)?"
   options:
     - text: { kea: "`@utility` ta da suporti otomátiku pa tudu variantis (`hover:`, `md:`, `dark:`); `@layer utilities` nau" }
       correct: true

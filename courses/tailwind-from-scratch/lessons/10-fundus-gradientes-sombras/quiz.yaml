@@ -1,5 +1,5 @@
 - question:
-    kea: "Na Tailwind v4, kal é o prefiksu korretu pa un gradient linear pa direita?"
+    kea: "Na Tailwind v4, kual é o prefiksu korretu pa un gradient linear pa direita?"
   options:
     - text: { kea: "`bg-linear-to-r`" }
       correct: true

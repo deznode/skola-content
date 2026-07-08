@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é a diferensa entri `w-full` i `w-screen`?"
+    kea: "Kual é a diferensa entri `w-full` i `w-screen`?"
   options:
     - text: { kea: "`w-full` é 100% di kontainer pai; `w-screen` é 100vw di viewport i ta ignora pai" }
       correct: true

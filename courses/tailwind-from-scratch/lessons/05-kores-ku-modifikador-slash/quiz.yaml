@@ -1,5 +1,5 @@
 - question:
-    kea: "Bu kre un fundu azul ku só 50% di opasidadi na Tailwind v4. Kal é a manera sertu?"
+    kea: "Bu kre un fundu azul ku só 50% di opasidadi na Tailwind v4. Kual é a manera sertu?"
   options:
     - text: { kea: "`bg-blue-500/50` — o modifikador `/` ta da opasidadi na v4" }
       correct: true

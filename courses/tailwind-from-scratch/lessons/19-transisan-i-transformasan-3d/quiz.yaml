@@ -1,5 +1,5 @@
 - question:
-    kea: "Bu kre ki un kard ta krese na hover, ma **só** o scale ta anima — ka os kores. Kal klasi ta anima só transformasan?"
+    kea: "Bu kre ki un kard ta krese na hover, ma **só** o scale ta anima — ka os kores. Kual klasi ta anima só transformasan?"
   options:
     - text: { kea: "`transition-transform`" }
       correct: true

@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal klasi di `tracking` é klásiku pa títulus grandi?"
+    kea: "Kual klasi di `tracking` é klásiku pa títulus grandi?"
   options:
     - text: { kea: "`tracking-tight`" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Kel era manera di v3. Na v4, un token sima `--font-display` ta bai na `@theme {}` na CSS." }
 
 - question:
-    kea: "`text-shadow-*` kumo utilidadi nativu ben na kal versan?"
+    kea: "`text-shadow-*` kumo utilidadi nativu ben na kual versan?"
   options:
     - text: { kea: "v4.1" }
       correct: true

@@ -1,5 +1,5 @@
 - question:
-    kea: "Nun container `flex-row`, kal eixu ki `justify-*` ta kontrola?"
+    kea: "Nun container `flex-row`, kual eixu ki `justify-*` ta kontrola?"
   options:
     - text: { kea: "O eixu prinsipal — pozisan horizontal di filhus" }
       correct: true
@@ -9,7 +9,7 @@
       explain: { kea: "Kel é `items-*`. Pa `flex-row`, `justify-*` ta kontrola o eixu prinsipal (horizontal)." }
 
 - question:
-    kea: "Na Tailwind v4, kal é o nomi korretu pa o antigu `flex-grow`?"
+    kea: "Na Tailwind v4, kual é o nomi korretu pa o antigu `flex-grow`?"
   options:
     - text: { kea: "`grow` — v4 ta tira o prefixu `flex-`" }
       correct: true

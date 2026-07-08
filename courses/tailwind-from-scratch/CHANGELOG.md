@@ -10,6 +10,11 @@ copy are recorded under their own dated heading.
 
 ## [2026-07-07] — publish
 
+### Fixed
+- Synced 6 lesson bodies (`01-o-ki-e-tailwind-css`, `02-anbienti-di-dezenvolvimentu`, `18-grid`, `23-tailwind-cli-v4`, `24-theme-di-profundidade`, `25-direktivas-i-funsan-v4`) + 23 `quiz.yaml` + 4 `exercises.yaml` sidecars that had accumulated Kriolu proofread fixes in drafts since the last publish but were never copied over: canonical `kal` → `kual` ("which/what") across quiz/exercise prompts, `otomatikamenti` → `automatikamenti` spelling, and tightened prose in `02-anbienti-di-dezenvolvimentu` (removed filler "Bon notísia" phrasing, dropped an incidental persona reference) plus a missing `<SectionHeading>` added in `01-o-ki-e-tailwind-css`.
+
+## [2026-07-07] — publish
+
 ### Added
 - `code/m3-resort-brava/{start,final}/` — the missing Module 3 continuity of the running Resort Brava example (interactivity/variants, responsive breakpoints, flexbox, grid, 3D transform hover-lift, `@theme`-driven animation, brand color/font tokens, dark mode). `start/` is the corrected Module 2 handoff state; `final/` layers in Lisan 13, 14, 17–22 (Lisans 15/16 — container queries, columns — intentionally use separate standalone demos per their own lesson text, not Resort Brava).
 

@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal build tool é rekomenda pa un projetu Tailwind v4 novu na 2026?"
+    kea: "Kual build tool é rekomenda pa un projetu Tailwind v4 novu na 2026?"
   options:
     - text: { kea: "Vite — más rápidu, ESM nativu, un só konfig di trez linha" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Kel era v3. Na v4 es ta sai — mante-s ta duplika o ki Tailwind dja ta faze." }
 
 - question:
-    kea: "Bo sta konstrui un projetu Next.js. Kal plugin di Tailwind v4 bo ta uza?"
+    kea: "Bo sta konstrui un projetu Next.js. Kual plugin di Tailwind v4 bo ta uza?"
   options:
     - text: { kea: "`@tailwindcss/postcss` — Next.js ka uza Vite, el ten Turbopack/Webpack propi" }
       correct: true

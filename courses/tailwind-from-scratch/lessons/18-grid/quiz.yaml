@@ -1,5 +1,5 @@
 - question:
-    kea: "Bo meste kria un layout di página inteiru ku kontrolu na kolunas **i** rows ao mesmu tempu. Kal ki ta kabe midjór?"
+    kea: "Bo meste kria un layout di página inteiru ku kontrolu na kolunas **i** rows ao mesmu tempu. Kual ki ta kabe midjór?"
   options:
     - text: { kea: "Grid — el ta kontrola dos eixu ao mesmu tempu" }
       correct: true

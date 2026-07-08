@@ -19,7 +19,7 @@
       explain: { kea: "Kel era a manera di v3. Na v4, `@tailwind base/components/utilities` ka funsiona — uza un só `@import`." }
 
 - question:
-    kea: "Kal fixeru bu **nunka** ta edita a mon nun projetu CLI v4?"
+    kea: "Kual fixeru bu **nunka** ta edita a mon nun projetu CLI v4?"
   options:
     - text: { kea: "`dist/style.css` — el é jeradu pa CLI; adisiona `dist/` na `.gitignore`" }
       correct: true

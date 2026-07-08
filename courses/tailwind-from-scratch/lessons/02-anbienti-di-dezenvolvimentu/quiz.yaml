@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é o versan mínimu di Node.js ki Tailwind v4 ta presiza?"
+    kea: "Kual é o versan mínimu di Node.js ki Tailwind v4 ta presiza?"
   options:
     - text: { kea: "Node 20 o más novu — o motor Oxide ta presiza-l" }
       correct: true

@@ -16,13 +16,13 @@ objectives:
 
 # Anbienti di Dezenvolvimentu
 
-Antis di skrebe un linha di Tailwind, nu meste prepara komputador. Bon notísia: anbienti é leve. Sen Docker, sen banku di dadus, sen konfigurasan konplikadu. So **tres ferramentas** i bu sta prontu pa kria.
+Antis di skrebe un linha di Tailwind, nu meste prepara komputador. Anbienti é leve — sen Docker, sen banku di dadus, sen konfigurasan konplikadu. So **tres ferramentas** i bu sta prontu pa kria.
 
 Na es lisan, bu ta instala tudu ki é presizu i odja bu primeru "Olá Mundu" ta atualiza na tempu real.
 
-<SectionHeading variant="install">O ki Nu Meste Instala</SectionHeading>
+<SectionHeading variant="install">Kuze ki Nu Meste Instala</SectionHeading>
 
-Pa konstrui websites ku Tailwind v4, lista é kurtu:
+Pa konstrui websites ku Tailwind v4, bu meste tres kuza:
 
 | Ferramenta | Pa kuze ki ta servi | Verifikasan |
 |------------|---------------------|-------------|
@@ -30,15 +30,13 @@ Pa konstrui websites ku Tailwind v4, lista é kurtu:
 | **Git** | Versionamentu di kódiku i deploy pa GitHub/Netlify/Vercel | `git --version` |
 | **VS Code** | Editor di textu ku extensan pa Tailwind | Abri aplikativu |
 
-É tudu. Ka tene Java, ka tene Python, ka tene Docker. Só HTML, CSS i un poku di JavaScript.
-
 :::callout{type=tip}
 Si dja bu ten un Node.js instaladu ma é versan antigu (16, 18), atualiza pa **Node 20 o más novu**. Tailwind v4 ta presiza el — i ferramentas modernu di frontend gosi sta tudu na Node 20+.
 :::
 
 <SectionHeading variant="install">Instala as Ferramentas Base</SectionHeading>
 
-O download di kada ferramenta ta muda un poku di sistema pa sistema. Skoji bu tab i sigi só bu kaminhu:
+Download di kada ferramenta ta muda un poku di sistema pa sistema — skoji bu tab i sigi pasus:
 
 <PlatformTabs
   tabs={[
@@ -84,7 +82,7 @@ O download di kada ferramenta ta muda un poku di sistema pa sistema. Skoji bu ta
   ]}
 />
 
-Si bu odja os númerus di versan na tres komandu, sukseso. **`npm`** (Node Package Manager) ta ben djuntu ku Node — nu ta uza el pa instala Tailwind nun prósimu modulu.
+Si bu odja númerus di versan na tres komandu, tudu sta a funsiona. **`npm`** (Node Package Manager) ta ben djuntu ku Node — nu ta uza el pa instala Tailwind nun prósimu modulu.
 
 :::callout{type=tip}
 Bu ka meste sabi Git pa segui es kursu — nu ka ta uza komandu di Git diretamenti. Ma el é instaladu pamodi alguns ferramentas (sima Vercel CLI) ta presiza di el.
@@ -92,7 +90,7 @@ Bu ka meste sabi Git pa segui es kursu — nu ka ta uza komandu di Git diretamen
 
 <SectionHeading variant="install">Extensan Essensial pa Tailwind v4</SectionHeading>
 
-Aki é unde mágika ta inkomesa. Es tres extensan ta trasforma VS Code num laboratóriu di Tailwind.
+Es tres extensan ta prepara VS Code pa Tailwind: autokompletamentu di klasis, atualizasan na tempu real i formatasan automátiku.
 
 ### 1. Tailwind CSS IntelliSense
 
@@ -116,12 +114,12 @@ Es é **fundamental**. Sen el, bu ta tipa nomis di klasi di kabesa. Ku el, VS Co
 ```
 
 :::callout{type=tip}
-Extensan di Tailwind IntelliSense é **konsiente di v4** — el ta konprende `@theme` na bu CSS i ta sujiri tokens pursonalisadu ki bu defini. Si bu skrebe `@theme { --color-resort: #1e90ff; }`, extensan ta poi `bg-resort`, `text-resort` na lista di sujestan otomatikamenti.
+Extensan di Tailwind IntelliSense é **konsiente di v4** — el ta konprende `@theme` na bu CSS i ta sujiri tokens pursonalisadu ki bu defini. Si bu skrebe `@theme { --color-resort: #1e90ff; }`, extensan ta poi `bg-resort`, `text-resort` na lista di sujestan automatikamenti.
 :::
 
 ### 2. Live Server
 
-Live Server ta korre bu HTML num servidor lokal (`http://127.0.0.1:5500`) i ta **rekarrega página otomatikamenti** kuandu bu salva un fixeru. Sen el, bu ta presiza klika "refresh" tudu bez.
+Live Server ta korre bu HTML num servidor lokal (`http://127.0.0.1:5500`) i ta **rekarrega página automatikamenti** kuandu bu salva un fixeru. Sen el, bu ta presiza klika "refresh" tudu bez.
 
 **Kumo instala:**
 1. Buska **"Live Server"** na extensan (autor: Ritwick Dey)
@@ -130,13 +128,13 @@ Live Server ta korre bu HTML num servidor lokal (`http://127.0.0.1:5500`) i ta *
 **Kumo uza:**
 - Abri kualker fixeru `.html`
 - Klika boton **"Go Live"** na fundu di VS Code (kantu inferior direitu)
-- Browser ta abri otomatikamenti
+- Browser ta abri automatikamenti
 
-Salva fixeru — página ta atualiza sosinhu. Nada di `F5`.
+Salva fixeru — página ta atualiza sosinhu, sen `F5`.
 
 ### 3. Prettier (Opsional ma Rekomendadu)
 
-Prettier ta formata bu kódiku otomatikamenti kuandu bu salva. Ta poi indentasan konsistenti i ta organiza klasis di Tailwind di un manera lójiku.
+Prettier ta formata bu kódiku automatikamenti kuandu bu salva. Ta poi indentasan konsistenti i ta organiza klasis di Tailwind di un manera lójiku.
 
 **Kumo instala:**
 1. Buska **"Prettier - Code formatter"** (autor: Prettier)
@@ -206,7 +204,7 @@ Sen fitxa browser, volta pa VS Code i muda mensajen:
 <h1>Olá Kabu Verdi! 🇨🇻</h1>
 ```
 
-Salva fixeru (`Ctrl/Cmd + S`). **Sen klika nada na browser**, página ta atualiza otomatikamenti.
+Salva fixeru (`Ctrl/Cmd + S`). **Sen klika nada na browser**, página ta atualiza automatikamenti.
 
 Si bandera apareseu sen bu faze nada, **bu anbienti sta perfeitu**. Bu sta prontu pa Tailwind v4.
 
@@ -219,14 +217,14 @@ Ten un razaun pa kada esklusaun:
 | `tailwind.config.js` | Ka existe na v4 — konfigurasan é na CSS ku `@theme` | `@theme {}` na bu CSS |
 | Webpack | Pisadu i konplikadu pa inisia | Vite (na Modulu 4) |
 | PostCSS standalone | Tailwind v4 ten Oxide engine — ka presiza | `@tailwindcss/vite` o CLI |
-| Autoprefixer | Ben inkluidu na Tailwind v4 | Otomátiku |
-| `postcss-import` | Ben inkluidu na Tailwind v4 | Otomátiku |
+| Autoprefixer | Ben inkluidu na Tailwind v4 | Automátiku |
+| `postcss-import` | Ben inkluidu na Tailwind v4 | Automátiku |
 
-Tailwind v4 sumiu un montaun di komplexidadi. Bu so meste Node, Git, VS Code i tres extensan. Nada más.
+Tailwind v4 tira un montaun di komplexidadi: kada ferramenta na tabela riba ta presiza konfigurasan manual sen el.
 
 <SectionHeading variant="concept" seq={2}>Anbienti pa Trabalhu Remotu na Kabu Verdi</SectionHeading>
 
-Na Kabu Verdi, internet pode ser instavel — na Praia, na Mindelo, o na kualker ilha. Bon notísia: anbienti ta funsiona offline dipos di instalasan:
+Na Kabu Verdi, internet pode ser instavel — na Praia, na Mindelo, o na kualker ilha. Anbienti ta funsiona offline dipos di instalasan:
 
 - **Live Server** ta korre lokal — sen internet, página ta inda atualiza
 - **VS Code i extensan** ten ki ser diskarregadu un bez, dipos ta funsiona offline
@@ -237,7 +235,7 @@ Na Kabu Verdi, internet pode ser instavel — na Praia, na Mindelo, o na kualker
 - Konsulta dokumentasan di Tailwind ([tailwindcss.com/docs](https://tailwindcss.com/docs))
 - Deploy pa Netlify / Vercel (no fin di un projetu)
 
-Resto é tudu lokal — bon notísia si bu sta num lugar ku internet más lentu.
+Resto é tudu lokal — internet más lentu ka ta atrapalha bu.
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
@@ -253,7 +251,7 @@ Resto é tudu lokal — bon notísia si bu sta num lugar ku internet más lentu.
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Anbienti leve">Node.js ≥ 20, Git i VS Code — sen Docker, sen banku di dadus, sen konfigurasan konplikadu.</RezumuItem>
   <RezumuItem term="Tres extensan">Tailwind CSS IntelliSense, Live Server i Prettier.</RezumuItem>
-  <RezumuItem term="IntelliSense é v4">el ta konprende `@theme` i ta sujiri os tokens pursonalisadu ki bu defini.</RezumuItem>
+  <RezumuItem term="IntelliSense é v4">el ta konprende `@theme` i ta sujiri tokens pursonalisadu ki bu defini.</RezumuItem>
   <RezumuItem term="Live Server">hot reload — salva un fixeru i página ta atualiza sosinhu, sen `F5`.</RezumuItem>
   <RezumuItem term="v4 sen config">ka ten `tailwind.config.js`, ka presiza Webpack o PostCSS sozinhu, ka presiza autoprefixer — tudu ben inkluidu.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">Tudu ta funsiona offline dipos di instalasan — bon pa kontextu di internet instavel.</RezumuItem>

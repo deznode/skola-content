@@ -53,5 +53,5 @@
   language: html
   kind: reflect
   title: { kea: "Pensa nun komponenti reuzavel" }
-  prompt: { kea: "Pensa nun website di Kabu Verdi ki bo pode kria (un hotel, un restoranti, un festa di música). Kal **komponenti reuzavel** — un karta, un banner — ta apareci en kontestus di largura diferenti i ta ganha ku container queries? Skrebe 1–2 frazi sobri unde el ta ser uzadu." }
+  prompt: { kea: "Pensa nun website di Kabu Verdi ki bo pode kria (un hotel, un restoranti, un festa di música). Kual **komponenti reuzavel** — un karta, un banner — ta apareci en kontestus di largura diferenti i ta ganha ku container queries? Skrebe 1–2 frazi sobri unde el ta ser uzadu." }
   notePlaceholder: { kea: "Skrebe li o komponenti i unde el ta apareci…" }

@@ -15,7 +15,7 @@
   language: html
   kind: reflect
   title: { kea: "Skoji o raiu pa alma di Brava" }
-  prompt: { kea: "Eksperimenta variantis di raiu pa kards: `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`. Skrebe kal ki senti más adekuadu pa **alma di Brava** — ka ten resposta sertu, é kontestu i gostu." }
+  prompt: { kea: "Eksperimenta variantis di raiu pa kards: `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`. Skrebe kual ki senti más adekuadu pa **alma di Brava** — ka ten resposta sertu, é kontestu i gostu." }
   code: |
     <section id="kuartus" class="space-y-2 bg-white p-6 shadow-sm rounded-lg border border-slate-100">
   modelPoints:

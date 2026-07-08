@@ -9,7 +9,7 @@
       explain: { kea: "Kel era o kaminhu di v3. Na v4, `shadow` o `rounded` sen sufiksu ka ta da o rezultadu ki bu spera." }
 
 - question:
-    kea: "Kal é un vantajen di konverti o komponenti pa klasis di utilidadi?"
+    kea: "Kual é un vantajen di konverti o komponenti pa klasis di utilidadi?"
   options:
     - text: { kea: "Ka meste inventa nomis di klasi, i bu ta itera diretu na HTML — tipu, salva, odja" }
       correct: true

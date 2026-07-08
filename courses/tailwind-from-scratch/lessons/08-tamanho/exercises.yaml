@@ -38,7 +38,7 @@
   language: html
   kind: reflect
   title: { kea: "`h-screen` vs `min-h-[50vh]` na hero" }
-  prompt: { kea: "Salva o hero ku `h-screen` primeru, abri, i muda tamanhu di ekran. Dipos salva ku `min-h-[50vh]`. Kal ki bu gosta más, i pamodi? (Ka ten resposta korreta — kontestu di página é o ki ta defini.)" }
+  prompt: { kea: "Salva o hero ku `h-screen` primeru, abri, i muda tamanhu di ekran. Dipos salva ku `min-h-[50vh]`. Kual ki bu gosta más, i pamodi? (Ka ten resposta korreta — kontestu di página é o ki ta defini.)" }
   code: |
     <!-- Opsan A -->
     <section id="hero" class="h-screen space-y-4">...</section>
@@ -50,4 +50,4 @@
       - "`h-screen` ta fixa altura a 100vh — hero ta toma tudu ekran, sen importa kuantu konteúdu ten."
       - "`min-h-[50vh]` ta garanti mínimu ma ta deixa hero krese si konteúdu for más grandi."
       - "Pa un landing page ku txeu konteúdu, `min-h` txeu bez é más flexível ki `h-screen`."
-  notePlaceholder: { kea: "Skrebe li kal ki bu skoji i pamodi…" }
+  notePlaceholder: { kea: "Skrebe li kual ki bu skoji i pamodi…" }

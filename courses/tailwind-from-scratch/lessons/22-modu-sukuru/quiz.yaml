@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é a manera sertu di konfigura dark mode na Tailwind v4?"
+    kea: "Kual é a manera sertu di konfigura dark mode na Tailwind v4?"
   options:
     - text: { kea: "`@custom-variant dark (&:where(.dark, .dark *));` na CSS" }
       correct: true

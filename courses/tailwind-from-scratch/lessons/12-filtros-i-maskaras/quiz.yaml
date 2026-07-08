@@ -1,5 +1,5 @@
 - question:
-    kea: "Na Tailwind v4, kal klasi ki bo ta uza pa substitui o antigu `blur` di v3?"
+    kea: "Na Tailwind v4, kual klasi ki bo ta uza pa substitui o antigu `blur` di v3?"
   options:
     - text: { kea: "`blur-sm` — na v4, `blur` bare ka izisti, sempri ten sufixu" }
       correct: true

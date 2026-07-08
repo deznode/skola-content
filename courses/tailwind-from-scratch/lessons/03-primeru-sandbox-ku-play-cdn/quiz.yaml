@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é o URL sertu pa karga Tailwind v4 via Play CDN?"
+    kea: "Kual é o URL sertu pa karga Tailwind v4 via Play CDN?"
   options:
     - text: { kea: "`https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4`" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Kel era a manera di v3 (JavaScript). Na v4, konfigurasan ta vivi na CSS ku `@theme`." }
 
 - question:
-    kea: "Dipos di defini `--color-mar` na `@theme`, kal klasi ta funsiona sen skrebe más nada?"
+    kea: "Dipos di defini `--color-mar` na `@theme`, kual klasi ta funsiona sen skrebe más nada?"
   options:
     - text: { kea: "`bg-mar`, `text-mar`, `border-mar` — o token ta vira klasi otomatikamenti" }
       correct: true

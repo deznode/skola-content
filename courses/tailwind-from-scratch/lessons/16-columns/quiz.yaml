@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é a diferensa entri `columns-3` i `columns-xs`?"
+    kea: "Kual é a diferensa entri `columns-3` i `columns-xs`?"
   options:
     - text: { kea: "`columns-3` ta forsa sempri 3 kolunas; `columns-xs` ta da un largura mínimu i o browser ta disidi kuantas kabe" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Spasu entri kolunas é `gap-*`. `break-inside-avoid` ta kontrola unde un bloku pode kebra." }
 
 - question:
-    kea: "Bo kre un galeria Pinterest-style ku imajens di altura diferenti ki ta distribui sozinhu. Kal ferramenta é midjór?"
+    kea: "Bo kre un galeria Pinterest-style ku imajens di altura diferenti ki ta distribui sozinhu. Kual ferramenta é midjór?"
   options:
     - text: { kea: "`columns` — konteúdu ki ta distribui sozinhu na kolunas é exatamenti unde el ta brilha" }
       correct: true

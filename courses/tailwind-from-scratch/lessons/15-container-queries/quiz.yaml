@@ -1,5 +1,5 @@
 - question:
-    kea: "Un `@md:` container query ta responde a kal largura?"
+    kea: "Un `@md:` container query ta responde a kual largura?"
   options:
     - text: { kea: "A largura di **kontainer** (o elementu pai markadu ku `@container`)" }
       correct: true

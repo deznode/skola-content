@@ -9,7 +9,7 @@
       explain: { kea: "Kel é kuma Bootstrap ta funsiona (component-first), ka Tailwind." }
 
 - question:
-    kea: "Pamodi ki utility-first ta redusi 'CSS naming fatigue' kompara ku CSS tradisional?"
+    kea: "Kual é un vantaji di utility-first relacionadu ku nomi di klasis CSS?"
   options:
     - text: { kea: "Pamodi utilidadis dja ten nomis klaru — bu ka meste inventa nomi di klasi pa kada komponenti" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Tailwind ka ta jera nenhun nomi — utilidadis dja ten nomis fixu na framework." }
 
 - question:
-    kea: "Un ekipa kre lansa un MVP rápidu sen txeu personalizasan vizual, i tudu mundu na ekipa dja konxe Bootstrap. Kal framework é más apropriadu?"
+    kea: "Un ekipa meste lansa un MVP rápidu i personalizasan vizual ka é prioridadi. Kual framework é más apropriadu?"
   options:
     - text: { kea: "Bootstrap — konponentes prontu ta djuda lansa mas rápidu kuandu personalizasan ka é prioridadi" }
       correct: true

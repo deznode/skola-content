@@ -19,7 +19,7 @@
       explain: { kea: "`hover:` na o filhu so ta ativa kuandu o rato pasa riba di **o filhu**, ka riba di karta inteira. Pa isu meste `group`/`group-hover:`." }
 
 - question:
-    kea: "Na Tailwind v4, kal é a manera korretu di marka un utilidadi kumo `!important`?"
+    kea: "Na Tailwind v4, kual é a manera korretu di marka un utilidadi kumo `!important`?"
   options:
     - text: { kea: "Ku o `!` na fin di klasi: `flex!`" }
       correct: true

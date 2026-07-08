@@ -1,5 +1,5 @@
 - question:
-    kea: "Na Tailwind v4, kal é o kor default di un bordura kuandu bo poi `border` sen spesifika kor?"
+    kea: "Na Tailwind v4, kual é o kor default di un bordura kuandu bo poi `border` sen spesifika kor?"
   options:
     - text: { kea: "`currentColor` — o kor di textu di elementu" }
       correct: true
@@ -9,7 +9,7 @@
       explain: { kea: "Kel era o komportamentu di v3. Na v4 o default mudou pa `currentColor` — pa isu bo meste sempri spesifika o kor." }
 
 - question:
-    kea: "Na Tailwind v4, kal klasi di rais **ka izisti** más?"
+    kea: "Na Tailwind v4, kual klasi di rais **ka izisti** más?"
   options:
     - text: { kea: "`rounded` sen sufixu — tudu rais ten ki ten un sufixu (`rounded-sm`, `rounded-md`…)" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "`rounded-full` inda izisti — el ta da un sirkulu si o elementu é kuadradu." }
 
 - question:
-    kea: "Kal é a diferensa prinsipal entri `outline` i `border` no layout?"
+    kea: "Kual é a diferensa prinsipal entri `outline` i `border` no layout?"
   options:
     - text: { kea: "`outline` ka ta okupa spasu no layout; `border` ta okupa" }
       correct: true

@@ -9,7 +9,7 @@
       explain: { kea: "Kel era a manera di **v3**. Na v4, `tailwind.config.js` é antigu — konfigurasan ta pasa pa CSS ku `@theme`." }
 
 - question:
-    kea: "Bu defini `--color-brand-500` na `@theme`. Kal klasis ta jera otomatikamenti?"
+    kea: "Bu defini `--color-brand-500` na `@theme`. Kual klasis ta jera otomatikamenti?"
   options:
     - text: { kea: "`bg-brand-500`, `text-brand-500`, `border-brand-500` — o namespace `--color-*` ta jera-s" }
       correct: true

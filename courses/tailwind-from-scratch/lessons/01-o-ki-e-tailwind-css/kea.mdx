@@ -57,7 +57,7 @@ Bu ta konbina es klasis pa konstrui kualker dizenhu — sem skrebe un linha di C
 Tudu dizenhu, sen sai di HTML. Kel é "utility-first".
 
 :::callout{type=tip}
-Bu ta nota klasis manera `rounded-md` i `shadow-sm`? Es nomis é atualizadu na Tailwind v4. Na versan antigu (v3), kel boton di riba uzaba `rounded` (sen sufiksu). Na v4, kada klasi ten un tamanho klaru: `rounded-xs`, `rounded-sm`, `rounded-md`, `rounded-lg`.
+Bu ta nota klasis moda `rounded-md` i `shadow-sm`? Es nomis é atualizadu na Tailwind v4. Na versan antigu (v3), kel boton di riba uzaba `rounded` (sen sufiksu). Na v4, kada klasi ten un tamanho klaru: `rounded-xs`, `rounded-sm`, `rounded-md`, `rounded-lg`.
 :::
 
 <SectionHeading variant="concept" seq={2}>Utility-First: Kuze ki el ta signifika na prátika?</SectionHeading>
@@ -68,7 +68,7 @@ Dokumentasan di Tailwind ta defini utility-first sima:
 Konstrui komponentes konplexu di un grupu di utilidadis primitivu.
 :::
 
-Nu ta odja un izemplu konkretu. Imajina ki Djonzinho sta kria un kartan pa anunsiu di kursu. Sen Tailwind, el ta ten ki skrebe HTML i un fixeru di CSS separadu; ku Tailwind, el ta skrebe mes kuza — sen CSS:
+Nu ta odja un izemplu konkretu. Imajina ki bu sta kria un kartan pa anunsiu di kursu. Sen Tailwind, bu ten ki skrebe HTML i un fixeru di CSS separadu; ku Tailwind, bu ta skrebe mes kuza — sen CSS:
 
 <CodeDiff
   lang="html"
@@ -104,7 +104,7 @@ Nu ta odja un izemplu konkretu. Imajina ki Djonzinho sta kria un kartan pa anuns
 
 | Vantajen | Splikasan |
 |----------|------------|
-| **Sen inventa nomis** | Ka ten ki pensa "kumo mi ta txoma es klasi?" — utilidadis dja ten nomis klaru |
+| **Sen inventa nomis** | Ka ten ki pensa "kumo bu ta txoma es klasi?" — utilidadis dja ten nomis klaru |
 | **Mudansas rápidu** | Kre azul en bez di burmedju? Muda `bg-blue-500` pa `bg-red-500` na HTML. Pronto |
 | **Konsisténsia** | Tudu spacing, kor, i fonti ten kel mesmu skala pa tudu projetu |
 | **Sen CSS mortu** | Tailwind ta inklui só klasis ki bu uza — produsaun final é txeu pikinoti |
@@ -158,25 +158,23 @@ Más klasis — ma **es boton é mas personalizadu**. Bu dezenu, sen luta kontra
 
 <SectionHeading variant="concept" seq={4}>Kuzê ki ta Faze Tailwind v4 Spesial?</SectionHeading>
 
-Tailwind v4 (lansadu na Janeru 2025, atualmenti na versan v4.3) traze un **transformasan konpletu**. Es kursu ta ensina v4 di zero, sen vísius di v3.
+Tailwind v4 (lansadu na Janeru 2025, atualmenti na versan v4.3) traze un **transformasan konpletu**. Es kursu ta ensina v4 di zero.
 
 ### Motor Oxide — Velosidadi Asustante
 
-Tailwind v4 ten un motor novu, txamadu **Oxide**, programadu na Rust. Rezultadu:
+Tailwind v4 ten un motor novu, txamadu **Oxide**, programadu na Rust.
 
 - **5× más rápidu** pa builds di zero
 - **100× más rápidu** pa rebuilds inkremental (~5 millisegundu)
-- Bu ta salva un fixeru, i CSS dja sta atualizadu antis di bu volta pa browser
+- Bu ta guarda un fixeru, i CSS dja sta atualizadu antis di bu volta pa browser
 
 Mesmu na un laptop modestu, es velosidadi ta poupa-bu txeu tempu.
 
 ### Más ki sta pa ben na es kursu
 
-Alén di velosidadi, v4 ta traze konfigurasan na CSS ku `@theme` (ka más `tailwind.config.js`), container queries, sonbras di textu, máskaras i transformasan 3D — kada un ku se própriu lisan na frenti.
+Alén di velosidadi, v4 ta traze konfigurasan na CSS ku `@theme` (ka meste `tailwind.config.js`), container queries, sonbras di textu, máskaras i transformasan 3D — kada un ku se própriu lisan na frenti.
 
-Pa gosi, kuze ki importa é: v4 é más rápidu **i** ten más poder — i nu ta konstrui tudu isu djuntu, un lisan di kada bez.
-
-<SectionHeading variant="concept" seq={5}>Pa kuze ki Tailwind ta servi?</SectionHeading>
+Pa gosi, kuze ki importa é: v4 é más rápidu **i** ten más poder — i nu ta konstrui tudu keli djuntu, un lisan di kada bez.
 
 :::callout{type=tip}
 Websites manera GitHub, Netflix, Shopify i Vercel ta uza Tailwind na produsaun. É un ferramenta profisional — ka so pa projetus pikinoti.

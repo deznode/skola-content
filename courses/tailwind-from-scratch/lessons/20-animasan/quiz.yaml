@@ -1,5 +1,5 @@
 - question:
-    kea: "Kal é a diferensa prinsipal entri un transisan i un animasan?"
+    kea: "Kual é a diferensa prinsipal entri un transisan i un animasan?"
   options:
     - text: { kea: "Transisan ta presiza un evento (hover, klike); animasan pode kore sosinhu ou em loop" }
       correct: true
@@ -19,7 +19,7 @@
       explain: { kea: "Kel era a manera di v3. Na v4, o fixeru `tailwind.config.js` dja ka izisti pa isu." }
 
 - question:
-    kea: "Bu defini o token `--animate-fade-in`. Kal klasi ki Tailwind ta jera otomatikamenti?"
+    kea: "Bu defini o token `--animate-fade-in`. Kual klasi ki Tailwind ta jera otomatikamenti?"
   options:
     - text: { kea: "`animate-fade-in`" }
       correct: true
