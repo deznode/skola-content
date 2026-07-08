@@ -10,11 +10,11 @@ copy are recorded under their own dated heading.
 
 ## [2026-07-07] — hand-edit
 
-### Fixed
-- `lessons/22-modu-sukuru/kea.mdx` and `lessons/23-tailwind-cli-v4/kea.mdx`: synced the `<CodeDiff note="...">` quote-escaping fix from the draft source (skola-research 426c26d6) — the published copies still had the malformed backslash-escaped quotes that broke MDX parsing.
-
 ### Changed
 - Removed `test_only: true` from `course.yaml`. User decision: it's fine to promote the course to production now — visibility will be gated via the admin portal instead of keeping the whole course out of the catalog. `code/m3-resort-brava` and the microlearn units remain outstanding and can be added in a follow-up publish without re-gating.
+
+### Fixed
+- Lessons `22-modu-sukuru` and `23-tailwind-cli-v4`: fixed a `<CodeDiff note="...">` attribute that embedded a backslash-escaped double quote (`\"`), which JSX plain-attribute strings don't support as an escape — it desynced the tag parser and Velite dropped both lessons from the catalog (404 at runtime). Swapped the inner quotes to single quotes; no meaning change. See deznode/skola-content#9.
 
 ## [2026-07-07] — publish
 
