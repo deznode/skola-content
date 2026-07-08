@@ -8,6 +8,16 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-07-07] — publish
+
+### Added
+- `code/m3-resort-brava/{start,final}/` — the missing Module 3 continuity of the running Resort Brava example (interactivity/variants, responsive breakpoints, flexbox, grid, 3D transform hover-lift, `@theme`-driven animation, brand color/font tokens, dark mode). `start/` is the corrected Module 2 handoff state; `final/` layers in Lisan 13, 14, 17–22 (Lisans 15/16 — container queries, columns — intentionally use separate standalone demos per their own lesson text, not Resort Brava).
+
+### Fixed
+- `code/m2-resort-brava/final/index.html` was actually the full Module 3 end-state mislabeled as the Module 2 final — it included hover/focus/dark-mode/animation/`@theme` rename classes that Module 2's own 9 lessons never teach. Trimmed it back to what Lisans 4–12 actually build, reconstructed by reading each lesson's own "antis/dipos" narrative; also fixed a reverted email typo (`resorbrava@` → `resortbrava@exemplu.cv`, per Lisan 6's own correction).
+- `21-theme-kores-fontes-breakpoints` (lesson + its `exercises.yaml` solution): the hero heading's `CodeDiff`/solution set `text-mar-700`, contradicting the lesson's own stated `amber-* → sol-*` rename mapping (the heading was `amber-600`, sol-domain, before the rename) and contradicting Lisan 22's own illustrative snippet for the same element. Corrected to `text-sol-700`.
+- `code/m3-resort-brava/final/index.html` dark-mode toggle `aria-label` had a spelling drift (`"Alterna modu skuru"`) versus the lesson text and the module's own title (`Modu Sukuru`); corrected to `"Alterna modu sukuru"`.
+
 ## [2026-07-07] — hand-edit
 
 ### Changed

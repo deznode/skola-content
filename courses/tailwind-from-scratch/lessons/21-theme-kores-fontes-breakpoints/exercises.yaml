@@ -29,7 +29,7 @@
 
     <h1 class="font-display text-3xl font-bold">Resort Brava</h1>
     <header class="bg-linear-to-r from-mar-700/85 to-mar-800/85"></header>
-    <h2 class="font-display text-mar-700">Ben Vindo</h2>
+    <h2 class="font-display text-sol-700">Ben Vindo</h2>
     <a class="bg-sol-500">Olha kuartus</a>
 
 - slug: defini-paleta-areia
