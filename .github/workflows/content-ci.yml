@@ -91,6 +91,30 @@ jobs:
           fi
           echo "All touched artifacts updated their CHANGELOG.md."
 
+  # Validate every lesson MDX body actually compiles as MDX/JSX (mirrors the
+  # local `mdx-syntax` Lefthook hook). Catches parser-desyncing authoring
+  # mistakes — most commonly a backslash-escaped double quote inside a plain
+  # JSX attribute (e.g. note="...\"...") — which JSX doesn't treat as an
+  # escape. Without this, a malformed lesson lands on main clean and only
+  # fails later when apps/web runs Velite, which silently drops it from the
+  # catalog (404 at runtime) instead of failing the build. See PR #9
+  # (tailwind-from-scratch lessons 22 + 23).
+  validate-mdx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install MDX compiler
+        run: npm install --no-save @mdx-js/mdx remark-directive
+
+      - name: Validate lesson MDX syntax
+        run: node scripts/check-mdx-syntax.mjs
+
   # Validate code samples can at least be parsed
   validate-code:
     runs-on: ubuntu-latest
