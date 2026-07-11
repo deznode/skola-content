@@ -12,7 +12,7 @@
 # - "iteration": courses/intro-python/lessons/10-loops/kea.mdx
 # - "index": courses/intro-python/lessons/10-loops/kea.mdx
 - term: programming language
-  category: intro-python-module-1
+  category: General
   translations:
     kea:
       local_term: linguajen di programasan
@@ -22,7 +22,7 @@
   slug: programming-language
   context: intro-python
 - term: MVP
-  category: intro-python-module-1
+  category: General
   translations:
     kea:
       local_term: MVP
@@ -32,102 +32,144 @@
   slug: mvp
   context: intro-python
 - term: virtual environment
-  category: intro-python-module-1
+  category: General
   translations:
     kea:
       local_term: virtual environment
       definition: >-
         Un espasu izoladu pa un projetu Python, ku si própriu kópia di Python i si próprius pakotis
         — pa un projetu ka kebra otu.
+  related_terms: package
   slug: virtual-environment
   context: intro-python
 - term: package
-  category: intro-python-module-1
+  category: General
   translations:
     kea:
       local_term: pakoti
       definition: >-
         Un biblioteka di kódiku reutilizável ki otus dezenvolvedoris skrebe i partilha, pa bu
         instala ku `pip` i uza na bu projetu.
+  related_terms: virtual-environment
   slug: package
   context: intro-python
 - term: traceback
-  category: intro-python-module-1
+  category: General
   translations:
     kea:
       local_term: traceback
       definition: >-
         Relatóriu ki Python ta mostra kuandu un programa para ku eru — ta lista unde i pamodi el
         fadja, di baxu (tipu di eru) pa riba.
+  related_terms: semantics
+  code_example: |
+    numeros = [1, 2, 3]
+    print(numeros[5])   # IndexError — Python ta mostra un traceback
+  code_language: py
   slug: traceback
   context: intro-python
 - term: syntax
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: syntax
       definition: >-
         Regras di kumo bu skrebe kódiku — a 'gramátika' di Python. Un eru di syntax ta para programa
         antis di kore.
+  related_terms: semantics
+  code_example: |
+    print("Ola"   # eru di syntax — para programa antis di kore
+  code_language: py
   slug: syntax
   context: intro-python
 - term: semantics
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: semantics
       definition: >-
         Signifikadu di kódiku — o ki el ta faze kuandu ta kore. Kódiku pode ten syntax koretu ma
         semantics eradu (un eru di lójika).
+  related_terms: syntax, traceback
+  code_example: |
+    # syntax koretu, ma semantics eradu (un eru di lójika)
+    idadi = 20
+    ta_pode_vota = idadi < 18
+  code_language: py
   slug: semantics
   context: intro-python
 - term: dynamic typing
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: tipu dinámiku
       definition: >-
         Un sistema unde tipu di un variável é diskubridu na momentu di izekusan i pode muda kuandu
         bu atribui un valor novu — ka presiza deklara-l antis.
+  code_example: |
+    valor = 5        # tipu: int
+    valor = "sinku"  # tipu muda pa str — ka presiza deklara-l antis
+  code_language: py
   slug: dynamic-typing
   context: intro-python
 - term: condition
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: kondisan
       definition: >-
         Un expresan ki Python ta avalia kumo `True` ou `False` — pa izemplu idadi >= 18. É o ki un
         if ta verifika antis di disidi.
+  related_terms: boolean
+  code_example: |
+    idadi = 20
+    si idadi >= 18:
+        print("Bu pode vota")
+  code_language: py
   slug: condition
   context: intro-python
 - term: boolean
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: boolean
       definition: >-
-        Tipu di dadu ku dos valor sô: True ou False. Tudu komparasan (==, >, <...) ta produzi un
+        Tipu di dadu ku dos valor só: True ou False. Tudu komparasan (==, >, <...) ta produzi un
         boolean.
+  related_terms: condition
+  code_example: |
+    idadi = 20
+    kondisan = idadi >= 18   # kondisan ta un boolean: True
+  code_language: py
   slug: boolean
   context: intro-python
 - term: iteration
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: iterasan
       definition: >-
         Un volta úniku di un loop — un pasaji pa bloku di kódiku ki ta repeti. Un loop ku 5 voltas
         ta faze 5 iterasons.
+  related_terms: index
+  code_example: |
+    for i in range(5):
+        print(i)   # 5 volta = 5 iterasons
+  code_language: py
   slug: iteration
   context: intro-python
 - term: index
-  category: intro-python-module-1
+  category: Coding
   translations:
     kea:
       local_term: índisi
       definition: >-
         Pozisan numérika di un elementu na un sekuénsia, ki ta kumesa na 0. Na ["a", "b"], "a" tene
         índisi 0 i "b" índisi 1.
+  related_terms: iteration
+  code_example: |
+    letras = ["a", "b", "c"]
+    print(letras[0])   # índisi 0
+  code_language: py
   slug: index
   context: intro-python
