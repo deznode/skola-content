@@ -1,0 +1,133 @@
+# Glossary candidate mined from intro-python lessons (2026-07-11)
+# - "programming language": courses/intro-python/lessons/01-o-ki-e-python/kea.mdx
+# - "MVP": courses/intro-python/lessons/01-o-ki-e-python/kea.mdx
+# - "virtual environment": courses/intro-python/lessons/02-instala-python/kea.mdx
+# - "package": courses/intro-python/lessons/02-instala-python/kea.mdx
+# - "traceback": courses/intro-python/lessons/03-ler-erus/kea.mdx
+# - "syntax": courses/intro-python/lessons/04-sintaxi-semantika/kea.mdx
+# - "semantics": courses/intro-python/lessons/04-sintaxi-semantika/kea.mdx
+# - "dynamic typing": courses/intro-python/lessons/05-variaveis/kea.mdx
+# - "condition": courses/intro-python/lessons/09-kondisionais/kea.mdx
+# - "boolean": courses/intro-python/lessons/09-kondisionais/kea.mdx
+# - "iteration": courses/intro-python/lessons/10-loops/kea.mdx
+# - "index": courses/intro-python/lessons/10-loops/kea.mdx
+- term: programming language
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: linguajen di programasan
+      definition: >-
+        Un sistema di palavras i regras ki nu ta uza pa skrebe instrusons ki un komputador pode
+        kompriende i kore.
+  slug: programming-language
+  context: intro-python
+- term: MVP
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: MVP
+      definition: >-
+        Minimum Viable Product — primeru versan simples di un produtu, ku só funsionalidadis
+        esensial, pa testa un ideia rápidu ku poku sforsu.
+  slug: mvp
+  context: intro-python
+- term: virtual environment
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: virtual environment
+      definition: >-
+        Un espasu izoladu pa un projetu Python, ku si própriu kópia di Python i si próprius pakotis
+        — pa un projetu ka kebra otu.
+  slug: virtual-environment
+  context: intro-python
+- term: package
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: pakoti
+      definition: >-
+        Un biblioteka di kódiku reutilizável ki otus dezenvolvedoris skrebe i partilha, pa bu
+        instala ku `pip` i uza na bu projetu.
+  slug: package
+  context: intro-python
+- term: traceback
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: traceback
+      definition: >-
+        Relatóriu ki Python ta mostra kuandu un programa para ku eru — ta lista unde i pamodi el
+        fadja, di baxu (tipu di eru) pa riba.
+  slug: traceback
+  context: intro-python
+- term: syntax
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: syntax
+      definition: >-
+        Regras di kumo bu skrebe kódiku — a 'gramátika' di Python. Un eru di syntax ta para programa
+        antis di kore.
+  slug: syntax
+  context: intro-python
+- term: semantics
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: semantics
+      definition: >-
+        Signifikadu di kódiku — o ki el ta faze kuandu ta kore. Kódiku pode ten syntax koretu ma
+        semantics eradu (un eru di lójika).
+  slug: semantics
+  context: intro-python
+- term: dynamic typing
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: tipu dinámiku
+      definition: >-
+        Un sistema unde tipu di un variável é diskubridu na momentu di izekusan i pode muda kuandu
+        bu atribui un valor novu — ka presiza deklara-l antis.
+  slug: dynamic-typing
+  context: intro-python
+- term: condition
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: kondisan
+      definition: >-
+        Un expresan ki Python ta avalia kumo `True` ou `False` — pa izemplu idadi >= 18. É o ki un
+        if ta verifika antis di disidi.
+  slug: condition
+  context: intro-python
+- term: boolean
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: boolean
+      definition: >-
+        Tipu di dadu ku dos valor sô: True ou False. Tudu komparasan (==, >, <...) ta produzi un
+        boolean.
+  slug: boolean
+  context: intro-python
+- term: iteration
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: iterasan
+      definition: >-
+        Un volta úniku di un loop — un pasaji pa bloku di kódiku ki ta repeti. Un loop ku 5 voltas
+        ta faze 5 iterasons.
+  slug: iteration
+  context: intro-python
+- term: index
+  category: intro-python-module-1
+  translations:
+    kea:
+      local_term: índisi
+      definition: >-
+        Pozisan numérika di un elementu na un sekuénsia, ki ta kumesa na 0. Na ["a", "b"], "a" tene
+        índisi 0 i "b" índisi 1.
+  slug: index
+  context: intro-python
