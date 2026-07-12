@@ -1,0 +1,88 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Publish copies (resolving any starterFrom/solutionFrom) to
+# content/courses/intro-kotlin/lessons/02-variables-types-and-text/exercises.yaml
+# <TentaGosi/> renders these in display order.
+- slug: kria-karton-di-perfil
+  language: kotlin
+  kind: code
+  title: { kea: "Kria bu Karton di Perfil" }
+  prompt:
+    kea: "Skrebe un funsan `main()` ki ta guarda **bu nomi** (`String`), **bu idadi** (`Int`) i **bu altura** (`Double`) na tris variavel, i imprimi-s tudu djuntu na un sô frazi, uzandu un template di `String`."
+  hint:
+    kea: "Uza `$` pa insere kada variavel dentu di un sô `String`, sima `\"Nomi: $nomi\"`."
+  starterCode: |
+    fun main() {
+        // TODO: kria variavel pa nomi, idadi i altura
+        // TODO: imprimi karton di perfil uzandu template di String
+    }
+  solutionCode: |
+    fun main() {
+        val nomi: String = "Telma"
+        val idadi: Int = 12
+        val altura: Double = 1.52
+
+        println("Nomi: $nomi | Idadi: $idadi anu | Altura: ${altura}m")
+    }
+- slug: konverti-tipu-numeriku
+  language: kotlin
+  kind: code
+  title: { kea: "Konverti Entri Tipus Numériku" }
+  prompt:
+    kea: "Skrebe un funsan `main()` ki ta kria un `Int`, konverti-l pa `Long`, dipos pa `Double`, i imprimi tudu tris valor."
+  hint:
+    kea: "Uza `toLong()` i `toDouble()`."
+  starterCode: |
+    fun main() {
+        // TODO: kria un Int, konverti-l pa Long i dipos pa Double
+    }
+  solutionCode: |
+    fun main() {
+        val golus: Int = 3
+        val golusLongu: Long = golus.toLong()
+        val golusDouble: Double = golusLongu.toDouble()
+
+        println(golus)
+        println(golusLongu)
+        println(golusDouble)
+    }
+- slug: preve-double-pa-int
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve Trunkamentu" }
+  prompt:
+    kea: "Antis di kore, preve ki es kódiku ta imprimi."
+  starterCode: |
+    fun main() {
+        val nota: Double = 9.9
+        println(nota.toInt())
+    }
+  options:
+    - "9"
+    - "10"
+    - "9.9"
+    - "Erru di kompilasan"
+  correct: 0
+  output: |
+    9
+  why:
+    kea: "`toInt()` ka ta aredonda — el ta **trunka** a parti desimal. `9.9` ta perde `.9` i fika `9`."
+- slug: saudason-interativu
+  language: kotlin
+  kind: code
+  title: { kea: "Saudason Interativu" }
+  prompt:
+    kea: "Skrebe un funsan `main()` ki imprimi `\"Kumo é bu nomi?\"`, ler nomi ku `readLine()`, i dipos imprimi `\"Ola, <nomi>!\"` uzandu template di String."
+  hint:
+    kea: "`readLine()` ta devolve testu ki utilizador skrebe — guarda-l na un `val` i uza-l dentu di un template di `String`."
+  starterCode: |
+    fun main() {
+        // TODO: imprimi "Kumo é bu nomi?"
+        // TODO: ler nomi ku readLine()
+        // TODO: imprimi "Ola, <nomi>!"
+    }
+  solutionCode: |
+    fun main() {
+        println("Kumo é bu nomi?")
+        val nomi = readLine()
+        println("Ola, $nomi!")
+    }

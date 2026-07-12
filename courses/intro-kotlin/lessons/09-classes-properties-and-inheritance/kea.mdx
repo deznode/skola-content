@@ -1,0 +1,254 @@
+---
+title: "Klasses, Propriedadis i Eransa"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: classes-properties-and-inheritance
+module: 5
+lesson: 9
+duration: "40 min"
+objectives:
+  - "Defini un klasse ku konstrutor primariu i propriedadis"
+  - "Uza un bloku `init` pa validason durante kriason, i defini un konstrutor sekundáriu ku `this(...)`"
+  - "Splika `receiver`/`this` ku un klasse real"
+  - "Defini un `data class` i splika igualdadi estrutural, `toString()`, destruturason i `.copy()`"
+  - "Distingui igualdadi di valor (`==`) di igualdadi di identidadi (`===`) na klasses"
+  - "Marka un klasse/métodu `open` i sobreskrebe-l na un subklasse, i txoma konstrutor di superklasse"
+---
+
+# Klasses, Propriedadis i Eransa
+
+Imajina bu ta konstrui un sistema pa un negósiu di **Aluguer di Veikulu** na Santiago. Kada karu ki bu ten pa aluga tene se própriu matrikula i se própriu presu pa dia — i bu meste guarda es informason di manera organizadu, pa dipos kria reservas pa klientis. Un `class` (klasse) ta da-bu kel: un moldi pa modela un entidadi real na kódiku, ku propriedadis ki ta guarda se dadus.
+
+Na es lisan, nu ta kumesa ku un klasse `Veikulu`, dipos nu ta odja kumo `this` ta distingui un konfliktu di nomis, kumo un `data class` `Reserva` ta trata igualdadi i kópia di manera diferenti di un klasse normal, i pa fin kumo un klasse `Karu` pode erda di `Veikulu` ku eransa.
+
+<SectionHeading variant="concept" seq={1}>Klasse, konstrutor primariu i propriedadis</SectionHeading>
+
+Pa modela un veikulu di aluguer, nu ta kria un klasse `Veikulu` ku dos propriedadis: `matrikula` (String) i `presuPerDia` (Double). Kes dos propriedadis ta bai dirétamenti dentu di **konstrutor primariu** — lista di parámetrus ki ben logu dipos di nomi di klasse:
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Klasse Veikulu — konstrutor primariu"
+  code={[
+    { t: "class Veikulu(", m: 1 },
+    { t: "    val matrikula: String,", m: 2 },
+    { t: "    var presuPerDia: Double,", m: 3 },
+    { t: ")", m: 0 },
+    { t: "", m: 0 },
+    { t: "fun main() {", m: 0 },
+    { t: "    val karu1 = Veikulu(\"ST-45-AB\", 4500.0)", m: 4 },
+    { t: "    println(karu1.matrikula)", m: 5 },
+    { t: "    println(karu1.presuPerDia)", m: 5 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Definison di klasse", body: "`class Veikulu` ta defini un klasse nobu. Lista dentu di parénteses é **konstrutor primariu**." },
+    { m: 2, title: "Propriedadi imutável", body: "`val matrikula` ta kria un propriedadi ki ka pode muda dipos ki objetu é kriadu." },
+    { m: 3, title: "Propriedadi mutável", body: "`var presuPerDia` ta kria un propriedadi ki **pode** muda dipos — presu pa dia pode muda." },
+    { m: 4, title: "Kria un instánsia", body: "Kotlin ka meste keyword `new` — `Veikulu(\"ST-45-AB\", 4500.0)` já ta abasta pa kria un objetu." },
+    { m: 5, title: "Asesa propriedadi", body: "Uza `.` pa le un propriedadi di objetu: `karu1.matrikula`, `karu1.presuPerDia`." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>Konstrutor Sekundáriu i Bloku init</SectionHeading>
+
+Ás vezis bu meste izekuta kódiku **durante** kriason di un objetu — sima verifika si un valor é válidu — ou da **más di un manera** di kria un objetu. Kotlin ta da dos ferramenta pa kel: **bloku `init`** i **konstrutor sekundáriu**.
+
+Un bloku `init` ta izekuta **na hora** ki un objetu é kriadu, dipos ki propriedadis di konstrutor primariu sta atribuídu:
+
+<AnnotatedCode
+  lang="kotlin"
+  title="`init`: verifika durante kriason"
+  code={[
+    { t: "class Veikulu(", m: 0 },
+    { t: "    val matrikula: String,", m: 0 },
+    { t: "    var presuPerDia: Double,", m: 0 },
+    { t: ") {", m: 0 },
+    { t: "    init {", m: 1 },
+    { t: "        require(presuPerDia > 0) { \"presuPerDia meste ser pozitivu\" }", m: 2 },
+    { t: "        println(\"Kriadu: $matrikula\")", m: 2 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "init", body: "Kódiku dentu di `init { }` ta izekuta un só bez, na hora ki objetu é kriadu — dipos di `matrikula`/`presuPerDia` sta atribuídu." },
+    { m: 2, title: "Uzu tipiku", body: "Validason (`require`) i log/setup inisial é uzu kumun di `init` — un klasse pode ten más di un bloku `init`, izekutadu na órden ki sta skrebedu." },
+  ]}
+/>
+
+Un **konstrutor sekundáriu** ta da un otu manera di kria un objetu, ku parámetrus diferenti — ma el debe txoma konstrutor primariu (ou otu konstrutor sekundáriu) ku `this(...)`:
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Konstrutor sekundáriu: un presu padron"
+  code={[
+    { t: "class Veikulu(", m: 0 },
+    { t: "    val matrikula: String,", m: 0 },
+    { t: "    var presuPerDia: Double,", m: 0 },
+    { t: ") {", m: 0 },
+    { t: "    constructor(matrikula: String) : this(matrikula, 4000.0)", m: 1 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: "fun main() {", m: 0 },
+    { t: "    val karu1 = Veikulu(\"ST-45-AB\", 5000.0)  // konstrutor primariu", m: 2 },
+    { t: "    val karu2 = Veikulu(\"ST-99-ZZ\")           // konstrutor sekundáriu", m: 3 },
+    { t: "    println(karu2.presuPerDia)                // 4000.0", m: 3 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "constructor(...) : this(...)", body: "Konstrutor sekundáriu ta resebe só `matrikula`, i txoma konstrutor primariu ku `this(matrikula, 4000.0)` — 4000.0 é presu padron." },
+    { m: 2, title: "Konstrutor primariu", body: "Kuandu bu da dos argumentu, é konstrutor primariu ki ta izekuta." },
+    { m: 3, title: "Konstrutor sekundáriu", body: "Kuandu bu da un só argumentu, é konstrutor sekundáriu ki ta izekuta, i el ta pasa 4000.0 sima presu padron." },
+  ]}
+/>
+
+:::callout{type=tip}
+Na txeu kazu, un konstrutor sekundáriu pode ser trokadu pa un **argumentu padron** na konstrutor primariu (sima `var presuPerDia: Double = 4000.0`, ki nu odja na Lisan 7). Uza konstrutor sekundáriu kuandu lójika di kriason é más kompleksu ki un só valor padron.
+:::
+
+<SectionHeading variant="concept" seq={3}>Receiver i `this`</SectionHeading>
+
+Kuandu bu skrebe un métodu dentu di un klasse, es métodu ta ben ku un objetu implísitu — **receiver** — ki é instánsia ki ta txoma métodu. Bu pode referensia kel objetu explisitamenti ku `this`. Normalmenti bu ka meste skrebe `this.` pamodi Kotlin já ta asumi-l, ma ten un kazu unde el é **obrigatóriu**: kuandu un parámetru di métodu tene mesmu nomi ki un propriedadi di klasse.
+
+<CodeExample position={0} />
+
+Dentu di `atualizaPrecu`, parámetru `presuPerDia` ta "skonde" propriedadi ku mesmu nomi. Si bu skrebe só `presuPerDia`, Kotlin ta intende ku é parámetru — ka propriedadi di objetu. Pa referensia **propriedadi di objetu**, bu meste ser explisitu: `this.presuPerDia`.
+
+:::callout{type=tip}
+Bu ka meste skrebe `this.` sénpri — Kotlin ta asumi-l automatikamenti kuandu ka ten konfuzon di nomi. Uza-l só kuandu, sima li riba, un parámetru ta skonde un propriedadi.
+:::
+
+Kompleta kódiku li — kual palavra-txavi ta distingui propriedadi di objetu di parámetru?
+
+<CodeCloze
+  lang="kotlin"
+  title="Kompleta: distingui parámetru i propriedadi"
+  prompt="Kompleta `atualizaPrecu` pa el atualiza propriedadi **di objetu** (ka parámetru)."
+  template={[
+    "class Veikulu(",
+    "    val matrikula: String,",
+    "    var presuPerDia: Double,",
+    ") {",
+    "    fun atualizaPrecu(presuPerDia: Double) {",
+    "        {{0}}.presuPerDia = presuPerDia",
+    "    }",
+    "}",
+  ]}
+  answers={["this"]}
+  hints={["Palavra-chavi ki ta referensia objetu ki ta txoma métodu — receiver."]}
+  solved="Korretu! `this.presuPerDia` ta referensia propriedadi di objetu, ka parámetru `presuPerDia`."
+/>
+
+<SectionHeading variant="concept" seq={4}>Data classes: `Reserva`</SectionHeading>
+
+Gosi nu meste modela un **reserva** (booking) — kual klienti ta aluga kual veikulu, i pa kantu dia. Un klasse normal ka ta kompara valoris di manera útil: dos instánsias ku mesmu dadus ka ta ser `==` un pa otu, i `println()` ta imprimi só un endereso di memória. Pa isu, Kotlin tene un modifikador `data`:
+
+<CodeExample position={1} />
+
+Nota dos kuza importanti li. `reserva1 == reserva2` é `true` pamodi `Reserva` é `data class` — igualdadi ta kompara **valor** di kada propriedadi, ka referensia. Ma `reserva1 == reserva3` é `false`! Mesmu ku `karu1` i `karu2` tene mesmu `matrikula` i mesmu `presuPerDia`, es é **duas instánsias diferenti** di `Veikulu` — i `Veikulu` ka é `data class`, nton el ka tene igualdadi estrutural própriu. Un `data class` só ta kompara si própriu propriedadis; el ka ta muda kumo otus klasses (sima `Veikulu`) ta kompara-s.
+
+:::callout{type=tip}
+Lembra `===` (identidadi) di Lisan 4? Gosi bu ta odja pamodi el importa: `karu1 === karu2` é `false` — es é **duas instánsias diferenti** na memória, mesmu ku mesmu dadus. Pa un klasse normal sima `Veikulu` (ka `data class`), `==` ta kai diretu na `===` — Kotlin ka jera igualdadi estrutural pa el.
+:::
+
+<CompareTable
+  title="Klasse normal vs data class"
+  cornerLabel="Karakterístika"
+  cols={[
+    { name: "Klasse normal", accent: "blue" },
+    { name: "data class", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Igualdadi di valor (`==`)", kind: "text", vals: ["Referensia — só `true` si é mesmu instánsia", "Estrutural — kompara valor di kada propriedadi"] },
+    { label: "Igualdadi di identidadi (`===`)", kind: "text", vals: ["Só `true` si é mesmu instánsia (identiku pa tudu klasse)", "Só `true` si é mesmu instánsia (identiku pa tudu klasse)"] },
+    { label: "`toString()`", kind: "text", vals: ["`Veikulu@1540e19d` (ka útil)", "`Reserva(klienti=..., veikulu=..., dias=...)`"] },
+    { label: "Destruturason (`val (a, b) = x`)", kind: "bool", vals: [false, true] },
+    { label: "`.copy()`", kind: "bool", vals: [false, true] },
+  ]}
+/>
+
+Kompleta kódiku li — kual métodu ta kria un instánsia nobu ku só un propriedadi diferenti?
+
+<CodeCloze
+  lang="kotlin"
+  title="Kompleta: kria kópia ku un propriedadi diferenti"
+  prompt="Kompleta kódiku pa kria `reserva4` — mesmu dadus di `reserva1`, ma ku `dias` igual 5."
+  template={[
+    "data class Reserva(",
+    "    val klienti: String,",
+    "    val veikulu: Veikulu,",
+    "    val dias: Int,",
+    ")",
+    "",
+    "fun main() {",
+    "    val karu1 = Veikulu(\"ST-45-AB\", 4500.0)",
+    "    val reserva1 = Reserva(\"Nando\", karu1, 3)",
+    "",
+    "    val reserva4 = reserva1.{{0}}(dias = 5)",
+    "    println(reserva4)",
+    "}",
+  ]}
+  answers={["copy"]}
+  hints={["Métodu ki `data class` ta jera automatikamenti pa kria un instánsia nobu ku algun propriedadi mudadu."]}
+  solved="Korretu! `.copy(dias = 5)` ta kria un instánsia NOBU di `Reserva`, ku mesmu `klienti` i `veikulu`, ma `dias` mudadu pa 5."
+/>
+
+<SectionHeading variant="concept" seq={5}>Eransa: `open` i `override`</SectionHeading>
+
+Gosi nu meste un tipu spesífiku di veikulu: un `Karu`, ku tudu propriedadis di `Veikulu` más un propriedadi novu, `numeruPortas`. En bez di kopia kódiku di `Veikulu` diretu, nu ta uza **eransa** (inheritance): `Karu` ta **erda** di `Veikulu`, i ta sobreskrebe (override) kumportamentu ki é diferenti.
+
+Ma ten un regra importanti na Kotlin: klasses i métodus é **`final`** pa default — ka pode ser erdadu ou sobreskrebe sen permison explisitu. Bu meste marka klasse i métodu ku `open`:
+
+<CodeDiff
+  lang="kotlin"
+  filename="Veikulu.kt"
+  title="Marka `open` pa permiti eransa"
+  note="Kotlin klasses i métodus é `final` pa default — meste marka `open` na dos lugar (klasse i métodu) pa un subklasse pode sobreskrebe `mostraDetalis()`."
+  diff={[
+    { type: "del", t: "class Veikulu(" },
+    { type: "add", t: "open class Veikulu(" },
+    { type: "ctx", t: "    val matrikula: String," },
+    { type: "ctx", t: "    var presuPerDia: Double," },
+    { type: "ctx", t: ") {" },
+    { type: "del", t: "    fun mostraDetalis() {" },
+    { type: "add", t: "    open fun mostraDetalis() {" },
+    { type: "ctx", t: "        println(\"Veikulu $matrikula\")" },
+    { type: "ctx", t: "    }" },
+    { type: "ctx", t: "}" },
+  ]}
+/>
+
+Ku `open` na se lugar, `Karu` pode erda di `Veikulu`, txoma se konstrutor — `: Veikulu(matrikula, presuPerDia)` — i sobreskrebe `mostraDetalis()` ku `override`:
+
+<CodeExample position={2} />
+
+:::callout{type=warning}
+Skise di `open` ka ta kria un bug ki bu ta diskubri só dipos — el ta para kompilason imediatamenti, ku un erru klaru. Isu é diferenti di otus linguajens unde klasses pode ser erdadu pa default.
+:::
+
+![Eransa entri Veikulu i Karu: kaxa open class Veikulu na riba ku propriedadis matrikula i presuPerDia i métodu open fun mostraDetalis(), un fléxa markadu erda di, kaxa class Karu na baxu ku propriedadi nobu numeruPortas, txomada di konstrutor Veikulu(matrikula, presuPerDia), i override fun mostraDetalis()](../../infographics/06-inheritance-tree.jpg)
+
+Gosi é bu bez: modela un otu tipu di veikulu i pratika tudu kel ki nu odja — konstrutor primariu, `this`, `data class` i `open`/`override`.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+  <Quiz position={4} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="konstrutor primariu" code>lista di propriedadis ki ben dirétamenti dipos di nomi di klasse — `val` (imutável) ou `var` (mutável)</RezumuItem>
+  <RezumuItem term="init / konstrutor sekundáriu" code>`init { }` ta izekuta durante kriason (bon pa validason); `constructor(...) : this(...)` da un otu manera di kria objetu</RezumuItem>
+  <RezumuItem term="this" code>referensia explisitu pa objetu (receiver) — obrigatóriu só kuandu un parámetru skonde un propriedadi ku mesmu nomi</RezumuItem>
+  <RezumuItem variant="gold" term="data class">jera automatikamenti igualdadi estrutural, `toString()` útil, destruturason i `.copy()`</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">igualdadi di un `data class` só ta bai ate unde se própriu propriedadis — un propriedadi ki é otu klasse (ka `data`) kontinua kompara pa referensia</RezumuItem>
+  <RezumuItem term="== vs ===" code>`==` (Lisan 4) kompara valor — pa `data class` é estrutural, pa klasse normal é referensia; `===` sénpri kompara identidadi (mesmu instánsia), identiku pa tudu klasse</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">skise di `open` na klasse ou métodu ta para kompilason — Kotlin klasses i métodus é `final` pa default</RezumuItem>
+  <RezumuItem>`override` na subklasse i `open` na superklasse ten ki para djuntu — un só di es dos ka abasta.</RezumuItem>
+</KeyTakeaways>

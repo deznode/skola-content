@@ -1,0 +1,194 @@
+---
+title: "Variavel, Tipus i Testu"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: variables-types-and-text
+duration: "30 min"
+module: 1
+lesson: 3
+objectives:
+  - "Deklara un variavel ku `val` (imutável) ou `var` (mutável) i splika kual ki uza kada un."
+  - "Skodje tipu numériku sertu (`Int`, `Long`, `Double`, `Float`) pa un valor i konverti entri es."
+  - "Konstrui un `String` ku template (`$variavel`) i uza metodus baziku sima `uppercase`, `substring` i `startsWith`."
+  - "Uza `readLine()` pa resebe intrada di utilizador durante izekusan."
+---
+
+# Variavel, Tipus i Testu
+
+Imajina bu sta kria un aplikasan ki meste guarda nomi, idadi i altura di kada estudanti — unde kes valor ta fika guardadu, i kual ki bu ka kre ki muda? Na Kotlin, bu ta guarda kes dadus na variavel — un "kaxa" ku un nomi, unde bu pode poi (i más tardi ler) un valor.
+
+<SectionHeading variant="concept" seq={1}>Val i Var: Kuzé Ki Muda, Kuzé Ki Ka Muda</SectionHeading>
+
+Tudu variavel na Kotlin meste ser deklaradu ku un di dos palavra-txavi:
+
+- **`val`** (di "value") — deklara un variavel **imutável**. Un bez ki bu atribui un valor, el ka pode muda más.
+- **`var`** (di "variable") — deklara un variavel **mutável**. Bu pode dá-l un novu valor kantu ki bu meste.
+
+<CodeExample position={0} />
+
+Si bu tenta dá un novu valor pa un `val`, Kotlin ta da un erru di kompilasan — un erru ki kontise **antis** di bu programa kore (diferenti di un erru ki só aparse kuandu programa sta na izekusan). Kotlin ta para-bu logu, antis di bu tenta kore kódiku — asin el ta garanti ki un valor ki devia fika fixu ka ta muda.
+
+**Regra jeral:** uza `val` senpri ki bu pode. Só uza `var` kuandu bu sabe ki valor ta muda durante programa.
+
+<CompareTable
+  title="`val` vs `var`"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "val", syntax: "val x = …", accent: "teal" },
+    { name: "var", syntax: "var x = …", accent: "blue" },
+  ]}
+  rows={[
+    { label: "Pode dá un novu valor dipos di kriadu?", kind: "bool", vals: [false, true] },
+    { label: "Kuandu uza", kind: "text", vals: ["Valor ki ka ta muda dipos di kriadu", "Valor ki meste muda durante programa"] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>Tipu Detetadu vs Tipu Explisitu</SectionHeading>
+
+Kotlin ta deteta automatikamenti tipu di un variavel a partir di si valor inisial. Es é **tipu detetadu**. Bu tanbe pode deklara tipu **explisitu**, uzandu dos-pontu (`:`) dipos di nomi di variavel.
+
+<CodeExample position={1} />
+
+Kuandu bu deklara tipu explisitu, kel ta djuda leitura di kódiku, spesialmenti kuandu expreson ta fika más kompleksu.
+
+<SectionHeading variant="concept" seq={3}>Tipus Numériku: Int, Long, Double i Float</SectionHeading>
+
+Kotlin ten kuatu tipu numériku prinsipal:
+
+- **`Int`** — tipu padran pa numerus interu, sen parti desimal, sima `10`, `-5`, `1000`.
+- **`Long`** — pa numerus interu mutu grandi; uza sufixu `L` (`2_147_483_648L`).
+- **`Double`** — tipu padran pa numerus ku parti desimal, sima `3.14`; ten txeu presizan.
+- **`Float`** — tanbe pa numerus ku parti desimal, ma ku menus presizan; uza sufixu `F` (`1.75F`).
+
+<CodeExample position={2} />
+
+:::callout{type=tip}
+Bu pode uza `_` pa separa grupu di dígitu i fasilita leitura umanu, sima `2_147_483_648L`. Na kompilasan, Kotlin ta ignora `_` — `2147483648L` i `2_147_483_648L` é exatamenti mesmu valor.
+:::
+
+<SectionHeading variant="concept" seq={4}>Konversan Entri Tipus Numériku</SectionHeading>
+
+Kotlin ka ta konverti tipus automatikamenti — diferenti di alguns otu linguajen. Bu meste txoma un funsan di konversan sima `toInt()`, `toLong()`, `toFloat()` ou `toDouble()`.
+
+![Ladder di konversan entri tipus numériku Kotlin: Int (mas baxu) ta amplia pa Long, pa Float, i pa Double (mas riba) uzandu `toLong()`, `toFloat()` i `toDouble()`; konversan kontráriu, di Double pa Int, ka ta aredonda — el ta trunka](../../infographics/01-numeric-type-ladder.jpg)
+
+<AnnotatedCode
+  lang="kotlin"
+  filename="konversan.kt"
+  title="Un sekuénsia di konversan: Int → Long → Float → Double"
+  code={[
+    { t: "val pontus: Int = 10", m: 1 },
+    { t: "val pontusLongu: Long = pontus.toLong()", m: 2 },
+    { t: "val pontusFloat: Float = pontusLongu.toFloat()", m: 3 },
+    { t: "val pontusDouble: Double = pontusFloat.toDouble()", m: 4 },
+  ]}
+  notes={[
+    { m: 1, title: "Int", body: "Tipu padran pa numerus interu, sen parti desimal." },
+    { m: 2, title: "Long", body: "`toLong()` ta amplia `Int` pa `Long` — pa numerus mutu grandi." },
+    { m: 3, title: "Float", body: "`toFloat()` ta konverti pa un tipu ku parti desimal, ku presizan más baxu." },
+    { m: 4, title: "Double", body: "`toDouble()` ta da máximu di presizan — tipu padran pa kalkulus ku parti desimal." },
+  ]}
+/>
+
+:::callout{type=warning}
+Konversan na sentidu kontráriu (`Double` pa `Int`) **ka ta aredonda** — el ta **trunka**, kel é, el ta korta a parti desimal. `9.9.toInt()` ta da `9`, ka `10`.
+:::
+
+<SectionHeading variant="concept" seq={5}>Operasons Aritmétiku i Atalhus</SectionHeading>
+
+Kotlin ta sigi operasons aritmétiku padran: `+`, `-`, `*`, `/` i `%` (restu di divizon). Kuandu dos `Int` ta dividi, rezultadu tanbe é `Int` — parti desimal ta perde.
+
+<CodeExample position={3} />
+
+Kotlin tanbe ten atalhus pa modifika un `var`:
+
+- `a += b` é mesmu ki `a = a + b`
+- `a -= b`, `a *= b`, `a /= b`, `a %= b` sigi mesmu padran
+- `a++` (postfix) ta aumenta `a` dipos di uza si valor; `++a` (prefix) ta aumenta `a` antis di uza si valor
+- `a--` i `--a` ta diminui `a` na mesmu órden
+
+<SectionHeading variant="concept" seq={6}>Char i String</SectionHeading>
+
+`Char` ta rapresenta un só karáter, entri aspa simpli:
+
+```kotlin
+val inisial: Char = 'O'
+```
+
+`String` ta rapresenta un sekuénsia di karáter, entri aspa dobru:
+
+```kotlin
+val nomi: String = "Telma"
+```
+
+### Template di String
+
+Un template di `String` ta permiti bu insere valor di variavel dentu di un `String`. Basta koloka `$` antis di nomi di variavel; si bu meste kalkula algun kuza ou txoma un metodu, uza `${...}`.
+
+<CodeExample position={4} />
+
+### Metodus Baziku di String
+
+`String` ten txeu metodu úteis pa transforma i splora si konteúdu:
+
+<CodeExample position={5} />
+
+- `uppercase()` ta konverti tudu karáter pa maiúskula.
+- `substring(inísiu, fin)` ta rekorta un parti di `String` (índisi ta kumesa na `0`).
+- `startsWith(prefixu)` ta verifika si `String` ta kumesa ku un dadu prefixu.
+
+`String` é imutável na Kotlin — kada metodu ki "transforma" un `String` ta kria un `String` novu, el ka ta muda original.
+
+<SectionHeading variant="concept" seq={7}>Ler Intrada di Utilizador: readLine()</SectionHeading>
+
+Até gosi, tudu valor na bu programa ta ben diretamenti di kódiku — sima `val nomi = "Telma"`. Ma un programa interativu meste resebe intrada di utilizador durante izekusan. Kotlin ta da `readLine()` pa kel: el ta pausa programa, spera utilizador skrebe algu i primi Enter, i devolve kel testu.
+
+```kotlin
+fun main() {
+    println("Kumo é bu nomi?")
+    val nomi = readLine()
+    println("Ola, $nomi!")
+}
+```
+
+Kuandu bu kore es programa i skrebe `Telma`:
+
+<TerminalBlock
+  title="kotlin Saudason.kt"
+  lines={[
+    { type: "cmd", t: "kotlin Saudason.kt" },
+    { type: "out", t: "Kumo é bu nomi? Telma" },
+    { type: "out", t: "Ola, Telma!" },
+  ]}
+/>
+
+`nomi` ta guarda testu ki utilizador skrebe, i bu ta uza-l diretamenti dentu di un template di `String`, sima kualker otu variavel.
+
+:::callout{type=tip}
+Na próximu lisan, nu ta odja kuzé ki `readLine()` ta devolve kuandu ka ten intrada nenhun — un kazu spesial na Kotlin ki ta liga diretu ku **nulidadi sigura**.
+:::
+
+Gosi bu ta uza tudu kuzé ki bu prendi — `val`/`var`, tipus numériku, konversan, template di `String` i `readLine()` — pa konstrui bu própriu karton di perfil.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="val" code>variavel imutável — só atribui un bez</RezumuItem>
+  <RezumuItem term="var" code>variavel mutável — pode dá-l un novu valor kantu ki bu meste</RezumuItem>
+  <RezumuItem>Kotlin ta deteta tipu di un variavel automatikamenti, ma bu tanbe pode deklara-l explisitu.</RezumuItem>
+  <RezumuItem>`Int`, `Long` é pa numerus interu; `Double`, `Float` é pa numerus ku parti desimal.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`toInt()` ka ta aredonda — el ta **trunka**. `9.9.toInt()` ta da `9`, ka `10`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`_` dentu di numerus grandi (`1_000_000`) é só pa leitura umanu — Kotlin ta ignora-l.</RezumuItem>
+  <RezumuItem>Un template di `String` (`$variavel` ou `${expreson}`) ta permiti kombina testu i valor sen `+`.</RezumuItem>
+  <RezumuItem term="readLine()" code>ta pausa programa, spera intrada di utilizador, i devolve testu skrebedu</RezumuItem>
+</KeyTakeaways>

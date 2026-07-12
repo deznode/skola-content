@@ -1,0 +1,47 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m2-05-conditionals-and-smart-casting-quiz.yaml
+# Publish copies it VERBATIM to:
+#   content/courses/intro-kotlin/lessons/04-conditionals-and-smart-casting/quiz.yaml
+# <Quiz position={n} /> in the lesson MDX selects entries 0-based, in this
+# list's order.
+- question:
+    kea: "Kual é diferensa entri uza `if`/`else` kumo statement i kumo expresan?"
+  options:
+    - text: { kea: "Kumo expresan, el devolve un valor ki bu pode atribui pa un variavel; kumo statement, el só izekuta kódiku" }
+      correct: true
+      explain: { kea: "Es é diferensa xavi: `val x = if (...) A else B` é un expresan; `if (...) { ... } else { ... }` sen atribuisan é un statement." }
+    - text: { kea: "Ka ten diferensa, é só stilu di skrita" }
+      correct: false
+    - text: { kea: "Expresan só funsiona ku `Boolean`, statement funsiona ku kualker tipu" }
+      correct: false
+- question:
+    kea: "Pamodi ki `when` kumo expresan senpri meste un branch `else`?"
+  options:
+    - text: { kea: "Pamodi Kotlin (di forma jeral) ka pode garanti ki tudu kazu posível sta kubridu, i `when`-kumo-expresan meste senpri devolve un valor" }
+      correct: true
+      explain: { kea: "Só `enum class`/`sealed class` (más tardi na kursu) pode dexa Kotlin garanti ki tudu kazu sta kubridu sen `else`, pamodi kel tipus ten un kantidadi FIXU di valoris posível." }
+    - text: { kea: "Pamodi `else` ta izekuta más rápidu ki otu branch" }
+      correct: false
+    - text: { kea: "Ka ten razan téknika — é só konvensan di stilu" }
+      correct: false
+- question:
+    kea: "Kuze ki `in 2..5` ta verifika dentu di un branch `when`?"
+  options:
+    - text: { kea: "Si valor sta entri 2 i 5, inkluzivu" }
+      correct: true
+      explain: { kea: "`in` junto ku un range (`2..5`) ta verifika si valor sta DENTU di kel range, inkluindu ambos ponta." }
+    - text: { kea: "Si valor é exatamenti 2 ou exatamenti 5" }
+      correct: false
+    - text: { kea: "Si valor é un lista ku 2 te 5 elementu" }
+      correct: false
+- question:
+    kea: "Riba di kual tipu di propriedadi smart cast **ka** ta funsiona?"
+  options:
+    - text: { kea: "Propriedadis `var` mutável (ki pode muda entri verifikasan i uzu)" }
+      correct: true
+      explain: { kea: "Kotlin ka pode garanti ki valor di un `var` mutável ka muda entri momentu di verifikasan (`is`/`!= null`) i momentu di uzu — pur isu el ka permiti smart cast diretu riba di kel propriedadis." }
+    - text: { kea: "Propriedadis `val` imutável" }
+      correct: false
+    - text: { kea: "Parámetrus di funsan" }
+      correct: false

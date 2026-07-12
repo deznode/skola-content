@@ -1,0 +1,116 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Publish copies (resolving any starterFrom/solutionFrom) to
+# content/courses/intro-kotlin/lessons/07-collections-list-set-map-pair-triple/exercises.yaml
+# <TentaGosi/> renders these in display order.
+- slug: koleksons-tres-senariu
+  language: kotlin
+  kind: code
+  title: { kea: "Skodje Kolesan Sertu" }
+  prompt:
+    kea: "Skrebe un funsan `main()` ku tris variáveis: (1) un `List` `kompras` ku 4 item pa kumpra (bu pode ripiti item, sima \"arus\" dos bez); (2) un `Set` `ilhasVizitadu` ku 3 ilha úniku; (3) un `Map` `notas` ku 3 par disciplina-nota. Imprimi tudu tris."
+  hint:
+    kea: "Lembra: `listOf` pa órden i repetisan, `setOf` pa únisidadi, `mapOf` ku `to` pa par txavi-valor."
+  starterCode: |
+    fun main() {
+        // TODO: kria un List `kompras` ku 4 item (pode ripiti)
+        // TODO: kria un Set `ilhasVizitadu` ku 3 ilha úniku
+        // TODO: kria un Map `notas` ku 3 par disciplina-nota
+        // TODO: imprimi tudu tris
+    }
+  solutionCode: |
+    fun main() {
+        val kompras = listOf("arus", "fejon", "leti", "arus")
+        val ilhasVizitadu = setOf("Sal", "Santiago", "Fogo")
+        val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
+
+        println(kompras)
+        println(ilhasVizitadu)
+        println(notas)
+    }
+- slug: koriji-variavel-ka-deklaradu
+  language: kotlin
+  kind: debug
+  file: Ilhas.kt
+  title: { kea: "Koriji un Variável Ka Deklaradu" }
+  prompt:
+    kea: "Es kódiku ka ta kompila. Atxa linha ki ta tenta uza un nomi di variável diferenti di kel ki foi deklaradu."
+  starterCode: |
+    val ilhas = listOf("Sal", "Santiago", "Fogo")
+    println(list.contains("Sal"))
+  bugLine: 2
+  bugExplain:
+    kea: "Variável foi deklaradu kumo `ilhas`, ma linha di baxu ta tenta uza `list` — un nomi ki nunka foi deklaradu."
+  solutionCode: |
+    val ilhas = listOf("Sal", "Santiago", "Fogo")
+    println(ilhas.contains("Sal"))
+- slug: preve-map-lookup-ka-existi
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve Lookup di un Map" }
+  prompt:
+    kea: "Antis di kore, preve o ki es kódiku ta imprimi."
+  starterCode: |
+    fun main() {
+        val notas = mapOf("Matemátika" to 18, "Kriolu" to 16)
+        println(notas["Inglés"])
+    }
+  options:
+    - "18"
+    - "16"
+    - "null"
+    - "Erru di kompilasan"
+  correct: 2
+  output: |
+    null
+  why:
+    kea: "`notas[\"Inglés\"]` ta debolve `null` pamodi \"Inglés\" ka sta na map — buska na un `Map` so ta debolve un tipu **nulável** (`Int?`), nunka un erru."
+- slug: notas-sen-muda-orijinal
+  language: kotlin
+  kind: code
+  title: { kea: "Adisiona i Tira Sen Muda Map Orijinal" }
+  prompt:
+    kea: "Dadu `val notas = mapOf(\"Kriolu\" to 16, \"Matemátika\" to 14)`, kria un `Map` novu `ku18` ki ten tudu par di `notas` más `\"Inglés\" to 18` (uza `+`). Dipos, kria un otu `Map` novu `sénMatemátika` a partir di `notas`, i tira txavi `\"Matemátika\"` (uza `-`). Imprimi `notas`, `ku18` i `sénMatemátika` — konfirma ki `notas` ka mudou."
+  hint:
+    kea: "`notas + (\"Inglés\" to 18)` ta kria un Map novu ku par adisionadu; `notas - \"Matemátika\"` ta kria un Map novu sen kel txavi. Nenhun di kes dos ta muda `notas`."
+  starterCode: |
+    fun main() {
+        val notas = mapOf("Kriolu" to 16, "Matemátika" to 14)
+
+        // TODO: ku18 = notas + ("Inglés" to 18)
+        // TODO: sénMatemátika = notas - "Matemátika"
+        // TODO: imprimi notas, ku18 i sénMatemátika
+    }
+  solutionCode: |
+    fun main() {
+        val notas = mapOf("Kriolu" to 16, "Matemátika" to 14)
+
+        val ku18 = notas + ("Inglés" to 18)
+        val sénMatemátika = notas - "Matemátika"
+
+        println(notas)          // {Kriolu=16, Matemátika=14}
+        println(ku18)           // {Kriolu=16, Matemátika=14, Inglés=18}
+        println(sénMatemátika)  // {Kriolu=16}
+    }
+- slug: preve-array-tamanhu-fixu
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve Tamanhu di un Array" }
+  prompt:
+    kea: "Antis di kore, preve o ki es kódiku ta imprimi."
+  starterCode: |
+    fun main() {
+        val numerus = arrayOf(1, 2, 3)
+        numerus[0] = 100
+        println(numerus[0])
+        println(numerus.size)
+    }
+  options:
+    - "100 i 3"
+    - "100 i 4"
+    - "1 i 3"
+  correct: 0
+  output: |
+    100
+    3
+  why:
+    kea: "`Array` ta permiti muda valor pa índisi (`numerus[0] = 100`), ma se **tamanhu ta fixu** — `size` kontinua 3, mesmu dipos di muda un valor."

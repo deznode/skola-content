@@ -1,0 +1,260 @@
+---
+title: "Booleans i Nulidadi Sigura"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: booleans-and-null-safety
+duration: "35 min"
+module: 1
+lesson: 4
+objectives:
+  - "Skrebe ekspresons di komparasan (`==`, `!=`, `<`, `>`) i lójiku (`&&`, `||`, `!`) i preve si valor é `true` ou `false`"
+  - "Distingui `==` (igualdadi di valor) di `===` (identidadi di objetu)"
+  - "Splika pamodi variavel na Kotlin é non-null pa padron i kuzê ki é un `NullPointerException` (NPE)"
+  - "Deklara un tipu ki pode guarda `null` (`String?`) i asesa-l di manera sigura ku `?.`"
+  - "Uza operador Elvis (`?:`) pa da un valor padron kuandu un ekspresan é `null`"
+  - "Kombina `?.` ku `let` pa izekuta un bloku di kódiku só kuandu un valor ka é `null`"
+---
+
+# Booleans i Nulidadi Sigura
+
+Bu ta sai brinka só si tenpu sta bon **i** bu ten tenpu livri — dos kondisan meste ser verdadi na mesmu tenpu. Ma si tenpu ka sta bon **ou** bu ka ten tenpu livri, bu ta fika kaza. Na vida real, nos ta toma desizan baseadu na kondisons a tudu momentu — i programas ta funsiona di mesmu manera. Na Kotlin, kada kondisan ta pasa pa un tipu simpli: **Boolean**, ku só dos valor posível — `true` ou `false`.
+
+:::callout{type=warning}
+Si bu ben di Python: la, `True` i `False` ta skrebe ku primeru letra maiúskula. **Na Kotlin é kontráriu** — só `true` i `false` (tudu minúskulu) ta izisti. `True`/`False` (maiúskulu) na Kotlin ta da `Unresolved reference`, ka un valor Boolean.
+:::
+
+<SectionHeading variant="concept" seq={1}>Operadoris di Komparasan</SectionHeading>
+
+Operadoris di komparasan ta kompara dos valor i ta devolve senpri un `Boolean`: `true` ou `false`.
+
+<CodeExample position={0} />
+
+`==` ta pergunta "es dos valor é igual?"; `!=` ta pergunta kontráriu. `>`, `<`, `>=` i `<=` ta kompara órden entri valor numériku.
+
+### `==` vs `===`: Igualdadi ku Identidadi
+
+`==` (i se kontráriu `!=`) ta kompara **valor** — kel ki bu ja odja li riba. Kotlin tanbe ten un par di operador relasionadu, `===` i `!==`, ki ta kompara **identidadi**: si dos variavel ta apunta pa **mesmu objetu na memória**, ka só si es ten mesmu valor.
+
+```kotlin
+val a = 5
+val b = a
+println(a == b)   // true — mesmu valor
+println(a === b)  // true — b é literalmenti mesmu a
+```
+
+Pa tipus simpli, `==` i `===` normalmenti ta da mesmu rezultadu. Diferensa ta fika klara só kuandu nu ta modela nos própriu klasses (Módulu 5) — la, dos objetu **diferenti** ku mesmu dadus pode ser `==` ma `===` `false`.
+
+<SectionHeading variant="concept" seq={2}>Operadoris Lójiku: &&, || i !</SectionHeading>
+
+Operadoris lójiku ta kombina vários kondisons Boolean nun só rezultadu.
+
+### `&&` — AMBOS lado meste ser `true`
+
+<CodeExample position={1} />
+
+`&&` só ta devolve `true` kuandu **dos** lado é `true`. Na izemplu di riba, `podeEntra` só é `true` pamodi `idadi >= 18` **i** `tenBilheti` é `true` — falta un só, i rezultadu ta `false`.
+
+### `||` — só UN lado meste ser `true`
+
+<CodeExample position={2} />
+
+`||` é más flexível: el só ta devolve `false` kuandu **dos** lado é `false`. Na izemplu, `tenDiskontu` é `true` mesmu si `studanti` é `false`, pamodi `idosu` é `true`.
+
+### `!` — inverte `true`/`false`
+
+```kotlin
+fun main() {
+    println(!true)   // false
+    println(!false)  // true
+}
+```
+
+`!` ta pega un Boolean i devolve kontráriu.
+
+<CompareTable
+  cornerLabel="A · B"
+  showHeader={false}
+  cols={[
+    { name: "&&", syntax: "A && B", accent: "blue" },
+    { name: "||", syntax: "A || B", accent: "teal" },
+  ]}
+  rows={[
+    { label: "`true` ku `true`", kind: "bool", vals: [true, true] },
+    { label: "`true` ku `false`", kind: "bool", vals: [false, true] },
+    { label: "`false` ku `true`", kind: "bool", vals: [false, true] },
+    { label: "`false` ku `false`", kind: "bool", vals: [false, false] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={3}>Presedensia: `!` Antis di `&&` i `||`</SectionHeading>
+
+Kuandu bu kombina `!` ku `&&`/`||` sen paréntesis, é fásil interpreta trotu — `!` só ta nega valor **imediatamenti** dipos di el, ka rezultadu di ekspresan interu.
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Kumo Kotlin ta avalia !menorDiIdadi && tenBilheti"
+  code={[
+    { t: "val podeEntra = !menorDiIdadi && tenBilheti", m: 1 },
+    { t: "//            = true && tenBilheti", m: 2 },
+    { t: "//            = true && true", m: 0 },
+    { t: "//            = true", m: 0 },
+    { t: "println(podeEntra)  // true", m: 3 },
+  ]}
+  notes={[
+    { m: 1, title: "`!` ta avalia primeru", body: "`!` só ta nega `menorDiIdadi` — ka ekspresan interu. Kuandu `menorDiIdadi` é `false`, `!menorDiIdadi` é `true`." },
+    { m: 2, title: "Dipos `&&` kombina", body: "Ku `menorDiIdadi` já negadu, `&&` ta kombina rezultadu ku `tenBilheti`." },
+    { m: 3, title: "Rezultadu", body: "Kumo dos lado é `true`, `podeEntra` é `true`." },
+  ]}
+/>
+
+:::callout{type=warning}
+`!` ten presedensia más altu ki `&&` i `||` — el só ta nega valor imediatamenti dipos di el. Na dúvida sobri órden, uza **paréntesis** pa fika klaru: `!(menorDiIdadi && tenBilheti)` é diferenti di `!menorDiIdadi && tenBilheti`.
+:::
+
+<SectionHeading variant="concept" seq={4}>Nulidadi Sigura (Null Safety)</SectionHeading>
+
+Na Kotlin, un variavel di tipu `String` (sen `?`) **nunka** pode guarda `null` — el é **non-null pa padron**.
+
+```kotlin
+var mensajen: String = "Ola Mundu!"
+mensajen = null // eru di kompilasan: 'null' ka pode ser valor di un tipu non-null
+```
+
+Kel garantia ta iziste pamodi un `NullPointerException` (NPE) é un di errus más kumun na txeu linguajen — el ta kontise kuandu bu tenta asesa un propriedadi ou metodu di un valor ki é `null`. Kotlin ta previni NPE **na kompilasan**, antis ki bu programa mesmu kore.
+
+![Kaminhu pa trata un valor ki pode guarda null: txamada sigura `?.` ta devolve null sen kebra programa; verifikasan ku `if` ta permiti asesu diretu dentu di bloku; asesu diretu sen `?.` Kotlin ta bloka na kompilasan pa previni NullPointerException (NPE); na parti embaxu, operador Elvis `?:` ta da un valor padron](../../infographics/02-null-safety-flow.jpg)
+
+<GlossaryText
+  text="Un tipu ki pode guarda `null` ta txoma-s un [[tipu nulável]]. Pa asesa un valor di un tipu nulável sen kauza un NPE, bu ta uza `?.` — un [[txamada sigura]]."
+  terms={{
+    "tipu nulável": { en: "nullable type", definition: "Un tipu markadu ku `?` dipos di se nomi (`String?`) — el pode guarda ou un valor normal ou `null`." },
+    "txamada sigura": { en: "safe call", definition: "Un asesu ku `?.` ki só ta txoma metodu/propriedadi si valor a skerda ka é `null`. Si é `null`, el ta para i devolve `null` diretu, sen kebra programa." },
+  }}
+/>
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Un tipu nulável, pasu-pa-pasu"
+  code={[
+    { t: 'var mensajen: String? = "Ola Mundu!"', m: 1 },
+    { t: "mensajen = null", m: 2 },
+    { t: "println(mensajen?.length)", m: 3 },
+  ]}
+  notes={[
+    { m: 1, title: "`?` marka tipu nulável", body: "`?` dipos di `String` ta permiti `mensajen` guarda ou un `String` ou `null`." },
+    { m: 2, title: "`null` é permitidu", body: "Sen `?` na tipu, es linha ta un eru di kompilasan. Ku `?`, el é OK." },
+    { m: 3, title: "Txamada sigura `?.`", body: "`?.` só ta txoma `.length` si `mensajen` ka é `null`. Kumo é `null` gosi, es linha ta imprimi `null` — sen kebra programa." },
+  ]}
+/>
+
+:::callout{type=warning}
+Un tipu nulável (`String?`) **ka é mesmu ki** un valor padron ou opsional. El só signifika ki bu variavel **pode** guarda `null` — bu ainda meste verifika-l (ku `?.` ou `if`) antis di uza.
+:::
+
+<SectionHeading variant="concept" seq={5}>Operador Elvis: `?:` — un Valor Padron Kuandu É `null`</SectionHeading>
+
+`?.` ta proteje kontra NPE, ma se rezultadu inda pode ser `null` — sima bu ja odja ku `mensajen?.length` li riba. Txeu bez, bu ka kre `null` sima rezultadu final: bu kre un **valor padron** na se lugar. Pa kel, Kotlin ta da **operador Elvis** (`?:`).
+
+<GlossaryText
+  text="Ekspreson `a ?: b` ta ler-se: si `a` ka é `null`, uza `a`; sinon, uza `b`. Es é [[operador Elvis]]."
+  terms={{
+    "operador Elvis": { en: "Elvis operator", definition: "Ekspreson `?:` ki ta devolve valor a skerda si el ka é `null`, ou valor a direita (padron) si el é `null`." },
+  }}
+/>
+
+<AnnotatedCode
+  lang="kotlin"
+  title="`?:` ta trabadja djuntu ku `?.`"
+  code={[
+    { t: 'var mensajen: String? = null', m: 0 },
+    { t: 'val tamanhu = mensajen?.length ?: 0', m: 1 },
+    { t: 'println(tamanhu) // 0', m: 2 },
+  ]}
+  notes={[
+    { m: 1, title: "Kombinasan `?.` + `?:`", body: "`mensajen?.length` só é `null` pamodi `mensajen` é `null`. `?:` ta pega kel `null` i ta troka-l pa `0` — valor padron a direita." },
+    { m: 2, title: "Nunka `null`", body: "`tamanhu` gosi é senpri un `Int` — nunka `Int?`. `?:` ta poupa-bu di verifika `null` kada bez ki bu ta uza `tamanhu`." },
+  ]}
+/>
+
+Kompara kes dos kaminhu pa trata `null`:
+
+```kotlin
+// Só ku ?. — rezultadu pode ainda ser null
+var apelidu: String? = null
+println(apelidu?.uppercase()) // null
+
+// Ku ?. + ?: — rezultadu NUNKA é null
+println(apelidu?.uppercase() ?: "SEN APELIDU") // SEN APELIDU
+```
+
+:::callout{type=tip}
+`?:` ka só funsiona ku `?.` — el ta uzável ku **kualker** ekspresan nulável, ka só txamadas. Bu ta repara `?:` otu bez más pa frenti nes kursu, senpri ku es mesmu funsan: "kel valor si el ka é `null`, sinon, es otu."
+:::
+
+### `?.let { }`: Faze Algu Só Si Ka É `null`
+
+Bu ja sabe `?.` pa asesa un propriedadi/metodu di manera sigura, i `?:` pa da un valor padron. Ma i si bu meste **faze vários koza** ku un valor só kuandu el ka é `null`? Pa kel, Kotlin ta da `let`, kombinadu ku `?.`.
+
+<AnnotatedCode
+  lang="kotlin"
+  title="`?.let { }` — só ta izekuta si valor ka é null"
+  code={[
+    { t: 'var apelidu: String? = "Djiku"', m: 1 },
+    { t: "apelidu?.let {", m: 2 },
+    { t: '    println("Apelidu: $it")', m: 3 },
+    { t: '    println("Tamanhu: ${it.length}")', m: 3 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Variavel nulável", body: "`apelidu` pode guarda `null`, ma gosi el ten un valor." },
+    { m: 2, title: "`?.let { ... }`", body: "`let` ta resebe bloku `{ ... }` ki só ta izekuta si `apelidu` ka é `null`." },
+    { m: 3, title: "`it`", body: "Dentu di `let`, `it` ta referensia valor — já **ka nulável** akí dentu, pamodi Kotlin sabe ki el ka é `null`." },
+  ]}
+/>
+
+Si `apelidu` fosi `null`, bloku dentu di `let` ka ta izekuta — el ka ta imprimi nada, sen erru.
+
+:::callout{type=tip}
+`?.let { ... }` é útil kuandu bu meste **más di un linha di kódiku** ku un valor nulável. Pa un só ekspresan ku valor padron, `?:` sózin (sima nu odja li riba) kontinua ser midjor skoja.
+:::
+
+<SectionHeading variant="concept" seq={6}>Armadidjas Komun</SectionHeading>
+
+```kotlin
+// ARMADIDJA 1: '!' ta liga más fórti ki '&&' i '||'
+println(!true && false)   // false — só 'true' ta ser negadu, dipos && ku false
+println(!(true && false)) // true  — paréntesis muda tudu
+
+// ARMADIDJA 2: tipu nulável ka é un "valor padron"
+var kodigu: String? = null   // 'null' é un valor real — ka é 'omitidu' ou 'vaziu'
+println(kodigu?.length)      // null — TEN ki verifika antis di uza
+```
+
+Gosi ki bu sabe kombina kondisons ku operadoris di komparasan i lójiku, i trata `null` di manera sigura, bu sta pronto pa kontrola fluxu di bu programa ku `if` i `when`.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+  <Quiz position={4} />
+  <Quiz position={5} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Komparasan" code>`==`, `!=`, `<`, `>`, `<=`, `>=` ta devolve senpri `true`/`false`</RezumuItem>
+  <RezumuItem term="&&" code>Só `true` si AMBOS lado é `true`</RezumuItem>
+  <RezumuItem term="||" code>`true` si pelo menus UN lado é `true`</RezumuItem>
+  <RezumuItem term="== vs ===" code>`==` kompara valor (igualdadi); `===` kompara si é mesmu objetu na memória (identidadi) — diferensa fika klara ku klasses (Módulu 5)</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">`!` ten presedensia más altu ki `&&` i `||` — na dúvida sobri órden, uza **paréntesis**.</RezumuItem>
+  <RezumuItem>Kotlin ta bloka `null` pa padron; un tipu nulável (`String?`) é ki permiti-l.</RezumuItem>
+  <RezumuItem term="Operador Elvis" code>`a ?: b` — uza `a` si el ka é `null`, sinon uza `b` (valor padron).</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`True`/`False` (maiúskulu) ka izisti na Kotlin — só `true`/`false`. I un tipu nulável ka é un "valor padron": el só signifika ki bu meste verifika antis di uza.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`?.` (txamada sigura) ta proteje kontra `NullPointerException` sen bu skrebe un `if` manual; `?:` ta da-bu un valor padron kuandu rezultadu é `null`.</RezumuItem>
+  <RezumuItem term="?.let { }" code>ta izekuta bloku só si valor ka é `null` — útil kuandu bu meste más di un linha di kódiku ku un valor nulável</RezumuItem>
+</KeyTakeaways>

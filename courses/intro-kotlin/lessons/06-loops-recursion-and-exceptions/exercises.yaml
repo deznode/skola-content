@@ -1,0 +1,191 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m2-06-loops-recursion-and-exceptions-exercises.yaml
+# Publish RESOLVES this into:
+#   content/courses/intro-kotlin/lessons/06-loops-recursion-and-exceptions/exercises.yaml
+# <TentaGosi /> renders these in display order.
+- slug: dizenha-triangulu-parametrizadu
+  language: kotlin
+  kind: code
+  title: { kea: "Dezenha un triangulu parametrizadu" }
+  prompt:
+    kea: "Skrebe un funsan `imprimeTriangulu(altura: Int)` ki ta imprimi un triangulu di estrelas ku `altura` filas, uzandu un loop aninhadu (loop dentu di loop). Dipos, sima bónus, skrebe `imprimeTriunguloInvertidu(altura: Int)` ki ta imprimi mesmu triangulu ma invertidu (di riba pa baxu), uzandu `downTo` na loop di fora."
+  starterCode: |
+    fun imprimeTriangulu(altura: Int) {
+        // TODO: skrebe loop aninhadu li
+    }
+
+    fun imprimeTriunguloInvertidu(altura: Int) {
+        // TODO: bónus — uza downTo na loop di fora
+    }
+
+    fun main() {
+        imprimeTriangulu(5)
+        imprimeTriunguloInvertidu(5)
+    }
+  solutionCode: |
+    fun imprimeTriangulu(altura: Int) {
+        for (i in 1..altura) {
+            for (j in 1..i) {
+                print("*")
+            }
+            println()
+        }
+    }
+
+    fun imprimeTriunguloInvertidu(altura: Int) {
+        for (i in altura downTo 1) {
+            for (j in 1..i) {
+                print("*")
+            }
+            println()
+        }
+    }
+
+    fun main() {
+        imprimeTriangulu(5)
+        imprimeTriunguloInvertidu(5)
+    }
+  hint:
+    kea: "Loop di fora (`i`) ta kontrola kada fila; loop di dentu (`j`) ta imprimi `i` estrela na kel fila. Pa versan invertidu, troka `for (i in 1..altura)` pa `for (i in altura downTo 1)` — resto di lójika ta mesmu."
+- slug: fatorial-rekursivu
+  language: kotlin
+  kind: code
+  title: { kea: "Fatorial rekursivu" }
+  prompt:
+    kea: "Skrebe un funsan rekursivu `fatorial(numeru: Int): Int` ku un kazu bazi pa `numeru <= 1`."
+  starterCode: |
+    fun fatorial(numeru: Int): Int {
+        // TODO: skrebe kazu bazi i kazu rekursivu
+    }
+
+    fun main() {
+        println(fatorial(5)) // 120
+    }
+  solutionCode: |
+    fun fatorial(numeru: Int): Int {
+        if (numeru <= 1) {
+            return 1
+        }
+        return fatorial(numeru - 1) * numeru
+    }
+
+    fun main() {
+        println(fatorial(5)) // 120
+    }
+  hint:
+    kea: "Kazu bazi: si `numeru <= 1`, devolve `1`. Kazu rekursivu: `fatorial(numeru - 1) * numeru`."
+- slug: kaptura-idadi-invalidu
+  language: kotlin
+  kind: code
+  title: { kea: "Kaptura idadi inválidu" }
+  prompt:
+    kea: "Skrebe un funsan `verificaIdadi(idadi: Int)` ki ta lansa `IllegalArgumentException` si `idadi` é negativu. Dipos, na `main()`, txoma-l dentu di un `try`/`catch`/`finally` pa kaptura eru sen para programa."
+  starterCode: |
+    fun verificaIdadi(idadi: Int) {
+        // TODO: lansa IllegalArgumentException si idadi < 0
+    }
+
+    fun main() {
+        // TODO: txoma verificaIdadi(-3) dentu di try/catch/finally
+    }
+  solutionCode: |
+    fun verificaIdadi(idadi: Int) {
+        if (idadi < 0) {
+            throw IllegalArgumentException("Idadi ka pode ser negativu: $idadi")
+        }
+    }
+
+    fun main() {
+        try {
+            verificaIdadi(-3)
+        } catch (e: IllegalArgumentException) {
+            println("Eru kapturadu: ${e.message}")
+        } finally {
+            println("Verifikasan kabadu.")
+        }
+    }
+  hint:
+    kea: "Uza `throw IllegalArgumentException(\"mensajen\")` dentu di `if`, i inpacota txomada na `try { } catch (e: IllegalArgumentException) { } finally { }`."
+- slug: konta-atras-while
+  language: kotlin
+  kind: code
+  title: { kea: "Konta pa trás ku while" }
+  prompt:
+    kea: "Skrebe un funsan `kontaAtras(inisiu: Int)` ki ta imprimi kada númeru di `inisiu` te `1` uzandu un `while`-loop, dipos imprimi \"Kabadu!\"."
+  starterCode: |
+    fun kontaAtras(inisiu: Int) {
+        // TODO: skrebe while-loop li
+    }
+  solutionCode: |
+    fun kontaAtras(inisiu: Int) {
+        var n = inisiu
+        while (n > 0) {
+            println(n)
+            n--
+        }
+        println("Kabadu!")
+    }
+  hint:
+    kea: "Lembra di diminui `n` dentu di korpu di loop, sinon el ka ta para."
+- slug: traca-pilha-fatorial
+  language: kotlin
+  kind: predict
+  title: { kea: "Trasa pilha di txomadas di fatorial" }
+  prompt:
+    kea: "Antis di kore, trasa pilha di txomadas i preve kuze ki es programa ta imprimi."
+  starterCode: |
+    fun fatorial(numeru: Int): Int {
+        if (numeru <= 1) {
+            return 1
+        }
+        return fatorial(numeru - 1) * numeru
+    }
+
+    fun main() {
+        println(fatorial(4))
+    }
+  options:
+    - "24"
+    - "10"
+    - "4"
+    - "Eru na izekusan (StackOverflowError)"
+  correct: 0
+  output: |
+    24
+  why:
+    kea: "`fatorial(4)` ta expandi asi: `fatorial(4) -> fatorial(3) * 4 -> (fatorial(2) * 3) * 4 -> ((fatorial(1) * 2) * 3) * 4 -> ((1 * 2) * 3) * 4 = 24`. Kada txomada ta spera rezultadu di próksimu, dipos multiplika kaminhu di volta te `fatorial(4)` devolve `24`."
+- slug: imprimi-pozitivu-te-zero
+  language: kotlin
+  kind: code
+  title: { kea: "Imprimi pozitivu, para na zero" }
+  prompt:
+    kea: "Skrebe un funsan `imprimePozitivu(numerus: List<Int>)` ki ta pasa pa kada elementu di `numerus`. Si elementu é negativu, **salta-l** (`continue`) sen imprimi. Si elementu é `0`, **para** loop kompletamenti (`break`). Sinon, imprimi elementu."
+  hint:
+    kea: "Un `if` pa negativu ku `continue`; un otu `if` pa `0` ku `break`; `println` normal fika pa último, pamodi loop sô txiga la si nenhun di kes dos kondisan kontise."
+  starterCode: |
+    fun imprimePozitivu(numerus: List<Int>) {
+        // TODO: continue pa negativu, break pa 0, println pa restu
+    }
+
+    fun main() {
+        imprimePozitivu(listOf(3, -1, 7, 0, 9))
+    }
+  solutionCode: |
+    fun imprimePozitivu(numerus: List<Int>) {
+        for (numeru in numerus) {
+            if (numeru < 0) {
+                continue
+            }
+            if (numeru == 0) {
+                break
+            }
+            println(numeru)
+        }
+    }
+
+    fun main() {
+        imprimePozitivu(listOf(3, -1, 7, 0, 9))
+        // 3
+        // 7
+    }

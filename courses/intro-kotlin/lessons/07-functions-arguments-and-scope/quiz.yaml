@@ -1,0 +1,81 @@
+# Quiz sidecar (draft source) for lesson v1-m3-07 "Funsons: Argumentus i Scope".
+# Publish copies this VERBATIM to:
+#   content/courses/intro-kotlin/lessons/07-functions-arguments-and-scope/quiz.yaml
+# position 0-5 correspond to <Quiz position={n} /> in kea.mdx.
+
+- question:
+    kea: "Kuze ki ta kontise si bu txoma `apresenta(\"Telma\")` i `apresenta` ten `papel: String = \"Estudanti\"` sima parámetru?"
+  options:
+    - text: { kea: "`papel` ta risebe se valor padron, `\"Estudanti\"`" }
+      correct: true
+      explain: { kea: "Argumentus padron ta izisti djustamenti pa kel: si txamada ka indika-s, valor definidu na `= \"Estudanti\"` ta uzadu." }
+    - text: { kea: "Funsan ka ta kompila, pamodi falta un argumentu" }
+      correct: false
+    - text: { kea: "`papel` ta risebe `null`" }
+      correct: false
+
+- question:
+    kea: "Kuandu bu uza argumentus nomeadu, kuze ki ta kontise ku órden di es argumentus?"
+  options:
+    - text: { kea: "Bu pode da-s na kualker órden — Kotlin ta liga kada valor ku se nomi di parámetru, ka ku se pozisan" }
+      correct: true
+      explain: { kea: "É djustamenti pamodi el ka dipende di pozisan ki argumentus nomeadu ta permiti muda órden, sen risku di konfundi." }
+    - text: { kea: "Órden mesti ser sempri igual a órden na definisan di funsan" }
+      correct: false
+    - text: { kea: "Só primeru argumentu di txamada pode ser nomeadu" }
+      correct: false
+
+- question:
+    kea: "Kual regra bu debe sigi pa mistura argumentus posizional ku argumentus nomeadu na mesmu txamada?"
+  options:
+    - text: { kea: "Tudu argumentu posizional ten ki ben ANTIS di kualker argumentu nomeadu" }
+      correct: true
+      explain: { kea: "Un bez ki bu kumesa nomeia un argumentu, tudu argumentu dipos di el debe ser nomeadu tanbe." }
+    - text: { kea: "Argumentus posizional ten ki ben DIPOS di tudu argumentu nomeadu" }
+      correct: false
+    - text: { kea: "Kotlin ka permiti mistura argumentus posizional ku nomeadu na mesmu txamada" }
+      correct: false
+
+- question:
+    kea: "Pamodi ki un funsan `mostraImpostu()` ka pode uza variável `taxa`, si `taxa` foi definidu dentu di `kalkulaImpostu()`?"
+  options:
+    - text: { kea: "Pamodi `taxa` é un variável lokal — el só izisti dentu di scope di `kalkulaImpostu()`" }
+      correct: true
+      explain: { kea: "Kada funsan ten se própriu scope lokal. Pa partilha un valor entri funsons, el debe ser un variável di top-level ou pasadu sima argumentu." }
+    - text: { kea: "Pamodi `taxa` é un tipu di dadu inválidu pa Kotlin" }
+      correct: false
+    - text: { kea: "Pamodi Kotlin ka permiti dos funsons na mesmu fixeru" }
+      correct: false
+
+- question:
+    kea: "Kual é diferensa entri un funsan lokal i un funsan di top-level, na kestion di órden na fixeru?"
+  options:
+    - text: { kea: "Un funsan lokal só pode ser uzadu DIPOS di se pontu di definisan; un funsan di top-level pode ser txomadu di kualker lugar na fixeru" }
+      correct: true
+      explain: { kea: "Kotlin ta odja tudu funsan di top-level di un bez, ma un funsan lokal sigi mesmu regra ki un variável lokal — el só izisti dipos di linha unde foi definidu." }
+    - text: { kea: "Ka ten diferensa — tudu funsan Kotlin ta sigi mesmu regra di órden" }
+      correct: false
+    - text: { kea: "Funsons lokal pode ser txomadu antis di se definisan, ma funsons di top-level nau" }
+      correct: false
+
+- question:
+    kea: "Si un funsan `fun sauda(nomi: String) { println(\"Ola, $nomi!\") }` ka ten `:` dipos di se paréntesis, kual é se tipu di retornu?"
+  options:
+    - text: { kea: "`Unit` — implísitu, pamodi funsan ka ten `return` ku valor" }
+      correct: true
+      explain: { kea: "Kuandu bu ka skrebe un tipu di retornu, Kotlin ta atribui `Unit` automatikamenti — tipu ki sinifika \"sen valor útil\"." }
+    - text: { kea: "`String`, pamodi el ta risebe un parámetru `String`" }
+      correct: false
+    - text: { kea: "Es funsan ka ta kompila — sénpri meste `: Tipu`" }
+      correct: false
+
+- question:
+    kea: "Kuantu parámetru `vararg` un funsan pode ten?"
+  options:
+    - text: { kea: "Un só" }
+      correct: true
+      explain: { kea: "Un funsan só pode ten un parámetru `vararg` — nunka dos ou más." }
+    - text: { kea: "Kantu bu kre" }
+      correct: false
+    - text: { kea: "Nenhun — `vararg` só funsiona ku funsons di biblioteka padran" }
+      correct: false

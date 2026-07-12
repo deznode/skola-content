@@ -1,0 +1,272 @@
+---
+title: "Konfigura Bu Ambienti: IntelliJ i Kotlin Playground"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: konfigura-bu-ambienti
+duration: "30 min"
+module: 1
+lesson: 2
+objectives:
+  - "Instala IntelliJ IDEA Community Edition (grátis) i kria un nobu prujetu Kotlin."
+  - "Kria un fixeru `.kt`, skrebe un programa Kotlin, i kore-l dentu di IntelliJ — ku boton Run, atalhu di teklado, ou menu di kontekstu."
+  - "Uza Kotlin Playground (play.kotlinlang.org) pa testa kódiku Kotlin direitamenti na browser, sen instala nada."
+  - "Splika kual ferramenta uza pa kada situason, i pamodi IntelliJ ta kontinua ta funsiona sen internet dipos di instaladu."
+---
+
+# Konfigura Bu Ambienti: IntelliJ i Kotlin Playground
+
+Antis di skrebe más kódiku Kotlin, bu meste un lugar pa skrebe-l i kore-l. Nes lisan, nu ta odja **dos** ferramenta ki bu ta uza durante tudu es kursu:
+
+- **IntelliJ IDEA Community Edition** — un IDE (*integrated development environment*) grátis ki bu ta instala na bu kompjuter. É li ki bu ta faze tudu izersísiu di es kursu, i el ta funsiona **sen internet** dipos di instaladu.
+- **Kotlin Playground** — un editor na browser, na `play.kotlinlang.org`, pa testa un tréxu di kódiku rápidu, sen instala nada — ma el meste konexan di internet pa funsiona.
+
+Es dos ka é un "ou-ou". Kada un ten se lugar: IntelliJ é bu ferramenta prinsipal (kel unde bu ta konstrui prujetus reais), i Kotlin Playground é un konpanheru rápidu pa kuandu bu meste testa un ideia sen abri un prujetu interu.
+
+:::callout{type=info title="Ki é un IDE?"}
+Un **IDE** (Integrated Development Environment) é un programa ki djunta tudu ferramenta di dizenvolvimentu na un so lugar: editor di kódiku ku korís (*syntax highlighting*), autocomplete, detesan di erru na tempu real, i un debugger. É más ki un editor di testu sinplis — é un "ofisina" kompletu pa skrebe software.
+:::
+
+<CompareTable
+  title="Kual ferramenta uza?"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "IntelliJ IDEA", syntax: "instaladu", accent: "blue" },
+    { name: "Kotlin Playground", syntax: "browser", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Meste instala na kompjuter", kind: "bool", vals: [true, false] },
+    { label: "Funsiona sen internet", kind: "bool", vals: [true, false] },
+    { label: "Suporta prujetu ku vários fixeru", kind: "bool", vals: [true, false] },
+    { label: "Bon pa", kind: "text", vals: ["Tudu izersísiu di es kursu — projetus reais", "Testa un ideia rápidu, ou partilha un tréxu di kódiku"] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={1}>Instala IntelliJ IDEA Community Edition</SectionHeading>
+
+IntelliJ IDEA é kriadu pa **JetBrains** — mesmu enpresa ki kria Kotlin (bu dja odja-s na lisan pasadu). Kel é pamodi IntelliJ ten midjór suporti pa Kotlin di tudu IDE ki izisti: autocomplete, detesan di erru, i refatorasan ki sabe konprende kódiku Kotlin diretamenti.
+
+Bai na **[jetbrains.com/idea/download](https://www.jetbrains.com/idea/download/)** i skodje versan **Community** (grátis) — el ja ten tudu ki es kursu meste. (Ten tanbe un versan **Ultimate**, paga, ku suporti extra pa framework enpresarial sima Spring — bu ka meste el pa es kursu.)
+
+:::callout{type=tip title="Plugin di Kotlin dja ben inkluídu"}
+Diferenti di otu editor ki meste instala un extensan separadu pa Kotlin, IntelliJ IDEA modernu ja ben ku **plugin di Kotlin bundladu i ativu di padron** — sen paso extra di instalasan. Bu abri IntelliJ i Kotlin dja sta prontu pa uza.
+:::
+
+Skodje bu sistema operasional pa odja pasus di instalasan:
+
+<PlatformTabs
+  tabs={[
+    {
+      label: 'Windows',
+      icon: 'windows',
+      content: [
+        { type: 'prose', t: 'Faze download di installer `.exe` di [jetbrains.com/idea/download](https://www.jetbrains.com/idea/download/) (boton **"Download"** debaxu di kolona **Community**) i sigi es pasus:' },
+        { type: 'steps', items: [
+          'Abri fixeru ki bu faze download (`ideaIC-*.exe`)',
+          'Klika **"Next"** na kada pasu — opsons di padron sta OK',
+          'Marka **"Create Desktop Shortcut"** si bu misti un atalhu na desktop',
+          'Klika **"Install"** i spera instalasan termina',
+        ] },
+        { type: 'callout', sev: 'tip', t: 'Dipos di instalasan, IntelliJ ta pergunta si bu misti importa konfigurasan di un versan antigu. Si é primeru bez, skodje **"Do not import settings"**.' },
+      ],
+    },
+    {
+      label: 'macOS',
+      icon: 'apple',
+      content: [
+        { type: 'prose', t: 'Faze download di fixeru `.dmg` di [jetbrains.com/idea/download](https://www.jetbrains.com/idea/download/) — verifika si bu skodje versan sertu pa bu txip (**Apple Silicon** ou **Intel**).' },
+        { type: 'steps', items: [
+          'Abri fixeru `.dmg`',
+          'Arasta íkoni di IntelliJ IDEA CE pa pasta **Applications**',
+          'Abri IntelliJ di **Applications** (primeru bez, macOS pode pergunta konfirmason di seguransa)',
+        ] },
+        { type: 'callout', sev: 'tip', t: 'Si macOS mostra "IntelliJ IDEA CE ka pode ser abertu pamodi el ben di un dizenvolvedor ka identifikadu", bai na **Preferénsias di Sistema → Privasidadi i Seguransa** i klika **"Abri Mesmu Asin"**.' },
+      ],
+    },
+    {
+      label: 'Linux',
+      icon: 'linux',
+      content: [
+        { type: 'prose', t: 'Na maioria di distribuisons Linux, forma más sinplis é ku `snap` (Ubuntu i derivadus):' },
+        { type: 'cmd', label: 'bash', lines: ['sudo snap install intellij-idea-community --classic'] },
+        { type: 'prose', t: 'Alternativa: faze download di fixeru `.tar.gz` di [jetbrains.com/idea/download](https://www.jetbrains.com/idea/download/), extrai-l, i kore skrit di dentu di el:' },
+        { type: 'cmd', label: 'bash', lines: ['tar -xzf ideaIC-*.tar.gz', 'cd idea-IC-*/bin', './idea.sh'] },
+      ],
+    },
+  ]}
+/>
+
+<SectionHeading level={3} variant="install">Pergunta Frekuenti sobri IntelliJ</SectionHeading>
+
+<DetailDisclosure
+  items={[
+    {
+      q: "Meste paga pa uza IntelliJ IDEA?",
+      tag: "Splika más",
+      a: "Nau — **Community Edition** é 100% grátis, mésmu pa uzu profisional, i ten tudu ki es kursu meste pa Kotlin puru (sen framework web).",
+    },
+    {
+      q: "Kual ki diferensa entri Community i Ultimate?",
+      tag: "Splika más",
+      a: "**Ultimate** (paga) adisiona suporti pa framework enpresarial sima Spring Boot i basis di dadus. **Community** (grátis) ja ten editor, debugger i suporti kompletu di Kotlin/Java — sufisienti pa tudu es kursu.",
+    },
+    {
+      q: "Meste instala Java (JDK) separadamenti?",
+      tag: "Splika más",
+      a: "Normalmenti nau. Kuandu bu kria un nobu prujetu, asistenti di IntelliJ ta oferece opson **\"Download JDK\"** direitamenti dentu di janela — bu ka meste bai buska-l na otu lugar.",
+      code: "JDK = Java Development Kit",
+    },
+    {
+      q: "Meste konexan di internet pa uza IntelliJ dipos di instaladu?",
+      tag: "Opsional",
+      a: "Nau. Dipos di instala IntelliJ i konfigura un JDK (kel un bez so, ku internet), tudu kódiku Kotlin ta kompila i kore lokalmenti na bu kompjuter, sen internet nengun. Kel é importanti pa kuandu konexan ka sta disponível.",
+    },
+  ]}
+/>
+
+<Steps
+  variant="phases"
+  phaseWord="Fasi"
+  title="Kria Bu Purmeru Prujetu Kotlin na IntelliJ"
+  steps={[
+    {
+      title: "Abri IntelliJ i kria un nobu prujetu",
+      content: [
+        { type: "prose", t: "Purmeru bez ki bu abri IntelliJ, bu ta odja un tela di bon-vindu. Klika na **\"New Project\"**." },
+        { type: "list", items: [
+          "Da un nomi pa prujetu, izemplu **`MeuPrujetuKotlin`**",
+          "Skodje **\"Kotlin\"** kumo linguajen na lista",
+        ] },
+        { type: "callout", sev: "tip", t: "IntelliJ ta guarda prujetu na un pasta ku mesmu nomi — bu pode skodje unde na kampu **\"Location\"**." },
+      ],
+    },
+    {
+      title: "Konfigura JDK (Java Development Kit)",
+      content: [
+        { type: "prose", t: "Kotlin kore riba di **JVM** (*Java Virtual Machine* — un \"mákina virtual\" ki izekuta kódiku Kotlin/Java dipos di kompiladu), kel meste un **JDK** (Java Development Kit) pa kompila i kore kódiku. Si nenhun JDK sta listadu na dropdown **\"JDK\"**:" },
+        { type: "steps", items: [
+          "Klika na dropdown **\"JDK\"** i skodje **\"Download JDK...\"**",
+          "Skodje un versan (versan 17 ou más resenti ta funsiona bon) i klika **\"Download\"**",
+        ] },
+        { type: "callout", sev: "warning", t: "Es pasu meste konexan di internet **un so bez**. Dipos di download, JDK ta fika instaladu lokalmenti pa senpri." },
+        { type: "prose", t: "Klika **\"Create\"** pa termina — IntelliJ ta leba un momentu pa prepara prujetu." },
+      ],
+    },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={2}>Bu Purmeru Programa Kotlin na IntelliJ</SectionHeading>
+
+<SectionHeading level={3} variant="install">Kria Fixeru</SectionHeading>
+
+Na árvi di fixeru (banda skerda), abri **`src`**, dipos klika ku boton direitu na pasta **`kotlin`** i skodje **New → Kotlin Class/File**. Da-l nomi **`Main`** i skodje tipu **"File"** na lista.
+
+:::callout{type=tip}
+Tudu fixeru fonti Kotlin ta kaba ku extensan **`.kt`** — é kumo Kotlin sabe ki é kódiku pa kompila.
+:::
+
+<SectionHeading level={3} variant="install">Skrebe Kódiku</SectionHeading>
+
+Skrebe es kódiku na fixeru `Main.kt`:
+
+```kotlin
+// Nha primeru programa Kotlin na IntelliJ!
+fun main() {
+    val nomi = "Telma"
+    val ilha = "Fogo"
+
+    println("Ola, $nomi! Ben-vindu a Kotlin!")
+    println("$ilha é un ilha sabi! Morabeza!")
+}
+```
+
+<SectionHeading level={3} variant="install">Kore Programa</SectionHeading>
+
+Ten 3 manera di kore bu programa dentu di IntelliJ:
+
+**Manera 1: Íkoni Run (más fáxi)**
+Klika na triangulu verdi ▶ ki ta parse na *gutter* (marjen skerda), banda di linha `fun main()`.
+
+**Manera 2: Atalhu di teklado**
+Ku kursor dentu di fixeru, primi <Kbd keys="Shift+F10" /> (Windows/Linux — na macOS uza `Control+R`) pa kore konfigurason más resenti.
+
+**Manera 3: Menu di kontekstu**
+Klika-riti na un lugar dentu di fixeru i skodje **"Run 'MainKt'"**.
+
+Bu debe odja algu sima es na painel di baxu (janela **Run**):
+
+<TerminalBlock
+  title="Run 'MainKt'"
+  lines={[
+    { type: 'out', t: 'Ola, Telma! Ben-vindu a Kotlin!' },
+    { type: 'out', t: 'Fogo é un ilha sabi! Morabeza!' },
+    { type: 'ok', t: 'Process finished with exit code 0' },
+  ]}
+/>
+
+**Parabéns! Bu dja skrebe i kore bu primeru programa Kotlin na IntelliJ!**
+
+<SectionHeading variant="concept" seq={3}>Kotlin Playground: Konpanheru Rápidu na Browser</SectionHeading>
+
+Ka tudu bez bu meste un prujetu interu. Talvez bu ta so kuriozu sobri un pedasu di kódiku, ou bu sta na un kompjuter ki ka é bo. É pa kel ki **Kotlin Playground** izisti — un editor Kotlin ki ta kore direitamenti na browser, sen instala nada.
+
+:::callout{type=warning}
+Kotlin Playground meste **konexan di internet** pa funsiona — kódiku ta kompila i kore na servidor di JetBrains, ka na bu kompjuter. É pur isu el ka é substitutu pa IntelliJ kuandu bu meste konstrui un prujetu real ku vários fixeru.
+:::
+
+Kumo ta uza-l:
+
+1. Bai na **[play.kotlinlang.org](https://play.kotlinlang.org)** — nenhun konta ou instalasan é meste.
+2. Editor dja ben ku un izemplu di `println(...)`. Aprova-l ou skrebe bu própriu kódiku.
+3. Klika boton **"Run"** (kantu superiór direitu).
+4. Odja rezultadu na painel di baxu di editor.
+
+```kotlin
+fun main() {
+    println("Ola di Kotlin Playground!")
+}
+```
+
+Kotlin Playground é tanbe útil pa **partilha kódiku** — bu pode kopia link di bu sesan i manda pa kolega ou monitor pa es odja izatamenti mesmu kódiku.
+
+<SectionHeading variant="concept" seq={4}>Atalhus i Termus pa Lembra</SectionHeading>
+
+<Flashcard
+  title="Atalhus i termus esensiais"
+  cards={[
+    { term: "Shift+F10", def: "Kore programa aktivu na IntelliJ (Windows/Linux). Na macOS, uza Control+R." },
+    { term: "Íkoni Run (▶)", def: "Triangulu verdi na gutter, banda di fun main() — klika-l pa kore direitamenti." },
+    { term: ".kt", def: "Extensan di fixeru fonti Kotlin." },
+    { term: "JDK", def: "Java Development Kit — ferramentas ki JVM/Kotlin meste pa kompila i kore kódiku. IntelliJ pode download-l pa bu." },
+    { term: "play.kotlinlang.org", def: "Kotlin Playground — kódiku Kotlin na browser, sen instalasan, ma meste internet." },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={5}>Erus Kumuns i Soluson</SectionHeading>
+
+| Eru | Kauza | Soluson |
+|------|-------|---------|
+| Íkoni Run (▶) ka ta parse na gutter | Fixeru ka ten un `fun main()` válidu, ou prujetu inda ta indexa | Verifika ki `fun main()` sta skritu korretamenti; spera IntelliJ kaba di indexa (barra di progresu na baxu di janela) |
+| "No JDK specified" ou prujetu ka kompila | Nenhun JDK konfiguradu pa prujetu | Na `File → Project Structure`, skodje ou download un JDK |
+| Kódiku sublinhadu burmedju, "Cannot resolve symbol" | Prujetu inda ta indexa, ou fixeru fora di pasta sertu | Spera indexasan kaba; sertifika ki fixeru sta dentu di `src/main/kotlin` |
+| Kotlin Playground ka ta kore, ou demora txeu | Konexan di internet instável | Verifika konexan; tenta otu bez; si internet ka disponível, uza IntelliJ lokalmenti |
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa Bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa Lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="IntelliJ IDEA Community">grátis, ku plugin di Kotlin dja bundladu — el é bu ferramenta prinsipal pa tudu es kursu</RezumuItem>
+  <RezumuItem>Dipos di instaladu i JDK konfiguradu, IntelliJ ta kompila i kore kódiku Kotlin **lokalmenti, sen internet**.</RezumuItem>
+  <RezumuItem term="Kotlin Playground" code>play.kotlinlang.org — testa kódiku rápidu na browser, sen instala nada, ma meste internet</RezumuItem>
+  <RezumuItem>Kore un programa na IntelliJ ku íkoni Run (▶), <Kbd keys="Shift+F10" />, ou menu di kontekstu "Run".</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Uza IntelliJ pa tudu izersísiu di es kursu — Kotlin Playground é so pa testa un ideia rápidu.</RezumuItem>
+  <RezumuItem variant="warning" term="Erus kumuns">Si íkoni Run ka parse, ou kódiku ta mostra "Cannot resolve symbol", txeu bez é so prujetu ainda ta indexa — spera un momentu.</RezumuItem>
+</KeyTakeaways>

@@ -1,0 +1,158 @@
+# Exercises sidecar (draft source) for lesson v1-m3-07 "Funsons: Argumentus i Scope".
+# Publish copies this, resolving any starterFrom/solutionFrom, to:
+#   content/courses/intro-kotlin/lessons/07-functions-arguments-and-scope/exercises.yaml
+# Keep `slug` STABLE — it is the completed_exercises FK.
+
+- slug: funsan-area-retangulu
+  language: kotlin
+  kind: code
+  title: { kea: "Funsan Área di Retángulu" }
+  prompt:
+    kea: "Skrebe un funsan `area(largura: Double, altura: Double): Double` ki ta devolve área di un retángulu (`largura * altura`). Dipos, skrebe un funsan `imprimeArea(largura: Double, altura: Double)` ki ka devolve valor nenhun (`Unit`) — el só ta imprimi `\"Área: <valor>\"`."
+  hint:
+    kea: "`area` meste `: Double` dipos di se paréntesis (ten tipu di retornu) i un `return`. `imprimeArea` ka meste tipu di retornu — el só ta `println`."
+  starterCode: |
+    fun area(largura: Double, altura: Double): Double {
+        // TODO: devolve largura * altura
+    }
+
+    fun imprimeArea(largura: Double, altura: Double) {
+        // TODO: imprimi "Área: <valor>" uzandu area()
+    }
+
+    fun main() {
+        imprimeArea(4.0, 3.0)
+    }
+  solutionCode: |
+    fun area(largura: Double, altura: Double): Double {
+        return largura * altura
+    }
+
+    fun imprimeArea(largura: Double, altura: Double) {
+        println("Área: ${area(largura, altura)}")
+    }
+
+    fun main() {
+        imprimeArea(4.0, 3.0) // Área: 12.0
+    }
+- slug: konstrutor-di-kumprimentu
+  language: kotlin
+  kind: code
+  title: { kea: "Konstrutor di Kumprimentu" }
+  prompt:
+    kea: "Skrebe un funsan `apresenta(nomi: String, papel: String = \"Estudanti\", turma: String = \"Kotlin\")` ki ta imprimi `\"<nomi> é <papel> na turma <turma>.\"`. Dipos, txoma-l tris bez: só ku `nomi`; ku `nomi` i `papel` nomeadu; i ku tudu tris argumentus nomeadu, ma na otu órden."
+  hint:
+    kea: "Lembra: argumentus posizional ten ki ben antis di kualker argumentu nomeadu na mésmu txamada."
+  starterCode: |
+    fun apresenta(/* TODO: parámetrus, dos ku valoris padron */) {
+        // TODO
+    }
+
+    fun main() {
+        // TODO: tris txamadas diferenti
+    }
+  solutionCode: |
+    fun apresenta(nomi: String, papel: String = "Estudanti", turma: String = "Kotlin") {
+        println("$nomi é $papel na turma $turma.")
+    }
+
+    fun main() {
+        apresenta("Zeca")
+        apresenta("Telma", papel = "Monitor")
+        apresenta(turma = "Kotlin Avansadu", nomi = "Zeca", papel = "Estudanti")
+    }
+
+- slug: koriji-eru-di-ambitu
+  language: kotlin
+  kind: debug
+  file: Impostu.kt
+  title: { kea: "Koriji un Eru di Scope" }
+  prompt:
+    kea: "Es kódiku ka ta kompila. Atxa linha ki ta tenta uza un variável fora di se scope."
+  starterCode: |
+    fun kalkulaImpostu(): Double {
+        val taxa = 0.15
+        return 1000 * taxa
+    }
+
+    fun mostraImpostu() {
+        println("Impostu: $taxa")
+    }
+
+    fun main() {
+        kalkulaImpostu()
+        mostraImpostu()
+    }
+  bugLine: 7
+  bugExplain:
+    kea: "`taxa` é un variável lokal di `kalkulaImpostu()` — el só izisti dentu di se scope. `mostraImpostu()` ka partilha kel scope."
+  solutionCode: |
+    val taxa = 0.15
+
+    fun kalkulaImpostu(): Double {
+        return 1000 * taxa
+    }
+
+    fun mostraImpostu() {
+        println("Impostu: $taxa")
+    }
+
+    fun main() {
+        kalkulaImpostu()
+        mostraImpostu()
+    }
+
+- slug: funsan-lokal-di-validason
+  language: kotlin
+  kind: code
+  title: { kea: "Skrebe un Funsan Lokal" }
+  prompt:
+    kea: "Dentu di `main()`, difini un funsan lokal `ehValidu(nota: Int): Boolean` ki ta verifika si `nota` sta entri 0 i 20. Txoma-l pa verifika nota di Telma (16) i nota di Zeca (25)."
+  hint:
+    kea: "Un funsan lokal ta ben definidu DENTU di otu funsan, i só ta funsiona dipos di se pontu di definisan."
+  starterCode: |
+    fun main() {
+        // TODO: difini ehValidu(nota: Int): Boolean li dentu
+
+        // TODO: txoma ehValidu() pa 16 i pa 25
+    }
+  solutionCode: |
+    fun main() {
+        fun ehValidu(nota: Int): Boolean {
+            return nota in 0..20
+        }
+
+        println(ehValidu(16)) // true
+        println(ehValidu(25)) // false
+    }
+
+- slug: funsan-media-vararg
+  language: kotlin
+  kind: code
+  title: { kea: "Funsan Média ku vararg" }
+  prompt:
+    kea: "Skrebe un funsan `media(vararg notas: Double): Double` ki ta devolve média di tudu nota pasadu. Txoma-l ku 3 nota i ku 5 nota, i imprimi tudu dos rezultadu."
+  hint:
+    kea: "Dentu di funsan, `notas` komporta sima un `Array<Double>` — bu pode uza `notas.size` i un `for`-loop, ou soma tudu elementu i divid pa `notas.size`."
+  starterCode: |
+    fun media(vararg notas: Double): Double {
+        // TODO: soma tudu nota i divid pa notas.size
+    }
+
+    fun main() {
+        println(media(16.0, 14.0, 18.0))
+        println(media(12.0, 15.0, 10.0, 17.0, 9.0))
+    }
+  solutionCode: |
+    fun media(vararg notas: Double): Double {
+        var soma = 0.0
+        for (n in notas) {
+            soma += n
+        }
+        return soma / notas.size
+    }
+
+    fun main() {
+        println(media(16.0, 14.0, 18.0))            // 16.0
+        println(media(12.0, 15.0, 10.0, 17.0, 9.0))  // 12.6
+    }

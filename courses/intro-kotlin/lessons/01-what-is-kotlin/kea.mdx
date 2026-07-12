@@ -1,0 +1,94 @@
+---
+title: "Kuzé ki Kotlin?"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: what-is-kotlin
+duration: "15 min"
+module: 1
+lesson: 1
+objectives:
+  - "Splika kuzé ki Kotlin é (linguajen modernu, baziadu na JVM, kriadu pa JetBrains) i si relasan ku Java (kore riba di mesmu JVM, uza kódiku un-di-otu direitamenti)."
+  - "Nomia prinsipal uzu di Kotlin (dizenvolvimentu Android, backend, multiplataforma)."
+  - "Splika, di manera jeral, pamodi ki Kotlin é popular (menus kódiku, null safety) — kumo un splika kurtu di kuzé ki es kursu ta ba prende."
+  - "Kore un programa Kotlin \"Ola Mundu!\" mínimu."
+---
+
+# Kuzé ki Kotlin?
+
+Bu kaba di prende bu primeru linguajen di programasan. Gosi, bu sta li pa kumesa un novu — **Kotlin**. Un pergunta natural bu pode ta faze: pamodi meste prende otu linguajen, si bu ja sabe programa?
+
+Resposta é sinplis: kada linguajen ta abri portas diferenti. Kotlin ta poi-bu na un di kes ekosistema más grandi di dizenvolvimentu di software di mundu — di apps Android te sistema backend di grandi enpresa. I midjór di tudu: kes konseitu ki bu ja prendi (variavel, tipu, kondisan, loop) ta transferi direitamenti pa Kotlin.
+
+<SectionHeading variant="concept" seq={1}>Kuzé ki Kotlin É</SectionHeading>
+
+Kotlin é un linguajen di programasan modernu, kriadu pa **JetBrains** — un enpresa konxidu pa si ferramentas di dizenvolvimentu, sima IntelliJ IDEA. Kotlin kore riba di un "mákina virtual" txomadu **JVM** (Java Virtual Machine) — mesmu mákina unde Java ta kore.
+
+<SectionHeading variant="concept" seq={2}>Kotlin i Java: Dos Linguajen, Un Só Mákina</SectionHeading>
+
+Es é un di kes fatu más distintu di Kotlin: el ka é só "primu" di Java — el ta kore na **mesmu JVM**, i pode uza kódiku Java direitamenti, sen konversan, sen adapter. Es propriedadi ta txomadu **interoperability**, na Inglés. Kel funsiona pamodi Kotlin i Java, tudu dos, ta kompiladu pa mesmu formatu — bytecode JVM — antis di kore. JVM ka ta liga pa ki linguajen kel bytecode nase, kel é pamodi Kotlin i Java pode partilha kódiku. Ma Python i JavaScript ka pode faze kel-li — kada un ta kore riba di un mákina virtual diferenti, ku formatu internu diferenti. Na prátika, kel signifika:
+
+- Bu pode txoma un funsan Java dentu di un programa Kotlin.
+- Bu pode txoma un funsan Kotlin dentu di un programa Java.
+- Tudu biblioteka Java — i ten txeu, dezdi web te dadus — sta disponível pa Kotlin tanbe, sen trabadju extra.
+
+Es é pamodi txeu empresa ki ja ten sistema Java grandi sta ta adisiona Kotlin dja — es pode kombina dos linguajen dentu di mesmu prujetu, sen perde tudu kódiku Java ki es ja ten.
+
+<SectionHeading variant="concept" seq={3}>Unde Kotlin Ta Uzadu</SectionHeading>
+
+Kotlin ka é un linguajen di un só área — el ta kobri tres kaminhu prinsipal:
+
+- **Dizenvolvimentu Android** — dezdi 2019, Kotlin é **linguajen ofisialmenti rekomendadu pa Google** pa kria apps Android.
+- **Backend** — ku framework sima **Spring Boot**, Kotlin ta kria servidor i **API** (Application Programming Interface — un interface pa otu sistema uza si servisu) pa aplikasan web.
+- **Multiplataforma** — ku Kotlin Multiplatform, un só kódiku pode partilha lójika entri **iOS, Web i Desktop**, ka só Android.
+
+<SectionHeading variant="concept" seq={4}>Pamodi Kotlin É Popular</SectionHeading>
+
+Dos propriedadi ta distingui Kotlin di txeu otu linguajen:
+
+- **Menus kódiku**: Kotlin ta skrebe menus kódiku pa faze mesmu kuza ki Java. Un programa ki na Java ta leba txeu linha, na Kotlin txeu bez ta leba menus di metadi.
+- **Null safety**: Kotlin ta djuda evita un kategoria interu di erru — famozu `NullPointerException` (ou "NPE") — pamodi el ta obriga-bu deklara di manera klaru kual variavel pode ser `null` i kual ka pode.
+
+Es dos propriedadi ka é só un splika kurtu — es ta paresi na tudu lisan di es kursu. Kada bez ki bu ta prende un konseitu novu (variavel, fluxu di kontrolu, funsan, koleson, ou klasis), bu ta odja kumo Kotlin ta faze-l di manera más kurtu i más seguru ki manera tradisional.
+
+<SectionHeading variant="concept" seq={5}>Bu Purmeru Programa Kotlin</SectionHeading>
+
+Tudu linguajen di programasan ten un tradisan: primeru programa ki bu ta skrebe é un ki ta imprimi un kumprimentu sinplis.
+
+<CodeExample position={0} />
+
+`fun main()` é pontu di entrada di tudu programa Kotlin — é li ki tudu ta kumesa kuandu bu kore-l. `println(...)` ta imprimi un linha di testu na terminal.
+
+Na Java, mesmu programa ta pidi txeu más:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Ola Mundu!");
+    }
+}
+```
+
+Kotlin ta da mesmu rezultadu ku txeu menus kódiku — un primeru gostu di menus kódiku.
+
+Kotlin tanbe ta permiti inseri valor di variavel direitamenti dentu di un `String`, ku un template:
+
+<CodeExample position={1} />
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Kotlin" code>linguajen di programasan modernu, kriadu pa JetBrains, ki kore riba di JVM</RezumuItem>
+  <RezumuItem>Kotlin i Java pode uza kódiku un-di-otu direitamenti, sen konversan — es é **interoperability**.</RezumuItem>
+  <RezumuItem>Kotlin ta uzadu pa dizenvolvimentu Android (rekomendadu ofisialmenti pa Google), backend ku Spring Boot, i multiplataforma (iOS, Web, Desktop).</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">Kotlin é popular pa dos razons: **menus kódiku** i **null safety** (evita `NullPointerException`).</RezumuItem>
+</KeyTakeaways>

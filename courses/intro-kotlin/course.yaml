@@ -1,0 +1,58 @@
+slug: intro-kotlin
+title: "Introdusaun ba Kotlin"
+level: beginner
+category: programming
+duration_minutes: 315
+instructor: Joaquim Costa
+translations:
+  kea:
+    title: "Introdusaun ba Kotlin"
+    description: Aprendi Kotlin di zero. Kel kursu ta ensiná-bu fundamentus di programasaun ku Kotlin, linguajen modernu pa Android i backend.
+    prerequisites: Nenhun konhesimentu previu nesesariu
+    outcomes: |
+      Kria programas simples ku Kotlin
+      Komprendi variavel, funsons i klasses
+      Uza Kotlin pa projetus Android ou backend
+modules:
+  - slug: getting-started
+    title:
+      kea: "Kumesa ku Kotlin"
+    lessons:
+      - slug: what-is-kotlin
+        languages: [kea]
+      - slug: konfigura-bu-ambienti
+        languages: [kea]
+      - slug: variables-types-and-text
+        languages: [kea]
+      - slug: booleans-and-null-safety
+        languages: [kea]
+  - slug: fluxu-di-kontrolu
+    title:
+      kea: "Fluxu di Kontrolu"
+    lessons:
+      - slug: conditionals-and-smart-casting
+        languages: [kea]
+      - slug: loops-recursion-and-exceptions
+        languages: [kea]
+  - slug: funsons
+    title:
+      kea: "Funsons"
+    lessons:
+      - slug: functions-arguments-and-scope
+        languages: [kea]
+  - slug: koleksons
+    title:
+      kea: "Koleksons"
+    lessons:
+      - slug: collections-list-set-map-pair-triple
+        languages: [kea]
+  - slug: oop
+    title:
+      kea: "Programasaun Orientada pa Objetu"
+    lessons:
+      - slug: classes-properties-and-inheritance
+        languages: [kea]
+      - slug: interfaces-and-abstract-classes
+        languages: [kea]
+      - slug: enum-sealed-classes-and-encapsulation
+        languages: [kea]

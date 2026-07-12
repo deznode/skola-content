@@ -1,0 +1,150 @@
+# Code-examples sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Publish copies it VERBATIM to
+# content/courses/intro-kotlin/lessons/07-collections-list-set-map-pair-triple/code-examples.yaml
+#
+# Position (0-based, array order) maps to <CodeExample position={n} /> in the lesson MDX:
+#   0 = List — create/index/size
+#   1 = List — contains/in
+#   2 = List — iterate + mutableListOf
+#   3 = Set — create + uniqueness
+#   4 = Set — contains/in
+#   5 = Set — mutableSetOf
+#   6 = Map — create with `to` + nullable lookup
+#   7 = Map — iterate entries (destructuring) + containsKey/containsValue
+#   8 = Map — mutableMapOf
+#   9 = Pair/Triple — creation + destructuring
+- language: kotlin
+  title: "Kria un List"
+  code: |
+    fun main() {
+        val kompras = listOf("arus", "fejon", "leti", "arus")
+
+        println(kompras)          // [arus, fejon, leti, arus]
+        println(kompras[0])       // arus
+        println(kompras[2])       // leti
+        println(kompras.size)     // 4
+    }
+- language: kotlin
+  title: "List — contains i in"
+  code: |
+    fun main() {
+        val kompras = listOf("arus", "fejon", "leti", "pon")
+
+        println(kompras.contains("fejon"))    // true
+        println(kompras.contains("asukra"))   // false
+        println("pon" in kompras)             // true
+        println("asukra" !in kompras)         // true
+    }
+- language: kotlin
+  title: "Itera un List i mutableListOf"
+  code: |
+    fun main() {
+        val kompras = listOf("arus", "fejon", "leti")
+        for (item in kompras) {
+            println("Meste kumpra: $item")
+        }
+
+        val listaMutável = mutableListOf("arus", "fejon")
+        listaMutável.add("pon")
+        println(listaMutável)              // [arus, fejon, pon]
+
+        listaMutável[0] = "arus integral"
+        println(listaMutável)              // [arus integral, fejon, pon]
+
+        listaMutável.remove("fejon")
+        println(listaMutável)              // [arus integral, pon]
+    }
+- language: kotlin
+  title: "Kria un Set"
+  code: |
+    fun main() {
+        val ilhas = setOf("Sal", "Santiago", "Fogo", "Sal")
+
+        println(ilhas)          // [Sal, Santiago, Fogo]
+        println(ilhas.size)     // 3 -- "Sal" repetidu ka ta konta dos bez
+    }
+- language: kotlin
+  title: "Set — contains i in"
+  code: |
+    fun main() {
+        val ilhas = setOf("Sal", "Santiago", "Fogo")
+
+        println(ilhas.contains("Fogo"))    // true
+        println(ilhas.contains("Brava"))   // false
+        println("Sal" in ilhas)            // true
+        println("Brava" !in ilhas)         // true
+    }
+- language: kotlin
+  title: "Set mutável"
+  code: |
+    fun main() {
+        val ilhasVizitadu = mutableSetOf("Sal", "Santiago")
+        ilhasVizitadu.add("Fogo")
+        ilhasVizitadu.add("Sal")          // ka ta muda nada -- "Sal" ja sta la
+        println(ilhasVizitadu)            // [Sal, Santiago, Fogo]
+
+        ilhasVizitadu.remove("Santiago")
+        println(ilhasVizitadu)            // [Sal, Fogo]
+    }
+- language: kotlin
+  title: "Kria un Map"
+  code: |
+    fun main() {
+        val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
+
+        println(notas)                  // {Matemátika=18, Kriolu=16, Inglés=15}
+        println(notas["Kriolu"])        // 16
+        println(notas["Fransés"])       // null -- "Fransés" ka sta na map
+    }
+- language: kotlin
+  title: "Itera un Map i verifika txavis/valor"
+  code: |
+    fun main() {
+        val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
+
+        for ((materia, nota) in notas) {
+            println("$materia: $nota")
+        }
+
+        println(notas.containsKey("Kriolu"))     // true
+        println(notas.containsKey("Fransés"))    // false
+        println(notas.containsValue(15))         // true
+    }
+- language: kotlin
+  title: "Map mutável"
+  code: |
+    fun main() {
+        val notas = mutableMapOf("Matemátika" to 18, "Kriolu" to 16)
+
+        notas["Inglés"] = 15          // adisiona un novu par
+        notas.put("Istória", 17)      // otu manera di adisiona
+
+        println(notas)                // {Matemátika=18, Kriolu=16, Inglés=15, Istória=17}
+
+        notas.remove("Kriolu")
+        println(notas)                // {Matemátika=18, Inglés=15, Istória=17}
+    }
+- language: kotlin
+  title: "Pair i Triple: kriason i destruturason"
+  code: |
+    fun main() {
+        val koordenada = Pair(14.9, "Praia")
+        println(koordenada.first)     // 14.9
+        println(koordenada.second)    // Praia
+
+        val (latitudi, sidadi) = koordenada
+        println(latitudi)             // 14.9
+        println(sidadi)               // Praia
+
+        val koordenadaTo = 14.9 to "Praia"   // 'to' tanbe ta kria un Pair
+        println(koordenadaTo == koordenada)  // true
+
+        val produtu = Triple("Arus", 5, 450.0F)
+        println(produtu.first)        // Arus
+        println(produtu.second)       // 5
+        println(produtu.third)        // 450.0
+
+        val (nomi, kantidadi, presu) = produtu
+        // presu é di tipu Float -- ka Double, pamodi el foi kriadu ku sufixu F
+        println("$nomi: $kantidadi unidadi, $presu ECV")
+    }

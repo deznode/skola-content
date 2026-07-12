@@ -1,0 +1,34 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Publish copies (resolving any starterFrom/solutionFrom) to
+# content/courses/intro-kotlin/lessons/konfigura-bu-ambienti/exercises.yaml
+# <TentaGosi/> renders these in display order.
+- slug: personaliza-ola-mundu-intellij
+  language: kotlin
+  kind: code
+  title: { kea: "Personaliza Bu Ola Mundu na IntelliJ" }
+  prompt:
+    kea: "Na bu prujetu IntelliJ, modifika fixeru `Main.kt` pa el kria dos variáveis — `nomi` i `ilha` — i imprimi un kumprimentu personalizadu ku template di `String`. Dipos, kore-l ku `Shift+F10` (ou boton Run) i konfirma output na painel di baxu."
+  hint:
+    kea: "Kria `val nomi = \"...\"` i `val ilha = \"...\"` primeru, dipos uza `$nomi` i `$ilha` dentu di `println(...)`."
+  starterCode: |
+    fun main() {
+        println("Ola Mundu!")
+    }
+  solutionCode: |
+    fun main() {
+        val nomi = "Zeca"
+        val ilha = "Sal"
+
+        println("Ola, $nomi! Bu sta di $ilha?")
+        println("Nu ta kria djuntu na Kotlin!")
+    }
+- slug: splora-kotlin-playground
+  language: kotlin
+  kind: explore
+  title: { kea: "Splora Kotlin Playground" }
+  prompt:
+    kea: "Bai na Kotlin Playground i tenta kore bu própriu versan di \"Ola Mundu!\" — muda mensajen, primi Run, i odja output na painel di baxu, sen instala nada na bu kompjuter."
+  resources:
+    kea:
+      - { label: "Kotlin Playground", url: "https://play.kotlinlang.org" }
+      - { label: "IntelliJ IDEA — download (Community Edition)", url: "https://www.jetbrains.com/idea/download/" }

@@ -1,0 +1,50 @@
+# Code-examples sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m1-03-booleans-and-null-safety-code-examples.yaml
+# Publish copies it VERBATIM to:
+#   content/courses/intro-kotlin/lessons/03-booleans-and-null-safety/code-examples.yaml
+# <CodeExample position={n} /> in the lesson MDX selects entries 0-based, in
+# this list's order.
+#
+# position 0 -> comparison operators
+# position 1 -> && (AND) truth combos + applied example
+# position 2 -> || (OR) truth combos + applied example
+- language: kotlin
+  title: "Operadoris di komparasan"
+  code: |
+    fun main() {
+        println(10 == 10)   // true
+        println(10 != 5)    // true
+        println(10 > 5)     // true
+        println(10 < 5)     // false
+        println(10 >= 10)   // true
+        println(10 <= 9)    // false
+    }
+- language: kotlin
+  title: "&& — AMBOS lado meste ser true"
+  code: |
+    fun main() {
+        println(true && true)    // true
+        println(true && false)   // false
+        println(false && true)   // false
+        println(false && false)  // false
+
+        val idadi = 20
+        val tenBilheti = true
+        val podeEntra = idadi >= 18 && tenBilheti
+        println(podeEntra)  // true
+    }
+- language: kotlin
+  title: "|| — sô UN lado meste ser true"
+  code: |
+    fun main() {
+        println(true || true)    // true
+        println(true || false)   // true
+        println(false || true)   // true
+        println(false || false)  // false
+
+        val studanti = false
+        val idosu = true
+        val tenDiskontu = studanti || idosu
+        println(tenDiskontu)  // true
+    }

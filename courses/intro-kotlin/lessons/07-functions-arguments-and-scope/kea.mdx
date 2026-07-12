@@ -1,0 +1,258 @@
+---
+title: "Funsons: Argumentus i Scope"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: functions-arguments-and-scope
+slug: "functions-arguments-and-scope"
+module: 3
+lesson: 7
+duration: "40 min"
+objectives:
+  - "Defini un funsan ku parámetrus i tipu di retornu (ou `Unit`, kuandu ka ten valor di retornu)"
+  - "Defini un funsan ku valoris padron pa se parámetrus"
+  - "Txoma un funsan ku argumentus nomeadu, i salta argumentus posizional anterior"
+  - "Defini un funsan ku `vararg` pa risebe un número variável di argumentu"
+  - "Splika diferensa entri scope lokal i scope di top-level"
+  - "Skrebe un funsan lokal (nested) dentu di otu funsan"
+---
+
+# Funsons: Argumentus i Scope
+
+Imajina un funsan `kria(true, false, 10, "kea")`. Kual parámetru é kual? Sen odja definisan di funsan, é imposível sabe. Kuandu un funsan ten txeu parámetrus, Kotlin ta da-bu dos ferramentas pa rezolve kel: **argumentus padron** i **argumentus nomeadu**. Dipos, nu ta odja kumo Kotlin ta disidi unde kada variável i funsan pode ser uzadu — se **scope**.
+
+<SectionHeading variant="concept" seq={1}>Definindo un Funsan</SectionHeading>
+
+Bu ja ta uza funsons di lisons anterior — `println`, i mesmu bu própi funsons sima `verificaIdadi` ou `fatorial`. Antis di odja argumentus padron i nomeadu, nu ta relembra sintaksi bázika: kumo defini un funsan di kabu na rabu.
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Anatomia di un funsan"
+  code={[
+    { t: "fun soma(a: Int, b: Int): Int {", m: 1 },
+    { t: "    return a + b", m: 2 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: "fun main() {", m: 0 },
+    { t: "    val resultadu = soma(3, 4)", m: 3 },
+    { t: "    println(resultadu) // 7", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "`fun nomi(parámetrus): TipuDiRetornu", body: "`fun` ta kumesa definisan. `soma` é nomi. `a: Int, b: Int` é se parámetrus, kada un ku se própi tipu. `: Int` dipos di paréntesis é **tipu di retornu** — tipu di valor ki funsan ta devolve." },
+    { m: 2, title: "`return`", body: "`return a + b` ta manda rezultadu di volta pa kenha ki txomou funsan, i ta termina se izekusan na hora." },
+    { m: 3, title: "Txomada", body: "`soma(3, 4)` ta txoma funsan ku `a = 3` i `b = 4`; valor devolvidu (`7`) ta guardadu na `resultadu`." },
+  ]}
+/>
+
+Nin tudu funsan meste devolve un valor. Kuandu un funsan só ta **faze algu** (sima imprimi na terminal) sen devolve nada, bu ka skrebe tipu di retornu — Kotlin ta atribui `Unit` automatikamenti, un tipu spesial ki sinifika "sen valor útil":
+
+```kotlin
+fun sauda(nomi: String) {
+    println("Ola, $nomi!")
+}
+```
+
+`sauda` ka ten `: Tipu` dipos di se paréntesis — se tipu di retornu é `Unit` (implísitu), i el ka ten `return` ku valor nenhun.
+
+<SectionHeading variant="concept" seq={2}>Argumentus Padron</SectionHeading>
+
+Un funsan pode difini un valor padron pa un parámetru. Si kenha ta txoma funsan ka indika kel argumentu, Kotlin ta uza valor padron sózin.
+
+<GlossaryText
+  text="Es sintaksi — `parámetru: Tipu = valorPadron` — ta txoma-s un [[argumentu padron]]."
+  terms={{
+    "argumentu padron": { en: "default argument", definition: "Un valor ki un parámetru ta risebe kuandu txamada ka indika kel argumentu spesifikamenti." },
+  }}
+/>
+
+```kotlin
+fun kumprimenta(nomi: String, formal: Boolean = false) {
+    println(if (formal) "Bon dia, $nomi." else "Ola, $nomi!")
+}
+
+fun main() {
+    kumprimenta("Telma")        // Ola, Telma!
+    kumprimenta("Zeca", true)       // Bon dia, Zeca.
+}
+```
+
+`formal` ten valor padron `false`. Kuandu bu ka indika-l — sima na `kumprimenta("Telma")` — Kotlin ta atribui `false` sózin, i bu ka mesti skrebe dos versons diferenti di mesmu funsan.
+
+Bu pode difini valor padron pa kantu parámetru bu kre, i kombina-s ku parámetrus sen valor padron:
+
+```kotlin
+fun apresenta(nomi: String, papel: String = "Estudanti", turma: String = "Kotlin") {
+    println("$nomi é $papel na turma $turma.")
+}
+
+fun main() {
+    apresenta("Telma")                  // Telma é Estudanti na turma Kotlin.
+    apresenta("Zeca", "Monitor")     // Zeca é Monitor na turma Kotlin.
+}
+```
+
+<SectionHeading variant="concept" seq={3}>Argumentus Nomeadu</SectionHeading>
+
+Dipos di un tempu, `apresenta("Telma", "Monitor")` ka é klaru sen le definisan di funsan un otu bez — kual argumentu é `nomi` i kual é `papel`? Ku **argumentus nomeadu**, bu skrebe nomi di parámetru na txamada mesmu, i txamada ta splika-se sózin:
+
+<GlossaryText
+  text="Es forma di txamada ta txoma-s un [[argumentu nomeadu]]."
+  terms={{
+    "argumentu nomeadu": { en: "named argument", definition: "Un argumentu pasadu ku sintaksi `parámetru = valor` na txamada, ki ta liga se valor ku nomi di parámetru — ka ku se pozisan." },
+  }}
+/>
+
+```kotlin
+fun main() {
+    apresenta(nomi = "Telma", papel = "Monitor")
+    apresenta(papel = "Estudanti", nomi = "Zeca")   // órden ka importa kuandu bu nomeia
+}
+```
+
+A vantaji más grandi di argumentus nomeadu é ki bu pode **salta parámetrus anterior**: bu só indika kes ki bu kre muda, i restu ta risebe se valor padron.
+
+```kotlin
+fun main() {
+    apresenta(nomi = "Telma", turma = "Kotlin Avansadu")
+    // Telma é Estudanti na turma Kotlin Avansadu.
+    // (papel ka foi indikadu — ta risebe se valor padron "Estudanti")
+}
+```
+
+Un só funsan, tres forma di txama-l ku mesmu resultadu:
+
+<CodeExample position={0} showTabs />
+
+:::callout{type=warning title="Regra: posizional antis di nomeadu"}
+Bu pode mistura argumentus posizional ku argumentus nomeadu na mesmu txamada, ma tudu argumentu posizional ten ki ben **antis** di kualker argumentu nomeadu. Un bez ki bu kumesa uza un argumentu nomeadu, tudu argumentu ki ben dipos di el debe ser nomeadu tanbe — `apresenta(papel = "Monitor", "Telma")` **ka ta kompila**, pamodi `"Telma"` (posizional) ta ben dipos di `papel` (nomeadu).
+:::
+
+<SectionHeading variant="concept" seq={4}>Argumentus Variável: vararg</SectionHeading>
+
+Até gosi, kada funsan ten un número fixu di parámetru. Ma i si bu ka sabe kantu argumentu ta ser pasadu — sima `println` ki pode risebe un ou vários valor? Kotlin ta da `vararg` pa kel: un parámetru ki pode risebe **zeru ou más** valor, tudu ku mesmu tipu.
+
+<AnnotatedCode
+  lang="kotlin"
+  title="`vararg`: un número variável di argumentu"
+  code={[
+    { t: "fun soma(vararg numerus: Int): Int {", m: 1 },
+    { t: "    var total = 0", m: 0 },
+    { t: "    for (n in numerus) {", m: 2 },
+    { t: "        total += n", m: 0 },
+    { t: "    }", m: 0 },
+    { t: "    return total", m: 0 },
+    { t: "}", m: 0 },
+    { t: "", m: 0 },
+    { t: "fun main() {", m: 0 },
+    { t: "    println(soma(1, 2, 3))     // 6", m: 3 },
+    { t: "    println(soma(10))          // 10", m: 3 },
+    { t: "    println(soma())            // 0", m: 3 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "vararg", body: "`vararg numerus: Int` ta permiti txoma `soma` ku 0, 1 ou kantu `Int` bu kre — tudu na un só parámetru." },
+    { m: 2, title: "Dentu di funsan, é un Array", body: "Dentu di `soma`, `numerus` ta komporta sima un `Array<Int>` — bu pode itera-l ku `for`." },
+    { m: 3, title: "Kantu argumentu bu kre", body: "Kada txamada pode pasa un número diferenti di argumentu — kel é flexibilidadi ki `vararg` ta da." },
+  ]}
+/>
+
+Un funsan só pode ten **un** parámetru `vararg`, i el normalmenti ta ben pa último (a menus ki bu uza argumentus nomeadu pa kes ki ben dipos).
+
+:::callout{type=tip}
+Bu ja ta uza un funsan ku `vararg` desdi Lisan 1: `println` é un izemplu — el pode risebe zeru ou vários argumentu.
+:::
+
+<SectionHeading variant="concept" seq={5}>Scope di Variável: Lokal vs Top-Level</SectionHeading>
+
+Kada bez ki bu difini un variável dentu di un funsan, kel variável só é vizível dentu di se scope: as txavis `{ }` unde el foi definidu. Kel scope ta txoma-s **scope lokal**, i variável, **variável lokal**.
+
+```kotlin
+fun kalkulaImpostu(): Double {
+    val taxa = 0.15          // variável lokal — só vizível dentu di kalkulaImpostu()
+    return 1000 * taxa
+}
+
+fun kalkulaDeskontu(): Double {
+    val taxa = 0.05          // otu variável lokal, mesmu nomi — sen konflitu ku `taxa` di `kalkulaImpostu()`
+    return 1000 * taxa
+}
+```
+
+Es dos variáveis txoma `taxa`, ma ka ten konflitu — kada un só izisti dentu di se própriu funsan. Si bu tenta uza `taxa` fora di `kalkulaImpostu()`, Kotlin ta da un eru di kompilasan: `Unresolved reference`.
+
+Si bu kre un variável ki tudu funsan pode partilha, bu debe difini-l **fora** di tudu funsan — na nível más altu di fixeru. Kel ta txoma-s un **variável di top-level**, i el é vizível pa tudu kel fixeru.
+
+```kotlin
+var saldu = 0                        // variável di top-level — vizível pa tudu funsan
+
+fun adisionaSaldu(montanti: Int) {
+    saldu += montanti
+}
+
+fun mostraSaldu() {
+    println("Saldu: $saldu")
+}
+
+fun main() {
+    adisionaSaldu(500)
+    adisionaSaldu(250)
+    mostraSaldu()
+}
+```
+
+Kuandu bu roda:
+
+<TerminalBlock
+  title="kotlin Saldu.kt"
+  lines={[
+    { type: "cmd", t: "kotlin Saldu.kt" },
+    { type: "out", t: "Saldu: 750" },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={6}>Funsons Lokal</SectionHeading>
+
+Sima variáveis, funsons tanbe pode ser lokal. Un **funsan lokal** é un funsan definidu **dentu** di otu funsan. El só é vizível dentu di kel funsan, i só dipos di se pontu di definisan.
+
+```kotlin
+fun main() {
+    fun sauda(nomi: String) {          // funsan lokal — só vizível dentu di main()
+        println("Ola, $nomi!")
+    }
+
+    sauda("Telma")                 // OK — sauda() ja sta definidu li riba
+    sauda("Zeca")
+}
+
+fun otuFunsan() {
+    // sauda("Telma")   // ERU: Unresolved reference — sauda() ka é vizível li fora
+}
+```
+
+Repara na diferensa ku funsons di top-level: es últimu pode ser txomadu di kualker lugar na fixeru, mesmu antis di se definisan — Kotlin ta odja tudu funsan di top-level di un bez. Ma un funsan lokal sigi mesmu regra ki un variável lokal: el só izisti dipos di linha unde foi definidu.
+
+:::callout{type=warning title="Órden importa pa funsons lokal"}
+Diferenti di funsons di top-level, un funsan lokal debe ser definidu **antis** di se primeru txamada — mesmu dentu di mesmu funsan. Tenta txoma-l antis di se definisan ta da un eru: `Unresolved reference`.
+:::
+
+Gosi é bu bez: nu ta pratika argumentus padron ku argumentus nomeadu, i rezolve un eru di scope.
+
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} /><Quiz position={5} /><Quiz position={6} />
+</QuizSet>
+
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="Definisan di funsan" code>`fun nomi(parámetru: Tipu): TipuDiRetornu { return ... }` — sen tipu di retornu, funsan devolve `Unit` (sen valor útil).</RezumuItem>
+  <RezumuItem term="Argumentu padron">Un parámetru ku `= valor` ta risebe kel valor kuandu txamada ka indika-l.</RezumuItem>
+  <RezumuItem term="Argumentu nomeadu">Skrebe `parámetru = valor` na txamada — órden ka importa, i bu pode salta parámetrus anterior.</RezumuItem>
+  <RezumuItem variant="warning" term="Regra di órden">Argumentus posizional ten ki ben antis di kualker argumentu nomeadu na mesmu txamada.</RezumuItem>
+  <RezumuItem term="vararg" code>un parámetru ki risebe zeru ou más valor di mesmu tipu — só un pa funsan, i el komporta sima `Array` dentu di funsan</RezumuItem>
+  <RezumuItem term="Scope lokal">Variáveis i funsons definidu dentu di un funsan só ta izisti li dentu.</RezumuItem>
+  <RezumuItem term="Scope di top-level">Definidu fora di tudu funsan — vizível pa tudu fixeru.</RezumuItem>
+  <RezumuItem variant="warning" term="Funsons lokal">Só pode ser uzadu dipos di se pontu di definisan — diferenti di funsons di top-level, ki bu pode txoma di kualker lugar.</RezumuItem>
+</KeyTakeaways>

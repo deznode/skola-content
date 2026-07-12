@@ -1,0 +1,56 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m5-10-interfaces-and-abstract-classes-quiz.yaml
+# <Quiz position={n} /> renders these in order (0-based).
+
+- question:
+    kea: "Si `Karu` erda di `Veikulu`, i `Veikulu` implementa `Alugavel`, kual frazi é korretu?"
+  options:
+    - text: { kea: "`Karu` é un subtype di `Alugavel`" }
+      correct: true
+      explain:
+        kea: "Relason di subtype é transitivu: `Karu` erda di `Veikulu`, i `Veikulu` implementa `Alugavel` — pur isu `Karu` tanbe é subtype di `Alugavel`."
+    - text: { kea: "`Alugavel` é un subtype di `Karu`" }
+      correct: false
+    - text: { kea: "`Karu` i `Alugavel` ka ten nenhun relason" }
+      correct: false
+
+- question:
+    kea: "Kuze ki ta kontise si bu uza `alugavel as Karu` i `alugavel` na verdadi é un `Veikulu` jenériku (ka un `Karu`)?"
+  options:
+    - text: { kea: "Programa ta kebra ku `ClassCastException`" }
+      correct: true
+      explain:
+        kea: "`as` ta forsa un cast diretu — si tipu real ka korresponde, Kotlin ta lansa `ClassCastException` imediatamenti."
+    - text: { kea: "Kotlin ta debolve `null` automatikamenti" }
+      correct: false
+      explain:
+        kea: "Es é o komportamentu di `as?`, ka di `as`."
+    - text: { kea: "`Karu` ta ser kriadu ku valoris padran" }
+      correct: false
+
+- question:
+    kea: "Pamodi ki up-casting (di `Karu` pa `Alugavel`) é sempri sigura?"
+  options:
+    - text: { kea: "Pamodi kada `Karu` ten tudu metodu ki `Alugavel` promete — el é sempri un `Alugavel` garantidu" }
+      correct: true
+      explain:
+        kea: "Kada `Karu` ten tudu metodu ki `Alugavel` promete — pur isu Kotlin pode sempri trata un `Karu` kumo un `Alugavel`, sen risku."
+    - text: { kea: "Pamodi Kotlin ta verifika tipu na runtime kada bez" }
+      correct: false
+    - text: { kea: "Pamodi `Karu` i `Alugavel` ten mesmu numeru di metodus" }
+      correct: false
+
+- question:
+    kea: "Kuandu ki un `abstract class` é midjór skodje ki un interface?"
+  options:
+    - text: { kea: "Kuandu VÁRIUS subklasses meste partilha kódiku (ka so un kontratu)" }
+      correct: true
+      explain:
+        kea: "Un `abstract class` pode ten metodus ku kódiku konkretu, sima `calculaTotal` na `RecibuImpressor` — algu ki un interface ka pode faze."
+    - text: { kea: "Kuandu klasse meste implementa VÁRIUS kontratus diferenti" }
+      correct: false
+      explain:
+        kea: "Es é exatamenti unde interface ganha — un klasse pode implementa VÁRIUS interfaces ma so erda di UN klasse."
+    - text: { kea: "Kuandu bu ka meste nenhun metodu abstratu" }
+      correct: false

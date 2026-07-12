@@ -1,0 +1,70 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m1-03-booleans-and-null-safety-quiz.yaml
+# Publish copies it VERBATIM to:
+#   content/courses/intro-kotlin/lessons/03-booleans-and-null-safety/quiz.yaml
+# <Quiz position={n} /> in the lesson MDX selects entries 0-based, in this
+# list's order.
+- question:
+    kea: "Kuzé ki `!true && false` ta imprimi?"
+  options:
+    - text: { kea: "`true`" }
+      correct: false
+    - text: { kea: "`false`" }
+      correct: true
+      explain: { kea: "`!` ta avalia primeru: `!true` = `false`. Dipos `false && false` = `false`." }
+    - text: { kea: "Un eru di kompilasan" }
+      correct: false
+- question:
+    kea: "Pamodi ki Kotlin ka permiti atribui `null` diretu na un variável di tipu `String` (sen `?`)?"
+  options:
+    - text: { kea: "Pamodi Kotlin ta previni `NullPointerException` (NPE) na kompilasan, i ta obriga-bu marka kuzê ki pode ser `null`" }
+      correct: true
+      explain: { kea: "Variavel na Kotlin é non-null pa padron — sô un tipu markadu ku `?` (`String?`) pode guarda `null`." }
+    - text: { kea: "Pamodi `String` ka pode guarda testu vaziu" }
+      correct: false
+    - text: { kea: "Pamodi `null` sô funsiona dentu di funsons" }
+      correct: false
+- question:
+    kea: "Kuzé ki `nomi?.length` ta devolve si `nomi` é `null`?"
+  options:
+    - text: { kea: "El ta kauza un `NullPointerException`" }
+      correct: false
+    - text: { kea: "El ta devolve `null`, sen kebra programa" }
+      correct: true
+      explain: { kea: "`?.` (txamada sigura) sô ta txoma `.length` si `nomi` ka é `null`. Si é `null`, el ta para i devolve `null` diretu." }
+    - text: { kea: "El ta devolve `0`" }
+      correct: false
+
+- question:
+    kea: "Kuzé ki `mensajen?.length ?: 0` ta imprimi si `mensajen` é `null`?"
+  options:
+    - text: { kea: "`null`" }
+      correct: false
+    - text: { kea: "`0`" }
+      correct: true
+      explain: { kea: "`mensajen?.length` é `null` pamodi `mensajen` é `null`. `?:` ta troka kel `null` pa `0`, valor padron a direita di `?:`." }
+    - text: { kea: "Un `NullPointerException`" }
+      correct: false
+
+- question:
+    kea: "Kual diferensa entri `==` i `===` na Kotlin?"
+  options:
+    - text: { kea: "`==` ta kompara valor (igualdadi); `===` ta kompara si é mesmu objetu na memória (identidadi)" }
+      correct: true
+      explain: { kea: "Es dos operador ta rezolve perguntas diferenti — valor vs identidadi. Pa tipus simpli es normalmenti ta da mesmu rezultadu; pa klasses (Módulu 5) diferensa ta fika klara." }
+    - text: { kea: "Es dos operador ta faze exatamenti mesmu koza" }
+      correct: false
+    - text: { kea: "`===` é sô un versan más rápidu di `==`" }
+      correct: false
+
+- question:
+    kea: "Dentu di `apelidu?.let { println(it) }`, kuandu ki bloku `{ println(it) }` ta izekuta?"
+  options:
+    - text: { kea: "Sô kuandu `apelidu` ka é `null`" }
+      correct: true
+      explain: { kea: "`?.let { }` ta kombina txamada sigura (`?.`) ku `let` — bloku sô ta izekuta si `apelidu` ten un valor real." }
+    - text: { kea: "Senpri, mesmu si `apelidu` é `null`" }
+      correct: false
+    - text: { kea: "Sô kuandu `apelidu` é `null`" }
+      correct: false

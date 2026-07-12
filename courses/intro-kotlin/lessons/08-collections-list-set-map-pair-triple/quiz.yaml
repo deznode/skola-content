@@ -1,0 +1,94 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Publish copies it VERBATIM to
+# content/courses/intro-kotlin/lessons/07-collections-list-set-map-pair-triple/quiz.yaml
+# Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
+- question:
+    kea: "Bu meste guarda un lista di item pa kumpra unde órden importa i mesmu item pode aparese más di un bez. Kual tipu di kolesan é midjor?"
+  options:
+    - text: { kea: "`List`" }
+      correct: true
+      explain:
+        kea: "`List` ta preserva órden i permiti elementu repetidu — perfeitu pa un lista di kompras."
+    - text: { kea: "`Set`" }
+      correct: false
+      explain:
+        kea: "`Set` ta elimina duplikadu — bu ta perde kes item repetidu."
+    - text: { kea: "`Map`" }
+      correct: false
+      explain:
+        kea: "`Map` é pa par txavi-valor — un lista di item simpli ka meste txavi."
+- question:
+    kea: "O ki ta kontise si bu skrebe `setOf(\"Sal\", \"Santiago\", \"Sal\")`?"
+  options:
+    - text: { kea: "O `Set` ta guarda \"Sal\" un so bez — se `size` ta 2" }
+      correct: true
+      explain:
+        kea: "`Set` ta garanti únisidadi: si un elementu dja sta la, segunda tentativa di adisiona-l so ta ignoradu."
+    - text: { kea: "Kotlin ta da un erru di kompilasan" }
+      correct: false
+    - text: { kea: "O `Set` ta guarda \"Sal\" dos bez — se `size` ta 3" }
+      correct: false
+      explain:
+        kea: "`Set` nunka ta guarda duplikadu — kel é presizamenti se garantia di únisidadi."
+- question:
+    kea: "Dadu `val notas = mapOf(\"Kriolu\" to 16)`, o ki `notas[\"Inglés\"]` ta debolve?"
+  options:
+    - text: { kea: "`null` — pamodi \"Inglés\" ka é un txavi na map" }
+      correct: true
+      explain:
+        kea: "Buska un valor na `Map` pa un txavi ki ka izisti ta debolve `null`, nunka un erru — kel é pamodi tipu di rezultadu é sénpri nulável."
+    - text: { kea: "Un erru na tempu di izekusan (runtime)" }
+      correct: false
+    - text: { kea: "`0`, kumo valor padron" }
+      correct: false
+- question:
+    kea: "Kual diferensa entri `containsKey` i `containsValue` nun `Map`?"
+  options:
+    - text: { kea: "`containsKey` ta verifika si un txavi izisti; `containsValue` ta verifika si un valor izisti" }
+      correct: true
+      explain:
+        kea: "Kada un ta verifika un ladu diferenti di par txavi-valor — txavi (úniku) ou valor (pode ripiti)."
+    - text: { kea: "Es dos metodu ta faze mesmu koza" }
+      correct: false
+    - text: { kea: "`containsKey` ta verifika valor; `containsValue` ta verifika txavi" }
+      correct: false
+- question:
+    kea: "Dadu `val produtu = Triple(\"Arus\", 5, 450.0F)`, kual forma korretu di ler se tris propriedadi?"
+  options:
+    - text: { kea: "`produtu.first`, `produtu.second` i `produtu.third`" }
+      correct: true
+      explain:
+        kea: "`Triple` sénpri ta mostra se tris valor ku es tres propriedadi — ou bu pode destrutura-l diretu na tres variável."
+    - text: { kea: "`produtu[0]`, `produtu[1]` i `produtu[2]`" }
+      correct: false
+      explain:
+        kea: "`Triple` ka ta suporta asesu pa índisi ku kolxetis — so `first`/`second`/`third`, ou destruturason."
+    - text: { kea: "`produtu.key` i `produtu.value`" }
+      correct: false
+      explain:
+        kea: "`key`/`value` é vokabuláriu di `Map.Entry`, ka di `Triple`."
+- question:
+    kea: "Dadu `val basi = listOf(\"Arus\", \"Fejon\")` i `val kompletu = basi + \"Katxupa\"`, o ki `basi` ta debolve dipos?"
+  options:
+    - text: { kea: "`[Arus, Fejon]` — `basi` ka mudou" }
+      correct: true
+      explain:
+        kea: "`+` ta kria un `List` **novu** (`kompletu`) — `basi` (imutável) fika izatamenti sima el staba antis."
+    - text: { kea: "`[Arus, Fejon, Katxupa]` — `+` ta muda `basi` diretu" }
+      correct: false
+      explain:
+        kea: "Kel é kumo `mutableListOf(...).add(...)` ta funsiona, ka `+` riba di un `List` imutável."
+    - text: { kea: "Erru di kompilasan — `List` imutável ka pode uza `+`" }
+      correct: false
+
+- question:
+    kea: "Kual diferensa prinsipal entri `Array` i `List` na Kotlin?"
+  options:
+    - text: { kea: "`Array` ten tamanhu fixu — ka pode adisiona ou tira elementu dipos di kriadu; `List` (ou `MutableList`) pode kresi/diminui" }
+      correct: true
+      explain:
+        kea: "Bu ta muda valor dentu di un `Array` ku índisi, ma se tamanhu ka ta muda. Pa isu, `List`/`MutableList` é kuazi sénpri skoja midjor na kódiku di dia-a-dia."
+    - text: { kea: "`Array` so pode guarda `Int`; `List` pode guarda kualker tipu" }
+      correct: false
+    - text: { kea: "Ka ten diferensa — es dos é mesmu tipu ku nomi diferenti" }
+      correct: false

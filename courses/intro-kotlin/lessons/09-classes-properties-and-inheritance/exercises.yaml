@@ -1,0 +1,153 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006/FR-007.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m5-09-classes-properties-and-inheritance-exercises.yaml
+# <TentaGosi /> renders these in display order; slugs are stable completed_exercises FKs.
+#
+# Domain: "Aluguer di Veikulu" (Veikulu base: matrikula/presuPerDia; Karu subclass;
+# Reserva data class: klienti/veikulu/dias) — same as the lesson's code-examples.yaml.
+
+- slug: kria-subklasse-furgoneta
+  language: kotlin
+  kind: code
+  title: { kea: "Kria un subklasse Furgoneta" }
+  prompt:
+    kea: "Marka `Veikulu` `open` i kria un subklasse `Furgoneta` ku un propriedadi novu `capacidadiKg: Int`. Sobreskrebe `mostraDetalis()` pa tanbe mostra `capacidadiKg`, i txoma konstrutor di superklasse."
+  hint:
+    kea: "Lembra-bu di marka klasse i métodu `open` na `Veikulu` — sen isu, `Furgoneta` ka pode erda."
+  starterCode: |
+    class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    ) {
+        fun mostraDetalis() {
+            println("Veikulu $matrikula — $presuPerDia ECV/dia")
+        }
+    }
+
+    // TODO: kria Furgoneta ki erda di Veikulu, ku capacidadiKg: Int
+  solutionCode: |
+    open class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    ) {
+        open fun mostraDetalis() {
+            println("Veikulu $matrikula — $presuPerDia ECV/dia")
+        }
+    }
+
+    class Furgoneta(
+        matrikula: String,
+        presuPerDia: Double,
+        val capacidadiKg: Int,
+    ) : Veikulu(matrikula, presuPerDia) {
+        override fun mostraDetalis() {
+            println("Furgoneta $matrikula — $presuPerDia ECV/dia, $capacidadiKg kg")
+        }
+    }
+
+- slug: veikulu-konstrutor-sekundariu
+  language: kotlin
+  kind: code
+  title: { kea: "Konstrutor Sekundáriu pa Veikulu" }
+  prompt:
+    kea: "Na klasse `Veikulu(val matrikula: String, var presuPerDia: Double)`, adisiona un bloku `init` ki ta verifika (ku `require`) ki `presuPerDia` é pozitivu, i un konstrutor sekundáriu `constructor(matrikula: String)` ki ta txoma konstrutor primariu ku presu padron `3500.0`."
+  hint:
+    kea: "`init { require(presuPerDia > 0) { \"...\" } }` pa validason; `constructor(matrikula: String) : this(matrikula, 3500.0)` pa konstrutor sekundáriu."
+  starterCode: |
+    class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    ) {
+        // TODO: adisiona init { } ku require(presuPerDia > 0)
+        // TODO: adisiona constructor(matrikula: String) ku presu padron 3500.0
+    }
+
+    fun main() {
+        val karu1 = Veikulu("ST-45-AB", 5000.0)
+        val karu2 = Veikulu("ST-99-ZZ")
+        println(karu2.presuPerDia)
+    }
+  solutionCode: |
+    class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    ) {
+        init {
+            require(presuPerDia > 0) { "presuPerDia meste ser pozitivu" }
+        }
+
+        constructor(matrikula: String) : this(matrikula, 3500.0)
+    }
+
+    fun main() {
+        val karu1 = Veikulu("ST-45-AB", 5000.0)
+        val karu2 = Veikulu("ST-99-ZZ")
+        println(karu2.presuPerDia)  // 3500.0
+    }
+
+- slug: preve-igualdadi-copy
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve igualdadi dipos di `.copy()`" }
+  prompt: { kea: "Antis di kore, preve o ki es programa ta imprimi." }
+  starterCode: |
+    class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    )
+
+    data class Reserva(
+        val klienti: String,
+        val veikulu: Veikulu,
+        val dias: Int,
+    )
+
+    fun main() {
+        val karu1 = Veikulu("ST-45-AB", 4500.0)
+        val reserva1 = Reserva("Nando", karu1, 4)
+        val reserva2 = reserva1.copy(dias = 4)
+
+        println(reserva1 == reserva2)
+    }
+  options:
+    - '"true"'
+    - '"false"'
+    - '"Erru di kompilason"'
+  correct: 0
+  output: |
+    true
+  why:
+    kea: "`.copy(dias = 4)` ta kria un instánsia NOBU, ma ku mesmu valor di `dias` (4) ki `reserva1` já tene. `Reserva` é `data class`, ntonsi `==` ta kompara valor di kada propriedadi (igualdadi estrutural), ka referensia — duas instánsias diferenti ku mesmu dadus é `==`."
+
+- slug: koriji-open-en-falta
+  language: kotlin
+  kind: debug
+  file: Veikulu.kt
+  title: { kea: "Koriji un `open` en falta" }
+  prompt:
+    kea: "Es kódiku ka kompila. `Karu` ta tenta erda di `Veikulu`. Klika na linha ki meste ser korijidu."
+  starterCode: |
+    class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    )
+
+    class Karu(
+        matrikula: String,
+        presuPerDia: Double,
+        val numeruPortas: Int = 4,
+    ) : Veikulu(matrikula, presuPerDia)
+  bugLine: 1
+  bugExplain:
+    kea: "`Veikulu` é `final` pa default — Kotlin ka permiti erda di un klasse si el ka marka `open`. Kotlin ta para kompilason imediatamenti ku un erru klaru na `: Veikulu(matrikula, presuPerDia)` na `Karu`."
+  solutionCode: |
+    open class Veikulu(
+        val matrikula: String,
+        var presuPerDia: Double,
+    )
+
+    class Karu(
+        matrikula: String,
+        presuPerDia: Double,
+        val numeruPortas: Int = 4,
+    ) : Veikulu(matrikula, presuPerDia)

@@ -1,0 +1,141 @@
+---
+title: "Interfaces i Klasses Abstratu"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: interfaces-and-abstract-classes
+module: 5
+lesson: 10
+duration: "30 min"
+objectives:
+  - "Defini i implementa un interface, i splika relason subtype/supertype"
+  - "Uza up-casting (implísitu) i down-casting (`as`, `is`, `as?`) di forma sigura"
+  - "Defini un abstract class ku metodus abstratu i konkretu, i splika kuandu ki el é midjór ki un interface"
+---
+
+# Interfaces i Klasses Abstratu
+
+Kada bez ki bu skrebe un klasse, bu ta kria un tipu novu. Ma txeu bez, bu meste garanti ki VÁRIUS klasses diferenti ta konporta di mesmu manera, sen bu obriga-s tudu erda di mesmu klasse pai. É li ki `interface` ta entra: un **kontratu**. Un klasse ki implementa un interface ta promete ki el ta ten kes metodu, mesmu ki kada un implementa-s di se própi manera.
+
+Na es lisan, nu ta kumesa ku interfaces (kontratu puru), dipos nu ta odja klasses abstratu (kontratu + kódiku partilhadu), i nu ta fitxa ku un kompara pa bu sabe kual ki skodje na kada situasan.
+
+<SectionHeading variant="concept" seq={1}>Interfaces: un kontratu pa komportamentu</SectionHeading>
+
+Imajina un sistema di aluge di veikulu. Kada tipu di veikulu — karu, mota, bisikleta — ta kalkula se presu di aluge di manera diferenti, ma tudu meste ten un metodu `calculaPresu`. Un interface ta defini kel kontratu:
+
+<CodeExample position={0} />
+
+Kuandu un klasse `implementa` un interface (`: Alugavel`), Kotlin ta obriga-l `override` tudu metodu abstratu di kel interface. Na kódiku riba, `Veikulu` implementa `Alugavel` diretamenti, i `Karu` (ki ta erda di `Veikulu`) ta erda kel implementasan automatikamenti — el ka meste `override` `calculaPresu` otu bez.
+
+Kuandu un klasse implementa un interface (ou erda di un otu klasse), nu ta fla ki el é un **subtype** di kel interface (ou klasse), i kel interface (ou klasse) é se **supertype**. Na nos izemplu: `Karu` é subtype di `Veikulu`, i `Veikulu` é subtype di `Alugavel`. Pur isu, relason di subtype ta pasa di nivel pa nivel: `Karu` tanbe é subtype di `Alugavel`.
+
+### Up-casting
+
+Dadu ki `Karu` é subtype di `Alugavel`, bu pode uza un `Karu` na kualker lugar ki spera un `Alugavel` — sen bu faze nada spesial. Es é **up-casting**: subi na ierarkia, di un tipu más spesífiku pa un tipu más jeral. Kotlin ta faze-l automatikamenti i sen risku, pamodi Kotlin ta garanti ki kada `Karu` é un `Alugavel`.
+
+<CodeExample position={1} />
+
+### Down-casting
+
+Trata un `Alugavel` jenériku kumo un `Karu` spesífiku ta txoma **down-casting**. Es ka é sigura di forma automátiku, pamodi nin tudu `Alugavel` é un `Karu`. Kotlin ta obriga-bu ser explisitu ku `as`:
+
+<CodeExample position={2} />
+
+:::callout{type=warning}
+`as Karu` ta **kebra programa** ku `ClassCastException` si objetu ka é di verdadi un `Karu`. Nunka uza `as` si bu ka sabe tipu real di objetu, pamodi risku di `ClassCastException`.
+:::
+
+Forma sigura é verifika tipu antis ku `is`. Si verifikasan pasa, Kotlin ta **smart-cast** — dentu di kel bloku, `alugavel` dja é tratadu kumo `Karu`, sen bu meste faze `as` manualmenti. Otu opson é `as?`, ki ta debolve `null` en bez di kebra:
+
+<CodeExample position={3} />
+
+![Ierarkia di tris nível: interface Alugavel na riba, klasse Veikulu na meiu (implementa Alugavel), klasse Karu na baxu (erda di Veikulu); un fléxa ocean-blue subi di Karu diretu pa Alugavel markadu "automatikamenti i sen risku" (up-casting), i un fléxa coral pa baxu, di Alugavel diretu pa Karu markadu ku operadoris as, is, as? i "risku di ClassCastException" (down-casting)](../../infographics/07-interface-cast-diagram.jpg)
+
+<SectionHeading variant="concept" seq={2}>Klasses abstratu</SectionHeading>
+
+Gosi imajina ki nu meste imprimi resibu di aluge di 3 manera diferenti: na papel, pa WhatsApp, i pa email. Kada kanal ta formata informasan di se própi manera, ma tudu meste kalkula mesmu **total** (presu-pa-dia × dias). Un primeru tentativa: 3 funsan separadu:
+
+<CodeExample position={4} />
+
+Nota problema: linha `val total = reserva.veikulu.presuPerDia * reserva.dias` ta repeti na tudu 3 funsan. Si fórmula di kálkulu muda un dia — por izemplu, adisiona un regra nobu — bu meste lembra di muda-l na 3 lugar diferenti, un risku grandi di eru.
+
+Un `abstract class` ta koriji kel problema. El é sima un hybrid entri interface i klasse normal: el pode ten metodus **ku kódiku** (partilhadu pa tudu subklasse, marka `protected` pa nu limita se uzu só pa subklasses) i metodus **abstratu** (sen kódiku, ki kada subklasse meste `override`). Diferenti di interface, `abstract class` ka pode kria objetu novu diretamenti di el — el só ezisti pa ser erdadu.
+
+Nu ta kontinua uza `Reserva` di Lisan 9 li — mesmu `data class` ki kódiku di riba dja mostra.
+
+<CodeDiff
+  lang="kotlin"
+  filename="RecibuImpressor.kt"
+  title="Refatora imprimeReciboPapel pa RecibuImpressor"
+  note="Mesmu padran ta aplika pa `RecibuWhatsApp` i `RecibuEmail`: kada un so oberrida `imprimi`, i tudu ta partilha `calculaTotal` erdadu di klasse abstratu."
+  diff={[
+    { type: "del", t: "fun imprimeReciboPapel(reserva: Reserva): String {" },
+    { type: "del", t: "    val total = reserva.veikulu.presuPerDia * reserva.dias" },
+    { type: "del", t: '    return """' },
+    { type: "del", t: "        RESIBU DI ALUGE" },
+    { type: "del", t: '        Clienti: ${reserva.clienti}' },
+    { type: "del", t: '        Total: $total EUR' },
+    { type: "del", t: '    """.trimIndent()' },
+    { type: "del", t: "}" },
+    { type: "add", t: "abstract class RecibuImpressor {" },
+    { type: "add", t: "    protected fun calculaTotal(reserva: Reserva): Double {" },
+    { type: "add", t: "        return reserva.veikulu.presuPerDia * reserva.dias" },
+    { type: "add", t: "    }" },
+    { type: "add", t: "" },
+    { type: "add", t: "    abstract fun imprimi(reserva: Reserva): String" },
+    { type: "add", t: "}" },
+    { type: "add", t: "" },
+    { type: "add", t: "class RecibuPapel : RecibuImpressor() {" },
+    { type: "add", t: "    override fun imprimi(reserva: Reserva): String {" },
+    { type: "add", t: "        val total = calculaTotal(reserva)" },
+    { type: "add", t: '        return """' },
+    { type: "add", t: "            RESIBU DI ALUGE" },
+    { type: "add", t: '            Clienti: ${reserva.clienti}' },
+    { type: "add", t: '            Total: $total EUR' },
+    { type: "add", t: '        """.trimIndent()' },
+    { type: "add", t: "    }" },
+    { type: "add", t: "}" },
+  ]}
+/>
+
+<CodeExample position={5} />
+
+Nota `main()`: nu ta guarda tudu 3 `RecibuImpressor` (`RecibuPapel`, `RecibuWhatsApp`, `RecibuEmail`) dentu di un `List<RecibuImpressor>` i txoma `imprimi()` riba di kada un — mesmu ki kada un ta imprimi di manera diferenti. Es é **polimorfismu** (polymorphism): mesmu txomada di metodu ta konporta diferenti sigundu tipu real di objetu.
+
+<SectionHeading variant="concept" seq={3}>Interface vs klasse abstratu</SectionHeading>
+
+Gosi ki bu konxe tantu interfaces kumo klasses abstratu, kual ki bu debe skodje? Regra jeral: preferi interface — el é más simpli i un klasse pode implementa VÁRIUS interfaces. Skodje abstract class só kuandu bu meste partilha kódiku (kumo `calculaTotal` na nos izemplu) entri subklasses relasionadu.
+
+<CompareTable
+  title="Interface versus abstract class"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "Interface", accent: "blue" },
+    { name: "Abstract class", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Metodus", kind: "text", vals: ["Tudu abstratu (sen kódiku) pa defeitu", "Pode ser abstratu ou ku kódiku konkretu"] },
+    { label: "Eransa múltiplu", kind: "bool", vals: [true, false] },
+    { label: "Propriedadis ku stadu", kind: "bool", vals: [false, true] },
+    { label: "Kuandu uza", kind: "text", vals: ["Kontratu simpli, sen kódiku partilhadu", "Kódiku partilhadu entri subklasses relasionadu"] },
+  ]}
+/>
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="interface" code>kontratu di metodus ki klasse promete implementa; klasse pode implementa VÁRIUS interfaces</RezumuItem>
+  <RezumuItem>Si `Karu` implementa (ou erda di) `Alugavel`, `Karu` é subtype i `Alugavel` é supertype.</RezumuItem>
+  <RezumuItem>Up-casting (subtype → supertype) é sempri sigura i automátiku; down-casting (supertype → subtype) meste `as`, `is`, ou `as?`.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`as Karu` sen verifika tipu real ta kebra ku `ClassCastException`. Uza `is`-guarded cast ou `as?` en bez.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Preferi interface; skodje abstract class só kuandu bu meste partilha kódiku entri subklasses.</RezumuItem>
+</KeyTakeaways>

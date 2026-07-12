@@ -1,0 +1,64 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m5-09-classes-properties-and-inheritance-quiz.yaml
+# <Quiz position={n} /> renders these in order (0-based).
+
+- question:
+    kea: "Na `class Veikulu(val matrikula: String, var presuPerDia: Double)`, kual é diferensa entri `val` i `var`?"
+  options:
+    - text: { kea: "`val` kria un propriedadi imutável (ka pode muda dipos ki objetu é kriadu); `var` kria un propriedadi mutável (pode muda)" }
+      correct: true
+      explain:
+        kea: "`val`/`var` na konstrutor primariu funsiona igual na kualker lugar otu: `val` é imutável, `var` é mutável."
+    - text: { kea: "`val` é so pa `String`, `var` é so pa `Double`" }
+      correct: false
+    - text: { kea: "Ka ten diferensa, é so stilu di skrita" }
+      correct: false
+
+- question:
+    kea: "Kuandu ki kódiku dentu di un bloku `init` ta izekuta?"
+  options:
+    - text: { kea: "Un so bez, na hora ki un objetu é kriadu — dipos ki propriedadis di konstrutor primariu sta atribuídu" }
+      correct: true
+      explain:
+        kea: "`init` é lugar sertu pa validason ou setup ki meste kontise durante kriason di objetu."
+    - text: { kea: "Kada bez ki un métodu di klasse é txomadu" }
+      correct: false
+    - text: { kea: "So si bu txoma-l explisitamenti, sima un métodu normal" }
+      correct: false
+
+- question:
+    kea: "Dentu di `atualizaPrecu(presuPerDia: Double)`, kuandu ki `this.presuPerDia` é obrigatóriu?"
+  options:
+    - text: { kea: "Kuandu un parámetru di métodu ten mesmu nomi ki un propriedadi di klasse — `this.` ta distingui kual di es dos bu ta referensia" }
+      correct: true
+      explain:
+        kea: "Sen `this.`, `presuPerDia` dentu di métodu ta referensia **parámetru**, ka propriedadi di objetu — pur isu `this.` é obrigatóriu so kuandu ten kel konfliktu di nomi."
+    - text: { kea: "Sénpri, na tudu métodu di kualker klasse" }
+      correct: false
+    - text: { kea: "Nunka — Kotlin ka ten un keyword `this`" }
+      correct: false
+
+- question:
+    kea: "Pamodi `reserva1 == reserva3` é `false` mesmu ki `karu1` i `karu2` (kes dos veikulu) ten mesmu `matrikula` i mesmu `presuPerDia`?"
+  options:
+    - text: { kea: "`karu1` i `karu2` é duas instánsias diferenti di `Veikulu`, ki ka é `data class` — el ka tene igualdadi estrutural própriu, ntonsi ta kompara pa referensia" }
+      correct: true
+      explain:
+        kea: "Un `data class` so ta jera igualdadi estrutural pa si própriu propriedadis. Si un propriedadi é otu klasse ki ka é `data` (sima `Veikulu`), kel propriedadi kontinua kompara pa referensia."
+    - text: { kea: "Pamodi `Reserva` ka é `data class`" }
+      correct: false
+    - text: { kea: "Pamodi `dias` é diferenti na kada reserva" }
+      correct: false
+
+- question:
+    kea: "Kuza ki ta kontise si bu skise di marka `Veikulu` `open` i tenta skrebe `class Karu : Veikulu(...)`?"
+  options:
+    - text: { kea: "Erru di kompilason — klasses Kotlin é `final` pa default, ka pode ser erdadu sen `open`" }
+      correct: true
+      explain:
+        kea: "Kotlin ta para kompilason imediatamenti ku un erru klaru — diferenti di otus linguajens unde klasses pode ser erdadu pa default."
+    - text: { kea: "Programa ta kompila normal, ma ta kebra na runtime" }
+      correct: false
+    - text: { kea: "Kotlin ta marka `Veikulu` `open` automatikamenti" }
+      correct: false

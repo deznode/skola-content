@@ -1,0 +1,64 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Publish copies it VERBATIM to
+# content/courses/intro-kotlin/lessons/what-is-kotlin/quiz.yaml
+# Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
+- question:
+    kea: "Ken ki kria Kotlin?"
+  options:
+    - text: { kea: "JetBrains" }
+      correct: true
+      explain:
+        kea: "Korretu — JetBrains é empresa ki kria Kotlin, mesmu ki kria IntelliJ IDEA."
+    - text: { kea: "Google" }
+      correct: false
+      explain:
+        kea: "Google rekomenda Kotlin ofisialmenti pa Android, ma ka é ken ki kria-l."
+    - text: { kea: "Oracle" }
+      correct: false
+      explain:
+        kea: "Oracle é ken ki mantén Java, ka Kotlin."
+- question:
+    kea: "Kotlin ta kore riba di kual mákina virtual?"
+  options:
+    - text: { kea: "JVM (Java Virtual Machine)" }
+      correct: true
+      explain:
+        kea: "Korretu — Kotlin i Java ta kore na mesmu JVM, kel é pamodi es pode uza kódiku un-di-otu direitamenti."
+    - text: { kea: "Un interpreter di Python" }
+      correct: false
+      explain:
+        kea: "Kel é unde Python ta kore, ka Kotlin."
+    - text: { kea: "Un motor di browser" }
+      correct: false
+      explain:
+        kea: "Kel é unde JavaScript ta kore, ka Kotlin."
+- question:
+    kea: "Kual di kes é un uzu prinsipal di Kotlin, sigundu es lisan?"
+  options:
+    - text: { kea: "Dizenvolvimentu Android" }
+      correct: true
+      explain:
+        kea: "Korretu — dezdi 2019, Kotlin é linguajen ofisialmenti rekomendadu pa Google pa Android."
+    - text: { kea: "Skrebe página web sô ku HTML i CSS" }
+      correct: false
+      explain:
+        kea: "Kel ka é un uzu prinsipal di Kotlin — Kotlin ta uzadu pa Android, backend i multiplataforma."
+    - text: { kea: "Konfigurasan di rede" }
+      correct: false
+      explain:
+        kea: "Kel ka é un uzu prinsipal di Kotlin nes kursu."
+- question:
+    kea: "Kuzé ki 'null safety' na Kotlin ta djuda evita?"
+  options:
+    - text: { kea: "Erru `NullPointerException` (NPE)" }
+      correct: true
+      explain:
+        kea: "Korretu — Kotlin ta obriga-bu deklara kual variavel pode ser `null`, kel ta djuda evita NPE."
+    - text: { kea: "Erru di sintaksi na kompilasan" }
+      correct: false
+      explain:
+        kea: "Erru di sintaksi é un kuza diferenti — null safety é sobri variavel ki pode ser `null`."
+    - text: { kea: "Erru di konversan entri tipus numériku" }
+      correct: false
+      explain:
+        kea: "Konversan entri tipus numériku é un otu tema — bu ta prende-l na próximu lisan."

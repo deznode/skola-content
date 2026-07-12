@@ -1,0 +1,132 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006/FR-007.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m5-10-interfaces-and-abstract-classes-exercises.yaml
+# <TentaGosi /> renders these in display order; slugs are stable completed_exercises FKs.
+
+- slug: kria-klasse-mota-alugavel
+  language: kotlin
+  kind: code
+  title: { kea: "Kria un klasse Mota ki implementa Alugavel" }
+  prompt:
+    kea: "Kria un klasse `Mota` ki implementa interface `Alugavel` **diretamenti** (sen erda di `Veikulu`). El meste un propriedadi `presuPerDia: Double` i implementa `calculaPresu(dias: Int): Double` multiplikandu `presuPerDia` pa `dias`."
+  hint:
+    kea: "Un klasse pode implementa un interface sen erda di nenhun otu klasse — ka meste pasa pa Veikulu."
+  starterCode: |
+    interface Alugavel {
+        fun calculaPresu(dias: Int): Double
+    }
+
+    class Mota(val presuPerDia: Double) {
+        // TODO: implementa Alugavel li
+    }
+  solutionCode: |
+    interface Alugavel {
+        fun calculaPresu(dias: Int): Double
+    }
+
+    class Mota(val presuPerDia: Double) : Alugavel {
+        override fun calculaPresu(dias: Int): Double {
+            return presuPerDia * dias
+        }
+    }
+
+- slug: koriji-cast-inseguru
+  language: kotlin
+  kind: debug
+  file: Aluge.kt
+  title: { kea: "Koriji un down-cast inseguru" }
+  prompt:
+    kea: "Es funsan ta kebra ku ClassCastException si `alugavel` ka é un `Karu`. Klika na linha ki meste ser korijidu."
+  starterCode: |
+    interface Alugavel {
+        fun calculaPresu(dias: Int): Double
+    }
+
+    open class Veikulu(val matrikula: String, val presuPerDia: Double) : Alugavel {
+        override fun calculaPresu(dias: Int): Double = presuPerDia * dias
+    }
+
+    class Karu(matrikula: String, presuPerDia: Double, val numeruPortas: Int) : Veikulu(matrikula, presuPerDia)
+
+    fun mostraPortas(alugavel: Alugavel) {
+        val karu = alugavel as Karu
+        println("Karu ku ${karu.numeruPortas} portas")
+    }
+  bugLine: 12
+  bugExplain:
+    kea: "`as Karu` ta forsa un cast diretu — si `alugavel` ka é un `Karu` na verdadi, programa ta kebra ku ClassCastException. Uza `is`-guarded cast ou `as?` pa un cast siguru."
+  solutionCode: |
+    fun mostraPortas(alugavel: Alugavel) {
+        if (alugavel is Karu) {
+            println("Karu ku ${alugavel.numeruPortas} portas")
+        } else {
+            println("Veikulu sen informasan di portas")
+        }
+    }
+
+- slug: refatora-recibu-abstract-class
+  language: kotlin
+  kind: code
+  title: { kea: "Refatora funsan duplikadu pa un klasse abstratu" }
+  prompt:
+    kea: "3 funsan — `imprimeReciboPapel`, `imprimeReciboWhatsApp` i `imprimeReciboEmail` — tudu kalkula `total` di mesmu manera. Refatora-s pa un `abstract class RecibuImpressor` ku un metodu partilhadu `calculaTotal(reserva)` i un metodu abstratu `imprimi(reserva): String`, dipos kria 3 subklasse (`RecibuPapel`, `RecibuWhatsApp`, `RecibuEmail`) ki oberrida `imprimi`."
+  hint:
+    kea: "Poi lójika partilhadu (`calculaTotal`) na klasse abstratu i dexa so `imprimi` diferenti na kada subklasse."
+  starterCode: |
+    open class Veikulu(val matrikula: String, val presuPerDia: Double)
+    data class Reserva(val clienti: String, val veikulu: Veikulu, val dias: Int)
+
+    fun imprimeReciboPapel(reserva: Reserva): String {
+        val total = reserva.veikulu.presuPerDia * reserva.dias
+        return """
+            RESIBU DI ALUGE
+            Clienti: ${reserva.clienti}
+            Total: $total EUR
+        """.trimIndent()
+    }
+
+    fun imprimeReciboWhatsApp(reserva: Reserva): String {
+        val total = reserva.veikulu.presuPerDia * reserva.dias
+        return "Oi ${reserva.clienti}! Bu resibu di aluge é $total EUR. Obrigadu!"
+    }
+
+    fun imprimeReciboEmail(reserva: Reserva): String {
+        val total = reserva.veikulu.presuPerDia * reserva.dias
+        return "Resibu di aluge pa ${reserva.clienti}: veikulu ${reserva.veikulu.matrikula}, total $total EUR"
+    }
+  solutionCode: |
+    open class Veikulu(val matrikula: String, val presuPerDia: Double)
+    data class Reserva(val clienti: String, val veikulu: Veikulu, val dias: Int)
+
+    abstract class RecibuImpressor {
+        protected fun calculaTotal(reserva: Reserva): Double {
+            return reserva.veikulu.presuPerDia * reserva.dias
+        }
+
+        abstract fun imprimi(reserva: Reserva): String
+    }
+
+    class RecibuPapel : RecibuImpressor() {
+        override fun imprimi(reserva: Reserva): String {
+            val total = calculaTotal(reserva)
+            return """
+                RESIBU DI ALUGE
+                Clienti: ${reserva.clienti}
+                Total: $total EUR
+            """.trimIndent()
+        }
+    }
+
+    class RecibuWhatsApp : RecibuImpressor() {
+        override fun imprimi(reserva: Reserva): String {
+            val total = calculaTotal(reserva)
+            return "Oi ${reserva.clienti}! Bu resibu di aluge é $total EUR. Obrigadu!"
+        }
+    }
+
+    class RecibuEmail : RecibuImpressor() {
+        override fun imprimi(reserva: Reserva): String {
+            val total = calculaTotal(reserva)
+            return "Resibu di aluge pa ${reserva.clienti}: veikulu ${reserva.veikulu.matrikula}, total $total EUR"
+        }
+    }

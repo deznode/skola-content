@@ -1,0 +1,160 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m1-03-booleans-and-null-safety-exercises.yaml
+# Publish RESOLVES this into:
+#   content/courses/intro-kotlin/lessons/03-booleans-and-null-safety/exercises.yaml
+# <TentaGosi /> renders these in display order.
+#
+# NOTE on `koriji-true-false`: this is an AUTHENTIC bug reproduced from the
+# source reading ("Logical operations: Boolean.md", lines ~53-54) — capitalized
+# `True`/`False` (invalid Kotlin identifiers, unlike Python where they ARE
+# capitalized). Kept as a genuine "find the bug" exercise, not silently fixed.
+- slug: preve-negason-i-and
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve `!menorDiIdadi && tenBilheti`" }
+  prompt:
+    kea: "Antis di kore, preve ki es programa ta imprimi."
+  starterCode: |
+    fun main() {
+        val menorDiIdadi = false
+        val tenBilheti = true
+        println(!menorDiIdadi && tenBilheti)
+    }
+  options:
+    - "`true`"
+    - "`false`"
+    - "Eru di kompilasan"
+  correct: 0
+  output: |
+    true
+  why:
+    kea: "`!` ta avalia primeru — sô riba di `menorDiIdadi` — `!false` = `true`. Dipos `true && true` = `true`."
+- slug: koriji-true-false
+  language: kotlin
+  kind: debug
+  file: bilheti.kt
+  title: { kea: "Koriji valor lójiku" }
+  prompt:
+    kea: "Es programa ka ta kompila. Diskubri kuzê ki sta eradu i koriji-l."
+  starterCode: |
+    fun main() {
+        val menorDiIdadi = False
+        val tenBilheti = True
+        isBoring = false
+        val podeEntra = !menorDiIdadi && tenBilheti && !isBoring
+        println(podeEntra)
+    }
+  solutionCode: |
+    fun main() {
+        val menorDiIdadi = false
+        val tenBilheti = true
+        val isBoring = false
+        val podeEntra = !menorDiIdadi && tenBilheti && !isBoring
+        println(podeEntra)
+    }
+  hint:
+    kea: "Na Kotlin, valor lójiku ta skrebe ku primeru letra minúskula: `true` i `false`. `True` i `False` (T/F maiúskulu) ka ezisti — Kotlin ta da `Unresolved reference`. Tanbe, `isBoring` sta uzadu sen ser deklaradu ku `val` — kel tanbe ta da `Unresolved reference: isBoring`."
+- slug: kumprimenta-di-manera-sigura
+  language: kotlin
+  kind: code
+  title: { kea: "Kumprimenta di manera sigura" }
+  prompt:
+    kea: "Kria un variável `nomi` di tipu `String?` (pode ser `null`). Uza `?.` pa imprimi si tamanhu (`length`) sen kauza un eru, mesmu si `nomi` é `null`."
+  starterCode: |
+    fun main() {
+        var nomi: String? = "Nando"
+
+        // TODO: imprimi tamanhu di nomi ku un txamada sigura (?.)
+        // TODO: atribui null a nomi i imprimi otu vez sen kebra
+    }
+  solutionCode: |
+    fun main() {
+        var nomi: String? = "Nando"
+        println(nomi?.length)   // 5
+
+        nomi = null
+        println(nomi?.length)   // null (sen kebra)
+    }
+  hint:
+    kea: "`?.` sô ta txoma `.length` si `nomi` ka é `null` — si é `null`, el ta devolve `null` diretu, sen kauza `NullPointerException`."
+
+- slug: apelidu-ku-valor-padron
+  language: kotlin
+  kind: code
+  title: { kea: "Apelidu ku Valor Padron" }
+  prompt:
+    kea: "Kria un variável `apelidu` di tipu `String?` iguál a `null`. Uza `?.` djuntu ku `?:` pa imprimi `apelidu.uppercase()` si el ka é `null`, ou `\"SEN APELIDU\"` si é `null`. Dipos, muda `apelidu` pa `\"Djiku\"` i imprimi otu bez."
+  hint:
+    kea: "Kombina `?.` (txamada sigura) ku `?:` (operador Elvis) na mesmu ekspresan: `apelidu?.uppercase() ?: \"SEN APELIDU\"`."
+  starterCode: |
+    fun main() {
+        var apelidu: String? = null
+
+        // TODO: imprimi apelidu?.uppercase() ?: "SEN APELIDU"
+        // TODO: muda apelidu pa "Djiku" i imprimi otu vez
+    }
+  solutionCode: |
+    fun main() {
+        var apelidu: String? = null
+        println(apelidu?.uppercase() ?: "SEN APELIDU")   // SEN APELIDU
+
+        apelidu = "Djiku"
+        println(apelidu?.uppercase() ?: "SEN APELIDU")   // DJIKU
+    }
+
+- slug: preve-igualdadi-vs-identidadi
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve `==` vs `===`" }
+  prompt:
+    kea: "Antis di kore, preve ki es programa ta imprimi."
+  starterCode: |
+    fun main() {
+        val nomi1 = "Telma"
+        val nomi2 = nomi1
+        println(nomi1 == nomi2)
+        println(nomi1 === nomi2)
+    }
+  options:
+    - "`true` i `true`"
+    - "`true` i `false`"
+    - "`false` i `false`"
+  correct: 0
+  output: |
+    true
+    true
+  why:
+    kea: "`nomi2 = nomi1` ta atribui **mesmu** valor — `nomi1` i `nomi2` ta apunta pa mesmu `String` na memória. `==` (valor) i `===` (identidadi) é dos `true` li, pamodi é literalmenti mesmu objetu."
+
+- slug: apelidu-ku-let
+  language: kotlin
+  kind: code
+  title: { kea: "Imprimi Detalis Sô Si Ka É Null" }
+  prompt:
+    kea: "Kria un variável `nomi` di tipu `String?` iguál a `\"Sara\"`. Uza `?.let { }` pa imprimi dos linha: `\"Nomi: <nomi>\"` i `\"Tamanhu: <tamanhu>\"`. Dipos, muda `nomi` pa `null` i uza `?.let { }` otu bez — nada ka meste imprimi."
+  hint:
+    kea: "`nomi?.let { println(\"Nomi: $it\") ... }` — bloku dentu di `let` sô ta izekuta si `nomi` ka é `null`."
+  starterCode: |
+    fun main() {
+        var nomi: String? = "Sara"
+
+        // TODO: uza nomi?.let { } pa imprimi "Nomi: ..." i "Tamanhu: ..."
+
+        nomi = null
+        // TODO: uza nomi?.let { } otu bez — nada ka meste imprimi
+    }
+  solutionCode: |
+    fun main() {
+        var nomi: String? = "Sara"
+        nomi?.let {
+            println("Nomi: $it")
+            println("Tamanhu: ${it.length}")
+        }
+
+        nomi = null
+        nomi?.let {
+            println("Nomi: $it")
+            println("Tamanhu: ${it.length}")
+        }
+    }

@@ -1,0 +1,126 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m2-05-conditionals-and-smart-casting-exercises.yaml
+# <TentaGosi /> renders these in display order; slugs are stable completed_exercises FKs.
+
+- slug: klasifika-nota
+  language: kotlin
+  kind: code
+  title: { kea: "Klasifikadora di Nota" }
+  prompt:
+    kea: "Skrebe un funsan `klassificaNota(nota: Int): String` ki uza `when` pa devolve `\"A\"` (nota >= 90), `\"B\"` (nota >= 80), `\"C\"` (nota >= 70), `\"D\"` (nota >= 60), ou `\"F\"` (restu)."
+  hint:
+    kea: "Lembra ki `when` kumo expresan senpri meste un branch `else` pa kubri tudu kazu restanti."
+  starterCode: |
+    fun klassificaNota(nota: Int): String {
+        // TODO: uza when pa devolve klasifikasan korretu
+        return ""
+    }
+
+    fun main() {
+        println(klassificaNota(95)) // A
+        println(klassificaNota(72)) // C
+        println(klassificaNota(50)) // F
+    }
+  solutionCode: |
+    fun klassificaNota(nota: Int): String {
+        return when {
+            nota >= 90 -> "A"
+            nota >= 80 -> "B"
+            nota >= 70 -> "C"
+            nota >= 60 -> "D"
+            else -> "F"
+        }
+    }
+
+    fun main() {
+        println(klassificaNota(95)) // A
+        println(klassificaNota(72)) // C
+        println(klassificaNota(50)) // F
+    }
+
+- slug: deskrebe-valor-polimorfiku
+  language: kotlin
+  kind: code
+  title: { kea: "Deskrebe Kualker Valor" }
+  prompt:
+    kea: "Skrebe un funsan `deskreveValor(valor: Any): String` ki uza `when` ku branch `is` pa devolve un deskrisan diferenti pa `String`, `Int` i `Boolean` (i un branch `else` pa kualker otu tipu). Aproveita smart-cast pa uza propriedadis/operasons spesífiku di kada tipu (por izemplu, `.length` di un `String`)."
+  hint:
+    kea: "Dentu di kada branch `is Tipu ->`, Kotlin dja trata `valor` kumo kel tipu — bu pode txoma `valor.length` direto dentu di `is String`, por izemplu."
+  starterCode: |
+    fun deskreveValor(valor: Any): String {
+        // TODO: uza when (valor) ku is String / is Int / is Boolean / else
+        return ""
+    }
+
+    fun main() {
+        println(deskreveValor("Kabuverdi"))
+        println(deskreveValor(42))
+        println(deskreveValor(true))
+    }
+  solutionCode: |
+    fun deskreveValor(valor: Any): String {
+        return when (valor) {
+            is String -> "String ku ${valor.length} karáter"
+            is Int -> "Int: $valor"
+            is Boolean -> "Boolean: $valor"
+            else -> "Tipu deskonxedu"
+        }
+    }
+
+    fun main() {
+        println(deskreveValor("Kabuverdi"))
+        println(deskreveValor(42))
+        println(deskreveValor(true))
+    }
+
+- slug: preve-smart-cast
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve o Smart Cast" }
+  prompt:
+    kea: "Antis di kore, preve kuzê ki es programa ta imprimi."
+  starterCode: |
+    fun processaValor(valor: Any) {
+        if (valor is String) {
+            println("Tamanhu: ${valor.length}")
+        } else if (valor is Int) {
+            println("Dobru: ${valor * 2}")
+        }
+    }
+
+    fun main() {
+        processaValor("Sal")
+    }
+  options:
+    - '"Tamanhu: 3"'
+    - '"Dobru: 3"'
+    - "Eru di kompilasan"
+    - '"Tamanhu: Sal"'
+  correct: 0
+  output: |
+    Tamanhu: 3
+  why:
+    kea: "`\"Sal\"` é un `String` di 3 karáter, i dentu di `is String ->`, Kotlin dja smart-casta `valor` pa `String` — `valor.length` ta funsiona direto, sen cast manual."
+
+- slug: klassifika-idadi
+  language: kotlin
+  kind: code
+  title: { kea: "Klassifika Idadi ku Range" }
+  prompt:
+    kea: "Skrebe un funsan `klassificaIdadi(idadi: Int): String` ki uza `when` ku `in` pa devolve \"kriansa\" (0 te 12), \"adolesenti\" (13 te 17), ou \"adultu\" (18 pa riba)."
+  hint:
+    kea: "Uza `in 0..12`, `in 13..17`, i un `else` pa kubri restu."
+  starterCode: |
+    fun klassificaIdadi(idadi: Int): String {
+        // TODO
+        return ""
+    }
+  solutionCode: |
+    fun klassificaIdadi(idadi: Int): String {
+        return when (idadi) {
+            in 0..12 -> "kriansa"
+            in 13..17 -> "adolesenti"
+            else -> "adultu"
+        }
+    }

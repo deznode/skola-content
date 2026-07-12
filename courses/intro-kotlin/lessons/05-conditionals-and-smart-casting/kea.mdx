@@ -1,0 +1,200 @@
+---
+title: "Kondisionais i Smart Casting"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: conditionals-and-smart-casting
+duration: "30 min"
+module: 2
+lesson: 5
+objectives:
+  - "Skrebe `if`/`else` kumo statement i kumo expresan, i `if`-`else`-`if` pa sekuénsia di kondisons"
+  - "Skrebe tudu 4 forma di `when` (sen argumentu, kumo expresan, ku un valor, ku range-check `in`)"
+  - "Uza `is` pa verifika tipu dentu di `when`/`if` i aproveita smart-cast automátiku ki Kotlin ta da"
+---
+
+# Kondisionais i Smart Casting
+
+Kada dia, nu ta toma desizan baziadu na kondisons: si sta txobe, nu ta leba garda-txuva; si nota di un studanti ta 95, el ta resebe un A. Bu programa tanbe meste toma desizan di es tipu — i Kotlin ta da-bu tres ferramenta pa kel: `if`/`else`, `when`, i verifikasan di tipu ku `is`. Nes lisan, bu ta prende tudu tres, i kumo es dos último ta djunta pa da-bu **smart casting** — Kotlin ta da-bu es vantajen automatikamenti.
+
+<SectionHeading variant="concept" seq={1}>`if`/`else` Kumo Statement</SectionHeading>
+
+Estrutura `if` ta verifika un kondisan Boolean. Si kondisan é `true`, Kotlin ta izekuta bloku di kódiku dentu di `if`; si é `false`, el ta pula pa `else` (kuandu presenti).
+
+<CodeExample position={0} />
+
+Si bloku só ten un statement, bu pode dexa xaves (`{}`) di ladu — ma mante-s ta djuda leitura kuandu lójika ta kresi.
+
+<SectionHeading variant="concept" seq={2}>`if`/`else` Kumo Expresan</SectionHeading>
+
+Diferenti di txeu otu linguajen, `if`/`else` na Kotlin tanbe pode ser uzadu kumo **expresan** — kel é, el pode devolve un valor ki bu atribui direto pa un variavel. Valor devolvidu é últimu expresan di kada bloku skodjidu.
+
+<CodeExample position={1} />
+
+Si kada bloku só ten un valor, bu pode skrebe tudu na un linha só, sen xaves:
+
+```kotlin
+val diskontu: Double = if (eKlientiFiel) 15.0 else 0.0
+```
+
+:::callout{type=tip}
+Uza `if`/`else` kumo statement kuandu bu só meste **izekuta** kódiku (imprimi, guarda, txoma otu funsan). Uza-l kumo expresan kuandu bu meste **un valor** pa atribui ou devolve.
+:::
+
+<SectionHeading variant="concept" seq={3}>`if`-`else`-`if`: Sekuénsia di Kondisons</SectionHeading>
+
+Kuandu bu ten más di dos kaminhu posível, bu pode enkadea vários bloku `if`-`else`. Kotlin ta verifika kada kondisan di riba pa baxu i ta izekuta primeru kondisan ki é `true`.
+
+<CodeExample position={2} />
+
+`if`-`else`-`if` é un padran popular na txeu linguajen di programasan, ma Kotlin ten un alternativa más adekuadu pa múltiplu kondisons: `when`.
+
+<SectionHeading variant="concept" seq={4}>`when`: Alternativa pa `if`-`else`-`if`</SectionHeading>
+
+`when` é estrutura di kontrolu ki Kotlin ta da kumo alternativa pa `if`-`else`-`if`. El ten kuatru forma diferenti, i bu ta prende tudu es kuatru.
+
+### `when` Sen Argumentu
+
+Na se forma más simplis, `when` sen argumentu ta funsiona igual ki `if`-`else`-`if` — kada branch ten se própi kondisan, i primeru ki é `true` ta izekuta.
+
+<CodeExample position={3} />
+
+Nota kumo es kódiku ta faze exatamenti mesmu kuza ki izemplu di `if`-`else`-`if` di riba, ma ku menus repetisan di `if`/`else if`.
+
+### `when` Kumo Expresan
+
+Sima `if`/`else`, `when` tanbe pode ser uzadu kumo expresan pa devolve un valor.
+
+<CodeExample position={4} />
+
+:::callout{type=warning}
+Kuandu `when` ta uzadu kumo **expresan**, el senpri meste un branch `else` — mesmu ki tudu kazu posível dja sta kubridu — pamodi Kotlin (di forma jeral) ka pode garanti ki bu kubri tudu kazu. Más tardi, kuandu bu prende `enum class` i `sealed class`, bu ta odja kumo Kotlin **pode** garanti ki tudu kazu sta kubridu, sen mester di `else`, pamodi kel tipus ten un kantidadi FIXU i konxedu di valoris posível.
+:::
+
+### `when` ku un Valor
+
+Bu tanbe pode pui un valor entri paréntesis dipos di `when`. Kada branch kompara kel valor ku un ou más valor spesífiku.
+
+<CodeExample position={5} />
+
+`2, 3, 4, 5` na un só branch é un manera kurtu di skrebe "si valor é 2 OU 3 OU 4 OU 5". Nota tanbe ki es izemplu é un **statement**, i pur isu el ka meste `else` — si `resultadu` ka bati ku nenhun branch, sinplismenti nada ka ta kontise.
+
+### `when` ku Range-Check (`in`)
+
+Kuandu bu meste verifika si un valor sta DENTU di un range (en bez di lista-l valor-pa-valor), uza `in` junto ku un range (`a..b`).
+
+<CodeExample position={6} />
+
+`in 2..5` ta verifika si `resultadu` sta entri 2 i 5, inkluzivu — mesmu efeitu ki `2, 3, 4, 5`, ma más kurtu i más lejível kuandu range é grandi.
+
+<CompareTable
+  title="`if`-`else`-`if` vs `when`"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "if-else-if", accent: "blue" },
+    { name: "when", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Lejível ku txeu kondisons", kind: "bool", vals: [false, true] },
+    { label: "Kuandu uza", kind: "text", vals: ["Poku kondisons, ou lójika ki dipende di vários variável diferenti", "Txeu kondisons baziadu na un só valor ou tipu"] },
+  ]}
+/>
+
+<SectionHeading variant="concept" seq={5}>Verifika Tipu ku `is`</SectionHeading>
+
+Kada valor na Kotlin ten un tipu. Bu pode verifika si un valor é di un dadu tipu uzandu palavra-txavi `is`, ki ta devolve un Boolean:
+
+```kotlin
+fun main() {
+    var valor: Any = "Kabuverdi"
+
+    println(valor is String)  // true
+    println(valor is Int)     // false
+
+    valor = 123
+    println(valor is Int)     // true
+}
+```
+
+Verifikasan di tipu ku `is` é un padran mutu popular kumo branch dentu di un `when` ku valor — es é forma **`is Tipu ->`**:
+
+<CodeExample position={7} />
+
+<SectionHeading variant="concept" seq={6}>Smart Casting: O Pagamentu Direto di `is`</SectionHeading>
+
+Nota kuza ki kontise dentu di kada branch `is Tipu ->` di riba: Kotlin dja sabe ki `valor` é di kel tipu spesífiku, i bu pode txoma metodus/operasons spesífiku di kel tipu diretamenti, sen bu meste faze un cast manual. Es vantajen ta txomadu **smart casting** (smart-cast): Kotlin ta identifika un tipu más spesífiku pa un variavel dentu di un scope, só kuandu el sabe (ku serteza) ki kel variavel é di kel tipu.
+
+<AnnotatedCode
+  lang="kotlin"
+  filename="smart-cast.kt"
+  title="Smart cast dentu di verifikasan `is`"
+  code={[
+    { t: "fun processaValor(valor: Any) {", m: 0 },
+    { t: "    if (valor is String) {", m: 1 },
+    { t: "        println(valor.length)", m: 2 },
+    { t: "    }", m: 0 },
+    { t: "    if (valor is Int) {", m: 3 },
+    { t: "        println(valor * 10)", m: 4 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Verifikasan di tipu", body: "`is String` ta verifika si `valor` é un `String`." },
+    { m: 2, title: "Smart cast", body: "Dentu di es bloku, Kotlin dja trata `valor` kumo `String` — bu pode txoma `.length` direto, sen cast manual." },
+    { m: 3, title: "Segundu verifikasan", body: "Mesmu padran, gosi pa `Int`." },
+    { m: 4, title: "Smart cast pa Int", body: "Dentu di es bloku, `valor` dja é tratadu kumo `Int` — bu pode multiplika-l diretamenti." },
+  ]}
+/>
+
+Smart cast tanbe ta aplika pa **nulidadi sigura** (padran ki bu ja prendi na lisan pasadu): dipos di un verifikasan `!= null`, Kotlin dja trata variavel kumo non-null dentu di kel bloku.
+
+```kotlin
+fun imprimeTamanhu(txeru: String?) {
+    if (txeru != null) {
+        println(txeru.length) // smart-cast pa String (non-null)
+    } else {
+        println("Sen valor")
+    }
+}
+```
+
+:::callout{type=warning}
+Smart cast **ka ta funsiona** riba di propriedadis `var` mutável (kel é, propriedadis di un `class` ki bu pode muda dipos di kriadu). Kotlin ka pode garanti ki valor di un `var` ka muda entri momentu di verifikasan i momentu di uzu — pur isu, un tenta di smart-cast riba di un `var`-propriedadi mutável ta da un **eru di kompilasan**. Solusan: kopia valor pa un `val` lokal antis di verifika.
+:::
+
+```kotlin
+class Perfil {
+    var nomi: String? = null
+}
+
+fun imprimeNomi(perfil: Perfil) {
+    if (perfil.nomi != null) {
+        // println(perfil.nomi.length) // ERU DI KOMPILASAN — perfil.nomi é un var mutável
+        val nomiLokal = perfil.nomi
+        println(nomiLokal?.length) // ok — nomiLokal é un val lokal
+    }
+}
+```
+
+Gosi bu ta kombina tudu kuzé ki bu prendi — `if`/`else`, `when` na tudu se forma, i smart cast — pa konstrui un programa ki ta klasifika i deskrebe valoris di manera diferenti sigundu tipu ou valor.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="if/else" code>pode ser statement (izekuta kódiku) ou expresan (devolve un valor)</RezumuItem>
+  <RezumuItem term="when" code>alternativa pa `if`-`else`-`if`, ku 4 forma: sen argumentu, kumo expresan, ku un valor, ku range-check `in`</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`when` kumo expresan senpri meste `else`, mesmu si tudu kazu parse kubridu.</RezumuItem>
+  <RezumuItem term="is" code>verifika tipu di un valor — devolve `true`/`false`, i é un branch popular dentu di `when`</RezumuItem>
+  <RezumuItem>Dentu di un branch `is Tipu ->` (ou dipos di un `if (x is Tipu)`), Kotlin ta **smart-cast** `x` pa kel tipu automatikamenti.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Smart cast ka funsiona riba di propriedadis `var` mutável — kopia pa un `val` lokal primeru.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`enum class` i `sealed class` (más tardi na kursu) ta permiti `when` exhaustivu sen `else`.</RezumuItem>
+</KeyTakeaways>

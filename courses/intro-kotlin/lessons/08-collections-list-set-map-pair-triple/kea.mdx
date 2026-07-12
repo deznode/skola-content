@@ -1,0 +1,260 @@
+---
+title: "Listas, Sets, Maps, Pair i Triple"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: collections-list-set-map-pair-triple
+duration: "45 min"
+module: 4
+lesson: 8
+objectives:
+  - "Kria, asesa pa índisi, i itera un `List` — tantu imutável kumo mutável (`mutableListOf`)."
+  - "Kombina `List`/`Set`/`Map` imutável ku `+`/`-`, i kria un kolesan **novu** sen muda kel orijinal."
+  - "Distingui `Array` (tamanhu fixu) di `List` (pode kresi/diminui)."
+  - "Kria un `Set` i splika se garantia di únisidadi."
+  - "Kria un `Map`, buska valor pa txavi, itera pares txavi-valor, i verifika `containsKey`/`containsValue`."
+  - "Uza `Pair` i `Triple` pa kombina valor, i faze destruturason di es."
+---
+
+# Listas, Sets, Maps, Pair i Triple
+
+Kada tipu di kolesan ta rezolve un problema diferenti: **órden** (`List`), **únisidadi** (`Set`), ou **par-di-valor** (`Map`, `Pair`, `Triple`). Gosi nu ta odja kada un — kumo kria-l, kumo ler si konteúdu, i kual problema ki el ta rezolve midjor.
+
+<SectionHeading variant="concept" seq={1}>List: Un Kolesan Ordenadu</SectionHeading>
+
+**`List`** ta rapresenta un lista ordenadu di elementu. Se órden ta fikadu, i mesmu elementu pode aparese más di un bez. Bu ta uza `List` kuandu órden importa — sima un lista di kompras ou un playlist di múzika.
+
+Pa kria un `List`, uza funsan **`listOf`**:
+
+<CodeExample position={0} />
+
+Tipu di rezultadu é **`List<T>`**, unde `T` é tipu di elementu — na izemplu di riba, `List<String>`. Bu ta asesa un elementu pa se índisi ku kolxetis `[]` (primeru índisi é `0`), i bu ta ler total di elementu ku propriedadi `size`.
+
+### Verifika si un List Kontém un Elementu
+
+Uza `contains` ou operador `in` pa verifika si un elementu sta dentu di lista:
+
+<CodeExample position={1} />
+
+`!in` ta verifika kontráriu — si elementu **ka** sta dentu.
+
+### Itera i Uza List Mutável
+
+Pa pasa pa tudu elementu di un lista, uza un `for`-loop. I si bu meste adisiona ou tira elementu dipos di kriason, uza **`mutableListOf`** en bez di `listOf` — rezultadu é un `MutableList` ku metodu sima `add`, `remove` i asinason pa índisi:
+
+<CodeExample position={2} />
+
+:::callout{type=tip}
+`val kompras = mutableListOf(...)` ka é kontraditóriu: `val` ta garanti ki `kompras` sénpri ta apunta pa **mesmu** `MutableList` — el ka pode resebe un lista diferenti dipos. Ma **konteúdu** di kel lista pode muda (`add`/`remove`/`[i] = ...`), pamodi kel é própriu ideia di `MutableList`.
+:::
+
+### Kria un List Novu Sen Muda Kel Orijinal: `+`
+
+Un `List` normal (sen `mutable`) é **imutável** — ma isu ka signifika ki bu ka pode "adisiona" algu. Kombina `+` (un elementu, ou un otu `List`) ta kria un `List` **novu**, sen toka kel orijinal:
+
+```kotlin
+fun main() {
+    val basi = listOf("Arus", "Fejon")
+    val kompletu = basi + "Katxupa"
+    println(basi)      // [Arus, Fejon] — orijinal ka mudou
+    println(kompletu)  // [Arus, Fejon, Katxupa] — list novu
+
+    val otu = listOf("Peixi") + listOf("Karni", "Fruta")
+    println(otu) // [Peixi, Karni, Fruta]
+}
+```
+
+:::callout{type=tip}
+`+` (kria un list novu) i `mutableListOf(...).add(...)` (muda list ezistenti) ta rezolve mesmu problema di forma diferenti. Uza `+` kuandu bu meste guarda lista orijinal intakta; uza `mutableListOf` kuandu bu meste modifika lista ripitidamenti (sima un karrinhu di kompras ki ta kresi ku tenpu).
+:::
+
+### Array vs List: Kual Skodje?
+
+Kotlin tanbe ten `Array<T>`, un otu tipu di kolesan ordenadu — bu ta kria-l ku `arrayOf`. Na primeru odjada, `Array` parsidu mutu ku `List`, ma ten un diferensa importanti: **`Array` ten tamanhu fixu** — bu ka pode adisiona ou tira elementu dipos di kriadu, só muda valor ku índisi (`[i] = ...`).
+
+```kotlin
+fun main() {
+    val numerus = arrayOf(1, 2, 3)
+    numerus[0] = 10          // OK — muda valor pa índisi
+    println(numerus[0])      // 10
+    println(numerus.size)    // 3 — tamanhu ka ta muda nunka
+}
+```
+
+Bu ta repara `Array` na un lugar familiar: `fun main(args: Array<String>)` — parámetru ki ta resebe argumentus di linha di komandu, un padron erdadu di Java.
+
+:::callout{type=tip}
+Na prátika Kotlin, `List`/`MutableList` é kuazi sénpri skoja midjor — el é más flexível (pode kresi/diminui) i ten txeu metodu úteis. Guarda `Array` na memória pa kazu spesífiku sima `main(args: Array<String>)`, ou kuandu bu sabe ku serteza ki tamanhu ka ta muda nunka.
+:::
+
+<SectionHeading variant="concept" seq={2}>Set: Únisidadi Garantidu</SectionHeading>
+
+**`Set`** é parsidu ku `List`, ma ku un diferensa fundamental: **se elementu ten ki ser úniku**. Si bu tenta adisiona un elementu ki dja sta la, Kotlin só ta ignora-l — sen erru.
+
+Pa kria un `Set`, uza funsan **`setOf`**:
+
+<CodeExample position={3} />
+
+Tipu di rezultadu é **`Set<T>`**. Nota ki `Set` **ka ta garanti órden** — diferenti di `List` — i pamodi kel, bu **ka pode** asesa elementu pa índisi (`ilhas[0]` ka ta kompila pa un `Set`).
+
+### Verifika si un Set Kontém un Elementu
+
+Mesmu padron di `List`: uza `contains` ou `in`.
+
+<CodeExample position={4} />
+
+### Únisidadi i Igualdadi
+
+Kumo ki Kotlin disidi si dos elementu é "mesmu valor", pa disidi si un é duplikadu? El ta uza igualdadi (`==`). Pa **klasis normal**, igualdadi é di **referénsia** — dos objetu só é igual si é **literalmenti mesmu objetu na memória**. Pa un **`data class`** (nu ta odja-l ku más detalhi na Módulu 5), igualdadi é **estrutural** — dos objetu ku mesmu valor é igual, mesmu ki es é dos objetu diferenti.
+
+<AnnotatedCode
+  lang="kotlin"
+  filename="Igualdadi.kt"
+  title="Klasi normal vs data class dentu di un Set"
+  code={[
+    { t: "class Pesoa(val nomi: String)", m: 1 },
+    { t: "data class Ilha(val nomi: String)", m: 1 },
+    { t: "", m: 0 },
+    { t: "fun main() {", m: 0 },
+    { t: "    val visitantis = setOf(Pesoa(\"Telma\"), Pesoa(\"Telma\"))", m: 2 },
+    { t: "    println(visitantis.size)  // 2", m: 2 },
+    { t: "", m: 0 },
+    { t: "    val ilhas = setOf(Ilha(\"Sal\"), Ilha(\"Sal\"))", m: 3 },
+    { t: "    println(ilhas.size)  // 1", m: 3 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Dos klasi diferenti", body: "`Pesoa` é un klasi normal; `Ilha` é un `data class` — es palavra-txavi ta muda kumo igualdadi ta funsiona." },
+    { m: 2, title: "Igualdadi di referénsia", body: "Dos `Pesoa(\"Telma\")` é dos **objetu diferenti** na memória — mesmu ku mesmu `nomi`, es ka é igual. `Set` ta guarda-s dos." },
+    { m: 3, title: "Igualdadi estrutural", body: "Dos `Ilha(\"Sal\")` ku mesmu `nomi` é **igual** pa un `data class` — `Set` só ta guarda un." },
+  ]}
+/>
+
+### Set Mutável
+
+Sima `List`, `Set` tanbe ten se versan mutável — **`mutableSetOf`**:
+
+<CodeExample position={5} />
+
+`+` tanbe funsiona pa `Set` — mesmu padran di `List` (kria un `Set` novu, sen muda kel orijinal), ma **ta respeita únisidadi**: si elementu adisionadu dja sta la, `Set` novu ka ta duplika-l.
+
+```kotlin
+fun main() {
+    val ilhas = setOf("Sal", "Boavista")
+    val maisIlhas = ilhas + "Sal" // "Sal" dja sta la — ignoradu
+    println(maisIlhas) // [Sal, Boavista]
+}
+```
+
+<SectionHeading variant="concept" seq={3}>Map: Par Txavi-Valor</SectionHeading>
+
+**`Map`** ta rapresenta un kolesan di **par txavi-valor** (*key-value*): kada **txavi** (`key`) ta liga ku ezatamenti un **valor** (`value`). Txavi ten ki ser úniku, ma valor pode ripiti. Bu ta uza `Map` kuandu bu meste liga dos informasan — sima nomi di disiplina ku nota.
+
+Pa kria un `Map`, uza funsan **`mapOf`** ku infix **`to`** pa kada par:
+
+<CodeExample position={6} />
+
+Tipu di rezultadu é **`Map<K, V>`**. Nota ki buska un valor pa un txavi ku `[]` ta debolve un tipu **nulável** (`Int?` na es izemplu) — si txavi ka izisti, rezultadu é `null`.
+
+Ma kuzé ki ta kontise si bu skrebe **mesmu txavi dos bez** kuandu bu ta kria un `Map`?
+
+```kotlin
+val notas = mapOf("Kriolu" to 16, "Kriolu" to 18)
+println(notas)        // {Kriolu=18}
+println(notas.size)   // 1 -- txavi ripitidu: últimu valor ta sobrevive
+```
+
+Si bu skrebe mesmu txavi dos bez, últimu valor ta sobrevive (override) — kel é mesmu padron di únisidadi ki `Set` ta uza, ma pa txavi.
+
+:::callout{type=warning}
+Diferenti di `List`/`Set` (`contains`), buska un valor na `Map` ku `notas["Fransés"]` **nunka** ta da un erru — el só ta debolve `null` si txavi ka izisti. Sénpri konsidera kel `null` na bu kódiku — sima ku un tipu nulável kualker.
+:::
+
+### Itera un Map i Verifika Txavis/Valor
+
+Pa itera un `Map`, bu ta pasa pa se pares na un `for`-loop, i Kotlin ta permiti **destruturason** diretu na dos variável (`txavi`, `valor`). Bu tanbe pode verifika si un txavi ou un valor spesífiku sta dentu di `Map`, ku `containsKey` i `containsValue`:
+
+<CodeExample position={7} />
+
+### Map Mutável
+
+Sima `List`/`Set`, `Map` tanbe ten se versan mutável — **`mutableMapOf`**. Bu pode adisiona un par ku `[]` ou ku `put`, i tira un par ku `remove`:
+
+<CodeExample position={8} />
+
+Pa un `Map` imutável, `+` ta adisiona (ou sobreskrebe) un par i kria un `Map` **novu**; `-` ta tira un txavi, i tanbe kria un `Map` novu:
+
+```kotlin
+fun main() {
+    val notas = mapOf("Kriolu" to 16, "Matemátika" to 14)
+    val ku18 = notas + ("Inglés" to 18)
+    println(notas)  // {Kriolu=16, Matemátika=14} — orijinal ka mudou
+    println(ku18)   // {Kriolu=16, Matemátika=14, Inglés=18}
+
+    val sénKriolu = notas - "Kriolu"
+    println(sénKriolu) // {Matemátika=14}
+}
+```
+
+<SectionHeading variant="concept" seq={4}>Pair i Triple: Kombina Valor Sen Kria un Klasi Novu</SectionHeading>
+
+Kuandu bu só meste guarda **dos** ou **tres** valor djuntu — sen presiza defini un `data class` kompletu — Kotlin ta da **`Pair`** i **`Triple`**, prontu pa uza.
+
+**`Pair`** ta guarda dos valor, asesível pa `first` i `second`. Bu pode kria-l ku konstrutor `Pair(...)` ou ku infix `to` (mesmu `to` ki bu dja uzadu pa `Map`). **`Triple`** ta guarda tres valor — `first`, `second` i `third`.
+
+Ambos pode ser **destruturadu** diretu na variável separadu:
+
+<CodeExample position={9} />
+
+:::callout{type=tip}
+`Pair` i `Triple` é bon pa un rezultadu rápidu i lokal — sima un funsan ki debolve dos valor djuntu. Kuandu bu meste más di tres valor, ou kuandu bu meste nomi klaru pa kada propriedadi, un `data class` (Módulu 5) é midjor skoja.
+:::
+
+<SectionHeading variant="concept" seq={5}>Skodje Tipu Sertu di Kolesan</SectionHeading>
+
+Kual `List`, `Set` ou `Map` skodje pa un problema? Kompara-s pa se karakterístika:
+
+<CompareTable
+  title="List vs Set vs Map"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "List", syntax: "listOf(...)", accent: "blue" },
+    { name: "Set", syntax: "setOf(...)", accent: "teal" },
+    { name: "Map", syntax: "mapOf(...)", accent: "orange" },
+  ]}
+  rows={[
+    { label: "Preserva órden di insersan?", kind: "bool", vals: [true, false, false] },
+    { label: "Elementu/valor pode ripiti?", kind: "bool", vals: [true, false, true] },
+    { label: "Asesu pa índisi (`[0]`, `[1]`, …)?", kind: "bool", vals: [true, false, false] },
+    { label: "Asesu pa txavi (`map[txavi]`)?", kind: "bool", vals: [false, false, true] },
+    { label: "Kuandu uza", kind: "text", vals: ["Órden importa, elementu pode ripiti", "Elementu meste ser úniku", "Bu meste liga kada valor ku un txavi"] },
+  ]}
+/>
+
+Gosi é bu bez: nu ta pratika kriason di `List`, `Set` i `Map`, i koriji un erru kumun di variável ka deklaradu.
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+  <Quiz position={4} />
+  <Quiz position={5} />
+  <Quiz position={6} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="List" code>ordenadu, permiti elementu repetidu, asesu pa índisi (`lista[0]`)</RezumuItem>
+  <RezumuItem term="Set" code>elementu úniku garantidu, ka permiti asesu pa índisi</RezumuItem>
+  <RezumuItem term="Map" code>par txavi-valor (`txavi to valor`), buska pa txavi ku `[]`</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">`map[txavi]` ta debolve un tipu **nulável** — si txavi ka izisti, rezultadu é `null`, ka un erru.</RezumuItem>
+  <RezumuItem variant="warning" term="Set i data class">Únisidadi dentu di un `Set` ta uza igualdadi (`==`): klasi normal = referénsia (dos objetu diferenti nunka é igual); `data class` = estrutural (mesmu valor = igual).</RezumuItem>
+  <RezumuItem>`mutableListOf`, `mutableSetOf` i `mutableMapOf` ta kria versons **mutável** — `add`/`remove`/`put`/`[]=` ta funsiona nes.</RezumuItem>
+  <RezumuItem term="+ / -" code>`kolesan + elementu` ou `kolesan - elementu` ta kria un kolesan **novu**, sen muda kel orijinal — diferenti di `mutableListOf(...).add(...)` ki muda kolesan ezistenti.</RezumuItem>
+  <RezumuItem term="Array vs List" code>`Array` ten tamanhu fixu (só muda valor ku índisi); `List`/`MutableList` é kuazi sénpri skoja midjor na kódiku di dia-a-dia</RezumuItem>
+  <RezumuItem term="Pair / Triple" code>kombina dos ou tres valor sen kria un klasi novu — asesível pa `first`/`second`/`third`, ou pa destruturason.</RezumuItem>
+</KeyTakeaways>

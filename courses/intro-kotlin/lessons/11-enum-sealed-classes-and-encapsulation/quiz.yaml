@@ -1,0 +1,57 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Consumed by <QuizSet>/<Quiz position={n} /> in
+# v1-m5-11-enum-sealed-classes-and-encapsulation-{lang}.mdx (0-based positions 0-4).
+- question:
+    kea: "Pamodi un `when` sobri un `enum class` pode ser ezaustivu sen `else`?"
+  options:
+    - text: { kea: "Konpiladór sabe tudu kes valor posivel di antemão (fixu, konxedu na konpilason)" }
+      correct: true
+      explain: { kea: "É presizamenti kel — `enum class` ta fitxa a lista di valoris na tempu di konpilason, ntonsi `when` pode kubri tudu kazus sen presiza `else`." }
+    - text: { kea: "Pamodi un enum ka pode ten mas ki 3 valor" }
+      correct: false
+    - text: { kea: "Pamodi `else` é obrigatóriu sô pa `if`, nunka pa `when`" }
+      correct: false
+
+- question:
+    kea: "Kual é diferensa entri `sealed class` i `abstract class` kuandu bu ta skrebe un `when`?"
+  options:
+    - text: { kea: "Subklasses di sealed meste sta na mesmu pakoti/módulu, kel restrison ta permiti `when` ezaustivu sen `else`; abstract permiti subklasses na kualker lugar, ntonsi `when` meste `else`" }
+      correct: true
+      explain: { kea: "`sealed` é sima `abstract` mas ku un restrison a más: kompiladór sô ta permiti `when` omite `else` kuandu el pode garanti ki nada más ta ben aparse." }
+    - text: { kea: "`sealed class` ka pode ten metodus, `abstract class` pode" }
+      correct: false
+    - text: { kea: "Es é mesmu kuza, sô ku nomi diferenti" }
+      correct: false
+
+- question:
+    kea: "Kuza ki un `inner class` pode faze ki un nested class simplis (sen `inner`) ka pode?"
+  options:
+    - text: { kea: "Asesa diretamenti propriedadis i metodus di instánsia di klasi paí" }
+      correct: true
+      explain: { kea: "Palavra-txavi `inner` ta guarda un referénsia pa instánsia di klasi paí ki kria-l — é kel referénsia ki habilita o asesu." }
+    - text: { kea: "Ten se própriu konstrutor" }
+      correct: false
+    - text: { kea: "Ser instansiadu" }
+      correct: false
+
+- question:
+    kea: "Kumo bu ta txoma un metodu di un `object` (singleton) na Kotlin?"
+  options:
+    - text: { kea: "Diretu pa nomi di object, sen kria instánsia (`GestorDiFrota.metodu()`)" }
+      correct: true
+      explain: { kea: "`object` ta kria automátikamenti se úniku instánsia — bu ka ta skrebe `GestorDiFrota()` en nenhun lugar, bu ta uza o nomi di klasi diretu." }
+    - text: { kea: "Meste kria un instánsia primeru ku `GestorDiFrota()`" }
+      correct: false
+    - text: { kea: "Sô dentu di `main()`" }
+      correct: false
+
+- question:
+    kea: "Kual é a diferensa entri un `companion object` i un `object` independenti sima `GestorDiFrota`?"
+  options:
+    - text: { kea: "`companion object` sta ligadu a un klasi spesífiku i ta asesadu pa nomi di kel klasi; `object` independenti ten se própi nomi i ka pertense a nenhun klasi" }
+      correct: true
+      explain: { kea: "Un klasi sô pode ten un companion object, asesadu via `NomiKlasi.membru` — sen kria instánsia. Un `object` independenti é un singleton kompletamenti separadu." }
+    - text: { kea: "Ka ten diferensa — es dos sintaksi ta faze mesmu kuza" }
+      correct: false
+    - text: { kea: "`companion object` sô pode ten propriedadis, `object` sô pode ten funsons" }
+      correct: false

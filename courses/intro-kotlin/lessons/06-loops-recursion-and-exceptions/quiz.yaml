@@ -1,0 +1,67 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m2-06-loops-recursion-and-exceptions-quiz.yaml
+# Publish copies it VERBATIM to:
+#   content/courses/intro-kotlin/lessons/06-loops-recursion-and-exceptions/quiz.yaml
+# <Quiz position={n} /> in the lesson MDX selects entries 0-based, in this
+# list's order.
+- question:
+    kea: "Kual é diferensa entri `a..b` i `a until b`?"
+  options:
+    - text: { kea: "`a..b` inklui `b`; `a until b` para antis di `b`" }
+      correct: true
+      explain: { kea: "Es é padran `..` (inkluzivu) vs `until` (eksklusivu) — un diferensa di un númeru só, fásil di skese." }
+    - text: { kea: "Es dos é igual, sô sintaksi diferenti" }
+      correct: false
+    - text: { kea: "`until` ta inklui `b`, `..` ka ta inklui" }
+      correct: false
+- question:
+    kea: "Kuandu bu ta uza `downTo` junto ku `step`, kuze ki `step` pode ser?"
+  options:
+    - text: { kea: "Sô valoris pozitivu, mesmu na un range `downTo` (pa baxu)" }
+      correct: true
+      explain: { kea: "Kotlin ka seta `step` negativu — mesmu kuandu direksan di range é `downTo`, `step` ten ki ser pozitivu." }
+    - text: { kea: "Sô valoris negativu" }
+      correct: false
+    - text: { kea: "Kualker valor, pozitivu ou negativu" }
+      correct: false
+- question:
+    kea: "O ki ta kontise si un funsan rekursivu ka ten un kazu bazi?"
+  options:
+    - text: { kea: "Funsan ta txoma se própi pa senpri, te `StackOverflowError`" }
+      correct: true
+      explain: { kea: "Sen kazu bazi, pilha di txomadas ka ta para di kresi te oja limiti di memória." }
+    - text: { kea: "Kotlin ta devolve `0` automatikamenti" }
+      correct: false
+    - text: { kea: "Funsan ta para dipos di un sô txomada" }
+      correct: false
+- question:
+    kea: "Kual opsan é midjór prátika kuandu bu ta kaptura exsesons?"
+  options:
+    - text: { kea: "Kaptura tipu más espesífiku ki bu sabe ki pode kontise (ex.: `IllegalArgumentException`)" }
+      correct: true
+      explain: { kea: "Kaptura espesífiku ta djuda bu identifika exatamenti o ki koreu mal, en bez di skonde erus inesperadu." }
+    - text: { kea: "Sénpri kaptura `Exception` di forma jeral, pa garanti ki ka ta skapa nada" }
+      correct: false
+    - text: { kea: "Nunka uza `try`/`catch`, sô dexa programa para" }
+      correct: false
+- question:
+    kea: "Kuze ki ta kontise si bu skese di skrebe `mangas--` dentu di korpu di es `while`-loop?\n\n```kotlin\nvar mangas = 5\nwhile (mangas > 0) {\n    println(\"Manga: $mangas\")\n}\n```"
+  options:
+    - text: { kea: "Loop ta kore pa senpri — `mangas` nunka ta muda, kondisan `mangas > 0` nunka ta bira `false`" }
+      correct: true
+      explain: { kea: "Kel é un **loop infinitu**: nada dentu di korpu di loop ta muda `mangas`, nton kondisan `mangas > 0` ta fika `true` pa senpri i programa nunka ta txiga na `println(\"Kabadu!\")`." }
+    - text: { kea: "Kotlin ta deteta i para loop automatikamenti dipos di 5 iterasan" }
+      correct: false
+    - text: { kea: "Kompiladu ka ta permiti — é un eru di kompilasan" }
+      correct: false
+- question:
+    kea: "Kuze ki `for (numeru in listOf(3, -1, 7, 0, 9)) { if (numeru < 0) continue; if (numeru == 0) break; println(numeru) }` ta imprimi?"
+  options:
+    - text: { kea: "`3`, `7`" }
+      correct: true
+      explain: { kea: "`-1` é saltadu ku `continue` (sen imprimi); `0` ta para loop kompletamenti ku `break` — `9` nunka é alkansadu." }
+    - text: { kea: "`3`, `-1`, `7`, `0`, `9`" }
+      correct: false
+    - text: { kea: "`3`, `7`, `9`" }
+      correct: false

@@ -1,0 +1,44 @@
+# Code-examples sidecar (draft source) for lesson v1-m3-07 "Funsons: Argumentus i Scope".
+# Publish copies this VERBATIM to:
+#   content/courses/intro-kotlin/lessons/07-functions-arguments-and-scope/code-examples.yaml
+# position 0 corresponds to <CodeExample position={0} showTabs /> in kea.mdx — three
+# ways to call the same `saudaKu` function (positional / named-skip / named-reordered).
+
+- title: "Mesmu funsan, três forma di txama"
+  language: kotlin
+  code: |
+    fun saudaKu(saudason: String = "Ola", nomi: String = "Mundu") {
+        println("$saudason, $nomi!")
+    }
+
+    fun main() {
+        saudaKu("Bon dia", "Telma")
+    }
+    // Bon dia, Telma!
+  variants:
+    - label: "Posizional (tudu argumentus)"
+      language: kotlin
+      code: |
+        fun saudaKu(saudason: String = "Ola", nomi: String = "Mundu") {
+            println("$saudason, $nomi!")
+        }
+
+        fun main() {
+            saudaKu("Bon dia", "Telma")
+        }
+        // Bon dia, Telma!
+    - label: "Nomeadu (salta primeru pozisan)"
+      language: kotlin
+      code: |
+        fun main() {
+            saudaKu(nomi = "Zeca")
+        }
+        // Ola, Zeca!
+        // (saudason ka foi indikadu — ta risebe se valor padron "Ola")
+    - label: "Nomeadu (órden trokadu)"
+      language: kotlin
+      code: |
+        fun main() {
+            saudaKu(nomi = "Telma", saudason = "Odjadu")
+        }
+        // Odjadu, Telma!

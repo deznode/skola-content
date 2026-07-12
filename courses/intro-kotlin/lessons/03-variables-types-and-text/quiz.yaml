@@ -1,0 +1,52 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Publish copies it VERBATIM to
+# content/courses/intro-kotlin/lessons/02-variables-types-and-text/quiz.yaml
+# Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
+- question:
+    kea: "Kual palavra-txavi Kotlin ta uza pa deklara un variavel imutável (ki ka pode muda dipos di kriadu)?"
+  options:
+    - text: { kea: "`val`" }
+      correct: true
+      explain:
+        kea: "`val` (di \"value\") ta kria un variavel imutável — bu ka pode dá-l un novu valor."
+    - text: { kea: "`var`" }
+      correct: false
+      explain:
+        kea: "`var` é pa variavel mutável — kel é kontráriu di kuzé ki es pergunta ta pidi."
+- question:
+    kea: "Bu meste guarda un valor ku parti desimal i txeu presizan (sima un média jeral). Kual tipu numériku é midjór skodje?"
+  options:
+    - text: { kea: "`Double`" }
+      correct: true
+      explain:
+        kea: "`Double` é tipu padran pa numerus ku parti desimal, ku txeu presizan."
+    - text: { kea: "`Int`" }
+      correct: false
+      explain:
+        kea: "`Int` sô ta guarda numerus interu, sen parti desimal."
+    - text: { kea: "`Long`" }
+      correct: false
+      explain:
+        kea: "`Long` tanbe é interu — sô pa numerus mutu grandi, sen parti desimal."
+- question:
+    kea: "Ki ta kontise kuandu bu konverti `9.9` pa `Int` ku `.toInt()`?"
+  options:
+    - text: { kea: "El ta aredonda pa `10`" }
+      correct: false
+      explain:
+        kea: "`toInt()` ka ta aredonda — es é erru más kumun. El ta trunka."
+    - text: { kea: "El ta trunka pa `9`" }
+      correct: true
+      explain:
+        kea: "Korretu — `toInt()` ka ta aredonda, el ta trunka: el ta korta a parti desimal."
+- question:
+    kea: "Kuzé ki `readLine()` ta faze kuandu programa ta izekuta?"
+  options:
+    - text: { kea: "El ta pausa programa, spera utilizador skrebe algu i primi Enter, i devolve kel testu" }
+      correct: true
+      explain:
+        kea: "`readLine()` é kumo Kotlin ta resebe intrada di utilizador durante izekusan — programa ta para até bu skrebe algu."
+    - text: { kea: "El ta ler primeru linha di kódiku-fonti di programa" }
+      correct: false
+    - text: { kea: "El ta imprimi automatikamenti na última linha ki `println` imprimi" }
+      correct: false

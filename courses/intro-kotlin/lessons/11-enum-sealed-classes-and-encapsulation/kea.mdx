@@ -1,0 +1,168 @@
+---
+title: "Enum, Sealed Classes i Enkapsulamentu"
+language: kea
+courseSlug: intro-kotlin
+lessonSlug: enum-sealed-classes-and-encapsulation
+module: 5
+lesson: 11
+duration: "40 min"
+objectives:
+  - "Defini un `enum class` ku valoris ki karega dadus i uza-l na un `when` ezaustivu"
+  - "Defini un hierarkia `sealed class` i splika pamodi se `when` pode omite `else`"
+  - "Defini un `inner class`/nested class i un `object` (singleton)"
+  - "Defini un `companion object` dentu di un klasi, i splika se diferensa pa un `object` (singleton) independenti"
+---
+
+# Enum, Sealed Classes i Enkapsulamentu
+
+Kada bez ki bu ta modela un konseitu ku un kunjuntu **fixu** di opsons — un tipu di kombustivel, un rezultadu di un reserva — Kotlin ta da klasses spesial pa kel. Kuandu bu sabe tudu kes opsons posivel antis, bu pode **fitxa** kel hierarkia: konpiladór ta konxe tudu kazus posivel, i ta djuda-u garanti ki bu `when` trata tudu es sen skese nenhun. Na es último lisan di Módulu 5, nu ta odja dos manera di fitxa un hierarkia — `enum class` i `sealed class` — i dos otu ferramenta pa organiza i enkapsula kódiku: `inner class` i `object` (singleton).
+
+:::callout{type=info title="Es lisan na 4 pasu"}
+**Enum** (opsons fixu ku dadus) → **Sealed** (hierarkia fitxadu, mesmu padran di `when`) → **Inner/nested** (kuza ki ta partilha ku klasi paí) → **Singleton** (un só instánsia). Kada pasu ta konstrui riba di kel anterior.
+:::
+
+<SectionHeading variant="concept" seq={1}>Enum classes: opsons fixu ku dadus</SectionHeading>
+
+Un `enum class` ta defini un lista fixu di valoris konxedu na tempu di konpilason. Gosi nu ta odja kumo kria un — i kumo un `enum` pode ten un **konstrutor**, sima kualker otu klasi, i kada valor ten ki xama kel konstrutor ku se própriu dadus.
+
+Imajina ki bu meste modela tipu di kombustivel di un `Veikulu` (di Lisan 9), i kada tipu ten un autonomia diferenti (kuantu km bu ta kore ku tanki/bateria xeiu):
+
+<CodeExample position={0} />
+
+Nunka meste `else` na es `when` — konpiladór sabe ki `TipuKombustivel` só pode ser `GASOLINA`, `DIESEL` ou `ELETRIKU`. Si un dia bu adisiona un kuartu valor (`HIBRIDU`, pur izemplu) i skese di adisiona-l na `when`, konpiladór ta avisa-u na hora — ka na produsan, ku un bug skondidu.
+
+:::callout{type=tip title="Enum ka é sô un lista di nomis"}
+Kada valor (`GASOLINA`, `DIESEL`, `ELETRIKU`) é un **instánsia úniku** di `TipuKombustivel`, ku se própriu `autonomiaKm`. Bu pode adisiona metodus na `enum class` tanbe, ka só propriedadis — ma pa gosi, un propriedadi ku dadus fixu dja ta kubri maioria di kazus.
+:::
+
+<SectionHeading variant="concept" seq={2}>Sealed classes: hierarkia fitxadu (riba di padran di enum)</SectionHeading>
+
+`enum` é ideal kuandu tudu opsons ten **mesmu forma** (mesmu propriedadis, só valoris diferenti). Ma si kada opsan meste karega dadus **diferenti** un di otu? Pur izemplu: rezultadu di un tentativa di reserva pode ser un reserva konfirmadu (ku objetu `Reserva` kompletu) ou un kanselamentu (ku só un motivu di testu). Es é un kazu pa `sealed class`.
+
+Lembra-bu di `Reserva` (Lisan 9) — un `data class` ku `clienti`, `veikulu` i `dias`. Nu ta uza-l li:
+
+<CodeExample position={1} />
+
+Repara na padran: exatamenti sima na `enum`, `when` sobri `resultadu` **ka meste `else`**. Konpiladór sabe ki `ResultaduReserva` só pode ser `Konfirmadu` ou `Kansela` — é mesmu benefísiu di "kazus konxedu antis", só ki gosi kada branch karega dadus diferenti (`resultadu.reserva` vs `resultadu.motivu`), i `when` ta uza `is` pa distingui **tipu**, ka `==` pa kompara **valor**.
+
+<CompareTable
+  title="Enum vs Sealed class: kumo `when` ta trata kada un"
+  cornerLabel="Kritériu"
+  cols={[
+    { name: "Enum", syntax: "enum class", accent: "blue" },
+    { name: "Sealed", syntax: "sealed class", accent: "teal" },
+  ]}
+  rows={[
+    { label: "Kuantu 'instánsias' izisti?", kind: "text", vals: ["Fixu — sô kes valor deklaradu dentu di klasi", "Kualker número di subklasses ki bu defini, tudu na mesmu pakoti"] },
+    { label: "Kada opsan pode karega dadus diferenti (forma diferenti)?", kind: "bool", vals: [false, true] },
+    { label: "`when` ezaustivu sen `else`?", kind: "bool", vals: [true, true] },
+    { label: "Kumo `when` ta distingui kada branch?", kind: "text", vals: ["Kompara valor (kada `enum` é un instánsia fixu)", "Verifika tipu ku `is` (kual subklasi)"] },
+    { label: "Kuandu uza", kind: "text", vals: ["Kunjuntu fixu di opsons ku mesmu forma di dadus", "Un rezultadu ki pode sta na vários 'formatus' diferenti"] },
+  ]}
+/>
+
+:::callout{type=warning title="Sealed ka é 'sen hierarkia'"}
+Ka konfundi **enum** ku **sealed**: un `enum class` **ka ten** subklasses di tudu — kada valor é só un instánsia fixu di mesmu klasi. Un `sealed class`, pa kontrariu, **ten** un hierarkia real di subklasses (`Konfirmadu`, `Kansela`...) — só ki es hierarkia é **fitxadu**: tudu subklasi meste sta na mesmu pakoti/módulu ki `ResultaduReserva`. É presizamenti kel restrison ki permiti konpiladór garanti `when` ezaustivu sen `else`.
+:::
+
+![Kompara sealed class ku open class: koluna teal a skerda mostra sealed class ResultaduReserva ku dos subklasi fitxadu, Konfirmadu i Kansela, dentu di un forma fitxadu, ku badge di hierarkia fitxadu, mesmu pakoti/módulu, i ezaustivu sen else; koluna ocean-blue a direita mostra open class Veikulu sen subklasi, ku badge di hierarkia open; na fundu, un badge amarelu ta lembra ki un `enum class` ka ten subklasses di tudu](../../infographics/08-sealed-vs-open-hierarchy.jpg)
+
+:::callout{type=info title="Annotation classes — sô un splikason kurta"}
+Kotlin ten un terseru tipu di klasi spesial: **annotation classes**, sima `@Throws(IllegalStateException::class)` riba di un funsan, ou `@Deprecated("Uza fazeReserva")` riba di un metodu antigu. Es ta marka kódiku ku metadadus pa konpiladór/ferramentas le — nunka pa lójika di negósiu. Na prátika, bu **kuazi nunka** ta skrebe bu própriu annotation class; bu só ta uza kes ki dja izisti.
+:::
+
+<SectionHeading variant="concept" seq={3}>Nested i inner classes: kuza ki ta partilha ku klasi paí</SectionHeading>
+
+Bu pode defini un klasi **dentu** di otu klasi pa organiza kódiku ki só ta faze sentidu djuntu. Ma ten dos versons, ku un diferensa importanti: un **nested class** simplis (sen `inner`) **ka pode** asesa propriedadis di klasi paí; un **inner class** (ku palavra-txavi `inner`) **pode**.
+
+<AnnotatedCode
+  lang="kotlin"
+  title="Nested vs inner — kuza ki muda"
+  code={[
+    { t: "class AgensiaDiAluguer(val nomiAgensia: String) {", m: 1 },
+    { t: "", m: 0 },
+    { t: "    class Regulamentu {", m: 2 },
+    { t: "        val idadiMinima = 21", m: 0 },
+    { t: "    }", m: 0 },
+    { t: "", m: 0 },
+    { t: "    inner class Fatura(val reserva: Reserva) {", m: 3 },
+    { t: "        val total: Double = reserva.dias * reserva.veikulu.presuPerDia", m: 0 },
+    { t: "", m: 0 },
+    { t: "        fun imprimi(): String {", m: 0 },
+    { t: "            return \"Fatura di $nomiAgensia: ${total}$\"", m: 4 },
+    { t: "        }", m: 0 },
+    { t: "    }", m: 0 },
+    { t: "}", m: 0 },
+  ]}
+  notes={[
+    { m: 1, title: "Klasi paí (outer)", body: "`AgensiaDiAluguer` guarda `nomiAgensia` na se konstrutor primáriu — es propriedadi ta sta disponível pa kes klasi dentu del." },
+    { m: 2, title: "Nested class (sen `inner`)", body: "`Regulamentu` é un simplis nested class — el **ka pode** asesa `nomiAgensia`. El ta kompórta sima un klasi independenti ki sô ta vive dentu di `AgensiaDiAluguer` pa órden." },
+    { m: 3, title: "Inner class (ku `inner`)", body: "Palavra-txavi `inner` ta da `Fatura` un referénsia diretu pa instánsia di `AgensiaDiAluguer` ki kria-l." },
+    { m: 4, title: "Asesu ku sukesu", body: "É presizamenti pamodi `Fatura` é `inner` ki el pode le `nomiAgensia` di klasi paí diretamenti, sen resebe-l kumo parámetru." },
+  ]}
+/>
+
+Diferensa aparese na kumo bu ta kria kada un:
+
+```kotlin
+val agensia = AgensiaDiAluguer("Aluga Fogu")
+
+// Nested class: ka meste instánsia di 'agensia'
+val regulamentu = AgensiaDiAluguer.Regulamentu()
+
+// Inner class: MESTE un instánsia di 'agensia' pa kria-l
+val reserva = Reserva("Nando", karu1, 3)
+val fatura = agensia.Fatura(reserva)
+println(fatura.imprimi())
+```
+
+<SectionHeading variant="concept" seq={4}>Singleton: un só instánsia ku `object`</SectionHeading>
+
+Tudu klasses ki nu odja te gosi pode ten vários instánsias (vários `Karu`, vários `Reserva`...). Ma ten kazu ki bu meste garanti ki só **un** instánsia izisti — pur izemplu, un jestor sentral di frota ki tudu kódiku ta partilha. Na Kotlin, palavra-txavi `object` ta troka `class` i ta kria un singleton automátikamenti — sen konstrutor, sen `new`, sen nada.
+
+<CodeExample position={2} />
+
+Repara ki nu **ka** ta skrebe `GestorDiFrota()` na nenhun lugar — el é própriu klasi ki ta funsiona kumo se úniku instánsia, asesadu diretu pa nomi.
+
+<SectionHeading variant="concept" seq={5}>Companion Object: un Singleton Ligadu ku un Klasi</SectionHeading>
+
+`object` (li riba) ta kria un singleton **independenti** — el ka ta pertense a nenhun otu klasi. Ma txeu bez, bu meste algu parsidu — konstantes ou funsons ki só ta faze sentidu djuntu ku un klasi spesífiku (`Veikulu`, pur izemplu) — sen meste kria un instánsia di `Veikulu` só pa asesa-s. Pa kel, Kotlin ta da **companion object**: un `object` definidu **dentu** di un klasi.
+
+<CodeExample position={3} />
+
+Nota kumo bu ta asesa `TAXA_MINIMA_PERDIA` i `ehPresuValidu` diretu pa `Veikulu.`, sen nunka kria un `Veikulu(...)`.
+
+:::callout{type=info title="`const val` — un konstanti di konpilason"}
+`const val` (uzadu li riba) é un `val` **inda más restritivu**: se valor meste ser konxedu na **tempu di konpilason** (ka pode ser kalkuladu na runtime), i só funsiona ku tipus báziku (`Int`, `Double`, `String`...). Fora di kes limitason, un `const val` dentu di companion object é o kaminhu idiomátiku pa defini konstantes ligadu ku un klasi.
+:::
+
+:::callout{type=tip title="Companion object vs `object` independenti"}
+Un klasi pode ten **un só** companion object, i el ta asesadu pa nomi di klasi (`Veikulu.ehPresuValidu(...)`) — ka un nomi própi. Un `object` independenti (sima `GestorDiFrota` li riba) ka ta pertense a nenhun klasi, i ten se própi nomi.
+:::
+
+<SectionHeading variant="practice">Tenta gosi</SectionHeading>
+<TentaGosi showHeader={false} />
+
+<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
+  <Quiz position={0} />
+  <Quiz position={1} />
+  <Quiz position={2} />
+  <Quiz position={3} />
+  <Quiz position={4} />
+</QuizSet>
+
+<SectionHeading variant="summary">Pa lembra</SectionHeading>
+<KeyTakeaways showHeader={false}>
+  <RezumuItem term="enum class" code>kunjuntu fixu di valoris konxedu na konpilason; pode karega dadus via konstrutor; `when` ezaustivu sen `else`.</RezumuItem>
+  <RezumuItem term="sealed class" code>hierarkia fitxadu di subklasses (mesmu pakoti); `when` ku `is` tanbe ezaustivu sen `else`.</RezumuItem>
+  <RezumuItem>`inner class` pode asesa propriedadis di klasi paí; un nested class simplis (sen `inner`) ka pode.</RezumuItem>
+  <RezumuItem term="object" code>un só instánsia, asesadu diretu pa nomi di klasi — nunka `NomiKlasi()`.</RezumuItem>
+  <RezumuItem term="companion object" code>un singleton **dentu** di un klasi — asesadu pa `NomiKlasi.membru`, sen kria instánsia. Un klasi só pode ten un.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Konfundi enum (só valoris fixu, sen hierarkia) ku sealed (hierarkia real, ma fitxadu); skese ki subklasses di sealed meste sta na mesmu pakoti.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kuandu tudu opsons ta konxedu na konpilason — ou sima valoris fixu (enum), ou sima un hierarkia limitadu (sealed) — bu `when` pode ser ezaustivu sen `else`, i konpiladór ta djuda-u ka skese nenhun kazu.</RezumuItem>
+</KeyTakeaways>
+
+:::callout{type=info title="Próximu pasus"}
+Parabéns — bu kaba di kumpleta **Introdusaun ba Kotlin**: di variável i tipus básiku, te klasses, interfaces, enum i sealed classes! Kuze bu ta kria gosi? Uza tudu kel ki bu prende pa konstrui bu própriu proietu pikinoti. Kel ki ta ben dipos, nun futuru kursu **advance-kotlin**, é operasons funsional sobri koleksons (`filter`, `map`, `fold`) i programasan asínkronu ku coroutines i Flow.
+:::

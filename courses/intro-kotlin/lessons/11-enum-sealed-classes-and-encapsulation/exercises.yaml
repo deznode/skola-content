@@ -1,0 +1,205 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Consumed by <TentaGosi /> (self-closing) in
+# v1-m5-11-enum-sealed-classes-and-encapsulation-{lang}.mdx.
+#
+# 1. predict — enum exhaustive `when`, predict the printed line
+# 2. code    — complete a sealed-class result-modeling function (Konfirmadu/Kansela)
+# 3. code    — extend the GestorDiFrota singleton with a new method
+# 4. code    — add a second inner class to AgensiaDiAluguer (inner vs nested)
+# 5. code    — add a second const val + combined check to Veikulu's companion object
+- slug: preve-autonomia-veikulu
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve a autonomia" }
+  prompt: { kea: "Antis di kore, preve o ki `splikaAutonomia(TipuKombustivel.DIESEL)` ta imprimi." }
+  starterCode: |
+    enum class TipuKombustivel(
+        val autonomiaKm: Int
+    ) {
+        GASOLINA(550),
+        DIESEL(700),
+        ELETRIKU(320)
+    }
+
+    fun splikaAutonomia(tipu: TipuKombustivel): String {
+        return when (tipu) {
+            TipuKombustivel.GASOLINA -> "Gasolina: ${tipu.autonomiaKm} km"
+            TipuKombustivel.DIESEL -> "Diesel: ${tipu.autonomiaKm} km"
+            TipuKombustivel.ELETRIKU -> "Elétriku: ${tipu.autonomiaKm} km"
+        }
+    }
+
+    fun main() {
+        println(splikaAutonomia(TipuKombustivel.DIESEL))
+    }
+  options:
+    - '"Gasolina: 550 km"'
+    - '"Diesel: 700 km"'
+    - '"Elétriku: 320 km"'
+    - '"Erru di konpilason — `when` ka é ezaustivu"'
+  correct: 1
+  output: |
+    Diesel: 700 km
+  why:
+    kea: "`when` sobri un `enum class` é ezaustivu automátikamenti — konpiladór sabe tudu kes 3 valor posivel (`GASOLINA`, `DIESEL`, `ELETRIKU`), ntonsi ka meste `else`. `tipu` li é `DIESEL`, ku `autonomiaKm = 700`."
+
+- slug: kompleta-fazereserva-sealed
+  language: kotlin
+  kind: code
+  title: { kea: "Kompleta `fazeReserva` ku sealed class" }
+  prompt:
+    kea: "Kompleta a funsan `fazeReserva` pa retorna `Kansela` si `dias` é 0 ou negativu, senon `Konfirmadu`. Dipos skrebe `when` ezaustivu (sen `else`) na `mostraResultadu` pa mostra un mensajen apropriadu."
+  hint:
+    kea: "Uza `is ResultaduReserva.Konfirmadu` i `is ResultaduReserva.Kansela` na `when` — nunka meste `else` pamodi `sealed class` ta fitxadu."
+  starterCode: |
+    sealed class ResultaduReserva {
+        data class Konfirmadu(val reserva: Reserva) : ResultaduReserva()
+        data class Kansela(val motivu: String) : ResultaduReserva()
+    }
+
+    fun fazeReserva(veikulu: Veikulu, dias: Int, clienti: String): ResultaduReserva {
+        // TODO: si dias <= 0, retorna Kansela ku un motivu
+        // TODO: senon, retorna Konfirmadu ku un Reserva nobu
+    }
+
+    fun mostraResultadu(resultadu: ResultaduReserva): String {
+        // TODO: skrebe when ezaustivu (sen else)
+    }
+  solutionCode: |
+    sealed class ResultaduReserva {
+        data class Konfirmadu(val reserva: Reserva) : ResultaduReserva()
+        data class Kansela(val motivu: String) : ResultaduReserva()
+    }
+
+    fun fazeReserva(veikulu: Veikulu, dias: Int, clienti: String): ResultaduReserva {
+        if (dias <= 0) {
+            return ResultaduReserva.Kansela("Número di dias meste ser más ki zeru.")
+        }
+        return ResultaduReserva.Konfirmadu(Reserva(clienti, veikulu, dias))
+    }
+
+    fun mostraResultadu(resultadu: ResultaduReserva): String {
+        return when (resultadu) {
+            is ResultaduReserva.Konfirmadu ->
+                "Reserva konfirmadu pa ${resultadu.reserva.clienti}, ${resultadu.reserva.dias} dia(s)."
+            is ResultaduReserva.Kansela ->
+                "Reserva kansela: ${resultadu.motivu}"
+        }
+    }
+
+- slug: adisiona-metodu-gestordifrota
+  language: kotlin
+  kind: code
+  title: { kea: "Adisiona un metodu na `GestorDiFrota`" }
+  prompt:
+    kea: "`GestorDiFrota` é un `object` (singleton). Adisiona un metodu `removi(matrikula: String)` ki ta tira di lista o veikulu ku kel matrikula."
+  hint:
+    kea: "Uza `removeIf` sobri `veikulusDisponivel`, komparandu `veikulu.matrikula` ku `matrikula`."
+  starterCode: |
+    object GestorDiFrota {
+        private val veikulusDisponivel = mutableListOf<Veikulu>()
+
+        fun adisiona(veikulu: Veikulu) {
+            veikulusDisponivel.add(veikulu)
+        }
+
+        fun kontaDisponivel(): Int = veikulusDisponivel.size
+
+        // TODO: adisiona removi(matrikula: String)
+    }
+  solutionCode: |
+    object GestorDiFrota {
+        private val veikulusDisponivel = mutableListOf<Veikulu>()
+
+        fun adisiona(veikulu: Veikulu) {
+            veikulusDisponivel.add(veikulu)
+        }
+
+        fun kontaDisponivel(): Int = veikulusDisponivel.size
+
+        fun removi(matrikula: String) {
+            veikulusDisponivel.removeIf { it.matrikula == matrikula }
+        }
+    }
+
+- slug: adisiona-inner-class-kontratu
+  language: kotlin
+  kind: code
+  title: { kea: "Adisiona un `inner class` na `AgensiaDiAluguer`" }
+  prompt:
+    kea: "`AgensiaDiAluguer` dja ten un `inner class Fatura`. Adisiona un otu `inner class Kontratu(val reserva: Reserva)` ku un propriedadi `resumu: String` ki uza `nomiAgensia` (di klasi paí) i `reserva.clienti` pa forma un frazi tipu \"$nomiAgensia: kontratu di $clienti\"."
+  hint:
+    kea: "Meste ser `inner class` (ka sô nested) pamodi `Kontratu` meste asesa `nomiAgensia` di klasi paí diretamenti."
+  starterCode: |
+    class AgensiaDiAluguer(val nomiAgensia: String) {
+
+        inner class Fatura(val reserva: Reserva) {
+            val total: Double = reserva.dias * reserva.veikulu.presuPerDia
+
+            fun imprimi(): String {
+                return "Fatura di $nomiAgensia: ${total}$"
+            }
+        }
+
+        // TODO: adisiona inner class Kontratu(val reserva: Reserva)
+        // ku propriedadi resumu: String ki uza nomiAgensia i reserva.clienti
+    }
+  solutionCode: |
+    class AgensiaDiAluguer(val nomiAgensia: String) {
+
+        inner class Fatura(val reserva: Reserva) {
+            val total: Double = reserva.dias * reserva.veikulu.presuPerDia
+
+            fun imprimi(): String {
+                return "Fatura di $nomiAgensia: ${total}$"
+            }
+        }
+
+        inner class Kontratu(val reserva: Reserva) {
+            val resumu: String = "$nomiAgensia: kontratu di ${reserva.clienti}"
+        }
+    }
+
+- slug: companion-object-taxa-maxima
+  language: kotlin
+  kind: code
+  title: { kea: "Adisiona un limiti máksimu na companion object di `Veikulu`" }
+  prompt:
+    kea: "`Veikulu` dja ten un `companion object` ku `TAXA_MINIMA_PERDIA` i `ehPresuValidu`. Adisiona un segundu `const val` xamadu `TAXA_MAXIMA_PERDIA` (valor `15000.0`), i atualiza `ehPresuValidu(presu: Double)` pa verifika ki `presu` sta **entri** `TAXA_MINIMA_PERDIA` i `TAXA_MAXIMA_PERDIA` (inkluzivu)."
+  hint:
+    kea: "Uza operador lójiku `&&` pa kombina dos komparason: `presu >= TAXA_MINIMA_PERDIA && presu <= TAXA_MAXIMA_PERDIA`."
+  starterCode: |
+    class Veikulu(val matrikula: String, var presuPerDia: Double) {
+        companion object {
+            const val TAXA_MINIMA_PERDIA = 500.0
+
+            // TODO: adisiona const val TAXA_MAXIMA_PERDIA = 15000.0
+            // TODO: atualiza ehPresuValidu pa verifika dos limiti
+            fun ehPresuValidu(presu: Double): Boolean {
+                return presu >= TAXA_MINIMA_PERDIA
+            }
+        }
+    }
+
+    fun main() {
+        println(Veikulu.ehPresuValidu(300.0))    // false — abaxu di TAXA_MINIMA_PERDIA
+        println(Veikulu.ehPresuValidu(800.0))    // true
+        println(Veikulu.ehPresuValidu(20000.0))  // false — riba di TAXA_MAXIMA_PERDIA
+    }
+  solutionCode: |
+    class Veikulu(val matrikula: String, var presuPerDia: Double) {
+        companion object {
+            const val TAXA_MINIMA_PERDIA = 500.0
+            const val TAXA_MAXIMA_PERDIA = 15000.0
+
+            fun ehPresuValidu(presu: Double): Boolean {
+                return presu >= TAXA_MINIMA_PERDIA && presu <= TAXA_MAXIMA_PERDIA
+            }
+        }
+    }
+
+    fun main() {
+        println(Veikulu.ehPresuValidu(300.0))    // false
+        println(Veikulu.ehPresuValidu(800.0))    // true
+        println(Veikulu.ehPresuValidu(20000.0))  // false
+    }

@@ -1,0 +1,22 @@
+# Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
+# Publish copies (resolving any starterFrom/solutionFrom) to
+# content/courses/intro-kotlin/lessons/what-is-kotlin/exercises.yaml
+# <TentaGosi/> renders these in display order.
+- slug: modifika-primeru-programa
+  language: kotlin
+  kind: code
+  title: { kea: "Modifika bu Purmeru Programa" }
+  prompt:
+    kea: "Programa `Ola Mundu!` sta ta imprimi un kumprimentu fixu. Modifika-l pa el kria un variavel `nomi` i imprimi un kumprimentu personalizadu ku un template di `String` (`$nomi`)."
+  hint:
+    kea: "Kria `val nomi = \"...\"` primeru, dipos uza `$nomi` dentu di `println(...)`."
+  starterCode: |
+    fun main() {
+        println("Ola Mundu!")
+    }
+  solutionCode: |
+    fun main() {
+        val nomi = "Zeca"
+
+        println("Ola, $nomi! Nu ta kria djuntu na Kotlin.")
+    }

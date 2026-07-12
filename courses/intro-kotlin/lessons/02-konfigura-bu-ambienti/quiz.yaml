@@ -1,0 +1,64 @@
+# Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Publish copies it VERBATIM to
+# content/courses/intro-kotlin/lessons/konfigura-bu-ambienti/quiz.yaml
+# Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
+- question:
+    kea: "Unde bu kódiku Kotlin ta kompila i kore ofline (sen internet), dipos di konfiguradu?"
+  options:
+    - text: { kea: "IntelliJ IDEA" }
+      correct: true
+      explain:
+        kea: "Korretu — dipos di instala IntelliJ i konfigura un JDK (un so bez), tudu ta kompila i kore lokalmenti, sen internet."
+    - text: { kea: "Kotlin Playground" }
+      correct: false
+      explain:
+        kea: "Kotlin Playground ta kompila i kore kódiku na servidor di JetBrains — el meste internet pa funsiona."
+    - text: { kea: "Nenhun di es dos" }
+      correct: false
+      explain:
+        kea: "IntelliJ ta funsiona lokalmenti sen internet, dipos di instaladu i JDK konfiguradu."
+- question:
+    kea: "Kual atalhu di teklado (Windows/Linux) ta kore programa aktivu na IntelliJ?"
+  options:
+    - text: { kea: "Shift+F10" }
+      correct: true
+      explain:
+        kea: "Korretu — Shift+F10 kore konfigurason más resenti. Na macOS, atalhu é Control+R."
+    - text: { kea: "Ctrl+S" }
+      correct: false
+      explain:
+        kea: "Ctrl+S ta salva fixeru, ka kore-l."
+    - text: { kea: "Alt+F4" }
+      correct: false
+      explain:
+        kea: "Alt+F4 ta fitxa janela — ka ten nada ku kore programa."
+- question:
+    kea: "Pamodi ki Kotlin Playground é útil, mésmu si bu ja tene IntelliJ instaladu?"
+  options:
+    - text: { kea: "Pa testa un ideia di kódiku rápidu, sen bu ambienti di dizenvolvimentu, ou pa partilha un tréxu di kódiku" }
+      correct: true
+      explain:
+        kea: "Korretu — el é un konpanheru rápidu, ka un substitutu pa IntelliJ na projetus reais."
+    - text: { kea: "Pa konstrui prujetus grandi ku vários fixeru" }
+      correct: false
+      explain:
+        kea: "Kel é izatamenti pa kuze ki IntelliJ é midjór — Kotlin Playground é so pa tréxus izoladu di kódiku."
+    - text: { kea: "Pa substitui IntelliJ pa tudu izersísiu di es kursu" }
+      correct: false
+      explain:
+        kea: "IntelliJ é bu ferramenta prinsipal di es kursu — Playground é so un konpanheru rápidu."
+- question:
+    kea: "Kuzé ki ta kontise ku plugin di Kotlin na IntelliJ IDEA modernu?"
+  options:
+    - text: { kea: "El dja ben bundladu i ativu, sen meste instala manualmenti" }
+      correct: true
+      explain:
+        kea: "Korretu — diferenti di otu editor ki meste un extensan separadu, IntelliJ ja ben ku suporti di Kotlin prontu."
+    - text: { kea: "Meste instala-l manualmenti di un marketplace di plugin" }
+      correct: false
+      explain:
+        kea: "Kel é kumo funsiona un extensan Python na VS Code, ka kumo Kotlin funsiona na IntelliJ."
+    - text: { kea: "El so ta funsiona na versan paga (Ultimate)" }
+      correct: false
+      explain:
+        kea: "Nau — suporti di Kotlin sta disponível na versan Community (grátis) tanbe."

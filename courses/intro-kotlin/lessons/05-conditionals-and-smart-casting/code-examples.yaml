@@ -1,0 +1,121 @@
+# Code-examples sidecar (draft source) — ADR-0026 / spec 049 FR-006.
+# Flat sibling of the lesson MDX:
+#   topics/intro-kotlin/drafts/lessons/v1-m2-05-conditionals-and-smart-casting-code-examples.yaml
+# Publish copies it VERBATIM to:
+#   content/courses/intro-kotlin/lessons/04-conditionals-and-smart-casting/code-examples.yaml
+# <CodeExample position={n} /> in the lesson MDX selects entries 0-based, in
+# this list's order.
+
+- language: kotlin
+  title: "if/else komo statement"
+  code: |
+    fun main() {
+        val deveresTaPronto = true
+        if (deveresTaPronto) {
+            println("Telma pode bai praia")
+        } else {
+            println("Telma meste kaba se deveris primeru")
+        }
+    }
+
+- language: kotlin
+  title: "if/else komo expresan"
+  code: |
+    fun main() {
+        val eKlientiFiel = true
+        val diskontu: Double =
+            if (eKlientiFiel) {
+                15.0
+            } else {
+                0.0
+            }
+        println("Diskontu di Zeca: $diskontu%")
+    }
+
+- language: kotlin
+  title: "if-else-if: sekuénsia di kondisons"
+  code: |
+    fun main() {
+        println("Zeca ta verifika previzon di txuba")
+        val probabilidadi = 70
+        if (probabilidadi <= 40) {
+            println("Ka é probabli")
+        } else if (probabilidadi <= 80) {
+            println("Probabli")
+        } else if (probabilidadi < 100) {
+            println("Sertu")
+        } else {
+            println("Sertu di sertu")
+        }
+    }
+
+- language: kotlin
+  title: "when sen argumentu"
+  code: |
+    fun main() {
+        println("Zeca ta verifika previzon di txuba")
+        val probabilidadi = 70
+        when {
+            probabilidadi <= 40 -> println("Ka é probabli")
+            probabilidadi <= 80 -> println("Probabli")
+            probabilidadi < 100 -> println("Sertu")
+            else -> println("Sertu di sertu")
+        }
+    }
+
+- language: kotlin
+  title: "when komo expresan"
+  code: |
+    fun main() {
+        val probabilidadi = 70
+        val previzon = when {
+            probabilidadi <= 40 -> "Ka é probabli"
+            probabilidadi <= 80 -> "Probabli"
+            probabilidadi < 100 -> "Sertu"
+            else -> "Sertu di sertu"
+        }
+        println(previzon)
+    }
+
+- language: kotlin
+  title: "when ku un valor"
+  code: |
+    fun main() {
+        val resultadu = 4 // Telma ta lansa un dadu
+        when (resultadu) {
+            1 -> println("Telma ka konsigi nada")
+            2, 3, 4, 5 -> println("Telma ganha $resultadu puntu")
+            6 -> println("Telma faze un golpi krítiku!")
+        }
+    }
+
+- language: kotlin
+  title: "when ku range-check (in)"
+  code: |
+    fun main() {
+        val resultadu = 4 // Telma ta lansa un dadu
+        val mensaji = when (resultadu) {
+            1 -> "Telma ka konsigi nada"
+            in 2..5 -> "Telma ganha $resultadu puntu"
+            6 -> "Telma faze un golpi krítiku!"
+            else -> "Rezultadu inválidu"
+        }
+        println(mensaji)
+    }
+
+- language: kotlin
+  title: "when ku branch is Tipu"
+  code: |
+    fun identifikaTipu(valor: Any) {
+        when (valor) {
+            is String -> println("Es é un String")
+            is Int -> println("Es é un Int")
+            is Double -> println("Es é un Double")
+            is Boolean -> println("Es é un Boolean")
+        }
+    }
+
+    fun main() {
+        identifikaTipu("Kabuverdi")
+        identifikaTipu(123)
+    }
