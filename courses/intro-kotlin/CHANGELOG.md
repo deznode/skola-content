@@ -8,6 +8,19 @@ draft changes since the previous publish (source of truth: `topics/intro-kotlin/
 trace_id `Skola-course-intro-kotlin-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-12] — publish (kriolu fixes)
+
+### Changed
+- Course title normalized: `Introdusaun ba Kotlin` → `Introdusan a Kotlin`
+  (ALUPEC `-saun`→`-san` per native review; preposition `ba`→`a` to match the
+  intro-python/intro-jdbc corpus convention — `ba` was the sole outlier)
+- Singular `-saun`→`-san` throughout the manifest: `programasan` (description),
+  `Programasan Orientada pa Objetu` (OOP module title). Plural `-sons` forms
+  (`funsons`, `koleksons`) left as the author's correct convention.
+- L1 (what-is-kotlin): `seguru` → `siguru` (Portuguese-root outlier vs the
+  corpus `sigur-` root)
+- L11: closing line title reference updated to match
+
 ## [2026-07-12] — publish (first publish since rollback)
 
 ### Added
