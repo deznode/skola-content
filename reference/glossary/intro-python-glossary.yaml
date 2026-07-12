@@ -173,3 +173,66 @@
   code_language: py
   slug: index
   context: intro-python
+- term: array
+  category: Coding
+  translations:
+    kea:
+      local_term: array
+      definition: >-
+        Un estrutura di dadus ki ta guarda un sekuénsia di objetus di mesmu tipu — kriadu ku módulu
+        `array`, ku índisi i iterasan kumo un lista.
+      body: >-
+        Na Python, un **array** é un estrutura di dadus ki ta guarda un sekuénsia di objetus di
+        mesmu tipu. Array ta pirmiti bu referensia múltiplu valoris ku un só variável, i es pode ser
+        asesadu pa índisi i iteradu.
+
+
+        Array é útil kuandu bu meste guarda un kuantidadi grandi di elementus di mesmu tipu, tal
+        kumo `integers` ou `floats`, i meste faze operasons riba es di manera rápidu.
+
+
+        Módulu `array` ta forni un funsan `array()` pa kria un array. Bu pode spesifika tipu di dadu
+        ki array ta guarda dandu un kódiku di tipu, tal kumo `"i"` pa integers ou `"f"` pa floats.
+        Kel-li ta garanti ki tudu elementu na array é di tipu spesifikadu, ki pode leva a operasons
+        más rápidu.
+
+
+        ## Example
+
+
+        ```python
+
+        import array
+
+
+        # Kria un array di integers
+
+        numeros = array.array("i", [1, 2, 3, 4, 5])
+
+        print(numeros[0])           # 1
+
+
+        numeros[1] = 7
+
+        print(numeros)               # array('i', [1, 7, 3, 4, 5])
+
+
+        numeros.append(6)
+
+        print(numeros)               # array('i', [1, 7, 3, 4, 5, 6])
+
+
+        numeros.remove(3)
+
+        print(numeros)               # array('i', [1, 7, 4, 5, 6])
+
+        ```
+  related_terms: index, iteration
+  code_example: |
+    import array
+
+    numeros = array.array("i", [1, 2, 3])
+    numeros.append(4)   # array('i', [1, 2, 3, 4])
+  code_language: py
+  slug: array
+  context: intro-python
