@@ -1,13 +1,13 @@
 slug: intro-kotlin
-title: "Introdusaun ba Kotlin"
+title: "Introdusan a Kotlin"
 level: beginner
 category: programming
 duration_minutes: 315
 instructor: Joaquim Costa
 translations:
   kea:
-    title: "Introdusaun ba Kotlin"
-    description: Aprendi Kotlin di zero. Kel kursu ta ensiná-bu fundamentus di programasaun ku Kotlin, linguajen modernu pa Android i backend.
+    title: "Introdusan a Kotlin"
+    description: Aprendi Kotlin di zero. Kel kursu ta ensiná-bu fundamentus di programasan ku Kotlin, linguajen modernu pa Android i backend.
     prerequisites: Nenhun konhesimentu previu nesesariu
     outcomes: |
       Kria programas simples ku Kotlin
@@ -48,7 +48,7 @@ modules:
         languages: [kea]
   - slug: oop
     title:
-      kea: "Programasaun Orientada pa Objetu"
+      kea: "Programasan Orientada pa Objetu"
     lessons:
       - slug: classes-properties-and-inheritance
         languages: [kea]

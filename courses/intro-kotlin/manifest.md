@@ -1,4 +1,4 @@
-# Introdusaun ba Kotlin — Published Assets
+# Introdusan a Kotlin — Published Assets
 
 **Published:** 2026-07-12
 **Source:** topics/intro-kotlin/
