@@ -1,0 +1,209 @@
+- term: Array
+  category: Coding
+  context: javascript
+  translations:
+    kea:
+      local_term: array
+      definition: Un koleson ordenadu di valoris, gardadu na un só variável i asesadu pa índisi (0, 1,
+        2…).
+      body: |
+        Un **array** é un strutura di dadus ki ta guarda vários valoris djuntu, dentu di un só variável, na un ordi spesífiku. Kada valor dentu di un array ten un pozison ki ta txomadu **índisi**, i índisi ta kumesa na `0` — kel dizer ki primeru elementu di un array ta na índisi `0`, sigundu na índisi `1`, i asi pa diante.
+
+        Array é un di es strutura di dadus más uzadu na programason, pamodi el ta permiti-bu organiza txeu informason relasionadu — tipu un lista di nomis, un lista di présus, ou un lista di rezultadu — sen bu meste kria un variável separadu pa kada un. Bu pode adisiona, tira, ou troka elementus dentu di un array, i bu pode percorre-l ku un `loop` pa trata kada elementu un pa un.
+
+        Na JavaScript, array é flexível — el pode guarda vários tipu di dadu junto (número, testu, boolean) na mésmu array, i se tamanhu pode muda duranti o programa ta kore.
+
+        ## Example
+
+        ```js
+        const frutas = ["banana", "manga", "koku"];
+        console.log(frutas[0]); // "banana"
+        frutas.push("papaia");   // adisiona un elementu novu
+        console.log(frutas.length); // 4
+        ```
+  related_terms: loop,function
+  code_example: |
+    const frutas = ["banana", "manga", "koku"];
+    console.log(frutas[0]); // "banana"
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Strutura di Dadus
+  - type:Konseitu
+- term: Boolean
+  category: Coding
+  context: javascript
+  translations:
+    kea:
+      local_term: boolean
+      definition: 'Tipu di dadu ku dós valoris só: true (verdadi) ou false (falsu). Bazi di tudu lójika
+        kondisional.'
+      body: |
+        Un **boolean** é un tipu di dadu ki sô pode ten dós valoris: `true` (verdadi) ou `false` (falsu). Nomi "boolean" ben di matemátiku George Boole, ki dizenvolve un sistema di lójika baziadu na kel dós valoris.
+
+        Boolean é fundamental na programason pamodi el é kel ki ta permiti un programa toma disizon. Kada bes ki bu ta skrebe un kondison — tipu "si idadi é mas ki 18" — kel kondison ta ser avaliadu i ta volta un boolean: `true` ou `false`. Es valor ta uzadu dipos pa disidi ki kaminhu o programa debe sigui, tipiku dentu di un `if` ou un `loop`.
+
+        Boolean ta ben tanbê di operason di komparason (`==`, `>`, `<`, `!=`) i di operadoris lójiku (`&&` pa "i", `||` pa "ou", `!` pa "ka"). Es operadoris ta kombina múltiplu kondison pa kria lójika más konplexu, tipu "si txobe I é fin di simana".
+
+        ## Example
+
+        ```js
+        let txobe = true;
+        let idadi = 20;
+        let podeVota = idadi >= 18; // true
+
+        if (txobe && podeVota) {
+          console.log("Lebar gardachuba i bai vota");
+        }
+        ```
+  related_terms: conditional
+  code_example: |
+    let txobe = true;
+    if (txobe) { console.log("Lebar gardachuba"); }
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Strutura di Dadus
+  - type:Konseitu
+- term: Conditional
+  category: Coding
+  translations:
+    kea:
+      local_term: Kondisional
+      definition: Strutura (if / else) ki ta kore kódiku diferenti dipendi di un kondison ser verdadi
+        ou falsu.
+      body: |
+        Un **conditional** (na kea, **kondisional**) é un strutura di kontrolu ki ta permiti un programa toma disizon — el ta kore un bloku di kódiku si un kondison é `true`, i (opsional) un otu bloku si kel kondison é `false`. Sen kondisional, tudu programa ta sô pode kore linha pa linha, sen nunka muda kaminhu.
+
+        Forma más simples é `if`: "si es kondison é verdadi, kore es kódiku li". Bu pode adisiona `else` pa kobri kazu kontráriu, ou `else if` pa testa vários kondison na sekuénsia, un dipos di otu, ti ki un delis ser verdadi.
+
+        Kondisional ta trabadja djuntu ku **boolean** — kada kondison dentu di un `if` ta ser avaliadu i ta volta `true` ou `false`. É pur isu ki kombinason di operadoris lójiku (`&&`, `||`, `!`) é asi importanti: es ta permiti bu skrebe kondison más riku, tipu "si tenpu sta bon I é fin di simana".
+
+        Kondisional ta uzadu na kuazi tudu programa — di validason di formuláriu ti lójika di jogu ou sistema di rekomendason.
+
+        ## Example
+
+        ```js
+        const idadi = 20;
+
+        if (idadi >= 18) {
+          console.log("Adultu");
+        } else if (idadi >= 13) {
+          console.log("Adolesenti");
+        } else {
+          console.log("Mininu");
+        }
+        ```
+  related_terms: boolean-javascript
+  code_example: |
+    if (idadi >= 18) {
+      console.log("Adultu");
+    } else {
+      console.log("Mininu");
+    }
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Fluxu di Kontrolu
+  - type:Sintaxi
+- term: Function
+  category: Coding
+  translations:
+    kea:
+      local_term: Funson
+      definition: Bloku di kódiku reutilizável ki ta resebe entrada (argumentus) i pode volta un saída.
+      body: |
+        Un **function** (na kea, **funson**) é un bloku di kódiku ku un nomi, ki bu ta skrebe un bes sô i pode txoma quantu bes bu meste, sen bu meste ripiti kel mésmu kódiku txeu vês. Funson é un di es ferramenta más importanti pa manti kódiku organizadu i fásil di manti.
+
+        Un funson pode resebe **argumentus** (ou **parámetrus**) — valoris di entrada ki el ta uza pa trabadja — i pode `return` un valor komu saída. Pur izemplu, un funson `soma(a, b)` ta resebe dós número i ta volta se soma, sen bu meste skrebe kel operason di novu kada bes ki bu meste soma dós kuza.
+
+        Uza funson ta trazi txeu vantajen: kódiku fika más kurtu, más fásil di lei, i si bu meste troka komo un kálkulu ta funsiona, bu sô meste troka na un lugar — dentu di funson — en vez di kada lugar undi kel lójika ta ripiti.
+
+        Na JavaScript, funson pode ser skrebedu di vários manera: `function soma(a, b) { ... }`, ou na forma más kurtu ku *arrow function*: `(a, b) => a + b`.
+
+        ## Example
+
+        ```js
+        function soma(a, b) {
+          return a + b;
+        }
+
+        console.log(soma(2, 3)); // 5
+        ```
+  related_terms: array-javascript,loop
+  code_example: |
+    function soma(a, b) {
+      return a + b;
+    }
+    soma(2, 3); // 5
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Fluxu di Kontrolu
+  - type:Konseitu
+- term: Loop
+  category: Coding
+  translations:
+    kea:
+      local_term: Siklu
+      definition: Strutura ki ta ripiti un bloku di kódiku várias bes, sen bu skrebe-l ripitidu.
+      body: |
+        Un **loop** (na kea, **siklu**) é un strutura di kontrolu ki ta ripiti un bloku di kódiku várias bes, sen bu meste skrebe kel mésmu kódiku manualmenti pa kada ripitison. Loop é asi ki programador ta trata tarefa repetitivu — tipu percorre tudu elementu di un `array`, ou kontinua faze algu ti un kondison ser satisfeitu.
+
+        Dós tipu di loop más uzadu na JavaScript é `for` i `while`. `for` é bon kantu bu dja sabe kuantu vês bu meste ripiti (ou kuantu elementu bu meste percorre); `while` é bon kantu bu ka sabe di antimon kuantu vês — el ta kontinua ti kondison fika `false`. Ezisti tanbê `for...of`, ki é un forma más limpu pa percorre kada elementu di un array diretamenti.
+
+        Loop é un di es konseitu más fundamental na programason — kuazi tudu programa ki ta trata arrays, tabelas ou dadus repetitivu ta uza loop na algun momentu.
+
+        ## Example
+
+        ```js
+        const frutas = ["banana", "manga", "koku"];
+
+        for (const f of frutas) {
+          console.log(f);
+        }
+        ```
+  related_terms: array-javascript,function
+  code_example: |
+    for (const f of frutas) {
+      console.log(f);
+    }
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Fluxu di Kontrolu
+  - type:Sintaxi
+- term: Promise
+  category: Frontend
+  translations:
+    kea:
+      local_term: Promesa
+      definition: Objetu ki ta reprezenta un operason asíkrunu ki inda ka kaba — pode resolvi ou falha
+        más tardi.
+      body: |
+        Un **promise** (na kea, **promesa**) é un objetu di JavaScript ki ta reprezenta un operason **asíkrunu** — kel dizer, un operason ki ka ta kaba na mésmu momentu, tipu buska dadus na un servidor ou lei un fitxeru grandi. Un promesa ta reprezenta un valor ki inda ka izisti, ma ki ta prometi txiga más tardi: ou el ta **resolvi** ku susesu, ou el ta **rejeta** ku un eru.
+
+        Antis di promise izisti, kódiku asíkrunu na JavaScript rasa ta uza *callbacks* aninhadu, ki fásilmenti fika difísil di lei ("callback hell"). Promise ta rezolvi kel problema ku dós métudu prinsipal: `.then()` pa trata kazu di susesu, i `.catch()` pa trata eru.
+
+        Oji, sintaxi más moderna pa trabadja ku promise é `async`/`await`, ki ta permiti skrebe kódiku asíkrunu ki ta lei parsidu ku kódiku sikrunu normal — sen tantu `.then()` enkadeadu.
+
+        Promise é sentral na JavaScript moderna pamodi txeu operason — buska dadus di un API, lei fitxeru, ou spera un tenpu — é naturalmenti asíkrunu.
+
+        ## Example
+
+        ```js
+        fetch("/api/dadus")
+          .then((r) => r.json())
+          .then((d) => console.log(d))
+          .catch((eru) => console.error(eru));
+        ```
+  related_terms: function
+  code_example: |
+    fetch('/api/dadus')
+      .then(r => r.json())
+      .then(d => console.log(d));
+  code_language: js
+  tags:
+  - lang:JavaScript
+  - topic:Asikronu
+  - type:Konseitu

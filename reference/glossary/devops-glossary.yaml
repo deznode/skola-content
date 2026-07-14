@@ -1,0 +1,210 @@
+- term: Container
+  category: DevOps
+  translations:
+    kea:
+      local_term: Kontéiner
+      definition: Unidadi izoladu ki ta inpakota un aplikason ku tudu ki el meste pa kore igual na kualker
+        mákina.
+      body: |
+        Un **container** (na kea, **kontéiner**) é un unidadi izoladu, lévi, ki ta inpakota un aplikason djuntu ku tudu ki el meste pa kore — kódiku, bibliotéka, dependénsia, i konfigurason. Diferensa prinsipal di un container é ki el ta kore mésmu, sen inporta undi: na kompjuter di un dizenvolvedor, na un servidor di teste, ou na produson.
+
+        Antis di container, un problema klássiku na dizenvolvimentu di software éra "na nha mákina el ta funsiona" — un aplikason ta kore direitu na un kompjuter, ma ta kebra na otu, pamodi diferensa di verson di sistema, bibliotéka ou konfigurason. Container ta rezolvi kel problema pamodi el ta guarda tudu anbienti nesesáriu junto ku aplikason.
+
+        Diferenti di un **mákina virtual** konpletu (ki ta simula un sistema operativu interu), container ta partilha o kernel di sistema operativu di mákina ospedeiru — kel ki ta faze-l muitu más lévi i rápidu pa inisia.
+
+        Container é fundamental na **DevOps** modernu, pamodi el ta simplifika dispregu, ta faze skalamentu más fásil, i ta permiti ekipas trabadja ku anbienti konsistenti di dizenvolvimentu ti produson.
+
+        ## Example
+
+        ```bash
+        docker run -d -p 8080:80 nginx
+        ```
+  related_terms: docker,kubernetes
+  tags:
+  - topic:Kontéiner
+  - type:Konseitu
+- term: Docker
+  category: DevOps
+  translations:
+    kea:
+      local_term: Docker
+      definition: Ferramenta ki ta kria i kore kontéineris, garantindu ki bu kódiku ta kore mésmu na tudu
+        sítiu.
+      body: |
+        **Docker** é un ferramenta muitu populár ki ta permiti dizenvolvedoris kria, kore i partilha **container**. El ta uza un fitxeru txomadu **Dockerfile** ki ta déskrebe, pasu pa pasu, tudu ki un aplikason meste — di ki imajen bázi (tipu Linux Ubuntu) ti kuais dependénsia instala i kuais kumandu kore pa inisia aplikason.
+
+        Ku Docker, un dizenvolvedor ta "konstrui" un **imajen** — un template ki ta guarda tudu es instrusons — i dipos ta kore kel imajen komu un ou más container. Es imajen pode ser partilhadu através di un **rejistu** (registry), tipu Docker Hub, permitindu otus dizenvolvedoris ou servidoris dizarga i kore mésmu container sen preokupason ku konfigurason manual.
+
+        Docker ta trazi konsisténsia: si el ta funsiona na un dizenvolvedor se kompjuter dentu di un container, el ta funsiona igual na servidor di produson, pamodi tudu anbienti sta inkludidu dentu di kontéiner.
+
+        Docker é un di es ferramenta más importanti na **DevOps** modernu i é baze pa sistemas más konplexu di orkestrason, tipu **Kubernetes**.
+
+        ## Example
+
+        ```bash
+        # Kria un imajen a partir di un Dockerfile
+        docker build -t nha-app .
+
+        # Kore un container a partir di kel imajen
+        docker run -d -p 3000:3000 nha-app
+        ```
+  related_terms: container,kubernetes
+  code_example: |
+    docker build -t nha-app .
+    docker run -d -p 3000:3000 nha-app
+  code_language: bash
+  tags:
+  - lang:Shell
+  - topic:Kontéiner
+  - type:Ferramenta
+- term: Kubernetes
+  category: DevOps
+  translations:
+    kea:
+      local_term: Kubernetes
+      definition: Sistema ki ta orkestra (jere, skala i reinisia) kontéineris otomátikamenti na un kluster
+        di mákinas.
+      body: |
+        **Kubernetes** (txeu vês abreviadu pa **K8s**) é un sistema di **orkestrason** — el ta jere, skala i reinisia **container** otomátikamenti através di un grupu di mákinas (un **kluster**), sen dizenvolvedor meste faze-l manualmenti.
+
+        Kantu un aplikason ta kore só ku un container, jera-l manualmenti é fásil. Ma kuantu un sistema kresi pa dizena ou sentena di container — kada un ku se própria kópia, atualizason, i falha posível — jera-l manualmenti fika inposível. Kubernetes ta rezolvi kel problema: bu ta déskrebe **estadu dizejadu** (tipu "N kópia di es container tem ki sta korendu sempri") i Kubernetes ta garanti kel estadu, reinisiandu container ki kebra, distribuindu karga entri mákinas, i skalandu automatikamenti kuantu tráfegu oumenta.
+
+        Kubernetes é orijinalmenti dizenvolvidu pa Google i oji é un di es projetu mas usadu na **DevOps** i infrastrutura klaud. El ta trabadja djuntu ku **Docker** (ou otu runtime di container): Docker ta kria i kore un container só; Kubernetes ta orkestra txeu container através di un kluster interu.
+
+        ## Example
+
+        ```bash
+        kubectl apply -f deployment.yaml
+        kubectl get pods
+        ```
+  related_terms: docker,container
+  code_example: |
+    kubectl apply -f deployment.yaml
+    kubectl get pods
+  code_language: bash
+  tags:
+  - lang:Shell
+  - topic:Orkestrason
+  - type:Ferramenta
+- term: Repository
+  category: DevOps
+  translations:
+    kea:
+      local_term: Repozitóriu
+      definition: Lugar undi tudu kódiku di un projetu ta guardadu, ku stóriku kompletu di mudansas (Git).
+      body: |
+        Un **repository** (na kea, **repozitóriu**) é un lugar undi tudu kódiku di un projetu ta guardadu, djuntu ku se stóriku kompletu di mudansas. É konseitu sentral di sistemas di kontrolu di verson tipu **Git** — kada mudansa (**commit**) fika registadu, ku data, otor, i deskrison, permitindu bu volta pa kualker verson antiga si algu kebra.
+
+        Repozitóriu pode ser **lokal** (na kompjuter di dizenvolvedor) ou **remotu** (na un servidor tipu GitHub, GitLab ou Bitbucket), permitindu txeu dizenvolvedoris trabadja djuntu na mésmu projetu, kada un ku se própria kópia lokal ki ta sinkroniza ku repozitóriu remotu.
+
+        Un repozitóriu tipiku ta inklui kódiku fonti, dokumentason, konfigurason (tipu `.gitignore` i `README.md`), i txeu vês **branches** — kópia paralelu di kódiku ki ta permiti dizenvolvedoris trabadja na funsionalidadis novu sen afeta versan prinsipal ti kel trabadju sta prontu.
+
+        Repozitóriu é fundamental na kolaborason di software modernu: el ta permiti histórikoridadi, revizon di kódiku, i integrason ku ferramentas di **DevOps** tipu pipelines di CI/CD ki ta testa i dispregu kódiku otomátikamenti kada bes ki un mudansa ta chegadu.
+
+        ## Example
+
+        ```bash
+        git clone https://github.com/nha-organizason/nha-repositoriu.git
+        cd nha-repositoriu
+        git commit -m "adisiona novu funsionalidadi"
+        git push
+        ```
+  related_terms: docker
+  tags:
+  - lang:Git
+  - topic:Kontrolu di Vershon
+  - type:Ferramenta
+- term: API
+  category: Backend
+  translations:
+    kea:
+      local_term: API
+      definition: Konjuntu di regras ki ta dexa dós programas komunika — tipu un kontratu entre kliente
+        i servidor.
+      body: |
+        **API** (sigla di *Application Programming Interface*) é un konjuntu di regras ki ta dexa dós programas komunika entre elis, sen kada un meste sabe komu otu ta funsiona pur dentu. É tipu un kontratu: API ta definí ki tipu di pedidu bu pode manda, ki dadus bu meste manda djuntu, i ki tipu di rispósta bu ta risebe.
+
+        Izemplu más komun na dizenvolvimentu web é un **API web**, undi un aplikason kliente (tipu un app móvel ou un site) ta manda pedidu através di **HTTP** pa un servidor, ki ta risponde ku dadus, tipiku na formatu **JSON**. Pur izemplu, un app di tenpu ta uza un API pa buska previson di tenpu di un servisu esternu, sen el meste sabe komu kel servisu ta kalkula kel previson.
+
+        API ta permiti separason di responsabilidadi: un ekipa pode dizenvolvi frontend (interfase ki utilizador ta odja) inteiramenti separadu di ekipa ki ta dizenvolvi backend (lójika i base di dadus), kontantu ki es dós sigui o mésmu kontratu di API.
+
+        Un stilu muitu populár di dizenhu di API é **REST**, ki ta uza métudus HTTP padran pa organiza operason di manera previsível.
+
+        ## Example
+
+        ```http
+        GET /api/v1/users/42
+        POST /api/v1/users
+        ```
+  related_terms: endpoint,rest
+  code_example: |
+    GET /api/v1/users/42
+    POST /api/v1/users
+  code_language: http
+  tags:
+  - lang:HTTP
+  - topic:API
+  - type:Konseitu
+- term: REST
+  category: Backend
+  translations:
+    kea:
+      local_term: REST
+      definition: Stilu di dizenhu di APIs ki ta uza métudus HTTP (GET, POST, PUT, DELETE) riba rekursus.
+      body: |
+        **REST** (sigla di *Representational State Transfer*) é un stilu di dizenhu di **API** ki ta organiza operason di forma previsível, uzandu **rekursus** (tipu "users", "posts", "produtus") i métudus padran di **HTTP** pa manipula-s: `GET` pa lei, `POST` pa kria, `PUT`/`PATCH` pa atualiza, i `DELETE` pa apaga.
+
+        Kada rekursu na un API REST ten se própriu **URL** (tipu `/users/42` pa un utilizador spesífiku), i métudu HTTP uzadu ta indika ki operason bu ta faze riba kel rekursu. Pur izemplu, `GET /posts` ta buska lista di postis, enkuantu `DELETE /posts/1` ta apaga postu ku ID 1.
+
+        Un di es prinsípiu sentral di REST é **stateless** (sen estadu) — kada pedidu ten ki inklui tudu informason nesesáriu pa servidor kompriende-l, sen servidor meste "lembra" pedidus anterior di kel kliente. Isu ta faze API REST más simples di skala.
+
+        REST ka é un protokolu rígidu, ma un konjuntu di konvenson ki txeu API modernu ta sigui, pamodi el ta faze API más fásil di kompriende i uza pa dizenvolvedoris difernti.
+
+        ## Example
+
+        ```http
+        GET    /posts      # lista tudu postu
+        POST   /posts      # kria un postu novu
+        PUT    /posts/1    # atualiza postu ku ID 1
+        DELETE /posts/1    # apaga postu ku ID 1
+        ```
+  related_terms: api,endpoint
+  code_example: |
+    GET    /posts      # lista
+    POST   /posts      # kria
+    DELETE /posts/1    # apaga
+  code_language: http
+  tags:
+  - lang:HTTP
+  - topic:API
+  - type:Protokolu
+- term: Endpoint
+  category: Backend
+  translations:
+    kea:
+      local_term: Pontu di Asesu
+      definition: Un URL spesífiku di un API undi un kliente pode manda pedidu pa resebe ou manda dadus.
+      body: |
+        Un **endpoint** (na kea, **pontu di asesu**) é un URL spesífiku di un **API** undi un kliente pode manda un pedidu pa resebe ou manda dadus. Si bu pensa na API komu un kontratu jeral, kada endpoint é un fráse spesífiku dentu di kel kontratu — un ason konkretu ki bu pode faze.
+
+        Pur izemplu, na un API di un rede sosial, `GET /api/v1/users/42` é un endpoint ki ta risponde ku dadus di utilizador ku ID 42; `POST /api/v1/posts` é otu endpoint ki ta kria un postu novu. Kada endpoint ta kombina un **URL** ku un **métudu HTTP** (`GET`, `POST`, `PUT`, `DELETE`) pa definí exatamenti ki operason ta ser realizadu.
+
+        Un API bem dizenhadu ta ten endpoints organizadu di forma lójika i previsível, siguindu konvenson tipu **REST** — pur izemplu, uzandu nomi di rekursu na plural (`/users`, `/posts`) i uzandu métudu HTTP pa indika o tipu di operason, en vez di kria endpoint diferenti pa kada ason (tipu `/getUser`, `/deleteUser`).
+
+        Dokumentason di API (tipu Swagger/OpenAPI) ta lista tudu endpoint disponível, ku parámetrus, formatu di rispósta, i izemplus, pa dizenvolvedoris sabe exatamenti komu integra ku kel API.
+
+        ## Example
+
+        ```http
+        GET /api/v1/users/42
+        POST /api/v1/users
+        ```
+  related_terms: api,rest
+  code_example: |
+    GET /api/v1/users/42
+    POST /api/v1/users
+  code_language: http
+  tags:
+  - lang:HTTP
+  - topic:API
+  - type:Konseitu
