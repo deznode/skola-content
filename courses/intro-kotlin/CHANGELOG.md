@@ -8,6 +8,31 @@ draft changes since the previous publish (source of truth: `topics/intro-kotlin/
 trace_id `Skola-course-intro-kotlin-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-19] — hand-edit (infographic refresh)
+
+### Changed
+- All 6 infographics (numeric-type-ladder, null-safety-flow, recursion-call-stack,
+  inheritance-tree, interface-cast-diagram, sealed-vs-open-hierarchy) replaced with
+  cleaner, more deliberate visuals, following the calibration discipline established
+  on the 2026-07-18 Character Bible v1 session:
+  - numeric-type-ladder: widening-pipe concept, complements the `<AnnotatedCode>`
+    walkthrough that follows instead of duplicating it
+  - null-safety-flow: same 3-path structure, decluttered (removed a stray
+    unrelated doodle)
+  - recursion-call-stack: trimmed the arithmetic trace that duplicated the
+    adjacent code comment, kept the unique stack visual
+  - inheritance-tree, interface-cast-diagram: re-executed in `blueprint` style
+    (schematic diagrams, not character portraits — a better content-style match)
+  - sealed-vs-open-hierarchy: closed-vs-open boundary concept, fixes the
+    original's unbalanced empty-space defect
+- Alt text on the two lessons whose infographic concept changed (03, 11) updated
+  to match; `02`/`04`/`06`/`07`'s alt text needed no change (concepts unchanged)
+
+### Note
+- Each infographic's `infographics/calibration/*.prompt.md` is the source of
+  truth with a full corrections log; generation history (including two
+  rejected concepts) is kept alongside for reference
+
 ## [2026-07-12] — publish (kriolu fixes)
 
 ### Changed
