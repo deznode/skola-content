@@ -29,7 +29,45 @@ Kada bez ki bu meste kore kódiku pa kada númeru di 0 te 5, ou di 10 pa 1, Kotl
 
 Un range só ta fasi sentidu kuandu bu ta uza-l — normalmenti dentu di un **for-loop**, ki ta kore kódiku pa kada númeru dentu di el.
 
-<CodeExample position={0} />
+**`..` inkluzivu**
+
+```kotlin
+fun main() {
+    for (i in 0..5) {
+        println(i)
+    }
+}
+```
+
+**`until` eksklusivu**
+
+```kotlin
+fun main() {
+    for (i in 0 until 5) {
+        println(i)
+    }
+}
+```
+
+**`downTo` pa baxu**
+
+```kotlin
+fun main() {
+    for (i in 5 downTo 0) {
+        println(i)
+    }
+}
+```
+
+**`step` ku pasu**
+
+```kotlin
+fun main() {
+    for (i in 0..10 step 3) {
+        println(i)
+    }
+}
+```
 
 :::callout{type=warning}
 `a..b` inklui `b`; `a until b` para antis di `b`. Es diferensa di un númeru só ("off-by-one") é un eru kumun. I atensan: `step` só ta seta valoris pozitivu — mesmu kuandu bu ta uza `downTo`, `step` ka pode ser negativu.
@@ -88,6 +126,7 @@ Si kondisan di un `while` nunka ta bira `false`, loop ka ta para nunka — kel t
 Kompleta kódiku li — kual linha ta garanti ki es `while`-loop ka ta bira infinitu?
 
 <CodeCloze
+  chrome="inline"
   lang="kotlin"
   title="Kompleta: while-loop sen loop infinitu"
   prompt="Kompleta kódiku pa `mangas` diminui kada bez, sinon loop nunka ta para."
@@ -159,6 +198,7 @@ Dentu di loops aninhadu (li em baxu), `break`/`continue` só ta afeta loop **má
 Un loop pode sta dentu di otu loop — kel ta txomadu **loop aninhadu** (nested loop). É un padran poderozu pa dezenha forma, sima triangulus di estrelas. Nu ta kumesa simplis i nu ta aumenta komplexidadi pasu-pa-pasu.
 
 <Steps
+  chrome="inline"
   variant="phases"
   phaseWord="Nível"
   eyebrow="Loop aninhadu"
@@ -188,15 +228,63 @@ Un loop pode sta dentu di otu loop — kel ta txomadu **loop aninhadu** (nested 
   ]}
 />
 
-<CodeExample position={1} />
+**Bázicu**
+
+```kotlin
+fun main() {
+    val altura = 5
+    for (i in 1..altura) {
+        for (j in 1..i) {
+            print("*")
+        }
+        println()
+    }
+}
+```
+
+**Invertidu (downTo)**
+
+```kotlin
+fun main() {
+    val altura = 5
+    for (numeruDiEstrelas in altura downTo 1) {
+        for (j in 1..numeruDiEstrelas) {
+            print("*")
+        }
+        println()
+    }
+}
+```
+
+**Isósceles spasadu**
+
+```kotlin
+fun main() {
+    val altura = 5
+    for (i in 1..altura) {
+        val spasus = altura - i
+        for (j in 1..spasus) {
+            print(" ")
+        }
+        val estrelas = i * 2 - 1
+        for (j in 1..estrelas) {
+            print("*")
+        }
+        println()
+    }
+}
+```
 
 <SectionHeading variant="concept" seq={6}>Rekursividadi</SectionHeading>
 
-Un funsan **rekursivu** é un funsan ki ta txoma se própi drentu di se própi kódiku. Kada funsan rekursivu meste un **kazu bazi** (base case) — un kondisan ki ta para rekursividadi. Sen el, funsan ta kontinua txoma se própi pa senpri, te `StackOverflowError`.
+Imajina un jogu di bonékas russa: bu abri kel más grandi i drentu del ten otu bonéka más pikinoti, i drentu di kel otu inda más pikinoti — te bu txiga na kel última, más pikinoti di tudu, ki ka abri más. Kel última bonéka é kazu bazi di jogu: el ka ten nada más pa abri, el sô é el mesmu.
+
+Un funsan **rekursivu** ta trabadja parecidu: el ta txoma se própi drentu di se própi kódiku, i kada txomada ta "abri" un versan más pikinoti di mesmu problema — sima abri kada bonéka pa atxa otu más pikinoti drenti — te el txiga na un **kazu bazi** (base case), kel kondisan ki ta para rekursividadi, sima kel bonéka ki ka abri más. Sen kazu bazi, funsan ta kontinua txoma se própi pa senpri, te `StackOverflowError`.
 
 Nu ta uza **fatorial** sima izemplu: fatorial di un númeru `n` é o produtu di tudu inteiru pozitivu di 1 te `n` (ex.: fatorial di 4 é `1*2*3*4 = 24`). Nu pode difini `fatorial(n)` na termu di el própi: `fatorial(n) = fatorial(n - 1) * n`, ku kazu bazi `fatorial(1) = 1`.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="fatorial() rekursivu"
   code={[
@@ -232,6 +320,10 @@ Si bu skese di skrebe kazu bazi (ou si kondisan di el nunka ta kontise), funsan 
 :::
 
 <SectionHeading variant="concept" seq={7}>Exsesons</SectionHeading>
+
+Imajina un artista di trapézi na sirku, ta salta di un baransa pa otu, txeu altu di txon. Normalmenti el ta panha baransa dretu — ma bez en kuandu el pode skorega. Sen un **rede di sigurãnsa** pa baxu, kualker skorega ta un dizastri pa el.
+
+Na programasan, un **exsesan** é kumo kel skorega — algu inisperadu ki pode kontise duranti izekuson di programa. Kotlin ka ta dexa-bu ku rede di sigurãnsa pa grasa: bu meste konstrui-l bu mesmu, ku `try`/`catch`.
 
 Kuandu un kuza ta kore mal durante ki programa sta na kursu, Kotlin ta permiti bu **lansa** (throw) un exsesan pa avisa ki ten un problema. Si es exsesan ka é **kapturadu** (catch), el ta para programa i ta imprimi un **relatóriu di eru** (stack trace) na terminal.
 
@@ -275,6 +367,7 @@ fun imprimeNomiUtilizador() {
 Si `imprimeNomiUtilizador()` é txomadu sen `try`/`catch` i exsesan ka é kapturadu, es é o ki terminal ta mostra:
 
 <TerminalBlock
+  chrome="inline"
   title="Kuandu exsesan ka é kapturadu"
   lines={[
     { type: "cmd", t: "kotlin Main.kt" },
@@ -288,11 +381,13 @@ Si `imprimeNomiUtilizador()` é txomadu sen `try`/`catch` i exsesan ka é kaptur
 Evita kaptura `Exception` di forma jeral (`catch (e: Exception)`) — kel ta skonde erus inesperadu ki bu ka staba spera. Kaptura só tipu **espesífiku** ki bu sabe ki pode kontise.
 :::
 
+Gosi bu sabe ripiti kódiku sen kopia-l, faze un funsan txoma se própi, i garanti ki bu programa ka ta kebra kuandu kuza kore mal — tres ferramenta ki bu ta uza na kuazi tudu programa ki bu ta skrebe daí pa diante.
+
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -302,7 +397,7 @@ Evita kaptura `Exception` di forma jeral (`catch (e: Exception)`) — kel ta sko
 </QuizSet>
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="Ranges" code>`a..b` inklui `b`; `a until b` para antis; `a downTo b` ta desse; `step c` ta pula di `c` na `c`.</RezumuItem>
   <RezumuItem>Uza `for` kuandu bu sabe kantidadi antis; uza `while` kuandu kondisan ta muda i kantidadi é deskonxedu.</RezumuItem>
   <RezumuItem term="break / continue" code>`break` ta para loop kompletamenti; `continue` só ta salta pa próxima iterasan. Dentu di loops aninhadu, es só ta afeta loop más pertu.</RezumuItem>

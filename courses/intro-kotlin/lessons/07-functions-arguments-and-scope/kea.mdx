@@ -24,7 +24,10 @@ Imajina un funsan `kria(true, false, 10, "kea")`. Kual parámetru é kual? Sen o
 
 Bu ja ta uza funsons di lisons anterior — `println`, i mesmu bu própi funsons sima `verificaIdadi` ou `fatorial`. Antis di odja argumentus padron i nomeadu, nu ta relembra sintaksi bázika: kumo defini un funsan di kabu na rabu.
 
+Pensa na un funsan sima un **kaxa preta**: bu po kuzê dentu (se parámetrus), el ta faze algu ku es — sen bu mesti sabe tudu detalhi di kuzê ki ta kontise la dentu — i el ta dá-u un rezultadu. Ou pensa nel sima un **reseta**: ingredientis ta entra, pasus di reseta ta korri (kel é kórpu di funsan), i un pratu ta sai (kel é `return`). Vantaji di un reseta é ki bu pode uza-l kuantas bez bu kre, ku ingredientis diferenti kada bez — sen skrebe-l di novu. É izatamenti kel ki nu ta odja gosi: mesmu funsan `soma`, ma ku parámetrus diferenti kada txamada.
+
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="Anatomia di un funsan"
   code={[
@@ -56,7 +59,7 @@ fun sauda(nomi: String) {
 
 <SectionHeading variant="concept" seq={2}>Argumentus Padron</SectionHeading>
 
-Un funsan pode difini un valor padron pa un parámetru. Si kenha ta txoma funsan ka indika kel argumentu, Kotlin ta uza valor padron sózin.
+Un funsan pode difini un valor padron pa un parámetru. Si kenha ta txoma funsan ka indika kel argumentu, Kotlin ta uza valor padron sózin — kumo un reseta ki ja ten kantidadi disidida pa un ingredienti, ma sénpri pronta pa bu troka-l si bu kre otu kuza.
 
 <GlossaryText
   text="Es sintaksi — `parámetru: Tipu = valorPadron` — ta txoma-s un [[argumentu padron]]."
@@ -121,7 +124,37 @@ fun main() {
 
 Un só funsan, tres forma di txama-l ku mesmu resultadu:
 
-<CodeExample position={0} showTabs />
+**Posizional (tudu argumentus)**
+
+```kotlin
+fun saudaKu(saudason: String = "Ola", nomi: String = "Mundu") {
+    println("$saudason, $nomi!")
+}
+
+fun main() {
+    saudaKu("Bon dia", "Telma")
+}
+// Bon dia, Telma!
+```
+
+**Nomeadu (salta primeru pozisan)**
+
+```kotlin
+fun main() {
+    saudaKu(nomi = "Zeca")
+}
+// Ola, Zeca!
+// (saudason ka foi indikadu — ta risebe se valor padron "Ola")
+```
+
+**Nomeadu (órden trokadu)**
+
+```kotlin
+fun main() {
+    saudaKu(nomi = "Telma", saudason = "Odjadu")
+}
+// Odjadu, Telma!
+```
 
 :::callout{type=warning title="Regra: posizional antis di nomeadu"}
 Bu pode mistura argumentus posizional ku argumentus nomeadu na mesmu txamada, ma tudu argumentu posizional ten ki ben **antis** di kualker argumentu nomeadu. Un bez ki bu kumesa uza un argumentu nomeadu, tudu argumentu ki ben dipos di el debe ser nomeadu tanbe — `apresenta(papel = "Monitor", "Telma")` **ka ta kompila**, pamodi `"Telma"` (posizional) ta ben dipos di `papel` (nomeadu).
@@ -132,6 +165,7 @@ Bu pode mistura argumentus posizional ku argumentus nomeadu na mesmu txamada, ma
 Até gosi, kada funsan ten un número fixu di parámetru. Ma i si bu ka sabe kantu argumentu ta ser pasadu — sima `println` ki pode risebe un ou vários valor? Kotlin ta da `vararg` pa kel: un parámetru ki pode risebe **zeru ou más** valor, tudu ku mesmu tipu.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="`vararg`: un número variável di argumentu"
   code={[
@@ -203,6 +237,7 @@ fun main() {
 Kuandu bu roda:
 
 <TerminalBlock
+  chrome="inline"
   title="kotlin Saldu.kt"
   lines={[
     { type: "cmd", t: "kotlin Saldu.kt" },
@@ -235,18 +270,20 @@ Repara na diferensa ku funsons di top-level: es últimu pode ser txomadu di kual
 Diferenti di funsons di top-level, un funsan lokal debe ser definidu **antis** di se primeru txamada — mesmu dentu di mesmu funsan. Tenta txoma-l antis di se definisan ta da un eru: `Unresolved reference`.
 :::
 
+Kada bez ki bu skrebe un funsan ku txeu parámetru, ou meste kombina vários pedasu di kódiku, es ferramentas — argumentus padron, argumentus nomeadu, `vararg`, i funsons lokal — ta faze bu kódiku más klaru i más fásil di manutené.
+
 Gosi é bu bez: nu ta pratika argumentus padron ku argumentus nomeadu, i rezolve un eru di scope.
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} /><Quiz position={5} /><Quiz position={6} />
 </QuizSet>
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="Definisan di funsan" code>`fun nomi(parámetru: Tipu): TipuDiRetornu { return ... }` — sen tipu di retornu, funsan devolve `Unit` (sen valor útil).</RezumuItem>
   <RezumuItem term="Argumentu padron">Un parámetru ku `= valor` ta risebe kel valor kuandu txamada ka indika-l.</RezumuItem>
   <RezumuItem term="Argumentu nomeadu">Skrebe `parámetru = valor` na txamada — órden ka importa, i bu pode salta parámetrus anterior.</RezumuItem>

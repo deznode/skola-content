@@ -1,30 +1,31 @@
 # Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
 # Publish copies (resolving any starterFrom/solutionFrom) to
-# content/courses/intro-kotlin/lessons/07-collections-list-set-map-pair-triple/exercises.yaml
+# content/courses/intro-kotlin/lessons/08-collections-list-set-map-pair-triple/exercises.yaml
 # <TentaGosi/> renders these in display order.
-- slug: koleksons-tres-senariu
+- slug: kolesons-tres-senariu
   language: kotlin
   kind: code
   title: { kea: "Skodje Kolesan Sertu" }
   prompt:
-    kea: "Skrebe un funsan `main()` ku tris variáveis: (1) un `List` `kompras` ku 4 item pa kumpra (bu pode ripiti item, sima \"arus\" dos bez); (2) un `Set` `ilhasVizitadu` ku 3 ilha úniku; (3) un `Map` `notas` ku 3 par disciplina-nota. Imprimi tudu tris."
+    kea: "Skrebe un funsan `main()` ku tris variáveis: (1) un `List` `kompras` ku 4 item pa kumpra (bu pode ripiti item, sima \"arus\" dos bez); (2) un `Set` `ilhasVizitadu` ku 4 ilha **entrada**, ma un delas ripitidu (pa mostra ki únisidadi ta aplika — `size` debe ser 3, ka 4); (3) un `Map` `notas` ku 3 par disciplina-nota. Imprimi tudu tris, i `size` di `ilhasVizitadu`."
   hint:
-    kea: "Lembra: `listOf` pa órden i repetisan, `setOf` pa únisidadi, `mapOf` ku `to` pa par txavi-valor."
+    kea: "Lembra: `listOf` pa órden i repetisan, `setOf` pa únisidadi (elementu ripitidu ta ignoradu), `mapOf` ku `to` pa par txavi-valor."
   starterCode: |
     fun main() {
         // TODO: kria un List `kompras` ku 4 item (pode ripiti)
-        // TODO: kria un Set `ilhasVizitadu` ku 3 ilha úniku
+        // TODO: kria un Set `ilhasVizitadu` ku 4 ilha entrada, un delas ripitidu
         // TODO: kria un Map `notas` ku 3 par disciplina-nota
-        // TODO: imprimi tudu tris
+        // TODO: imprimi tudu tris, i size di ilhasVizitadu
     }
   solutionCode: |
     fun main() {
         val kompras = listOf("arus", "fejon", "leti", "arus")
-        val ilhasVizitadu = setOf("Sal", "Santiago", "Fogo")
+        val ilhasVizitadu = setOf("Sal", "Santiago", "Fogo", "Sal")
         val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
 
         println(kompras)
-        println(ilhasVizitadu)
+        println(ilhasVizitadu)          // [Sal, Santiago, Fogo] -- "Sal" repetidu ka konta dos bez
+        println(ilhasVizitadu.size)     // 3
         println(notas)
     }
 - slug: koriji-variavel-ka-deklaradu
@@ -43,6 +44,30 @@
   solutionCode: |
     val ilhas = listOf("Sal", "Santiago", "Fogo")
     println(ilhas.contains("Sal"))
+- slug: itera-i-muda-lista-kompras
+  language: kotlin
+  kind: code
+  title: { kea: "Itera i Muda un List" }
+  prompt:
+    kea: "Dadu `val kompras = mutableListOf(\"arus\", \"fejon\", \"leti\")`, (1) imprimi kada item ku un for-loop, (2) adisiona \"pon\" ku `add`, (3) imprimi `kompras[0]`."
+  hint:
+    kea: "`for (item in kompras) { println(item) }` pa itera; `kompras.add(\"pon\")` pa adisiona; `kompras[0]` pa asesa pa índisi."
+  starterCode: |
+    fun main() {
+        val kompras = mutableListOf("arus", "fejon", "leti")
+        // TODO: itera kompras ku un for-loop, imprimi kada item
+        // TODO: adisiona "pon"
+        // TODO: imprimi kompras[0]
+    }
+  solutionCode: |
+    fun main() {
+        val kompras = mutableListOf("arus", "fejon", "leti")
+        for (item in kompras) {
+            println(item)
+        }
+        kompras.add("pon")
+        println(kompras[0])
+    }
 - slug: preve-map-lookup-ka-existi
   language: kotlin
   kind: predict
@@ -91,6 +116,26 @@
         println(ku18)           // {Kriolu=16, Matemátika=14, Inglés=18}
         println(sénMatemátika)  // {Kriolu=16}
     }
+- slug: itera-map-di-notas
+  language: kotlin
+  kind: code
+  title: { kea: "Itera un Map ku Destruturason" }
+  prompt:
+    kea: "Dadu `val notas = mapOf(\"Kriolu\" to 16, \"Inglés\" to 15)`, uza un for-loop ku destruturason (`(materia, nota)`) pa imprimi kada par na forma \"materia: nota\"."
+  hint:
+    kea: "`for ((materia, nota) in notas) { println(\"$materia: $nota\") }` — destruturason diretu na dos variável dentu di for-loop."
+  starterCode: |
+    fun main() {
+        val notas = mapOf("Kriolu" to 16, "Inglés" to 15)
+        // TODO: for ((materia, nota) in notas) { ... }
+    }
+  solutionCode: |
+    fun main() {
+        val notas = mapOf("Kriolu" to 16, "Inglés" to 15)
+        for ((materia, nota) in notas) {
+            println("$materia: $nota")
+        }
+    }
 - slug: preve-array-tamanhu-fixu
   language: kotlin
   kind: predict
@@ -114,3 +159,24 @@
     3
   why:
     kea: "`Array` ta permiti muda valor pa índisi (`numerus[0] = 100`), ma se **tamanhu ta fixu** — `size` kontinua 3, mesmu dipos di muda un valor."
+- slug: preve-destruturason-triple
+  language: kotlin
+  kind: predict
+  title: { kea: "Preve Destruturason di un Triple" }
+  prompt:
+    kea: "Antis di kore, preve o ki es kódiku ta imprimi."
+  starterCode: |
+    fun main() {
+        val produtu = Triple("Leti", 3, 250.0F)
+        val (nomi, kantidadi, presu) = produtu
+        println("$nomi x$kantidadi: $presu")
+    }
+  options:
+    - "Leti x3: 250.0"
+    - "Erru di kompilasan — Triple ka pode ser destruturadu"
+    - "produtu.first, produtu.second, produtu.third"
+  correct: 0
+  output: |
+    Leti x3: 250.0
+  why:
+    kea: "`val (nomi, kantidadi, presu) = produtu` ta atribui `first`/`second`/`third` di `produtu` diretu na tres variável separadu, na órden."

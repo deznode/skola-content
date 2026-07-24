@@ -27,7 +27,28 @@ Un `enum class` ta defini un lista fixu di valoris konxedu na tempu di konpilaso
 
 Imajina ki bu meste modela tipu di kombustivel di un `Veikulu` (di Lisan 9), i kada tipu ten un autonomia diferenti (kuantu km bu ta kore ku tanki/bateria xeiu):
 
-<CodeExample position={0} />
+```kotlin
+enum class TipuKombustivel(
+    val autonomiaKm: Int
+) {
+    GASOLINA(550),
+    DIESEL(700),
+    ELETRIKU(320)
+}
+
+fun splikaAutonomia(tipu: TipuKombustivel): String {
+    return when (tipu) {
+        TipuKombustivel.GASOLINA -> "Ku tanki xeiu, karu ta kore ${tipu.autonomiaKm} km."
+        TipuKombustivel.DIESEL -> "Ku tanki xeiu, motor diesel ta kore ${tipu.autonomiaKm} km."
+        TipuKombustivel.ELETRIKU -> "Ku bateria xeiu, karu elétriku ta kore ${tipu.autonomiaKm} km."
+    }
+}
+
+fun main() {
+    println(splikaAutonomia(TipuKombustivel.ELETRIKU))
+    // Ku bateria xeiu, karu elétriku ta kore 320 km.
+}
+```
 
 Nunka meste `else` na es `when` — konpiladór sabe ki `TipuKombustivel` só pode ser `GASOLINA`, `DIESEL` ou `ELETRIKU`. Si un dia bu adisiona un kuartu valor (`HIBRIDU`, pur izemplu) i skese di adisiona-l na `when`, konpiladór ta avisa-u na hora — ka na produsan, ku un bug skondidu.
 
@@ -39,9 +60,39 @@ Kada valor (`GASOLINA`, `DIESEL`, `ELETRIKU`) é un **instánsia úniku** di `Ti
 
 `enum` é ideal kuandu tudu opsons ten **mesmu forma** (mesmu propriedadis, só valoris diferenti). Ma si kada opsan meste karega dadus **diferenti** un di otu? Pur izemplu: rezultadu di un tentativa di reserva pode ser un reserva konfirmadu (ku objetu `Reserva` kompletu) ou un kanselamentu (ku só un motivu di testu). Es é un kazu pa `sealed class`.
 
+Imajina un restaurant ku menu fixu (prix fixe): kliente sô pode skodje entri un lista fitxadu di prato — kaldu di peixi, karni gizadu, ou pastel — ka ten manera di pidi un kuartu prato ki ka sta na menu, pamodi lista é konxedu di antimon, tantu pa kusinha kumo pa kliente. `sealed class` ta funsiona parecidu: el ta defini un lista fitxadu di subklasses posível pa `ResultaduReserva` — konpiladór sabe tudu es subklasses di antimon, i nenhun otu subklasi pode aparse dispôs. (Diferensa importanti ku menu di restaurant: un menu pode muda manhan, ma un hierarkia `sealed` sta fitxadu pa **tudu** kel kompilason — adisiona un subklasi nobu sénpri meste editá própi ficheru di `ResultaduReserva`, ou otu ficheru na mesmu módulu, nunka un ficheru ezternu.)
+
 Lembra-bu di `Reserva` (Lisan 9) — un `data class` ku `clienti`, `veikulu` i `dias`. Nu ta uza-l li:
 
-<CodeExample position={1} />
+```kotlin
+// Veikulu (base, Lisan 9), Karu (subklasi), Reserva (data class, Lisan 9)
+data class Reserva(
+    val clienti: String,
+    val veikulu: Veikulu,
+    val dias: Int
+)
+
+sealed class ResultaduReserva {
+    data class Konfirmadu(val reserva: Reserva) : ResultaduReserva()
+    data class Kansela(val motivu: String) : ResultaduReserva()
+}
+
+fun fazeReserva(veikulu: Veikulu, dias: Int, clienti: String): ResultaduReserva {
+    if (dias <= 0) {
+        return ResultaduReserva.Kansela("Número di dias meste ser más ki zeru.")
+    }
+    return ResultaduReserva.Konfirmadu(Reserva(clienti, veikulu, dias))
+}
+
+fun mostraResultadu(resultadu: ResultaduReserva): String {
+    return when (resultadu) {
+        is ResultaduReserva.Konfirmadu ->
+            "Reserva konfirmadu pa ${resultadu.reserva.clienti}, ${resultadu.reserva.dias} dia(s)."
+        is ResultaduReserva.Kansela ->
+            "Reserva kansela: ${resultadu.motivu}"
+    }
+}
+```
 
 Repara na padran: exatamenti sima na `enum`, `when` sobri `resultadu` **ka meste `else`**. Konpiladór sabe ki `ResultaduReserva` só pode ser `Konfirmadu` ou `Kansela` — é mesmu benefísiu di "kazus konxedu antis", só ki gosi kada branch karega dadus diferenti (`resultadu.reserva` vs `resultadu.motivu`), i `when` ta uza `is` pa distingui **tipu**, ka `==` pa kompara **valor**.
 
@@ -75,7 +126,10 @@ Kotlin ten un terseru tipu di klasi spesial: **annotation classes**, sima `@Thro
 
 Bu pode defini un klasi **dentu** di otu klasi pa organiza kódiku ki só ta faze sentidu djuntu. Ma ten dos versons, ku un diferensa importanti: un **nested class** simplis (sen `inner`) **ka pode** asesa propriedadis di klasi paí; un **inner class** (ku palavra-txavi `inner`) **pode**.
 
+Un **nested class** sen `inner` é kumo un ferramenta garda na un armáriu di otu kaza: el ka ten nenhun konexon ku kaza spesífiku — bu ta kria-l diretu pa nomi di klasi paí, sen meste un instánsia di klasi paí primeru. Un **inner class** é diferenti: el ta karega un referénsia pa instánsia spesífiku di klasi paí ki kria-l — parecidu ku un fidju ki sénpri sabe unde si kaza é, i pode uza kuza di kel kaza.
+
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="Nested vs inner — kuza ki muda"
   code={[
@@ -116,11 +170,40 @@ val fatura = agensia.Fatura(reserva)
 println(fatura.imprimi())
 ```
 
+:::callout{type=info title="Si bu kunxe Java"}
+Es diferensa ta parse femiliar si bu dja programa na Java: un nested class sen `inner` ta konporta sima un **static nested class** di Java — el ka karega nenhun referénsia pa instánsia di klasi paí, sima `Regulamentu` li riba. Un `inner class` (ku `inner`) ta konporta sima un **non-static inner class** di Java — el sénpri karega un referénsia implísitu pa instánsia paí ki kria-l, sima `Fatura`. Si bu nunka programa na Java, ka tem problema — analojia li riba é sô un atalhu pa kenha ki dja konxe kel otu lingua; splikason di riba (nested ka pode asesa vs inner pode) ta funsiona sozinha. (Nota tékniku: pamodi un `inner class` ta karega es referénsia, el ta manti instánsia paí "vivu" na memória inkuantu instánsia di inner class ezisti — kuidadu ku isu si bu guarda un `Fatura` pa txeu tenpu.)
+:::
+
 <SectionHeading variant="concept" seq={4}>Singleton: un só instánsia ku `object`</SectionHeading>
 
-Tudu klasses ki nu odja te gosi pode ten vários instánsias (vários `Karu`, vários `Reserva`...). Ma ten kazu ki bu meste garanti ki só **un** instánsia izisti — pur izemplu, un jestor sentral di frota ki tudu kódiku ta partilha. Na Kotlin, palavra-txavi `object` ta troka `class` i ta kria un singleton automátikamenti — sen konstrutor, sen `new`, sen nada.
+Tudu klasses ki nu odja te gosi pode ten vários instánsias (vários `Karu`, vários `Reserva`...). Ma ten kazu ki bu meste garanti ki só **un** instánsia izisti — pur izemplu, un jestor sentral di frota ki tudu kódiku ta partilha.
 
-<CodeExample position={2} />
+Imajina un país ku un sô prezidenti ofisiál: ka inporta kuantu bez bu "pidi" pa fla ku prezidenti, sénpri é MESMU pesoa, mesmu instánsia, nunka un kópia nobu. Es garantia — **un sô instánsia, un sô pontu di aksesu** — é exatamenti propósitu di un padron di dizenhu konxedu na programasan kumo **Singleton**, un di kes padron klásiku katalogadu pa "Gang of Four" (un livru fundamental di dizenhu di software).
+
+Na Kotlin, palavra-txavi `object` ta troka `class` i ta implementa Singleton diretamenti — Kotlin sozin ta garanti ki sô ten un instánsia, kriadu sô un bez, sen konstrutor, sen `new`, sen nada.
+
+```kotlin
+object GestorDiFrota {
+    private val veikulusDisponivel = mutableListOf<Veikulu>()
+
+    fun adisiona(veikulu: Veikulu) {
+        veikulusDisponivel.add(veikulu)
+    }
+
+    fun kontaDisponivel(): Int = veikulusDisponivel.size
+}
+
+fun main() {
+    val karu1 = Karu("ST-45-AB", 4500.0)
+    val karu2 = Karu("ST-12-CD", 3800.0)
+
+    GestorDiFrota.adisiona(karu1)
+    GestorDiFrota.adisiona(karu2)
+
+    println(GestorDiFrota.kontaDisponivel())
+    // 2
+}
+```
 
 Repara ki nu **ka** ta skrebe `GestorDiFrota()` na nenhun lugar — el é própriu klasi ki ta funsiona kumo se úniku instánsia, asesadu diretu pa nomi.
 
@@ -128,9 +211,29 @@ Repara ki nu **ka** ta skrebe `GestorDiFrota()` na nenhun lugar — el é própr
 
 `object` (li riba) ta kria un singleton **independenti** — el ka ta pertense a nenhun otu klasi. Ma txeu bez, bu meste algu parsidu — konstantes ou funsons ki só ta faze sentidu djuntu ku un klasi spesífiku (`Veikulu`, pur izemplu) — sen meste kria un instánsia di `Veikulu` só pa asesa-s. Pa kel, Kotlin ta da **companion object**: un `object` definidu **dentu** di un klasi.
 
-<CodeExample position={3} />
+```kotlin
+class Veikulu(val matrikula: String, var presuPerDia: Double) {
+    companion object {
+        const val TAXA_MINIMA_PERDIA = 500.0
 
-Nota kumo bu ta asesa `TAXA_MINIMA_PERDIA` i `ehPresuValidu` diretu pa `Veikulu.`, sen nunka kria un `Veikulu(...)`.
+        fun ehPresuValidu(presu: Double): Boolean {
+            return presu >= TAXA_MINIMA_PERDIA
+        }
+    }
+}
+
+fun main() {
+    println(Veikulu.TAXA_MINIMA_PERDIA)      // 500.0
+    println(Veikulu.ehPresuValidu(300.0))    // false
+    println(Veikulu.ehPresuValidu(800.0))    // true
+}
+```
+
+Nota kumo bu ta asesa `TAXA_MINIMA_PERDIA` i `ehPresuValidu` diretu pa `Veikulu.`, sen nunka kria un `Veikulu(...)`. `companion object` ta uza mesmu mekanizmu Singleton ki `object` independenti (li riba), ma pa dentu di un klasi.
+
+:::callout{type=warning title="Companion object ka é 'estátiku'"}
+**Kuidadu**: mesmu ki `TAXA_MINIMA_PERDIA` i `ehPresuValidu` ta parse membrus estátiku di otu lingua (sima `static` na Java), es é na verdadi membrus di **instánsia** — instánsia di kel objetu-singleton ki é `companion object` di `Veikulu`. Es pertense a objetu, i **ka** debe ser pensadu kumo "estátiku" na sentidu tradisionál — mesmu ki nu nunka skrebe `Veikulu.Companion()` diretu, kel instánsia izisti di verdadi.
+:::
 
 :::callout{type=info title="`const val` — un konstanti di konpilason"}
 `const val` (uzadu li riba) é un `val` **inda más restritivu**: se valor meste ser konxedu na **tempu di konpilason** (ka pode ser kalkuladu na runtime), i só funsiona ku tipus báziku (`Int`, `Double`, `String`...). Fora di kes limitason, un `const val` dentu di companion object é o kaminhu idiomátiku pa defini konstantes ligadu ku un klasi.
@@ -141,10 +244,10 @@ Un klasi pode ten **un só** companion object, i el ta asesadu pa nomi di klasi 
 :::
 
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -153,7 +256,7 @@ Un klasi pode ten **un só** companion object, i el ta asesadu pa nomi di klasi 
 </QuizSet>
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="enum class" code>kunjuntu fixu di valoris konxedu na konpilason; pode karega dadus via konstrutor; `when` ezaustivu sen `else`.</RezumuItem>
   <RezumuItem term="sealed class" code>hierarkia fitxadu di subklasses (mesmu pakoti); `when` ku `is` tanbe ezaustivu sen `else`.</RezumuItem>
   <RezumuItem>`inner class` pode asesa propriedadis di klasi paí; un nested class simplis (sen `inner`) ka pode.</RezumuItem>
@@ -164,5 +267,5 @@ Un klasi pode ten **un só** companion object, i el ta asesadu pa nomi di klasi 
 </KeyTakeaways>
 
 :::callout{type=info title="Próximu pasus"}
-Parabéns — bu kaba di kumpleta **Introdusan a Kotlin**: di variável i tipus básiku, te klasses, interfaces, enum i sealed classes! Kuze bu ta kria gosi? Uza tudu kel ki bu prende pa konstrui bu própriu proietu pikinoti. Kel ki ta ben dipos, nun futuru kursu **advance-kotlin**, é operasons funsional sobri koleksons (`filter`, `map`, `fold`) i programasan asínkronu ku coroutines i Flow.
+Parabéns — bu kaba di kumpleta **Introdusan a Kotlin**: di variável i tipus básiku, te klasses, interfaces, enum i sealed classes! Kuze bu ta kria gosi? Uza tudu kel ki bu prende pa konstrui bu própriu proietu pikinoti. Kel ki ta ben dipos, nun futuru kursu **advance-kotlin**, é operasons funsional sobri kolesons (`filter`, `map`, `fold`) i programasan asínkronu ku coroutines i Flow.
 :::

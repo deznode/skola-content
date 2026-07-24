@@ -1,8 +1,8 @@
 # Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
 # Flat sibling of the lesson MDX:
-#   topics/intro-kotlin/drafts/lessons/v1-m1-03-booleans-and-null-safety-quiz.yaml
+#   topics/intro-kotlin/drafts/lessons/v1-m1-04-booleans-and-null-safety-quiz.yaml
 # Publish copies it VERBATIM to:
-#   content/courses/intro-kotlin/lessons/03-booleans-and-null-safety/quiz.yaml
+#   content/courses/intro-kotlin/lessons/booleans-and-null-safety/quiz.yaml
 # <Quiz position={n} /> in the lesson MDX selects entries 0-based, in this
 # list's order.
 - question:

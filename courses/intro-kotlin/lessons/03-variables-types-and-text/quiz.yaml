@@ -1,6 +1,6 @@
 # Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
 # Publish copies it VERBATIM to
-# content/courses/intro-kotlin/lessons/02-variables-types-and-text/quiz.yaml
+# content/courses/intro-kotlin/lessons/variables-types-and-text/quiz.yaml
 # Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
 - question:
     kea: "Kual palavra-txavi Kotlin ta uza pa deklara un variavel imutável (ki ka pode muda dipos di kriadu)?"

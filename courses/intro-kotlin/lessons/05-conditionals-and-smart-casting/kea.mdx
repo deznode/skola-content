@@ -18,9 +18,20 @@ Kada dia, nu ta toma desizan baziadu na kondisons: si sta txobe, nu ta leba gard
 
 <SectionHeading variant="concept" seq={1}>`if`/`else` Kumo Statement</SectionHeading>
 
-Estrutura `if` ta verifika un kondisan Boolean. Si kondisan é `true`, Kotlin ta izekuta bloku di kódiku dentu di `if`; si é `false`, el ta pula pa `else` (kuandu presenti).
+Imajina bu ta anda i bu txiga na un **garfu di kaminhu** (fork in the road): un ladu ta sigi pa un direson, otu ladu pa otu. Bu ka pode sigi tudu dos kaminhu na mesmu tenpu — bu tem ki skodje sô un.
 
-<CodeExample position={0} />
+Estrutura `if` ta funsiona di mesmu manera: el ta verifika un kondisan Boolean i, na kel garfu, ta skodje kual bloku di kódiku ta sigi. Si kondisan é `true`, Kotlin ta izekuta bloku dentu di `if`; si é `false`, el ta pula pa `else` (kuandu presenti). Sô un kaminhu ta sigidu — nunka dos na mesmu tenpu.
+
+```kotlin
+fun main() {
+    val deveresTaPronto = true
+    if (deveresTaPronto) {
+        println("Telma pode bai praia")
+    } else {
+        println("Telma meste kaba se deveris primeru")
+    }
+}
+```
 
 Si bloku só ten un statement, bu pode dexa xaves (`{}`) di ladu — ma mante-s ta djuda leitura kuandu lójika ta kresi.
 
@@ -28,7 +39,18 @@ Si bloku só ten un statement, bu pode dexa xaves (`{}`) di ladu — ma mante-s 
 
 Diferenti di txeu otu linguajen, `if`/`else` na Kotlin tanbe pode ser uzadu kumo **expresan** — kel é, el pode devolve un valor ki bu atribui direto pa un variavel. Valor devolvidu é últimu expresan di kada bloku skodjidu.
 
-<CodeExample position={1} />
+```kotlin
+fun main() {
+    val eKlientiFiel = true
+    val diskontu: Double =
+        if (eKlientiFiel) {
+            15.0
+        } else {
+            0.0
+        }
+    println("Diskontu di Zeca: $diskontu%")
+}
+```
 
 Si kada bloku só ten un valor, bu pode skrebe tudu na un linha só, sen xaves:
 
@@ -42,9 +64,23 @@ Uza `if`/`else` kumo statement kuandu bu só meste **izekuta** kódiku (imprimi,
 
 <SectionHeading variant="concept" seq={3}>`if`-`else`-`if`: Sekuénsia di Kondisons</SectionHeading>
 
-Kuandu bu ten más di dos kaminhu posível, bu pode enkadea vários bloku `if`-`else`. Kotlin ta verifika kada kondisan di riba pa baxu i ta izekuta primeru kondisan ki é `true`.
+Kuandu bu ten más di dos kaminhu posível — kel é, más di un garfu na sekuénsia — bu pode enkadea vários bloku `if`-`else`. Kotlin ta verifika kada kondisan di riba pa baxu i ta izekuta primeru kondisan ki é `true`.
 
-<CodeExample position={2} />
+```kotlin
+fun main() {
+    println("Zeca ta verifika previzon di txuba")
+    val probabilidadi = 70
+    if (probabilidadi <= 40) {
+        println("Ka é probabli")
+    } else if (probabilidadi <= 80) {
+        println("Probabli")
+    } else if (probabilidadi < 100) {
+        println("Sertu")
+    } else {
+        println("Sertu di sertu")
+    }
+}
+```
 
 `if`-`else`-`if` é un padran popular na txeu linguajen di programasan, ma Kotlin ten un alternativa más adekuadu pa múltiplu kondisons: `when`.
 
@@ -56,7 +92,18 @@ Kuandu bu ten más di dos kaminhu posível, bu pode enkadea vários bloku `if`-`
 
 Na se forma más simplis, `when` sen argumentu ta funsiona igual ki `if`-`else`-`if` — kada branch ten se própi kondisan, i primeru ki é `true` ta izekuta.
 
-<CodeExample position={3} />
+```kotlin
+fun main() {
+    println("Zeca ta verifika previzon di txuba")
+    val probabilidadi = 70
+    when {
+        probabilidadi <= 40 -> println("Ka é probabli")
+        probabilidadi <= 80 -> println("Probabli")
+        probabilidadi < 100 -> println("Sertu")
+        else -> println("Sertu di sertu")
+    }
+}
+```
 
 Nota kumo es kódiku ta faze exatamenti mesmu kuza ki izemplu di `if`-`else`-`if` di riba, ma ku menus repetisan di `if`/`else if`.
 
@@ -64,7 +111,18 @@ Nota kumo es kódiku ta faze exatamenti mesmu kuza ki izemplu di `if`-`else`-`if
 
 Sima `if`/`else`, `when` tanbe pode ser uzadu kumo expresan pa devolve un valor.
 
-<CodeExample position={4} />
+```kotlin
+fun main() {
+    val probabilidadi = 70
+    val previzon = when {
+        probabilidadi <= 40 -> "Ka é probabli"
+        probabilidadi <= 80 -> "Probabli"
+        probabilidadi < 100 -> "Sertu"
+        else -> "Sertu di sertu"
+    }
+    println(previzon)
+}
+```
 
 :::callout{type=warning}
 Kuandu `when` ta uzadu kumo **expresan**, el senpri meste un branch `else` — mesmu ki tudu kazu posível dja sta kubridu — pamodi Kotlin (di forma jeral) ka pode garanti ki bu kubri tudu kazu. Más tardi, kuandu bu prende `enum class` i `sealed class`, bu ta odja kumo Kotlin **pode** garanti ki tudu kazu sta kubridu, sen mester di `else`, pamodi kel tipus ten un kantidadi FIXU i konxedu di valoris posível.
@@ -74,7 +132,16 @@ Kuandu `when` ta uzadu kumo **expresan**, el senpri meste un branch `else` — m
 
 Bu tanbe pode pui un valor entri paréntesis dipos di `when`. Kada branch kompara kel valor ku un ou más valor spesífiku.
 
-<CodeExample position={5} />
+```kotlin
+fun main() {
+    val resultadu = 4 // Telma ta lansa un dadu
+    when (resultadu) {
+        1 -> println("Telma ka konsigi nada")
+        2, 3, 4, 5 -> println("Telma ganha $resultadu puntu")
+        6 -> println("Telma faze un golpi krítiku!")
+    }
+}
+```
 
 `2, 3, 4, 5` na un só branch é un manera kurtu di skrebe "si valor é 2 OU 3 OU 4 OU 5". Nota tanbe ki es izemplu é un **statement**, i pur isu el ka meste `else` — si `resultadu` ka bati ku nenhun branch, sinplismenti nada ka ta kontise.
 
@@ -82,7 +149,18 @@ Bu tanbe pode pui un valor entri paréntesis dipos di `when`. Kada branch kompar
 
 Kuandu bu meste verifika si un valor sta DENTU di un range (en bez di lista-l valor-pa-valor), uza `in` junto ku un range (`a..b`).
 
-<CodeExample position={6} />
+```kotlin
+fun main() {
+    val resultadu = 4 // Telma ta lansa un dadu
+    val mensaji = when (resultadu) {
+        1 -> "Telma ka konsigi nada"
+        in 2..5 -> "Telma ganha $resultadu puntu"
+        6 -> "Telma faze un golpi krítiku!"
+        else -> "Rezultadu inválidu"
+    }
+    println(mensaji)
+}
+```
 
 `in 2..5` ta verifika si `resultadu` sta entri 2 i 5, inkluzivu — mesmu efeitu ki `2, 3, 4, 5`, ma más kurtu i más lejível kuandu range é grandi.
 
@@ -117,13 +195,30 @@ fun main() {
 
 Verifikasan di tipu ku `is` é un padran mutu popular kumo branch dentu di un `when` ku valor — es é forma **`is Tipu ->`**:
 
-<CodeExample position={7} />
+```kotlin
+fun identifikaTipu(valor: Any) {
+    when (valor) {
+        is String -> println("Es é un String")
+        is Int -> println("Es é un Int")
+        is Double -> println("Es é un Double")
+        is Boolean -> println("Es é un Boolean")
+    }
+}
+
+fun main() {
+    identifikaTipu("Kabuverdi")
+    identifikaTipu(123)
+}
+```
 
 <SectionHeading variant="concept" seq={6}>Smart Casting: O Pagamentu Direto di `is`</SectionHeading>
 
-Nota kuza ki kontise dentu di kada branch `is Tipu ->` di riba: Kotlin dja sabe ki `valor` é di kel tipu spesífiku, i bu pode txoma metodus/operasons spesífiku di kel tipu diretamenti, sen bu meste faze un cast manual. Es vantajen ta txomadu **smart casting** (smart-cast): Kotlin ta identifika un tipu más spesífiku pa un variavel dentu di un scope, só kuandu el sabe (ku serteza) ki kel variavel é di kel tipu.
+Na otu linguajen orientadu-a-objetu (pur izemplu, Java), dipos di bu verifika tipu di un objetu (`instanceof`), bu inda meste faze **cast manual** aparti — dos pasu separadu, mesmu ki linguajen dja sabe rezultadu di verifikason.
+
+Nota kuza ki kontise dentu di kada branch `is Tipu ->` di riba: Kotlin dja sabe ki `valor` é di kel tipu spesífiku, i bu pode txoma metodus/operasons spesífiku di kel tipu diretamenti, sen bu meste faze un cast manual. Es vantajen ta txomadu **smart casting** (smart-cast): kompilador di Kotlin ta ralia (rastrea) tudu verifikasan di tipu ki bu faze i ta insere kel cast seguru automatikamenti — Kotlin ta identifika un tipu más spesífiku pa un variavel dentu di un scope, só kuandu el sabe (ku serteza) ki kel variavel é di kel tipu.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   filename="smart-cast.kt"
   title="Smart cast dentu di verifikasan `is`"
@@ -178,10 +273,10 @@ fun imprimeNomi(perfil: Perfil) {
 Gosi bu ta kombina tudu kuzé ki bu prendi — `if`/`else`, `when` na tudu se forma, i smart cast — pa konstrui un programa ki ta klasifika i deskrebe valoris di manera diferenti sigundu tipu ou valor.
 
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -189,7 +284,7 @@ Gosi bu ta kombina tudu kuzé ki bu prendi — `if`/`else`, `when` na tudu se fo
 </QuizSet>
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="if/else" code>pode ser statement (izekuta kódiku) ou expresan (devolve un valor)</RezumuItem>
   <RezumuItem term="when" code>alternativa pa `if`-`else`-`if`, ku 4 forma: sen argumentu, kumo expresan, ku un valor, ku range-check `in`</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">`when` kumo expresan senpri meste `else`, mesmu si tudu kazu parse kubridu.</RezumuItem>

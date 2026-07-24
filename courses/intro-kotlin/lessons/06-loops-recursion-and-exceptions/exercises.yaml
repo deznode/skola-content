@@ -48,6 +48,38 @@
     }
   hint:
     kea: "Loop di fora (`i`) ta kontrola kada fila; loop di dentu (`j`) ta imprimi `i` estrela na kel fila. Pa versan invertidu, troka `for (i in 1..altura)` pa `for (i in altura downTo 1)` — resto di lójika ta mesmu."
+- slug: imprimi-pares-ku-step
+  language: kotlin
+  kind: code
+  title: { kea: "Imprimi pares ku step" }
+  prompt:
+    kea: "Skrebe un funsan `imprimePares(limiti: Int)` ki ta imprimi kada númeru par di `0` te `limiti` (inkluzivu), uzandu un range ku `step 2`."
+  starterCode: |
+    fun imprimePares(limiti: Int) {
+        // TODO: for (i in 0..limiti step 2) { ... }
+    }
+
+    fun main() {
+        imprimePares(10)
+    }
+  solutionCode: |
+    fun imprimePares(limiti: Int) {
+        for (i in 0..limiti step 2) {
+            println(i)
+        }
+    }
+
+    fun main() {
+        imprimePares(10)
+        // 0
+        // 2
+        // 4
+        // 6
+        // 8
+        // 10
+    }
+  hint:
+    kea: "`0..limiti step 2` ta pula di 2 na 2, kumesandu na `0` — kel ta da tudu númeru par te `limiti`."
 - slug: fatorial-rekursivu
   language: kotlin
   kind: code

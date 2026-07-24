@@ -27,7 +27,16 @@ Si bu ben di Python: la, `True` i `False` ta skrebe ku primeru letra maiúskula.
 
 Operadoris di komparasan ta kompara dos valor i ta devolve senpri un `Boolean`: `true` ou `false`.
 
-<CodeExample position={0} />
+```kotlin
+fun main() {
+    println(10 == 10)   // true
+    println(10 != 5)    // true
+    println(10 > 5)     // true
+    println(10 < 5)     // false
+    println(10 >= 10)   // true
+    println(10 <= 9)    // false
+}
+```
 
 `==` ta pergunta "es dos valor é igual?"; `!=` ta pergunta kontráriu. `>`, `<`, `>=` i `<=` ta kompara órden entri valor numériku.
 
@@ -50,13 +59,37 @@ Operadoris lójiku ta kombina vários kondisons Boolean nun só rezultadu.
 
 ### `&&` — AMBOS lado meste ser `true`
 
-<CodeExample position={1} />
+```kotlin
+fun main() {
+    println(true && true)    // true
+    println(true && false)   // false
+    println(false && true)   // false
+    println(false && false)  // false
+
+    val idadi = 20
+    val tenBilheti = true
+    val podeEntra = idadi >= 18 && tenBilheti
+    println(podeEntra)  // true
+}
+```
 
 `&&` só ta devolve `true` kuandu **dos** lado é `true`. Na izemplu di riba, `podeEntra` só é `true` pamodi `idadi >= 18` **i** `tenBilheti` é `true` — falta un só, i rezultadu ta `false`.
 
 ### `||` — só UN lado meste ser `true`
 
-<CodeExample position={2} />
+```kotlin
+fun main() {
+    println(true || true)    // true
+    println(true || false)   // true
+    println(false || true)   // true
+    println(false || false)  // false
+
+    val studanti = false
+    val idosu = true
+    val tenDiskontu = studanti || idosu
+    println(tenDiskontu)  // true
+}
+```
 
 `||` é más flexível: el só ta devolve `false` kuandu **dos** lado é `false`. Na izemplu, `tenDiskontu` é `true` mesmu si `studanti` é `false`, pamodi `idosu` é `true`.
 
@@ -91,6 +124,7 @@ fun main() {
 Kuandu bu kombina `!` ku `&&`/`||` sen paréntesis, é fásil interpreta trotu — `!` só ta nega valor **imediatamenti** dipos di el, ka rezultadu di ekspresan interu.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="Kumo Kotlin ta avalia !menorDiIdadi && tenBilheti"
   code={[
@@ -133,6 +167,7 @@ Kel garantia ta iziste pamodi un `NullPointerException` (NPE) é un di errus má
 />
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="Un tipu nulável, pasu-pa-pasu"
   code={[
@@ -163,6 +198,7 @@ Un tipu nulável (`String?`) **ka é mesmu ki** un valor padron ou opsional. El 
 />
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="`?:` ta trabadja djuntu ku `?.`"
   code={[
@@ -196,6 +232,7 @@ println(apelidu?.uppercase() ?: "SEN APELIDU") // SEN APELIDU
 Bu ja sabe `?.` pa asesa un propriedadi/metodu di manera sigura, i `?:` pa da un valor padron. Ma i si bu meste **faze vários koza** ku un valor só kuandu el ka é `null`? Pa kel, Kotlin ta da `let`, kombinadu ku `?.`.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   title="`?.let { }` — só ta izekuta si valor ka é null"
   code={[
@@ -233,10 +270,10 @@ println(kodigu?.length)      // null — TEN ki verifika antis di uza
 Gosi ki bu sabe kombina kondisons ku operadoris di komparasan i lójiku, i trata `null` di manera sigura, bu sta pronto pa kontrola fluxu di bu programa ku `if` i `when`.
 
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -246,7 +283,7 @@ Gosi ki bu sabe kombina kondisons ku operadoris di komparasan i lójiku, i trata
 </QuizSet>
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="Komparasan" code>`==`, `!=`, `<`, `>`, `<=`, `>=` ta devolve senpri `true`/`false`</RezumuItem>
   <RezumuItem term="&&" code>Só `true` si AMBOS lado é `true`</RezumuItem>
   <RezumuItem term="||" code>`true` si pelo menus UN lado é `true`</RezumuItem>

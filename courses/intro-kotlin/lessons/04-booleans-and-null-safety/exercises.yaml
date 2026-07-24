@@ -1,8 +1,8 @@
 # Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
 # Flat sibling of the lesson MDX:
-#   topics/intro-kotlin/drafts/lessons/v1-m1-03-booleans-and-null-safety-exercises.yaml
+#   topics/intro-kotlin/drafts/lessons/v1-m1-04-booleans-and-null-safety-exercises.yaml
 # Publish RESOLVES this into:
-#   content/courses/intro-kotlin/lessons/03-booleans-and-null-safety/exercises.yaml
+#   content/courses/intro-kotlin/lessons/booleans-and-null-safety/exercises.yaml
 # <TentaGosi /> renders these in display order.
 #
 # NOTE on `koriji-true-false`: this is an AUTHENTIC bug reproduced from the

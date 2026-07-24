@@ -4,7 +4,7 @@
 # <TentaGosi /> renders these in display order; slugs are stable completed_exercises FKs.
 #
 # Domain: "Aluguer di Veikulu" (Veikulu base: matrikula/presuPerDia; Karu subclass;
-# Reserva data class: klienti/veikulu/dias) — same as the lesson's code-examples.yaml.
+# Reserva data class: klienti/veikulu/dias) — same as the lesson's kea.mdx.
 
 - slug: kria-subklasse-furgoneta
   language: kotlin

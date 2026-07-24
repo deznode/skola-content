@@ -8,6 +8,21 @@ draft changes since the previous publish (source of truth: `topics/intro-kotlin/
 trace_id `Skola-course-intro-kotlin-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-23] — publish
+
+### Changed
+- Retrofitted lesson metaphors to the ADR-0034 standard cast (Telma/Zeca/Sara/Nando) across all 11 lessons
+- Added `chrome="inline"` to the lesson component trio and glossary-wrapped L1 jargon terms
+- Inlined code examples and recalibrated the 6 lesson infographics (source text/wiring; image assets already synced by the 2026-07-19 hand-edit below)
+
+### Fixed
+- Module 4 slug/title corrected `koleksons` → `kolesons` (ALUPEC spelling)
+- Closed M2/M4 traceability gaps flagged by the pedagogy-review pass (added missing exercises)
+- Fixed 3 competing metaphors flagged in the Gate 10 pedagogy review
+- Fixed stale IntelliJ edition references and a duplicated L1 header
+- Fixed `reais` → `real` PT-plural leak (real stays invariant for plurals)
+- Kriolu fixes: course title, `-saun` → `-san`, `seguru`, dropped an orphan `pt` file
+
 ## [2026-07-19] — hand-edit (infographic refresh)
 
 ### Changed

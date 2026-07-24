@@ -2,7 +2,7 @@
 # Flat sibling of the lesson MDX:
 #   topics/intro-kotlin/drafts/lessons/v1-m2-05-conditionals-and-smart-casting-quiz.yaml
 # Publish copies it VERBATIM to:
-#   content/courses/intro-kotlin/lessons/04-conditionals-and-smart-casting/quiz.yaml
+#   content/courses/intro-kotlin/lessons/05-conditionals-and-smart-casting/quiz.yaml
 # <Quiz position={n} /> in the lesson MDX selects entries 0-based, in this
 # list's order.
 - question:

@@ -1,6 +1,6 @@
 # Quiz sidecar (draft source) — ADR-0026 / spec 049 FR-006.
 # Publish copies it VERBATIM to
-# content/courses/intro-kotlin/lessons/07-collections-list-set-map-pair-triple/quiz.yaml
+# content/courses/intro-kotlin/lessons/08-collections-list-set-map-pair-triple/quiz.yaml
 # Position (0-based) maps to <Quiz position={n} /> inside <QuizSet> in the lesson MDX.
 - question:
     kea: "Bu meste guarda un lista di item pa kumpra unde órden importa i mesmu item pode aparese más di un bez. Kual tipu di kolesan é midjor?"
@@ -91,4 +91,18 @@
     - text: { kea: "`Array` so pode guarda `Int`; `List` pode guarda kualker tipu" }
       correct: false
     - text: { kea: "Ka ten diferensa — es dos é mesmu tipu ku nomi diferenti" }
+      correct: false
+
+- question:
+    kea: "Dadu `val ilhas = setOf(\"Sal\", \"Boavista\")`, o ki `(ilhas + \"Sal\").size` ta debolve?"
+  options:
+    - text: { kea: "`2` — \"Sal\" dja sta la, `+` ka ta duplika-l" }
+      correct: true
+      explain:
+        kea: "`+` riba di un `Set` ta respeita únisidadi: si elementu adisionadu dja sta la, `Set` novu ka ta duplika-l — `size` fika `2`."
+    - text: { kea: "`3` — `+` sénpri ta adisiona, mesmu si elementu dja sta la" }
+      correct: false
+      explain:
+        kea: "Kel é kumo `+` ta funsiona riba di un `List`, ka riba di un `Set` — `Set` ta garanti únisidadi mesmu dipos di `+`."
+    - text: { kea: "Erru di kompilasan" }
       correct: false

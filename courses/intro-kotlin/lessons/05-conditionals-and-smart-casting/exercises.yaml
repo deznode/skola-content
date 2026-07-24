@@ -1,6 +1,8 @@
 # Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
 # Flat sibling of the lesson MDX:
 #   topics/intro-kotlin/drafts/lessons/v1-m2-05-conditionals-and-smart-casting-exercises.yaml
+# Publish RESOLVES this into:
+#   content/courses/intro-kotlin/lessons/05-conditionals-and-smart-casting/exercises.yaml
 # <TentaGosi /> renders these in display order; slugs are stable completed_exercises FKs.
 
 - slug: klasifika-nota

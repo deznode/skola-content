@@ -1,6 +1,6 @@
 # Exercises sidecar (draft source) — ADR-0026 / spec 049 FR-006 + FR-007.
 # Publish copies (resolving any starterFrom/solutionFrom) to
-# content/courses/intro-kotlin/lessons/02-variables-types-and-text/exercises.yaml
+# content/courses/intro-kotlin/lessons/variables-types-and-text/exercises.yaml
 # <TentaGosi/> renders these in display order.
 - slug: kria-karton-di-perfil
   language: kotlin

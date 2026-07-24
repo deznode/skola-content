@@ -40,9 +40,9 @@ modules:
     lessons:
       - slug: functions-arguments-and-scope
         languages: [kea]
-  - slug: koleksons
+  - slug: kolesons
     title:
-      kea: "Koleksons"
+      kea: "Kolesons"
     lessons:
       - slug: collections-list-set-map-pair-triple
         languages: [kea]

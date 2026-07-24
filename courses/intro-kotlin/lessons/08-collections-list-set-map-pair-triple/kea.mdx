@@ -23,9 +23,20 @@ Kada tipu di kolesan ta rezolve un problema diferenti: **órden** (`List`), **ú
 
 **`List`** ta rapresenta un lista ordenadu di elementu. Se órden ta fikadu, i mesmu elementu pode aparese más di un bez. Bu ta uza `List` kuandu órden importa — sima un lista di kompras ou un playlist di múzika.
 
+Imajina un estanti di livru, ku prateladu numeradu di 0 pa riba: kada livru ten se própriu lugar, i bu ta atxa-l dretu si bu sabe se númeru di prateladu (índisi). Bu pode adisiona más livru, tra un fora, ou muda un di lugar, ma órden ta fika — prateladu 0 sénpri ta bin antis di prateladu 1. `List` ta funsiona di mesmu manera: kada elementu ta guardadu na se própriu índisi, kumesa di zero.
+
 Pa kria un `List`, uza funsan **`listOf`**:
 
-<CodeExample position={0} />
+```kotlin
+fun main() {
+    val kompras = listOf("arus", "fejon", "leti", "arus")
+
+    println(kompras)          // [arus, fejon, leti, arus]
+    println(kompras[0])       // arus
+    println(kompras[2])       // leti
+    println(kompras.size)     // 4
+}
+```
 
 Tipu di rezultadu é **`List<T>`**, unde `T` é tipu di elementu — na izemplu di riba, `List<String>`. Bu ta asesa un elementu pa se índisi ku kolxetis `[]` (primeru índisi é `0`), i bu ta ler total di elementu ku propriedadi `size`.
 
@@ -33,7 +44,16 @@ Tipu di rezultadu é **`List<T>`**, unde `T` é tipu di elementu — na izemplu 
 
 Uza `contains` ou operador `in` pa verifika si un elementu sta dentu di lista:
 
-<CodeExample position={1} />
+```kotlin
+fun main() {
+    val kompras = listOf("arus", "fejon", "leti", "pon")
+
+    println(kompras.contains("fejon"))    // true
+    println(kompras.contains("asukra"))   // false
+    println("pon" in kompras)             // true
+    println("asukra" !in kompras)         // true
+}
+```
 
 `!in` ta verifika kontráriu — si elementu **ka** sta dentu.
 
@@ -41,7 +61,24 @@ Uza `contains` ou operador `in` pa verifika si un elementu sta dentu di lista:
 
 Pa pasa pa tudu elementu di un lista, uza un `for`-loop. I si bu meste adisiona ou tira elementu dipos di kriason, uza **`mutableListOf`** en bez di `listOf` — rezultadu é un `MutableList` ku metodu sima `add`, `remove` i asinason pa índisi:
 
-<CodeExample position={2} />
+```kotlin
+fun main() {
+    val kompras = listOf("arus", "fejon", "leti")
+    for (item in kompras) {
+        println("Meste kumpra: $item")
+    }
+
+    val listaMutável = mutableListOf("arus", "fejon")
+    listaMutável.add("pon")
+    println(listaMutável)              // [arus, fejon, pon]
+
+    listaMutável[0] = "arus integral"
+    println(listaMutável)              // [arus integral, fejon, pon]
+
+    listaMutável.remove("fejon")
+    println(listaMutável)              // [arus integral, pon]
+}
+```
 
 :::callout{type=tip}
 `val kompras = mutableListOf(...)` ka é kontraditóriu: `val` ta garanti ki `kompras` sénpri ta apunta pa **mesmu** `MutableList` — el ka pode resebe un lista diferenti dipos. Ma **konteúdu** di kel lista pode muda (`add`/`remove`/`[i] = ...`), pamodi kel é própriu ideia di `MutableList`.
@@ -88,11 +125,20 @@ Na prátika Kotlin, `List`/`MutableList` é kuazi sénpri skoja midjor — el é
 
 <SectionHeading variant="concept" seq={2}>Set: Únisidadi Garantidu</SectionHeading>
 
-**`Set`** é parsidu ku `List`, ma ku un diferensa fundamental: **se elementu ten ki ser úniku**. Si bu tenta adisiona un elementu ki dja sta la, Kotlin só ta ignora-l — sen erru.
+Imajina númerus di un bilheti di lotaria: kada númeru sô ta aparse un bez — ka ten repetisan — i órden ki es sta skrebedu ka importa pa verifika si bu grava. Kel é izatamenti abstrasan matemátiku di **set** (konjuntu): un grupu di elementu úniku, sen repetisan, unde órden jeralmenti ka ten signifikadu.
+
+**`Set`** ta iplementa kel mesmu ideia — é parsidu ku `List`, ma ku un diferensa fundamental: **se elementu ten ki ser úniku**. Si bu tenta adisiona un elementu ki dja sta la, Kotlin só ta ignora-l — sen erru.
 
 Pa kria un `Set`, uza funsan **`setOf`**:
 
-<CodeExample position={3} />
+```kotlin
+fun main() {
+    val ilhas = setOf("Sal", "Santiago", "Fogo", "Sal")
+
+    println(ilhas)          // [Sal, Santiago, Fogo]
+    println(ilhas.size)     // 3 -- "Sal" repetidu ka ta konta dos bez
+}
+```
 
 Tipu di rezultadu é **`Set<T>`**. Nota ki `Set` **ka ta garanti órden** — diferenti di `List` — i pamodi kel, bu **ka pode** asesa elementu pa índisi (`ilhas[0]` ka ta kompila pa un `Set`).
 
@@ -100,13 +146,23 @@ Tipu di rezultadu é **`Set<T>`**. Nota ki `Set` **ka ta garanti órden** — di
 
 Mesmu padron di `List`: uza `contains` ou `in`.
 
-<CodeExample position={4} />
+```kotlin
+fun main() {
+    val ilhas = setOf("Sal", "Santiago", "Fogo")
+
+    println(ilhas.contains("Fogo"))    // true
+    println(ilhas.contains("Brava"))   // false
+    println("Sal" in ilhas)            // true
+    println("Brava" !in ilhas)         // true
+}
+```
 
 ### Únisidadi i Igualdadi
 
 Kumo ki Kotlin disidi si dos elementu é "mesmu valor", pa disidi si un é duplikadu? El ta uza igualdadi (`==`). Pa **klasis normal**, igualdadi é di **referénsia** — dos objetu só é igual si é **literalmenti mesmu objetu na memória**. Pa un **`data class`** (nu ta odja-l ku más detalhi na Módulu 5), igualdadi é **estrutural** — dos objetu ku mesmu valor é igual, mesmu ki es é dos objetu diferenti.
 
 <AnnotatedCode
+  chrome="inline"
   lang="kotlin"
   filename="Igualdadi.kt"
   title="Klasi normal vs data class dentu di un Set"
@@ -133,7 +189,17 @@ Kumo ki Kotlin disidi si dos elementu é "mesmu valor", pa disidi si un é dupli
 
 Sima `List`, `Set` tanbe ten se versan mutável — **`mutableSetOf`**:
 
-<CodeExample position={5} />
+```kotlin
+fun main() {
+    val ilhasVizitadu = mutableSetOf("Sal", "Santiago")
+    ilhasVizitadu.add("Fogo")
+    ilhasVizitadu.add("Sal")          // ka ta muda nada -- "Sal" ja sta la
+    println(ilhasVizitadu)            // [Sal, Santiago, Fogo]
+
+    ilhasVizitadu.remove("Santiago")
+    println(ilhasVizitadu)            // [Sal, Fogo]
+}
+```
 
 `+` tanbe funsiona pa `Set` — mesmu padran di `List` (kria un `Set` novu, sen muda kel orijinal), ma **ta respeita únisidadi**: si elementu adisionadu dja sta la, `Set` novu ka ta duplika-l.
 
@@ -147,11 +213,19 @@ fun main() {
 
 <SectionHeading variant="concept" seq={3}>Map: Par Txavi-Valor</SectionHeading>
 
-**`Map`** ta rapresenta un kolesan di **par txavi-valor** (*key-value*): kada **txavi** (`key`) ta liga ku ezatamenti un **valor** (`value`). Txavi ten ki ser úniku, ma valor pode ripiti. Bu ta uza `Map` kuandu bu meste liga dos informasan — sima nomi di disiplina ku nota.
+Imajina un livru di kontatus: bu ta prokura nomi di un pesoa i atxa se númeru di telefoni dretu, sen bu meste pasa página pa página até atxa-l. **`Map`** ta funsiona di mesmu manera: é un kolesan di **par txavi-valor** (*key-value*) — bu da un **txavi** (`key`), kumo un nomi, i el ta debolve **valor** (`value`) korespondenti, kumo un númeru di telefoni. Txavi ten ki ser úniku, ma valor pode ripiti. Bu ta uza `Map` kuandu bu meste liga dos informasan — sima nomi di disiplina ku nota.
 
 Pa kria un `Map`, uza funsan **`mapOf`** ku infix **`to`** pa kada par:
 
-<CodeExample position={6} />
+```kotlin
+fun main() {
+    val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
+
+    println(notas)                  // {Matemátika=18, Kriolu=16, Inglés=15}
+    println(notas["Kriolu"])        // 16
+    println(notas["Fransés"])       // null -- "Fransés" ka sta na map
+}
+```
 
 Tipu di rezultadu é **`Map<K, V>`**. Nota ki buska un valor pa un txavi ku `[]` ta debolve un tipu **nulável** (`Int?` na es izemplu) — si txavi ka izisti, rezultadu é `null`.
 
@@ -173,13 +247,37 @@ Diferenti di `List`/`Set` (`contains`), buska un valor na `Map` ku `notas["Frans
 
 Pa itera un `Map`, bu ta pasa pa se pares na un `for`-loop, i Kotlin ta permiti **destruturason** diretu na dos variável (`txavi`, `valor`). Bu tanbe pode verifika si un txavi ou un valor spesífiku sta dentu di `Map`, ku `containsKey` i `containsValue`:
 
-<CodeExample position={7} />
+```kotlin
+fun main() {
+    val notas = mapOf("Matemátika" to 18, "Kriolu" to 16, "Inglés" to 15)
+
+    for ((materia, nota) in notas) {
+        println("$materia: $nota")
+    }
+
+    println(notas.containsKey("Kriolu"))     // true
+    println(notas.containsKey("Fransés"))    // false
+    println(notas.containsValue(15))         // true
+}
+```
 
 ### Map Mutável
 
 Sima `List`/`Set`, `Map` tanbe ten se versan mutável — **`mutableMapOf`**. Bu pode adisiona un par ku `[]` ou ku `put`, i tira un par ku `remove`:
 
-<CodeExample position={8} />
+```kotlin
+fun main() {
+    val notas = mutableMapOf("Matemátika" to 18, "Kriolu" to 16)
+
+    notas["Inglés"] = 15          // adisiona un novu par
+    notas.put("Istória", 17)      // otu manera di adisiona
+
+    println(notas)                // {Matemátika=18, Kriolu=16, Inglés=15, Istória=17}
+
+    notas.remove("Kriolu")
+    println(notas)                // {Matemátika=18, Inglés=15, Istória=17}
+}
+```
 
 Pa un `Map` imutável, `+` ta adisiona (ou sobreskrebe) un par i kria un `Map` **novu**; `-` ta tira un txavi, i tanbe kria un `Map` novu:
 
@@ -203,7 +301,29 @@ Kuandu bu só meste guarda **dos** ou **tres** valor djuntu — sen presiza defi
 
 Ambos pode ser **destruturadu** diretu na variável separadu:
 
-<CodeExample position={9} />
+```kotlin
+fun main() {
+    val koordenada = Pair(14.9, "Praia")
+    println(koordenada.first)     // 14.9
+    println(koordenada.second)    // Praia
+
+    val (latitudi, sidadi) = koordenada
+    println(latitudi)             // 14.9
+    println(sidadi)               // Praia
+
+    val koordenadaTo = 14.9 to "Praia"   // 'to' tanbe ta kria un Pair
+    println(koordenadaTo == koordenada)  // true
+
+    val produtu = Triple("Arus", 5, 450.0F)
+    println(produtu.first)        // Arus
+    println(produtu.second)       // 5
+    println(produtu.third)        // 450.0
+
+    val (nomi, kantidadi, presu) = produtu
+    // presu é di tipu Float -- ka Double, pamodi el foi kriadu ku sufixu F
+    println("$nomi: $kantidadi unidadi, $presu ECV")
+}
+```
 
 :::callout{type=tip}
 `Pair` i `Triple` é bon pa un rezultadu rápidu i lokal — sima un funsan ki debolve dos valor djuntu. Kuandu bu meste más di tres valor, ou kuandu bu meste nomi klaru pa kada propriedadi, un `data class` (Módulu 5) é midjor skoja.
@@ -230,13 +350,15 @@ Kual `List`, `Set` ou `Map` skodje pa un problema? Kompara-s pa se karakterísti
   ]}
 />
 
+Kada bez ki bu meste guarda i organiza dadus di bu própriu programa — un lista di produtu, un konjuntu di utilizador úniku, ou un diksionáriu di konfigurason — es kuatru strutura (`List`, `Set`, `Map`, `Pair`/`Triple`) ta ser sénpri bu purmeru skoja.
+
 Gosi é bu bez: nu ta pratika kriason di `List`, `Set` i `Map`, i koriji un erru kumun di variável ka deklaradu.
 
 <SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi chrome="inline" showHeader={false} />
 
 <SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet chrome="inline" showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -244,10 +366,11 @@ Gosi é bu bez: nu ta pratika kriason di `List`, `Set` i `Map`, i koriji un erru
   <Quiz position={4} />
   <Quiz position={5} />
   <Quiz position={6} />
+  <Quiz position={7} />
 </QuizSet>
 
 <SectionHeading variant="summary">Pa lembra</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways chrome="inline" showHeader={false}>
   <RezumuItem term="List" code>ordenadu, permiti elementu repetidu, asesu pa índisi (`lista[0]`)</RezumuItem>
   <RezumuItem term="Set" code>elementu úniku garantidu, ka permiti asesu pa índisi</RezumuItem>
   <RezumuItem term="Map" code>par txavi-valor (`txavi to valor`), buska pa txavi ku `[]`</RezumuItem>
