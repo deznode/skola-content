@@ -103,6 +103,9 @@ modules:
       - slug: key-takeaways
         languages: [kea]
         content_type: TEXT
+      - slug: list-treatments
+        languages: [kea]
+        content_type: TEXT
   - slug: media-callouts
     title:
       kea: "Média i Callouts"

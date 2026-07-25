@@ -11,6 +11,15 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-07-25]
+
+### Added
+- M5 `inline-reference` module gains `22-list-treatments`, exercising the
+  spec-081 `List` component's five variants (`marker`, `numbered`, `terms`,
+  `check`, `tokens`) plus `accent`/`density`/`start`. Gives the
+  registry-completeness backstop + parity-drift-gate a render surface for
+  `List` (parity-safe — not the L04 fixture the gate compares).
+
 ## [2026-06-30]
 
 ### Added

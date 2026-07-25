@@ -1,0 +1,77 @@
+---
+title: "List — Sinku Tratamentu di Lista"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: list-treatments
+slug: "list-treatments"
+module: 5
+lesson: 4
+duration: "8 min"
+objectives:
+  - "Testa List ku tudu sinku variant: marker, numbered, terms, check, tokens"
+  - "Testa accent blue/yellow, density compact, i start pa kontinua un sekuénsia"
+---
+
+## List — o padron marker (bare markdown)
+
+Kualker lista markdown simpli (`-` ô `1.`) já ta renderiza através di
+`<List>` sen nenhun mudansa na autoria — es é o variant `marker` pa defeitu.
+
+- Un `int` ta gualda un númeru interu.
+- Un `str` ta gualda un kadeia di karateris.
+- Un `bool` ta gualda `True` ô `False`.
+
+## List — variant numbered
+
+Kuandu ordem ta importa (pasus, sekuénsia di avaliason), uza `variant="numbered"`.
+
+<List variant="numbered" accent="blue">
+- El ta avalia kada argumentu, di sker pa dreta.
+- El ta kria un *frame* nobu na stack.
+- El ta izekuta o kórpu di funsan.
+</List>
+
+Kódigu ki ta ilustra kes pasu:
+
+```python
+def soma(a, b):
+    return a + b
+```
+
+Pa kontinua e mésmu sekuénsia dipôs di un bloku di kódigu, uza `start`:
+
+<List variant="numbered" accent="blue" start={4}>
+- El ta debolve o rezultadu pa txamador.
+- El ta libra o *frame* di stack.
+</List>
+
+## List — variant terms
+
+Pa 3 ô más par di termu/definison, uza `variant="terms"`.
+
+<List variant="terms">
+- `sep` — ki ta ben entri kada valor.
+- **Flexbox** — layout na un dimensãu.
+- `termWidth` — larga di kolunas di termu, en pixel.
+</List>
+
+## List — variant check
+
+Pa un par di korretu/inkorretu, uza `variant="check"`.
+
+<List variant="check">
+- ✓ Uza nomis deskritivu pa variável.
+- ✗ Uza `x`, `y`, `tmp` pa dadus importanti.
+</List>
+
+## List — variant tokens, density compact
+
+Pa un konjuntu di palavra kurtu sen splikason, uza `variant="tokens"` ku
+`density="compact"` pa un layout más apertadu.
+
+<List variant="tokens" density="compact">
+- GET
+- POST
+- PUT
+- DELETE
+</List>
