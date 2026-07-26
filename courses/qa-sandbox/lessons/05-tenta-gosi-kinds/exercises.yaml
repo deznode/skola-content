@@ -63,8 +63,8 @@
 - slug: tgk-predict-slice
   language: python
   kind: predict
-  title: { kea: "Prevê o slice" }
-  prompt: { kea: "Antis di kontinua, **prevê** o ki es kódiku ta imprimi." }
+  title: { kea: "Preve o slice" }
+  prompt: { kea: "Antis di kontinua, **preve** o ki es kódiku ta imprimi." }
   starterCode: |
     palavra = "Kabuverdi"
     print(palavra[0:3])
@@ -96,14 +96,14 @@
   hints:
     kea:
       - { tier: "Konseitu", body: "O eru ta na o **nomi** di un variável." }
-      - { tier: "Undi", body: "Repara na a **última** linha, dentu di `len(...)`." }
+      - { tier: "Unde", body: "Repara na a **última** linha, dentu di `len(...)`." }
       - { tier: "Spesifiku", body: "`nota` ka existi — é `notas`." }
 
 - slug: tgk-reflect-splika
   language: python
   kind: reflect
   title: { kea: "Splika ku bo palavras" }
-  prompt: { kea: "Pamodi ki es funsan ta uza un dicionáriu en ves di kontá un-pa-un?" }
+  prompt: { kea: "Pamodi ki es funsan ta uza un disionáriu en bez di kontá un-pa-un?" }
   code: |
     def konta(palavra):
         d = {}
@@ -115,7 +115,7 @@
     kea:
       - "`d.get(c, 0)` ta evita verifika si a txave ja existi."
       - "Un só passada pa tudu os letra — más rápidu ki kontá un-pa-un."
-      - "O dicionáriu ta gualda kada letra ku o se kontaxen."
+      - "O disionáriu ta gualda kada letra ku o se kontaxen."
 
 - slug: tgk-code-hints-ladeira
   language: python
@@ -125,7 +125,7 @@
   hints:
     kea:
       - { tier: "Konseitu", body: "Pensa na un verifikason **antis** di dividi." }
-      - { tier: "Undi", body: "Si `b == 0`, torna `None` sedu." }
+      - { tier: "Unde", body: "Si `b == 0`, torna `None` sedu." }
       - { tier: "Spesifiku", body: "`if b == 0: return None` dipos `return a / b`." }
   starterCode: |
     def dividi_seguru(a, b):

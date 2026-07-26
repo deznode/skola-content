@@ -14,7 +14,7 @@
         kea: "Sertu. O rail sô ta izisti na modo inline — na `chrome=\"card\"` o prop ta ser inoradu."
         en: "Correct. The rule only exists in inline mode — in `chrome=\"card\"` the prop is ignored."
     - text:
-        kea: "Na tudu dôs modu, `card` i `inline`"
+        kea: "Na tudu dos modu, `card` i `inline`"
         en: "In both modes, `card` and `inline`"
       correct: false
       explain:

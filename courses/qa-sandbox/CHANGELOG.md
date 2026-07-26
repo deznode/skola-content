@@ -41,8 +41,20 @@ fixture (one lesson family per authoring-doc README section).
   practice exercises), `08-flashcard-and-parsons` (`kea.mdx`, Leitner `deckId` /
   `mode="def-first"` / custom `ratings[]`), and `22-list-treatments` (whole
   lesson) existed only as published copies, never backfilled to drafts. A
-  publish would have pruned or reverted all of them. No published content
-  changed — the drafts were brought up to match.
+  publish would have pruned or reverted all of them. Nothing was lost — the
+  drafts were brought up to match the published copies.
+- ALUPEC auto-tier normalization across 6 lessons + 2 sidecars, applied by
+  skola-research's deterministic `scripts/normalize.py`, which its pre-commit
+  gate enforces on any staged Kriolu draft. Mechanical spelling only, no
+  wording or meaning changes: `prevê`→`preve`, `Undi`→`Unde`, `ô`→`ou`,
+  `dipôs`→`dipos`, `dôs`→`dos`, `bês`→`bez`, `en ves di`→`en bez di`,
+  `dicionáriu`→`disionáriu`, `kartãu`→`karton`, `butãu`→`boton`,
+  `seksaun`→`seksan`, `segi`→`sigi`. Plus one blocking papia error the
+  ruleset missed — plural `kartões`→`kartons` (ALUPEC_CHAR_TILDE_O) in
+  `08-flashcard-and-parsons`, whose singular the auto-tier pass had already
+  converted on the same line. Review-tier (judgment-call) changes are
+  deliberately NOT applied; they belong to the deferred comprehensive Kriolu
+  audit, and the normalizer reports them as non-blocking.
 
 ## [2026-07-25]
 
