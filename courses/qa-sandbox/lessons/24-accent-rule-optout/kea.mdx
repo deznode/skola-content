@@ -1,0 +1,129 @@
+---
+title: "showAccentRule — Tira o Rail di Kor"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: accent-rule-optout
+slug: "accent-rule-optout"
+module: 9
+lesson: 2
+duration: "6 min"
+objectives:
+  - "Testa `showAccentRule={false}` na sete komponenti, tudu na modo `chrome=\"inline\"`"
+  - "Kompara rail ligadu (padrón) versus rail tiradu na mesmu komponenti"
+  - "Verifika o prop na komponenti ku sidecar YAML (`Quiz`, `CodeExample`), ka sô na kes di prop inline"
+---
+
+O prop **`showAccentRule`** (2026-07-24) ta kontrola o **rail vertikal di kor** ki
+o modo `chrome="inline"` ta poi na sker di kada blóku. `showAccentRule={false}`
+ta tira o rail i o `padding` ki ta kompanha-l, pa o blóku blenda inda más na
+prosa.
+
+**Importanti:** o prop **sô ten efeitu ku `chrome="inline"`**. Na modo `"card"`
+(padrón) el ta ser inoradu — pamodi ka ten rail na un karton. Tudu uzu li ta ben
+en par ku `chrome="inline"`.
+
+## CalloutBlock — o par di komparason
+
+Promeru, o **padrón** (`showAccentRule` inoradu, entãu `true`) — repara na rail
+di kor i na o spasu di sker:
+
+<CalloutBlock type="tip" title="Ku rail" chrome="inline">
+  Es callout ten o rail vertikal di kor, o komportamentu padrón di modo inline.
+</CalloutBlock>
+
+Gosi o **mesmu** callout ku `showAccentRule={false}` — sen rail, sen `padding`
+di sker, alinhadu diretu ku margem di prosa:
+
+<CalloutBlock type="tip" title="Sen rail" chrome="inline" showAccentRule={false}>
+  Es callout ka ten rail. Kabesálu mono ta fika, ma o blóku ta alinha diretu ku
+  o testu ao redor.
+</CalloutBlock>
+
+Kompara o dôs ariba: sô o rail i o `padding-left` ta muda — kabesálu, tipografia
+i konteúdu ta fika idéntiku.
+
+## Quiz — komponenti ku sidecar YAML
+
+O prop ta funsiona igual na komponenti ki ta karega di un sidecar (`quiz.yaml`),
+ka sô na kes ku prop inline:
+
+<Quiz position={0} chrome="inline" showAccentRule={false} />
+
+## CodeExample — sidecar YAML ku kódigu
+
+Mesmu kuza pa `code-examples.yaml`:
+
+<CodeExample position={1} chrome="inline" showAccentRule={false} />
+
+## Steps — slot `Block[]` sen rail
+
+<Steps
+  variant="accordion"
+  title="Instala o pakoti"
+  showAccentRule={false}
+  chrome="inline"
+  steps={[
+    {
+      title: "Kria o ambienti virtual",
+      content: [
+        { type: "prose", t: "Un ambienti izoladu pa ka mistura pakoti entri projetu." },
+        { type: "cmd", lines: ["python3 -m venv .venv", "source .venv/bin/activate"] },
+      ],
+    },
+    {
+      title: "Instala i konfirma",
+      content: [
+        { type: "list", items: ["`pip install requests`", "`python -c \"import requests\"`"] },
+        { type: "callout", sev: "warning", t: "Si o `import` da eru, o `.venv` ka sta ativu." },
+      ],
+    },
+  ]}
+/>
+
+## FileTree — árvi sen rail
+
+<FileTree
+  chrome="inline"
+  showAccentRule={false}
+  nodes={[
+    { id: "root", depth: 0, kind: "folder", name: "meu-projetu/", note: "A raís di projetu." },
+    { id: "src", depth: 1, kind: "folder", name: "src/", note: "O kódigu-fonti ta mora li." },
+    { id: "main", depth: 2, kind: "file", name: "main.py", badge: "aki", note: "O ponta di entrada." },
+    { id: "venv", depth: 1, kind: "folder", name: ".venv/", note: "Nunka komita-l pa Git.", muted: true },
+  ]}
+/>
+
+## ConceptDiagram — grelha di konseitu sen rail
+
+<ConceptDiagram
+  chrome="inline"
+  showAccentRule={false}
+  title="Undi Python ta domina"
+  headerIcon="compass"
+  areas={[
+    { label: "Web", sub: "Django, FastAPI", icon: "globe", accent: "blue" },
+    { label: "AI", sub: "PyTorch", icon: "brain", accent: "teal" },
+    { label: "Dadus", sub: "Pandas, NumPy", icon: "chart", accent: "gold" },
+    { label: "Automatizason", sub: "Scripts", icon: "refresh", accent: "coral" },
+  ]}
+/>
+
+## Prerequisites — blóku di meta-lison sen rail
+
+<Prerequisites
+  chrome="inline"
+  showAccentRule={false}
+  items={[
+    { icon: "terminal", title: "Bázikus di terminal", meta: "Lison 1 · 6 min", done: true, href: "#l1" },
+    { icon: "code", title: "Variáveis i tipus di dadus", meta: "Lison 3 · 12 min", done: true, href: "#l3" },
+    { icon: "git", title: "Konta na GitHub kriadu", meta: "Setup · 4 min", done: false, href: "#setup" },
+  ]}
+/>
+
+---
+
+> **Nota di QA.** Es lison ta esersi `showAccentRule={false}` na sete komponenti
+> di sinku famílias diferenti (callout, prátika ku sidecar, kódigu ku sidecar,
+> strutura, inxinu, konseitu, meta-lison) — o prop ta stende pa 29 komponenti na
+> tudu. O par di komparason na topu é o alvu di verifikason vizual: kompara ku
+> `/prototype/components` ku o toggle global "Inline chrome" ligadu.

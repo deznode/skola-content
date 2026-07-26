@@ -1,0 +1,29 @@
+# Quiz sidecar for the accent-rule-optout fixture lesson (showAccentRule, 2026-07-24).
+# Exists so `showAccentRule={false}` is proven on a sidecar-backed component,
+# not only on the inline-props subset covered by 23-inline-chrome-blend.
+# Validated by scripts/import-content.ts → emitted into quizzes / quiz_options.
+- question:
+    kea: "Kuandu ki `showAccentRule={false}` ten efeitu?"
+    en: "When does `showAccentRule={false}` take effect?"
+  options:
+    - text:
+        kea: "Sô ku `chrome=\"inline\"`"
+        en: "Only with `chrome=\"inline\"`"
+      correct: true
+      explain:
+        kea: "Sertu. O rail sô ta izisti na modo inline — na `chrome=\"card\"` o prop ta ser inoradu."
+        en: "Correct. The rule only exists in inline mode — in `chrome=\"card\"` the prop is ignored."
+    - text:
+        kea: "Na tudu dôs modu, `card` i `inline`"
+        en: "In both modes, `card` and `inline`"
+      correct: false
+      explain:
+        kea: "Ka é. Un karton ka ten rail vertikal, entãu ka ten nada pa tira."
+        en: "No. A card has no vertical rule, so there is nothing to remove."
+    - text:
+        kea: "Sô ku `chrome=\"card\"`"
+        en: "Only with `chrome=\"card\"`"
+      correct: false
+      explain:
+        kea: "Ao kontráriu — o rail é un karakterístika di modo inline."
+        en: "The opposite — the rule is an inline-mode feature."

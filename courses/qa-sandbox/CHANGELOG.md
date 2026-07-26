@@ -11,6 +11,39 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-07-25] — publish
+
+### Added
+- M9 `inline-chrome-078` module (2 lessons) covering the block-chrome *props*,
+  the dimension `registry-completeness.test.ts` structurally cannot see — it
+  asserts only that a tag appears in some fixture, never that a prop does.
+  `23-inline-chrome-blend` exercises `chrome="inline"` on eight inline-prop
+  components (spec 078, shipped 2026-07-20 with its fixture deferred);
+  `24-accent-rule-optout` exercises `showAccentRule={false}` on seven components
+  across five families, including two sidecar-backed (`Quiz`, `CodeExample`) via
+  new `quiz.yaml` + `code-examples.yaml`, so the prop is proven outside the
+  inline-props-only subset. Parity-safe — neither is the L04 fixture the
+  drift gate compares.
+
+### Fixed
+- `16-compare-and-concept`: four `ConceptDiagram` area accents and one
+  `CompareTable` column accent used values outside the closed `Accent` union
+  (`orange`/`red`/`green`/`purple`). `ConceptDiagram` silently drops an invalid
+  accent to `null` (`isAccent()` guard) and `CompareTable` falls back to `blue`,
+  so four of six tiles rendered unaccented and the "Set" column collided with
+  "Lista" — while the lesson's stated objective was to demonstrate all six brand
+  accents. Now uses the real six (`blue`, `gold`, `teal`, `coral`, `slate`,
+  `navy`); prose corrected to match.
+
+### Changed
+- Draft/published divergence repaired in `topics/qa-sandbox/` (source of truth):
+  `05-tenta-gosi-kinds` (`kea.mdx` + `exercises.yaml`, the four spec-063 W3
+  practice exercises), `08-flashcard-and-parsons` (`kea.mdx`, Leitner `deckId` /
+  `mode="def-first"` / custom `ratings[]`), and `22-list-treatments` (whole
+  lesson) existed only as published copies, never backfilled to drafts. A
+  publish would have pruned or reverted all of them. No published content
+  changed — the drafts were brought up to match.
+
 ## [2026-07-25]
 
 ### Added

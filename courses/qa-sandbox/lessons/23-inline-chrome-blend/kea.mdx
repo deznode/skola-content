@@ -1,0 +1,148 @@
+---
+title: "Chrome Inline — Blend na Prosa"
+language: kea
+courseSlug: qa-sandbox
+lessonSlug: inline-chrome-blend
+slug: "inline-chrome-blend"
+module: 9
+lesson: 1
+duration: "7 min"
+objectives:
+  - "Testa `chrome=\"inline\"` blendadu diretu na prosa di lison (spec 078)"
+  - "Verifika ki oitu komponenti (práktika, inxinu, média) ta mantén komportamentu identiku na modo inline"
+  - "Kompara chrome=\"card\" (padrón) versus chrome=\"inline\" na mesmu komponenti"
+---
+
+Es lison ta testa a prop **`chrome`** (spec 078) — un opsan `"card"` (padrón, kaxa
+kompleta ku sombra) o `"inline"` (blenda diretu na fluxu di testu, sen kaxa nen
+sombra, sô un rail di kor + kabesálu mono). Kada blóku li ta ben **inline**, djuntu
+ku prosa antis i dipôs, pa testa ki o blend ta funsiona na kondisan real di
+autoria — ka sô na isolamentu (sima na `/prototype/components`).
+
+## CalloutBlock
+
+Un pista importanti pode fika diretu na fluxu di lison, sen kebra a leitura ku
+un kaxa grandi:
+
+<CalloutBlock type="tip" title="Pista" chrome="inline">
+  Uza `chrome="inline"` sô kuandu o blóku é un aparti kurtu — pa aviso longu,
+  `chrome="card"` (padrón) inda é a mídjor eskolha.
+</CalloutBlock>
+
+Kontinuason di prosa dipôs di un callout inline, pa verifika ki o spasamentu
+ariba/abaxu ta parse natural.
+
+## ParsonsProblem
+
+Un ezersísiu di reordena kódigu tanbê pode blenda na mésmu seksaun, sen kebra o
+ritmu di lison ku un kaxa grandi separada:
+
+<ParsonsProblem
+  chrome="inline"
+  title="Organiza `media()`"
+  prompt="Arasta o linhas pa pô-s na órdi sertu."
+  solution={[
+    "def media(numerus):",
+    "    total = sum(numerus)",
+    "    kontu = len(numerus)",
+    "    return total / kontu",
+  ]}
+/>
+
+## Flashcard
+
+Un mini-deck di revizon pode fika diretu apos o konseitu ki e ta revê:
+
+<Flashcard
+  chrome="inline"
+  deckId="qa-inline-chrome-078"
+  eyebrow="Revê"
+  title="Termus báziku"
+  cards={[
+    { term: "variable", def: "Un nomi ki ta pui un valor na memória." },
+    { term: "function", def: "Un blóku di kódigu ki ta faze un tarefa." },
+  ]}
+/>
+
+## AnalogyCard
+
+Un analojia tanbê pode blenda diretu na eksplikason, en vez di fika sima un
+aparti separadu:
+
+<AnalogyCard
+  chrome="inline"
+  hero="Un **funsan** é tipu un **receita**: bu da-l ingredientes, e ta sigi
+    pasus, i na fim e ta torna-bu un pratu."
+  rows={[
+    {
+      analogy: "Ingredientes",
+      analogyDesc: "midju, fijon",
+      tech: "Parámetros",
+      code: "def prepara(midju, fijon):",
+    },
+  ]}
+  limit="Un funsan, o resultadu ta parse **exatamenti** igual kada bês."
+/>
+
+## MisconceptionConfront
+
+Un mitu kumun pode ser konfrontadu sen sai di fluxu di lison:
+
+<MisconceptionConfront
+  chrome="inline"
+  belief="`b = a` ta kria un lista nobu, separada di `a`."
+  myth="O nomi `b` ta kopia tudu o konteúdu di `a`."
+  real="`b = a` ka ta kopia nada — `a` ku `b` ta apunta pa **mesmu** lista."
+  proof={["a = [1, 2, 3]", "b = a", "b.append(4)", "print(a)  # [1, 2, 3, 4]"]}
+  takeaway="Pa kopia di verdadi, uza `b = a.copy()`."
+/>
+
+## FadingExample
+
+Un eskafoldu ki ta fadi pode ben diretu apos a introdusan di konseitu, sen kaxa
+grandi ki kebra a leitura:
+
+<FadingExample
+  chrome="inline"
+  filename="media.py"
+  lang="python"
+  lines={[
+    [{ text: "def media(numerus):" }],
+    [{ text: "    total = " }, { blank: "0", level: 1 }],
+    [{ text: "    return " }, { blank: "total / len(numerus)", level: 2 }],
+  ]}
+/>
+
+## TerminalBlock
+
+Un sesan di terminal pode blenda diretu na prosa kuandu é sô un komandu rápidu:
+
+<TerminalBlock
+  chrome="inline"
+  mode="session"
+  showCursor
+  showHeader={false}
+/>
+
+## KeyTakeaways
+
+I pa fecha, o rezumu final tanbê aseita `chrome="inline"` — útil kuandu a
+lison é kurtu i un kaxa kompleta ta parse ecesivu:
+
+<KeyTakeaways chrome="inline" showHeader={false}>
+  <RezumuItem term="chrome" code>
+    prop `"card"` (padrón) o `"inline"` — disponível na tudu 27 komponenti
+  </RezumuItem>
+  <RezumuItem>
+    Inline ta tira kaxa/sombra, ta poi un rail di kor + kabesálu mono.
+  </RezumuItem>
+</KeyTakeaways>
+
+---
+
+> **Nota di QA.** Es lison ta esersi sô un subkonjuntu representativu (8 di 27)
+> di komponentis ki ka mesti sidecar YAML — pa verifika `chrome="inline"` na
+> kondisan di autoria real, kompara ku `docs/10-product/14-content-authoring/lesson-components/`
+> i ku `/prototype/components` (toggle global "Inline chrome"). Komponentis ku
+> sidecar (Quiz/QuizSet, CodeExample, AnnotatedCode, systems/*) ka stan aki —
+> segi o mésmu padron (`chrome="inline"` diretu na tag) si es lison crese.

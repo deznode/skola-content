@@ -1,0 +1,10 @@
+# CodeExample sidecar for the accent-rule-optout fixture lesson (showAccentRule).
+# Paired with the quiz sidecar so BOTH sidecar-backed component families prove
+# `showAccentRule={false}`, per the fixture-coverage gap found 2026-07-25.
+# Validated + emitted by scripts/import-content.ts.
+- language: python
+  title: "Rail ligadu ô tiradu — o kódigu ka ta muda"
+  code: |
+    numerus = [1, 2, 3]
+    total = sum(numerus)
+    assert total == 6

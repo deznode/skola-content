@@ -136,3 +136,14 @@ modules:
       - slug: lesson-meta
         languages: [kea]
         content_type: TEXT
+  - slug: inline-chrome-078
+    title:
+      kea: "Chrome Inline i Rail di Asentu — spec 078"
+      en: "Inline Chrome & Accent Rule — spec 078"
+    lessons:
+      - slug: inline-chrome-blend
+        languages: [kea]
+        content_type: TEXT
+      - slug: accent-rule-optout
+        languages: [kea]
+        content_type: TEXT
