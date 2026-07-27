@@ -1,6 +1,6 @@
 # Fundamentus di Tailwind CSS v4 — Published Assets
 
-**Published:** 2026-07-07 (code/m3-resort-brava + m2-resort-brava/final correction added)
+**Published:** 2026-07-26
 **Source:** topics/tailwind-from-scratch/
 
 ## Files

@@ -19,7 +19,7 @@ objectives:
 
 Lisan pasadu, nu fala di breakpoints responsivu — `sm:`, `md:`, `lg:`. Es son baseadu na **viewport** (janela kompletu di browser). Funsiona pa layouts inteiru di página.
 
-Ma kuandu bo ten un **widget** ki pode apareci en lugaris diferenti — un karta ki ta apareci na sidebar pikinu **ou** na main wide — viewport queries falha. Karta ka ta sabi si el ten 300px di largura no sidebar o 800px no main. Solusan: **container queries**.
+Ma kuandu bu ten un **widget** ki pode apareci en lugaris diferenti — un karta ki ta apareci na sidebar pikinu **ou** na main wide — viewport queries falha. Karta ka ta sabi si el ten 300px di largura no sidebar o 800px no main. Solusan: **container queries**.
 
 Es é un di midjór features di Tailwind v4. Es ka izisti na v3 (era plugin extra). Na v4, é parte di kor.
 
@@ -30,15 +30,15 @@ Imagina un karta ki mostra avatar + nome + bio:
 ```html
 <div class="card">
   <img src="avatar.jpg">
-  <h3>Camila</h3>
-  <p>Hospedeira di Mindelo</p>
+  <h3>Sara</h3>
+  <p>Hospedeira di Brava</p>
 </div>
 ```
 
 - Na **sidebar pikinu (200px)**: avatar i nome **en koluna** (vertikal). Bio skondidu.
 - Na **main wide (800px)**: avatar **na skerda**, nome i bio na direita. Tudu vizivel.
 
-Ku **media queries**, bo ta uza largura di **viewport**. Ma viewport pode ser 1500px ku karta na sidebar di 200px! Media queries da resposta **errada**. Container queries da resposta **direita**.
+Ku **media queries**, bu ta uza largura di **viewport**. Ma viewport pode ser 1500px ku karta na sidebar di 200px! Media queries da resposta **errada**. Container queries da resposta **direita**.
 
 <CompareTable
   title="Media Query vs Container Query"
@@ -68,7 +68,7 @@ Son dos passu: marka o pai ku `@container`, dipos aplika variantis `@md:` na fil
     { t: '  <div class="flex flex-col @md:flex-row gap-2">', m: 2 },
     { t: '    <img class="size-16 rounded-full">', m: 0 },
     { t: '    <div>', m: 0 },
-    { t: '      <h3>Camila</h3>', m: 0 },
+    { t: '      <h3>Sara</h3>', m: 0 },
     { t: '      <p class="hidden @md:block">Hospedeira di Mindelo</p>', m: 3 },
     { t: '    </div>', m: 0 },
     { t: '  </div>', m: 0 },
@@ -81,7 +81,7 @@ Son dos passu: marka o pai ku `@container`, dipos aplika variantis `@md:` na fil
   ]}
 />
 
-Si kel `<aside>` é na sidebar (`w-64` = 16rem = 256px), ninhun `@md:` aktiva. Si bo poi el na main (~800px), `@md:` ta aktiva.
+Si kel `<aside>` é na sidebar (`w-64` = 16rem = 256px), ninhun `@md:` aktiva. Si bu poi el na main (~800px), `@md:` ta aktiva.
 
 <SectionHeading variant="concept" seq={3}>Breakpoints di Kontainer</SectionHeading>
 
@@ -121,10 +121,10 @@ Klasi `@widget:` gosi ezisti.
   <!-- Sidebar di 1 koluna na lg+ -->
   <aside class="@container">
     <div class="flex flex-col @md:flex-row gap-4 p-4 bg-white rounded-lg shadow-sm">
-      <img src="camila.jpg" class="size-16 @md:size-20 rounded-full">
+      <img src="sara.jpg" class="size-16 @md:size-20 rounded-full">
       <div>
-        <h3 class="font-bold">Camila</h3>
-        <p class="text-sm text-slate-600">Mindelo · São Vicente</p>
+        <h3 class="font-bold">Sara</h3>
+        <p class="text-sm text-slate-600">Vila Nova Sintra · Brava</p>
         <p class="hidden @md:block text-sm mt-2">Hospedeira di 5 stadu, espésialista en gastronomia lokal.</p>
       </div>
     </div>
@@ -152,7 +152,7 @@ Mesmu karta, dos lugaris, dos manera diferenti. Sen JavaScript.
 </div>
 ```
 
-**`@container-size` — novu na v4.3.** Un `@container` normal ta da só **largura** (inline-size) pa queries. `@container-size` (v4.3) ta kria un *size container* ki tambén ta da **altura** (block-size) — asi bo pode uza unidadis di query di altura: `cqb` (block) i `cqh` (height).
+**`@container-size` — novu na v4.3.** Un `@container` normal ta da só **largura** (inline-size) pa queries. `@container-size` (v4.3) ta kria un *size container* ki tambén ta da **altura** (block-size) — asi bu pode uza unidadis di query di altura: `cqb` (block) i `cqh` (height).
 
 ```html
 <div class="@container-size h-64">
@@ -180,7 +180,7 @@ Nota: `@container-size` **ka ta kria** variantis nomeadu pa altura (ka ten `@h-s
 Regra di odja: **si komponenti ta uzadu en kontestus diferenti, uza container query**. Pa página padran (un só layout), media query é más simples.
 
 :::callout{type=info}
-Resort Brava ten un só layout di página (hero + 3 seksan + footer). Container queries ka da valor li. Ma si bo un dia adisiona un **karta di hospedeira reuzavel** ki ta apareci tanto na hero kumo na sidebar di blog, container queries ta resolvi-l di manera elegante. Es lisan é **konseitu**.
+Resort Brava ten un só layout di página (hero + 3 seksan + footer). Container queries ka da valor li. Ma si bu un dia adisiona un **karta di hospedeira reuzavel** ki ta apareci tanto na hero kumo na sidebar di blog, container queries ta resolvi-l di manera elegante. Es lisan é **konseitu**.
 :::
 
 <SectionHeading variant="practice" level={3}>Repete pa Lembra: Utilidadis di Kontainer</SectionHeading>
@@ -200,7 +200,7 @@ Resort Brava ten un só layout di página (hero + 3 seksan + footer). Container 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />

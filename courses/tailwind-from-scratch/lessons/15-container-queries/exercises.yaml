@@ -24,10 +24,10 @@
     </html>
   solutionCode: |
     <div class="flex flex-col @md:flex-row gap-4 p-4 bg-white rounded-lg shadow-sm">
-      <img src="camila.jpg" class="size-16 @md:size-20 rounded-full">
+      <img src="sara.jpg" class="size-16 @md:size-20 rounded-full">
       <div>
-        <h3 class="font-bold">Camila</h3>
-        <p class="text-sm text-slate-600">Mindelo · São Vicente</p>
+        <h3 class="font-bold">Sara</h3>
+        <p class="text-sm text-slate-600">Vila Nova Sintra · Brava</p>
         <p class="hidden @md:block text-sm mt-2">Hospedeira di 5 stadu.</p>
       </div>
     </div>

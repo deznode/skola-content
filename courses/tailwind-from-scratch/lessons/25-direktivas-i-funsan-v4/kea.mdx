@@ -17,7 +17,7 @@ objectives:
 
 # Direktivas i Funsan v4
 
-`@theme`, `@import`, `@custom-variant` — bo dja konxe es. Es lisan ta kompleta bo **vokabuláriu v4**: tudu direktiva, ki valor ta produzi, i kuandu uza ká kual.
+`@theme`, `@import`, `@custom-variant` — bu dja konxe es. Es lisan ta kompleta bo **vokabuláriu v4**: tudu direktiva, ki valor ta produzi, i kuandu uza ká kual.
 
 Pensa na es ferramentas kumo **regras spesial di CSS** ki Tailwind ta kompriende. Browser ta ignora-s — só Tailwind ta ler i kompila-s pa CSS verdadeiru.
 
@@ -48,7 +48,7 @@ Un só linha karega:
 - **Tudu utilidadi** (`bg-*`, `p-*`, `flex`, etc.)
 - **Suporti pa variantis** (`hover:`, `md:`, `dark:`, etc.)
 
-Si bo presiza só un parti, imports parsial ta funsiona:
+Si bu presiza só un parti, imports parsial ta funsiona:
 
 ```css
 @import "tailwindcss/preflight";    /* só CSS reset */
@@ -60,7 +60,7 @@ Si bo presiza só un parti, imports parsial ta funsiona:
 
 <SectionHeading variant="concept" seq={2}>@apply — Funsiona ma Ka Rekomendadu</SectionHeading>
 
-`@apply` ta kompoe un klasi novu ku utilidadis ki bo dja konxe:
+`@apply` ta kompoe un klasi novu ku utilidadis ki bu dja konxe:
 
 ```css
 .btn-primáriu {
@@ -83,12 +83,12 @@ Es klasi ta funsiona — ma Tailwind v4 **ka ta rekomenda-l** pa maioria di kazu
 />
 
 :::callout{type=tip}
-Uza `@apply` só pa kazu unde bo realmenti **ka pode** uza un komponenti — ex. kompoe klasi pa biblioteka di markdown ki ta gera HTML diretu. Pa resta: skrebe utilidadis no HTML i komponentes na React/Vue.
+Uza `@apply` só pa kazu unde bu realmenti **ka pode** uza un komponenti — ex. kompoe klasi pa biblioteka di markdown ki ta gera HTML diretu. Pa resta: skrebe utilidadis no HTML i komponentes na React/Vue.
 :::
 
 <SectionHeading variant="concept" seq={3}>@reference — Pa Komponenti Scoped</SectionHeading>
 
-Bo ta skrebe Vue, Svelte, ou CSS Modules? Es uzu style blocks **izoladu** — Tailwind ka ten asesu pa tokens kuandu el ta kompila kel block. Si bo uza `@apply` li, ta da eru.
+Bu ta skrebe Vue, Svelte, ou CSS Modules? Es uzu style blocks **izoladu** — Tailwind ka ten asesu pa tokens kuandu el ta kompila kel block. Si bu uza `@apply` li, ta da eru.
 
 **Solusan:** `@reference` no topo di style block.
 
@@ -116,13 +116,13 @@ Bo ta skrebe Vue, Svelte, ou CSS Modules? Es uzu style blocks **izoladu** — Ta
 }
 ```
 
-**O ki `@reference` ta faze:** ta importa tokens i klasi **só pa konsulta** — sen duplika CSS na output. Sen el, bo ta perde-r tokens, ou — más mau — ta duplika tudu preflight na kada komponenti.
+**O ki `@reference` ta faze:** ta importa tokens i klasi **só pa konsulta** — sen duplika CSS na output. Sen el, bu ta perde-r tokens, ou — más mau — ta duplika tudu preflight na kada komponenti.
 
-**Regra:** kuandu bo skrebe `@apply` fora di `input.css` prinsipal, bo PRESIZA `@reference` no topu di kel fixeru.
+**Regra:** kuandu bu skrebe `@apply` fora di `input.css` prinsipal, bu PRESIZA `@reference` no topu di kel fixeru.
 
 <SectionHeading variant="concept" seq={4}>@source — Adisiona Path di Skaneamentu</SectionHeading>
 
-Tailwind ta skaneia tudu fixeru di kódiku otomátiku — ma só dentru di projetu. Si bo uza un biblioteka di UI na `node_modules/`, klasi di li ka ta sai no output:
+Tailwind ta skaneia tudu fixeru di kódiku otomátiku — ma só dentru di projetu. Si bu uza un biblioteka di UI na `node_modules/`, klasi di li ka ta sai no output:
 
 ```css
 @import "tailwindcss";
@@ -185,7 +185,7 @@ Uzu no HTML:
 
 <SectionHeading variant="concept" seq={6}>@utility — Kria Utilidadis Personalizadu</SectionHeading>
 
-Si bo presiza un klasi ki **ka izisti** na Tailwind padran (ex. `tab-4` pa `tab-size: 4`), uza `@utility`:
+Si bu presiza un klasi ki **ka izisti** na Tailwind padran (ex. `tab-4` pa `tab-size: 4`), uza `@utility`:
 
 ```css
 @utility tab-4 {
@@ -209,12 +209,12 @@ Uzu:
 - `@layer utilities` (v3) ka tinha esi suporti — klasi ka ta funsiona ku variantis
 
 :::callout{type=tip}
-Si bo kre un klasi ki **dja izisti** na Tailwind, **ka uza `@utility`** — só usa direta. `@utility` é pa kaza unde Tailwind ka ten kel utilidadi, ka pa muda nomi di utilidadis padran.
+Si bu kre un klasi ki **dja izisti** na Tailwind, **ka uza `@utility`** — só usa direta. `@utility` é pa kaza unde Tailwind ka ten kel utilidadi, ka pa muda nomi di utilidadis padran.
 :::
 
 <SectionHeading variant="concept" seq={7}>Funsan v4 — --theme() i --alpha()</SectionHeading>
 
-Tailwind ta mostra **funsan CSS** ki bo pode uza dentru di kualker valor:
+Tailwind ta mostra **funsan CSS** ki bu pode uza dentru di kualker valor:
 
 ### `--theme(...)` — Ler un token
 
@@ -225,7 +225,7 @@ Tailwind ta mostra **funsan CSS** ki bo pode uza dentru di kualker valor:
 }
 ```
 
-Útil kuandu bo presiza un valor di tema dentru di un regra CSS ki ka é utility — ex. un `@keyframes`:
+Útil kuandu bu presiza un valor di tema dentru di un regra CSS ki ka é utility — ex. un `@keyframes`:
 
 ```css
 @keyframes pulsar-mar {
@@ -257,7 +257,7 @@ Pa biblioteka espesializadu (ex. `@tailwindcss/typography`):
 @plugin "@tailwindcss/typography";
 ```
 
-Dipos bo pode uza klasi tipu `prose prose-lg`. Sen registru en JS, sen `tailwind.config.js`.
+Dipos bu pode uza klasi tipu `prose prose-lg`. Sen registru en JS, sen `tailwind.config.js`.
 
 **Plugins komuns:**
 
@@ -341,7 +341,7 @@ Odja kada direktiva i tenta lembra o ki el ta faze antis di vira o karton:
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />

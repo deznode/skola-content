@@ -41,11 +41,11 @@ Play CDN i CLI v4 ta faze mesmu Tailwind, ma o kaminhu é diferenti. Repara unde
   ]}
 />
 
-Play CDN ten un só objetivu: **deixa-bo eksperimenta sen instalar nada**. Pa kualker projeto ki bo ta entrega, **sai di CDN logu**.
+Play CDN ten un só objetivu: **deixa-bu eksperimenta sen instalar nada**. Pa kualker projeto ki bu ta entrega, **sai di CDN logu**.
 
 <SectionHeading variant="concept" seq={2}>Di v3 pa v4: O ki Muda</SectionHeading>
 
-Si bo seguir tutoriais v3 antigu, bo ta odja outru workflow. **Kuazi tudu muda na v4.** O midjór izemplu é o fixeru CSS di entrada — na v3 el pidia trez direktivas, na v4 é un só linha:
+Si bu seguir tutoriais v3 antigu, bu ta odja outru workflow. **Kuazi tudu muda na v4.** O midjór izemplu é o fixeru CSS di entrada — na v3 el pidia trez direktivas, na v4 é un só linha:
 
 <CodeDiff
   lang="css"
@@ -57,7 +57,7 @@ Si bo seguir tutoriais v3 antigu, bo ta odja outru workflow. **Kuazi tudu muda n
     { type: "del", t: '@tailwind base;' },
     { type: "del", t: '@tailwind components;' },
     { type: "del", t: '@tailwind utilities;' },
-    { type: "add", t: '/* v4 — todu ki bo presiza */' },
+    { type: "add", t: '/* v4 — todu ki bu presiza */' },
     { type: "add", t: '@import "tailwindcss";' },
   ]}
 />
@@ -214,7 +214,7 @@ Saída na terminal:
   ]}
 />
 
-Tailwind ta skaneia tudu HTML, JS, etc. no diretóriu i ta gera `dist/style.css` ku **só klasis ki bo uza**. Salva un fixeru — rebuild en milissegundus.
+Tailwind ta skaneia tudu HTML, JS, etc. no diretóriu i ta gera `dist/style.css` ku **só klasis ki bu uza**. Salva un fixeru — rebuild en milissegundus.
 
 Abri `index.html` ku Live Server. Resort Brava ta funsiona kompletamenti — ma gosi sen JS extra, sen kompilasan na browser.
 
@@ -226,8 +226,8 @@ Dipos di tudu, bu projetu ten es forma. Repara kual fixeru bu ta skrebe i kual k
   nodes={[
     { id: "root", depth: 0, kind: "folder", name: "resort-brava/", note: "Raís di projetu." },
     { id: "pkg", depth: 1, kind: "file", name: "package.json", note: "Pakoti + scripts `build` i `watch`." },
-    { id: "input", depth: 1, kind: "file", name: "input.css", badge: "bo skrebe", note: "Fixeru-fonti di CSS — `@import`, `@theme`, `@custom-variant`." },
-    { id: "html", depth: 1, kind: "file", name: "index.html", badge: "bo skrebe", note: "Ta liga `dist/style.css` ku un `<link>`." },
+    { id: "input", depth: 1, kind: "file", name: "input.css", badge: "bu skrebe", note: "Fixeru-fonti di CSS — `@import`, `@theme`, `@custom-variant`." },
+    { id: "html", depth: 1, kind: "file", name: "index.html", badge: "bu skrebe", note: "Ta liga `dist/style.css` ku un `<link>`." },
     { id: "dist", depth: 1, kind: "folder", name: "dist/", muted: true, note: "**Jeradu** pa CLI — adisiona na `.gitignore`." },
     { id: "style", depth: 2, kind: "file", name: "style.css", muted: true, note: "O CSS final ki HTML ta uza. Nunka edita-l a mon." },
   ]}
@@ -257,14 +257,14 @@ pnpm run build
 Kompara: Play CDN ta sirbi ~150KB di JS + tempu di kompilasan na klienti. CLI ta sirbi ~20KB di CSS statiku.
 
 :::callout{type=tip}
-Si bo skaneia un klasi novu (ex. `bg-red-200`) i ka aparesi: konfirma ki `pnpm run watch` ta korre. CLI ta odja só fixeru ki izisti kuandu el inisia — si bo adisiona un fixeru novu, restart watch.
+Si bu skaneia un klasi novu (ex. `bg-red-200`) i ka aparesi: konfirma ki `pnpm run watch` ta korre. CLI ta odja só fixeru ki izisti kuandu el inisia — si bu adisiona un fixeru novu, restart watch.
 :::
 
 <SectionHeading variant="concept" seq={4}>Auto-Skaneamentu di Ficheru</SectionHeading>
 
-Na v3, bo tinha ki spesifika `content: ["./*.html", "./js/*.js"]`. Na v4, **Tailwind ta skaneia otomátiku** tudu fixeru di kódiku no diretóriu (HTML, JS, JSX, TSX, Vue, Svelte, etc.) — i ta skodje só klasis ki bo realmenti uza.
+Na v3, bu tinha ki spesifika `content: ["./*.html", "./js/*.js"]`. Na v4, **Tailwind ta skaneia otomátiku** tudu fixeru di kódiku no diretóriu (HTML, JS, JSX, TSX, Vue, Svelte, etc.) — i ta skodje só klasis ki bu realmenti uza.
 
-Si bo presiza skaneiar fixeru fora di lokal padran (ex. un fixeru na `vendor/`), uza `@source`:
+Si bu presiza skaneiar fixeru fora di lokal padran (ex. un fixeru na `vendor/`), uza `@source`:
 
 ```css
 @import "tailwindcss";
@@ -275,7 +275,7 @@ Si bo presiza skaneiar fixeru fora di lokal padran (ex. un fixeru na `vendor/`),
 
 <SectionHeading variant="concept" seq={5}>Sen `tailwind.config.js`?!</SectionHeading>
 
-Si bo dja konxe v3, falta di konfig.js pode konfundi-bo. Ma:
+Si bu dja konxe v3, falta di konfig.js pode konfundi-bo. Ma:
 
 - **Tokens** (`--color-*`, `--font-*`, etc.) → `@theme` no CSS
 - **Plugins** → `@plugin "nomi-pakoti";` no CSS
@@ -286,13 +286,13 @@ Si bo dja konxe v3, falta di konfig.js pode konfundi-bo. Ma:
 **Tudu na CSS.** Nada na JavaScript. Un só sintaxi pa aprender.
 
 :::callout{type=tip}
-Si bo presiza mante JS config pa migrasan (raru): `@config "./tailwind.config.js";` na `input.css`. Ma evita es — é só pa migrasan, ka pa kódiku novu.
+Si bu presiza mante JS config pa migrasan (raru): `@config "./tailwind.config.js";` na `input.css`. Ma evita es — é só pa migrasan, ka pa kódiku novu.
 :::
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />

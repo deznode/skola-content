@@ -8,6 +8,23 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-07-26] — publish (stranded draft sync)
+
+### Fixed
+- `bo` → `bu` clitic corrections across all 26 lessons (the pronoun rule was
+  inverted in the earlier sweep) — the bulk of this publish.
+- `purmeru` → `primeru` ALUPEC spelling.
+- `reais` → `real` Portuguese-plural leak.
+
+### Changed
+- Retrofitted the ADR-0033 universal character cast: Camila → Sara, Mindelo /
+  São Vicente → Brava, and Djonzinho → Telma (cheatsheet sandbox title). The
+  `15-container-queries` `exercises.yaml` profile-card template was updated to
+  match.
+
+This publish syncs draft-side fixes from 2026-07-08 through 2026-07-23 that were
+never republished.
+
 ## [2026-07-07] — publish
 
 ### Fixed

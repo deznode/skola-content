@@ -52,9 +52,9 @@ module.exports = {
 </style>
 ```
 
-**Kuandu bo defini `--color-brand-500`, klasis `bg-brand-500`, `text-brand-500`, `border-brand-500` etc. son jeradu otomatikamenti.**
+**Kuandu bu defini `--color-brand-500`, klasis `bg-brand-500`, `text-brand-500`, `border-brand-500` etc. son jeradu otomatikamenti.**
 
-Es é **kontráriu di fluxu**: en bez di konfigura JavaScript ki jera CSS, bo skrebe CSS direta i Tailwind ta usa-l.
+Es é **kontráriu di fluxu**: en bez di konfigura JavaScript ki jera CSS, bu skrebe CSS direta i Tailwind ta usa-l.
 
 <SectionHeading variant="concept" seq={2}>Namespaces: Konvensan di Nomi</SectionHeading>
 
@@ -101,7 +101,7 @@ O ponto prinsipal: **kores, fontis i breakpoints ta vivi tudu dentu di un só bl
   ]}
 />
 
-Antis di kontinua, repete os namespaces prinsipal te ki es fika natural — unde ki bo defini un token, i ki klasi bo ta ganha:
+Antis di kontinua, repete os namespaces prinsipal te ki es fika natural — unde ki bu defini un token, i ki klasi bu ta ganha:
 
 <Flashcard
   title="Namespaces di @theme"
@@ -137,7 +137,7 @@ v4 ta uza **OKLCH** kumo sistema interno (lembra Lisan 5). OKLCH é mais percept
 }
 ```
 
-Bo pode tambén uza hex o rgb si OKLCH é difisil:
+Bu pode tambén uza hex o rgb si OKLCH é difisil:
 
 ```css
 @theme {
@@ -214,12 +214,12 @@ Jera klasis `rounded-mega`, `shadow-card`, `blur-extreme`, `animate-fade-up`.
 
 <SectionHeading variant="concept" seq={5}>Override sen Extend</SectionHeading>
 
-Na v3, bo tinha **dos opsan** na `tailwind.config.js`:
+Na v3, bu tinha **dos opsan** na `tailwind.config.js`:
 
 1. **`theme.colors.brand = ...`** — substitui tudu kores (perigozu)
 2. **`theme.extend.colors.brand = ...`** — adisiona ku defaults (kazu kumun)
 
-**Na v4, é simples:** defini un token ka removi defaults. Defaults son sempri disponivel a menos ki bo override-l di forma eksplisitu.
+**Na v4, é simples:** defini un token ka removi defaults. Defaults son sempri disponivel a menos ki bu override-l di forma eksplisitu.
 
 ```css
 /* v4: --color-blue-500 default sempri ta funsiona */
@@ -272,13 +272,13 @@ Resort Brava ta uza `sky-*` i `amber-*` desdi M1. Es son kores genériku. Bamus 
 Resultadu: Resort Brava ten **identidadi propriu**. Sky/amber é o ki kualker site uza. Mar/sol é **Brava**. I pamodi tudu es tokens ta vivi nun só blok `@theme`, muda un kor é muda-l pa tudu site.
 
 :::callout{type=tip}
-Pa projetus real, bo ta defini 4-6 paletas: primary (marka), neutral (cinza), success (verdi), warning (amarelu), danger (burmedju), info (azul). I 2-3 fontis (display, body, mono). Tudu dentu di `@theme`. **Manutensan é simples: muda token, tudu site adapta.**
+Pa projetus real, bu ta defini 4-6 paletas: primary (marka), neutral (cinza), success (verdi), warning (amarelu), danger (burmedju), info (azul). I 2-3 fontis (display, body, mono). Tudu dentu di `@theme`. **Manutensan é simples: muda token, tudu site adapta.**
 :::
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />

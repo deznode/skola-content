@@ -17,9 +17,9 @@ objectives:
 
 # `@theme` di Profundidade
 
-Na Lisan 21 nu kria Resort Brava ku tokens di marka — `--color-mar-*`, `--color-sol-*`, `--font-display`. Es funsiona, ma nu konxe só un kantu di `@theme`. Es lisan ta abri janela kompletu: **kada namespace, kumo el ta mapeia pa utilidadis, i kumo bo ta tira ou substitui padran.**
+Na Lisan 21 nu kria Resort Brava ku tokens di marka — `--color-mar-*`, `--color-sol-*`, `--font-display`. Es funsiona, ma nu konxe só un kantu di `@theme`. Es lisan ta abri janela kompletu: **kada namespace, kumo el ta mapeia pa utilidadis, i kumo bu ta tira ou substitui padran.**
 
-Pensamentu xavi di v4: **`@theme` ka ta konfigura Tailwind — el ta defini variavel CSS ki Tailwind ta uza pa gera utilidadis.** Si bo kompriende es, tudu resta ta bira intuitivu.
+Pensamentu xavi di v4: **`@theme` ka ta konfigura Tailwind — el ta defini variavel CSS ki Tailwind ta uza pa gera utilidadis.** Si bu kompriende es, tudu resta ta bira intuitivu.
 
 <SectionHeading variant="concept" seq={1}>Namespaces di @theme</SectionHeading>
 
@@ -83,7 +83,7 @@ Kada utilidadi numérika ta multiplika es base:
 | `w-64` | 64 × 0.25rem | 16rem (256px) |
 | `gap-2.5` | 2.5 × 0.25rem | 0.625rem (10px) |
 
-Si bo muda `--spacing`, tudu ta atualiza:
+Si bu muda `--spacing`, tudu ta atualiza:
 
 ```css
 @theme {
@@ -99,7 +99,7 @@ Pa skala personalizadu (ex. base di 8px na bez di 4px): konsidera si **tudu** de
 
 <SectionHeading variant="concept" seq={3}>Tira Tokens Padran</SectionHeading>
 
-Tailwind ta ben ku txeu tokens padran (kores Material/Tailwind, fonti `sans/serif/mono`, etc). Si bo presiza **só** tokens di bo marka, **tira-s.**
+Tailwind ta ben ku txeu tokens padran (kores Material/Tailwind, fonti `sans/serif/mono`, etc). Si bu presiza **só** tokens di bu marka, **tira-s.**
 
 ### Tira un família inteiru
 
@@ -124,20 +124,20 @@ Dipos di es konfigurasan, **`bg-red-500` ka ta funsiona** — paleta padran foi 
 }
 ```
 
-Es é "tema kompletu personalizadu". Útil pa un sistema di dezenhu fitxadu (ex. un dashboard interno) unde bo ka kre risku di klasi padran aparece.
+Es é "tema kompletu personalizadu". Útil pa un sistema di dezenhu fitxadu (ex. un dashboard interno) unde bu ka kre risku di klasi padran aparece.
 
 **Kuandu uza:**
 
-- `--color-*: initial;` — bo marka ten paleta diferenti i bo ka kre kores Tailwind ta mistura ku bo klasis
+- `--color-*: initial;` — bu marka ten paleta diferenti i bu ka kre kores Tailwind ta mistura ku bu klasis
 - `--*: initial;` — sistema dezenhu kompletu personalizadu, sen herda nada
 
 :::callout{type=tip}
-Komesa **sen** `initial`. Adisiona só si bo realmenti kre kontrolu absolutu. Tira tudu padran ta forsa-bo defini ká bez utilidadi báziku manualmenti.
+Komesa **sen** `initial`. Adisiona só si bu realmenti kre kontrolu absolutu. Tira tudu padran ta forsa-bu defini ká bez utilidadi báziku manualmenti.
 :::
 
 <SectionHeading variant="concept" seq={4}>@theme inline — kuandu un value ten var()</SectionHeading>
 
-Kazu komuns na frameworks moderno: bo ten un fonti personalizadu ki `next/font` ta karrega ou outro mekanismu, i el ta mete un variavel CSS na `:root`. Si bo skrebe es value ku `@theme {}` normal, Tailwind ta salva o `var()` literalmenti — ma `var(--font-inter)` ka izisti na momentu di build, só na browser. Rezultadu: utilidadis ki ka funsiona ou klasi kebradu.
+Kazu komuns na frameworks moderno: bu ten un fonti personalizadu ki `next/font` ta karrega ou outro mekanismu, i el ta mete un variavel CSS na `:root`. Si bu skrebe es value ku `@theme {}` normal, Tailwind ta salva o `var()` literalmenti — ma `var(--font-inter)` ka izisti na momentu di build, só na browser. Rezultadu: utilidadis ki ka funsiona ou klasi kebradu.
 
 <CodeDiff
   lang="css"
@@ -199,7 +199,7 @@ Vamos imagina ki Resort Brava ten kontratu di marka kompletamenti spesífiku. Nu
     { t: '}', m: 0 },
   ]}
   notes={[
-    { m: 1, title: "Zerar padran", body: "`--color-*: initial` i `--font-*: initial` ta **tira** tudu kor i fonti padran di Tailwind. Só o ki bo defini djuntu ta izisti dipos." },
+    { m: 1, title: "Zerar padran", body: "`--color-*: initial` i `--font-*: initial` ta **tira** tudu kor i fonti padran di Tailwind. Só o ki bu defini djuntu ta izisti dipos." },
     { m: 2, title: "Nosa paleta", body: "Kada `--color-mar-*`, `--color-sol-*`, `--color-areia` i `--color-koral` ta gera `bg-*`, `text-*`, `border-*`, `from-*`, etc. automátiku." },
     { m: 3, title: "Nosa fonti", body: "Só dos famílias: `--font-display` ta da `font-display`, `--font-body` ta da `font-body`." },
     { m: 4, title: "Skala di spacing", body: "`--spacing: 0.3rem` ta faze `p-4` = 4 × 0.3rem = 1.2rem — un skala más larga ki o padran." },
@@ -220,17 +220,17 @@ Klasi tipu `bg-red-500` ka ta funsiona aki — paleta padran foi tiradu.
 
 <SectionHeading variant="install">Inspesiona o ki Tailwind ta gera</SectionHeading>
 
-Pa odja lista kompletu di tokens ki bo tema ta mostra:
+Pa odja lista kompletu di tokens ki bu tema ta mostra:
 
 ```bash
 pnpm run build
 # Dipos abri dist/style.css i prokura ":root {"
 ```
 
-Bo ta odja tudu `--color-*`, `--font-*`, etc. ki Tailwind kompila pa CSS. Es é forma más rápida di konfirma **o ki realmenti ta gera**.
+Bu ta odja tudu `--color-*`, `--font-*`, etc. ki Tailwind kompila pa CSS. Es é forma más rápida di konfirma **o ki realmenti ta gera**.
 
 :::callout{type=tip}
-DevTools di Chrome/Firefox ta mostra es variavel kuandu bo inspesiona `:root` no elementu HTML. Bo pode mesmu muda-s temporariamenti pa testa mudansas sen rebuild.
+DevTools di Chrome/Firefox ta mostra es variavel kuandu bu inspesiona `:root` no elementu HTML. Bu pode mesmu muda-s temporariamenti pa testa mudansas sen rebuild.
 :::
 
 <SectionHeading variant="concept" seq={6}>Padron Komuns pa Referénsia</SectionHeading>
@@ -246,14 +246,14 @@ Vira kada karta pa lembra o padran ki ta rezolvi kada kazu di kada dia.
     { term: "Adisiona breakpoint personalizadu", def: "Un token --breakpoint-* ta gera un variant responsivu novu.", code: "@theme { --breakpoint-3xl: 120rem }", lang: "css" },
     { term: "Referensia var() externu (next/font)", def: "Value ku var() ten ki uza @theme inline pa resolvi na build.", code: "@theme inline { --font-sans: var(--font-inter) }", lang: "css" },
     { term: "Tira tudu kores padran", def: "initial ta apaga a paleta padran di Tailwind.", code: "@theme { --color-*: initial }", lang: "css" },
-    { term: "Tema kompletu personalizadu di zero", def: "--*: initial ta reseta tudu tema, dipos bo ta defini di novu.", code: "@theme { --*: initial; ... }", lang: "css" },
+    { term: "Tema kompletu personalizadu di zero", def: "--*: initial ta reseta tudu tema, dipos bu ta defini di novu.", code: "@theme { --*: initial; ... }", lang: "css" },
   ]}
 />
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />

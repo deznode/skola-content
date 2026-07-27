@@ -19,7 +19,7 @@ objectives:
 
 Kards di Resort Brava ten fundu, sombra i spacing. Ma kantus son **agudus** — ka tene suabidadi. Borduras i rais é o ki ta da forma a interfacis. Kantu redondu ta torna elementu más amigável. Bordura ta marka unde un kuza para i otru komesa.
 
-I li ten **dos mudansas grandes di v4** ki bo meste sabe primeru — nun é só evolusan, é mudansa konseptual.
+I li ten **dos mudansas grandes di v4** ki bu meste sabe primeru — nun é só evolusan, é mudansa konseptual.
 
 <SectionHeading variant="concept" seq={1}>Avizu: Default Border Color é `currentColor` na v4</SectionHeading>
 
@@ -27,7 +27,7 @@ I li ten **dos mudansas grandes di v4** ki bo meste sabe primeru — nun é só 
 
 **Es é mudansa más grandi di tudu Tailwind v4.**
 
-Na v3, kuandu bo poi `border` (o `border-2`), kor era **`gray-200`** otomatikamenti. Tudu bordu na web v3 era sutil gray sen ki bo penso nada.
+Na v3, kuandu bu poi `border` (o `border-2`), kor era **`gray-200`** otomatikamenti. Tudu bordu na web v3 era sutil gray sen ki bu penso nada.
 
 Na v4, **default é `currentColor`** — kor di textu di elementu. O mesmu HTML ta da un rezultadu diferenti:
 
@@ -40,9 +40,9 @@ Na v4, **default é `currentColor`** — kor di textu di elementu. O mesmu HTML 
   ]}
   rows={[
     { label: "Kor default di `border`", kind: "code", vals: ["gray-200", "currentColor"] },
-    { label: "O ki bo ta odja", kind: "text", vals: ["Sempri un **sinzentu klaru** sutil", "O **kor di textu** di elementu (ta eredita)"] },
+    { label: "O ki bu ta odja", kind: "text", vals: ["Sempri un **sinzentu klaru** sutil", "O **kor di textu** di elementu (ta eredita)"] },
     { label: "Sorpreza pusível?", kind: "text", vals: ["Nau — sempri mesmu sinzentu", "Sin — se textu é pretu, bordura é preta"] },
-    { label: "O ki bo meste faze", kind: "text", vals: ["Nada", "**Sempri** spesifika `border-{kor}`"] },
+    { label: "O ki bu meste faze", kind: "text", vals: ["Nada", "**Sempri** spesifika `border-{kor}`"] },
   ]}
 />
 
@@ -53,7 +53,7 @@ Na v4, **default é `currentColor`** — kor di textu di elementu. O mesmu HTML 
 <div class="border border-sky-100">Karta</div>
 ```
 
-Si bo ka spesifika, prepara pa surprezas. Pa migrasan di kódiku v3 a v4, **kel é di kuza más kumun di iskeci**.
+Si bu ka spesifika, prepara pa surprezas. Pa migrasan di kódiku v3 a v4, **kel é di kuza más kumun di iskeci**.
 
 :::callout{type=tip}
 Pa lojika di v3 (default sinzentu), poi un linha `--color-border: var(--color-gray-200);` na `@theme {}` ou `* { @apply border-slate-200; }` na fonti.
@@ -71,7 +71,7 @@ Pa lojika di v3 (default sinzentu), poi un linha `--color-border: var(--color-gr
 <div class="border-0">Sen bordura</div>
 ```
 
-Larguras válidas: 0, 1 (default), 2, 4, 8. (`border-3`, `border-5`, etc. ka izisti — uza valor arbitráriu si bo presisa.)
+Larguras válidas: 0, 1 (default), 2, 4, 8. (`border-3`, `border-5`, etc. ka izisti — uza valor arbitráriu si bu presisa.)
 
 ### Kor
 
@@ -184,7 +184,7 @@ Otimu pa `rounded-tl-lg rounded-br-lg` = kantus diagonal — moderno i ka kumun.
 | `outline-none` | Removi outline (kuidadu — akseso pa teklas mesti outline) |
 
 :::callout{type=tip}
-**Nunka uza `outline-none` sen substitui** ku otru sinal visual di foku. Pesoa ki uza teklas pa navega ta perde pista de unde sta. Si bo removi outline default, adisiona `focus:ring-2 focus:ring-sky-500` o similar.
+**Nunka uza `outline-none` sen substitui** ku otru sinal visual di foku. Pesoa ki uza teklas pa navega ta perde pista de unde sta. Si bu removi outline default, adisiona `focus:ring-2 focus:ring-sky-500` o similar.
 :::
 
 <SectionHeading variant="concept" seq={5}>Klasis pa Lembra</SectionHeading>
@@ -230,12 +230,12 @@ Kards di Lisan 10 ten fundu i sombra. Gosi nu adisiona rais i un bordura suavi p
 - **Seksan (kards):** `rounded-lg border border-slate-100` — kards redondu ku bordura kuasi invizivel (define forma)
 - **Boton di hero:** `rounded-md` — kantus suavi, ta da konfortu
 
-Resort Brava ten gosi **forma**. Kards parsi ki bo pode toka, boton pa "klika", header termina.
+Resort Brava ten gosi **forma**. Kards parsi ki bu pode toka, boton pa "klika", header termina.
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
 <TentaGosi showHeader={false} />
 
-<SectionHeading variant="quiz">Verifika Bo Kunhesimentu</SectionHeading>
+<SectionHeading variant="quiz">Verifika Bu Kunhesimentu</SectionHeading>
 <QuizSet showHeader={false}>
   <Quiz position={0} />
   <Quiz position={1} />
