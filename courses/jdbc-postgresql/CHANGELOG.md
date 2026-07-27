@@ -16,9 +16,16 @@ published copy are recorded under their own dated heading.
   (prose, the `<Misconception>` myth/real pair, and the trace code block).
 - Cheatsheet: `PreparedStatement` example rows now use `Sara Lima` /
   `sara@email.cv` to match.
+- `code/docker/init/01-schema.sql`: seed rows `Ana Lima` / `Tóni Gomes` →
+  `Sara Lima` / `Nando Gomes`. Without this the Docker database a learner
+  actually spins up would not match the names used in the lesson walkthrough.
 
 This publish syncs a draft-side cast retrofit from 2026-07-08 that was never
 republished — no content changes beyond the cast.
+
+Note: `code/docker/` is not copied by either publish surface (both only handle
+`code/{start,final}` and the per-project layout), so it had been frozen since
+the original publish. It was synced by hand here.
 
 ## [2026-07-03] — publish (title rename)
 

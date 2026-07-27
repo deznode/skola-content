@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS kontatus (
 
 -- Dadus di izénplu pa testa
 INSERT INTO uzuarius (nomi_uzuariu, email) VALUES
-    ('Ana Lima', 'ana@skola.dev'),
-    ('Tóni Gomes', 'toni@skola.dev');
+    ('Sara Lima', 'sara@skola.dev'),
+    ('Nando Gomes', 'nando@skola.dev');
