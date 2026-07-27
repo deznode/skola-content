@@ -23,7 +23,7 @@ Imagina ki bu tene un lista di 500 nomi di estudanti ki registra pa un evento �
 
 Na matemátika, un konjuntu é un grupu di elementus úniku — sen repetisan. Python tene ezatamenti kel konseitu: `set`. Sets é perfeitu kuandu bu presiza garanti ki kada elementu aparesi un bez só, ou kuandu bu presiza verifika rápidu si un elementu ezisti. Nu ta uza sets pa tudu tipu di koza — dezdi remove duplikadus te kompara listas di dadus.
 
-## Kria Sets
+<SectionHeading variant="concept" seq={1}>Kria Sets</SectionHeading>
 
 Tene dos maneira di kria un set:
 
@@ -59,7 +59,7 @@ TypeError: 'set' object is not subscriptable`} />
 
 Si bu presiza asesu pa índisi, uza un lista. Si bu presiza elementus úniku i buska rápidu, uza un set.
 
-## Auto-Deduplikasan
+<SectionHeading variant="concept" seq={2}>Auto-Deduplikasan</SectionHeading>
 
 Kuandu bu kria un set, Python ta elimina automatikamenti tudu elementu repetidu:
 
@@ -86,7 +86,7 @@ print(f"Estudantis úniku: {len(estudantis)}")
 print(estudantis)  # {'Maria', 'João', 'Ana', 'Pedro'}
 ```
 
-## Membership Testing (Testa si Elementu Ezisti)
+<SectionHeading variant="concept" seq={3}>Membership Testing (Testa si Elementu Ezisti)</SectionHeading>
 
 Un di grandi vantajens di sets é velosidadi di buska. Verifika si un elementu sta dentu di un set é **O(1)** — konstanti, independenti di tamanhu. Na listas, é **O(n)** — más lentu pa listas grandi.
 
@@ -120,7 +120,7 @@ print(f"Password tene karakter spesial: {tene_spesial}")  # True
 Kuandu bu presiza verifika si un valór ezisti dentu di un kolesan grandi, konverti pa set primeru. Pa 1 milhan di elementus, set ta responde instantaneamenti, lista ta leva tempu.
 :::
 
-## Operasons Matemátiku
+<SectionHeading variant="concept" seq={4}>Operasons Matemátiku</SectionHeading>
 
 Sets na Python ta suporta operasons di konjuntus ki bu ta prende na matemátika:
 
@@ -191,7 +191,7 @@ Es kuadru ta rezumi kuatru operasan, ku rezultadu pa `python_estudantis` i `java
   ]}
 />
 
-## Metodus di Sets
+<SectionHeading variant="concept" seq={5}>Metodus di Sets</SectionHeading>
 
 ```python
 frutas = {"manga", "papaia", "banana"}
@@ -216,7 +216,7 @@ print(frutas)  # {'manga', 'laranja'}
 ```
 
 :::callout{type=tip}
-Uza `.discard()` en bez di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bo programa ka ta krasa ku `KeyError`.
+Uza `.discard()` en bez di `.remove()` kuandu bu ka tene serteza si elementu ezisti. Asim bu programa ka ta krasa ku `KeyError`.
 :::
 
 ```python
@@ -236,7 +236,7 @@ print(f"Vogais na 'maria': {vogais_nomi}")
 print(vogais_nomi.issubset(vogais))  # True -- tudu vogais_nomi sta na vogais
 ```
 
-## Set Comprehension
+<SectionHeading variant="concept" seq={6}>Set Comprehension</SectionHeading>
 
 Mesmu lójika di list comprehension, ma ku txaves `{}`:
 
@@ -267,7 +267,7 @@ if numeru in quadradus:
     print(f"{numeru} é un quadradu perfeitu!")
 ```
 
-## Padrons Komun: Remove Duplikadus Preservandu Órdin
+<SectionHeading variant="concept" seq={7}>Padrons Komun: Remove Duplikadus Preservandu Órdin</SectionHeading>
 
 `set()` ta remove duplikadus, ma el ta perde órdin orijinal. Pa preserva órdin:
 
@@ -301,7 +301,7 @@ playlist_limpu = list(dict.fromkeys(musika_playlist))
 print(playlist_limpu)
 ```
 
-## Kuandu Uza Sets vs Listas
+<SectionHeading variant="concept" seq={8}>Kuandu Uza Sets vs Listas</SectionHeading>
 
 | Situasan | Uza Set | Uza Lista |
 |----------|---------|-----------|
@@ -325,16 +325,16 @@ validu = {1, "hello", (1, 2, 3), 3.14}  # números, strings, tuplas — tudu imu
 # invalidu = {[1, 2], {"a": 1}}  # TypeError: unhashable type: 'list'
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Kuandu bu presiza elementus **úniku** ou un buska `in` super rápidu nun kolesan grandi, uza un set — buska é O(1), muitu más rápidu ki na lista (O(n)).</RezumuItem>
   <RezumuItem term="Set">Un kolesan di elementus **úniku** i **sen orden** — auto-deduplikasan: repetidu ta desaparese sózin.</RezumuItem>
   <RezumuItem term="Operasons">`|` (union), `&` (intersection), `-` (difference), `^` (symmetric difference).</RezumuItem>

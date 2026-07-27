@@ -18,7 +18,15 @@ objectives:
 
 # Kondisionais (if/elif/else)
 
-Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizan baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bo programa pensa i disidi!
+Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizan baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bu programa pensa i disidi!
+
+Imajina bu ta kaminha i txiga na un **garfu di kaminhu** (fork in the road): un kaminhu ta bai pa direita, otu pa isquerda. Bu tem ki skodje sô un — bu ka pode sigui dos kaminhu na mesmu tempu.
+
+Na programasan, **kondisional** (`if`/`elif`/`else`) funsiona mesmu manera: programa ta txiga na un pontu undi el meste skodje kal kaminhu (bloku di kódiku) pa sigui, baseadu na si un kondisan é verdadi ô falsu. Sô un bloku ta izekutadu — nunka dos na mesmu tempu.
+
+:::callout{type=info}
+Un garfu di kaminhu na vida real é normalmenti un eskolha di un bez sô — dipos ki bu skodje direita ô isquerda, ka tem volta. Ma un `if`/`elif`/`else` na kódiku é reavaliadu **kada bez ki el ta izekutadu** — si el sta dentu di un **loop** (bu ta prende loops na Lisan 10), mesmu "garfu" pode manda kódiku pa un kaminhu diferenti na kada pasada, dipendendu di kumo kondisan muda. Metáfora di garfu ka ta kobri kel parti — el ta bon pa kompriende **un desizan sô**, ka pa desizons ripetidu.
+:::
 
 <GlossaryText
   text="Un programa ta toma desizan avaliandu un [[kondisan]] — un pergunta ki ta da `True` ou `False` (un valor [[boolean]])."
@@ -32,7 +40,7 @@ Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda
 Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`and`, `or`, `not`). Kada un di es ta da un `boolean` (`True`/`False`) — i é izatamenti kel ki un `if` ta presiza. Nes lisan nu ta uza-s pa toma desizan.
 :::
 
-## If i Else Báziku
+<SectionHeading variant="concept" seq={1}>If i Else Báziku</SectionHeading>
 
 ![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizan.jpg)
 
@@ -81,7 +89,7 @@ else:
     print("Sáldu insufisiente!")
 ```
 
-## Kadeia If/Elif/Else
+<SectionHeading variant="concept" seq={2}>Kadeia If/Elif/Else</SectionHeading>
 
 Kuandu bu tene más ki dos opsan, bu ta uza `elif` (ki é "else if" abreviadu). Python ta verifika kada kondisan di riba pa baxu i ta izekuta primeru ki é `True`.
 
@@ -106,7 +114,7 @@ Kel izemplu li ta funsiona pa kualker idadi:
 - `idadi = 70` — "Bo é terseru idadi."
 
 :::callout{type=tip}
-Órdin ta importa! Python ta para na primeru kondisan ki é `True`. Si bo po `idadi < 65` primeru, un kriansa di 8 anu ta kái nkel bloku pamodi `8 < 65` tanbe é `True`.
+Órdin ta importa! Python ta para na primeru kondisan ki é `True`. Si bu po `idadi < 65` primeru, un kriansa di 8 anu ta kái nkel bloku pamodi `8 < 65` tanbe é `True`.
 :::
 
 Ma un izemplu prátiku — klasifikasan di nota:
@@ -127,9 +135,9 @@ else:
     print("Nota inválidu!")
 ```
 
-## Kondisionais Aninhadu
+<SectionHeading variant="concept" seq={3}>Kondisionais Aninhadu</SectionHeading>
 
-Bu pode po un `if` dentu di otu `if`. Es ta txoma "kondisionais aninhadu" (nested conditionals). Útil kuandu bo presiza verifika más ki un koza di bez.
+Bu pode po un `if` dentu di otu `if`. Es ta txoma "kondisionais aninhadu" (nested conditionals). Útil kuandu bu presiza verifika más ki un koza di bez.
 
 ```python
 # Verifica si numeru é par/ímpar i positivu/negativu
@@ -155,7 +163,7 @@ else:
 Kuidadu ku kondisionais aninhadu demás! Si bu tene más di 3 nivéis, programa ta fika difísil di ler. Más tardi nos ta prende formas di simplifika.
 :::
 
-## Izemplu Prátiku: Verifikador di Anu Bisextu
+<SectionHeading variant="concept" seq={4}>Izemplu Prátiku: Verifikador di Anu Bisextu</SectionHeading>
 
 Un anu é bisextu si:
 - É divisível pa 4 **I**
@@ -174,7 +182,7 @@ Testa ku anus diferenti:
 | `2000` | ✅ Sin | Divisível pa 400 |
 | `2023` | ❌ Nau | Nau divisível pa 4 |
 
-## Kalkuladora Simples
+<SectionHeading variant="concept" seq={5}>Kalkuladora Simples</SectionHeading>
 
 Gosi nos ta djunta tudu ki nos ta prende pa kria un kalkuladora:
 
@@ -208,7 +216,7 @@ else:
 Nota kumo ki nos po un `if` dentu di `elif operasan == "/"` pa verifika si `num2` é zeru. Divizan pa zeru ta kauza `ZeroDivisionError` na Python!
 :::
 
-## Kondisionais na Un Linha (Ternary Operator)
+<SectionHeading variant="concept" seq={6}>Kondisionais na Un Linha (Ternary Operator)</SectionHeading>
 
 Pa kondisionais simples, Python ta permiti skrebe tudu na un linha só. Es dos forma ta da **mesmu rezultadu** — vira es tabs pa kompara:
 
@@ -226,7 +234,7 @@ print(saudasan)
 Uza ternary operator só pa kazus simples. Si lójika é kompleksu, uza `if/elif/else` normal pa kódiku fika más klaru.
 :::
 
-## Kondisionais ku Operadoris Lójiku
+<SectionHeading variant="concept" seq={7}>Kondisionais ku Operadoris Lójiku</SectionHeading>
 
 Bu pode kombina kondisan ku `and`, `or` i `not`:
 
@@ -263,7 +271,7 @@ else:
     print("Talvez oji ka é midjór dia.")
 ```
 
-## Pitu di Match/Case (Python 3.10+)
+<SectionHeading variant="concept" seq={8}>Pitu di Match/Case (Python 3.10+)</SectionHeading>
 
 Dezdi Python 3.10, tene un alternativa modernu pa kadeia di `if/elif` — `match/case`. É más limpu kuandu bu ta kompara un valór ku txeu opsan:
 
@@ -303,7 +311,7 @@ match dia:
 `match/case` é opsional — `if/elif/else` ta funsiona senpri. Ma `match/case` é más eleganti kuandu bu tene txeu opsan pa kompara. Nos ta uza más di el na Module 2 ku estruturas di dadus.
 :::
 
-## Erus Komun ku Kondisionais
+<SectionHeading variant="concept" seq={9}>Erus Komun ku Kondisionais</SectionHeading>
 
 <DetailDisclosure
   items={[

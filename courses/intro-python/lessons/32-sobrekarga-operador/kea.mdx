@@ -10,18 +10,18 @@ duration: "20 min"
 objectives:
   - "Implementa __add__, __sub__, __mul__, __eq__ pa tipu personalizadu"
   - "Konstrui un klasi Vetor ku suporti kompletu di operadoris"
-  - "Kompriendi kumo Python ta uza metodus majiku kuandu bo skrebe +, -, ==, <"
+  - "Kompriendi kumo Python ta uza metodus majiku kuandu bu skrebe +, -, ==, <"
 ---
 
 # Sobrekarga di Operador
 
-Imajina ki bu sta na merkadu di Sukupira i bu tene dos saku di katxupa ingredientis. Un saku tene 2kg di milhu i 1kg di fijun, otru tene 1kg di milhu i 3kg di fijun. Si bo "soma" dos saku, bu ta fika ku 3kg di milhu i 4kg di fijun. Bo kaba di faze **sobrekarga di operador** — bo enxina o ki "soma" signifika pa saku di katxupa!
+Bu já sabe ki `+` ta soma númeru: `2 + 3` ta dá `5`. Ma na Python, mesmu simbulu `+` ta faze algu diferenti pa `string`: `"oi" + "tudu"` ka ta soma nada, el ta **djunta** duas palavra i dá `"oitudu"`. I pa `list`, `+` ta djunta duas lista na un sô.
 
-Na Python, kuandu bo skrebe `3 + 5`, Python sabe ki deve soma numerus. Ma si bo kria un klasi `Vetor` ou `Dineru`, Python ka sabe o ki `+` signifika pa es tipu. **Sobrekarga di operador** ta permiti-bu enxina Python o ki `+`, `-`, `==`, i otru operadoris deve faze ku **bo** objetis.
+Mesmu operador, mesmu simbulu, ma konportamentu diferenti dependendu di tipu di dadu — Python **já** ta faze isu pa tipu ki ben ku el. **Sobrekarga di operador** é kuandu bu inxina bu própriu klasi pa junta-se a kel mesmu konportamentu: definí métodu spesiál kumo `__add__` pa dizê kuzê `+` debe faze kuandu dôs objetu di bu klasi ta uzadu ku el.
 
-## O ki é Sobrekarga di Operador?
+<SectionHeading variant="concept" seq={1}>O ki é Sobrekarga di Operador?</SectionHeading>
 
-Kuandu bo skrebe `a + b`, Python na verdadi ta txoma un metodu majiku:
+Kuandu bu skrebe `a + b`, Python na verdadi ta txoma un metodu majiku:
 
 ```python
 # Es dos linhas é EZATAMENTI mesmu kuza:
@@ -33,9 +33,9 @@ rezultadu = "Ola" + " Mundo"
 rezultadu = "Ola".__add__(" Mundo")
 ```
 
-Kada operador tene un metodu majiku korispondenti. Kuandu bo defini es metodu na bo klasi, bu ta "sobrekarga" operador — da-l un novu signifikadu pa bo tipu.
+Kada operador tene un metodu majiku korispondenti. Kuandu bu defini es metodu na bu klasi, bu ta "sobrekarga" operador — da-l un novu signifikadu pa bu tipu.
 
-## Tabela di Operadoris Majiku
+<SectionHeading variant="concept" seq={2}>Tabela di Operadoris Majiku</SectionHeading>
 
 | Operador | Metodu Majiku | Diskrisan |
 |----------|---------------|-----------|
@@ -57,7 +57,11 @@ Kada operador tene un metodu majiku korispondenti. Kuandu bo defini es metodu na
 Bu ka presiza memoriza tudu. Kumesa ku `__add__`, `__eq__`, i `__str__` — es é ki bu ta uza más freku. Konsulta tabela kuandu presiza otus.
 :::
 
-## `__add__` i `__sub__` — Adisan i Subtrasan
+:::callout{type=warning}
+Sobrekarga di operador ka é polimorfizmu abertu. Ku polimorfizmu jeral, kualker objetu ku métodu sertu ta funsiona — ma li, bu sta prezu a un **kunjuntu fitxadu** di métodus majiku pre-definidu (kes na tabela riba). Bu ka pode inventa un operador novu, nen da un simbulu ezistenti un signifikadu fora des puntu di "gantxu" (hook). I si bu objetu sta na **ladu direitu** di operasan — pur izemplu `5 + bu_objetu` — Python ka ta txoma `__add__` di `bu_objetu`; el ta prusura métodu **refletidu** korespondenti, `__radd__`, na `bu_objetu`. Si `bu_objetu` ka defini `__radd__`, operasan ta falha mesmu ki `__add__` sta kompletamenti definidu na otru sentidu.
+:::
+
+<SectionHeading variant="concept" seq={3}>`__add__` i `__sub__` — Adisan i Subtrasan</SectionHeading>
 
 Nu ta kumesa ku un izemplu simples — un klasi ki ta representa un pontu na mapa:
 
@@ -101,7 +105,7 @@ Nota ki `__add__` i `__sub__` ta retorna un **novu** objetu `Pontu`. Es é impor
 Senpri retorna un novu objetu na `__add__` i `__sub__`. Ka muda `self` — mesmu forma ki `3 + 5` ka muda valór di `3`.
 :::
 
-## `__mul__` — Multiplikasan (Eskalar)
+<SectionHeading variant="concept" seq={4}>`__mul__` — Multiplikasan (Eskalar)</SectionHeading>
 
 Pa multiplikasan, ta faze sentidu multiplika kada koordenada pa un numeru (eskalar):
 
@@ -135,7 +139,7 @@ triplu = p * 3
 print(triplu)     # Pontu(6, 9)
 ```
 
-## `__eq__` i `__lt__` — Operadoris di Komparasan
+<SectionHeading variant="concept" seq={5}>`__eq__` i `__lt__` — Operadoris di Komparasan</SectionHeading>
 
 Sen `__eq__`, Python ta kompara pa **identidadi** (si é mesmu objetu na memória), ka pa **valór**:
 
@@ -179,10 +183,10 @@ print(p1 < p3)     # True — p1 sta más pertu di orijem
 ```
 
 :::callout{type=tip}
-Si bo defini `__eq__`, é bon prátika defini `__lt__` tanbe. Ku es dos, `sorted()` ta funsiona ku bo objetis automátikamenti!
+Si bu defini `__eq__`, é bon prátika defini `__lt__` tanbe. Ku es dos, `sorted()` ta funsiona ku bu objetis automátikamenti!
 :::
 
-## Izemplu Konpletu: Klasi Vetor
+<SectionHeading variant="concept" seq={6}>Izemplu Konpletu: Klasi Vetor</SectionHeading>
 
 Gosi nu ta kombina tudu num klasi `Vetor2D` kompletu — un vetor matemátiku ku dos koordenadas:
 
@@ -254,7 +258,7 @@ ordenadu = sorted(vetores)
 print(ordenadu)       # [Vetor2D(1, 1), Vetor2D(3, 4), Vetor2D(10, 0)]
 ```
 
-## Izemplu Prátiku: Klasi Dineru
+<SectionHeading variant="concept" seq={7}>Izemplu Prátiku: Klasi Dineru</SectionHeading>
 
 Un izemplu do dia-a-dia — un klasi pa trabadja ku dineru na Eskudu Kabo-Verdianu:
 
@@ -309,12 +313,12 @@ class Dineru:
 
 ```python
 # Operasons ku dineru — naturál i intuitivu!
-presu_katxupa = Dineru(350)
-presu_grogu = Dineru(200)
-presu_pastel = Dineru(150)
+presu_livru = Dineru(350)
+presu_kaneta = Dineru(200)
+presu_kaderneta = Dineru(150)
 
 # Soma tudu
-total = presu_katxupa + presu_grogu + presu_pastel
+total = presu_livru + presu_kaneta + presu_kaderneta
 print(f"Total: {total}")  # Total: 700.00 ECV
 
 # Kalkula troku
@@ -327,11 +331,11 @@ ku_diskonto = total * 0.9
 print(f"Ku diskonto: {ku_diskonto}")  # Ku diskonto: 630.00 ECV
 
 # Kompara presus
-print(presu_katxupa > presu_pastel)  # True
-print(presu_grogu == Dineru(200))    # True
+print(presu_livru > presu_kaderneta)  # True
+print(presu_kaneta == Dineru(200))    # True
 
 # Ordena presus!
-presus = [presu_katxupa, presu_grogu, presu_pastel]
+presus = [presu_livru, presu_kaneta, presu_kaderneta]
 print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 ```
 
@@ -339,16 +343,16 @@ print(sorted(presus))  # [Dineru(150), Dineru(200), Dineru(350)]
 `isinstance()` ta verifika si un objetu é di un sertu tipu. `return NotImplemented` ta dizi Python "nha ka sabe faze es operasan" — Python ta lansa `TypeError` automátikamenti si nenhum ladu sabe faze operasan.
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`__add__`, `__sub__`, `__mul__` debe retorna senpri un **novu** objetu — ka muda `self` (mesmu manera ki `3 + 5` ka ta muda `3`).</RezumuItem>
   <RezumuItem term="Sobrekarga">Ta enxina Python o ki `+`, `-`, `*`, `==` ta signifika pa bu klasi.</RezumuItem>
   <RezumuItem term="Metodus">Kada operador tene un dunder korespondenti: `+` → `__add__`, `==` → `__eq__`, `<` → `__lt__`.</RezumuItem>

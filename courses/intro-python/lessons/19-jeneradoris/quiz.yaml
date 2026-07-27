@@ -1,6 +1,6 @@
-# Quiz sidecar (draft source) for lesson m3-19 "Jeneradorus".
+# Quiz sidecar (draft source) for lesson m3-19 "Jeneradoris".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/19-jeneradorus/quiz.yaml; positions 0,1,2
+# content/courses/intro-python/lessons/19-jeneradoris/quiz.yaml; positions 0,1,2
 # correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é diferensa entri `[x*2 for x in range(5)]` i `(x*2 for x in range(5))`?"
+    kea: "Kual é diferensa entri `[x*2 for x in range(5)]` i `(x*2 for x in range(5))`?"
   options:
     - text: { kea: "Kolxetis `[]` ta kria un **lista** (tudu na memória); paréntesis `()` ta kria un **generator** (lazy, un valor di kada bez)" }
       correct: true

@@ -16,7 +16,9 @@ objectives:
 
 # Listas i List Comprehension
 
-Imagina bu tene un lista di ilhas ki bu kre vizita, un lista di presus di merkadu, ou nomis di bo amigus. Na Python, **list** é estrutura perfeitu pa guarda kolesons di dadus na orden.
+Imajina un stanti di livru, ku prateladu numeradu di 0 pa riba. Kada livru tene si própriu lugar — bu ta atxa-l dretu si bu sabe si númeru di prateladu (índisi). Bu pode adisiona más livru, tra un fora, ô troka un di lugar, ma orden ta fikaba: prateladu 0 sénpri ta bin antis di prateladu 1.
+
+Na Python, **list** ta funsiona di mesmu manera: é un kolesan di elementu goardadu na orden, kada un ku si própriu índisi, kumésa di zero. `minha_lista[0]` ta da-u primeru elementu, mesmu manera ki bu ta djobe primeru prateladu di stanti.
 
 Lista é un di estruturas más usadu na Python — é **mutável** (bu pode muda dipos di kria), **ordenadu** (elementus ta mantene es pozisan), i pode guarda **kualker tipu di dadu**.
 
@@ -24,7 +26,7 @@ Lista é un di estruturas más usadu na Python — é **mutável** (bu pode muda
 Pa sigi es lisan bu meste konxe **loops** (Lisan 10) — list comprehension ta uza `for` i `range()` — i ten un base di variávis i strings di Módulu 1.
 :::
 
-## Kria Listas
+<SectionHeading variant="concept" seq={1}>Kria Listas</SectionHeading>
 
 Pa kria un lista, uza kolxetis `[]` ku elementus separadu pa vírgula:
 
@@ -49,7 +51,7 @@ print(len(ilhas))  # 5
 Lista pode guarda kualker tipu di dadu — strings, númerus, booleans, i até otus listas!
 :::
 
-## Indexasan: Asesa Elementus
+<SectionHeading variant="concept" seq={2}>Indexasan: Asesa Elementus</SectionHeading>
 
 Kada elementu na lista tene un **index** (pozisan). Python ta kumesa konta na **0**:
 
@@ -73,7 +75,7 @@ print(ilhas[-5])  # Santiago (primeiru)
 # Lista tene 5 elementus, entun indexis válidu é 0 a 4
 ```
 
-## Slicing: Korta Pedasus di Lista
+<SectionHeading variant="concept" seq={3}>Slicing: Korta Pedasus di Lista</SectionHeading>
 
 Slicing ta permiti bu pega un pedasu di lista uzandu `[start:stop:step]`:
 
@@ -99,7 +101,7 @@ top_3 = notis_ordenadu[:3]
 print(f"Top 3 notis: {top_3}")  # Top 3 notis: [95, 92, 91]
 ```
 
-## Mutabilidadi: Muda Elementus
+<SectionHeading variant="concept" seq={4}>Mutabilidadi: Muda Elementus</SectionHeading>
 
 Diferenti di strings i tuples, listas é **mutável** — bu pode muda es dipos di kria:
 
@@ -134,7 +136,7 @@ print(frutas)  # ['manga', 'koku']
 Kuandu uza slice assignment, senpri atribui un **lista**, nunka un string diretu. `frutas[1:] = ["koku"]` é koretu, `frutas[1:] = "koku"` ta spredi karaktéris!
 :::
 
-## Metodus di Lista
+<SectionHeading variant="concept" seq={5}>Metodus di Lista</SectionHeading>
 
 Listas tene vários metodus útil pa manipulasan:
 
@@ -174,6 +176,10 @@ print(ilhas)    # ['Santiago', 'Fogo']
 ilhas.clear()
 print(ilhas)  # []
 ```
+
+:::callout{type=info title="Kuidadu ku metáfora"}
+Un stanti di livru rial tene un limiti fixu di prateladu, dadu pa si tamanhu físiku — kel-li pode fazi-u pensa ma lista di Python tanbe ten un kapasidadi fixu. Ma ka é asin: lista é **dinámiku** i ta redimensiona-l automátikamenti kada bes ki bu uza `.append()`, `.insert()` ô `.remove()` — diferenti di kandu bu meste pui más un livru na un stanti ki dja sta xeu.
+:::
 
 ### Ordena i Inverte
 
@@ -223,7 +229,7 @@ Es metodus é útil ma ka é korason di lisan — lé-s rápidu gosi i volta li 
 Antis di pasa pa comprehension: dadu `notis = [85, 92, 78]`, o ki `notis.append(90)` ta retorna, i o ki `sorted(notis)` ta da? *(Resposta: `.append()` ta muda `notis` pa `[85, 92, 78, 90]` i ta retorna `None`; `sorted(notis)` ta da un lista nova `[78, 85, 92]` sen muda `notis`.)*
 :::
 
-## List Comprehension
+<SectionHeading variant="concept" seq={6}>List Comprehension</SectionHeading>
 
 ![Anatomia di list comprehension: [espresan for item in iterável if kondisan]](../../infographics/08-list-comprehension-anatomia.jpg)
 
@@ -285,14 +291,14 @@ print(presus_eur)  # [3.18, 4.55, 1.36, 7.27]
 **Avansadu (opsional):** comprehensions pode ser *aninhadu* (un comprehension dentu di otu) pa kria listas di listas, kumo un tabela di multiplikasan. Kel li ta pasa alen di es lisan — odja izersísiu **"Splora comprehension aninhadu"** na fin si bu kre splora-l.
 :::
 
-## Izemplu Prátiku: Jestan di Turma
+<SectionHeading variant="concept" seq={7}>Izemplu Prátiku: Jestan di Turma</SectionHeading>
 
 ```python
 # === Lista di Estudantis di Programasan ===
 # Kada estudanti é un disionáriu {nomi, nota} — nu ta odja disionárius mas detalha na lisan 13.
 # Pa gosi, só odja ki ta permiti agrupa nomi + nota djuntu na mesmu elementu.
 estudantis = [
-    {"nomi": "Djina", "nota": 88},
+    {"nomi": "Telma", "nota": 88},
     {"nomi": "Nilton", "nota": 72},
     {"nomi": "Edna", "nota": 95},
     {"nomi": "Kelvin", "nota": 65},
@@ -303,7 +309,7 @@ estudantis = [
 # Estudantis ki pasa (nota >= 70)
 aprovadus = [e["nomi"] for e in estudantis if e["nota"] >= 70]
 print(f"Aprovadus: {aprovadus}")
-# Aprovadus: ['Djina', 'Nilton', 'Edna', 'Lara', 'Nuno']
+# Aprovadus: ['Telma', 'Nilton', 'Edna', 'Lara', 'Nuno']
 
 # Extrai só notis pa kalkulus
 notis = [e["nota"] for e in estudantis]
@@ -324,16 +330,16 @@ for r in rezumu:
     print(r)
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`.sort()` ta muda lista orijinal in-place (i ta retorna `None`); `sorted()` ta da un lista nova. Uza `sorted()` kuandu bu ka kre perde-l.</RezumuItem>
   <RezumuItem term="Lista">Un kolesan **ordenadu** i **mutável** ku `[]` — pode guarda kualker tipu.</RezumuItem>
   <RezumuItem term="Indexasan / slicing">Índisi ta kumesa na 0; índisi negativu ta konta di trás; `[start:stop:step]` ta korta (`stop` eksklusivu).</RezumuItem>

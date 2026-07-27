@@ -20,11 +20,11 @@ Programas di mundu real presiza guarda dadus — nota di estudantis, lista di kl
 
 Imajina ki bu ta kria un programa pa registra vendas na merkadu di Sukupira na Praia. Kada venda presiza fika gravadu nun ficheru pa ka perdi kuandu programa fexá!
 
-## Modus di Ficheru
+<SectionHeading variant="concept" seq={1}>Modus di Ficheru</SectionHeading>
 
 ![Modus di ficheru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-ficheru.jpg)
 
-Antis di abri un ficheru, bo presiza dizi pa Python **o ki bu kre faze** ku el. Es é modus prinsipais:
+Antis di abri un ficheru, bu presiza dizi pa Python **o ki bu kre faze** ku el. Es é modus prinsipais:
 
 | Modu | Signifikadu | Konportamentu |
 |------|-------------|---------------|
@@ -37,7 +37,7 @@ Antis di abri un ficheru, bo presiza dizi pa Python **o ki bu kre faze** ku el. 
 Modu padran é `'r'`. Si bu ka espesifika nada, Python ta abri pa leitura.
 :::
 
-## Abri i Ler Ficheru
+<SectionHeading variant="concept" seq={2}>Abri i Ler Ficheru</SectionHeading>
 
 ### Ler Tudu di un Bez
 
@@ -72,7 +72,7 @@ with open("ilhas.txt", "r") as ficheru:
 `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
 :::
 
-## O ki É `with` Statement?
+<SectionHeading variant="concept" seq={3}>O ki É `with` Statement?</SectionHeading>
 
 `with` é un **context manager** — el ta garanti ki ficheru ta fexá automátikamenti, mesmu si eru akontesi. É manera seguru di trabadja ku ficheru.
 
@@ -94,9 +94,9 @@ with open("dadus.txt", "r") as ficheru:
 # Aki ficheru dja fexá — mesmu si tinha eru!
 ```
 
-Pensa na `with` manera un guarda ki ta abri porta, dixa bo entra, i ta fexá porta kuandu bo sai — mesmu si bo kai la dentu!
+Pensa na `with` manera un guarda ki ta abri porta, dixa bu entra, i ta fexá porta kuandu bu sai — mesmu si bu kai la dentu!
 
-## Skrebe na Ficheru
+<SectionHeading variant="concept" seq={4}>Skrebe na Ficheru</SectionHeading>
 
 ### Modu `'w'` — Kuidadu! Ta Apaga Tudu!
 
@@ -110,7 +110,7 @@ with open("lista_kompras.txt", "w") as ficheru:
 ```
 
 ```python
-# Si bo roda di novu ku 'w', konteúdu anteriu ta PERDI!
+# Si bu roda di novu ku 'w', konteúdu anteriu ta PERDI!
 with open("lista_kompras.txt", "w") as ficheru:
     ficheru.write("Lista novu — tudu anteriu ta bai!\n")
 ```
@@ -143,16 +143,16 @@ with open("ilhas_kv.txt", "w") as ficheru:
 ```
 
 :::callout{type=tip}
-`writelines()` ka ta adisiona `\n` automátikamenti — bo presiza inkluí na kada string!
+`writelines()` ka ta adisiona `\n` automátikamenti — bu presiza inkluí na kada string!
 :::
 
-## (Opsional · avansadu) Modu `'w+'` — Skrebe i Ler (ku seek)
+<SectionHeading variant="concept" seq={5}>(Opsional · avansadu) Modu `'w+'` — Skrebe i Ler (ku seek)</SectionHeading>
 
 :::callout{type=info}
-Es seksan é **opsional** — pa kumesa, trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bo presiza ler i skrebe mesmu ficheru na un só operasan.
+Es seksan é **opsional** — pa kumesa, trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bu presiza ler i skrebe mesmu ficheru na un só operasan.
 :::
 
-`'w+'` dixa bo skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bo presiza uza `seek(0)` pa volta pa kumesu!
+`'w+'` dixa bu skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bu presiza uza `seek(0)` pa volta pa kumesu!
 
 ```python
 with open("notas_maria.txt", "w+") as ficheru:
@@ -171,7 +171,7 @@ with open("notas_maria.txt", "w+") as ficheru:
     print(f"Ku seek: '{konteúdu}'")  # Mostra tudu!
 ```
 
-## Kaminhu di Ficheru ku `os.path`
+<SectionHeading variant="concept" seq={6}>Kaminhu di Ficheru ku `os.path`</SectionHeading>
 
 Kuandu programa ta roda na diferenti sistéma (Windows, macOS, Linux), kaminhus di ficheru é diferenti:
 - Windows: `C:\Users\Maria\documentus\notas.txt`
@@ -205,7 +205,7 @@ fixerus = os.listdir(".")
 print(fixerus)  # ['vendas.txt', 'notas.txt', 'ilhas_kv.txt']
 ```
 
-## Izemplu Prátiku: Rejistu di Vendas
+<SectionHeading variant="concept" seq={7}>Izemplu Prátiku: Rejistu di Vendas</SectionHeading>
 
 Nu ta kria un programa konpletu ki ta registra vendas na un ficheru:
 
@@ -251,7 +251,7 @@ mostra_vendas()
 print(f"Total di vendas: {konta_vendas()}")
 ```
 
-## Izemplu: Kopia Ficheru ku Múltiplu Kontekstus
+<SectionHeading variant="concept" seq={8}>Izemplu: Kopia Ficheru ku Múltiplu Kontekstus</SectionHeading>
 
 Bu pode abri dos ficheru na mesmu `with`:
 
@@ -264,7 +264,7 @@ with open("orijinal.txt", "r") as fonte, open("kopia.txt", "w") as destinu:
 print("Kopia feitu!")
 ```
 
-## Erus Kumun ku Ficheru
+<SectionHeading variant="concept" seq={9}>Erus Kumun ku Ficheru</SectionHeading>
 
 ### 1. FileNotFoundError — Ficheru Ka Ezisti
 
@@ -310,16 +310,16 @@ with open("testu.txt", "w+") as f:
     print(f.read())  # 'Ola Mundu!'
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa ficheru automátikamenti, mesmu si un eru akontese.</RezumuItem>
   <RezumuItem term="Modus">`"r"` (lé), `"w"` (skrebe — **apaga** tudu!), `"a"` (adisiona na fin), `"w+"` (skrebe + lé).</RezumuItem>
   <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), ou `for linha in ficheru` (linha pa linha — midjór pa ficheru grandi).</RezumuItem>

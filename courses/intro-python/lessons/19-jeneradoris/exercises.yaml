@@ -1,6 +1,6 @@
-# Exercises sidecar (draft source) for lesson m3-19 "Jeneradorus".
+# Exercises sidecar (draft source) for lesson m3-19 "Jeneradoris".
 # Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
-# content/courses/intro-python/lessons/19-jeneradorus/exercises.yaml, where
+# content/courses/intro-python/lessons/19-jeneradoris/exercises.yaml, where
 # scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
 # renders them in display order. Keep `slug` stable (completed_exercises FK).
 #
@@ -93,7 +93,7 @@
   kind: explore
   title: { kea: "Splora itertools" }
   prompt:
-    kea: "Módulu `itertools` tene ferramentas poderozu pa traba ku jeneradorus i sekuénsia — `islice` (limita un generator infinitu), `count`, `cycle`, `chain`. Odja dokumentasan."
+    kea: "Módulu `itertools` tene ferramentas poderozu pa traba ku jeneradoris i sekuénsia — `islice` (limita un generator infinitu), `count`, `cycle`, `chain`. Odja dokumentasan."
   resources:
     kea:
       - { label: "Python docs — itertools", url: "https://docs.python.org/3/library/itertools.html" }

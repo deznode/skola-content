@@ -55,26 +55,26 @@
         kea: "Konfigurasan di redi ka é unde Python ta brilha más."
         en: "Network configuration isn't where Python stands out most."
 - question:
-    kea: "Pa profisional di tek na Kabu Verdi, kual é vantajen prinsipál di Python?"
-    en: "For tech professionals in Cape Verde, what is Python's main advantage?"
+    kea: "Bu ka é programador i bu ta studa agrikultura. Pa kuze Python pode sirbi-bu?"
+    en: "You are not a programmer and you study agriculture. What can Python do for you?"
   options:
-    - text: { kea: "El ta funsiona so na portugues", en: "Only works in Portuguese" }
+    - text: { kea: "Pa nada — Python é só pa programador profisional", en: "Nothing — Python is only for professional programmers" }
       correct: false
       explain:
-        kea: "Python ka ta dependi di un língua; kódiku ta uza palavras na inglés."
-        en: "Python isn't tied to a language; code uses English keywords."
-    - text: { kea: "Ta abri portas pa trabadju remotu ku empresas internasionais", en: "Opens doors for remote work with international companies" }
+        kea: "Python é un ferramenta pa kualker área, ka é só pa programador."
+        en: "Python is a tool for any field, not just for programmers."
+    - text: { kea: "Pa analiza dadus di klima i agu", en: "To analyze climate and water data" }
       correct: true
       explain:
-        kea: "Python ta abri portas pa trabadju remotu ku empresas internasionais."
-        en: "Python opens doors to remote work with international companies."
-    - text: { kea: "Ten kustu altu di lisensa", en: "Has a high license cost" }
+        kea: "Ku Python bu pode analiza dadus real i responde pergunta di bu área."
+        en: "With Python you can analyze real data and answer questions in your own field."
+    - text: { kea: "Só pa kria website", en: "Only to build websites" }
       correct: false
       explain:
-        kea: "Python é grátis — sen kustu di lisensa."
-        en: "Python is free — there is no license cost."
-    - text: { kea: "Só pa estudantis universitáriu", en: "Only for university students" }
+        kea: "Website é un uzu di Python, ma ka é só kel."
+        en: "Websites are one use of Python, but not the only one."
+    - text: { kea: "Só si bu paga un lisensa", en: "Only if you pay for a license" }
       correct: false
       explain:
-        kea: "Kualker algen pode prende Python, sen presiza di universidadi."
-        en: "Anyone can learn Python — no university required."
+        kea: "Python é grátis i open source."
+        en: "Python is free and open source."

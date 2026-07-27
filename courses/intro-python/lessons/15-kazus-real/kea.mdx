@@ -17,11 +17,11 @@ objectives:
 
 # Kazus Real ku Estruturas di Dadus
 
-Nu dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, i konjuntus. Gosi é óra di po tudu djuntu! Na kel lisan li, nu ta rezolve problemas reais ki bu ta nkontra na dia-a-dia kumo programador. Kada izemplu ta mostra kumé ki bu ta skodje estrutura sertu pa situasan sertu.
+Nu dja prende 4 estruturas di dadus fundamentais: listas, tuplas, disionárius, i konjuntus. Gosi é óra di po tudu djuntu! Na kel lisan li, nu ta rezolve problemas real ki bu ta nkontra na dia-a-dia kumo programador. Kada izemplu ta mostra kumé ki bu ta skodje estrutura sertu pa situasan sertu.
 
 ![Komparasan di 4 estruturas: lista, tuple, disionáriu, konjuntu](../../infographics/06-4-estruturas-komparasan.jpg)
 
-## Lista di Tarefa (To-Do List)
+<SectionHeading variant="concept" seq={1}>Lista di Tarefa (To-Do List)</SectionHeading>
 
 Listas é perfeitu pa jestan di tarefas — bu pode djunta, elimina, i reorganiza elementus. Nu ta kria un sistema simples di tarefas:
 
@@ -84,7 +84,7 @@ print(f"⚠️ Tarefas urgenti: {urgenti}")
 Listas é ótimus kuandu bu presiza mante órdin i modifika konteúdu ku frekuénsia. Pa un to-do list real, lista ta permiti `.append()`, `.insert()`, `.remove()` i reordenasan.
 :::
 
-## Nota di Estudanti (Student Grades)
+<SectionHeading variant="concept" seq={2}>Nota di Estudanti (Student Grades)</SectionHeading>
 
 Listas kombina perfeitamenti ku funsons built-in (`sum`, `max`, `min`, `len`, `sorted`) pa analiza dadus numériku:
 
@@ -163,7 +163,7 @@ for i in range(len(nomis_materia)):
     print(f"    {materia}: {milhor}")
 ```
 
-## Inventáriu di Loja (Store Inventory)
+<SectionHeading variant="concept" seq={3}>Inventáriu di Loja (Store Inventory)</SectionHeading>
 
 Disionárius é estrtura ideal pa inventáriu — bu ta mapeia produktu pa informasons (presu, kantidadi, etc.):
 
@@ -233,7 +233,7 @@ Dipos di vende 3 garafa di grogu (di 15), ki produtu ta entra na lista di stoki 
 Disionárius ta permiti asesu rápidu pa xavi (nomi di produktu). `.get()` é más siguru ki `[]` pamodi el ta retorna `None` en bez di `KeyError` si produktu ka ezisti.
 :::
 
-## Removi Duplikadus (Sets + Lists)
+<SectionHeading variant="concept" seq={4}>Removi Duplikadus (Sets + Lists)</SectionHeading>
 
 Sets é arma perfetu pa deteta i elimina duplikadus. Nu ta ve diferenti senárius:
 
@@ -306,7 +306,7 @@ print(f"Klientis na ambos lojas: {klients_ambos}")
 print(f"Klientis só na Praia: {klients_so_praia}")
 ```
 
-## Izemplu Final: Kombina Tudu Estruturas
+<SectionHeading variant="concept" seq={5}>Izemplu Final: Kombina Tudu Estruturas</SectionHeading>
 
 Gosi nu ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolve un problema más konpleksu — un sistema di jestan di evento kultural:
 
@@ -374,7 +374,7 @@ ilhas = {ilha for _, _, ilha in artistas}
 print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 ```
 
-## Rezumu: Kuandu Skodje Kual Estrutura
+<SectionHeading variant="concept" seq={6}>Rezumu: Kuandu Skodje Kual Estrutura</SectionHeading>
 
 ![Decision tree: kual estrutura di dadus uza?](../../infographics/09-kuandu-uza-kual.jpg)
 
@@ -389,16 +389,16 @@ print(f"\n🏝️ Ilhas representadu: {', '.join(sorted(ilhas))}")
 Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" (lista). "Nha dadus ka pode muda?" (tupla). "Nha dadus presiza ser úniku?" (set).
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Skodje estrutura sertu ta faze kódiku más simples i rápidu. Na dúvida: "Tene nomi?" → dict; "pode repeti + orden?" → lista; "ka muda?" → tuple; "presiza ser úniku?" → set.</RezumuItem>
   <RezumuItem term="Lista">Ideal pa dadus **ordenadu** ku modifikasan — tarefas, notas, registrus. Ta kombina ku `sum`, `max`, `min`, `sorted`, `len`.</RezumuItem>
   <RezumuItem term="Disionáriu">Midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>

@@ -20,7 +20,7 @@ Na mundu real, nu ta lida ku diferenti tipus di informasan: númerus, textus, si
 
 Na Lisan 5 bu dja konxe es kuatu tipus i `type()`. Gosi nu ta entra na detalhi: **kuandu** skodje kada un, pamodi `/` ta da senpri `float`, kumo `int()` ta trunka, i kumo evita `TypeError` ki ta parese kuandu bu mistura tipus.
 
-## 4 Tipus Fundamentais
+<SectionHeading variant="concept" seq={1}>4 Tipus Fundamentais</SectionHeading>
 
 ![Sistema di tipus di Python: int, float, str, bool](../../infographics/02-tipu-di-dadus-python.jpg)
 
@@ -193,7 +193,7 @@ else:
 
 *(Kondisionais `if`/`else` i operadoris di komparasan: bu ta prende más na Lisan 8 i Lisan 9.)*
 
-<SectionHeading variant="concept">Kuandu Uza Kada Tipu</SectionHeading>
+<SectionHeading variant="concept" seq={2}>Kuandu Uza Kada Tipu</SectionHeading>
 
 <CompareTable
   cornerLabel="Tipu"
@@ -240,9 +240,9 @@ print(f"Ilha: {ilha}")
 print(f"Kréditus: {kreditusECV} ECV")
 ```
 
-## TypeError: Kuandu Tipus Ka Ta Kombina
+<SectionHeading variant="concept" seq={3}>TypeError: Kuandu Tipus Ka Ta Kombina</SectionHeading>
 
-Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze un operasan ku tipus inkompatíveis.
+Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bu tenta faze un operasan ku tipus inkompatíveis.
 
 <SectionHeading level={3} variant="concept">Eru #1: Soma di String ku Númeru</SectionHeading>
 
@@ -290,7 +290,7 @@ Un di erus más komuns pa prinsipianti é **TypeError** — kuandu bo tenta faze
 />
 
 :::callout{type=tip}
-Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ou `str()`.
+Kuandu bu enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluson é konverti un valor ku `int()`, `float()` ou `str()`.
 :::
 
 <SectionHeading level={3} variant="practice">Tenta: Koriji os Tipus</SectionHeading>
@@ -313,7 +313,7 @@ Kuandu bo enkontra `TypeError`, verifika tipus ku `type()`. Kuazi senpri, soluso
   solved="Korretu! `str()` ta konverti int pa textu, i `float()` ta konverti string pa númeru."
 />
 
-## Tabela Rezumu di Konversan
+<SectionHeading variant="concept" seq={4}>Tabela Rezumu di Konversan</SectionHeading>
 
 ```python
 # int() — pa interu
@@ -343,7 +343,7 @@ print(bool("Ola"))     # True (kualker string ku konteúdu)
 `int()` ta **trunka** (korta parti desimal), ka ta aredonda. `int(3.9)` da `3`, ka `4`! Pa aredonda, uza `round(3.9)` ki da `4`.
 :::
 
-## Izemplu Prátiku: Loja di Katxupa
+<SectionHeading variant="concept" seq={5}>Izemplu Prátiku: Loja di Katxupa</SectionHeading>
 
 Nu ta kombina tudu tipus na un programa real:
 
@@ -390,7 +390,7 @@ print(f"Total: {total:.2f} ECV")
 print(f"Porsons ki resta: {porsun_resta}")
 ```
 
-Kuandu bo roda:
+Kuandu bu roda:
 
 <TerminalBlock
   title="python loja.py"
@@ -415,7 +415,7 @@ Kuandu bo roda:
 
 *(Pa kel izemplu-li, bu skrebe `3` na `input()`. Repara: `subtotal` é `float` (pamodi `presu_unitáriu` é float), nton tudu kálkulu ta da float — `:.2f` só ta kontrola kuantu kasa desimal ta parese.)*
 
-## Verifikasan Rápida di Tipus
+<SectionHeading variant="concept" seq={6}>Verifikasan Rápida di Tipus</SectionHeading>
 
 Kel é un truki útil — uza `isinstance()` pa verifika si un valor é di un sertu tipu:
 
@@ -436,7 +436,7 @@ print(isinstance(valor, (int, float)))  # True — é int ou float
 
 *(Nu ta volta pa `isinstance()` ku más detalji na Lisan 18.)*
 
-<SectionHeading variant="practice">Repete pa Lembra: Funsons di Konversan</SectionHeading>
+<SectionHeading variant="practice" seq={7}>Repete pa Lembra: Funsons di Konversan</SectionHeading>
 
 Antis di pratika, vira es kartas pa fixa o ki kada funsan ta faze. Klika pa odja definison.
 

@@ -17,11 +17,15 @@ objectives:
 
 # Ambiente Virtual i pip
 
-Imajina bu tene dos kuzinha: un pa prepara katxupa i otu pa prepara pastéis. Kada kuzinha tene ses própriu ingredientis i utensilhos — es ka ta mistura. **Ambientis virtual** na Python funsiona exatamenti asim: kada projetu tene ses própriu "kuzinha" ku ses pakotis, sen interferi ku otus projetus.
+Imajina bu é un trabadjadur ki ta faze txeu tipu di trabadju diferenti — un dia bu ta konsertá bisikleta, otu dia bu ta konsertá kanudu di iagu. Si bu mistura tudu ferramenta na un kaxa sô, bu ta kaba ku kunfundi kal ferramenta é pa kal trabadju — ô peor: un ferramenta di un trabadju pode danifika otu.
 
-## Pamodi Ambientis Virtual É Esensial?
+**Ambientis virtual** na Python é kumo tene un **kaxa di ferramenta separadu** pa kada projetu. Kada kaxa (ambienti) tene sô-l pakotis (bibliotékas) ki kel projetu spesífiku meste, na versoens sertu — sen mistura ku pakotis di otu projetu, i sen risku di un projetu "kebra" otu pamodi versoens diferenti.
 
-Sen ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — partilhadu pa TUDU bo projetus. Kel ta kria problemas sério:
+Ma tene un diferénsa importanti ku un kaxa di ferramenta real: kaxa normal tene ferramenta fixu — ô martelu sta la, ô ka sta. Un ambienti virtual ta guarda más ki kel — el ta guarda **kal versan** di kada ferramenta. Projetu A pode meste `requests` versan 2.28, Projetu B kel mesmu pakotu `requests` má versan 2.31 — mesmu ferramenta, versoens diferenti, kada un na se própriu kaxa. I un ambienti virtual ka é un ofisina interu separadu ku se própriu motor: el ka ta kopia Python interu pa kada projetu — el é sô un pasta di bibliotékas apontadu pa un interpretador Python, ki alges bes é kompartidu ku otus ambientis. I diferente di un kaxa di ferramenta ki bu pode leba pa kualker lugar, un ambienti virtual sta gruda na se kaminhu exatu na disku: si bu move ô rinomia pasta di projetu, el ta kéba.
+
+<SectionHeading variant="concept" seq={1}>Pamodi Ambientis Virtual É Esensial?</SectionHeading>
+
+Sen ambiente virtual, tudu pakotu ki bu instala ta bai pa un lugar global — partilhadu pa TUDU bu projetus. Kel ta kria problemas sério:
 
 ```text
 ❌ SEN ambiente virtual:
@@ -48,20 +52,20 @@ Sen ambiente virtual, tudu pakotu ki bo instala ta bai pa un lugar global — pa
 
 **Problemas reaís ki ta kontesi sen venv:**
 
-- Bo atualiza un pakotu pa Projetu B i Projetu A ta kéba
-- Bu ka sabe kual pakotis bo projetu realmenti presiza (tene 200 instaladu global!)
-- Kuandu bo manda projetu pa kolega, el ka konsigi roda pamodi falta pakotis
+- Bu atualiza un pakotu pa Projetu B i Projetu A ta kéba
+- Bu ka sabe kual pakotis bu projetu realmenti presiza (tene 200 instaladu global!)
+- Kuandu bu manda projetu pa kolega, el ka konsigi roda pamodi falta pakotis
 
-## Fluxu Kompletu: Kria → Ativa → Instala → Freeze
+<SectionHeading variant="concept" seq={2}>Fluxu Kompletu: Kria → Ativa → Instala → Freeze</SectionHeading>
 
 :::callout{type=info}
-Bo dja kria un `.venv` na **Lisan 02** — entun Pasu 1–2 li é un **rekapitulasan rápidu**. O ki é nóvu nes lisan ben más baxu: `freeze`, partilha ku otu pesoa, i `.gitignore`.
+Bu dja kria un `.venv` na **Lisan 02** — entun Pasu 1–2 li é un **rekapitulasan rápidu**. O ki é nóvu nes lisan ben más baxu: `freeze`, partilha ku otu pesoa, i `.gitignore`.
 :::
 
 ### Pasu 1: Kria Ambiente Virtual
 
 ```bash
-# Navega pa bo pasta di projetu
+# Navega pa bu pasta di projetu
 cd meu_projetu
 
 # Kria ambiente virtual (konvensan: .venv)
@@ -83,7 +87,7 @@ source .venv/bin/activate
 .venv\Scripts\Activate.ps1
 ```
 
-Kuandu ativadu, bo terminal ta mostra `(.venv)` na inísiu:
+Kuandu ativadu, bu terminal ta mostra `(.venv)` na inísiu:
 
 ```bash
 (.venv) $ python --version
@@ -101,7 +105,7 @@ Si bu ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selesion
 ### Pasu 3: Instala Pakotis
 
 ```bash
-# Gosi tudu ki bo instala ta bai SÓMENTI pa kel .venv
+# Gosi tudu ki bu instala ta bai SÓMENTI pa kel .venv
 (.venv) $ pip install requests
 (.venv) $ pip install flask
 (.venv) $ pip install python-dotenv
@@ -137,14 +141,14 @@ python-dotenv==1.0.1
 ### Pasu 5: Dezativa
 
 ```bash
-# Kuandu bo akaba di trabadja
+# Kuandu bu akaba di trabadja
 (.venv) $ deactivate
-$ # Prompt volta pa normal -- bo sta fora di venv
+$ # Prompt volta pa normal -- bu sta fora di venv
 ```
 
-## Partilha Projetu ku Otu Pesoa
+<SectionHeading variant="concept" seq={3}>Partilha Projetu ku Otu Pesoa</SectionHeading>
 
-Kuandu Ana kere roda bo projetu, el só presiza:
+Kuandu Ana kere roda bu projetu, el só presiza:
 
 ```bash
 # 1. Klona ou kopia projetu
@@ -165,10 +169,10 @@ python main.py
 ```
 
 :::callout{type=tip}
-`pip install -r requirements.txt` ta ler kel ficheru i instala tudu pakotu listadu, ku versan exatu. É kumo un "reseta" pa bo projetu — garantia ki tudu pesoa ta uza mesmu ingredientis.
+`pip install -r requirements.txt` ta ler kel ficheru i instala tudu pakotu listadu, ku versan exatu. É kumo un "lista di ferramenta" pa bu projetu — garantia ki tudu pesoa ta uza mesmu ferramenta, na mesmu versan.
 :::
 
-## .gitignore: Nunka Manda .venv pa Git!
+<SectionHeading variant="concept" seq={4}>.gitignore: Nunka Manda .venv pa Git!</SectionHeading>
 
 Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka debe bai pa git**:
 
@@ -184,7 +188,7 @@ __pycache__/
 # Struktura ki ta bai pa git:
 gestor_notas/
 ├── .gitignore           ✓ ta bai
-├── requirements.txt     ✓ ta bai (reseta di pakotis)
+├── requirements.txt     ✓ ta bai (lista di ferramenta)
 ├── main.py              ✓ ta bai
 ├── modulus/             ✓ ta bai
 │   ├── __init__.py
@@ -193,7 +197,7 @@ gestor_notas/
 └── .env                 ✗ KA ta bai (segredus!)
 ```
 
-## Erus Komun i Soluson
+<SectionHeading variant="concept" seq={5}>Erus Komun i Soluson</SectionHeading>
 
 ### Eru 1: "python: command not found"
 
@@ -215,7 +219,7 @@ python3 -m venv .venv
 
 ```bash
 # Senpri ativa antis di instala!
-# Si bo instala sen ativa, pakotu ta bai pa global ❌
+# Si bu instala sen ativa, pakotu ta bai pa global ❌
 source .venv/bin/activate   # PRIMERU
 pip install requests        # DIPOS
 ```
@@ -232,12 +236,12 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Eru 5: requirements.txt sta fora di sinku
 
 ```bash
-# Si bo instala pakotu nóvu, atualiza requirements.txt!
+# Si bu instala pakotu nóvu, atualiza requirements.txt!
 pip install beautifulsoup4
 pip freeze > requirements.txt   # Re-jera ficheru
 ```
 
-## Fluxu Rezmidu (Txeat Sheet)
+<SectionHeading variant="concept" seq={6}>Fluxu Rezmidu (Txeat Sheet)</SectionHeading>
 
 ```bash
 # === PROJETU NÓVU ===
@@ -258,18 +262,18 @@ pip install -r requirements.txt
 deactivate
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Senpri **ativa** `.venv` antis di instala pakotu — si bu instala sen ativa, pakotu ta bai pa Python global.</RezumuItem>
-  <RezumuItem term="venv">Ta izola pakotu di kada projetu (kumo kuzinhas separadu). Kria ku `python -m venv .venv`.</RezumuItem>
+  <RezumuItem term="venv">Ta izola pakotu di kada projetu (kumo kaxa di ferramenta separadu). Kria ku `python -m venv .venv`.</RezumuItem>
   <RezumuItem term="Ativa / dezativa">`source .venv/bin/activate` (macOS/Linux) ou `.venv\Scripts\activate` (Windows); `deactivate` pa sai.</RezumuItem>
   <RezumuItem term="requirements.txt">`pip freeze > requirements.txt` ta salva pakotu; `pip install -r requirements.txt` ta reproduz ambiente na otu komputador.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">**Nunka** manda `.venv/` pa git — po-l na `.gitignore` (djuntu ku `.env` i `__pycache__/`); el pode ser rekriadu di `requirements.txt`.</RezumuItem>

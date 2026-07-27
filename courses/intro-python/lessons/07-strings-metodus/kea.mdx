@@ -16,13 +16,13 @@ objectives:
 
 # Strings: Metodus i Formatasan
 
-Na lisan anteriol, bo prende tipu di dadus — i string é un di kes tipu ki bu ta uza más na programasan. Tudu bez ki bo trabadja ku nomi, mensaji, enderesu, ou kualker textu, bu ta uza string. Python ten dezenas di metodus inkorporadu ki ta fasilitá manipulasan di textu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
+Na lisan anteriol, bu prende tipu di dadus — i string é un di kes tipu ki bu ta uza más na programasan. Tudu bez ki bu trabadja ku nomi, mensaji, enderesu, ou kualker textu, bu ta uza string. Python ten dezenas di metodus inkorporadu ki ta fasilitá manipulasan di textu. Nes lisan, nos ta domina kes metodus i prende a formata saída di forma profisional.
 
 :::callout{type=tip}
 **Ka preokupa si bu ka kompriendi tudu kódiku gosi.** Lisan-li é so pa **metodus di string i f-strings**. Bu ta odja `if`, `for`, lista (`[...]`) i disionariu (`{...}`) na alguns izemplus prátiku — kes ta ben más tardi: `if` na Lisan 9, `for` na Lisan 10, lista na Lisan 11, disionariu na Lisan 13, `enumerate()` na Lisan 18. Repara na o ki ta kontise ku string, ka na strutura ki ta envolvi-l.
 :::
 
-## Metodus di Kazu (Case Methods)
+<SectionHeading variant="concept" seq={1}>Metodus di Kazu (Case Methods)</SectionHeading>
 
 Python ten metodus pa muda letras pa maiúskula, minúskula, i más.
 
@@ -55,14 +55,14 @@ saudasan = "ola mundu"
 saudasan.upper()        # retorna "OLA MUNDU" ma ka ta guarda
 print(saudasan)         # "ola mundu" — mesmu koisa!
 
-# Pa guarda, bo ten ki atribui:
+# Pa guarda, bu ten ki atribui:
 saudasan = saudasan.upper()
 print(saudasan)         # "OLA MUNDU"
 ```
 
-## Limpa Espasu (Whitespace Methods)
+<SectionHeading variant="concept" seq={2}>Limpa Espasu (Whitespace Methods)</SectionHeading>
 
-Kuandu bo resebe input di utilizador ou ler dadus di ficheru, mutas bez tene espasus sobra na inísiu ou final. `.strip()` ta resolve es problema.
+Kuandu bu resebe input di utilizador ou ler dadus di ficheru, mutas bez tene espasus sobra na inísiu ou final. `.strip()` ta resolve es problema.
 
 ```python
 # .strip() — tira espasu di ambos ladus
@@ -87,7 +87,7 @@ print(f"Email registradu: {email}")
 Bu pode enkadea (chain) vários metodus djuntu: `" OLA ".strip().lower()` ta da `"ola"`. Python ta izekuta di eskérda pa direita.
 :::
 
-## Split i Join
+<SectionHeading variant="concept" seq={3}>Split i Join</SectionHeading>
 
 `.split()` ta kebra un string na pedasus i ta da un lista. `"sep".join()` ta djunta un lista nun string. Es dos metodus é un par poderoso.
 
@@ -125,7 +125,7 @@ for i, iten in enumerate(itens, 1):
     print(f"  {i}. {iten.strip()}")
 ```
 
-## Buska na Strings (Search Methods)
+<SectionHeading variant="concept" seq={4}>Buska na Strings (Search Methods)</SectionHeading>
 
 Python ten vários metodus pa buska konteúdu dentu di un string.
 
@@ -175,7 +175,7 @@ print(pa_kada)
 
 *(Lista, disionariu, `for` i `if` ta ben más tardi — Lisan 9 a 13. Aki, so odja kumo `.endswith()` ta filtra pa extensan.)*
 
-## Replace
+<SectionHeading variant="concept" seq={5}>Replace</SectionHeading>
 
 `.replace(antigu, novu)` ta substitui tudu okorensia di un textu pa otru.
 
@@ -197,7 +197,7 @@ telefone_limpu = telefone.replace(" ", "").replace("-", "")
 print(telefone_limpu)  # "+2389912345"
 ```
 
-## Klasifikasan di String (Classification Methods)
+<SectionHeading variant="concept" seq={6}>Klasifikasan di String (Classification Methods)</SectionHeading>
 
 Es metodus ta verifika ki tipu di karáteris un string tene. Tudu ta retorna `True` ou `False`.
 
@@ -230,9 +230,9 @@ else:
     print("Por favor, skrebe só númerus!")
 ```
 
-<SectionHeading variant="concept">String Slicing (Korta Strings)</SectionHeading>
+<SectionHeading variant="concept" seq={7}>String Slicing (Korta Strings)</SectionHeading>
 
-Slicing ta permite bo pega un parte di string, igualzinhu ki bu ta korta un fatia di bolu. Sintaxi é `s[start:stop:step]`.
+Slicing ta permite bu pega un parte di string, igualzinhu ki bu ta korta un fatia di bolu. Sintaxi é `s[start:stop:step]`.
 
 <AnnotatedCode
   lang="python"
@@ -298,7 +298,7 @@ print(formatadu)  # "+238 991-23-45"
   solved="Korretu! `[0:3]` ta pega primeru 3, `[3:]` ta bai t'o final, i `[::-1]` ta inverti."
 />
 
-## f-strings — Formatasan Prinsipal
+<SectionHeading variant="concept" seq={8}>f-strings — Formatasan Prinsipal</SectionHeading>
 
 f-strings é forma prinsipal i modérna pa formata strings na Python. Basta koloka `f` antis di aspas i uza `{}`  pa inseri variáveis ou expresons.
 
@@ -355,7 +355,7 @@ largura = 5
 altura = 3
 area = largura * altura
 
-# Sen f"{=}" — bo ten ki skrebe nomi manualmente
+# Sen f"{=}" — bu ten ki skrebe nomi manualmente
 print(f"largura={largura}, altura={altura}, area={area}")
 
 # Ku f"{=}" — más rápidu i sen eru
@@ -364,20 +364,20 @@ print(f"{largura=}, {altura=}, {area=}")
 ```
 
 :::callout{type=tip}
-`f"{var=}"` é bo midjór amigu kuandu bu ta tenta intende pamodi bo kódiku ka ta funsiona. Uza el na lugar di `print("x =", x)`.
+`f"{var=}"` é bu midjór amigu kuandu bu ta tenta intende pamodi bu kódiku ka ta funsiona. Uza el na lugar di `print("x =", x)`.
 :::
 
-<SectionHeading variant="concept">Otus Metodus di Formatasan (pa Ler Kódiku Antigu)</SectionHeading>
+<SectionHeading variant="concept" seq={9}>Otus Metodus di Formatasan (pa Ler Kódiku Antigu)</SectionHeading>
 
 f-strings é metodu prinsipal, ma bu ta enkontra otus metodus na kódiku ezistenti. Ka presiza domina — basta konxe pa pode ler. Es tres manera ta da **mesmu rezultadu** — vira es tabs pa kompara:
 
 <CodeExample position={0} showTabs />
 
 :::callout{type=tip}
-Kuandu bo skrebe kódiku novu, SENPRI uza f-strings. `.format()` i `%` só esisti pa bu pode ler kódiku ki otru pesoas skrebe antis.
+Kuandu bu skrebe kódiku novu, SENPRI uza f-strings. `.format()` i `%` só esisti pa bu pode ler kódiku ki otru pesoas skrebe antis.
 :::
 
-<SectionHeading variant="practice">Repete pa Lembra: Metodus di String</SectionHeading>
+<SectionHeading variant="practice" seq={10}>Repete pa Lembra: Metodus di String</SectionHeading>
 
 Antis di pratika, vira es kartas pa fixa o ki kada metodu ta faze. Klika pa odja definison.
 

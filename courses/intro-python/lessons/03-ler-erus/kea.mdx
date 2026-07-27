@@ -21,10 +21,10 @@ Tudu programador ta atxa erus — dezdi ki ta kumesa até ki ta vira espesialist
 **Ler** → **Atxa** → **Pensa**. Bu ta odja kel padran na fin di lisan. Pa gosi, fixa atensan na es 3 pasus enkuantu nu ta ler izemplus.
 :::
 
-## O ki é un Traceback?
+<SectionHeading variant="concept" seq={1}>O ki é un Traceback?</SectionHeading>
 
 <GlossaryText
-  text="Kuandu Python atxa un problema na bo kódiku, el ta para i mostra un [[traceback]] — un mensajen ki ta splika o ki koreu mal i unde."
+  text="Kuandu Python atxa un problema na bu kódiku, el ta para i mostra un [[traceback]] — un mensajen ki ta splika o ki koreu mal i unde."
   terms={{
     traceback: {
       en: "traceback",
@@ -51,7 +51,7 @@ rezultadu = kalkula_media(notas_di_ana)
 print(f"Média: {rezultadu}")
 ```
 
-Kuandu bo roda es kódiku, Python ta mostra:
+Kuandu bu roda es kódiku, Python ta mostra:
 
 <TerminalBlock
   title="python kalkula.py"
@@ -69,7 +69,7 @@ Kuandu bo roda es kódiku, Python ta mostra:
 
 Es ta parese komplikadu, ma ka é! Nu ta prende ler el pasu a pasu.
 
-## Regra di Oru: Ler di Baxu pa Riba
+<SectionHeading variant="concept" seq={2}>Regra di Oru: Ler di Baxu pa Riba</SectionHeading>
 
 Segridu más importanti: **senpri kumesa ler di última linha**. É la ki resposta ta stá.
 
@@ -110,7 +110,7 @@ Segridu más importanti: **senpri kumesa ler di última linha**. É la ki respos
 Pensa na traceback manera un pilha di pratus — últimu pratu (última linha) é unde pratu ta kebra. Ma bu presiza odja pratus di baxu pa kompriende pamodi tudu kai.
 :::
 
-## Seta `^` — Bu Midjór Amigu (Python 3.11+)
+<SectionHeading variant="concept" seq={3}>Seta `^` — Bu Midjór Amigu (Python 3.11+)</SectionHeading>
 
 Dezdi Python 3.11, erus tene un **seta `^`** ki ta aponta exatamenti pa parti di kódiku ki ta kauza problema. Es ta midjora txeu kuandu bu ta faze debug!
 
@@ -163,13 +163,13 @@ Seta `^` ta mostra ki `nomis[5]` é problema — lista so tene 3 elementus (índ
   ]}
 />
 
-<SectionHeading variant="concept">5 Exceptions Más Kumun</SectionHeading>
+<SectionHeading variant="concept" seq={4}>5 Exceptions Más Kumun</SectionHeading>
 
 Es é erus ki bu ta atxa más frekventi kuandu bu ta kumesa. Konxe kes i bu ta rezolve problemus mutu más rápidu.
 
 <SectionHeading level={3} variant="concept">1. `SyntaxError` — Eru di Sintaxi</SectionHeading>
 
-Python ka kompriende o ki bo skrebe. É manera un frazi ku gramátika eradu.
+Python ka kompriende o ki bu skrebe. É manera un frazi ku gramátika eradu.
 
 ```python
 # Skise ':' dipos di if
@@ -334,7 +334,7 @@ nota = estudanti.get("nota", "Sen nota")
 print(nota)  # Sen nota
 ```
 
-<SectionHeading variant="concept">Kes 5 Exceptions Lado a Lado</SectionHeading>
+<SectionHeading variant="concept" seq={5}>Kes 5 Exceptions Lado a Lado</SectionHeading>
 
 <CompareTable
   cornerLabel="Eru"
@@ -377,7 +377,7 @@ print(nota)  # Sen nota
   ]}
 />
 
-<SectionHeading variant="practice">Repete pa lembra: 5 exceptions</SectionHeading>
+<SectionHeading variant="practice" seq={6}>Repete pa lembra: 5 exceptions</SectionHeading>
 <Flashcard
   showHeader={false}
   cards={[
@@ -389,9 +389,9 @@ print(nota)  # Sen nota
   ]}
 />
 
-<SectionHeading variant="concept">Estratéjia di 3 Pasus pa Rezolvi Eru</SectionHeading>
+<SectionHeading variant="concept" seq={7}>Estratéjia di 3 Pasus pa Rezolvi Eru</SectionHeading>
 
-Kuandu bo odja un eru, sigi senpri es 3 pasus:
+Kuandu bu odja un eru, sigi senpri es 3 pasus:
 
 <Steps
   variant="phases"
@@ -411,7 +411,7 @@ Soma kuatu presu (350, 200, 150, 400) i kalkula média. Ka preokupa ku `for` i `
 :::
 
 ```python
-# Programa ku eru — bo pode atxa?
+# Programa ku eru — bu pode atxa?
 lista_di_presus = [350, 200, 150, 400]
 total = 0
 

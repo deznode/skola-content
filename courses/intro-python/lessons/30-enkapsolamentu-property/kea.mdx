@@ -20,7 +20,7 @@ Pensa na un kuzinha di restoranti na Mindelo. Klientis ta senta na sala, ta odj�
 
 Na programasan, enkapsolamentu é mesmu ideia: **kontrola ken ki pode asésa i modifika dadus di un objetu**. En bez di dexa tudu abertu, bu ta proteje partis sensíveis i ta fornese maneiras kontroladu di asésa-l.
 
-## Asésu Públiku, Protejidu i Privadu
+<SectionHeading variant="concept" seq={1}>Asésu Públiku, Protejidu i Privadu</SectionHeading>
 
 Python tene 3 niveis di asésu, bazadu na **konvensan di nomi**:
 
@@ -54,9 +54,9 @@ print(maria._ilha)      # Santiago ⚠️ (funsiona, ma ka debe)
 Na Python, `_protejidu` é só un **konvensan** — nada ka ta impidi bo di asésa-l. É kumo un avizu: "Oji, ka toka nisi sen motivo!" Ma `__privadu` tene protesan real.
 :::
 
-## Name Mangling — Kumo Python ta Proteje Atributus Privadu
+<SectionHeading variant="concept" seq={2}>Name Mangling — Kumo Python ta Proteje Atributus Privadu</SectionHeading>
 
-Kuandu bo uza `__` (dois underscore) na inísiu di un nomi, Python ta transforma-l internamenti. Isu ta txoma **name mangling**.
+Kuandu bu uza `__` (dois underscore) na inísiu di un nomi, Python ta transforma-l internamenti. Isu ta txoma **name mangling**.
 
 ```python
 class KontaBankaria:
@@ -85,7 +85,7 @@ print([attr for attr in dir(konta) if "saldu" in attr])
 Name mangling ka é seguránsa — é protesan kontra **eru asidentál**. Si algen kre MESMU asésa, el pode. Ma mensajen é klaru: "Kel atributu li é privadu, ka toka nel!"
 :::
 
-## Getters i Setters Tradisionál
+<SectionHeading variant="concept" seq={3}>Getters i Setters Tradisionál</SectionHeading>
 
 Na linguajis kumo Java ou C++, bu ta kria metodus espesífikis pa ler (get) i skrebe (set) atributus privadu. Na Python, bu pode faze mesmu kuza:
 
@@ -126,7 +126,7 @@ print(kaxtelu.get_presu())        # 300 (ka mudá)
 
 Isu ta funsiona, ma é **txeu kódiku** i ka é "Pythonic". Na Python, tene un maneira más eleganti...
 
-## `@property` — Maneira Modernu
+<SectionHeading variant="concept" seq={4}>`@property` — Maneira Modernu</SectionHeading>
 
 Dekorador `@property` ta transforma un metodu na un atributu ki pode ser lidu kumo si el fosse públiku, ma na verdadi ta roda un funsan pa trás.
 
@@ -170,10 +170,10 @@ print(kaxtelu.presu)          # Asésa kumo atributu ✨
 ```
 
 :::callout{type=tip}
-`@property` ta da bo milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di metodu**. Utilizador ka presiza sabi ki tene un funsan pa trás!
+`@property` ta da bu milhor di dos mundus — **interfasi limpu di atributu** ku **kontrolu di metodu**. Utilizador ka presiza sabi ki tene un funsan pa trás!
 :::
 
-## `@property.setter` ku Validasan
+<SectionHeading variant="concept" seq={5}>`@property.setter` ku Validasan</SectionHeading>
 
 Pa permiti modifikasan, bu ta djunta un setter uzandu `@nomi.setter`:
 
@@ -270,7 +270,7 @@ print(f"Nova área: {terrenu.area} m²")       # Nova área: 800 m² (rekalkula 
 Property kalkuladu (sen setter) é perfeitu pa valoris ki ta depende di otru atributus. Es ta garantí ki valor sta SENPRI atualizadu!
 :::
 
-## Izemplu Prátiku: Konta Bankáriu Seguru
+<SectionHeading variant="concept" seq={6}>Izemplu Prátiku: Konta Bankáriu Seguru</SectionHeading>
 
 Nos ta kria un klasi di konta bankáriu ki ta proteje saldu i ta valida tudu operasons:
 
@@ -418,7 +418,7 @@ print(len(konta.istóriku))   # 4 (orijinál ka mudá)
 Nota kumo `istóriku` ta retorna `self.__istóriku.copy()`. Isu ta previni ki algen modifika lista orijinál di fora! É un padron importanti di enkapsolamentu txomadu "defensive copy".
 :::
 
-## Rezumu di @property vs Getters/Setters
+<SectionHeading variant="concept" seq={7}>Rezumu di @property vs Getters/Setters</SectionHeading>
 
 ```python
 # ❌ MANEIRA TRADISIONÁL (verbózu)
@@ -450,16 +450,16 @@ print(p.nomi)           # Edna (kumo atributu!)
 p.nomi = "Ivete"        # Limpu i naturál!
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Uza `@property` + `@nomi.setter` pa proteje dadus: bu ta asésa kumo atributu (`obj.presu`), ma un funsan ku **validasan** ta kore pa trás.</RezumuItem>
   <RezumuItem term="Niveis di asésu">Públiku (`self.nomi`), protejidu (`self._nomi` — só konvensan), privadu (`self.__nomi` — name mangling).</RezumuItem>
   <RezumuItem term="Name mangling">`self.__saldu` ta vira `_Klasi__saldu` — protesan kontra eru asidentál, ka seguránsa real.</RezumuItem>

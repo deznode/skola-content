@@ -17,7 +17,7 @@ objectives:
 
 Na lisan pasadu, un klasi filhu erda di **un só** pai. Ma algun kuza é dos kuza na mesmu tempu: Cesária Évora era **artista** (ta atua) i **kompozitor** (ta skrebe múzika). Un `EstudantiAtleta` é estudanti i atleta. Na Python, un klasi pode erda di **vários pai** na mesmu tempu — isu txoma **eransa múltiplu**. Ma kuandu dos pai tene un metodu ku mesmu nomi, kual ki ta ganha? Pa responde isu nu meste kompriende **MRO**.
 
-## Eransa Múltiplu
+<SectionHeading variant="concept" seq={1}>Eransa Múltiplu</SectionHeading>
 
 Python ta permiti un klasi erda di **vários pais** (diferenti di algunus linguajen kumo Java). Pa eransa múltiplu, bu ta uza txomada **direta** pa kada pai:
 
@@ -84,7 +84,7 @@ cesaria.perfil()
 Pa eransa **simples** (un só pai), uza `super().__init__()`. Pa eransa **múltiplu** (vários pais), uza `Pai.__init__(self, ...)` pa kada pai — un manera simplis i sigura pa prinsipianti. (`super()` tanbe ta funsiona ku eransa múltiplu, ma é un tópiku más avansadu.)
 :::
 
-## Method Resolution Order (MRO)
+<SectionHeading variant="concept" seq={2}>Method Resolution Order (MRO)</SectionHeading>
 
 Kuandu un klasi erda di vários pais, Python presiza sabi **ki orden** pa buska metodus. Es orden txoma **MRO** (Method Resolution Order). Python ta sigi algoritmu **C3**: kada klasi ta ben antis di ses pais, i un pai kompartilhadu (kuma `A`) só ta aparese **dipos di tudu ses fidjus** (`B` i `C`):
 
@@ -146,7 +146,7 @@ for klasi in Kaboverdianu.__mro__:
 Si bu ka sabe ki métudu ta ser txomadu, uza `Klasi.__mro__` ou `Klasi.mro()` pa ve orden ezata di buska.
 :::
 
-## `isinstance()` i `issubclass()`
+<SectionHeading variant="concept" seq={3}>`isinstance()` i `issubclass()`</SectionHeading>
 
 Python ta fornese dos funsons pa verifika relasan entri objetis i klasis:
 
@@ -195,16 +195,16 @@ prosesa_viatúra("minibus")  # ❌ Isu ka é un viatúra!
 `isinstance(obj, Klasi)` ta konta ku eransa — un `Taxi` é tanbé un `Viatúra`. Uza-l en bez di `type(obj) == Klasi` kuandu bu kre aseta filhu tambe.
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Eransa múltiplu">`class Filhu(Pai1, Pai2):` — na `__init__`, txoma `Pai1.__init__(self, ...)` i `Pai2.__init__(self, ...)` direta pa kada pai.</RezumuItem>
   <RezumuItem term="MRO">Method Resolution Order ta determina orden di buska. Ku C3: kada klasi ben antis di ses pai, i un pai kompartilhadu ben dipos di tudu ses fidju. `Klasi.__mro__` ta mostra-l.</RezumuItem>
   <RezumuItem term="isinstance / issubclass">`isinstance(obj, Klasi)` verifika si un objetu é di un klasi (inklui eransa); `issubclass(Filhu, Pai)` verifika relasan entri klasis.</RezumuItem>

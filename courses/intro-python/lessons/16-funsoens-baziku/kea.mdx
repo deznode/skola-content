@@ -17,15 +17,21 @@ objectives:
 
 # Funsons Báziku
 
-Imajina bu ta kuzinha katxupa tudu dia. Kada bez bu ten ki lembra pasu pa pasu: korta midju, ferbe feijun, djunta ingredientis... Ka ta ser más fáxi si bu podia dize "faze katxupa" i tudu pasu ta korri automatikamenti? É exatamenti isu ki funsons ta faze na programasan — es ta guarda un konjuntu di instrusons ku un nomi, i bu pode txoma-l kuantas bez bu kre.
+Imajina un kaxa fitxadu: bu ta po kuza dentu (entrada), kaxa ta faze algu ku es — bu ka ta odja kuzê ki ta kontise la dentu — i kaxa ta dá-u un rezultadu (saída). Kel é un kaxa preta: bu ka meste sabe kuzê ki ta kontise pa dentu pa uza-l, sô bu meste sabe kuzê ki bu ta po i kuzê ki bu ta risebi.
 
-Funsons é un dos konseitus más importanti di Python. Es ta permite bo organiza kódiku, evita repetisan, i torna programa más fáxi pa intende i mantene.
+Na programasan, funsan ta funsiona di mesmu manera. Un funsan ta risebi parámetru (entrada), ta izekuta un konjuntu di instrusons (kuzê ki ta kontise pa dentu, txeu bez ka importanti pa kenha ta uza-l), i ta divolve un rezultadu (saída) — kumo un reseta: ingredientis ta entra, pasus ta korri, un pratu ta sai, i bu pode txoma mesmu reseta kuantas bez bu kre, ku ingredientis diferenti kada bez.
 
-## Kria Funsan ku `def`
+:::callout{type=tip}
+Kel metáfora di kaxa preta/reseta ta funsiona bèn pa kuandu bu ta **txoma** un funsan — ma el ka ta kobri kuandu un funsan é uzadu kumo un **valor** (guardadu dentu di un variável, pasadu kumo argumentu, ou divolvidu di otu funsan). Kel é un tema más avansadu ki ka ta kobridu li.
+:::
+
+Funsons é un dos konseitus más importanti di Python. Es ta permite bu organiza kódiku, evita repetisan, i torna programa más fáxi pa intende i mantene.
+
+<SectionHeading variant="concept" seq={1}>Kria Funsan ku `def`</SectionHeading>
 
 ![Anatomia di funsan: def, parámetrus, docstring, korpu, return](../../infographics/10-anatomia-di-funsan.jpg)
 
-Pa defini un funsan na Python, bo uza keyword `def`, seguidu di nomi di funsan i paréntesis:
+Pa defini un funsan na Python, bu uza keyword `def`, seguidu di nomi di funsan i paréntesis:
 
 ```python
 # Estrutura báziku di un funsan
@@ -34,7 +40,7 @@ def saudasan():
 
 # Txoma funsan
 saudasan()   # Bon dia! Morabeza!
-saudasan()   # Bon dia! Morabeza! (pode txoma kuantas bez bo kre)
+saudasan()   # Bon dia! Morabeza! (pode txoma kuantas bez bu kre)
 ```
 
 ```python
@@ -53,9 +59,9 @@ par_o_impar(10)   # 10 é par
 Nomi di funsan debe ser deskritivu i uza snake_case (palavra separadu ku `_`). `kalkula_total` é midjór ki `kt` ou `func1`.
 :::
 
-## Parámetrus i Argumentus
+<SectionHeading variant="concept" seq={2}>Parámetrus i Argumentus</SectionHeading>
 
-**Parámetrus** é variáveis ki funsan ta resebe (na definisan). **Argumentus** é valoris ki bu ta pasa kuandu bo txoma funsan.
+**Parámetrus** é variáveis ki funsan ta resebe (na definisan). **Argumentus** é valoris ki bu ta pasa kuandu bu txoma funsan.
 
 ```python
 # 'nomi' i 'ilha' é PARÁMETRUS (na definisan)
@@ -77,7 +83,7 @@ kalkula_area(5, 3)    # Área: 15 m²
 kalkula_area(10, 8)   # Área: 80 m²
 ```
 
-## Parámetrus Predefinidu (Default Parameters)
+<SectionHeading variant="concept" seq={3}>Parámetrus Predefinidu (Default Parameters)</SectionHeading>
 
 Bu pode da un valor predefinidu pa un parámetru. Si ningen ka pasa argumentu, Python ta uza kel valor predefinidu.
 
@@ -104,7 +110,7 @@ kalkula_presu(5000, 25)   # Presu final: 3750 ECV (25% diskontu)
 Parámetrus ku valor predefinidu SENPRI ten ki ben DIPOS di parámetrus sen valor predefinidu. `def f(a, b=5)` é koretu. `def f(a=5, b)` ta da eru!
 :::
 
-## Return — Retorna Valoris
+<SectionHeading variant="concept" seq={4}>Return — Retorna Valoris</SectionHeading>
 
 `print()` ta mostra rezultadu na tela, ma `return` ta "manda" valor di volta pa kel ki txoma funsan. Es é diferensa fundamentál.
 
@@ -153,7 +159,7 @@ k, r = divide(17, 5)
 print(f"17 ÷ 5 = {k} restu {r}")  # 17 ÷ 5 = 3 restu 2
 ```
 
-## Docstrings — Dokumenta Bo Funsan
+<SectionHeading variant="concept" seq={5}>Docstrings — Dokumenta Bu Funsan</SectionHeading>
 
 Docstring é un string di dokumentasan logo na inísiu di funsan. El ta splika kel ki funsan ta faze.
 
@@ -193,7 +199,7 @@ print(verifica_senha("Pr@ia2026!"))    # True (forti!)
 help(verifica_senha)
 ```
 
-## `*args` — Argumentus Pozisionais Variáveis
+<SectionHeading variant="concept" seq={6}>`*args` — Argumentus Pozisionais Variáveis</SectionHeading>
 
 Kuandu bu ka sabe kuantu argumentus funsan vai resebe, uza `*args`. Python ta koloka tudu na un tuple.
 
@@ -222,7 +228,7 @@ print(f"Média di Kelvin: {media(14, 16, 18):.1f}")    # 16.0
 print(f"Média di Edna: {media(12, 15, 17, 19):.1f}")  # 15.8
 ```
 
-## `**kwargs` — Argumentus Nomiadu Variáveis
+<SectionHeading variant="concept" seq={7}>`**kwargs` — Argumentus Nomiadu Variáveis</SectionHeading>
 
 `**kwargs` ta resebe argumentus nomiadu kumo un disionáriu (dict).
 
@@ -255,9 +261,9 @@ def registra_pedidu(klienti, *ítens, **opsons):
     if opsons:
         print(f"Opsons: {opsons}")
 
-registra_pedidu("Pedro", "katxupa", "grogu", entrega=True, urgenti=False)
+registra_pedidu("Pedro", "livru", "moxila", entrega=True, urgenti=False)
 # Klienti: Pedro
-# Ítens: ['katxupa', 'grogu']
+# Ítens: ['livru', 'moxila']
 # Opsons: {'entrega': True, 'urgenti': False}
 ```
 
@@ -265,7 +271,7 @@ registra_pedidu("Pedro", "katxupa", "grogu", entrega=True, urgenti=False)
 Orden senpri é: parámetrus normais, dipos `*args`, dipos `**kwargs`. `def f(a, b, *args, **kwargs)` — nunka inverte!
 :::
 
-## Izemplu Prátiku: Karrinhu di Konpras
+<SectionHeading variant="concept" seq={8}>Izemplu Prátiku: Karrinhu di Konpras</SectionHeading>
 
 ```python
 def kalkula_total(karrinhu):
@@ -293,7 +299,7 @@ total = kalkula_total(karrinhu)
 print(f"Total: {total} ECV")  # Total: 1360 ECV
 ```
 
-## Verifikador di Palíndromu
+<SectionHeading variant="concept" seq={9}>Verifikador di Palíndromu</SectionHeading>
 
 ```python
 def é_palíndromu(tekstu):
@@ -311,9 +317,9 @@ print(é_palíndromu("Python"))       # False
 print(é_palíndromu("A man a plan"))  # False
 ```
 
-## Rekursan — Funsan ki ta Txoma Si Mesmu
+<SectionHeading variant="concept" seq={10}>Rekursan — Funsan ki ta Txoma Si Mesmu</SectionHeading>
 
-Un funsan rekursiva é un funsan ki ta txoma si mesmu pa resolve un problema. É kumo un espelhu dentu di otru espelhu — ma SENPRI ten ki tene un pontu di paradu (kazu bazi), sinon ta roda pa senpri!
+Un funsan rekursiva é un funsan ki ta txoma si mesmu pa resolve un problema. É kumo un jogu di bonékas russa (matryoshka): bu abri un bonéka i atxa otu más pikinoti drenti, i drenti di kel, otu inda más pikinoti — té ki bu txiga na bonéka más pikinoti di tudu, kel ki ka abri más. Kel bonéka final é bu **kazu bazi** — ma SENPRI ten ki tene un, sinon ta roda pa senpri!
 
 ```python
 # Fatoriál: 5! = 5 × 4 × 3 × 2 × 1 = 120
@@ -372,16 +378,16 @@ kontajen(5)
 Senpri pensa na **kazu bazi** primeru kuandu bu ta skrebe funsan rekursiva. Sen el, programa ta entra na loop infinitu i Python ta da `RecursionError`.
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`return` ta manda un valor di volta pa uza más tardi; `print` só ta mostra na ekran. Un funsan sen `return` ta retorna `None`.</RezumuItem>
   <RezumuItem term="def">Ta defini un funsan — nomi deskritivu na snake_case. Parámetrus ta na definisan; argumentus ta na txomada.</RezumuItem>
   <RezumuItem term="Predefinidu">Un parámetru ku valor predefinidu ta da un valor si ningen ka pasa argumentu — i ten ki ben **dipos** di kes sen valor predefinidu.</RezumuItem>

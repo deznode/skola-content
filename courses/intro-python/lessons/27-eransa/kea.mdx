@@ -15,11 +15,13 @@ objectives:
 
 # Eransa Simples
 
-Djina tene odjus verdi di se mai i altura di se pai. El ta erda karakterístikas di dos — ka presiza "inventa" odjus ou altura di zero, es ven di se famía. I Djina inda tene se própriu trabus únikis: se rizu, se manera di fala, se talentu pa toka violun.
+Imajina un árvori genealójika: Telma tene odjus kastanhu di se mai, i altura di se pai — el ka presiza "inventa" kes karakterístikas di zero, es ven di se família. Ma Telma inda tene se própriu trasus únikus: se manera di skrebe kódigu, se sensu di umor.
 
-Na programasan, **eransa** ta funsiona mesmu manera. Un klasi filhu ta **erda** tudu atributus i metodus di klasi pai, i ainda pode adisiona se própriu kuza ou muda kel ki erda. Isu ta evita repetisan di kódiku i ta kria un ierárkia naturál — mesmu kumo árvori genealójika.
+Na programasan, **eransa** ta funsiona parecidu: un **klasi filhu** (child class / subclass) ta erda tudu atributus i métodus di un **klasi pai** (parent class / superclass), i inda pode adisiona se própriu kuza ou muda kel ki erda. Termus "klasi pai" i "klasi filhu" ben mesmu di es imaji di família — é vokabuláriu standard na kuazi tudu lingua di programasan (Python, Java, Kotlin, JavaScript).
 
-## Eransa Simples
+Ma tene un diferensa importanti ki metáfora ka kobri: eransa biolójiku é probabilístiku — trasus ta mistura ô ta pula jerasan, kada filhu sai diferenti di se irmon. Eransa di klasi é determinístiku i totál — un klasi filhu ta risebe kópia exatu i kompletu di **tudu** atributu i metodu di se klasi pai, sen exsesan nen mistura, a menus ki el sobreskrebe algu spesífiku (bu ta beja isu na próximu sekson).
+
+<SectionHeading variant="concept" seq={1}>Eransa Simples</SectionHeading>
 
 Na eransa simples, un klasi filhu ta erda di **un só** klasi pai. Bu ta indika pai dentu di paréntesis:
 
@@ -50,9 +52,9 @@ print(taxi.marka)        # Toyota
 
 Mesmu ku `Taxi` tene `pass` (váziu), el ta erda `__init__`, `liga()`, i `deskrebe()` di `Viatúra`. É kumo un fidju ki tene tudu trabus di pai sen faze nada estraordinária.
 
-## `super()` — Txoma Konstrutor di Pai
+<SectionHeading variant="concept" seq={2}>`super()` — Txoma Konstrutor di Pai</SectionHeading>
 
-Normalmenti, klasi filhu kre **adisiona** atributus novu alén di kel ki pai dja tene. Pa isu, bo uza `super().__init__()` pa txoma konstrutor di pai primeru, dipos adisiona bo kuza:
+Normalmenti, klasi filhu kre **adisiona** atributus novu alén di kel ki pai dja tene. Pa isu, bu uza `super().__init__()` pa txoma konstrutor di pai primeru, dipos adisiona bu kuza:
 
 ```python
 class Viatúra:
@@ -125,7 +127,7 @@ evu.karega()     # 🔋 BYD Dolphin karegadu! Bateria: 60 kWh
 `super()` ta dize "txoma versan di nha pai pa es métudu". Uza `super().__init__()` pa ka repeti kódiku ki pai dja ta faze. Depois, adisiona só kel ki é novu.
 :::
 
-## Izemplu Prátiku: Sistema di Trabadjoris
+<SectionHeading variant="concept" seq={3}>Izemplu Prátiku: Sistema di Trabadjoris</SectionHeading>
 
 Nu ta kria un sistema ierárkiku pa un enpresa na Praia. Un klasi bazi `Trabadjor` ta guarda o ki tudu trabadjor tene en komun; kada tipu di trabadjor ta **erda** di el i ta **sobreskrebe** `apresenta()`:
 
@@ -223,19 +225,19 @@ for t in trabadjoris:
 Kada klasi filhu ta erda `saláriu_anuál()` sen repeti-l, i kada un ta **sobreskrebe** `apresenta()` pa mostra o ki é spesífiku di el. Isu é eransa simples na prátika: reuza o ki é komun, personaliza o ki é diferenti.
 
 :::callout{type=note}
-Eransa inda tene más: **eransa múltiplu** (un klasi ku vários pai), **MRO** (orden di buska di metodus) i `isinstance()`. Pa gosi, foka na eransa di **un só** pai ku `super()` — dipos nu ta ba más lonji.
+Eransa inda tene más: **eransa múltiplu** (un klasi ku vários pai), **MRO** (orden di buska di metodus) i `isinstance()`. Nóta ma eransa múltiplu ka tene analojia biolójiku klaru — diferenti di dos pais umanu, un klasi pode erda di vários "pai" ó nível, sen mistura probabilístiku nengun. Pa gosi, foka na eransa di **un só** pai ku `super()` — dipos nu ta ba más lonji.
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Eransa">`class Filhu(Pai):` ta erda tudu atributu i metodu di pai — reuza kódiku sen repetisan.</RezumuItem>
   <RezumuItem term="super()">Ta txoma konstrutor (ou un metodu) di pai — bu adisiona só o ki é novu.</RezumuItem>
   <RezumuItem variant="tip" term="Sobreskrita (override)">Bu pode **sobreskrebe** un metodu na filhu pa mudá komportamentu erdadu — i inda txoma versan di pai ku `super().metodu()`.</RezumuItem>

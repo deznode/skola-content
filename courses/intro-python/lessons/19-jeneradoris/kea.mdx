@@ -1,9 +1,9 @@
 ---
-title: "Jeneradorus"
+title: "Jeneradoris"
 language: kea
 courseSlug: intro-python
-lessonSlug: jeneradorus
-slug: "jeneradorus"
+lessonSlug: jeneradoris
+slug: "jeneradoris"
 module: 3
 lesson: 19
 duration: "15 min"
@@ -11,14 +11,22 @@ objectives:
   - "Splika lazy evaluation i pamodi el ta poupa memória"
   - "Skrebe generator expressions ku sintaxi (x for x in ...)"
   - "Kria generator functions ku yield"
-  - "Kompara uzu di memória entri listas i jeneradorus"
+  - "Kompara uzu di memória entri listas i jeneradoris"
 ---
 
-# Jeneradorus
+# Jeneradoris
 
-Imajina bu tene un lista ku 10 milhoens di numeru. Si bo kria tudu na memória di un bez, bo komputador pode fika lentu ou krasá. Ma si bo só presiza un valor di kada bez — pamodi ta guarda tudu? É kel ideia ki **jeneradorus** ta trazi: produz valoris un pa un, só kuandu bo pidi.
+Imajina bu tene un lista ku 10 milhoens di numeru. Si bu kria tudu na memória di un bez, bu komputador pode fika lentu ou krasá.
 
-## Problema: Listas Grandi ta Kume Memória
+Agora pensa na un **jeneradur di enerjia** (backup generator): el ka ta produzi tudu enerjia di antimon i garda — el ta **jerá** enerjia só kuandu meste, un pa un. É di la ki nomi "jeneradoris" ben.
+
+Na Python, **jeneradoris** funsiona di mesmu manera: es ka ta kalkula tudu valor di antimon i garda na memória — es ta produzi kada valor só kuandu bu pidi-l (`yield`), **pausa**, i spera pa prósimu pididu — parecidu ku pausa un vídiu i kontinua di undi el fikou, ka kumésa di zero. Isu ta poupa memória i ta permiti bu trabadja ku sekuénsia txeu grandi, ou até infinitu.
+
+:::callout{type=warning}
+Kuidadu ku metáfora: un jeneradur di enerjia (ou un fábrika) normalmenti ta **fabrika kada peça dizde zero** kada bez ki el funsiona. Kel ka é kumo Python generator ta trabadja. Trikadu real di `yield` é **pausa i kontinua** — generator ta guarda estadu lokal (variávelis, pozison na loop) entri kada `yield`, parecidu ku pausa un vídiu, ka kumo un máquina ki ta fabrika un item nóvu kada bez.
+:::
+
+<SectionHeading variant="concept" seq={1}>Problema: Listas Grandi ta Kume Memória</SectionHeading>
 
 ```python
 # Kel li ta kria 10 milhoens di numeru na memória di un bez!
@@ -27,9 +35,9 @@ print(f"Lista tene {len(numeros)} elementus")
 # Kel lista ta okupa sérka di 80 MB di memória 😱
 ```
 
-Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ou sekuénsia infinita — bu ka presiza tudu na memória na mesmu tempu. Bo presiza un elementu, prosesa, i pasa pa prósimu.
+Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ou sekuénsia infinita — bu ka presiza tudu na memória na mesmu tempu. Bu presiza un elementu, prosesa, i pasa pa prósimu.
 
-## Generator Expressions
+<SectionHeading variant="concept" seq={2}>Generator Expressions</SectionHeading>
 
 Un **generator expression** é kumo un list comprehension, ma ku paréntesis `()` en bez di brackets `[]`:
 
@@ -67,12 +75,12 @@ for valor in quadradus:
 ```
 
 :::callout{type=warning}
-Generator só pode ser iteradu **un bez**. Dipos di pasa tudu valoris, el sta vazio. Si bo presiza itera di nóvu, kria un nóvu generator.
+Generator só pode ser iteradu **un bez**. Dipos di pasa tudu valoris, el sta vazio. Si bu presiza itera di nóvu, kria un nóvu generator. Diferenti di un jeneradur di enerjia real (ki bu pode liga otu bez kantu bu kre), un generator Python é **un-bez-só**: kuandu tudu valoris pasa, el labanta `StopIteration` i ka pode ser rekomesadu. Kel é un erru kumun di kumesadoris — `list(gen)` txomadu dos bez ta debolve lista vazio `[]` na sigundu bez.
 :::
 
-## Generator Functions ku `yield`
+<SectionHeading variant="concept" seq={3}>Generator Functions ku `yield`</SectionHeading>
 
-Pa kria jeneradorus más komplexu, uza un **funsan ku `yield`** en bez di `return`:
+Pa kria jeneradoris más komplexu, uza un **funsan ku `yield`** en bez di `return`:
 
 ```python
 def kontador(maximo):
@@ -111,7 +119,7 @@ print(next(gen))  # Morabeza di São Vicente! 🏝️
 # ... el ta kontinua di undi el para
 ```
 
-## Sekuénsia di Fibonacci ku Generator
+<SectionHeading variant="concept" seq={4}>Sekuénsia di Fibonacci ku Generator</SectionHeading>
 
 Un izemplu klássiku: sekuénsia di Fibonacci (kada numeru é soma di dos anterioris):
 
@@ -140,12 +148,12 @@ print(primeru_15)
 ```
 
 :::callout{type=tip}
-Un generator ku `while True` ta produz valoris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valoris bo kere pega ku `next()`, `islice()`, ou un `break` dentu di un loop.
+Un generator ku `while True` ta produz valoris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valoris bu kere pega ku `next()`, `islice()`, ou un `break` dentu di un loop.
 :::
 
-## Ler Ficheru Grandi Linha pa Linha
+<SectionHeading variant="concept" seq={5}>Ler Ficheru Grandi Linha pa Linha</SectionHeading>
 
-Un di uzus más prátiku di jeneradorus é prosesa ficheru grandi sen karrega tudu na memória:
+Un di uzus más prátiku di jeneradoris é prosesa ficheru grandi sen karrega tudu na memória:
 
 :::callout{type=info}
 Es izemplu ta uza `with open(...)` pa ler ficheru — bu ta prende operasons ku ficheru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo generator ta entrega **un linha di kada bez**, sen po tudu ficheru na memória.
@@ -180,7 +188,7 @@ for resultado in filtra_linhas("receitas.txt", "katxupa"):
     print(resultado)
 ```
 
-## Kompara Memória: Lista vs Generator
+<SectionHeading variant="concept" seq={6}>Kompara Memória: Lista vs Generator</SectionHeading>
 
 ```python
 import sys
@@ -210,7 +218,7 @@ print(total_lista == total_gen)  # True
 Kuandu bu ta pasa un generator diretu pa un funsan kumo `sum()`, `max()`, ou `min()`, bu ka presiza paréntesis extru: `sum(x for x in range(10))` — sen `[]`!
 :::
 
-## Kuandu Uza Generator vs Lista
+<SectionHeading variant="concept" seq={7}>Kuandu Uza Generator vs Lista</SectionHeading>
 
 | Situasan | Uza Generator | Uza Lista |
 |----------|---------------|-----------|
@@ -223,16 +231,16 @@ Kuandu bu ta pasa un generator diretu pa un funsan kumo `sum()`, `max()`, ou `mi
 | Presiza itera múltiplas vezes | | ✓ |
 | Lista é pikininu (`< 1000 elementus`) | | ✓ |
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Uza un generator kuandu dadus é grandi ou infinitu, ou kuandu bu só presiza itera un bez — el ta produz valor un pa un sen guarda tudu na memória.</RezumuItem>
   <RezumuItem term="Generator expression">`(expr for item in iterável)` — kumo un list comprehension, ma ku `()`.</RezumuItem>
   <RezumuItem term="Generator function">Un funsan ku `yield` en bez di `return` — `yield` ta **pauza** i lenbra unde el para.</RezumuItem>

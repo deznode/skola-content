@@ -16,29 +16,33 @@ objectives:
 
 # Disionárius i Dict Comprehension
 
-Imagina un livru di kontatus: bu ta buska un nomi i logu bu ta atxa se númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona ezatamenti asim — é un kolesan di **pares key-value** (xavi-valor).
+Imajina un livru di kontatus: bu ta buska nomi di pesoa i atxa si númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona izatamenti asin — é un kolesoun di **pares key-value** (xavi-valor): bu ta da un xavi (kumo un nomi), i el ta divolve valor korespondenti (kumo un númeru di telefoni), sen bu meste buska un pa un até atxa.
 
 Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bu presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
+
+:::callout{type=note title="Limiti di metáfora"}
+Livru di kontatus normalmente ta obriga bu skanea página pa página en órdi alfabétiku te atxa un nomi — kel pode da-u ideia erradu ki búska ta fika más lentu kantu livru ta krese. Dictionary di Python ka ta funsiona asin: el ta uza **hash**, entoni búska ta kuazi O(1) — mesmu velosidadi, seja disionáriu grandi ô pikinoti, indipendenti di órdi di xavis. (Dizdi Python 3.7, disionáriu ta manté órdi di inserson kuandu bu ta itera sobri el — mas kel ka afeta velosidadi di búska.)
+:::
 
 :::callout{type=info title="Antis di kumesa"}
 Es lisan ta konta ku **list comprehension** (Lisan 11) — dict comprehension ta uza mesmu padrón `for`. Ten tanbe un base di listas i tuplas (Lisan 11–12) i di f-strings.
 :::
 
-## Kria Disionárius
+<SectionHeading variant="concept" seq={1}>Kria Disionárius</SectionHeading>
 
 Pa kria un disionáriu, uza xavis `{}` ku pares `key: value`:
 
 ```python
 # Disionáriu di un estudanti
 estudanti = {
-    "nomi": "Djina",
+    "nomi": "Telma",
     "idadi": 22,
     "ilha": "Santiago",
     "kursu": "Informátika",
     "média": 87.5
 }
 print(estudanti)
-# {'nomi': 'Djina', 'idadi': 22, 'ilha': 'Santiago', 'kursu': 'Informátika', 'média': 87.5}
+# {'nomi': 'Telma', 'idadi': 22, 'ilha': 'Santiago', 'kursu': 'Informátika', 'média': 87.5}
 
 # Disionáriu simples
 presu_frutas = {"manga": 50, "papaia": 80, "banana": 30, "koku": 100}
@@ -64,7 +68,7 @@ print(dados)  # {'nomi': 'Carla', 'idadi': 20}
 Keys ten ki ser **úniku** i **imutável** (string, int, tuple). Si bu repeti un key, Python ta guarda só últimu valor sen da eru — kel pode kauza bugs sutíl!
 :::
 
-## Asesa Valores
+<SectionHeading variant="concept" seq={2}>Asesa Valores</SectionHeading>
 
 Tene 2 maneras di asesa valores: kolxetis `[]` i `.get()`.
 
@@ -91,7 +95,7 @@ print(estudanti.get("email", "N/A"))  # N/A (valor padrun)
 Senpri uza `.get()` kuandu bu ka tene serteza si key ezisti. É más seguru ki kolxetis pamodi ka ta da eru.
 :::
 
-## Modifika Disionárius
+<SectionHeading variant="concept" seq={3}>Modifika Disionárius</SectionHeading>
 
 Disionárius é **mutável** — bu pode adisiona, muda, i tira elementus:
 
@@ -124,7 +128,7 @@ print(estudanti)
 # {'nomi': 'Lara', 'idadi': 22, 'ilha': 'Sal', 'média': 88.5, 'anu': 3}
 ```
 
-## Metodus Prinsipal
+<SectionHeading variant="concept" seq={4}>Metodus Prinsipal</SectionHeading>
 
 ### .keys(), .values(), .items()
 
@@ -158,7 +162,7 @@ print(pratu.items())
   ]}
 />
 
-## PITFALL: Referénsia vs Kópia
+<SectionHeading variant="concept" seq={5}>PITFALL: Referénsia vs Kópia</SectionHeading>
 
 Kel é un di erus más perigozu — kuandu bu "kopia" un disionáriu ku `=`, ka é kópia real!
 
@@ -184,7 +188,7 @@ print(kopia_real["nota"]) # 95
 Senpri uza `.copy()` kuandu bu kre kria un kópia independenti di disionáriu. `=` só ta kria un novu nomi pa MESMU objetu! Nota: `.copy()` ta kopia só nível di sima — si un disionáriu tene otu disionáriu dentu, kel di dentu inda ta partilhadu.
 :::
 
-## Iterasan sobri Disionárius
+<SectionHeading variant="concept" seq={6}>Iterasan sobri Disionárius</SectionHeading>
 
 ```python
 estudanti = {
@@ -233,10 +237,10 @@ print(f"\nTotal (tudu): {total} ECV")
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Antis di kontinua: dadu `nota = {"Djina": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Djina")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é default; i `88`.)*
+Antis di kontinua: dadu `nota = {"Telma": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Telma")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é default; i `88`.)*
 :::
 
-## Disionárius Aninhadu (Nested)
+<SectionHeading variant="concept" seq={7}>Disionárius Aninhadu (Nested)</SectionHeading>
 
 :::callout{type=note}
 **Seksan avansadu — opsional.** Dict aninhadu ta pasa alen di objetivu prinsipal di es lisan. Si bu ta kumesa, bu pode salta pa "Padruns Útil" i volta li dipos.
@@ -247,7 +251,7 @@ Disionárius pode kontene otus disionárius — perfeitu pa dadus kompleksu:
 ```python
 turma = {
     "estudanti1": {
-        "nomi": "Djina",
+        "nomi": "Telma",
         "idadi": 22,
         "notas": [85, 92, 78]
     },
@@ -264,19 +268,19 @@ turma = {
 }
 
 # Asesa dadus aninhadu
-print(turma["estudanti1"]["nomi"])      # Djina
+print(turma["estudanti1"]["nomi"])      # Telma
 print(turma["estudanti2"]["notas"][2])  # 95
 
 # Itera sobri disionáriu aninhadu
 for id_est, dados in turma.items():
     media = sum(dados["notas"]) / len(dados["notas"])
     print(f"{dados['nomi']}: média = {media:.1f}")
-# Djina: média = 85.0
+# Telma: média = 85.0
 # Kelvin: média = 91.0
 # Edna: média = 92.3
 ```
 
-## Dict Comprehension
+<SectionHeading variant="concept" seq={8}>Dict Comprehension</SectionHeading>
 
 Kumo list comprehension, ma pa kria disionárius:
 
@@ -304,9 +308,9 @@ pares_quadradu = {n: n ** 2 for n in range(1, 11) if n % 2 == 0}
 print(pares_quadradu)  # {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
 
 # Estudantis ku nota asin di 80
-notas = {"Djina": 85, "Nilton": 72, "Edna": 95, "Kelvin": 65, "Lara": 91}
+notas = {"Telma": 85, "Nilton": 72, "Edna": 95, "Kelvin": 65, "Lara": 91}
 aprovadus = {nomi: nota for nomi, nota in notas.items() if nota >= 80}
-print(aprovadus)  # {'Djina': 85, 'Edna': 95, 'Lara': 91}
+print(aprovadus)  # {'Telma': 85, 'Edna': 95, 'Lara': 91}
 ```
 
 ### Transforma Dadus
@@ -323,7 +327,7 @@ tamanhu = {p: len(p) for p in palavras}
 print(tamanhu)  # {'morabeza': 8, 'funana': 6, 'katxupa': 7, 'grogu': 5, 'sodadi': 6}
 ```
 
-## Padruns Útil ku Disionárius
+<SectionHeading variant="concept" seq={9}>Padruns Útil ku Disionárius</SectionHeading>
 
 ### Kontador di Frekuénsia
 
@@ -352,7 +356,7 @@ print(kontador)  # {'m': 1, 'o': 1, 'r': 1, 'a': 2, 'b': 1, 'e': 1, 'z': 1}
 Padrón `.get(key, 0) + 1` é truki klásiku pa konta frekuénsia. `.get(key, 0)` ta retorna 0 si key inda ka ezisti, dipos ta soma 1.
 :::
 
-## Izemplu Prátiku: Loja di Merkadu
+<SectionHeading variant="concept" seq={10}>Izemplu Prátiku: Loja di Merkadu</SectionHeading>
 
 ```python
 # === Sistema di Inventáriu di Merkadu ===
@@ -384,16 +388,16 @@ presu_mediu = sum(d["presu"] for d in inventáriu.values()) / len(inventáriu)
 print(f"📊 Presu médiu: {presu_mediu:.0f} ECV")
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} /><Quiz position={4} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Uza `.get(key, padron)` en bez di `[]` kuandu bu ka ten serteza ki xavi izisti — `[]` ta da `KeyError`, `.get()` ta da un valor padron sen kebra programa.</RezumuItem>
   <RezumuItem term="Disionáriu">Ta guarda pares **key: value** dentu di `{}`. Xavi ten ki ser **úniku** i **imutável**.</RezumuItem>
   <RezumuItem term="Metodus">`.keys()`, `.values()`, `.items()` (pa iterá), más `.update()`, `.pop()`, `.copy()`.</RezumuItem>

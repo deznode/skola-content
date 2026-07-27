@@ -1,6 +1,6 @@
 # Introdusan Konpletu a Python — Published Assets
 
-**Published:** 2026-07-04
+**Published:** 2026-07-26
 **Source:** topics/intro-python/
 
 ## Files

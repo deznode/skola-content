@@ -16,44 +16,46 @@ objectives:
 
 # Polimorfismu i Abstrasan
 
-Imajina un festival di múzika na Mindelo. Tudu muzikanti ta toka — Cesária ta kanta morna, Bulimundo ta toka funana, i un grupu di batuku ta toka ritmu ansianu di Santiago. Tudu es é muzikanti, tudu es tene metodu `toka()`, ma kada un ta toka di manera diferenti. Isu é polimorfismu: **mesmu interfasi, konportamentu diferenti**.
+Imajina tris animal: katxor, gatu, i pásaru. Tudu es pode "fla algu" — ma katxor ta ladra ("Au au"), gatu ta miu ("Miau"), pásaru ta kanta. Mesmu asan — "fla algu" — ma kada animal ta faze-l di si própiu manera.
 
-Gosi pensa na organizador di festival. El ta dize: "Tudu muzikanti ki ta partisipa TEN KI toka pelo menus un múzika." El ka ta dize KUMO bu debe toka — el só ta obriga ki bu tene kapasidadi di toka. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sen dize ezatamenti kumo.
+Na programasan, **polimorfismu** funsiona mesmu manera: diferenti klasi pode implementa mesmu metodu (mesmu interfasi) ma kada un ku si própiu konportamentu. Si bu tene un lista di objetu diferenti (katxor, gatu, pásaru) i bu xama metodu `fla()` riba di kada un, kada objetu ta responde di si própiu manera — sen bu meste sabe di antimon kal tipu di animal ki é.
 
-## Polimorfismu — O ki é?
+Gosi pensa: tudu animal TEN KI pode "fla algu" — ma nada ka ta dize KUMO (ladra, miu, ou kanta). Kada un ta skodje si própiu manera di faze-l. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sen dize ezatamenti kumo.
+
+<SectionHeading variant="concept" seq={1}>Polimorfismu — O ki é?</SectionHeading>
 
 Palavra "polimorfismu" ben di gregu: **poly** (txeu) + **morphe** (forma). Na programasan, signifika ki **mesmu metodu pode tene konportamentu diferenti dependendu di klasi ki ta txoma-l**.
 
 ```python
 # Klasis diferenti ku mesmu metodu
-class Morna:
-    def toka(self):
-        return "🎵 Sodadi, sodadi... (morna suavi)"
+class Katxor:
+    def fla(self):
+        return "🐕 Au au!"
 
-class Funana:
-    def toka(self):
-        return "🥁 Tum-tum-taka-taka! (funana animadu)"
+class Gatu:
+    def fla(self):
+        return "🐈 Miau!"
 
-class Batuku:
-    def toka(self):
-        return "👏 Pam-pam-pam! (batuku tradisionál)"
+class Pásaru:
+    def fla(self):
+        return "🐦 Piu piu piu..."
 
 # Kria objektus
-morna = Morna()
-funana = Funana()
-batuku = Batuku()
+katxor = Katxor()
+gatu = Gatu()
+pasaru = Pásaru()
 
-# Tudu tene metodu toka(), ma kada un toka diferenti
-print(morna.toka())    # 🎵 Sodadi, sodadi... (morna suavi)
-print(funana.toka())   # 🥁 Tum-tum-taka-taka! (funana animadu)
-print(batuku.toka())   # 👏 Pam-pam-pam! (batuku tradisionál)
+# Tudu tene metodu fla(), ma kada un fla diferenti
+print(katxor.fla())   # 🐕 Au au!
+print(gatu.fla())     # 🐈 Miau!
+print(pasaru.fla())   # 🐦 Piu piu piu...
 ```
 
 :::callout{type=tip}
-Polimorfismu ka presiza eransa! Na Python, kualker objetu ku metodu `toka()` ta funsiona. Isu ta txoma "duck typing" — "Si el ta anda kumo patu i ta faze kuak kumo patu, entun el é patu."
+Nota: metáfora di animal (katxor, gatu, pásaru) pode da-u ideia ki es debe partilha un klasi pai pa polimorfismu funsiona — ma **ka é asi**! Polimorfismu ka presiza eransa. Na Python, kualker objetu ku metodu `fla()` ta funsiona, sen nenhun ansestral kumun. Isu ta txoma "duck typing" — "Si el ta anda kumo patu i ta faze kuak kumo patu, entun el é patu."
 :::
 
-## Sobreskrebe Metodus (Method Overriding)
+<SectionHeading variant="concept" seq={2}>Sobreskrebe Metodus (Method Overriding)</SectionHeading>
 
 Kuandu un klasi fidju ta redefini un metodu ki dja esisti na klasi pai, isu ta txoma **method overriding**. Klasi fidju ta "sobreskrebe" konportamentu di pai ku si própia versan.
 
@@ -113,7 +115,7 @@ print(telha.deskrebe())    # Triángulu: área = 12.00 m²
 
 Nota ki `deskrebe()` ta txoma `self.area()` — i Python ta txoma versan koretu pa kada tipu di forma. Isu é polimorfismu na asan!
 
-## Funsan Polimórfiku
+<SectionHeading variant="concept" seq={3}>Funsan Polimórfiku</SectionHeading>
 
 Un funsan polimórfiku é un funsan ki ta aseta kualker objetu, dezdi ki el tene metodus nesesáriu. El ka liga pa tipu konkrétu — el só ta uza interfasi.
 
@@ -158,7 +160,7 @@ mostra_relatoriu(formas)
 Funsan `mostra_relatoriu()` ka sabe nada sobri Retángulu, Sírkulu ou Triángulu. El só ta txoma `.area()` i `.nomi`. Kualker klasi novu ki tene kes metodus ta funsiona sen muda funsan!
 :::
 
-## Klasi Abstratu ku ABC
+<SectionHeading variant="concept" seq={4}>Klasi Abstratu ku ABC</SectionHeading>
 
 Na izemplu anteror, `Forma` pai tene un metodu `area()` ki retorna `0`. Problema: algen pode kria un `Forma()` diretu sen sobreskrebe `area()` — i el ta funsiona, ma ka ta faze sentidu.
 
@@ -224,7 +226,7 @@ class Sirkulu(Forma):
 ```
 
 ```python
-# Si bo skise implementa un metodu abstratu — ERU!
+# Si bu skise implementa un metodu abstratu — ERU!
 class FormaInkompleta(Forma):
     def __init__(self):
         super().__init__("Inkompleta")
@@ -239,10 +241,10 @@ class FormaInkompleta(Forma):
 ```
 
 :::callout{type=tip}
-`@abstractmethod` é kumo un kontratu. Bu ta dize: "Kualker klasi ki ta erda di mi TEN KI implementa kes metodus li." Python ta verifika na momentu ki bo tenta kria objetu.
+`@abstractmethod` é kumo un kontratu. Bu ta dize: "Kualker klasi ki ta erda di mi TEN KI implementa kes metodus li." Python ta verifika na momentu ki bu tenta kria objetu.
 :::
 
-## `@abstractmethod` — Forsa Implementasan
+<SectionHeading variant="concept" seq={5}>`@abstractmethod` — Forsa Implementasan</SectionHeading>
 
 Dekorador `@abstractmethod` ta marka un metodu kumo obrigatóriu. Klasi fidju ki ka implementa tudu metodus abstratu **ka pode ser instansiadu**.
 
@@ -311,7 +313,7 @@ for animal in animais:
 # Atun di Sal: Blub blub! 🐟 — Ta nada
 ```
 
-## Izemplu Prátiku: Sistema di Pagamentu
+<SectionHeading variant="concept" seq={6}>Izemplu Prátiku: Sistema di Pagamentu</SectionHeading>
 
 Na Kabu Verdi, pesoas ta paga di maneras diferenti: transferénsia bankáriu, kartun di kréditu, ou dinheru móvel. Nos ta kria un sistema polimórfiku ki ta prosesa kualker tipu di pagamentu.
 
@@ -437,7 +439,7 @@ def prosesa_pagamentu(metodu, montanti):
 # Kliantis diferenti ku metodus diferenti
 ana = TransferensiaBankaria("Ana Sousa", "BCA", "001-2345678")
 joao = KartunKreditu("João Lima", "4532789012345678")
-djina = DinheruMovel("Djina Lopes", "+238 991 2345")
+nando = DinheruMovel("Nando", "+238 991 2345")
 
 # Mesmu funsan ta prosesa tudu!
 prosesa_pagamentu(ana, 25_000)
@@ -463,8 +465,8 @@ prosesa_pagamentu(joao, 8_500)
 # --- RESIDU ---
 # ...
 
-prosesa_pagamentu(djina, 3_200)
-# 💰 Pagamentu di 3,200 ECV pa Djina Lopes
+prosesa_pagamentu(nando, 3_200)
+# 💰 Pagamentu di 3,200 ECV pa Nando
 # ========================================
 # Prosesandu pagamentu móvel di 3,200 ECV...
 #   Telefoni: +238 991 2345
@@ -475,10 +477,10 @@ prosesa_pagamentu(djina, 3_200)
 ```
 
 :::callout{type=tip}
-`prosesa_pagamentu()` ka sabe nada sobri transferénsia, kartun ou dinheru móvel. El só ta txoma `metodu.prosesa()` i `metodu.residu()`. Si amanha bo djunta un novu tipu (PIX, kriptomoeda), bo só kria novu klasi — funsan ka muda!
+`prosesa_pagamentu()` ka sabe nada sobri transferénsia, kartun ou dinheru móvel. El só ta txoma `metodu.prosesa()` i `metodu.residu()`. Si amanha bu djunta un novu tipu (PIX, kriptomoeda), bu só kria novu klasi — funsan ka muda!
 :::
 
-## Kuandu Uza Klasi Abstratu?
+<SectionHeading variant="concept" seq={7}>Kuandu Uza Klasi Abstratu?</SectionHeading>
 
 | Situasan | Uza klasi abstratu? |
 |----------|---------------------|
@@ -489,21 +491,21 @@ prosesa_pagamentu(djina, 3_200)
 
 ```python
 # REGRA JERÁL:
-# - Si bo tene 2+ klasis ku MESMU interfasi → pensa na ABC
+# - Si bu tene 2+ klasis ku MESMU interfasi → pensa na ABC
 # - Si metodu TEN KI ser implementadu na fidju → uza @abstractmethod
 # - Si metodu pode ser erdadu sen muda → metodu normal (konkretu)
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Un funsan polimórfiku ka liga pa tipu konkretu — el só ta uza interfasi. Djunta un novu tipu ku mesmu metodu i funsan ka muda.</RezumuItem>
   <RezumuItem term="Polimorfismu">"Txeu formas" — mesmu metodu, komportamentu diferenti dependendu di klasi (duck typing, sen meste eransa).</RezumuItem>
   <RezumuItem term="Overriding">Klasi filhu ta redefini un metodu di pai pa mudá komportamentu erdadu.</RezumuItem>

@@ -16,11 +16,11 @@ objectives:
 
 # Lambda, Map i Filter
 
-Na lisan anterio, nos aprende defini funsons ku `def`. Ma ás bez, bo presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsons anónimu ki bo skrebe na un linha. I ku **map()** i **filter()**, bu pode transforma i filtra dadus di lista interu sen skrebe loop manual.
+Na lisan anterio, nos aprende defini funsons ku `def`. Ma ás bez, bu presiza un funsan mutu simples — un linha só — i ka vale pena da-l un nomi. É pa isu ki Python tene **lambda**: funsons anónimu ki bu skrebe na un linha. I ku **map()** i **filter()**, bu pode transforma i filtra dadus di lista interu sen skrebe loop manual.
 
-Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bu tene lista di presu na ECV i bu kre aplika diskontu pa tudu, ou filtra só kes ki é superior a 1000. Ku map() i filter(), bo faze isu na un linha!
+Es ferramentas é mutu poderozu pa prosesamentu di dadus — imajina ki bu tene lista di presu na ECV i bu kre aplika diskontu pa tudu, ou filtra só kes ki é superior a 1000. Ku map() i filter(), bu faze isu na un linha!
 
-## Lambda — Funsons Anónimu
+<SectionHeading variant="concept" seq={1}>Lambda — Funsons Anónimu</SectionHeading>
 
 Un **lambda** é un funsan sen nomi ki tene un só expresan. Sintaxi:
 
@@ -71,10 +71,10 @@ for s in studantis:
 ```
 
 :::callout{type=tip}
-Lambda é pa funsons kurtu i simples. Si bo funsan presiza más di un linha ou é komplikadu, uza `def` normal. Kódiku klaru senpri ganha!
+Lambda é pa funsons kurtu i simples. Si bu funsan presiza más di un linha ou é komplikadu, uza `def` normal. Kódiku klaru senpri ganha!
 :::
 
-## Map — Transforma Tudu Elementus
+<SectionHeading variant="concept" seq={2}>Map — Transforma Tudu Elementus</SectionHeading>
 
 `map(funsan, iterável)` ta aplika un funsan pa **kada elementu** di un iterável (lista, tuple, etc.) i retorna un objetu map. Uza `list()` pa konverte pa lista.
 
@@ -163,7 +163,7 @@ for a in apresentasons:
 # Nuno di Fogo (41 anu)
 ```
 
-## Filter — Selisiona Elementus
+<SectionHeading variant="concept" seq={3}>Filter — Selisiona Elementus</SectionHeading>
 
 `filter(funsan, iterável)` ta mantene SÓ elementus unde funsan retorna `True`. É kumo un penera — só kel ki pasa na kondisan ta fika.
 
@@ -246,11 +246,11 @@ for s in xunbadus:
     print(f"  {s['nomi']}: {s['nota']}")
 ```
 
-## Kombina Map i Filter
+<SectionHeading variant="concept" seq={4}>Kombina Map i Filter</SectionHeading>
 
 ![Pipeline di transformasan ku lambda, map i filter](../../infographics/11-lambda-map-filter-pipeline.jpg)
 
-Podér real ta ben kuandu bo kombina map() i filter() djuntu — primeru filtra, dipos transforma (ou vice-versa):
+Podér real ta ben kuandu bu kombina map() i filter() djuntu — primeru filtra, dipos transforma (ou vice-versa):
 
 ```python
 # Pega só nùmerus par i kalkula kuadradu
@@ -291,7 +291,7 @@ nomis_adultus = list(map(
 print(nomis_adultus)  # ['Maria', 'João']
 ```
 
-## Erus Komun
+<SectionHeading variant="concept" seq={5}>Erus Komun</SectionHeading>
 
 ```python
 # ERU 1: Txoma funsan ku () dentu di map/filter
@@ -325,12 +325,12 @@ def dobra_i_mostra(x):
 ```
 
 :::callout{type=tip}
-`map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bo pedi rezultadu ku `list()`. Si bo skrebe `map(...)` sen `list()`, nada ka ta akontese ainda!
+`map()` i `filter()` retorna objetrus **lazy** (preguisozu) — es só kalkula kuandu bu pedi rezultadu ku `list()`. Si bu skrebe `map(...)` sen `list()`, nada ka ta akontese ainda!
 :::
 
-## Map/Filter vs List Comprehension
+<SectionHeading variant="concept" seq={6}>Map/Filter vs List Comprehension</SectionHeading>
 
-Python tene un alternativa ki é mutas bez más lijível — **list comprehension**, ki bo dja prende na Módulu 2 (Lisan 11). Relembra ku un konparasan rápidu:
+Python tene un alternativa ki é mutas bez más lijível — **list comprehension**, ki bu dja prende na Módulu 2 (Lisan 11). Relembra ku un konparasan rápidu:
 
 ```python
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -349,19 +349,19 @@ pares_comp = [x for x in numeros if x % 2 == 0]
 ```
 
 :::callout{type=tip}
-Uza `map()`/`filter()` kuandu bo djá tene un funsan pronta (kumo `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bu kre kódiku más lijível.
+Uza `map()`/`filter()` kuandu bu djá tene un funsan pronta (kumo `int`, `str.upper`). Uza list comprehension kuandu lójika é simples i bu kre kódiku más lijível.
 :::
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`map()` i `filter()` ta da objetus **lazy** — senpri konverti ku `list()` pa odja rezultadu, senan bu ta odja só `<map object ...>`.</RezumuItem>
   <RezumuItem term="Lambda">Un funsan anónimu di un linha: `lambda x: x * 2` — pa koza kurtu; pa lójika komplikadu, uza `def`.</RezumuItem>
   <RezumuItem term="map">`map(fn, iterável)` ta aplika funsan pa **tudu** elementu — transforma lista interu.</RezumuItem>

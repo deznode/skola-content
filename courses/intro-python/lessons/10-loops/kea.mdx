@@ -19,7 +19,7 @@ objectives:
 
 # Loops (for/while)
 
-Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bo repeti un bloku di kódiku txeu bez sen skrebe mesmu koza repetidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
+Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`, `print(3)`... té `print(100)`? Klaru ki nau! Loops ta permiti bu repeti un bloku di kódiku txeu bez sen skrebe mesmu koza repetidu. Na Python, nos tene dos tipu prinsipál di loop: `for` i `while`. Nos ta domina ambos na kel lisan li!
 
 <GlossaryText
   text="Kada bez ki un loop ta kore bloku di dentu, nu ta txoma kel un [[iterasan]] — loops ta otomatiza es repetison."
@@ -28,7 +28,7 @@ Imajina ki bu ta presiza konta di 1 té 100. Bu ta skrebe `print(1)`, `print(2)`
   }}
 />
 
-## For Loop ku Range()
+<SectionHeading variant="concept" seq={1}>For Loop ku Range()</SectionHeading>
 
 ![Anatomia di for loop ku range, break, continue](../../infographics/05-anatomia-di-loop.jpg)
 
@@ -82,7 +82,7 @@ for i in range(10, 0, -1):
 print("FOGETI! 🚀")
 ```
 
-## Itera Sima Strings
+<SectionHeading variant="concept" seq={2}>Itera Sima Strings</SectionHeading>
 
 `for` loop ta funsiona dirétamenti ku strings — el ta pasa pu kada karáter:
 
@@ -105,9 +105,9 @@ for letra in nomi:
 print(f"'{nomi}' tene {kontador} vogais.")  # 'Amilcar' tene 3 vogais.
 ```
 
-## Itera Sima Listas
+<SectionHeading variant="concept" seq={3}>Itera Sima Listas</SectionHeading>
 
-Bo tanbe pode itera dirétamenti sima listas (nos ta prende listas na Module 2, ma li ta mostra pitu):
+Bu tanbe pode itera dirétamenti sima listas (nos ta prende listas na Module 2, ma li ta mostra pitu):
 
 ```python
 # Lista di ilhas di Kabu Verdi
@@ -129,7 +129,7 @@ media = soma / len(notus)
 print(f"Média: {media}")  # Média: 15.4
 ```
 
-## While Loop
+<SectionHeading variant="concept" seq={4}>While Loop</SectionHeading>
 
 `while` loop ta repeti enkuantu kondisan é `True`. Útil kuandu bu ka sabe kuántus bez loop ta presiza kore.
 
@@ -182,7 +182,7 @@ while numeru <= 0:
 print(f"Bo inseri: {numeru}")
 ```
 
-<SectionHeading variant="concept">For ou While — kual ki ta uza?</SectionHeading>
+<SectionHeading variant="concept" seq={5}>For ou While — kual ki ta uza?</SectionHeading>
 <CompareTable
   showHeader={false}
   cornerLabel="Kritériu"
@@ -197,7 +197,7 @@ print(f"Bo inseri: {numeru}")
   ]}
 />
 
-## Break, Continue i Pass
+<SectionHeading variant="concept" seq={6}>Break, Continue i Pass</SectionHeading>
 
 Python tene 3 instruson spesiál pa kontrola kumo loop ta funsiona:
 
@@ -262,10 +262,10 @@ for i in range(10):
 ```
 
 :::callout{type=tip}
-`pass` é útil kuandu bu ta planeja bo programa i bu kre dexa un bloku vazio pa dipos. Sen `pass`, Python ta dá `IndentationError`.
+`pass` é útil kuandu bu ta planeja bu programa i bu kre dexa un bloku vazio pa dipos. Sen `pass`, Python ta dá `IndentationError`.
 :::
 
-## Pitu: For-Else (opsional)
+<SectionHeading variant="concept" seq={7}>Pitu: For-Else (opsional)</SectionHeading>
 
 :::callout{type=note}
 Es seksan é un **pitu** opsional pa un karaterístika avansadu. Bu pode pula-l gosi i volta dipos — el ka é nesesáriu pa kompleta Module 1.
@@ -287,9 +287,9 @@ else:
 # Saída: 7 ka sta na lista.
 ```
 
-Kel é perfeitu pa buska: si bo atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kore. (Bu ta odja `for-else` di nobu na izemplu di numerus primu más baxu.)
+Kel é perfeitu pa buska: si bu atxa, `break` ta pula `else`. Si bu ka atxa, `else` ta kore. (Bu ta odja `for-else` di nobu na izemplu di numerus primu más baxu.)
 
-## Loops Aninhadu
+<SectionHeading variant="concept" seq={8}>Loops Aninhadu</SectionHeading>
 
 Bu pode po un loop dentu di otu loop. Loop di dentu ta kore kompletu pa KADA iterasan di loop di fora:
 
@@ -320,7 +320,7 @@ for linha in range(3):
 **Para i pensa:** antes di kontinua — si bu tene un `for i in range(3)` ku un `for j in range(2)` dentu, kuantas bez ta kore `print` di dentu? (Resposta: 3 × 2 = 6.)
 :::
 
-## Izemplus Prátikus
+<SectionHeading variant="concept" seq={9}>Izemplus Prátikus</SectionHeading>
 
 ### Soma di N Numerus
 
@@ -402,10 +402,10 @@ FizzBuzz é un ezersísiu famózu di programasan. Pa kada númeru di 1 a 30: mos
   ]}
 />
 
-## Pitu di Enumerate()
+<SectionHeading variant="concept" seq={10}>Pitu di Enumerate()</SectionHeading>
 
 <GlossaryText
-  text="Kuandu bu ta itera sima un lista i bo presiza tanbe sabé [[índisi]] (pozisan) di kada elementu, `enumerate()` é bo amigu midjór:"
+  text="Kuandu bu ta itera sima un lista i bu presiza tanbe sabé [[índisi]] (pozisan) di kada elementu, `enumerate()` é bu amigu midjór:"
   terms={{
     índisi: { en: "index", definition: "Pozisan numérika di un elementu na un sekuénsia, ki ta kumesa na 0. Na [\"a\", \"b\"], \"a\" tene índisi 0 i \"b\" índisi 1." },
   }}
@@ -438,7 +438,7 @@ Ambos ta dá mesmu rezultadu:
 `enumerate()` é un funsan inkorporadu ki nu ta explora na detalhi na Module 3 (Lisan 18: Funsons Inkorporadus Úteis). Pa gosi, lembra ki el ta dá un kontador automátiku kuandu bu ta itera.
 :::
 
-## Erus Komun ku Loops
+<SectionHeading variant="concept" seq={11}>Erus Komun ku Loops</SectionHeading>
 
 <DetailDisclosure
   items={[

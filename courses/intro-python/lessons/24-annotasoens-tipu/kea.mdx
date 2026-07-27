@@ -15,11 +15,11 @@ objectives:
 
 # Annotasons di Tipu
 
-Kuandu bu ta skrebe un funsan, bo sabi ki tipu di dadus el ta espera i ki tipu el ta retorna. Ma un otru programador ki ta ler bo kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bu ta lembra?
+Kuandu bu ta skrebe un funsan, bu sabi ki tipu di dadus el ta espera i ki tipu el ta retorna. Ma un otru programador ki ta ler bu kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bu ta lembra?
 
 **Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
 
-## Primeru Izemplu: Antis i Dipós
+<SectionHeading variant="concept" seq={1}>Primeru Izemplu: Antis i Dipós</SectionHeading>
 
 **Sen type hints:**
 
@@ -41,7 +41,7 @@ def kalkula_total(presus: list[float], diskonto: float) -> float:
 
 Gosi é klaru: `presus` é un lista di floats, `diskonto` é un float (persentajen), i funsan ta retorna un float.
 
-## Annotasons di Funsan
+<SectionHeading variant="concept" seq={2}>Annotasons di Funsan</SectionHeading>
 
 Sintaxi é simples: `parámetru: tipu` i `-> tipu_retorno`:
 
@@ -67,7 +67,7 @@ def mostra_mensajen(mensajen: str) -> None:
 `-> None` signifika ki funsan ka retorna nada (só ta faze un asan kumo print).
 :::
 
-## Annotasons di Variável
+<SectionHeading variant="concept" seq={3}>Annotasons di Variável</SectionHeading>
 
 Bu pode anotar variáveis tanbe:
 
@@ -84,7 +84,7 @@ rezultadu: float
 
 Na prátika, pa variáveis simples, type hint é opsionál pamodi tipu ta ser óbviu. É más útil na funsan i kazus más kompleksu.
 
-## Tipus di Container (Python 3.9+)
+<SectionHeading variant="concept" seq={4}>Tipus di Container (Python 3.9+)</SectionHeading>
 
 Dezdi Python 3.9, bu pode uza tipus di container diretamenti (antis, presizava `from typing import List`):
 
@@ -136,7 +136,7 @@ aprovadus = filtra_aprovadus(notas_klasi)
 print(aprovadus)  # ['Maria', 'Ana']
 ```
 
-## Union: `int | None` (Python 3.10+)
+<SectionHeading variant="concept" seq={5}>Union: `int | None` (Python 3.10+)</SectionHeading>
 
 Algunhas vezes, un funsan pode retorna un valor **ou** `None` (kuandu ka tene rezultadu). Sintaxi `|` ta espresa es:
 
@@ -182,7 +182,7 @@ def saudasan(nomi: str, lingua: str | None = None) -> str:
     return f"Ola, {nomi}! Tudu dretu?"
 ```
 
-## Grandi Segredu: Type Hints Ka Ta Muda NADA na Runtime!
+<SectionHeading variant="concept" seq={6}>Grandi Segredu: Type Hints Ka Ta Muda NADA na Runtime!</SectionHeading>
 
 Es é pontu más importanti di es lisan: **type hints é sujestoens, ka regras.** Python ka ta verifika kes kuandu programa ta roda!
 
@@ -211,7 +211,7 @@ def prosesa(dadus: list[dict], opcoes: dict[str, bool]) -> bool:
 
 ### 2. IDE Autocomplete
 
-Kuandu bo skrebe `nomi: str = "Maria"`, bo IDE (VS Code) ta sabi ki `nomi` é string i ta sugerir tudu metodus di string (`.upper()`, `.split()`, etc.) automátikamenti!
+Kuandu bu skrebe `nomi: str = "Maria"`, bu IDE (VS Code) ta sabi ki `nomi` é string i ta sugerir tudu metodus di string (`.upper()`, `.split()`, etc.) automátikamenti!
 
 ### 3. Ferramenta di Análizi (mypy)
 
@@ -233,7 +233,7 @@ soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
 Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bu ta leva multa!
 :::
 
-## Izemplu Konpletu: Registu di Estudantis
+<SectionHeading variant="concept" seq={7}>Izemplu Konpletu: Registu di Estudantis</SectionHeading>
 
 ```python
 def kria_estudanti(
@@ -289,16 +289,16 @@ relátoriu = relatóriu_klasi(klasi)
 print(f"Média di klasi: {relátoriu['média']:.1f}")  # Média di klasi: 14.3
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Type hints é **sujestoens, ka regras** — Python ka ta verifika-s na runtime. Es ta sirbi pa umanus, IDEs (autocomplete) i ferramentas kumo `mypy`.</RezumuItem>
   <RezumuItem term="Funsan">`def f(param: tipu) -> tipu_retorno:`. `-> None` pa funsan ki ka retorna nada.</RezumuItem>
   <RezumuItem term="Containers">Dezdi 3.9: `list[str]`, `dict[str, int]`, `tuple[int, int]`, `set[float]`.</RezumuItem>

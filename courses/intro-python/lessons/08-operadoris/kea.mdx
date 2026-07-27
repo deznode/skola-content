@@ -20,7 +20,7 @@ Imajina ki bu sta faze un app pa un loja na Praia: bu meste kalkula troku, verif
 
 Operadoris é sinais ki ta dize Python pa faze un operasan ku valoris. Kuandu bu skrebe `10 + 5`, sinal `+` é operador i `10` ku `5` é operandus. Na es lisan, nos ta prende tres tipu prinsipal di operadoris: aritmétiku (pa kalkula), komparasan (pa kompara), i lójiku (pa kombina kondisons). Es é ferramentas fundamentál ki bu ta uza na tudu programa ki bu skrebe.
 
-## Operadoris Aritmétiku
+<SectionHeading variant="concept" seq={1}>Operadoris Aritmétiku</SectionHeading>
 
 Es operadoris ta faze kálkulus matemátiku. Si bu sabe matemátika báziku, djá bu konxe maioria.
 
@@ -150,7 +150,7 @@ print(saldo)   # 866
   solved="Korretu! `//` ta da kosienti interu (2) i `%` ta da restu (50)."
 />
 
-## Operadoris di Komparasan
+<SectionHeading variant="concept" seq={2}>Operadoris di Komparasan</SectionHeading>
 
 Es operadoris ta kompara dois valoris i ta retorna `True` ou `False` (boolean). Es é essensial pa kondisionais (`if/elif/else`) ki bu ta prende na prósimu lisan.
 
@@ -205,7 +205,7 @@ pode_vota = idadi >= 18
 print(f"{nomi} pode vota? {pode_vota}")  # Nilton pode vota? False
 ```
 
-## Operadoris Lójiku
+<SectionHeading variant="concept" seq={3}>Operadoris Lójiku</SectionHeading>
 
 Operadoris lójiku ta kombina vários kondisons. Pensa es kumo "i", "ou", "ka" na Kriolu.
 
@@ -271,7 +271,7 @@ print(f"Password ok? {senha_ok}")  # True
 Pa verifika regras más detalhadu — si tene númeru, si tene letra maiúskula — bu meste persorre kada karáter di string. Bu ta prende kel-li ku **loops** na Lisan 10.
 :::
 
-<SectionHeading variant="concept">Tabela di Verdadi (Truth Table)</SectionHeading>
+<SectionHeading variant="concept" seq={4}>Tabela di Verdadi (Truth Table)</SectionHeading>
 
 Pa intende `and` i `or`, kompara es dos lado-a-lado: `and` só ta da `True` kuandu **ambos** é `True`; `or` só ta da `False` kuandu **ambos** é `False`.
 
@@ -298,7 +298,7 @@ print(not True)    # False
 print(not False)   # True
 ```
 
-## Presedensia di Operadoris (Orden di Exekusan)
+<SectionHeading variant="concept" seq={5}>Presedensia di Operadoris (Orden di Exekusan)</SectionHeading>
 
 ![Presedensia di operadoris di Python](../../infographics/03-operador-precedensia.jpg)
 
@@ -309,7 +309,7 @@ Python ta sigi un orden espesífiku kuandu tene vários operadoris na mesmu expr
 rezultadu = 2 + 3 * 4
 print(rezultadu)  # 14 (ka 20! — * antis di +)
 
-# Ku paréntesis: bo kontrola orden
+# Ku paréntesis: bu kontrola orden
 rezultadu = (2 + 3) * 4
 print(rezultadu)  # 20
 ```
@@ -351,12 +351,12 @@ Komparasan ben antis di `and`/`or`/`not`. Pa kel motivu `idadi >= 18 and tene_bi
 Na dúvida, uza **paréntesis**! `(2 + 3) * 4` é más klaru ki depende di presedensia. Kódiku klaru é más importante ki kódiku kurtu.
 :::
 
-## Armadidjas Komun
+<SectionHeading variant="concept" seq={6}>Armadidjas Komun</SectionHeading>
 
 ```python
 # ARMADIDJA 1: / senpri retorna float
 print(type(10 / 5))   # <class 'float'> — 2.0, ka 2!
-print(type(10 // 5))  # <class 'int'>   — 2 (si bo kre interu, uza //)
+print(type(10 // 5))  # <class 'int'>   — 2 (si bu kre interu, uza //)
 
 # ARMADIDJA 2: = vs ==
 x = 5      # atribuisan (guarda valor)

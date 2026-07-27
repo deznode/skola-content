@@ -14,15 +14,15 @@ objectives:
 
 # Prosimus Pasus: Dataclasses i Alén
 
-**Parabéns! Bo txiga na final di kursu!** 🎉
+**Parabéns! Bu txiga na final di kursu!** 🎉
 
-Di primeru `print("Ola Mundu!")` até klasis ku metodus majiku i sobrekarga di operador — bo feze un viaji inkrível. Bo kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bo deve sinti orgulhu.
+Di primeru `print("Ola Mundu!")` até klasis ku metodus majiku i sobrekarga di operador — bu feze un viaji inkrível. Bu kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bu deve sinti orgulhu.
 
-Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bo vida kumo programador mutu más fáxi: **dataclasses**. Depois, nos ta odja pa futuru — o ki bu pode aprende dipos.
+Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bu vida kumo programador mutu más fáxi: **dataclasses**. Depois, nos ta odja pa futuru — o ki bu pode aprende dipos.
 
-## `@dataclass` — Klasis Mais Simples
+<SectionHeading variant="concept" seq={1}>`@dataclass` — Klasis Mais Simples</SectionHeading>
 
-Kuandu bo kria un klasi ki prinsipal trabadju é garda dadus (kuma Estudanti, Produtu, Kontatu), bu ta skrebe senpri mesmu kódiku repetitivu: `__init__`, `__repr__`, `__eq__`...
+Kuandu bu kria un klasi ki prinsipal trabadju é garda dadus (kuma Estudanti, Produtu, Kontatu), bu ta skrebe senpri mesmu kódiku repetitivu: `__init__`, `__repr__`, `__eq__`...
 
 Python tene un atalhu: `@dataclass` ta jera tudu es metodus automátikamenti!
 
@@ -74,10 +74,10 @@ print(maria == maria2)  # True — kompara pa valór!
 ```
 
 :::callout{type=tip}
-`@dataclass` é perfetu pa klasis ki prinsipal objetivu é "garda dadus". Si bo klasi tene mutu lójika kompleksu, klasi tradisionál pode ser midjór.
+`@dataclass` é perfetu pa klasis ki prinsipal objetivu é "garda dadus". Si bu klasi tene mutu lójika kompleksu, klasi tradisionál pode ser midjór.
 :::
 
-## Opsons di @dataclass
+<SectionHeading variant="concept" seq={2}>Opsons di @dataclass</SectionHeading>
 
 ### Valoris Padrón
 
@@ -122,7 +122,7 @@ except AttributeError as e:
     print(f"Eru: {e}")  # Eru: cannot assign to field 'latitude'
 ```
 
-### Adisiona Bo Propriu Metodus
+### Adisiona Bu Propriu Metodus
 
 `@dataclass` ka ta impedi-bu di adisiona metodus personalizadu:
 
@@ -153,9 +153,9 @@ print(repr(santiago))          # Ilha(nomi='Santiago', populasan=313912, area_km
 
 Otru opsons útil: `order=True` (permite `sorted()` automátiku) i `field(default_factory=list)` pa valoris padrón mutável.
 
-## O ki Aprende Dipos?
+<SectionHeading variant="concept" seq={3}>O ki Aprende Dipos?</SectionHeading>
 
-Bo gosi tene un bazi sólidu di Python. Li sta sinku kaminhu ki bu pode sigi:
+Bu gosi tene un bazi sólidu di Python. Li sta sinku kaminhu ki bu pode sigi:
 
 | | Área | Ferramentas | Izemplu |
 |--|------|------------|---------|
@@ -179,9 +179,9 @@ def ola():
 Ka tenta aprende tudu di un bez! Skolhe **un** kaminhu ki ta interesa-bu i mergulha fundu. Bu pode senpri voltar i aprende otus dipos.
 :::
 
-## Projetu Final Sujeridu: Jestan di Kontatu
+<SectionHeading variant="concept" seq={4}>Projetu Final Sujeridu: Jestan di Kontatu</SectionHeading>
 
-Pa prátika tudu ki bo prende na es kursu, kria un **Jestor di Kontatu** na terminál. Es projetu ta uza:
+Pa prátika tudu ki bu prende na es kursu, kria un **Jestor di Kontatu** na terminál. Es projetu ta uza:
 
 - **Klasis i dataclasses** — `Kontatu`, `JestorKontatu`
 - **Listas i disionárius** — garda kontatus
@@ -236,9 +236,9 @@ for k in jestor.buska("maria"):
 
 Es é un ponto di partida — bu pode kontinua ta adisiona funsons kuma salva na fixeru JSON, menu interativu, edita kontatu, i mais!
 
-## Parabéns — Bo É un Programador!
+<SectionHeading variant="concept" seq={5}>Parabéns — Bu É un Programador!</SectionHeading>
 
-Bo kaba di kompleta **Introdusan Konpletu a Python**. Nu ta odja pa trás pa tudu ki bo prende:
+Bu kaba di kompleta **Introdusan Konpletu a Python**. Nu ta odja pa trás pa tudu ki bu prende:
 
 **Módulu 1 — Fundamentus:** Variáveis, tipu di dadus, strings, operadoris, kondisionais, loops
 
@@ -250,12 +250,12 @@ Bo kaba di kompleta **Introdusan Konpletu a Python**. Nu ta odja pa trás pa tud
 
 **Es é un bazi real.** Ku es konhesimentu, bu pode kumesa kualker kaminhu na programasan — web, data science, AI, automasan. Bu ka é un "prinsipianti" más — bo é un **programador**.
 
-Na komunidadi tékniku di Kabu Verdi, nos ta krese djuntu. Kada linha di kódiku ki bo skrebe é un pasu pa un futuru midjór — pa bo i pa nos tera.
+Na komunidadi tékniku di Kabu Verdi, nos ta krese djuntu. Kada linha di kódiku ki bu skrebe é un pasu pa un futuru midjór — pa bo i pa nos tera.
 
 **Nu ta kria djuntu!** 🇨🇻
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">`@dataclass` ta jera `__init__`, `__repr__` i `__eq__` automátikamenti — trés linha na lugar di 12+ pa klasis ki trabadju prinsipal é gerda dadus.</RezumuItem>
   <RezumuItem term="Opsons">`frozen=True` (imutável), `order=True` (komparável ku `sorted()`), i valoris padrón kumo `kuantidadi: int = 1`.</RezumuItem>
   <RezumuItem term="Flexível">`@dataclass` ka ta limita — bu pode adisiona bu própriu metodu i sobreskrebe `__str__` jeradu.</RezumuItem>

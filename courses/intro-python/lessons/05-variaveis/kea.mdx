@@ -21,7 +21,7 @@ Imagina ki bu tene un kaxa. Bu pode po kualker kuza dentu — un númeru, un nom
 
 Nes lisan, nu ta prende kumo kria variáveis, ki regras di nomi tene, kumo resebe dados di utilizador, i kumo konverti entri tipus diferenti.
 
-## Kria Variáveis
+<SectionHeading variant="concept" seq={1}>Kria Variáveis</SectionHeading>
 
 Na Python, bu ta kria un variável sinplismenti: bu ta atribui un valor ku `=`. Ka presiza deklara tipu antis — Python ta diskubri-l sózin.
 
@@ -67,7 +67,11 @@ presu = presu + 100  # Uza valor antigu pa kalkula novu
 print(presu)   # 850
 ```
 
-## Regras di Nomi
+:::callout{type=tip}
+Kuandu bu atribui un valor novu pa mesmu variável (`presu = 750`), Python ka ta djunta el ku valor antigu — el ta **tra** valor antigu di dentu di kaxa, dipos ta **po** valor novu na kel mesmu kaxa. Kaxa ka ta kaba ku dôs valor dentu; kada variável sô ta garda **un** valor di kada vez.
+:::
+
+<SectionHeading variant="concept" seq={2}>Regras di Nomi</SectionHeading>
 
 Python ten regras ki bu ten ki sigi pa nomis di variáveis:
 
@@ -142,10 +146,10 @@ total = presu_katxupa * 2
 ```
 
 :::callout{type=tip}
-Bo futuru ta agrádese kuandu bu uza nomis klaru. Imagina ler bo kódiku dipos di 6 mes — `presu_katxupa` é mutu midjór ki `x`!
+Bu futuru ta agrádese kuandu bu uza nomis klaru. Imagina ler bu kódiku dipos di 6 mes — `presu_katxupa` é mutu midjór ki `x`!
 :::
 
-## Verifika Tipu ku `type()`
+<SectionHeading variant="concept" seq={3}>Verifika Tipu ku `type()`</SectionHeading>
 
 Funsan `type()` ta mostra tipu di kualker valor ou variável:
 
@@ -180,7 +184,7 @@ print(type("Praia"))  # <class 'str'>
 print(type(True))     # <class 'bool'>
 ```
 
-## Input di Utilizador ku `input()`
+<SectionHeading variant="concept" seq={4}>Input di Utilizador ku `input()`</SectionHeading>
 
 :::callout{type=tip}
 Ka preokupa si bu ka kompriende tudu kódiku gosi. Es sesan-li ta uza `f"..."` (f-strings) pa mostra rezultadu — bu ta prende-l formalmenti na Lisan 7. Repara na `input()` i na konversan di tipu, ka na f-string sintaxi.
@@ -199,7 +203,7 @@ Kuandu bu roda:
   title="python kumprimentu.py"
   lines={[
     { type: "cmd", t: "python kumprimentu.py" },
-    { type: "out", t: "Kual é bo nomi? Maria" },
+    { type: "out", t: "Kual é bu nomi? Maria" },
     { type: "out", t: "Ola, Maria! Ben-vindu!" },
   ]}
 />
@@ -216,8 +220,8 @@ Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ou `float()`):
   title="Konverti input antis di kalkula"
   note="`input()` ta da string; `int()` ta konverti-l pa interu, nton `idadi + 10` ta funsiona."
   diff={[
-    { type: "del", t: 'idadi = input("Kual é bo idadi? ")' },
-    { type: "add", t: 'idadi = int(input("Kual é bo idadi? "))' },
+    { type: "del", t: 'idadi = input("Kual é bu idadi? ")' },
+    { type: "add", t: 'idadi = int(input("Kual é bu idadi? "))' },
     { type: "ctx", t: "print(type(idadi))" },
     { type: "ctx", t: 'print(f"Na 10 anus, bu ta tene {idadi + 10} anus")' },
   ]}
@@ -227,7 +231,7 @@ Pa traba ku númerus, bu ten ki **konverti** input ku `int()` (ou `float()`):
 Senpri lenbra — `input()` ta retorna string. Si bu kre númeru, uza `int()` ou `float()` pa konverti.
 :::
 
-## Konversan di Tipu (Type Casting)
+<SectionHeading variant="concept" seq={5}>Konversan di Tipu (Type Casting)</SectionHeading>
 
 Python ten funsons pa konverti entri tipus:
 
@@ -302,7 +306,7 @@ print(bool(0.001))   # True
   title="Inche spasus"
   prompt="Konverti input pa interu i kalkula anu ki ben."
   template={[
-    'idadi = {{0}}(input("Kual é bo idadi? "))',
+    'idadi = {{0}}(input("Kual é bu idadi? "))',
     "ano_ki_ben = idadi {{1}} 1",
     'print(f"Pa anu ki ben bu ta tene {ano_ki_ben}")',
   ]}
@@ -311,7 +315,7 @@ print(bool(0.001))   # True
   solved="Korretu! `int()` ta konverti string pa interu, i `+` ta soma 1 anu."
 />
 
-## Izemplu Prátiku: Kalkuladora Simples
+<SectionHeading variant="concept" seq={6}>Izemplu Prátiku: Kalkuladora Simples</SectionHeading>
 
 Nu ta kombina tudu ki nos prende — `input()`, konversan di tipu, i f-strings:
 
@@ -354,7 +358,7 @@ Kuandu bu roda:
   ]}
 />
 
-## Izemplu Prátiku: Perfil di Estudanti
+<SectionHeading variant="concept" seq={7}>Izemplu Prátiku: Perfil di Estudanti</SectionHeading>
 
 ```python
 # Programa ki kria un perfil simples
@@ -383,12 +387,12 @@ Kuandu bu roda:
   title="python perfil.py"
   lines={[
     { type: "cmd", t: "python perfil.py" },
-    { type: "out", t: "=== Kria Bo Perfil ===" },
+    { type: "out", t: "=== Kria Bu Perfil ===" },
     { type: "out", t: "Nomi: Nilton" },
     { type: "out", t: "Ilha: São Vicente" },
     { type: "out", t: "Idadi: 19" },
     { type: "out", t: "Nota média: 82.5" },
-    { type: "out", t: "--- Bo Perfil ---" },
+    { type: "out", t: "--- Bu Perfil ---" },
     { type: "out", t: "Nomi: Nilton" },
     { type: "out", t: "Ilha: São Vicente" },
     { type: "out", t: "Idadi: 19 anus" },

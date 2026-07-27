@@ -8,6 +8,27 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-26] — publish
+
+### Changed
+- Converted ~310 plain `##`/`###` lesson headings to the `<SectionHeading>` component
+  across M1–M4, with `variant`/`seq` carrying the section rhythm.
+- Reframed L01 (`o-ki-e-python`) from a tech-career pitch to real-problem framing:
+  intro prose, the third learning objective, the "Kabu Verdi" section, and quiz Q3
+  (index 2) all now lead with problems Python solves rather than career outcomes.
+  L01 also gains a mid-lesson `<QuizSet chrome="inline">` checkpoint.
+- Renamed lesson 19 `jeneradorus` → `jeneradoris` (draft, published dir, and
+  `course.yaml`); the stale `19-jeneradorus/` directory was pruned.
+- Retrofitted lesson metaphors to the ADR-0034 standard set and example casts to the
+  ADR-0033 universal cast.
+- Added clarifying tip callouts across M1–M4 lessons.
+- Cheatsheet: full Kriolu proofread pass.
+
+### Fixed
+- `bo` → `bu` clitic corrections across all 33 lessons (the pronoun rule was inverted
+  in the earlier sweep).
+- `reais` → `real` Portuguese-plural leak.
+
 ## [2026-07-04] — publish
 
 ### Added

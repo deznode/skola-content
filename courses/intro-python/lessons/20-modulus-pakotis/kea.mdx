@@ -17,11 +17,11 @@ objectives:
 
 # Módulus i Pakotis
 
-Kuandu bo programa ta krési, bu ka pode po tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
+Kuandu bu programa ta krési, bu ka pode po tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
 
-## O ki é un Módulu?
+<SectionHeading variant="concept" seq={1}>O ki é un Módulu?</SectionHeading>
 
-Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ou variáveis. Kuandu bo faze `import`, bu ta trazi kel kódiku pa bo programa.
+Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ou variáveis. Kuandu bu faze `import`, bu ta trazi kel kódiku pa bu programa.
 
 ```python
 # Python tene txeu módulus built-in prontu pa uza
@@ -33,7 +33,7 @@ print(math.ceil(4.2))   # 5
 print(math.floor(4.8))  # 4
 ```
 
-## Tres Maneira di Importa
+<SectionHeading variant="concept" seq={2}>Tres Maneira di Importa</SectionHeading>
 
 ### 1. `import modulo` — Importa módulu interu
 
@@ -64,7 +64,7 @@ import datetime as dt
 gosi = dt.datetime.now()
 print(f"Data di oji: {gosi.strftime('%d/%m/%Y')}")
 
-# Alias komun ki bo ta enkontra na komunidadi:
+# Alias komun ki bu ta enkontra na komunidadi:
 # import numpy as np
 # import pandas as pd
 # import matplotlib.pyplot as plt
@@ -74,7 +74,7 @@ print(f"Data di oji: {gosi.strftime('%d/%m/%Y')}")
 Evita `from modulo import *` — el ta importa TUDU i bu ka ta sabi di unde kada funsan ben. Kel ta kria konfuzan i bugs difísil di atxa.
 :::
 
-## Standard Library: Módulus ki Dja Ben ku Python
+<SectionHeading variant="concept" seq={3}>Standard Library: Módulus ki Dja Ben ku Python</SectionHeading>
 
 Python tene un **standard library** enormi — módulus ki dja sta instaladu i prontu pa uza:
 
@@ -159,13 +159,13 @@ aniversáriu = datetime.strptime("15/01/1973", "%d/%m/%Y")
 print(f"Dia: {aniversáriu.day}, Mes: {aniversáriu.month}")
 ```
 
-Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bu ta prende kada un kuandu bo presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
+Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bu ta prende kada un kuandu bu presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
 
 :::callout{type=tip}
 Standard library é enormi! Kel li é só un prova. Vizita [docs.python.org/3/library](https://docs.python.org/3/library/) pa esplora tudu módulus disponível.
 :::
 
-## Instala Pakotis ku `pip`
+<SectionHeading variant="concept" seq={4}>Instala Pakotis ku `pip`</SectionHeading>
 
 Pa pakotis ki **ka sta** na standard library, uza `pip`:
 
@@ -198,7 +198,7 @@ print(f"Status: {resposta.status_code}")
 Senpri instala pakotis dentu di un **ambiente virtual** (`.venv`). Nos ta prende kel na prósimu lisan!
 :::
 
-## Kria Pakotis Personalizadu
+<SectionHeading variant="concept" seq={5}>Kria Pakotis Personalizadu</SectionHeading>
 
 Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ou más módulus:
 
@@ -240,7 +240,7 @@ from .texto import limpa, konta_palavras
 ```
 
 ```python
-# main.py -- uza bo pakotu
+# main.py -- uza bu pakotu
 from utilidadis import soma, media, limpa
 
 print(soma(10, 20))           # 30
@@ -252,7 +252,7 @@ from utilidadis.texto import konta_palavras
 print(konta_palavras("Nu ta kria djuntu"))  # 4
 ```
 
-## Padron `__name__ == "__main__"`
+<SectionHeading variant="concept" seq={6}>Padron `__name__ == "__main__"`</SectionHeading>
 
 Kuandu Python ta roda un ficheru, el ta define `__name__` kumo `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
 
@@ -273,19 +273,19 @@ if __name__ == "__main__":
 ```
 
 ```bash
-# Si bo roda diretu:
+# Si bu roda diretu:
 python kalkuladora.py
 # Saída: "Testandu kalkuladora:" + resultadus
 
-# Si bo importa di otu ficheru:
+# Si bu importa di otu ficheru:
 # from kalkuladora import soma  -- bloku if KA ta roda
 ```
 
 :::callout{type=tip}
-Kel padron é perfeitu pa po kódiku di testu ou ezemplus ki só ta roda kuandu bo ezekuta ficheru diretu, ma nau kuandu el é importadu kumo módulu.
+Kel padron é perfeitu pa po kódiku di testu ou ezemplus ki só ta roda kuandu bu ezekuta ficheru diretu, ma nau kuandu el é importadu kumo módulu.
 :::
 
-## Struktura di un Projetu Real
+<SectionHeading variant="concept" seq={7}>Struktura di un Projetu Real</SectionHeading>
 
 Un projetu Python ben organizadu ta parsé ku kel li:
 
@@ -303,16 +303,16 @@ gestor_notas/
     └── notas.csv        # Ficheru di dadus
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Organiza projetu na módulus i pakotis ta faze kódiku más fáxi di ler, mantene i reuza — ka po tudu nun ficheru só.</RezumuItem>
   <RezumuItem term="Módulu">Un ficheru `.py` ku kódiku reutilizável. Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`.</RezumuItem>
   <RezumuItem term="Standard library">Módulus prontu ki ben ku Python: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`.</RezumuItem>

@@ -16,13 +16,17 @@ objectives:
 
 # Klasis i Objetis
 
-Imagina reseta di katxupa. Reseta ta dize ingredientis (midju, feijun, mandioka, lingisa...), kantidadi, i pasus pa prepara. Ma reseta ka é katxupa — é só instruson. Kada bez ki bo sigi reseta i kuzinha, bu ta kria un **katxupa real** — un pratu diferenti, ku si sabor própriu.
+Imajina un formadur di biskoitu (cookie-cutter) — un formatu di metal ki bu ta uza pa korta massa. Formadur ka é biskoitu; é sô un moldi. Kada bez ki bu uza-l riba di massa, bu ta kria un **biskoitu real** — un biskoitu ki bu pode kome, ku si própriu tamanhu i si própriu forma.
 
-Na programasan, **klasi** é kumo reseta — un moldi ki ta deskrebe kumo un kuza debe ser. **Objetu** é kel ki bu ta kria a parti di moldi — un instánsia real, ku si dadus própriu. Bu pode uza mesmu reseta pa faze katxupa pa almósu na Praia i pa janta na Mindelo — dos pratu diferenti, mesmu reseta!
+Na programasan, **klasi** é kumo formadur di biskoitu: un moldi ki ta deskrebe kumo un kuza debe ser strutura — kuzê atributu el ten, kuzê el pode faze. **Objetu** é kel ki bu ta kria a parti di klasi — un instánsia real, ku si dadus própriu. Bu pode uza mesmu klasi (mesmu formadur) pa kria txeu objetu diferenti (txeu biskoitu), kada un ku si própriu valor — mesmu kumo bu pode korta 10 biskoitu di mesmu massa, kada un separadu di otu.
 
-## Kria Klasi ku `class`
+:::callout{type=tip}
+Es metáfora tene un limiti: formadur di biskoitu ta fika fixu i separadu di kuza ki el ta kria. Ma un klasi na Python é diferenti — el é própriu **tipu** di objetu na runtime (`type(objetu)` ta retorna klasi mesmu), i bu pode inspesiona ô muda klasi dinamikamenti — kuza ki un formadur real ka pode faze ku si biskoitus.
+:::
 
-Pa defini un klasi na Python, bo uza keyword `class` seguidu di nomi (ku **PascalCase** — primeru letra di kada palavra maiúskula):
+<SectionHeading variant="concept" seq={1}>Kria Klasi ku `class`</SectionHeading>
+
+Pa defini un klasi na Python, bu uza keyword `class` seguidu di nomi (ku **PascalCase** — primeru letra di kada palavra maiúskula):
 
 ```python
 # Klasi más simples posível
@@ -37,11 +41,11 @@ print(type(maria))  # <class '__main__.Pesoa'>
 print(type(joao))   # <class '__main__.Pesoa'>
 ```
 
-Es klasi ka ta faze nada inda — é kumo un reseta na branku. Nu ta adisiona ingredientis!
+Es klasi ka ta faze nada inda — sô ten formatu, sen nenhun atributu. Nu ta adisiona atributus!
 
-## `__init__` — Konstrutor di Klasi
+<SectionHeading variant="concept" seq={2}>`__init__` — Konstrutor di Klasi</SectionHeading>
 
-Métudu spesiál `__init__` ta roda **automátikamenti** kuandu bo kria un objetu novu. É konstrutor — ta inisializa atributus di objetu:
+Métudu spesiál `__init__` ta roda **automátikamenti** kuandu bu kria un objetu novu. É konstrutor — ta inisializa atributus di objetu:
 
 ```python
 class Pesoa:
@@ -69,9 +73,11 @@ print(maria.idadi)   # 25
 `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeru, dipos `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
 :::
 
-## `self` — O ki é?
+<SectionHeading variant="concept" seq={3}>`self` — O ki é?</SectionHeading>
 
-`self` é referénsia pa **objetu atuál** — kel ki ta ser kriadu ou usadu. Pensa na `self` kumo "**nha**" (meu/nha). Kuandu bo skrebe `self.nomi = nomi`, é kumo dize "nha nomi é esi valór":
+Kada objetu kriadu a parti di un klasi é kumo un biskoitu spesífiku, kortadu di mesmu formadur ki nu uza pa klasi. Ma kuandu un biskoitu meste "fala" di si mesmu — pa guarda ô lê si própriu valor — el meste un manera di dize: "ami, kel biskoitu li spesífiku, ka kualker otu."
+
+Na Python, kel referénsia ta txomadu `self`; na Kotlin, Java i txeu otu lingua, `this`. Kuandu bu skrebe `self.nomi = nomi`, é kumo si objetu staba ta dize "**nha** nomi (di mi, kel instánsia li) é kel valor":
 
 ```python
 class Estudanti:
@@ -105,7 +111,11 @@ class Mal:
 `self` é **senpri** primeru parámetru di tudu métudu dentu di un klasi. Python ta pasa el automátikamenti — bu ka presiza skrebe el kuandu ta txoma métudu.
 :::
 
-## Variáveis di Instánsia
+:::callout{type=tip}
+Es metáfora tanbe tene limiti. `self` ka ta funsiona pa `classmethod` — la, `cls` ta referi pa **klasi mesmu**, ka pa un instánsia (`self` sô ta aplika pa métudu di instánsia; `staticmethod` ka ta risebi ninhun di dos). `self` tanbe ka é un keyword reservadu di Python — é sô un **konvensan di nomi**; un studanti pode pensa ma é sintaxi obrigatóriu, ma ka é. I dentu di `__init__`, `self` ta referi pa objetu **enkuantu el inda ta ser kriadu** — kumo biskoitu ki inda sta na fórnu, ka saiu inda.
+:::
+
+<SectionHeading variant="concept" seq={4}>Variáveis di Instánsia</SectionHeading>
 
 Variáveis di instánsia é atributus ki **pertense a kada objetu individualmenti**. Kada objetu tene si própriu kópia:
 
@@ -147,7 +157,7 @@ print(cesaria.fans)     # 0
 **Senpri** defini tudu atributu dentu di `__init__`, mesmu si valór inisiál é `[]`, `0`, ou `None`. Defini fora di `__init__` pode kauza `AttributeError` na otus objetis.
 :::
 
-## Metodus di Instánsia
+<SectionHeading variant="concept" seq={5}>Metodus di Instánsia</SectionHeading>
 
 Metodus é funsons definidu **dentu di klasi** ki ta opera sobri dadus di objetu. Es ta resebe `self` kumo primeru parámetru:
 
@@ -209,7 +219,7 @@ print(terenu.perímetru())   # 70
 print(terenu.deskrebe())    # Retángulu 20x15 (área: 300 m²)
 ```
 
-## Izemplu Prátiku: Konta Bankáriu
+<SectionHeading variant="concept" seq={6}>Izemplu Prátiku: Konta Bankáriu</SectionHeading>
 
 Nu ta kria un klasi `KontaBankáriu` konpletu ku depózitu, levantamentu, i estrátu:
 
@@ -262,7 +272,7 @@ konta_maria = KontaBankáriu("Maria", 50000)
 konta_maria.depozita(15000)   # ✅ 15000 ECV depozitadu. Sáldu: 65000 ECV
 konta_maria.levanta(8000)     # ✅ 8000 ECV levantadu. Sáldu: 57000 ECV
 konta_maria.depozita(25000)   # ✅ 25000 ECV depozitadu. Sáldu: 82000 ECV
-konta_maria.levanta(100000)   # ❌ Sáldu insufisienti! Bo tene 82000 ECV
+konta_maria.levanta(100000)   # ❌ Sáldu insufisienti! Bu tene 82000 ECV
 
 konta_maria.estrátu()
 # ========================================
@@ -276,25 +286,25 @@ konta_maria.estrátu()
 # ========================================
 ```
 
-## Kria Vários Objetis
+<SectionHeading variant="concept" seq={7}>Kria Vários Objetis</SectionHeading>
 
-Kada objetu ki bo kria é **totalmenti independenti**. Muda un ka ta afeta otru — mesmu ki es sai di mesmu klasi:
+Kada objetu ki bu kria é **totalmenti independenti**. Muda un ka ta afeta otru — mesmu ki es sai di mesmu klasi:
 
 ```python
 # Kria vários kontas independentis
 konta_maria = KontaBankáriu("Maria", 50000)
 konta_pedro = KontaBankáriu("Pedro", 30000)
-konta_djina = KontaBankáriu("Djina", 75000)
+konta_nando = KontaBankáriu("Nando", 75000)
 
 # Operasons na un konta ka ta afeta otrus
 konta_maria.depozita(10000)   # Maria: 60000 ECV
 konta_pedro.levanta(5000)     # Pedro: 25000 ECV
-konta_djina.depozita(20000)   # Djina: 95000 ECV
+konta_nando.depozita(20000)   # Nando: 95000 ECV
 
 # Kada un tene si sáldu própriu
 print(f"Maria: {konta_maria.sáldu} ECV")   # Maria: 60000 ECV
 print(f"Pedro: {konta_pedro.sáldu} ECV")   # Pedro: 25000 ECV
-print(f"Djina: {konta_djina.sáldu} ECV")   # Djina: 95000 ECV
+print(f"Nando: {konta_nando.sáldu} ECV")   # Nando: 95000 ECV
 ```
 
 ```python
@@ -337,7 +347,7 @@ print(f"\n{len(aprovadus)} di {len(turma)} estudantis aprovadu!")
 Klasis é perfeitu pa modela kualker kuza di mundu real — pesoas, produtus, kontas, veíkulus, enkomendas di Sukupira... Pensa na ki **dadus** i ki **asons** kel kuza tene.
 :::
 
-## Erus Komunis
+<SectionHeading variant="concept" seq={8}>Erus Komuns</SectionHeading>
 
 ```python
 # ERU 1: Skese di self na métudu
@@ -377,18 +387,18 @@ p = Bon("Maria")
 print(p.idadi)  # None (ka da eru!)
 ```
 
-## Tenta Gosi
-<TentaGosi />
+<SectionHeading variant="practice">Tenta Gosi</SectionHeading>
+<TentaGosi showHeader={false} />
 
-## Testa bu Konhesimentu
-<QuizSet>
+<SectionHeading variant="quiz">Testa bu Konhesimentu</SectionHeading>
+<QuizSet showHeader={false}>
   <Quiz position={0} /><Quiz position={1} /><Quiz position={2} /><Quiz position={3} />
 </QuizSet>
 
-## Rezumu
-<KeyTakeaways>
+<SectionHeading variant="summary">Rezumu</SectionHeading>
+<KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Definí **tudu** atributu dentu di `__init__` (mesmu si valor inisiál é `[]`, `0` ou `None`) — definí-s fora pode kauza `AttributeError`.</RezumuItem>
-  <RezumuItem term="Klasi / objetu">Klasi é moldi (reseta); objetu é un instánsia real kriadu a partir del (pratu).</RezumuItem>
+  <RezumuItem term="Klasi / objetu">Klasi é moldi (formadur di biskoitu); objetu é un instánsia real kriadu a parti del (biskoitu).</RezumuItem>
   <RezumuItem term="__init__">Konstrutor — ta kore automátikamenti kuandu un objetu é kriadu, pa inisializa atributu.</RezumuItem>
   <RezumuItem term="self">Referénsia pa objetu atuál (\"nha\") — **senpri** primeru parámetru di kada metodu.</RezumuItem>
   <RezumuItem term="Instánsia">Variáveis di instánsia (`self.nomi`) i metodus pertense a kada objetu — kada un é **independenti**.</RezumuItem>
