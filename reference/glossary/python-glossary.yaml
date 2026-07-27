@@ -3455,6 +3455,66 @@
   slug: exponentiation
   context: intro-python
   provenance: suggested
+- term: precedence
+  category: Coding
+  translations:
+    kea:
+      local_term: presedensia
+      definition: >-
+        Órden ki Python ta sigi pa avalia operadoris na un expresan — `**` primeru, dipos
+        `* / // %`, dipos `+ -`, dipos komparasan, dipos `not`, `and`, `or`.
+      body: >-
+        Presedensia é órden ki Python ta sigi kuandu tene vários operadoris na mesmu expresan. É
+        igualzinhu ki na matemátika: multiplikasan ta ben antis di adisan, i paréntesis ta muda kel
+        órden.
+
+
+        Órden, di más altu pa más baxu, é: `**` (esponensasan) primeru; dipos `*`, `/`, `//`, `%`;
+        dipos `+` i `-`; dipos operadoris di komparasan (`==`, `!=`, `>`, `<`, `>=`, `<=`); dipos
+        `not`; dipos `and`; i na fin `or`. Pa kel motivu, un expresan tipu `idadi >= 18 and
+        tene_bilheti` ka meste paréntesis — Python ta avalia `(idadi >= 18) and (tene_bilheti)`, i
+        `not 5 > 3` ta ser `not (5 > 3)` → `False`.
+
+
+        Na dúvida, uza paréntesis. `(2 + 3) * 4` é más klaru ki konfia na presedensia — kódiku klaru
+        é más importante ki kódiku kurtu.
+
+
+        ## Example
+
+
+        ```python
+
+        # Sen paréntesis: Python sigi presedensia
+
+        rezultadu = 2 + 3 * 4
+
+        print(rezultadu)  # 14 (ka 20! — * antis di +)
+
+
+        # Ku paréntesis: bo kontrola orden
+
+        rezultadu = (2 + 3) * 4
+
+        print(rezultadu)  # 20
+
+
+        # Kumo Python ta avalia 2 ** 3 + 4 * 2 - 1
+
+        rezultadu = 2 ** 3 + 4 * 2 - 1
+
+        #         = 8 + 4 * 2 - 1      # ** primeru
+
+        #         = 8 + 8 - 1           # dipos *
+
+        #         = 15                  # pa fin + i -
+
+        print(rezultadu)  # 15
+
+        ```
+  slug: precedence
+  context: intro-python
+  provenance: suggested
 - term: if
   category: Coding
   translations:
@@ -3569,7 +3629,7 @@
 
 
         Es strutura é útil kuandu bu ten várias opsons pa klasifika ou dezidi entri. Envés di skrebe
-        váriu `if` separadu, `elif` ta garanti ki Python ta pára asin ki atxa un kondisan ki é
+        váriu `if` separadu, `elif` ta garantiI ki Python ta pára asin ki atxa un kondisan ki é
         `True` — kes otus `elif` ka ta ser testadu. Isu ta torna kódiku más ráidu i más klaru di
         ler.
 
@@ -4226,6 +4286,32 @@
         Na es izemplu, kuandu `i` é par, `continue` ta pula `print(i)` i ta bai dirétamenti pa
         próksima iterasan — nton só numerus ímpar ta ser mostradu.
   slug: continue
+  context: intro-python
+  provenance: suggested
+- term: pass
+  category: Coding
+  translations:
+    kea:
+      local_term: pass
+      definition: >-
+        Instruson di Python ki ka ta faze nada — ta sirbi kumo placeholder pa blokus vazius ki inda
+        ka foi implementadu.
+      body: >-
+        `pass` é un instruson di Python ki ka ta faze nada kuandu Python ta kore-l. El ta parse ki
+        ka ten sentidu tene un instruson ki ka ta faze nada, mas na verdadi el ten un papel
+        importanti: el ta sirbi kumo *placeholder* — un marka ki ta okupa lugar di kódiku ki inda ka
+        foi skritu.
+
+
+        Na Python, txeu strutura (sima funsons, ciclos ou kondisons) ta izigi ki tene aomenus un
+        instruson dentu di si bloku. Kuandu bu inda ka sabe o ki ta bai dentu, ma bu meste ki kódiku
+        parse válidu, bu ta po `pass` la — asin Python ka ta da eru, i bu pode volta más tardi pa
+        skrebe lójika verdaderu.
+
+
+        Purtantu, `pass` é un maneira di dizer pa Python: "Es bloku ta izisti, mas pa gosi el ka ta
+        faze nada."
+  slug: pass
   context: intro-python
   provenance: suggested
 - term: enumerate()
@@ -7654,7 +7740,7 @@
         mesmu ponto.
 
 
-        Jeneradorus é ideal pa trabadja ku dadus grandi (ficheru pesadu, base di dadus, stream di
+        Jeneradoris é ideal pa trabadja ku dadus grandi (ficheru pesadu, base di dadus, stream di
         rede), pa sekuénsias infinitas (kumo Fibonacci), ou senpri ki bo só presiza pasa pa dadus un
         bez. Bu debe uza un lista kuandu bo presiza asesu aleatoriu ku índisi, kuandu bo presiza
         `len()`, ou kuandu bo presiza itera múltiplas vezes — pamodi un generator só ta funsiona
@@ -7765,7 +7851,7 @@
 
 
         `yield` é la base di **lazy evaluation** na Python: valoris ta ser kalkuladu só kuandu bu
-        pidi-s. Kel-li ta faze jeneradorus ideal pa prosesa ficheru grandi, streams di dadus, ou
+        pidi-s. Kel-li ta faze jeneradoris ideal pa prosesa ficheru grandi, streams di dadus, ou
         sekuénsia matemátika infinita kumo Fibonacci. Bu pode uza-l múltiplas vezes na mésmu funsan
         — kada `yield` ta produz un valor nobu na sekuénsia — i loops kumo `for` ta trata parti
         final (`StopIteration`) automátiku pa bo.
@@ -8373,6 +8459,33 @@
 
         Gosi módulu ta konporta dretu: silénsiu na import, ativu na izekuson diretu.
   slug: name-main
+  context: intro-python
+  provenance: suggested
+- term: requirements.txt
+  category: General
+  translations:
+    kea:
+      local_term: requirements.txt
+      definition: >-
+        Ficheru di textu ki ta lista tudu pakotis (i versons) di un projetu, jeradu ku `pip freeze`
+        i uzadu pa `pip install -r`.
+      body: >-
+        `requirements.txt` é un fixeru di textu simplis ki ta lista tudu pakotis ki bu projetu
+        Python ta uza, djuntu ku es versons spesífikus. El ta funsiona kumo un "lista di
+        ingredientis" pa bu projetu — kualker algen ki kre kore bu kódiku pode instala tudu pakotis
+        ki meste ku un só komandu.
+
+
+        Normalmenti, bu ta jera es fixeru ku komandu `pip freeze` (ki ta lista tudu pakotis
+        instaladu na bu `.venv` ativu) i ta salva rezultadu na `requirements.txt`. Dipos, otu pesoa
+        — o bo mésmu na otu komputador — pode uza `pip install -r requirements.txt` pa instala tudu
+        es pakotis di un bez, ku es mésmu versons.
+
+
+        Es fixeru é importanti pamodi el ta garanti ki tudu algen ki ta trabadja na projetu ten
+        mésmu ambienti, i el ta faze parti di boas prátikas ku [virtual
+        environments](/kea/glossary/virtual-environment) i [pip](/kea/glossary/pip).
+  slug: requirements-txt
   context: intro-python
   provenance: suggested
 - term: context manager
@@ -9162,6 +9275,80 @@
         imediatamenti i `pytest` ta mostra ezatamenti kal `assert` ka pasa i kal valór resebi versus
         o ki speraba.
   slug: assert
+  context: intro-python
+  provenance: suggested
+- term: TDD
+  category: General
+  translations:
+    kea:
+      local_term: TDD
+      definition: >-
+        Test-Driven Development — prátika di skrebe testus antis di kódiku, dipos implementa mínimu
+        pa testu pasa.
+      body: >-
+        **TDD** (Test-Driven Development) é un prátika di dizenvolvimentu undi bu ta skrebe testus
+        **antis** di skrebe kódiku ki bu kre testa. Envês di implementa un funsan i dipos verifika
+        si el ta funsiona, bu ta invérti órden: primeru bu ta defini o ki funsan debe faze através
+        di testus, dipos bu ta skrebe kódiku mínimu pa es testus pasa.
+
+
+        Es siklu ta ajuda bu pensa ku kuidadu na komportamentu di kódiku antis di implementa el. Bu
+        ta konsentra na "o ki" kódiku debe faze, ka na "kumo" el ta faze. Rezultadu é kódiku más
+        limpu, ku menus bugs, i sempri ku testus ki ta garanti ki tudu ta funsiona.
+
+
+        Siklu di TDD ten kuatru pasu: skrebe testu (ki ta fayo pamodi funsan ka ezisti inda),
+        implementa kódiku mínimu pa testu pasa, verifika ki tudu ta pasa, i repeti pa próximu
+        funsionalidadi.
+
+
+        ## Example
+
+
+        ```python
+
+        # Pasu 1 — Skrebi testus primeru (test_validador.py)
+
+        from validador import valida_email
+
+
+        def test_email_válidu():
+            assert valida_email("maria@gmail.com") is True
+
+        def test_email_sem_aroba():
+            assert valida_email("mariagmail.com") is False
+
+        def test_email_váziu():
+            assert valida_email("") is False
+
+        # Roda: pytest test_validador.py
+
+        # ERROR: ModuleNotFoundError — 'validador' ka ezisti inda!
+
+
+        # Pasu 2 — Implementa mínimu pa testus pasa (validador.py)
+
+        def valida_email(email: str) -> bool:
+            if not email or " " in email:
+                return False
+            if "@" not in email:
+                return False
+            partis = email.split("@")
+            if len(partis) != 2:
+                return False
+            uzuáriu, domíniu = partis
+            if not uzuáriu or not domíniu:
+                return False
+            if "." not in domíniu:
+                return False
+            return True
+
+        # Pasu 3 — Verifika: pytest test_validador.py -v
+
+        # tudu PASSED! ✓
+
+        ```
+  slug: tdd
   context: intro-python
   provenance: suggested
 - term: class
@@ -10203,6 +10390,32 @@
   slug: multiple-inheritance
   context: intro-python
   provenance: suggested
+- term: MRO
+  category: Coding
+  translations:
+    kea:
+      local_term: MRO
+      definition: >-
+        Method Resolution Order — órden ki Python ta sigi pa buska un métodu na klasi i ses pais,
+        kalkuladu ku algoritmu C3; asesível ku `Klasi.__mro__`.
+      body: >-
+        **MRO** (Method Resolution Order) é órden ki Python ta sigi kantu bu txoma un métodu na un
+        objetu — el ta buska primeru na klasi di objetu, dipos na klasi pai, dipos na "avô", i asin
+        susesivamenti, ti el atxa métodu ou ti el txiga na fin di ierárkia.
+
+
+        Na eransa simples (un só klasi pai), MRO é diretu: Python ta buska primeru na klasi filhu, i
+        si el ka atxa métodu la, el ta subi pa klasi pai. Pur izemplu, kantu bu txoma `taxi.liga()`
+        i `Taxi` ka tene `liga()` definidu, Python ta subi pa `Viatúra` i ta uza kel ki sta la.
+
+
+        Na eransa múltiplu (un klasi ku vários pai), MRO ta fika más kompleksu, i Python ta uza un
+        algoritmu txomadu **C3 linearization** pa disidi kal órden di buska sigue. Ku eransa di un
+        só pai, órden é simples: Python ta buska "di filhu pa pai". Bu pode konsulta órden reál di
+        kualker klasi ku `Klasi.__mro__`.
+  slug: mro
+  context: intro-python
+  provenance: suggested
 - term: issubclass()
   category: Coding
   translations:
@@ -10551,6 +10764,17 @@
         Python ta ofrese `ABC` ku `@abstractmethod`. Ma pa mutu kódigu di dia-a-dia, duck typing
         sinples ta bastá: si el ta faze kuak, é patu.
   slug: duck-typing
+  context: intro-python
+  provenance: suggested
+- term: ABC
+  category: Coding
+  translations:
+    kea:
+      local_term: ABC
+      definition: >-
+        Abstract Base Class — un klasi ki ka pode ser instansiadu diretamenti; ta sirbi só kumo pai
+        pa forsa un kontratu na se filhus.
+  slug: abc
   context: intro-python
   provenance: suggested
 - term: '@abstractmethod'
@@ -11217,6 +11441,60 @@
         setter — ntãu validasan ta proteje objetu dizde momentu di kriasan. Si algen tenta kria
         `Tenperatura(-500)`, el ta falha imediatamenti en bez di kria un objetu ku stadu inválidu.
   slug: setter
+  context: intro-python
+  provenance: suggested
+- term: dunder
+  category: Coding
+  translations:
+    kea:
+      local_term: dunder
+      definition: >-
+        Abreviasan di 'double underscore' — nomis spesial ku forma `__nomi__` (kumo `__init__`,
+        `__str__`) ki Python ta txoma automátikamenti.
+      body: >-
+        Na Python, **dunder** é un abreviasan di "**d**ouble **under**score" — kel dizer, dos
+        underscore siguidu. Es palavra ta refere pa nomis spesiál ki ta kumesa i termina ku dos
+        underscore, ku forma `__nomi__`. Izemplus komuns é `__init__`, `__str__`, `__repr__`,
+        `__len__` i `__add__`.
+
+
+        Es nomis ka é normal — es é **reservadu pa Python**. Kuandu bu defini un metodu dunder na un
+        klasi, Python ta txoma-l **automátikamenti** na momentus sertus, sen bu tene ki txoma-l
+        diretu. Pur izemplu, `__init__` ta ser txomadu kuandu bu kria un objetu novu, `__str__` ta
+        ser txomadu kuandu bu uza `print()`, i `__len__` ta ser txomadu kuandu bu uza `len()`. Pa
+        isu ki es tanbe é txomadu **metodus majiku** — es ta funsiona na bakstage kuma "superpoderis
+        sekretu" di bo objetu.
+
+
+        Regra importanti: **nunka inventa bu propriu dunder nomis** (kuma `__nha_metodu__`).
+        Konvensan `__nomi__` é reservadu pa Python. Pa bo propriu metodus, uza nomis normál sen
+        underscore duplu.
+
+
+        ## Example
+
+
+        ```python
+
+        class Estudanti:
+            def __init__(self, nomi, kursu):   # dunder: konstrutor
+                self.nomi = nomi
+                self.kursu = kursu
+
+            def __str__(self):                  # dunder: pa print()
+                return f"{self.nomi} — Kursu: {self.kursu}"
+
+            def __repr__(self):                 # dunder: pa programador
+                return f"Estudanti(nomi='{self.nomi}', kursu='{self.kursu}')"
+
+        alunu = Estudanti("Maria", "Python")
+
+        print(alunu)        # Python ta txoma __str__ automátikamenti
+
+        print(repr(alunu))  # Python ta txoma __repr__ automátikamenti
+
+        ```
+  slug: dunder
   context: intro-python
   provenance: suggested
 - term: __repr__
