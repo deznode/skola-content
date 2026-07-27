@@ -41,8 +41,6 @@
         Kel kódiku li, skrebedu na linguajen di programasan Python, ta mostra na tela: `Ola!
         Ben-vindu a Python!`. Sen símbulus komplikadu, sen pontu-i-vírgula — só instrusons klaru ki
         komputador ta kompriende i kore.
-  slug: programming-language
-  context: intro-python
   provenance: suggested
 - term: MVP
   category: General
@@ -69,8 +67,6 @@
         pexe na merkadu, un sistema pa jeri reservas di kaza aluguer na Boavista, ó un ferramenta pa
         analiza presu di produtus na Kabu Verdi. Kada un di es projetu ta kumesa simples, ku sô
         funsionalidadis esensial, i dipos pode kresi konformi nesesidadi.
-  slug: mvp
-  context: intro-python
   provenance: suggested
 - term: virtual environment
   category: General
@@ -125,8 +121,7 @@
         deactivate
 
         ```
-  slug: virtual-environment
-  context: intro-python
+  context: python
   provenance: suggested
 - term: package
   category: General
@@ -151,8 +146,7 @@
 
         Es é un di razons pamodi Python é tan bon pa inisiantis i profisionais: pratikamenti pa
         kualker problema ki bu ten, provavelmenti dja ten un pakoti ki ta djuda-bu rezolvi-l.
-  slug: package
-  context: intro-python
+  context: python
   provenance: suggested
 - term: traceback
   category: General
@@ -201,8 +195,7 @@
         zero` — un divizan pa zero. Linha di sima ta mostra ki el kontise na fixeru `kalkula.py`,
         linha 4, na operasan `total / len(notas)` (seta `^` ta aponta direitamenti pa `/`). I riba,
         linha 8 é unde funsan foi txomadu inisialmenti.
-  slug: traceback
-  context: intro-python
+  context: python
   provenance: suggested
 - term: syntax
   category: Coding
@@ -280,8 +273,6 @@
         print(media)  # 56.66... (rezultadu eradu)
 
         ```
-  slug: syntax
-  context: intro-python
   provenance: suggested
 - term: semantics
   category: Coding
@@ -374,8 +365,6 @@
         Kel-li é perigozu: programa ta kore, ta imprimi un númeru, ma matemátika sta eradu pamodi
         divizan ta konteci antis di soma (ordi di operasans). Python ka ta reklama — pa el, tudu sta
         ben. So bo, ku testis i atensan, pode diskubri ki semantics sta eradu.
-  slug: semantics
-  context: intro-python
   provenance: suggested
 - term: dynamic typing
   category: Coding
@@ -456,8 +445,6 @@
         print(idadi + 10)   # Agora ta funsiona: 35
 
         ```
-  slug: dynamic-typing
-  context: intro-python
   provenance: suggested
 - term: condition
   category: Coding
@@ -558,8 +545,6 @@
         print(type(pode_vota))   # <class 'bool'>
 
         ```
-  slug: condition
-  context: intro-python
   provenance: suggested
 - term: boolean
   category: Coding
@@ -674,8 +659,6 @@
         else:
             print("Bu ka skrebe nada.")
         ```
-  slug: boolean
-  context: intro-python
   provenance: suggested
 - term: iteration
   category: Coding
@@ -760,8 +743,6 @@
         Li nu ka sabia di antemon kuantas iterasons ta ser nesesáriu — loop ta para só kuandu
         kondisan `n < 100` ta fika `False`. Kel é un diferensa txavi: ku `for` + `range()` númeru di
         iterasons ta ser konxidu antis di loop kumesa; ku `while`, el ta dipendi di kondisan.
-  slug: iteration
-  context: intro-python
   provenance: suggested
 - term: index
   category: Coding
@@ -848,8 +829,6 @@
         print(ilhas[len(ilhas)-1])  # Santiago
 
         ```
-  slug: index
-  context: intro-python
   provenance: suggested
 - term: PATH
   category: General
@@ -874,8 +853,6 @@
 
         Na macOS i Linux, instalador di python.org (o gestor di pakotis sima `apt`) ta konfigura
         PATH automatikamenti, ma la bu ta uza normalmenti komandu `python3` na lugar di `python`.
-  slug: path
-  context: intro-python
   provenance: suggested
 - term: interpreter
   category: General
@@ -901,8 +878,6 @@
         pa uza. Normalmenti bu ta skodje kel ki sta dentu di bu `.venv` (virtual environment di
         projetu), pamodi asin kódiku ta kore ku pakotis izoladu di kel projetu, ka ku pakotis di
         sistema interu.
-  slug: interpreter
-  context: intro-python
   provenance: suggested
 - term: pip
   category: General
@@ -945,8 +920,7 @@
         pip install requests
 
         ```
-  slug: pip
-  context: intro-python
+  context: python
   provenance: suggested
 - term: f-string
   category: Coding
@@ -1056,8 +1030,7 @@
         # Saída: Nha frutu favoritu é 'banana'.
 
         ```
-  slug: f-string
-  context: intro-python
+  context: python
   provenance: suggested
 - term: exception
   category: Coding
@@ -1167,8 +1140,6 @@
 
         Kuandu bu ka tene serteza si un xavi ta ezisti, `.get()` ta evita exception sen presiza di
         `try` / `except`.
-  slug: exception
-  context: intro-python
   provenance: suggested
 - term: SyntaxError
   category: Coding
@@ -1266,8 +1237,7 @@
         Un konsedju final: pamodi `SyntaxError` ta bloka programa antis di kore, un editor ku
         destaki di sintaksi (kumo VS Code) txeu bez ta mostra-l ku un ruja skwiggly antis mesmu di
         bu tenta ezekuta. Kustuma odja pa es sinais enkuantu bu ta skrebe — es ta poupa-bu tempu.
-  slug: syntaxerror
-  context: intro-python
+  context: python
   provenance: suggested
 - term: NameError
   category: Coding
@@ -1404,8 +1374,7 @@
         Un konsedju prátiku: kuandu bu atxa `NameError`, kumesa **ka na pániku**. Ler última linha
         di traceback, odja pa unde seta `^` ta aponta, i pergunta-bu: *«N difini es nomi? N skrebe
         el igual na tudu lugar? El sta na scope sertu?»* Maioria di bez, resposta ta parese logu.
-  slug: nameerror
-  context: intro-python
+  context: python
   provenance: suggested
 - term: TypeError
   category: Coding
@@ -1496,8 +1465,7 @@
         Es ta akontese txeu bez kuandu bu uza mésmu nomi pa un variável i pa un funsan — variável ta
         "kobri" funsan, i dipos kuandu bu tenta txoma-l ku `()`, Python ta odja ki é un int, ka un
         funsan.
-  slug: typeerror
-  context: intro-python
+  context: python
   provenance: suggested
 - term: IndexError
   category: Coding
@@ -1597,8 +1565,7 @@
         for i in range(len(notas)):
             print(notas[i])  # 15, 17, 12, 18
         ```
-  slug: indexerror
-  context: intro-python
+  context: python
   provenance: suggested
 - term: KeyError
   category: Coding
@@ -1699,8 +1666,7 @@
 
         Kes dos padron ta faze parti di kódiku Python bon skrebedu — senpri pensa "i si xavi ka
         ezisti?" antis di asesa un disionáriu diretamenti ku `[]`.
-  slug: keyerror
-  context: intro-python
+  context: python
   provenance: suggested
 - term: case sensitive
   category: Coding
@@ -1793,8 +1759,6 @@
         print(ativo)  # True
 
         ```
-  slug: case-sensitive
-  context: intro-python
   provenance: suggested
 - term: indentation
   category: Coding
@@ -1882,8 +1846,7 @@
             else:
                 print("Bon trabadjo!")  # nível 2 — 8 spasus
         ```
-  slug: indentation
-  context: intro-python
+  context: python
   provenance: suggested
 - term: snake_case
   category: General
@@ -1930,8 +1893,6 @@
         MAX_ESTUDANTIS = 30
 
         ```
-  slug: snake-case
-  context: intro-python
   provenance: suggested
 - term: PEP 8
   category: General
@@ -1974,8 +1935,7 @@
             print("Bo é adultu")
             print("Bo pode vota")
         ```
-  slug: pep-8
-  context: intro-python
+  context: python
   provenance: suggested
 - term: input()
   category: Coding
@@ -2050,8 +2010,7 @@
 
         Si utilizador skrebe algu ki ka é un númeru (ex: `"vinti"`), `int()` ta da un `ValueError`.
         Más pa frenti bu ta prende trata es tipu di eru ku `try`/`except`.
-  slug: input
-  context: intro-python
+  context: python
   provenance: suggested
 - term: type casting
   category: Coding
@@ -2145,8 +2104,6 @@
         print(round(3.9))  # 4, si bu krê arondia uza round()
 
         ```
-  slug: type-casting
-  context: intro-python
   provenance: suggested
 - term: truthy
   category: Coding
@@ -2244,8 +2201,7 @@
         elif kuantidadi == 0:
             print("Bu ka tene nenhun item")
         ```
-  slug: truthy
-  context: intro-python
+  context: python
   provenance: suggested
 - term: falsy
   category: Coding
@@ -2352,8 +2308,7 @@
         else:
             print("Idadi ka válidu")
         ```
-  slug: falsy
-  context: intro-python
+  context: python
   provenance: suggested
 - term: int
   category: Coding
@@ -2437,8 +2392,7 @@
         print(presu)  # 19
 
         ```
-  slug: int
-  context: intro-python
+  context: python
   provenance: suggested
 - term: float
   category: Coding
@@ -2546,8 +2500,7 @@
 
         Pa kalkulu di dinheru unde presizon é kritíku, más tardi bu ta prende módulu `decimal`. Pa
         maioria di kazus di día-a-día ku `float`, kel imprezizon pekenu ka ta afeta bu programa.
-  slug: float
-  context: intro-python
+  context: python
   provenance: suggested
 - term: str
   category: Coding
@@ -2643,8 +2596,7 @@
         print(int(idadi) + 5)    # 15
 
         ```
-  slug: str
-  context: intro-python
+  context: python
   provenance: suggested
 - term: bool
   category: Coding
@@ -2748,8 +2700,7 @@
         if not nomi:
             print("Nomi sta vaziu!")
         ```
-  slug: bool
-  context: intro-python
+  context: python
   provenance: suggested
 - term: isinstance()
   category: Coding
@@ -2857,8 +2808,7 @@
 
         Kel izemplu-li ta mostra pamodi `isinstance()` é más flexível: el ta konsidera hierarkia di
         klasis, ki é fundamental kuandu bu ta traba ku Programasan Orientadu a Objetu (OOP).
-  slug: isinstance
-  context: intro-python
+  context: python
   provenance: suggested
 - term: immutable
   category: Coding
@@ -2964,8 +2914,6 @@
 
         Regra di oru: si un tipu é imutável, kualker "operason ki ta modifika" ta retorna un objetu
         novu — bu **ten** ki guarda-l, ou el ta perde.
-  slug: immutable
-  context: intro-python
   provenance: suggested
 - term: slicing
   category: Coding
@@ -3099,8 +3047,7 @@
         Es kumportamentu tolerante ta faze slicing muitu sigúru — mas tanbe signifika ki bu ten ki
         testa bu kódiku ku kuidadu, pamodi un eru na índisi ka ta parti bu programa, el só ta da un
         rezultadu inesperadu.
-  slug: slicing
-  context: intro-python
+  context: python
   provenance: suggested
 - term: concatenation
   category: Coding
@@ -3196,8 +3143,6 @@
         # Ana ten 25 anu
 
         ```
-  slug: concatenation
-  context: intro-python
   provenance: suggested
 - term: modulo
   category: Coding
@@ -3277,8 +3222,7 @@
 
         Nton, `//` i `%` é kompanheru: djuntu es ta dá-nu resposta konpletu di un divisan interu
         (kosienti i restu).
-  slug: modulo
-  context: intro-python
+  context: python
   provenance: suggested
 - term: floor division
   category: Coding
@@ -3374,8 +3318,7 @@
         print(f"{minutus} min {segundus} seg")   # 3 min 5 seg
 
         ```
-  slug: floor-division
-  context: intro-python
+  context: python
   provenance: suggested
 - term: exponentiation
   category: Coding
@@ -3452,8 +3395,7 @@
 
 
         Sinpri lenbra: pa esponensasan na Python, uza `**` ô funson `pow()`.
-  slug: exponentiation
-  context: intro-python
+  context: python
   provenance: suggested
 - term: precedence
   category: Coding
@@ -3512,8 +3454,6 @@
         print(rezultadu)  # 15
 
         ```
-  slug: precedence
-  context: intro-python
   provenance: suggested
 - term: if
   category: Coding
@@ -3610,8 +3550,7 @@
         if idadi >= 18:
             print("Bu pode vota!")
         ```
-  slug: if
-  context: intro-python
+  context: python
   provenance: suggested
 - term: elif
   category: Coding
@@ -3663,8 +3602,7 @@
         print(pa_kada)
 
         ```
-  slug: elif
-  context: intro-python
+  context: python
   provenance: suggested
 - term: else
   category: Coding
@@ -3706,8 +3644,7 @@
         Na izemplu-li, si `indisi` é menor ki tamañu di lista, Python ta mostra elementu. Ma si
         kondisan é `False` (kumo na kazu, pamodi 3 ka é menor ki 3), bloku `else` ta kore i ta
         mostra un mensajen di avizu na lugar di kauza un `IndexError`.
-  slug: else
-  context: intro-python
+  context: python
   provenance: suggested
 - term: ternary operator
   category: Coding
@@ -3798,8 +3735,7 @@
         resultadu = "adultu" if idadi >= 18 else "menor"
 
         ```
-  slug: ternary-operator
-  context: intro-python
+  context: python
   provenance: suggested
 - term: match/case
   category: Coding
@@ -3917,8 +3853,7 @@
         Ma nota bon: pa es tipu di komparasan ku ranjus, un `if/elif/else` normal ta fika más
         natural i más kurtu. `match/case` ta brilha di verdadi kuandu bu ta kompara valóris diskretu
         ou ta destrutura estruturas di dadus — koza ki bu ta prende más tardi na kursu.
-  slug: match-case
-  context: intro-python
+  context: python
   provenance: suggested
 - term: for loop
   category: Coding
@@ -4015,8 +3950,6 @@
 
 
         Ku es padran, bu kódiku ta fika previzivel i más faxi di manti.
-  slug: for-loop
-  context: intro-python
   provenance: suggested
 - term: while loop
   category: Coding
@@ -4112,8 +4045,6 @@
 
         Aki `for` ka ta serve, pamodi ka tene un sekuénsia fixu — nu ta repeti enkuantu resposta ka
         é válidu.
-  slug: while-loop
-  context: intro-python
   provenance: suggested
 - term: range()
   category: Coding
@@ -4202,8 +4133,7 @@
         Un pitu final: `range()` ta funsiona só ku númerus inteirus. Si bu tenta `range(1.5, 5)` bu
         ta odja un `TypeError`. Pa sekuénsias di dísimu, bu ta presiza otu abordaji (pur izemplu,
         multiplika passus inteirus).
-  slug: range
-  context: intro-python
+  context: python
   provenance: suggested
 - term: break
   category: Coding
@@ -4241,8 +4171,7 @@
         # Saída: Primeru divisível pa 7: 7
 
         ```
-  slug: break
-  context: intro-python
+  context: python
   provenance: suggested
 - term: continue
   category: Coding
@@ -4285,8 +4214,7 @@
 
         Na es izemplu, kuandu `i` é par, `continue` ta pula `print(i)` i ta bai dirétamenti pa
         próksima iterasan — nton só numerus ímpar ta ser mostradu.
-  slug: continue
-  context: intro-python
+  context: python
   provenance: suggested
 - term: pass
   category: Coding
@@ -4311,8 +4239,7 @@
 
         Purtantu, `pass` é un maneira di dizer pa Python: "Es bloku ta izisti, mas pa gosi el ka ta
         faze nada."
-  slug: pass
-  context: intro-python
+  context: python
   provenance: suggested
 - term: enumerate()
   category: Coding
@@ -4424,8 +4351,7 @@
         for i, fruta in enumerate(frutas):
             print(f"{i}: {fruta}")
         ```
-  slug: enumerate
-  context: intro-python
+  context: python
   provenance: suggested
 - term: list
   category: Coding
@@ -4514,8 +4440,7 @@
         for turista in turistas:
             print(f"Ben-vindu, {turista}!")
         ```
-  slug: list
-  context: intro-python
+  context: python
   provenance: suggested
 - term: mutable
   category: Coding
@@ -4601,8 +4526,6 @@
 
         Ku un tipu imutável kumo string, isu ka ta kontise, pamodi kualker "mudansa" ta kria un
         objetu novu, ka ta afeta original.
-  slug: mutable
-  context: intro-python
   provenance: suggested
 - term: list comprehension
   category: Coding
@@ -4689,8 +4612,7 @@
         Nota: `n if kondisan else otu` **é** válidu, ma na parti di **espresan** (na inísiu), ka
         kumo filtru. Ezenplu: `[n if n % 2 == 0 else 0 for n in range(5)]` ta da `[0, 0, 2, 0, 4]` —
         li ta troka valoris ínpar pa `0` en vez di filtra-s fora.
-  slug: list-comprehension
-  context: intro-python
+  context: python
   provenance: suggested
 - term: tuple
   category: Coding
@@ -4782,8 +4704,7 @@
         print(type(x))   # <class 'tuple'>
 
         ```
-  slug: tuple
-  context: intro-python
+  context: python
   provenance: suggested
 - term: packing
   category: Coding
@@ -4886,8 +4807,7 @@
         print(type(sozinhu))  # <class 'tuple'>
 
         ```
-  slug: packing
-  context: intro-python
+  context: python
   provenance: suggested
 - term: unpacking
   category: Coding
@@ -4987,8 +4907,7 @@
         print(b)  # Praia
 
         ```
-  slug: unpacking
-  context: intro-python
+  context: python
   provenance: suggested
 - term: star unpacking
   category: Coding
@@ -5126,8 +5045,7 @@
         # Edna (edna@email.cv) tene média 87.6
 
         ```
-  slug: star-unpacking
-  context: intro-python
+  context: python
   provenance: suggested
 - term: dictionary
   category: Coding
@@ -5230,8 +5148,7 @@
         print(pesoa.get("telefoni", "N/A"))   # N/A
 
         ```
-  slug: dictionary
-  context: intro-python
+  context: python
   provenance: suggested
 - term: .get()
   category: Coding
@@ -5316,8 +5233,7 @@
         print(nomi)  # Kelvin
 
         ```
-  slug: get
-  context: intro-python
+  context: python
   provenance: suggested
 - term: dict comprehension
   category: Coding
@@ -5401,8 +5317,7 @@
 
         Si bu presiza guarda **tudu** valores ku mesmu key, un dict comprehension ka ta xiga — bu
         ten ki uza un loop `for` normal ku listas kumo valores, ó `collections.defaultdict`.
-  slug: dict-comprehension
-  context: intro-python
+  context: python
   provenance: suggested
 - term: set
   category: Coding
@@ -5503,8 +5418,7 @@
         print(python_devs - js_devs)  # diferensa: só Python
 
         ```
-  slug: set
-  context: intro-python
+  context: python
   provenance: suggested
 - term: membership testing
   category: Coding
@@ -5607,8 +5521,6 @@
 
         Regra prátiku: si bu ta fazi verifikason di pertensa un ou dos bez, lista sta ben. Si bu ta
         fazi kel-la denrtu di un loop ku txeu dadus, konverti pa set primeru.
-  slug: membership-testing
-  context: intro-python
   provenance: suggested
 - term: union
   category: Coding
@@ -5718,8 +5630,6 @@
         # {'milhu', 'feijun', 'banana-verdi', 'pexi', 'atum', 'kabra', 'vinhu'}
 
         ```
-  slug: union
-  context: intro-python
   provenance: suggested
 - term: intersection
   category: Coding
@@ -5810,8 +5720,6 @@
         else:
             print("Ka ten ilha ki sta na ambus grupu")  # kel-li ta imprimi
         ```
-  slug: intersection
-  context: intro-python
   provenance: suggested
 - term: difference
   category: Coding
@@ -5925,8 +5833,6 @@
         print(inventáriu)  # {'arus', 'feijun', 'milhu'}
 
         ```
-  slug: difference
-  context: intro-python
   provenance: suggested
 - term: hashable
   category: Coding
@@ -6030,8 +5936,7 @@
 
         Regra pratiku: si bu pode muda un objetu (djunta, tira, altera), el ka é hashable. Si el é
         "fixu" un bez kriadu, el pode ser uzadu na sets i kumo txavi di dicts.
-  slug: hashable
-  context: intro-python
+  context: python
   provenance: suggested
 - term: def
   category: Coding
@@ -6119,8 +6024,7 @@
 
         Repara modi ki ku un só `def`, nu pode xama `kunprimenta` bárias bezis ku nomis diferenti —
         kel-li é poder di funsans: reutilizasan di kódiku.
-  slug: def
-  context: intro-python
+  context: python
   provenance: suggested
 - term: return
   category: Coding
@@ -6202,8 +6106,7 @@
         print(media + 1)  # 16.0 — gosi ta funsiona
 
         ```
-  slug: return
-  context: intro-python
+  context: python
   provenance: suggested
 - term: parameter
   category: Coding
@@ -6287,8 +6190,6 @@
 
         Nota ma nomi di parámetru é so signifikativu dentu di funsan — el ta serve kumo un rótulu pa
         uza kel valor na korpu di funsan, independenti di undi kel valor ben.
-  slug: parameter
-  context: intro-python
   provenance: suggested
 - term: argument
   category: Coding
@@ -6374,8 +6275,6 @@
         print(rezultadu)  # 10 ✓
 
         ```
-  slug: argument
-  context: intro-python
   provenance: suggested
 - term: '*args'
   category: Coding
@@ -6502,8 +6401,7 @@
         print(kalkula_area(*dimensons))   # 30 — igual a kalkula_area(5, 3, 2)
 
         ```
-  slug: args
-  context: intro-python
+  context: python
   provenance: suggested
 - term: '**kwargs'
   category: Coding
@@ -6618,8 +6516,7 @@
         apresenta(**perfil)   # Amilcar di Santiago, Poeta
 
         ```
-  slug: kwargs
-  context: intro-python
+  context: python
   provenance: suggested
 - term: docstring
   category: Coding
@@ -6720,8 +6617,7 @@
 
         Regra sinplis: si bu kre ki `help()` ta mostra-l, ten ki ser un string ku triplu áspa **na
         primeru linha** di korpu di funsan — ka un komentáriu.
-  slug: docstring
-  context: intro-python
+  context: python
   provenance: suggested
 - term: recursion
   category: Coding
@@ -6830,8 +6726,6 @@
         simplis ki N sabe risponde sen pensa?" — kel-li é bu kazu bazi. Dipos pergunta "si N ta
         rezolve un versan más pikinoti, kumo N ta konbina kel resultadu pa rezolve versan atuál?" —
         kel-li é bu kazu rekursivu.
-  slug: recursion
-  context: intro-python
   provenance: suggested
 - term: lambda
   category: Coding
@@ -6952,8 +6846,7 @@
 
 
         Regra sinpli: si bu lambda ta fika difísil di le, transforma-l na un funsan normal ku `def`.
-  slug: lambda
-  context: intro-python
+  context: python
   provenance: suggested
 - term: map()
   category: Coding
@@ -7045,8 +6938,7 @@
         print(list(map(dobra, [1, 2, 3])))  # [2, 4, 6]
 
         ```
-  slug: map
-  context: intro-python
+  context: python
   provenance: suggested
 - term: filter()
   category: Coding
@@ -7149,8 +7041,7 @@
         print(so_truthy)  # ['oi', 'morabeza', 42]
 
         ```
-  slug: filter
-  context: intro-python
+  context: python
   provenance: suggested
 - term: lazy evaluation
   category: Coding
@@ -7251,8 +7142,6 @@
 
         Si bo presiza usa rezultadu más di un bez, guarda-l na un lista logu ku `list(...)`, ou
         re-kria objetu lazy kada bez bo presiza.
-  slug: lazy-evaluation
-  context: intro-python
   provenance: suggested
 - term: zip()
   category: Coding
@@ -7372,8 +7261,7 @@
         # {'Santiago': 'Praia', 'São Vicente': 'Mindelo', 'Sal': 'Espargos'}
 
         ```
-  slug: zip
-  context: intro-python
+  context: python
   provenance: suggested
 - term: sorted()
   category: Coding
@@ -7490,8 +7378,7 @@
         Regra sinples: si bu kre **guarda** lista orijinal ó bu ta ordena un iterável ki ka é lista,
         uza `sorted()`. Si bu ka ta prisiza di lista orijinal i bu kre poupa memoria, `.sort()` na
         propi lista ta faze sirbisu.
-  slug: sorted
-  context: intro-python
+  context: python
   provenance: suggested
 - term: any()
   category: Coding
@@ -7601,8 +7488,7 @@
         print(tene_dijitu)     # True ('2', '0', '2', '6')
 
         ```
-  slug: any
-  context: intro-python
+  context: python
   provenance: suggested
 - term: all()
   category: Coding
@@ -7714,8 +7600,7 @@
         print(formuláriu_kompletu(dados_falta, kampus))  # False (email vaziu é falsy)
 
         ```
-  slug: all
-  context: intro-python
+  context: python
   provenance: suggested
 - term: generator
   category: Coding
@@ -7822,8 +7707,7 @@
         Repara ma na `sum(dobra(4))` i `max(dobra(4))` ka ten paréntesis extru — kuandu un generator
         expression é úniku argumentu di un funsan, bu pode skrebe `sum(x * 2 for x in range(4))` sen
         `[]` nen `()` adisional.
-  slug: generator
-  context: intro-python
+  context: python
   provenance: suggested
 - term: yield
   category: Coding
@@ -7925,8 +7809,7 @@
         Repara ki `while True` ka ta trava programa: kada `yield` ta pauza funsan, i el só ta
         kontinua kuandu bu txoma `next()` di nobu. Asi bu pode trabadja ku sekuénsia infinita sen
         krasha komputador.
-  slug: yield
-  context: intro-python
+  context: python
   provenance: suggested
 - term: generator expression
   category: Coding
@@ -8055,8 +7938,7 @@
         print(tem_grandi)  # True
 
         ```
-  slug: generator-expression
-  context: intro-python
+  context: python
   provenance: suggested
 - term: StopIteration
   category: Coding
@@ -8171,8 +8053,7 @@
 
 
         Na prátika, uza `for` sempri ki bu pode — el é más limpu i ta trata `StopIteration` pa bo.
-  slug: stopiteration
-  context: intro-python
+  context: python
   provenance: suggested
 - term: module
   category: Coding
@@ -8276,8 +8157,7 @@
 
         Aki, nomi foi skrebedu mal (`saudasan` envez di `saudason`). Python é sensivel a maiúskulas
         i ortografia — nomi di módulu ten ki bate exatamenti ku nomi di ficheru (sen `.py`).
-  slug: module
-  context: intro-python
+  context: python
   provenance: suggested
 - term: standard library
   category: General
@@ -8337,8 +8217,6 @@
         print(gosi.strftime('%d/%m/%Y %H:%M'))
 
         ```
-  slug: standard-library
-  context: intro-python
   provenance: suggested
 - term: __name__ == "__main__"
   category: Coding
@@ -8458,8 +8336,7 @@
 
 
         Gosi módulu ta konporta dretu: silénsiu na import, ativu na izekuson diretu.
-  slug: name-main
-  context: intro-python
+  context: python
   provenance: suggested
 - term: requirements.txt
   category: General
@@ -8485,8 +8362,7 @@
         Es fixeru é importanti pamodi el ta garanti ki tudu algen ki ta trabadja na projetu ten
         mésmu ambienti, i el ta faze parti di boas prátikas ku [virtual
         environments](/kea/glossary/virtual-environment) i [pip](/kea/glossary/pip).
-  slug: requirements-txt
-  context: intro-python
+  context: python
   provenance: suggested
 - term: context manager
   category: Coding
@@ -8564,8 +8440,7 @@
             for linha in fonte:
                 destinu.write(linha)
         ```
-  slug: context-manager
-  context: intro-python
+  context: python
   provenance: suggested
 - term: with
   category: Coding
@@ -8647,8 +8522,7 @@
         # Ficheru ta fitxadu i dadus garantidamente gravadu
 
         ```
-  slug: with
-  context: intro-python
+  context: python
   provenance: suggested
 - term: try/except
   category: Coding
@@ -8758,8 +8632,7 @@
         except ZeroDivisionError:
             print("Ka pode dividi pa zero.")
         ```
-  slug: try-except
-  context: intro-python
+  context: python
   provenance: suggested
 - term: finally
   category: Coding
@@ -8858,8 +8731,7 @@
         # Operason di divizan finalizadu.
 
         ```
-  slug: finally
-  context: intro-python
+  context: python
   provenance: suggested
 - term: raise
   category: Coding
@@ -8959,8 +8831,7 @@
             print(f"Transferénsia ka pode ser feitu: {e}")
             # Transferénsia ka pode ser feitu: Saldu insufisienti: 5000 ECV, pidiu 8000 ECV
         ```
-  slug: raise
-  context: intro-python
+  context: python
   provenance: suggested
 - term: type hints
   category: Coding
@@ -9065,8 +8936,7 @@
 
         Es padran ta obriga kin ki ta uza funsan pensa na kazu di `None` — un vantajen grandi pa
         evita erus.
-  slug: type-hints
-  context: intro-python
+  context: python
   provenance: suggested
 - term: mypy
   category: General
@@ -9119,8 +8989,7 @@
         Nota ki es kódiku ta **kore normalmenti** na Python (el ta konkatena kes strings). Ma mypy
         ta detekta ki `soma` foi anotadu pa reseber `int`, i ta aviza-bu ki `"ola"` é un `str` — un
         eru ki, sen mypy, só ta parse más tardi ora ki lójika di programa faya.
-  slug: mypy
-  context: intro-python
+  context: python
   provenance: suggested
 - term: pytest
   category: General
@@ -9182,8 +9051,7 @@
         # test_kalkuladora.py::test_dividi_por_zero PASSED
 
         ```
-  slug: pytest
-  context: intro-python
+  context: python
   provenance: suggested
 - term: assert
   category: Coding
@@ -9274,8 +9142,7 @@
         Si algen muda `dobra` pa fazi otra kuza (por izemplu `return n + 2`), testus ta fayo
         imediatamenti i `pytest` ta mostra ezatamenti kal `assert` ka pasa i kal valór resebi versus
         o ki speraba.
-  slug: assert
-  context: intro-python
+  context: python
   provenance: suggested
 - term: TDD
   category: General
@@ -9348,8 +9215,6 @@
         # tudu PASSED! ✓
 
         ```
-  slug: tdd
-  context: intro-python
   provenance: suggested
 - term: class
   category: Coding
@@ -9455,8 +9320,6 @@
 
         Klasis ta parse komplikadu na kumesu, ma es ta ben natural ku prátika — i es é un di kes
         ferramentas más poderozu ki Python ta ofrese.
-  slug: class
-  context: intro-python
   provenance: suggested
 - term: object
   category: Coding
@@ -9550,8 +9413,6 @@
 
         Kada un di kes valores é un objetu diferenti, kriadu automátikamenti pa Python kuandu bu
         skrebe kel literal na kódigu.
-  slug: object
-  context: intro-python
   provenance: suggested
 - term: __init__
   category: Coding
@@ -9669,8 +9530,7 @@
         print(k.saldu)  # 100
 
         ```
-  slug: init
-  context: intro-python
+  context: python
   provenance: suggested
 - term: self
   category: Coding
@@ -9775,8 +9635,7 @@
         Nota kumo, ku `self`, metodu `buzina` pode agora **aseder atributus di objetu** — kumo
         `self.marka`. Isu é verdaderu poder di `self`: el ta permiti ki metodus i atributus di mesmu
         objetu trabadja djuntu.
-  slug: self
-  context: intro-python
+  context: python
   provenance: suggested
 - term: attribute
   category: Coding
@@ -9851,8 +9710,6 @@
         Kel `ValueError` padran di Python ka ten un atributu `saldu` — só klasis ki bu difini ku kel
         atributu ta ten-l. Pa evita es tipu di eru, uza só atributus ki bu sabe ki ezisti na kel
         tipu di objetu, ou uza `hasattr(e, "saldu")` pa verifika primeru.
-  slug: attribute
-  context: intro-python
   provenance: suggested
 - term: method
   category: Coding
@@ -9937,8 +9794,6 @@
         print(mensaji)              # "ola mundu"
 
         ```
-  slug: method
-  context: intro-python
   provenance: suggested
 - term: PascalCase
   category: General
@@ -9982,8 +9837,6 @@
                 self.ilha = ilha
                 self.nota = nota
         ```
-  slug: pascalcase
-  context: intro-python
   provenance: suggested
 - term: inheritance
   category: Coding
@@ -10075,8 +9928,6 @@
         izisti i bu ta risibi un `AttributeError` óra ki tenta uza-l. Sempri ki klasi pai tene un
         `__init__` ku parâmetrus, klasi filhu debe txoma-l ku `super()` pa garanti ki tudu ta
         iniсializadu koretamenti.
-  slug: inheritance
-  context: intro-python
   provenance: suggested
 - term: super()
   category: Coding
@@ -10170,8 +10021,7 @@
         print(k.apresenta())  # Nomi: Rex — Rasa: Labrador
 
         ```
-  slug: super
-  context: intro-python
+  context: python
   provenance: suggested
 - term: override
   category: Coding
@@ -10282,8 +10132,6 @@
 
         Kel mesmu padrãu ta funsiona pa kualker metudu: si filhu kre reuza lójika di pai i
         **djunta** algu novu, ta uza `super().nomi_di_metudu(...)` dentu di versan sobreskritu.
-  slug: override
-  context: intro-python
   provenance: suggested
 - term: multiple inheritance
   category: Coding
@@ -10387,8 +10235,6 @@
 
         Pa gósi, na kursu, foka na eransa simples ku `super()` — kantu bu ntende bon kel ki, eransa
         múltiplu i MRO ta ben ser un pasu naturál di prósimu.
-  slug: multiple-inheritance
-  context: intro-python
   provenance: suggested
 - term: MRO
   category: Coding
@@ -10413,8 +10259,7 @@
         algoritmu txomadu **C3 linearization** pa disidi kal órden di buska sigue. Ku eransa di un
         só pai, órden é simples: Python ta buska "di filhu pa pai". Bu pode konsulta órden reál di
         kualker klasi ku `Klasi.__mro__`.
-  slug: mro
-  context: intro-python
+  context: python
   provenance: suggested
 - term: issubclass()
   category: Coding
@@ -10531,8 +10376,7 @@
         print(issubclass(Taxi, Viatúra))    # True  — klasi vs klasi
 
         ```
-  slug: issubclass
-  context: intro-python
+  context: python
   provenance: suggested
 - term: polymorphism
   category: Coding
@@ -10658,8 +10502,6 @@
         Funsan `finaliza_kompra()` ka ta importa ku tipu spesífiku di pagamentu — el ta funsiona ku
         kualker klasi ki tene metudu `prosesa()`. Si manhan bu kria un klasi novu `PagamentuPayPal`,
         kódigu izistenti ta kontinua funsiona sen mudansa. Es é forsa di polimorfismu.
-  slug: polymorphism
-  context: intro-python
   provenance: suggested
 - term: duck typing
   category: Coding
@@ -10763,8 +10605,7 @@
         Pa kazus más rigorozu — kuandu bu kre **forsa** ki klasis fidju implementa sertus metodus —
         Python ta ofrese `ABC` ku `@abstractmethod`. Ma pa mutu kódigu di dia-a-dia, duck typing
         sinples ta bastá: si el ta faze kuak, é patu.
-  slug: duck-typing
-  context: intro-python
+  context: python
   provenance: suggested
 - term: ABC
   category: Coding
@@ -10774,8 +10615,7 @@
       definition: >-
         Abstract Base Class — un klasi ki ka pode ser instansiadu diretamenti; ta sirbi só kumo pai
         pa forsa un kontratu na se filhus.
-  slug: abc
-  context: intro-python
+  context: python
   provenance: suggested
 - term: '@abstractmethod'
   category: Coding
@@ -10889,8 +10729,7 @@
         print(t.area())  # 6.0
 
         ```
-  slug: abstractmethod
-  context: intro-python
+  context: python
   provenance: suggested
 - term: encapsulation
   category: Coding
@@ -11012,8 +10851,6 @@
         Nota kumo `fahrenheit` ka tene setter — el é un valor derivadu di `celsius`, entu ka faze
         sentidu setá-l diretamenti. Kel-li é un dizenhu limpu: klasi ta ekspõe só operasons ki ta
         faze sentidu, i ta rejeta tudu restu.
-  slug: encapsulation
-  context: intro-python
   provenance: suggested
 - term: name mangling
   category: Coding
@@ -11125,8 +10962,7 @@
         Sen name mangling, `__sekretu` di fidju ta subistitui `__sekretu` di mai i `mostra_mai()` ta
         retorna valor eradu. Ku name mangling, kada klasi tene se própiu "spasu" pa atributus
         privadu.
-  slug: name-mangling
-  context: intro-python
+  context: python
   provenance: suggested
 - term: '@property'
   category: Coding
@@ -11244,8 +11080,7 @@
         Repara kumo `area` ka presiza di setter — el ta rekalkulá senpri ki bu asesa-l, uzandu valor
         atuál di `__raiu`. Kel-li é forsa di property kalkuladu: valor ta sta **senpri konsistenti**
         ku restu di objetu.
-  slug: property
-  context: intro-python
+  context: python
   provenance: suggested
 - term: getter
   category: Coding
@@ -11357,8 +11192,6 @@
         modifikason asidentál. Si bu kre permiti mudansa, bu ten ki djunta `@area.setter` — ma pa
         valoris kalkuladu, normalmenti é milhor dexa só-leitura pa el rekalkula sózin sempri ki
         `largura` ou `altura` muda.
-  slug: getter
-  context: intro-python
   provenance: suggested
 - term: setter
   category: Coding
@@ -11440,8 +11273,6 @@
         Repara ki mesmu na `__init__`, kuandu nu ta faze `self.celsius = celsius`, Python ta txoma
         setter — ntãu validasan ta proteje objetu dizde momentu di kriasan. Si algen tenta kria
         `Tenperatura(-500)`, el ta falha imediatamenti en bez di kria un objetu ku stadu inválidu.
-  slug: setter
-  context: intro-python
   provenance: suggested
 - term: dunder
   category: Coding
@@ -11494,8 +11325,7 @@
         print(repr(alunu))  # Python ta txoma __repr__ automátikamenti
 
         ```
-  slug: dunder
-  context: intro-python
+  context: python
   provenance: suggested
 - term: __repr__
   category: Coding
@@ -11598,8 +11428,7 @@
         # [Estudanti(nomi='Maria'), Estudanti(nomi='João')]  ← limpu i útil pa debug
 
         ```
-  slug: repr
-  context: intro-python
+  context: python
   provenance: suggested
 - term: dir()
   category: Coding
@@ -11694,8 +11523,7 @@
 
         Sima bu ta odjá, `dir()` é un aliadu pa splora objetus — sobretudu kuandu bu sta aprendi un
         klasi nova ou bu kre konfirma kumo Python sta trata bus atributus privadu.
-  slug: dir
-  context: intro-python
+  context: python
   provenance: suggested
 - term: operator overloading
   category: Coding
@@ -11805,8 +11633,6 @@
         Nota kumo `isinstance()` ta proteji operador — si algen tenta `p1 == "ola"`, Python ta
         risebe `NotImplemented` i ta lida ku isu di forma korretu, en vés di lansa un eru estranhu
         ou retorna un rezultadu falsu.
-  slug: operator-overloading
-  context: intro-python
   provenance: suggested
 - term: __add__
   category: Coding
@@ -11914,8 +11740,7 @@
 
         Nota kuma na tudu es izemplus, `__add__` ta kria i retorna un objetu **novu** — `v1` i `v2`
         ka muda. Es é kumportamentu ki uzuáriu di bo klasi ta spera.
-  slug: add
-  context: intro-python
+  context: python
   provenance: suggested
 - term: __eq__
   category: Coding
@@ -12017,8 +11842,7 @@
         print(Pontu(2, 3) in pontus)   # True — sen __eq__, seria False
 
         ```
-  slug: eq
-  context: intro-python
+  context: python
   provenance: suggested
 - term: NotImplemented
   category: Coding
@@ -12124,8 +11948,7 @@
                 return NotImplemented  # ✅ Retorna, ka lansa
             return Dineru(self.montanti + otru.montanti)
         ```
-  slug: notimplemented
-  context: intro-python
+  context: python
   provenance: suggested
 - term: '@dataclass'
   category: Coding
@@ -12257,8 +12080,7 @@
         # praia.latitude = 0.0  # ❌ FrozenInstanceError
 
         ```
-  slug: dataclass
-  context: intro-python
+  context: python
   provenance: suggested
 - term: frozen
   category: Coding
@@ -12381,8 +12203,7 @@
         # Gosi kontiudu tanben ka pode muda — tuple é imutável.
 
         ```
-  slug: frozen
-  context: intro-python
+  context: python
   provenance: suggested
 - term: array
   category: Coding
@@ -12445,6 +12266,5 @@
     numeros = array.array("i", [1, 2, 3])
     numeros.append(4)   # array('i', [1, 2, 3, 4])
   code_language: py
-  slug: array
-  context: intro-python
+  context: python
   provenance: suggested
