@@ -91,8 +91,8 @@ try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
 ```java
 String sql = "INSERT INTO uzuarius (nomi, email) VALUES (?, ?)";
 try (PreparedStatement ps = conn.prepareStatement(sql)) {
-    ps.setString(1, "Ana Lima");
-    ps.setString(2, "ana@email.cv");
+    ps.setString(1, "Sara Lima");
+    ps.setString(2, "sara@email.cv");
     int linha = ps.executeUpdate();
 }
 ```

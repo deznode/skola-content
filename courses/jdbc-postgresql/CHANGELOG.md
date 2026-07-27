@@ -8,6 +8,18 @@ draft changes since the previous publish (source of truth: `topics/jdbc-postgres
 trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-26] — publish (character cast sync)
+
+### Changed
+- Retrofitted the ADR-0033 universal character cast into `05-transactions`: the
+  money-transfer worked example now uses Sara and Nando instead of Ana and Tóni
+  (prose, the `<Misconception>` myth/real pair, and the trace code block).
+- Cheatsheet: `PreparedStatement` example rows now use `Sara Lima` /
+  `sara@email.cv` to match.
+
+This publish syncs a draft-side cast retrofit from 2026-07-08 that was never
+republished — no content changes beyond the cast.
+
 ## [2026-07-03] — publish (title rename)
 
 ### Changed

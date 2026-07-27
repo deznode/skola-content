@@ -8,16 +8,16 @@ objectives:
   - "Agrupa vários statement nun transasan ku `setAutoCommit(false)`, `commit()`, i `rollback()`"
 ---
 
-Imajina ki Ana ta manda 1000$ pa Tóni. Bu kódiku ta faze dos pasu: **tira** di konta di Ana, i **po** na konta di Tóni. Ma si sigundu pasu falha dipos di primeru funsiona... dinheru **dizaparesi**. Transasons ta rezolve es: ou **tudu** pasu ta funsiona, ou **nada** ta kontise.
+Imajina ki Sara ta manda 1000$ pa Nando. Bu kódiku ta faze dos pasu: **tira** di konta di Sara, i **po** na konta di Nando. Ma si sigundu pasu falha dipos di primeru funsiona... dinheru **dizaparesi**. Transasons ta rezolve es: ou **tudu** pasu ta funsiona, ou **nada** ta kontise.
 
 <MisconceptionConfront
   belief="Autocommit (padron) é seguru pa un transferénsia: kada `UPDATE` ta grava un pa un, entãu tudu ta funsiona bon asin."
-  myth="Si primeru `UPDATE` (tira di Ana) funsiona i sigundu (po na Tóni) falha, ka ten prublema — kada statement é independenti."
-  real="Ku autocommit, primeru `UPDATE` dja foi gravadu pa sénpri. Si sigundu falha, dinheru sai di Ana ma **nunka** txiga na Tóni — i ka ten volta atras."
+  myth="Si primeru `UPDATE` (tira di Sara) funsiona i sigundu (po na Nando) falha, ka ten prublema — kada statement é independenti."
+  real="Ku autocommit, primeru `UPDATE` dja foi gravadu pa sénpri. Si sigundu falha, dinheru sai di Sara ma **nunka** txiga na Nando — i ka ten volta atras."
   proof={[
     "conn.setAutoCommit(true);   // padron",
-    "tira(Ana, 1000);            // gravadu imediatamenti",
-    "po(Toni, 1000);             // FALHA aki -> dinheru dizaparesi",
+    "tira(Sara, 1000);            // gravadu imediatamenti",
+    "po(Nando, 1000);             // FALHA aki -> dinheru dizaparesi",
   ]}
   takeaway="Pa operasan di vários pasu, dizativa autocommit i uza `commit()` / `rollback()` pa fazé-l tudu-ou-nada."
 />

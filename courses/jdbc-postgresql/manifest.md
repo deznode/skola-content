@@ -1,6 +1,6 @@
 # Java JDBC ku PostgreSQL — Published Assets
 
-**Published:** 2026-07-03
+**Published:** 2026-07-26
 **Source:** topics/jdbc-postgresql/
 
 ## Files
