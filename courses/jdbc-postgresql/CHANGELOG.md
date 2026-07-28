@@ -8,6 +8,21 @@ draft changes since the previous publish (source of truth: `topics/jdbc-postgres
 trace_id `Skola-course-jdbc-postgresql-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-27] — publish
+
+### Added
+- Course cover `cover.jpg` — the Santo Antão frame (Postgres elephant + Java mug
+  joined by a yellow rope). Published from the 3584×1184 master, downsampled to
+  1920×634 and re-encoded at q68 (288 KB). This is the most heavily cross-hatched
+  cover in the set and needed the full quality-ladder descent to fit under the
+  300 KB budget.
+- `image_url: cover.jpg` in `course.yaml` — the cover only renders because it is
+  declared here; skola.dev types the field as Velite's `s.image()` (spec 083
+  FR-001).
+
+Lessons, sidecars, code and infographics are byte-identical to the 2026-07-26
+publish — verified across all 16 files. This entry is a cover delivery only.
+
 ## [2026-07-26] — publish (character cast sync)
 
 ### Changed

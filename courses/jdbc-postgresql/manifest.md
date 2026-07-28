@@ -1,6 +1,6 @@
 # Java JDBC ku PostgreSQL — Published Assets
 
-**Published:** 2026-07-26
+**Published:** 2026-07-27
 **Source:** topics/jdbc-postgresql/
 
 ## Files
@@ -14,4 +14,5 @@
 | code/final/ | Solution code | 8 files |
 | code/docker/ | Docker environment | 2 files |
 | infographics/* | Infographics (JPG) | 3 |
+| cover.jpg | Course cover, 1920×634, 288 KB (declared as `image_url` in course.yaml) | 1 |
 | cheatsheet-kea.md | Cheatsheet | 1 |

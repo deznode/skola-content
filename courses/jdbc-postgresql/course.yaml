@@ -4,6 +4,7 @@ level: beginner
 category: programming
 duration_minutes: 210
 instructor: Joaquim Costa
+image_url: cover.jpg
 translations:
   kea:
     title: "Java JDBC ku PostgreSQL"
