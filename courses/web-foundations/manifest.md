@@ -1,6 +1,6 @@
 # Fundamentus di Web: HTML i CSS — Published Assets
 
-**Published:** 2026-06-26
+**Published:** 2026-07-27
 **Source:** topics/web-foundations/
 
 ## Files
@@ -14,4 +14,5 @@
 | code/start/ | Starter code (blog-adilson, projetu-kabu-verdi) | 8 files |
 | code/final/ | Solution code (blog-adilson, projetu-kabu-verdi) | 8 files |
 | infographics/* | Infographics (JPG) | 11 |
+| cover.jpg | Course cover, 1920×634, 261 KB (declared as `image_url` in course.yaml) | 1 |
 | cheatsheet-kea.md | Cheatsheet | 1 |

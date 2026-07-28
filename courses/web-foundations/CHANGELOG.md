@@ -8,6 +8,32 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-27] — publish
+
+### Added
+- Course cover `cover.jpg` — the Santiago frame (stone arch, half bare stone /
+  half lime render). Published from the 3584×1184 master, downsampled to 1920×634
+  and re-encoded at q80 (261 KB); this cover needed two steps down the quality
+  ladder to fit the 300 KB budget.
+- `image_url: cover.jpg` in `course.yaml` — required for the cover to render at
+  all. skola.dev types that field as Velite's `s.image()`, so an undeclared
+  `cover.jpg` ships nothing (spec 083 FR-001).
+
+### Removed
+- `test_only: true` (and its now-incorrect comment block) from `course.yaml`.
+  **Deliberate promotion to production**, reversing the 2026-06-26 hand-edit
+  below. The flag's real effect was to exclude the course from default
+  `pnpm gen:catalog` discovery, the `catalog-drift-guard` hook and
+  `task content:status` — so content edits silently never reached prod. The SQL
+  has in fact lived in `db/migration` (not `db/seed/dev`) since 2026-06-28,
+  seeded `status='draft'`, so the comment block's instructions were stale on both
+  counts. Learner visibility remains gated by the runtime publish control
+  (spec 060/061): the generator still emits `status='draft'` and an admin
+  promotes it.
+
+Lessons, sidecars, code and infographics are byte-identical to the previous
+publish — verified across all 57 files. Content is unchanged.
+
 ## [2026-06-26] — hand-edit
 
 ### Changed
