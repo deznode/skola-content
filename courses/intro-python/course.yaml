@@ -2,8 +2,9 @@ slug: intro-python
 title: Introdusan Konpletu a Python
 level: beginner
 category: programming
-duration_minutes: 480
+duration_minutes: 700
 instructor: Joaquim Costa
+image_url: cover.jpg
 translations:
   kea:
     title: "Introdusan Konpletu a Python"

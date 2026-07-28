@@ -8,6 +8,27 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-27] — publish
+
+### Added
+- Course cover `cover.jpg` — the Fogo frame (blue/yellow snake in the Python
+  two-lobe form on basalt). Published from the 3584×1184 master, downsampled to
+  1920×634 and re-encoded at q68 (280 KB); one of the two most heavily
+  cross-hatched covers, so it needed the full quality-ladder descent.
+- `image_url: cover.jpg` in `course.yaml` — the declaration Velite's `s.image()`
+  keys on (spec 083 FR-001).
+
+### Fixed
+- `duration_minutes` 480 → 700. The old value was stale and unsupported by any
+  source in the topic: `content.json` carries `metadata.estimated_duration:
+  "680 min"`, and the 33 lesson durations sum to 700. Adopted the derived sum so
+  the card total and the syllabus agree.
+
+Lessons, sidecars, code and infographics are byte-identical to the 2026-07-26
+publish — verified across all 96 files (including `25-testu-kodiku-pytest`, whose
+draft filename and `content.json` slug differ; the publish loop wildcards the slug
+segment, so the pair matches). This entry is a cover delivery plus one metadata fix.
+
 ## [2026-07-26] — publish
 
 ### Changed
