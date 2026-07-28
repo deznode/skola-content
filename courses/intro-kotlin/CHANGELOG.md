@@ -8,6 +8,21 @@ draft changes since the previous publish (source of truth: `topics/intro-kotlin/
 trace_id `Skola-course-intro-kotlin-rollback-20260519`). Hand-edits to this
 published copy are recorded under their own dated heading.
 
+## [2026-07-27] — publish
+
+### Added
+- Course cover `cover.jpg` — the São Vicente frame (Ilhéu dos Pássaros: dark horn of
+  rock with the Farol de D. Luís on the summit). Published from the 3584×1184 master
+  at `topics/intro-kotlin/assets/covers/`, downsampled to 1920×634 and re-encoded at
+  q88 (204 KB, under the 300 KB budget on the first quality rung).
+- `image_url: cover.jpg` in `course.yaml` — the declaration is load-bearing, not
+  cosmetic: skola.dev types that field as Velite's `s.image()`, so only a cover
+  *named* here is content-hashed and given responsive variants. An undeclared
+  `cover.jpg` ships nothing (spec 083 FR-001).
+
+Lessons, sidecars and infographics are byte-identical to the 2026-07-23 publish —
+verified across all 33 files before publishing. This entry is a cover delivery only.
+
 ## [2026-07-23] — publish
 
 ### Changed

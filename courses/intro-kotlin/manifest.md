@@ -1,6 +1,6 @@
 # Introdusan a Kotlin — Published Assets
 
-**Published:** 2026-07-23
+**Published:** 2026-07-27
 **Source:** topics/intro-kotlin/
 
 ## Files
@@ -13,6 +13,7 @@
 | lessons/{NN}-{slug}/exercises.yaml | Exercise sidecars | 11 |
 | lessons/{NN}-{slug}/code-examples.yaml | Code-example sidecars | 0 (retired 2026-07-20 — code inlined as fences directly in kea.mdx) |
 | infographics/* | Infographics (JPG) | 6 |
+| cover.jpg | Course cover, 1920×634, 204 KB (declared as `image_url` in course.yaml) | 1 |
 | cheatsheet-kea.md | Cheatsheet | 0 (pending) |
 | code/{start,final}/ | Starter/solution code | 0 (pending) |
 | slides-kea/ | Slidev deck | 0 (pending) |
