@@ -1,6 +1,6 @@
 # Fundamentus di Tailwind CSS v4 — Published Assets
 
-**Published:** 2026-07-26
+**Published:** 2026-07-27
 **Source:** topics/tailwind-from-scratch/
 
 ## Files
@@ -16,6 +16,7 @@
 | code/m3-resort-brava/{start,final}/ | Starter/solution code (Resort Brava, Module 3 continuity) | 2 files |
 | code/m4-vite-build/{start,final}/ | Starter/solution code (Vite production build) | 7 files |
 | infographics/* | Infographics (JPG) | 11 |
+| cover.jpg | Course cover, 1920×634, 270 KB (declared as `image_url` in course.yaml) | 1 |
 | cheatsheet-kea.md | Cheatsheet | 1 |
 
 ## Not yet published

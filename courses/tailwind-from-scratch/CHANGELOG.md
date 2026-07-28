@@ -8,6 +8,21 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-07-27] — publish
+
+### Added
+- Course cover `cover.jpg` — the Brava frame (Saline Pink hibiscus, five identical
+  petals, face-on). Published from the 3584×1184 master, downsampled to 1920×634
+  and re-encoded at q88 (270 KB). The hibiscus is the one sanctioned use of Saline
+  Pink outside *pano di tera*: it is the subject's own natural colour and no
+  palette hex substitutes for it.
+- `image_url: cover.jpg` in `course.yaml` — the declaration Velite's `s.image()`
+  keys on; an undeclared cover is never copied, hashed or given variants
+  (spec 083 FR-001).
+
+Lessons, sidecars, code and infographics are byte-identical to the 2026-07-26
+publish — verified across all 78 files. This entry is a cover delivery only.
+
 ## [2026-07-26] — publish (stranded draft sync)
 
 ### Fixed

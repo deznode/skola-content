@@ -4,6 +4,7 @@ level: beginner
 category: programming
 duration_minutes: 525
 instructor: Joaquim Costa
+image_url: cover.jpg
 translations:
   kea:
     title: "Fundamentus di Tailwind CSS v4"
