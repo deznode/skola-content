@@ -8,13 +8,13 @@ image_url: cover.jpg
 translations:
   kea:
     title: "Introdusan Konpletu a Python"
-    description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasan, estruturas di dadus, funsoens, ficheru, i programasan orientadu a objetu.
-    prerequisites: Nenhum konhesimentu préviu nesesáriu
+    description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasan, estruturas di dadus, funsons, fixeru, i programasan orientadu a objetu.
+    prerequisites: Ninhun konhesimentu préviu nesesáriu
     outcomes: |
       Kria programas ku Python di zero
-      Komprendi variáveis, tipu di dadus, i operadoris
+      Kompriendi variáveis, tipu di dadus, i operadoris
       Uza listas, tuplas, disionárius, i konjuntus
-      Skrebi funsoens i trabadja ku ficheru
+      Skrebe funsons i trabadja ku fixeru
       Implementa klasis i objetus ku OOP
 modules:
   - slug: fundamentus-di-python

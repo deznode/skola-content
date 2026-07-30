@@ -8,6 +8,19 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-30] — hand-edit
+
+### Fixed
+- `course.yaml` kea `description`, `prerequisites` and `outcomes` now use the
+  canonical Kriolu forms already applied across the intro-python lesson drafts:
+  `funsoens` → `funsons` (`-soens` → `-sons` plural), `ficheru` → `fixeru`,
+  `Nenhum` → `Ninhun`, `Komprendi` → `Kompriendi`, `Skrebi` → `Skrebe`
+  (`-e` infinitive).
+
+  Recorded as a hand-edit rather than a publish rollup because these three
+  fields have no draft source in `skola-research` — `content.json` carries only
+  module and lesson titles, so `course.yaml` is where they are maintained.
+
 ## [2026-07-27] — publish
 
 ### Added
