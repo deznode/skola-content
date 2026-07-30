@@ -15,32 +15,32 @@
 - slug: testa-e-par
   language: python
   kind: code
-  title: { kea: "Funsan é_par i se testu" }
+  title: { kea: "Funsan e_par i se testu" }
   prompt:
-    kea: "Skrebe un funsan `é_par(n: int) -> bool` ki ta da `True` si númeru é par. Dipos skrebe 3 funsan di testu (par, ímpar, zero) ku `assert`. Roda ku `pytest`."
+    kea: "Skrebe un funsan `e_par(n: int) -> bool` ki ta da `True` si númeru é par. Dipos skrebe 3 funsan di testu (par, ímpar, zero) ku `assert`. Roda ku `pytest`."
   hint:
-    kea: "`return n % 2 == 0`. Kada testu é un funsan ku nomi ki kumesa ku `test_`: `def test_par(): assert é_par(4) is True`. Zero é par (`é_par(0)` é `True`)."
+    kea: "`return n % 2 == 0`. Kada testu é un funsan ku nomi ki kumesa ku `test_`: `def test_par(): assert e_par(4) is True`. Zero é par (`e_par(0)` é `True`)."
   starterCode: |
     # par.py
-    def é_par(n: int) -> bool:
+    def e_par(n: int) -> bool:
         ...  # TODO
 
     # test_par.py
     # TODO: 3 testu — par, ímpar, zero
   solutionCode: |
     # par.py
-    def é_par(n: int) -> bool:
+    def e_par(n: int) -> bool:
         return n % 2 == 0
 
     # test_par.py
     def test_par():
-        assert é_par(4) is True
+        assert e_par(4) is True
 
     def test_impar():
-        assert é_par(7) is False
+        assert e_par(7) is False
 
     def test_zero():
-        assert é_par(0) is True
+        assert e_par(0) is True
     # Roda ku: pytest -v
 - slug: testa-inverte-string
   language: python

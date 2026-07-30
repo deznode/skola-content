@@ -16,10 +16,10 @@
       correct: false
     - text: { kea: "`float` — tudu númeru di `input()` é desimal" }
       correct: false
-    - text: { kea: "Ta dependi di o ki utilizador skrebe" }
+    - text: { kea: "Ta dependi di kuze ki utilizador skrebe" }
       correct: false
 - question:
-    kea: "Kal di es nomis di variável é **eradu** na Python?"
+    kea: "Kual di es nomis di variável é **eradu** na Python?"
   options:
     - text: { kea: "`2nomi` — un nomi ka pode kumesa ku un númeru" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "`nota1` — letra primeru, númeru dipos é OK" }
       correct: false
 - question:
-    kea: "O ki ta kontise kuandu bu kore `int(\"Maria\")`?"
+    kea: "Kuze ki ta kontise kuandu bu kore `int(\"Maria\")`?"
   options:
     - text: { kea: "Un `ValueError` — `\"Maria\"` ka pode ser konvertidu pa un interu" }
       correct: true

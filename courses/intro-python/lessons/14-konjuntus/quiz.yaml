@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "O ki ta kria `vazio = {}` na Python?"
+    kea: "Kuze ki ta kria `vazio = {}` na Python?"
   options:
     - text: { kea: "Un **disionáriu** vazio, ka un set — pa un set vazio uza `set()`" }
       correct: true
@@ -19,15 +19,15 @@
     - text: { kea: "Un `SyntaxError` — `{}` ka é válidu sózin" }
       correct: false
 - question:
-    kea: "Ku `a = {1, 2, 3}` i `b = {2, 3, 4}`, o ki ta da `a & b`?"
+    kea: "Ku `a = {1, 2, 3}` i `b = {2, 3, 4}`, kuze ki ta da `a & b`?"
   options:
     - text: { kea: "`{2, 3}` — `&` (intersection) ta da elementus ki ta sta na **dos** sets" }
       correct: true
     - text: { kea: "`{1, 2, 3, 4}` — tudu elementus" }
       correct: false
-    - text: { kea: "`{1}` — só o ki ta sta na `a`" }
+    - text: { kea: "`{1}` — só kuze ki ta sta na `a`" }
       correct: false
-    - text: { kea: "`{1, 4}` — o ki ka ta sta na dos" }
+    - text: { kea: "`{1, 4}` — kuze ki ka ta sta na dos" }
       correct: false
 - question:
     kea: "Pamodi un buska `x in meu_set` é más rápidu ki `x in minha_lista` pa kolesons grandi?"
@@ -41,7 +41,7 @@
     - text: { kea: "Es é igual — ka ten diferensa di velosidadi" }
       correct: false
 - question:
-    kea: "O ki ta da `{x for x in range(5) if x % 2 == 0}`?"
+    kea: "Kuze ki ta da `{x for x in range(5) if x % 2 == 0}`?"
   options:
     - text: { kea: "`{0, 2, 4}` — un set comprehension ku só par di 0 a 4" }
       correct: true
@@ -56,7 +56,7 @@
       correct: false
       explain: { kea: "Filtru `if x % 2 == 0` ta dexa só par." }
 - question:
-    kea: "Ku `notas = [15, 18, 15, 12, 18]`, o ki ta da `len(set(notas))`?"
+    kea: "Ku `notas = [15, 18, 15, 12, 18]`, kuze ki ta da `len(set(notas))`?"
   options:
     - text: { kea: "`3` — `set()` ta tira duplikadu, dexandu `{15, 18, 12}`" }
       correct: true

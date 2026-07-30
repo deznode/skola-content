@@ -1,6 +1,6 @@
 # Exercises sidecar (draft source) for lesson m3-18 "Funsons Inkorporadus Úteis".
 # Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
-# content/courses/intro-python/lessons/18-funsoens-inkorporadus/exercises.yaml,
+# content/courses/intro-python/lessons/18-funsons-inkorporadus/exercises.yaml,
 # where scripts/import-content.ts emits it into the `exercises` table;
 # <TentaGosi/> renders them in display order. Keep `slug` stable.
 #
@@ -121,7 +121,7 @@
   kind: explore
   title: { kea: "Splora funsons inkorporadu" }
   prompt:
-    kea: "Python tene dezenas di funsan inkorporadu alén di es — `min`, `max`, `sum`, `reversed`, `abs`, `round`. Odja lista ofisial pa odja tudu o ki bu tene na dispozisan sen importa nada."
+    kea: "Python tene dezenas di funsan inkorporadu alén di es — `min`, `max`, `sum`, `reversed`, `abs`, `round`. Odja lista ofisial pa odja tudu kuze ki bu tene na dispozisan sen importa nada."
   resources:
     kea:
       - { label: "Python docs — Built-in Functions", url: "https://docs.python.org/3/library/functions.html" }

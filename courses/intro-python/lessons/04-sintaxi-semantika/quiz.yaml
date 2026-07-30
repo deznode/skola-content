@@ -8,18 +8,18 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é diferensa entri **syntax** i **semantics**?"
+    kea: "Kual é diferensa entri **syntax** i **semantics**?"
   options:
-    - text: { kea: "Syntax é regra di kumo bu skrebe kódiku; semantics é o ki kódiku ta signifika kuandu el ta kore" }
+    - text: { kea: "Syntax é regra di kumo bu skrebe kódiku; semantics é kuze ki kódiku ta signifika kuandu el ta kore" }
       correct: true
-    - text: { kea: "Syntax é o ki kódiku ta faze; semantics é kumo bu skrebe-l" }
+    - text: { kea: "Syntax é kuze ki kódiku ta faze; semantics é kumo bu skrebe-l" }
       correct: false
     - text: { kea: "Syntax i semantics é dos nomi pa mesmu kuza" }
       correct: false
     - text: { kea: "Syntax é pa Python 3; semantics é pa Python 2" }
       correct: false
 - question:
-    kea: "Bu skrebe `Print(\"Ola\")` ku P maiúskulu. O ki ta kontise?"
+    kea: "Bu skrebe `Print(\"Ola\")` ku P maiúskulu. Kuze ki ta kontise?"
   options:
     - text: { kea: "Un `NameError` — Python é case sensitive, i `Print` ka é mesmu kuza ki `print`" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Ta imprimi `Ola` na maiúskulu: `OLA`" }
       correct: false
 - question:
-    kea: "Na Python, kumo bu ta defini un bloku di kódiku (p.ex. o ki sta dentu di un `if`)?"
+    kea: "Na Python, kumo bu ta defini un bloku di kódiku (p.ex. kuze ki sta dentu di un `if`)?"
   options:
     - text: { kea: "Ku **indentasan** — 4 spasus pa kada nível" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "Ku palavra `end` pa marka fin di bloku" }
       correct: false
 - question:
-    kea: "Bu skrebe `valor = 10` i dipos `valor = \"Mindelo\"`. O ki `type(valor)` ta mostra na fin?"
+    kea: "Bu skrebe `valor = 10` i dipos `valor = \"Mindelo\"`. Kuze ki `type(valor)` ta mostra na fin?"
   options:
     - text: { kea: "`<class 'str'>` — ku dynamic typing, tipu ta muda kuandu bu re-atribui" }
       correct: true

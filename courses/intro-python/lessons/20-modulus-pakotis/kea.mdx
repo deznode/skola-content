@@ -17,11 +17,11 @@ objectives:
 
 # Módulus i Pakotis
 
-Kuandu bu programa ta krési, bu ka pode po tudu na un ficheru só. Python ta permite organiza kódiku na **módulus** (ficheru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
+Kuandu bu programa ta krési, bu ka pode po tudu na un fixeru só. Python ta permite organiza kódiku na **módulus** (fixeru .py individuais) i **pakotis** (pasta ku módulus relasionadu). Alen disso, Python tene un **standard library** enormi ku módulus pronto pa uza — i un ekosistema di milháris di pakotis ki komunidadi kria.
 
-<SectionHeading variant="concept" seq={1}>O ki é un Módulu?</SectionHeading>
+<SectionHeading variant="concept" seq={1}>Kuze ki é un Módulu?</SectionHeading>
 
-Un módulu é simplesmente un ficheru Python (`.py`) ki kontene funsons, klasis, ou variáveis. Kuandu bu faze `import`, bu ta trazi kel kódiku pa bu programa.
+Un módulu é simplesmente un fixeru Python (`.py`) ki kontene funsons, klasis, ou variáveis. Kuandu bu faze `import`, bu ta traze kel kódiku pa bu programa.
 
 ```python
 # Python tene txeu módulus built-in prontu pa uza
@@ -83,7 +83,7 @@ Python tene un **standard library** enormi — módulus ki dja sta instaladu i p
 ```python
 import random
 
-# Numeru interu aleatóriu entre 1 i 10
+# Numeru interu aleatóriu entri 1 i 10
 numeru = random.randint(1, 10)
 print(f"Numeru sórtiadu: {numeru}")
 
@@ -106,15 +106,15 @@ import os
 # Diretóriu atual
 print(os.getcwd())
 
-# Lista ficheru na pasta
+# Lista fixeru na pasta
 ficheros = os.listdir(".")
 print(ficheros)
 
-# Verifica si ficheru ezisti
+# Verifika si fixeru ezisti
 if os.path.exists("notas.txt"):
-    print("Ficheru ezisti!")
+    print("Fixeru ezisti!")
 else:
-    print("Ficheru ka ezisti.")
+    print("Fixeru ka ezisti.")
 
 # Kria pasta nóvu
 os.makedirs("projetu/dadus", exist_ok=True)
@@ -159,7 +159,7 @@ aniversáriu = datetime.strptime("15/01/1973", "%d/%m/%Y")
 print(f"Dia: {aniversáriu.day}, Mes: {aniversáriu.month}")
 ```
 
-Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe ficheru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bu ta prende kada un kuandu bu presiza-l (`csv` ta kombina ku operasons ku ficheru na Lisan 22).
+Es kuatru é un bon ponta di partida. Python tene **mutu más** na standard library — p.ex. `csv` (ler/skrebe fixeru CSV), `re` (expresons regularis), `pathlib` (kaminhus), `sqlite3` (bazi di dadus), i txeu más. Bu ta prende kada un kuandu bu presiza-l (`csv` ta kombina ku operasons ku fixeru na Lisan 22).
 
 :::callout{type=tip}
 Standard library é enormi! Kel li é só un prova. Vizita [docs.python.org/3/library](https://docs.python.org/3/library/) pa esplora tudu módulus disponível.
@@ -200,7 +200,7 @@ Senpri instala pakotis dentu di un **ambiente virtual** (`.venv`). Nos ta prende
 
 <SectionHeading variant="concept" seq={5}>Kria Pakotis Personalizadu</SectionHeading>
 
-Un **pakotu** é un pasta ku un ficheru `__init__.py` (pode ser vazio) i un ou más módulus:
+Un **pakotu** é un pasta ku un fixeru `__init__.py` (pode ser vazio) i un ou más módulus:
 
 ```text
 meu_projetu/
@@ -234,7 +234,7 @@ def konta_palavras(texto):
 ```
 
 ```python
-# utilidadis/__init__.py (podi ser vazio, ou importa kusas prinsipal)
+# utilidadis/__init__.py (pode ser vazio, ou importa kusas prinsipal)
 from .matematika import soma, media
 from .texto import limpa, konta_palavras
 ```
@@ -254,7 +254,7 @@ print(konta_palavras("Nu ta kria djuntu"))  # 4
 
 <SectionHeading variant="concept" seq={6}>Padron `__name__ == "__main__"`</SectionHeading>
 
-Kuandu Python ta roda un ficheru, el ta define `__name__` kumo `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
+Kuandu Python ta roda un fixeru, el ta define `__name__` kumo `"__main__"`. Ma kuandu el é **importadu**, `__name__` é nomi di módulu:
 
 ```python
 # kalkuladora.py
@@ -264,7 +264,7 @@ def soma(a, b):
 def subtrai(a, b):
     return a - b
 
-# Kel bloku só ta roda si kel ficheru é ezekatadu diretu
+# Kel bloku só ta roda si kel fixeru é ezekatadu diretu
 if __name__ == "__main__":
     # Kódiku di testu / demonstrasan
     print("Testandu kalkuladora:")
@@ -277,12 +277,12 @@ if __name__ == "__main__":
 python kalkuladora.py
 # Saída: "Testandu kalkuladora:" + resultadus
 
-# Si bu importa di otu ficheru:
+# Si bu importa di otu fixeru:
 # from kalkuladora import soma  -- bloku if KA ta roda
 ```
 
 :::callout{type=tip}
-Kel padron é perfeitu pa po kódiku di testu ou ezemplus ki só ta roda kuandu bu ezekuta ficheru diretu, ma nau kuandu el é importadu kumo módulu.
+Kel padron é perfeitu pa po kódiku di testu ou ezemplus ki só ta roda kuandu bu ezekuta fixeru diretu, ma nau kuandu el é importadu kumo módulu.
 :::
 
 <SectionHeading variant="concept" seq={7}>Struktura di un Projetu Real</SectionHeading>
@@ -300,7 +300,7 @@ gestor_notas/
 │   ├── nota.py          # Funsan relasionadu ku nota
 │   └── relatoriu.py     # Jera relatórius
 └── dadus/
-    └── notas.csv        # Ficheru di dadus
+    └── notas.csv        # Fixeru di dadus
 ```
 
 <SectionHeading variant="practice">Tenta Gosi</SectionHeading>
@@ -313,10 +313,10 @@ gestor_notas/
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">Organiza projetu na módulus i pakotis ta faze kódiku más fáxi di ler, mantene i reuza — ka po tudu nun ficheru só.</RezumuItem>
-  <RezumuItem term="Módulu">Un ficheru `.py` ku kódiku reutilizável. Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Organiza projetu na módulus i pakotis ta faze kódiku más fáxi di ler, mantene i reuza — ka po tudu nun fixeru só.</RezumuItem>
+  <RezumuItem term="Módulu">Un fixeru `.py` ku kódiku reutilizável. Tres formas di import: `import math`, `from math import sqrt`, `import numpy as np`.</RezumuItem>
   <RezumuItem term="Standard library">Módulus prontu ki ben ku Python: `math`, `random`, `os`, `json`, `csv`, `datetime`, `re`.</RezumuItem>
   <RezumuItem term="pip">`pip install nome_pakotu` pa pakotis di terseru ki ka ben ku Python.</RezumuItem>
   <RezumuItem term="Pakotu">Un pasta ku un `__init__.py` + un ou más módulu.</RezumuItem>
-  <RezumuItem variant="tip" term="Pista">`if __name__ == "__main__":` ta dexa kódiku ki só ta kore kuandu ficheru é izekutadu diretu — perfeitu pa testes ki ka debe kore na import. I evita `from módulu import *`.</RezumuItem>
+  <RezumuItem variant="tip" term="Pista">`if __name__ == "__main__":` ta dexa kódiku ki só ta kore kuandu fixeru é izekutadu diretu — perfeitu pa testes ki ka debe kore na import. I evita `from módulu import *`.</RezumuItem>
 </KeyTakeaways>

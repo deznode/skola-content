@@ -19,7 +19,7 @@
     - text: { kea: "É primeru funsan ki bu ten ki txoma manualmenti" }
       correct: false
 - question:
-    kea: "O ki é `self` nun metodu di klasi?"
+    kea: "Kuze ki é `self` nun metodu di klasi?"
   options:
     - text: { kea: "Un referénsia pa objetu atuál (\"nha\") — Python ta pasa-l automátikamenti kumo primeru parámetru" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Un palavra opsional ki bu pode tira" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri un **klasi** i un **objetu**?"
+    kea: "Kual é diferensa entri un **klasi** i un **objetu**?"
   options:
     - text: { kea: "Klasi é moldi (reseta); objetu é un instánsia real kriadu a partir di klasi (pratu)" }
       correct: true

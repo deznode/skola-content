@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "O ki ta da `7 // 2`?"
+    kea: "Kuze ki ta da `7 // 2`?"
   options:
     - text: { kea: "`3` — `//` é divisan interu, ta tira a parti desimal" }
       correct: true
@@ -19,7 +19,7 @@
     - text: { kea: "`4` — ta aredonda pa riba" }
       correct: false
 - question:
-    kea: "O ki ta imprimi `print(2 + 3 * 4)`?"
+    kea: "Kuze ki ta imprimi `print(2 + 3 * 4)`?"
   options:
     - text: { kea: "`14` — a multiplikasan `*` ta kore antis di a adisan `+` (presedensia)" }
       correct: true
@@ -32,16 +32,16 @@
 - question:
     kea: "Ku operador `and`, kuandu é ki rezultadu é `True`?"
   options:
-    - text: { kea: "Só kuandu **os dos** kondisons é `True`" }
+    - text: { kea: "Só kuandu **kes dos** kondisons é `True`" }
       correct: true
     - text: { kea: "Kuandu **pelu menus un** kondisan é `True`" }
       correct: false
     - text: { kea: "Senpri — `and` ta da senpri `True`" }
       correct: false
-    - text: { kea: "Só kuandu os dos kondisons é `False`" }
+    - text: { kea: "Só kuandu kes dos kondisons é `False`" }
       correct: false
 - question:
-    kea: "O ki ta da `not 5 > 3`?"
+    kea: "Kuze ki ta da `not 5 > 3`?"
   options:
     - text: { kea: "`False` — komparasan ben antis di `not`: `not (5 > 3)` → `not True`" }
       correct: true

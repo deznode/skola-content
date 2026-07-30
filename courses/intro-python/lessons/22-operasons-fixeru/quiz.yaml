@@ -1,6 +1,6 @@
-# Quiz sidecar (draft source) for lesson m3-22 "Operasons ku Ficheru".
+# Quiz sidecar (draft source) for lesson m3-22 "Operasons ku Fixeru".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/22-operasoens-ficheru/quiz.yaml; positions
+# content/courses/intro-python/lessons/22-operasons-fixeru/quiz.yaml; positions
 # 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é diferensa entri abri un ficheru ku modu `\"w\"` i ku modu `\"a\"`?"
+    kea: "Kual é diferensa entri abri un fixeru ku modu `\"w\"` i ku modu `\"a\"`?"
   options:
     - text: { kea: "`\"w\"` ta **apaga** tudu konteúdu ki tinha i kumesa di novu; `\"a\"` ta **adisiona** na fin sen apaga nada" }
       correct: true
@@ -21,22 +21,22 @@
 - question:
     kea: "Pamodi é midjór uza `with open(...) as f:` en bez di `f = open(...)`?"
   options:
-    - text: { kea: "`with` ta **fexa** ficheru automátikamenti kuandu bloku akaba — mesmu si un eru akontese" }
+    - text: { kea: "`with` ta **fexa** fixeru automátikamenti kuandu bloku akaba — mesmu si un eru akontese" }
       correct: true
-    - text: { kea: "`with` é más rápidu pa lé ficheru grandi" }
+    - text: { kea: "`with` é más rápidu pa lé fixeru grandi" }
       correct: false
-    - text: { kea: "`with` ta kria ficheru si el ka izisti" }
+    - text: { kea: "`with` ta kria fixeru si el ka izisti" }
       correct: false
     - text: { kea: "Ka ten diferensa — es é só stilu" }
       correct: false
 - question:
-    kea: "Bu tenta abri un ficheru ku modu `\"r\"` ma ficheru ka izisti. O ki ta kontise?"
+    kea: "Bu tenta abri un fixeru ku modu `\"r\"` ma fixeru ka izisti. Kuze ki ta kontise?"
   options:
-    - text: { kea: "Un `FileNotFoundError` — pa lé, ficheru ten ki izisti (verifika ku `os.path.exists()` antis)" }
+    - text: { kea: "Un `FileNotFoundError` — pa lé, fixeru ten ki izisti (verifika ku `os.path.exists()` antis)" }
       correct: true
-    - text: { kea: "Python ta kria un ficheru vaziu automátikamenti" }
+    - text: { kea: "Python ta kria un fixeru vaziu automátikamenti" }
       correct: false
     - text: { kea: "Ta retorna un string vaziu sen eru" }
       correct: false
-    - text: { kea: "Ta abri ficheru na modu `\"w\"` en bez" }
+    - text: { kea: "Ta abri fixeru na modu `\"w\"` en bez" }
       correct: false

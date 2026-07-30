@@ -1,34 +1,34 @@
 ---
-title: "Operasons ku Ficheru"
+title: "Operasons ku Fixeru"
 language: kea
 courseSlug: intro-python
-lessonSlug: operasoens-ficheru
-slug: "operasoens-ficheru"
+lessonSlug: operasons-fixeru
+slug: "operasons-fixeru"
 module: 3
 lesson: 22
 duration: "25 min"
 objectives:
-  - "Ler konteúdu di ficheru ku modu 'r' i prosesa linha pa linha"
+  - "Ler konteúdu di fixeru ku modu 'r' i prosesa linha pa linha"
   - "Skrebe i adisiona konteúdu ku modus 'w' i 'a'"
-  - "Uza statement with (context manager) pa garanti ki ficheru ta fexá senpri"
-  - "Trabadja ku kaminhu di ficheru uzandu módulu os.path"
+  - "Uza statement with (context manager) pa garanti ki fixeru ta fexá senpri"
+  - "Trabadja ku kaminhu di fixeru uzandu módulu os.path"
 ---
 
-# Operasons ku Ficheru
+# Operasons ku Fixeru
 
-Programas di mundu real presiza guarda dadus — nota di estudantis, lista di klientes, konfigurasan di aplikasan. Tudu es ta vivi na **ficheru** na disku. Na es lisan, nos ta prende kumo ler, skrebe, i adisiona konteúdu na ficherus uzandu Python.
+Programas di mundu real presiza guarda dadus — nota di estudantis, lista di klientes, konfigurasan di aplikasan. Tudu es ta vivi na **fixeru** na disku. Na es lisan, nos ta prende kumo ler, skrebe, i adisiona konteúdu na fixerus uzandu Python.
 
-Imajina ki bu ta kria un programa pa registra vendas na merkadu di Sukupira na Praia. Kada venda presiza fika gravadu nun ficheru pa ka perdi kuandu programa fexá!
+Imajina ki bu ta kria un programa pa registra vendas na merkadu di Sukupira na Praia. Kada venda presiza fika gravadu nun fixeru pa ka perdi kuandu programa fexá!
 
-<SectionHeading variant="concept" seq={1}>Modus di Ficheru</SectionHeading>
+<SectionHeading variant="concept" seq={1}>Modus di Fixeru</SectionHeading>
 
-![Modus di ficheru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-ficheru.jpg)
+![Modus di fixeru: r, w, a, r+, w+, rb, wb](../../infographics/12-modus-di-fixeru.jpg)
 
-Antis di abri un ficheru, bu presiza dizi pa Python **o ki bu kre faze** ku el. Es é modus prinsipais:
+Antis di abri un fixeru, bu presiza dizi pa Python **kuze ki bu kre faze** ku el. Es é modus prinsipais:
 
-| Modu | Signifikadu | Konportamentu |
+| Modu | Signifikadu | Komportamentu |
 |------|-------------|---------------|
-| `'r'` | Read (ler) | Só ler. Ficheru ten ki ezisti |
+| `'r'` | Read (ler) | Só ler. Fixeru ten ki ezisti |
 | `'w'` | Write (skrebe) | Skrebe. **APAGA tudu ki ta existia!** |
 | `'a'` | Append (adisiona) | Adisiona na final. Ka apaga nada |
 | `'w+'` | Write + Read | Skrebe + ler. Apaga i kria novu |
@@ -37,12 +37,12 @@ Antis di abri un ficheru, bu presiza dizi pa Python **o ki bu kre faze** ku el. 
 Modu padran é `'r'`. Si bu ka espesifika nada, Python ta abri pa leitura.
 :::
 
-<SectionHeading variant="concept" seq={2}>Abri i Ler Ficheru</SectionHeading>
+<SectionHeading variant="concept" seq={2}>Abri i Ler Fixeru</SectionHeading>
 
 ### Ler Tudu di un Bez
 
 ```python
-# Ler ficheru interu pa un string
+# Ler fixeru interu pa un string
 with open("notas.txt", "r") as ficheru:
     konteúdu = ficheru.read()
     print(konteúdu)
@@ -50,10 +50,10 @@ with open("notas.txt", "r") as ficheru:
 
 ### Ler Linha pa Linha
 
-Pa ficheru grandi, ler linha pa linha é más efisienti — ka ta karrega tudu pa memória:
+Pa fixeru grandi, ler linha pa linha é más efisienti — ka ta karrega tudu pa memória:
 
 ```python
-# Ler linha pa linha (melhor pa ficheru grandi)
+# Ler linha pa linha (midjór pa fixeru grandi)
 with open("estudantis.txt", "r") as ficheru:
     for linha in ficheru:
         print(linha.strip())  # strip() ta tira \n di final
@@ -72,36 +72,36 @@ with open("ilhas.txt", "r") as ficheru:
 `readlines()` ta mantene `\n` na final di kada linha. Uza `linha.strip()` pa tira.
 :::
 
-<SectionHeading variant="concept" seq={3}>O ki É `with` Statement?</SectionHeading>
+<SectionHeading variant="concept" seq={3}>Kuze ki é `with` Statement?</SectionHeading>
 
-`with` é un **context manager** — el ta garanti ki ficheru ta fexá automátikamenti, mesmu si eru akontesi. É manera seguru di trabadja ku ficheru.
+`with` é un **context manager** — el ta garanti ki fixeru ta fexá automátikamenti, mesmu si eru akontesi. É manera seguru di trabadja ku fixeru.
 
 **Sen `with` (modu antigu — ka rekomendadu):**
 
 ```python
-# PERIGO: si eru akontesi antis di .close(), ficheru fika abertu!
+# PERIGO: si eru akontesi antis di .close(), fixeru fika abertu!
 ficheru = open("dadus.txt", "r")
 konteúdu = ficheru.read()
-ficheru.close()  # Si skise es linha, ficheru fika abertu na memória
+ficheru.close()  # Si skise es linha, fixeru fika abertu na memória
 ```
 
 **Ku `with` (senpri uza es!):**
 
 ```python
-# SEGURU: ficheru ta fexá automátikamenti kuandu bloku akaba
+# SEGURU: fixeru ta fexá automátikamenti kuandu bloku akaba
 with open("dadus.txt", "r") as ficheru:
     konteúdu = ficheru.read()
-# Aki ficheru dja fexá — mesmu si tinha eru!
+# Aki fixeru dja fexá — mesmu si tinha eru!
 ```
 
 Pensa na `with` manera un guarda ki ta abri porta, dixa bu entra, i ta fexá porta kuandu bu sai — mesmu si bu kai la dentu!
 
-<SectionHeading variant="concept" seq={4}>Skrebe na Ficheru</SectionHeading>
+<SectionHeading variant="concept" seq={4}>Skrebe na Fixeru</SectionHeading>
 
 ### Modu `'w'` — Kuidadu! Ta Apaga Tudu!
 
 ```python
-# ATENSAN: 'w' ta apaga tudu ki existia na ficheru!
+# ATENSAN: 'w' ta apaga tudu ki existia na fixeru!
 with open("lista_kompras.txt", "w") as ficheru:
     ficheru.write("Katxupa ingredientis:\n")
     ficheru.write("- Milhu\n")
@@ -116,7 +116,7 @@ with open("lista_kompras.txt", "w") as ficheru:
 ```
 
 :::callout{type=warning}
-Modu `'w'` é manera "apagador" — el ta limpa tudu i kumesa di novu. Si bu kre mantene o ki dja stá, uza `'a'`!
+Modu `'w'` é manera "apagador" — el ta limpa tudu i kumesa di novu. Si bu kre mantene kuze ki dja stá, uza `'a'`!
 :::
 
 ### Modu `'a'` — Adisiona Sen Apaga
@@ -135,7 +135,7 @@ with open("vendas.txt", "a") as ficheru:
 ### Skrebe Múltiplu Linhas di un Bez
 
 ```python
-# writelines() ta skrebi un lista di strings
+# writelines() ta skrebe un lista di strings
 ilhas = ["Santiago\n", "São Vicente\n", "Sal\n", "Santo Antão\n", "Fogo\n"]
 
 with open("ilhas_kv.txt", "w") as ficheru:
@@ -149,14 +149,14 @@ with open("ilhas_kv.txt", "w") as ficheru:
 <SectionHeading variant="concept" seq={5}>(Opsional · avansadu) Modu `'w+'` — Skrebe i Ler (ku seek)</SectionHeading>
 
 :::callout{type=info}
-Es seksan é **opsional** — pa kumesa, trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bu presiza ler i skrebe mesmu ficheru na un só operasan.
+Es seksan é **opsional** — pa kumesa, trez modus `r`/`w`/`a` di riba ta txega. Volta li kuandu bu presiza ler i skrebe mesmu fixeru na un só operasan.
 :::
 
-`'w+'` dixa bu skrebe i dipos ler mesmu ficheru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di ficheru. Bu presiza uza `seek(0)` pa volta pa kumesu!
+`'w+'` dixa bu skrebe i dipos ler mesmu fixeru. Ma tene un armadidja: dipos di skrebe, **kursor ta na final** di fixeru. Bu presiza uza `seek(0)` pa volta pa kumesu!
 
 ```python
 with open("notas_maria.txt", "w+") as ficheru:
-    # Skrebi
+    # Skrebe
     ficheru.write("Matimátika: 85\n")
     ficheru.write("Portugues: 92\n")
     ficheru.write("Istória: 78\n")
@@ -171,9 +171,9 @@ with open("notas_maria.txt", "w+") as ficheru:
     print(f"Ku seek: '{konteúdu}'")  # Mostra tudu!
 ```
 
-<SectionHeading variant="concept" seq={6}>Kaminhu di Ficheru ku `os.path`</SectionHeading>
+<SectionHeading variant="concept" seq={6}>Kaminhu di Fixeru ku `os.path`</SectionHeading>
 
-Kuandu programa ta roda na diferenti sistéma (Windows, macOS, Linux), kaminhus di ficheru é diferenti:
+Kuandu programa ta roda na diferenti sistéma (Windows, macOS, Linux), kaminhus di fixeru é diferenti:
 - Windows: `C:\Users\Maria\documentus\notas.txt`
 - macOS/Linux: `/home/maria/documentus/notas.txt`
 
@@ -188,26 +188,26 @@ print(kaminhu)
 # Windows: documentus\notas\maria.txt
 # macOS/Linux: documentus/notas/maria.txt
 
-# Verifika si ficheru ezisti
+# Verifika si fixeru ezisti
 si_ezisti = os.path.exists("vendas.txt")
-print(f"Ficheru ezisti? {si_ezisti}")
+print(f"Fixeru ezisti? {si_ezisti}")
 
-# Verifika si é ficheru ou pasta
-print(os.path.isfile("vendas.txt"))    # True si é ficheru
+# Verifika si é fixeru ou pasta
+print(os.path.isfile("vendas.txt"))    # True si é fixeru
 print(os.path.isdir("documentus"))     # True si é pasta
 
 # Kaminhu absolutu
 print(os.path.abspath("vendas.txt"))
 # /home/maria/projetu/vendas.txt
 
-# Lista ficheru na un pasta
+# Lista fixeru na un pasta
 fixerus = os.listdir(".")
 print(fixerus)  # ['vendas.txt', 'notas.txt', 'ilhas_kv.txt']
 ```
 
 <SectionHeading variant="concept" seq={7}>Izemplu Prátiku: Rejistu di Vendas</SectionHeading>
 
-Nu ta kria un programa konpletu ki ta registra vendas na un ficheru:
+Nu ta kria un programa kompletu ki ta registra vendas na un fixeru:
 
 ```python
 import os
@@ -215,7 +215,7 @@ import os
 FIXERU_VENDAS = "vendas_sukupira.txt"
 
 def registra_venda(prudotu, presu, kliente):
-    """Adisiona un venda na ficheru"""
+    """Adisiona un venda na fixeru"""
     with open(FIXERU_VENDAS, "a") as ficheru:
         ficheru.write(f"{prudotu} | {presu} ECV | Klienti: {kliente}\n")
     print(f"Venda registradu: {prudotu} pa {kliente}")
@@ -251,12 +251,12 @@ mostra_vendas()
 print(f"Total di vendas: {konta_vendas()}")
 ```
 
-<SectionHeading variant="concept" seq={8}>Izemplu: Kopia Ficheru ku Múltiplu Kontekstus</SectionHeading>
+<SectionHeading variant="concept" seq={8}>Izemplu: Kopia Fixeru ku Múltiplu Kontekstus</SectionHeading>
 
-Bu pode abri dos ficheru na mesmu `with`:
+Bu pode abri dos fixeru na mesmu `with`:
 
 ```python
-# Kopia konteúdu di un ficheru pa otru
+# Kopia konteúdu di un fixeru pa otru
 with open("orijinal.txt", "r") as fonte, open("kopia.txt", "w") as destinu:
     for linha in fonte:
         destinu.write(linha.upper())  # Kopia ku letra maiúskula
@@ -264,12 +264,12 @@ with open("orijinal.txt", "r") as fonte, open("kopia.txt", "w") as destinu:
 print("Kopia feitu!")
 ```
 
-<SectionHeading variant="concept" seq={9}>Erus Kumun ku Ficheru</SectionHeading>
+<SectionHeading variant="concept" seq={9}>Erus Kumun ku Fixeru</SectionHeading>
 
-### 1. FileNotFoundError — Ficheru Ka Ezisti
+### 1. FileNotFoundError — Fixeru Ka Ezisti
 
 ```python
-# Eru: ficheru ka ezisti
+# Eru: fixeru ka ezisti
 with open("ficheru_ki_ka_ezisti.txt", "r") as f:
     konteúdu = f.read()
 # FileNotFoundError: [Errno 2] No such file or directory
@@ -284,13 +284,13 @@ if os.path.exists("vendas.txt"):
     with open("vendas.txt", "r") as f:
         print(f.read())
 else:
-    print("Ficheru inda ka foi kriadu.")
+    print("Fixeru inda ka foi kriadu.")
 ```
 
 ### 2. Modu 'w' Ta Destrui Konteúdu
 
 ```python
-# PERIGO! Es ta apaga tudu ki tinha na ficheru!
+# PERIGO! Es ta apaga tudu ki tinha na fixeru!
 with open("dadus_importanti.txt", "w") as f:
     f.write("Ops...")  # Tudu anteriu ta bai pa senpri!
 ```
@@ -320,10 +320,10 @@ with open("testu.txt", "w+") as f:
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa ficheru automátikamenti, mesmu si un eru akontese.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Senpri uza `with open(...) as f:` — el ta fexa fixeru automátikamenti, mesmu si un eru akontese.</RezumuItem>
   <RezumuItem term="Modus">`"r"` (lé), `"w"` (skrebe — **apaga** tudu!), `"a"` (adisiona na fin), `"w+"` (skrebe + lé).</RezumuItem>
-  <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), ou `for linha in ficheru` (linha pa linha — midjór pa ficheru grandi).</RezumuItem>
+  <RezumuItem term="Lé">`read()` (tudu), `readlines()` (lista), ou `for linha in fixeru` (linha pa linha — midjór pa fixeru grandi).</RezumuItem>
   <RezumuItem term="Skrebe">`write(string)` i `writelines(lista)` — ka ta po `\n` sózin, bu ten ki inkluí-l.</RezumuItem>
-  <RezumuItem term="os.path">`os.path.join()` pa kaminhus kompatível, `os.path.exists()` pa verifika si un ficheru izisti.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Modu `"w"` ta **destrui** tudu konteúdu anteriu — uza `"a"` si bu kre mantene-l. I `"r"` nun ficheru ki ka izisti ta da `FileNotFoundError`.</RezumuItem>
+  <RezumuItem term="os.path">`os.path.join()` pa kaminhus kompatível, `os.path.exists()` pa verifika si un fixeru izisti.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Modu `"w"` ta **destrui** tudu konteúdu anteriu — uza `"a"` si bu kre mantene-l. I `"r"` nun fixeru ki ka izisti ta da `FileNotFoundError`.</RezumuItem>
 </KeyTakeaways>

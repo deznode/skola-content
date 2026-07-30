@@ -8,18 +8,18 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é diferensa entri `lista.sort()` i `sorted(lista)`?"
+    kea: "Kual é diferensa entri `lista.sort()` i `sorted(lista)`?"
   options:
     - text: { kea: "`.sort()` ta ordena lista orijinal in-place (ta retorna `None`); `sorted()` ta retorna un lista nova sen toka na orijinal" }
       correct: true
-    - text: { kea: "Es é igual — os dos ta retorna un lista nova" }
+    - text: { kea: "Es é igual — kes dos ta retorna un lista nova" }
       correct: false
     - text: { kea: "`.sort()` ta retorna un lista nova; `sorted()` ta muda orijinal" }
       correct: false
     - text: { kea: "`sorted()` só ta funsiona ku númerus" }
       correct: false
 - question:
-    kea: "O ki ta da `[n for n in range(1, 11) if n % 2 == 0]`?"
+    kea: "Kuze ki ta da `[n for n in range(1, 11) if n % 2 == 0]`?"
   options:
     - text: { kea: "`[2, 4, 6, 8, 10]` — só númerus par di 1 a 10" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "`[2, 4, 6, 8, 10, 12]` — par di 1 a 11" }
       correct: false
 - question:
-    kea: "Bu tene `frutas = [\"manga\", \"papaia\"]` i bu kore `frutas[1:] = \"koku\"`. O ki ta kontise?"
+    kea: "Bu tene `frutas = [\"manga\", \"papaia\"]` i bu kore `frutas[1:] = \"koku\"`. Kuze ki ta kontise?"
   options:
     - text: { kea: "`frutas` ta vira `[\"manga\", \"k\", \"o\", \"k\", \"u\"]` — slice assignment ku string ta spredi karater; uza `[\"koku\"]`" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "Nada ta muda — string é imutável" }
       correct: false
 - question:
-    kea: "Ku `ilhas = [\"Santiago\", \"São Vicente\", \"Sal\", \"Fogo\", \"Santo Antão\"]`, o ki ta da `ilhas[1:4:2]`?"
+    kea: "Ku `ilhas = [\"Santiago\", \"São Vicente\", \"Sal\", \"Fogo\", \"Santo Antão\"]`, kuze ki ta da `ilhas[1:4:2]`?"
   options:
     - text: { kea: "`['São Vicente', 'Fogo']` — kumesa na índisi 1, para antis di 4, di dos en dos" }
       correct: true

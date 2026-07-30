@@ -71,7 +71,7 @@ print(ilhas[1:3])  # ('São Vicente', 'Sal')
 # ilhas[0] = "Maio"
 # TypeError: 'tuple' object does not support item assignment
 
-# Tanbe ka podi adisiona ou remove
+# Tanbe ka pode adisiona ou remove
 # ilhas.append("Brava")
 # AttributeError: 'tuple' object has no attribute 'append'
 ```
@@ -80,7 +80,7 @@ print(ilhas[1:3])  # ('São Vicente', 'Sal')
 # Si bu presiza muda, konverti pa lista, muda, i konverti di volta
 ilhas = ("Santiago", "São Vicente", "Sal", "Fogo")
 lista_ilhas = list(ilhas)       # Konverti pa lista
-lista_ilhas.append("Brava")    # Gosi podi muda
+lista_ilhas.append("Brava")    # Gosi pode muda
 ilhas = tuple(lista_ilhas)     # Konverti di volta
 print(ilhas)  # ('Santiago', 'São Vicente', 'Sal', 'Fogo', 'Brava')
 ```
@@ -96,9 +96,9 @@ notas = (85, 92, 78, 95, 88, 92, 85, 92)
 print(notas.count(92))   # 3
 print(notas.count(100))  # 0
 
-# index() — enkontra pozisan di primeiru okorrénsia
+# index() — enkontra pozisan di primeru okorrénsia
 print(notas.index(95))   # 3
-print(notas.index(92))   # 1 (primeiru, ka últimu)
+print(notas.index(92))   # 1 (primeru, ka últimu)
 ```
 
 ```python
@@ -148,7 +148,7 @@ pessoa = "Cesária", 78, "São Vicente"
 print(pessoa)        # ('Cesária', 78, 'São Vicente')
 print(type(pessoa))  # <class 'tuple'>
 
-# Funson ta retorna múltiplus valores (na verdadi é tuple!)
+# Funsan ta retorna múltiplus valores (na verdadi é tuple!)
 def kalkula_estatistika(notas):
     return min(notas), max(notas), sum(notas) / len(notas)
 
@@ -166,7 +166,7 @@ print(nomi)    # João
 print(idadi)   # 25
 print(sidadi)  # Praia
 
-# Unpacking diretu di funson
+# Unpacking diretu di funsan
 minima, maxima, media = kalkula_estatistika([85, 92, 78, 95, 88])
 print(f"Mín: {minima}, Máx: {maxima}, Média: {media:.1f}")
 # Mín: 78, Máx: 95, Média: 87.6
@@ -192,18 +192,18 @@ Kuandu bu ka sabe ezatamenti kantu elementus tene, uza `*` pa pega restu:
 ```python
 numeros = (1, 2, 3, 4, 5, 6, 7, 8)
 
-# Primeiru i restu
+# Primeru i restu
 primeiru, *restu = numeros
 print(primeiru)  # 1
 print(restu)     # [2, 3, 4, 5, 6, 7, 8] (nota: é lista!)
 
-# Primeiru, últimu, i meiu
+# Primeru, últimu, i meiu
 primeiru, *meiu, ultimu = numeros
 print(primeiru)  # 1
 print(meiu)      # [2, 3, 4, 5, 6, 7]
 print(ultimu)    # 8
 
-# Dos primeiru i restu
+# Dos primeru i restu
 a, b, *restu = numeros
 print(a)      # 1
 print(b)      # 2
@@ -211,7 +211,7 @@ print(restu)  # [3, 4, 5, 6, 7, 8]
 ```
 
 ```python
-# Ezemplu prátiku: Prosesa dados di estudanti
+# Izemplu prátiku: Prosesa dados di estudanti
 rejistru = ("Edna", "edna@email.cv", 85, 92, 78, 95, 88)
 
 nomi, email, *notas = rejistru
@@ -262,7 +262,7 @@ for nomi, lat, lon in sidadis:
 | Bu presiza metodus kumo sort/append | — | Lista tene más metodus |
 
 ```python
-# Tuple kumo key di disionáriu (lista ka podi!)
+# Tuple kumo key di disionáriu (lista ka pode!)
 distansia = {
     ("Praia", "Mindelo"): 295,
     ("Praia", "Sal"): 200,

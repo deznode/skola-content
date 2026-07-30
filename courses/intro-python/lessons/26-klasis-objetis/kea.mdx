@@ -21,7 +21,7 @@ Imajina un formadur di biskoitu (cookie-cutter) — un formatu di metal ki bu ta
 Na programasan, **klasi** é kumo formadur di biskoitu: un moldi ki ta deskrebe kumo un kuza debe ser strutura — kuzê atributu el ten, kuzê el pode faze. **Objetu** é kel ki bu ta kria a parti di klasi — un instánsia real, ku si dadus própriu. Bu pode uza mesmu klasi (mesmu formadur) pa kria txeu objetu diferenti (txeu biskoitu), kada un ku si própriu valor — mesmu kumo bu pode korta 10 biskoitu di mesmu massa, kada un separadu di otu.
 
 :::callout{type=tip}
-Es metáfora tene un limiti: formadur di biskoitu ta fika fixu i separadu di kuza ki el ta kria. Ma un klasi na Python é diferenti — el é própriu **tipu** di objetu na runtime (`type(objetu)` ta retorna klasi mesmu), i bu pode inspesiona ô muda klasi dinamikamenti — kuza ki un formadur real ka pode faze ku si biskoitus.
+Es metáfora tene un limiti: formadur di biskoitu ta fika fixu i separadu di kuza ki el ta kria. Ma un klasi na Python é diferenti — el é própriu **tipu** di objetu na runtime (`type(objetu)` ta retorna klasi mesmu), i bu pode inspesiona ou muda klasi dinamikamenti — kuza ki un formadur real ka pode faze ku si biskoitus.
 :::
 
 <SectionHeading variant="concept" seq={1}>Kria Klasi ku `class`</SectionHeading>
@@ -73,9 +73,9 @@ print(maria.idadi)   # 25
 `__init__` ka é teknikamenti "kria" objetu — Python ta kria el primeru, dipos `__init__` ta inisializa si atributus. Nomi `__init__` signifika "initialize" (inisializa).
 :::
 
-<SectionHeading variant="concept" seq={3}>`self` — O ki é?</SectionHeading>
+<SectionHeading variant="concept" seq={3}>`self` — Kuze ki é?</SectionHeading>
 
-Kada objetu kriadu a parti di un klasi é kumo un biskoitu spesífiku, kortadu di mesmu formadur ki nu uza pa klasi. Ma kuandu un biskoitu meste "fala" di si mesmu — pa guarda ô lê si própriu valor — el meste un manera di dize: "ami, kel biskoitu li spesífiku, ka kualker otu."
+Kada objetu kriadu a parti di un klasi é kumo un biskoitu spesífiku, kortadu di mesmu formadur ki nu uza pa klasi. Ma kuandu un biskoitu meste "fala" di si mesmu — pa guarda ou le si própriu valor — el meste un manera di dize: "ami, kel biskoitu li spesífiku, ka kualker otu."
 
 Na Python, kel referénsia ta txomadu `self`; na Kotlin, Java i txeu otu lingua, `this`. Kuandu bu skrebe `self.nomi = nomi`, é kumo si objetu staba ta dize "**nha** nomi (di mi, kel instánsia li) é kel valor":
 
@@ -99,7 +99,7 @@ kelvin = Estudanti("Kelvin", "Medisina")
 ```
 
 ```python
-# ERU KOMUN: skese di 'self' kumo primeiru parámetru
+# ERU KOMUN: skese di 'self' kumo primeru parámetru
 class Mal:
     def __init__(nomi):  # ← falta self!
         nomi = nomi      # ← isu ka ta guarda nada na objetu!
@@ -221,7 +221,7 @@ print(terenu.deskrebe())    # Retángulu 20x15 (área: 300 m²)
 
 <SectionHeading variant="concept" seq={6}>Izemplu Prátiku: Konta Bankáriu</SectionHeading>
 
-Nu ta kria un klasi `KontaBankáriu` konpletu ku depózitu, levantamentu, i estrátu:
+Nu ta kria un klasi `KontaBankáriu` kompletu ku depózitu, levantamentu, i estrátu:
 
 ```python
 class KontaBankáriu:
@@ -296,7 +296,7 @@ konta_maria = KontaBankáriu("Maria", 50000)
 konta_pedro = KontaBankáriu("Pedro", 30000)
 konta_nando = KontaBankáriu("Nando", 75000)
 
-# Operasons na un konta ka ta afeta otrus
+# Operasons na un konta ka ta afeta otus
 konta_maria.depozita(10000)   # Maria: 60000 ECV
 konta_pedro.levanta(5000)     # Pedro: 25000 ECV
 konta_nando.depozita(20000)   # Nando: 95000 ECV
@@ -308,7 +308,7 @@ print(f"Nando: {konta_nando.sáldu} ECV")   # Nando: 95000 ECV
 ```
 
 ```python
-# Más un ezemplu: Lista di estudantis
+# Más un izemplu: Lista di estudantis
 class Estudanti:
     def __init__(self, nomi, ilha, nota):
         self.nomi = nomi

@@ -37,9 +37,9 @@
   kind: code
   title: { kea: "Kria un módulu conversor" }
   prompt:
-    kea: "Kria un ficheru `conversor.py` ku funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu ficheru, importa-s i testa."
+    kea: "Kria un fixeru `conversor.py` ku funsons `ecv_pa_euro(montanti)` i `euro_pa_ecv(montanti)` (taxa: `1 EUR = 110.265 ECV`). Nun otu fixeru, importa-s i testa."
   hint:
-    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu ficheru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Aredonda rezultadu ku `round(..., 2)`."
+    kea: "`ecv_pa_euro` ta divide pa 110.265; `euro_pa_ecv` ta multiplika. Nun otu fixeru: `from conversor import ecv_pa_euro, euro_pa_ecv`. Aredonda rezultadu ku `round(..., 2)`."
   starterCode: |
     # conversor.py
     TAXA = 110.265
@@ -50,7 +50,7 @@
     def euro_pa_ecv(montanti):
         ...  # TODO
 
-    # --- main.py (otu ficheru) ---
+    # --- main.py (otu fixeru) ---
     # from conversor import ecv_pa_euro, euro_pa_ecv
   solutionCode: |
     # conversor.py
@@ -62,7 +62,7 @@
     def euro_pa_ecv(montanti):
         return round(montanti * TAXA, 2)
 
-    # --- main.py (otu ficheru) ---
+    # --- main.py (otu fixeru) ---
     # from conversor import ecv_pa_euro, euro_pa_ecv
     # print(ecv_pa_euro(5000))   # 45.35
     # print(euro_pa_ecv(45))     # 4961.93
@@ -110,7 +110,7 @@
   kind: explore
   title: { kea: "Splora standard library" }
   prompt:
-    kea: "Standard library di Python é enormi — `math`, `random`, `os`, `json`, `csv`, `datetime`, `re` é só un prova. Odja referensia ofisial pa odja tudu o ki ben ku Python sen instala nada."
+    kea: "Standard library di Python é enormi — `math`, `random`, `os`, `json`, `csv`, `datetime`, `re` é só un prova. Odja referensia ofisial pa odja tudu kuze ki ben ku Python sen instala nada."
   resources:
     kea:
       - { label: "Python docs — The Python Standard Library", url: "https://docs.python.org/3/library/" }
@@ -120,6 +120,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `__name__ == \"__main__\"`" }
   prompt:
-    kea: "Bloku `if __name__ == \"__main__\":` só ta kore kuandu ficheru é izekutadu diretu, ka kuandu é importadu. Pensa nun módulu ki bu kreba kria (p.ex. `conversor.py`). Skrebe o ki bu ta po dentu di kel bloku, i pamodi el ka debe kore na import."
+    kea: "Bloku `if __name__ == \"__main__\":` só ta kore kuandu fixeru é izekutadu diretu, ka kuandu é importadu. Pensa nun módulu ki bu kreba kria (p.ex. `conversor.py`). Skrebe kuze ki bu ta po dentu di kel bloku, i pamodi el ka debe kore na import."
   notePlaceholder:
-    kea: "Módulu: …   ·   O ki ta entra na bloku __main__: …   ·   Pamodi ka debe kore na import: …"
+    kea: "Módulu: …   ·   Kuze ki ta entra na bloku __main__: …   ·   Pamodi ka debe kore na import: …"

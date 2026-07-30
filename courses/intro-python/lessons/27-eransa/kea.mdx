@@ -17,9 +17,9 @@ objectives:
 
 Imajina un árvori genealójika: Telma tene odjus kastanhu di se mai, i altura di se pai — el ka presiza "inventa" kes karakterístikas di zero, es ven di se família. Ma Telma inda tene se própriu trasus únikus: se manera di skrebe kódigu, se sensu di umor.
 
-Na programasan, **eransa** ta funsiona parecidu: un **klasi filhu** (child class / subclass) ta erda tudu atributus i métodus di un **klasi pai** (parent class / superclass), i inda pode adisiona se própriu kuza ou muda kel ki erda. Termus "klasi pai" i "klasi filhu" ben mesmu di es imaji di família — é vokabuláriu standard na kuazi tudu lingua di programasan (Python, Java, Kotlin, JavaScript).
+Na programasan, **eransa** ta funsiona paresidu: un **klasi filhu** (child class / subclass) ta erda tudu atributus i metodus di un **klasi pai** (parent class / superclass), i inda pode adisiona se própriu kuza ou muda kel ki erda. Termus "klasi pai" i "klasi filhu" ben mesmu di es imaji di família — é vokabuláriu standard na kuazi tudu lingua di programasan (Python, Java, Kotlin, JavaScript).
 
-Ma tene un diferensa importanti ki metáfora ka kobri: eransa biolójiku é probabilístiku — trasus ta mistura ô ta pula jerasan, kada filhu sai diferenti di se irmon. Eransa di klasi é determinístiku i totál — un klasi filhu ta risebe kópia exatu i kompletu di **tudu** atributu i metodu di se klasi pai, sen exsesan nen mistura, a menus ki el sobreskrebe algu spesífiku (bu ta beja isu na próximu sekson).
+Ma tene un diferensa importanti ki metáfora ka kobri: eransa biolójiku é probabilístiku — trasus ta mistura ou ta salta jerasan, kada filhu sai diferenti di se irmon. Eransa di klasi é determinístiku i totál — un klasi filhu ta risebe kópia exatu i kompletu di **tudu** atributu i metodu di se klasi pai, sen exsesan nen mistura, a menus ki el sobreskrebe algu spesífiku (bu ta beja isu na próximu seksan).
 
 <SectionHeading variant="concept" seq={1}>Eransa Simples</SectionHeading>
 
@@ -99,7 +99,7 @@ print(taxi_praia.deskrebe())  # Toyota Hilux (2020) — Taxi Lisensa: TX-1234 (Z
 ```
 
 ```python
-# Más un ezemplu: Veíkulu elétriku
+# Más un izemplu: Veíkulu elétriku
 class ViatúraElétrika(Viatúra):
     def __init__(self, marka, modelu, anu, bateria_kwh):
         super().__init__(marka, modelu, anu)
@@ -116,7 +116,7 @@ class ViatúraElétrika(Viatúra):
         if self.karga_atuál > 0:
             print(f"⚡ {self.marka} {self.modelu} ta ligá silensiozamenti...")
         else:
-            print(f"🪫 Bateria váziu! Karega primeiru.")
+            print(f"🪫 Bateria váziu! Karega primeru.")
 
 evu = ViatúraElétrika("BYD", "Dolphin", 2025, 60)
 evu.liga()       # ⚡ BYD Dolphin ta ligá silensiozamenti...
@@ -129,7 +129,7 @@ evu.karega()     # 🔋 BYD Dolphin karegadu! Bateria: 60 kWh
 
 <SectionHeading variant="concept" seq={3}>Izemplu Prátiku: Sistema di Trabadjoris</SectionHeading>
 
-Nu ta kria un sistema ierárkiku pa un enpresa na Praia. Un klasi bazi `Trabadjor` ta guarda o ki tudu trabadjor tene en komun; kada tipu di trabadjor ta **erda** di el i ta **sobreskrebe** `apresenta()`:
+Nu ta kria un sistema ierárkiku pa un enpresa na Praia. Un klasi bazi `Trabadjor` ta guarda kuze ki tudu trabadjor tene en komun; kada tipu di trabadjor ta **erda** di el i ta **sobreskrebe** `apresenta()`:
 
 ```python
 class Trabadjor:
@@ -222,7 +222,7 @@ for t in trabadjoris:
 #     Saláriu anuál: 1,170,000 ECV
 ```
 
-Kada klasi filhu ta erda `saláriu_anuál()` sen repeti-l, i kada un ta **sobreskrebe** `apresenta()` pa mostra o ki é spesífiku di el. Isu é eransa simples na prátika: reuza o ki é komun, personaliza o ki é diferenti.
+Kada klasi filhu ta erda `saláriu_anuál()` sen repeti-l, i kada un ta **sobreskrebe** `apresenta()` pa mostra kuze ki é spesífiku di el. Isu é eransa simples na prátika: reuza kuze ki é komun, personaliza kuze ki é diferenti.
 
 :::callout{type=note}
 Eransa inda tene más: **eransa múltiplu** (un klasi ku vários pai), **MRO** (orden di buska di metodus) i `isinstance()`. Nóta ma eransa múltiplu ka tene analojia biolójiku klaru — diferenti di dos pais umanu, un klasi pode erda di vários "pai" ó nível, sen mistura probabilístiku nengun. Pa gosi, foka na eransa di **un só** pai ku `super()` — dipos nu ta ba más lonji.
@@ -239,6 +239,6 @@ Eransa inda tene más: **eransa múltiplu** (un klasi ku vários pai), **MRO** (
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Eransa">`class Filhu(Pai):` ta erda tudu atributu i metodu di pai — reuza kódiku sen repetisan.</RezumuItem>
-  <RezumuItem term="super()">Ta txoma konstrutor (ou un metodu) di pai — bu adisiona só o ki é novu.</RezumuItem>
+  <RezumuItem term="super()">Ta txoma konstrutor (ou un metodu) di pai — bu adisiona só kuze ki é novu.</RezumuItem>
   <RezumuItem variant="tip" term="Sobreskrita (override)">Bu pode **sobreskrebe** un metodu na filhu pa mudá komportamentu erdadu — i inda txoma versan di pai ku `super().metodu()`.</RezumuItem>
 </KeyTakeaways>

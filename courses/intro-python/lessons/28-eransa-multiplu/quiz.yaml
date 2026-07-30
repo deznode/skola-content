@@ -19,7 +19,7 @@
     - text: { kea: "`super().__init__()` repetidu un bez pa kada pai" }
       correct: false
 - question:
-    kea: "Pa `class D(B, C)`, unde os dos B i C erda di A, kual é orden di buska (MRO)?"
+    kea: "Pa `class D(B, C)`, unde kes dos B i C erda di A, kual é orden di buska (MRO)?"
   options:
     - text: { kea: "`D → B → C → A → object` — kada klasi antis di ses pai, i A (kompartilhadu) dipos di B i C" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Orden é aleatóriu" }
       correct: false
 - question:
-    kea: "Bu tene `class Taxi(Viatúra)` i `taxi = Taxi()`. O ki ta da `isinstance(taxi, Viatúra)`?"
+    kea: "Bu tene `class Taxi(Viatúra)` i `taxi = Taxi()`. Kuze ki ta da `isinstance(taxi, Viatúra)`?"
   options:
     - text: { kea: "`True` — grasas a eransa, un `Taxi` é tanbé un `Viatúra`" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "`True` só si `Taxi` ka definí `__init__`" }
       correct: false
 - question:
-    kea: "Ku `class Taxi(Viatúra)`, o ki `issubclass(Taxi, Viatúra)` ta da?"
+    kea: "Ku `class Taxi(Viatúra)`, kuze ki `issubclass(Taxi, Viatúra)` ta da?"
   options:
     - text: { kea: "`True` — `Taxi` é un subklasi (filhu) di `Viatúra`" }
       correct: true

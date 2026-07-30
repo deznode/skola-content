@@ -30,7 +30,7 @@
     - text: { kea: "`yield` só pode ser uzadu un bez pa funsan" }
       correct: false
 - question:
-    kea: "Bu itera un generator interu nun `for` loop, dipos bu tenta itera-l di nóvu. O ki ta kontise?"
+    kea: "Bu itera un generator interu nun `for` loop, dipos bu tenta itera-l di nóvu. Kuze ki ta kontise?"
   options:
     - text: { kea: "Sigundu loop ka ta produz nada — un generator é **un-bez-só**; pa itera di nóvu, kria un novu generator" }
       correct: true

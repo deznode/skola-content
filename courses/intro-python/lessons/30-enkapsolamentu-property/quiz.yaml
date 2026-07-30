@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Na konvensan di Python, o ki ta signifika un atributu ku **dos** underscore (`self.__saldu`)?"
+    kea: "Na konvensan di Python, kuze ki ta signifika un atributu ku **dos** underscore (`self.__saldu`)?"
   options:
     - text: { kea: "Privadu — Python ta aplika name mangling pa protejé-l kontra asésu asidentál di fora" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "Ta kria un novu objetu di klasi" }
       correct: false
 - question:
-    kea: "Bu tene un `@property` `area` sen un `.setter`. O ki ta kontise si bu faze `forma.area = 100`?"
+    kea: "Bu tene un `@property` `area` sen un `.setter`. Kuze ki ta kontise si bu faze `forma.area = 100`?"
   options:
     - text: { kea: "Un `AttributeError` — sen un setter, property é **só-leitura**" }
       correct: true

@@ -17,11 +17,11 @@ objectives:
 
 # Ambiente Virtual i pip
 
-Imajina bu é un trabadjadur ki ta faze txeu tipu di trabadju diferenti — un dia bu ta konsertá bisikleta, otu dia bu ta konsertá kanudu di iagu. Si bu mistura tudu ferramenta na un kaxa sô, bu ta kaba ku kunfundi kal ferramenta é pa kal trabadju — ô peor: un ferramenta di un trabadju pode danifika otu.
+Imajina bu é un trabadjadur ki ta faze txeu tipu di trabadju diferenti — un dia bu ta konsertá bisikleta, otu dia bu ta konsertá kanudu di iagu. Si bu mistura tudu ferramenta na un kaxa sô, bu ta kaba ku kunfundi kual ferramenta é pa kual trabadju — ou peor: un ferramenta di un trabadju pode danifika otu.
 
-**Ambientis virtual** na Python é kumo tene un **kaxa di ferramenta separadu** pa kada projetu. Kada kaxa (ambienti) tene sô-l pakotis (bibliotékas) ki kel projetu spesífiku meste, na versoens sertu — sen mistura ku pakotis di otu projetu, i sen risku di un projetu "kebra" otu pamodi versoens diferenti.
+**Ambientis virtual** na Python é kumo tene un **kaxa di ferramenta separadu** pa kada projetu. Kada kaxa (ambienti) tene sô-l pakotis (bibliotékas) ki kel projetu spesífiku meste, na versons sertu — sen mistura ku pakotis di otu projetu, i sen risku di un projetu "kebra" otu pamodi versons diferenti.
 
-Ma tene un diferénsa importanti ku un kaxa di ferramenta real: kaxa normal tene ferramenta fixu — ô martelu sta la, ô ka sta. Un ambienti virtual ta guarda más ki kel — el ta guarda **kal versan** di kada ferramenta. Projetu A pode meste `requests` versan 2.28, Projetu B kel mesmu pakotu `requests` má versan 2.31 — mesmu ferramenta, versoens diferenti, kada un na se própriu kaxa. I un ambienti virtual ka é un ofisina interu separadu ku se própriu motor: el ka ta kopia Python interu pa kada projetu — el é sô un pasta di bibliotékas apontadu pa un interpretador Python, ki alges bes é kompartidu ku otus ambientis. I diferente di un kaxa di ferramenta ki bu pode leba pa kualker lugar, un ambienti virtual sta gruda na se kaminhu exatu na disku: si bu move ô rinomia pasta di projetu, el ta kéba.
+Ma tene un diferénsa importanti ku un kaxa di ferramenta real: kaxa normal tene ferramenta fixu — ou martelu sta la, ou ka sta. Un ambienti virtual ta guarda más ki kel — el ta guarda **kual versan** di kada ferramenta. Projetu A pode meste `requests` versan 2.28, Projetu B kel mesmu pakotu `requests` má versan 2.31 — mesmu ferramenta, versons diferenti, kada un na se própriu kaxa. I un ambienti virtual ka é un ofisina interu separadu ku se própriu motor: el ka ta kopia Python interu pa kada projetu — el é sô un pasta di bibliotékas apontadu pa un interpretador Python, ki alges bez é kompartidu ku otus ambientis. I diferenti di un kaxa di ferramenta ki bu pode leba pa kualker lugar, un ambienti virtual sta gruda na se kaminhu exatu na disku: si bu move ou rinomia pasta di projetu, el ta kéba.
 
 <SectionHeading variant="concept" seq={1}>Pamodi Ambientis Virtual É Esensial?</SectionHeading>
 
@@ -59,7 +59,7 @@ Sen ambiente virtual, tudu pakotu ki bu instala ta bai pa un lugar global — pa
 <SectionHeading variant="concept" seq={2}>Fluxu Kompletu: Kria → Ativa → Instala → Freeze</SectionHeading>
 
 :::callout{type=info}
-Bu dja kria un `.venv` na **Lisan 02** — entun Pasu 1–2 li é un **rekapitulasan rápidu**. O ki é nóvu nes lisan ben más baxu: `freeze`, partilha ku otu pesoa, i `.gitignore`.
+Bu dja kria un `.venv` na **Lisan 02** — entun Pasu 1–2 li é un **rekapitulasan rápidu**. Kuze ki é nóvu nes lisan ben más baxu: `freeze`, partilha ku otu pesoa, i `.gitignore`.
 :::
 
 ### Pasu 1: Kria Ambiente Virtual
@@ -110,7 +110,7 @@ Si bu ta uza VS Code, el ta deteta `.venv` automatikamenti i ta pidi pa selesion
 (.venv) $ pip install flask
 (.venv) $ pip install python-dotenv
 
-# Verifica ki ta instaladu
+# Verifika ki ta instaladu
 (.venv) $ pip list
 Package        Version
 -------------- -------
@@ -124,11 +124,11 @@ requests       2.31.0
 ### Pasu 4: Jera requirements.txt
 
 ```bash
-# "Freeze" tudu pakotu i ses versan pa un ficheru
+# "Freeze" tudu pakotu i ses versan pa un fixeru
 (.venv) $ pip freeze > requirements.txt
 ```
 
-Kel ficheru `requirements.txt` ta parsé ku kel li:
+Kel fixeru `requirements.txt` ta parsé ku kel li:
 
 ```text
 certifi==2024.2.2
@@ -169,12 +169,12 @@ python main.py
 ```
 
 :::callout{type=tip}
-`pip install -r requirements.txt` ta ler kel ficheru i instala tudu pakotu listadu, ku versan exatu. É kumo un "lista di ferramenta" pa bu projetu — garantia ki tudu pesoa ta uza mesmu ferramenta, na mesmu versan.
+`pip install -r requirements.txt` ta ler kel fixeru i instala tudu pakotu listadu, ku versan exatu. É kumo un "lista di ferramenta" pa bu projetu — garantia ki tudu pesoa ta uza mesmu ferramenta, na mesmu versan.
 :::
 
 <SectionHeading variant="concept" seq={4}>.gitignore: Nunka Manda .venv pa Git!</SectionHeading>
 
-Pasta `.venv/` tene miláris di ficheru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka debe bai pa git**:
+Pasta `.venv/` tene miláris di fixeru (Python interu + pakotis). El é **spesífiku** pa kada komputador i **ka debe bai pa git**:
 
 ```bash
 # .gitignore
@@ -238,7 +238,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```bash
 # Si bu instala pakotu nóvu, atualiza requirements.txt!
 pip install beautifulsoup4
-pip freeze > requirements.txt   # Re-jera ficheru
+pip freeze > requirements.txt   # Re-jera fixeru
 ```
 
 <SectionHeading variant="concept" seq={6}>Fluxu Rezmidu (Txeat Sheet)</SectionHeading>

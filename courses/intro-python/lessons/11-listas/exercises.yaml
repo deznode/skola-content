@@ -113,7 +113,7 @@
   kind: explore
   title: { kea: "Splora tudu os metodus di lista" }
   prompt:
-    kea: "Lista tene más metodus alén di es (kumo `.extend()`, `.copy()`, `.sort(key=...)`). Odja dokumentason ofisial pa odja o ki más izisti i kumo ordena ku un xavi personalizadu."
+    kea: "Lista tene más metodus alén di es (kumo `.extend()`, `.copy()`, `.sort(key=...)`). Odja dokumentason ofisial pa odja kuze ki más izisti i kumo ordena ku un xavi personalizadu."
   resources:
     kea:
       - { label: "Python docs — More on Lists (metodus)", url: "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" }
@@ -132,6 +132,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `.sort()` versus `sorted()`" }
   prompt:
-    kea: "`lista.sort()` ta muda lista orijinal (in-place) i ta retorna `None`; `sorted(lista)` ta da un lista nova i ka ta toka na orijinal. Skrebe nun kazu unde bu ta uza kada un, i o ki ta kontise si bu faze `x = lista.sort()`."
+    kea: "`lista.sort()` ta muda lista orijinal (in-place) i ta retorna `None`; `sorted(lista)` ta da un lista nova i ka ta toka na orijinal. Skrebe nun kazu unde bu ta uza kada un, i kuze ki ta kontise si bu faze `x = lista.sort()`."
   notePlaceholder:
-    kea: "Kazu pa .sort(): …   ·   Kazu pa sorted(): …   ·   O ki `x = lista.sort()` ta da (i pamodi): …"
+    kea: "Kazu pa .sort(): …   ·   Kazu pa sorted(): …   ·   Kuze ki `x = lista.sort()` ta da (i pamodi): …"

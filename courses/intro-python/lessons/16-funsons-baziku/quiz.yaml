@@ -1,6 +1,6 @@
 # Quiz sidecar (draft source) for lesson m3-16 "Funsons Báziku".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/16-funsoens-baziku/quiz.yaml; positions
+# content/courses/intro-python/lessons/16-funsons-baziku/quiz.yaml; positions
 # 0,1,2,3 correspond to <Quiz position={N}/> markers in kea.mdx (FOUR quizzes).
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Un funsan ta uza `print(a + b)` ma sen `return`. O ki ta da `x = funsan(3, 4)`?"
+    kea: "Un funsan ta uza `print(a + b)` ma sen `return`. Kuze ki ta da `x = funsan(3, 4)`?"
   options:
     - text: { kea: "`x` ta vira `None` — funsan ta mostra `7` na ekran, ma ka ta **retorna** nada" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Ka ten eru — `def f(a=5, b)` é válidu" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri `*args` i `**kwargs`?"
+    kea: "Kual é diferensa entri `*args` i `**kwargs`?"
   options:
     - text: { kea: "`*args` ta apanha argumentu pozisionál kumo un tuple; `**kwargs` ta apanha nomiadu kumo un disionáriu" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "`*args` ta apanha un dict; `**kwargs` ta apanha un tuple" }
       correct: false
 - question:
-    kea: "O ki é **obrigatóriu** nun funsan rekursiva pa el ka kore pa senpri?"
+    kea: "Kuze ki é **obrigatóriu** nun funsan rekursiva pa el ka kore pa senpri?"
   options:
     - text: { kea: "Un **kazu bazi** — un kondisan ki ta para rekursan; sen el, Python ta da `RecursionError`" }
       correct: true

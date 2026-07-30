@@ -18,7 +18,7 @@
   prompt:
     kea: "Kria dos set ku letra di dos palavra (p.ex. `\"katxupa\"` i `\"funana\"`). Mostra letra ki dos ta partilha (intersection `&`) i letra ki só un di es tene (symmetric difference `^`)."
   hint:
-    kea: "`set(\"katxupa\")` ta da un set di letra úniku. `&` ta da o ki ta sta na dos; `^` ta da o ki ta sta nun ou notu, ma **ka** na dos."
+    kea: "`set(\"katxupa\")` ta da un set di letra úniku. `&` ta da kuze ki ta sta na dos; `^` ta da kuze ki ta sta nun ou notu, ma **ka** na dos."
   starterCode: |
     # letras.py
     a = set("katxupa")
@@ -68,14 +68,14 @@
   prompt:
     kea: "Kria dos playlist kumo set di nomi di múzika. Mostra: tudu múzika kombinadu (union `|`), múzika ki ta sta na dos (intersection `&`), i múzika ki só ta sta na playlist 1 (difference `-`)."
   hint:
-    kea: "`p1 | p2` é union (tudu); `p1 & p2` é intersection (na dos); `p1 - p2` é o ki ta sta na `p1` ma **ka** na `p2`."
+    kea: "`p1 | p2` é union (tudu); `p1 & p2` é intersection (na dos); `p1 - p2` é kuze ki ta sta na `p1` ma **ka** na `p2`."
   starterCode: |
     # playlist.py
     p1 = {"Sodade", "Petit Pays", "Nha Cretcheu", "Tunuka"}
     p2 = {"Petit Pays", "Tunuka", "Bna", "Nôs Morna"}
 
     # TODO: union (tudu)
-    # TODO: intersection (na os dos)
+    # TODO: intersection (na kes dos)
     # TODO: só na p1
   solutionCode: |
     # playlist.py
@@ -83,7 +83,7 @@
     p2 = {"Petit Pays", "Tunuka", "Bna", "Nôs Morna"}
 
     print(f"Tudu (|):      {p1 | p2}")
-    print(f"Na os dos (&): {p1 & p2}")
+    print(f"Na kes dos (&): {p1 & p2}")
     print(f"Só na p1 (-):  {p1 - p2}")
 - slug: set-comprehension-vogais
   language: python

@@ -62,7 +62,7 @@
   prompt:
     kea: "A partir di un klasi `KontaBankáriu` (ku `titulár` i `saldu`), kria `KontaPoupansa` (ku un taxa di juros ki un metodu `aplika_juros()` ta aplika) i `KontaKorrenti` (ku un `limiti_dezkobertu`). Uza `super().__init__()`."
   hint:
-    kea: "Na filhu, txoma `super().__init__(titulár, saldu)` primeru, dipos guarda atributu novu. `aplika_juros` ta faze `self.saldu += self.saldu * self.taxa`. `KontaKorrenti` pode levanta até `saldu + limiti_dezkobertu`."
+    kea: "Na filhu, txoma `super().__init__(titulár, saldu)` primeru, dipos guarda atributu novu. `aplika_juros` ta faze `self.saldu += self.saldu * self.taxa`. `KontaKorrenti` pode levanta te `saldu + limiti_dezkobertu`."
   starterCode: |
     # kontas.py
     class KontaBankáriu:
@@ -113,6 +113,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `super()` i sobreskrita" }
   prompt:
-    kea: "`super().__init__()` ta dexa filhu reuza kódiku di pai sen repeti-l. Pensa nun par di klasi (pai i filhu) ki bu kreba kria. Skrebe o ki pai ta da, o ki filhu ta adisiona, i un metodu ki filhu ta **sobreskrebe** pa mudá komportamentu."
+    kea: "`super().__init__()` ta dexa filhu reuza kódiku di pai sen repeti-l. Pensa nun par di klasi (pai i filhu) ki bu kreba kria. Skrebe kuze ki pai ta da, kuze ki filhu ta adisiona, i un metodu ki filhu ta **sobreskrebe** pa mudá komportamentu."
   notePlaceholder:
-    kea: "Pai: …   ·   Filhu (o ki adisiona): …   ·   Metodu sobreskrebedu: …"
+    kea: "Pai: …   ·   Filhu (kuze ki adisiona): …   ·   Metodu sobreskrebedu: …"

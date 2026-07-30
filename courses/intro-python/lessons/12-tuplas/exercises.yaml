@@ -120,7 +120,7 @@
   kind: explore
   title: { kea: "Splora namedtuple" }
   prompt:
-    kea: "Kuandu un tuple ten txeu kampu, é fásil skese o ki é `v[3]`. `collections.namedtuple` ta dexa-bu da nomi pa kada kampu (`voo.presu` en bez di `voo[3]`). Odja dokumentason."
+    kea: "Kuandu un tuple ten txeu kampu, é fásil skese kuze ki é `v[3]`. `collections.namedtuple` ta dexa-bu da nomi pa kada kampu (`voo.presu` en bez di `voo[3]`). Odja dokumentason."
   resources:
     kea:
       - { label: "Python docs — collections.namedtuple", url: "https://docs.python.org/3/library/collections.html#collections.namedtuple" }

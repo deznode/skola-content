@@ -37,7 +37,7 @@ tarefas = []
 tarefas.append("Studu Python kapítulu 3")
 tarefas.append("Kunpra material pa skola")
 tarefas.append("Manda emali pa profesóra")
-tarefas.append("Fazi ezersísiu di matemátika")
+tarefas.append("Faze ezersísiu di matemátika")
 
 print("📋 Lista di tarefa:")
 for i, tarefa in enumerate(tarefas, 1):
@@ -45,15 +45,15 @@ for i, tarefa in enumerate(tarefas, 1):
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Dipos di kuatru `.append()`, o ki `len(tarefas)` ta da? *(Resposta: `4`.)*
+Dipos di kuatru `.append()`, kuze ki `len(tarefas)` ta da? *(Resposta: `4`.)*
 :::
 
 ```python
-# Marka tarefa kumo konpletadu (elimina)
+# Marka tarefa kumo kompletadu (elimina)
 tarefa_feitu = "Kunpra material pa skola"
 if tarefa_feitu in tarefas:
     tarefas.remove(tarefa_feitu)
-    print(f"\n✅ Konpletadu: '{tarefa_feitu}'")
+    print(f"\n✅ Kompletadu: '{tarefa_feitu}'")
 
 # Djunta tarefa urjenti na komésu
 tarefas.insert(0, "Entrega projetu final ODJE!")
@@ -67,7 +67,7 @@ print(f"\nTotal di tarefas pendenti: {len(tarefas)}")
 ```
 
 ```python
-# Versan más konpletu ku prioridadi
+# Versan más kompletu ku prioridadi
 tarefas_ku_prioridadi = [
     ("Entrega projetu final", "alta"),
     ("Studu Python", "média"),
@@ -93,7 +93,7 @@ Pa notas nu ta uza un **lista** di númeru — asi nu pode aplika funsons built-
 :::
 
 ```python
-# Notas di Maria na diferentes matérias
+# Notas di Maria na diferenti matérias
 nomis_materia = ["Python", "Matemátika", "Inglés", "Istória", "Fizika"]
 notas_maria = [17, 14, 16, 12, 15]
 
@@ -109,7 +109,7 @@ print(f"  Nota más baxu: {nota_min}")
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Ku `notas_maria = [17, 14, 16, 12, 15]`, o ki `sum(notas_maria) / len(notas_maria)` ta da? *(Resposta: `74 / 5 = 14.8`.)*
+Ku `notas_maria = [17, 14, 16, 12, 15]`, kuze ki `sum(notas_maria) / len(notas_maria)` ta da? *(Resposta: `74 / 5 = 14.8`.)*
 :::
 
 :::callout{type=info title="Pa frenti: funsons (Módulu 3)"}
@@ -293,7 +293,7 @@ print(f"Palavras ki ta repeti: {repetidus}")
 ```
 
 ```python
-# Senáriu 3: Verifica intersesan -- ki klientis ta kunpra na ambos lojas?
+# Senáriu 3: Verifika intersesan -- ki klientis ta kunpra na ambos lojas?
 klients_loja_praia = {"Maria", "João", "Ana", "Nilton", "Edna", "Carla"}
 klients_loja_mindelo = {"Pedro", "Ana", "Gil", "Nilton", "Lara", "Nuno"}
 
@@ -308,7 +308,7 @@ print(f"Klientis só na Praia: {klients_so_praia}")
 
 <SectionHeading variant="concept" seq={5}>Izemplu Final: Kombina Tudu Estruturas</SectionHeading>
 
-Gosi nu ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolve un problema más konpleksu — un sistema di jestan di evento kultural:
+Gosi nu ta uza **listas, tuplas, disionárius i sets** djuntu pa rezolve un problema más kompleksu — un sistema di jestan di evento kultural:
 
 ```python
 # 🎵 Sistema di Jestan di Festival di Músika na Praia
@@ -403,6 +403,6 @@ Na dúvida, pensa asim: "Nha dadus tene nomi?" (dict). "Nha dadus pode repeti?" 
   <RezumuItem term="Lista">Ideal pa dadus **ordenadu** ku modifikasan — tarefas, notas, registrus. Ta kombina ku `sum`, `max`, `min`, `sorted`, `len`.</RezumuItem>
   <RezumuItem term="Disionáriu">Midjór pa mapia **xavi → valor** ku buska rápidu — inventáriu, konfigurasan.</RezumuItem>
   <RezumuItem term="Set">Ta rezolve elegante problema di duplikasan i pertensa.</RezumuItem>
-  <RezumuItem>Problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa o ki el ta faze midjór.</RezumuItem>
+  <RezumuItem>Problema real ta presiza kuazi senpri un **kombinasan** di estruturas — uza kada un pa kuze ki el ta faze midjór.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">Pa perkore dos lista djuntu, uza `range(len(...))` ku índisi; pa konta frekuénsia, uza padrun `.get(xavi, 0) + 1` (Lisan 13).</RezumuItem>
 </KeyTakeaways>

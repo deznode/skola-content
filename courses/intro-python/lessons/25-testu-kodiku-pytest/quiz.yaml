@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "O ki ta kontise kuandu un `assert` faya (kondisan é `False`)?"
+    kea: "Kuze ki ta kontise kuandu un `assert` faya (kondisan é `False`)?"
   options:
     - text: { kea: "Python ta lansa un `AssertionError` — testu faya" }
       correct: true
@@ -19,15 +19,15 @@
     - text: { kea: "Ta retorna `False` di funsan" }
       correct: false
 - question:
-    kea: "Kumo pytest ta diskubri testu na un ficheru?"
+    kea: "Kumo pytest ta diskubri testu na un fixeru?"
   options:
-    - text: { kea: "Ficheru kumesa ku `test_` (ou akaba ku `_test.py`) i funsan kumesa ku `test_`" }
+    - text: { kea: "Fixeru kumesa ku `test_` (ou akaba ku `_test.py`) i funsan kumesa ku `test_`" }
       correct: true
-    - text: { kea: "Tudu funsan na ficheru é un testu" }
+    - text: { kea: "Tudu funsan na fixeru é un testu" }
       correct: false
     - text: { kea: "Só funsan ku un dekorador `@test`" }
       correct: false
-    - text: { kea: "Bu ten ki lista kada testu nun ficheru di konfigurasan" }
+    - text: { kea: "Bu ten ki lista kada testu nun fixeru di konfigurasan" }
       correct: false
 - question:
     kea: "Kumo bu ta testa ki un funsan **debe** lansa un `ValueError`?"

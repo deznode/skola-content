@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Bu tene `saudasan = \"ola\"` i bu kore `saudasan.upper()`. Dipos, `print(saudasan)` ta mostra o ki?"
+    kea: "Bu tene `saudasan = \"ola\"` i bu kore `saudasan.upper()`. Dipos, `print(saudasan)` ta mostra kuze ki?"
   options:
     - text: { kea: "`ola` — string é imutável; `.upper()` ta retorna un string novu, ma ka ta muda original" }
       correct: true
@@ -19,7 +19,7 @@
     - text: { kea: "`Ola` — só primeru letra ta vira maiúskula" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri `.find(\"x\")` i `.index(\"x\")` kuandu `\"x\"` **ka ta atxa** na string?"
+    kea: "Kual é diferensa entri `.find(\"x\")` i `.index(\"x\")` kuandu `\"x\"` **ka ta atxa** na string?"
   options:
     - text: { kea: "`.find()` ta retorna `-1`; `.index()` ta lansa un `ValueError`" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "`.find()` ta lansa un eru; `.index()` ta retorna `0`" }
       correct: false
 - question:
-    kea: "O ki ta da `\"Edna\"[::-1]`?"
+    kea: "Kuze ki ta da `\"Edna\"[::-1]`?"
   options:
     - text: { kea: "`\"andE\"` — step `-1` ta inverti string" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "Un `IndexError` — `-1` é fora di rangu" }
       correct: false
 - question:
-    kea: "Bu tene `presu = 850`. O ki ta da `print(f\"Presu: {presu * 1.15:.2f}\")`?"
+    kea: "Bu tene `presu = 850`. Kuze ki ta da `print(f\"Presu: {presu * 1.15:.2f}\")`?"
   options:
     - text: { kea: "`Presu: 977.50` — expresan ta kalkula i `:.2f` ta aredonda pa 2 kazas desimal" }
       correct: true

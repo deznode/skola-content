@@ -1,5 +1,5 @@
 slug: intro-python
-title: Introdusan Konpletu a Python
+title: Introdusan Kompletu a Python
 level: beginner
 category: programming
 duration_minutes: 700
@@ -7,7 +7,7 @@ instructor: Joaquim Costa
 image_url: cover.jpg
 translations:
   kea:
-    title: "Introdusan Konpletu a Python"
+    title: "Introdusan Kompletu a Python"
     description: Aprendi Python di zero a intermediáriu. Kel kursu ta ensiná-bu fundamentus di programasan, estruturas di dadus, funsons, fixeru, i programasan orientadu a objetu.
     prerequisites: Ninhun konhesimentu préviu nesesáriu
     outcomes: |
@@ -55,15 +55,15 @@ modules:
         languages: [kea]
       - slug: kazus-real
         languages: [kea]
-  - slug: funsoens-i-operasoens-ku-ficheru
+  - slug: funsons-i-operasons-ku-fixeru
     title:
-      kea: Funsoens i Operasoens ku Ficheru
+      kea: Funsons i Operasons ku Fixeru
     lessons:
-      - slug: funsoens-baziku
+      - slug: funsons-baziku
         languages: [kea]
       - slug: lambda-map-filter
         languages: [kea]
-      - slug: funsoens-inkorporadus
+      - slug: funsons-inkorporadus
         languages: [kea]
       - slug: jeneradoris
         languages: [kea]
@@ -71,11 +71,11 @@ modules:
         languages: [kea]
       - slug: ambiente-virtual
         languages: [kea]
-      - slug: operasoens-ficheru
+      - slug: operasons-fixeru
         languages: [kea]
       - slug: tratamentu-eru
         languages: [kea]
-      - slug: annotasoens-tipu
+      - slug: annotasons-tipu
         languages: [kea]
       - slug: testu-kodiku-pytest
         languages: [kea]

@@ -19,7 +19,7 @@
     - text: { kea: "Só bloku `else`, si el izisti" }
       correct: false
 - question:
-    kea: "O ki ta faze `status = \"adultu\" if idadi >= 18 else \"menor\"`?"
+    kea: "Kuze ki ta faze `status = \"adultu\" if idadi >= 18 else \"menor\"`?"
   options:
     - text: { kea: "Ta da `\"adultu\"` pa `status` si `idadi >= 18`, senan `\"menor\"` — é un ternary operator (if nun linha)" }
       correct: true

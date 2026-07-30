@@ -9,7 +9,7 @@
 # pre-split lesson. A native Kriolu reviewer must approve/rewrite wording
 # before publish. languages_enabled = ["kea"] only.
 - question:
-    kea: "Bu tene `class Taxi(Viatúra): pass`. O ki `Taxi` ta erda di `Viatúra`?"
+    kea: "Bu tene `class Taxi(Viatúra): pass`. Kuze ki `Taxi` ta erda di `Viatúra`?"
   options:
     - text: { kea: "Tudu atributu i metodu (`__init__`, `liga()`, `deskrebe()`) — mésmu sen kódiku novu" }
       correct: true
@@ -20,7 +20,7 @@
     - text: { kea: "Só `__init__`" }
       correct: false
 - question:
-    kea: "`Taxi` ta sobreskrebe `deskrebe()` i ta txoma `super().deskrebe()`. O ki `taxi.deskrebe()` ta returna?"
+    kea: "`Taxi` ta sobreskrebe `deskrebe()` i ta txoma `super().deskrebe()`. Kuze ki `taxi.deskrebe()` ta returna?"
   options:
     - text: { kea: "Versan di pai + a parti novu: `Toyota Hilux (2020) — Taxi Lisensa: TX-1234 (Zona: Praia)`" }
       correct: true

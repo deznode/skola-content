@@ -18,7 +18,7 @@
   prompt:
     kea: "Kria un klasi abstratu `Veikulu` ku metodu abstratu `liga()` i `acelera()`. Dipos kria `Karu`, `Motu` i `Barku` ki ta implementa-s di manera diferenti. Testa ku un lista di veíkulu (polimorfismu)."
   hint:
-    kea: "`from abc import ABC, abstractmethod`; `class Veikulu(ABC):` ku `@abstractmethod` riba di `liga` i `acelera`. Kada filhu **ten ki** implementa os dos, senan ka pode ser kriadu. Un loop ta txoma `v.liga()` pa kada un."
+    kea: "`from abc import ABC, abstractmethod`; `class Veikulu(ABC):` ku `@abstractmethod` riba di `liga` i `acelera`. Kada filhu **ten ki** implementa kes dos, senan ka pode ser kriadu. Un loop ta txoma `v.liga()` pa kada un."
   starterCode: |
     # veikulu.py
     from abc import ABC, abstractmethod
@@ -30,7 +30,7 @@
         @abstractmethod
         def acelera(self): ...
 
-    # TODO: Karu, Motu, Barku ki implementa os dos metodu
+    # TODO: Karu, Motu, Barku ki implementa kes dos metodu
     # TODO: lista di veíkulu, tudu liga i acelera
   solutionCode: |
     # veikulu.py
@@ -210,6 +210,6 @@
   kind: reflect
   title: { kea: "Refleta sobri funsons polimórfiku" }
   prompt:
-    kea: "Un funsan polimórfiku (kumo `manda_pa_tudu`) ka liga pa tipu konkretu — el só ta uza interfasi (metodu). Pensa nun funsan ki bu kreba skrebe asin. Skrebe ki metodu interfasi ta tene, i o ki ta kontise kuandu bu djunta un novu tipu (funsan ta muda?)."
+    kea: "Un funsan polimórfiku (kumo `manda_pa_tudu`) ka liga pa tipu konkretu — el só ta uza interfasi (metodu). Pensa nun funsan ki bu kreba skrebe asin. Skrebe ki metodu interfasi ta tene, i kuze ki ta kontise kuandu bu djunta un novu tipu (funsan ta muda?)."
   notePlaceholder:
-    kea: "Funsan polimórfiku: …   ·   Interfasi (metodu): …   ·   O ki ta kontise ku un novu tipu: …"
+    kea: "Funsan polimórfiku: …   ·   Interfasi (metodu): …   ·   Kuze ki ta kontise ku un novu tipu: …"

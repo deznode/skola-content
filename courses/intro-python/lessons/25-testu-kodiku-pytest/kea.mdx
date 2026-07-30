@@ -8,14 +8,14 @@ module: 3
 lesson: 25
 duration: "15 min"
 objectives:
-  - "Skrebe funsons di testu ku assert pa verifika konportamentu di kódiku"
+  - "Skrebe funsons di testu ku assert pa verifika komportamentu di kódiku"
   - "Roda testus ku pytest i interpreta rezultadus"
   - "Aplika siklu test-driven: testu → implementa → verifika"
 ---
 
 # Testu di Kódiku ku pytest
 
-Imajina ki Carla ta kria un programa pa kalkula presu di katxupa na si restoranti na Mindelo. Programa ta funsiona perfeitu — até ki ela muda un funsan i, sen sabi, kebra kálkulu di diskonto. Klientis ta paga más di ki devia durante un semana interu antis di algen nota!
+Imajina ki Carla ta kria un programa pa kalkula presu di katxupa na si restoranti na Mindelo. Programa ta funsiona perfeitu — te ki ela muda un funsan i, sen sabi, kebra kálkulu di diskonto. Klientis ta paga más di ki devia durante un semana interu antis di algen nota!
 
 **Testus** ta evita es tipo di problema. É kódiku ki ta verifika ki bu otru kódiku ta funsiona koretu — automátikamenti, tudu bez ki bu kre.
 
@@ -23,7 +23,7 @@ Imajina ki Carla ta kria un programa pa kalkula presu di katxupa na si restorant
 
 - **Kaptura bugs** antis di uzuáriu atxa
 - **Konfiansa pa muda kódiku** — si testus ta pasa, nada ka ta kebra
-- **Dokumentasan viva** — testus ta mostra kumo funsan debe konportá
+- **Dokumentasan viva** — testus ta mostra kumo funsan debe komportá
 - **Ta poupa tempu** — midjór testu automátiku na 1 segundu ki testu manuál na 5 minutu
 
 <SectionHeading variant="concept" seq={2}>assert — Funsamentu di Tudu Testu</SectionHeading>
@@ -56,7 +56,7 @@ pytest --version
 
 <SectionHeading variant="concept" seq={4}>Primeru Testu</SectionHeading>
 
-Nu ta kria un funsan i testa el. Primeru, nos kria un ficheru ku funsan:
+Nu ta kria un funsan i testa el. Primeru, nos kria un fixeru ku funsan:
 
 **`kalkuladora.py`:**
 
@@ -80,7 +80,7 @@ def dividi(a: float, b: float) -> float | None:
     return a / b
 ```
 
-Gosi, kria un ficheru di testu. **Regra importanti:** nomi ten ki kumesa ku `test_` ou akaba ku `_test.py`:
+Gosi, kria un fixeru di testu. **Regra importanti:** nomi ten ki kumesa ku `test_` ou akaba ku `_test.py`:
 
 **`test_kalkuladora.py`:**
 
@@ -149,7 +149,7 @@ pytest -v
 
 <SectionHeading variant="concept" seq={6}>Kuandu Testu Fayo</SectionHeading>
 
-Nu ta introduzi un bug pa odja o ki akontesi:
+Nu ta introduzi un bug pa odja kuze ki akontesi:
 
 ```python
 # Bug proposital na kalkuladora.py
@@ -177,8 +177,8 @@ pytest -v
 
 pytest ta mostra:
 - **Unde** fayo (fixeru + funsan di testu)
-- **O ki** esperava (`== 5`)
-- **O ki** resebeu (`6`)
+- **Kuze ki** esperava (`== 5`)
+- **Kuze ki** resebeu (`6`)
 - **Kemu** ta txoma (`soma(2, 3)`)
 
 Es informasan ta leva bu direitamenti pa bug!
@@ -198,13 +198,13 @@ def fatoriál(n: int) -> int:
         return 1
     return n * fatoriál(n - 1)
 
-def é_palindromu(tekstu: str) -> bool:
+def e_palindromu(tekstu: str) -> bool:
     """Verifika si tekstu é un palíndromu"""
     limpu = tekstu.lower().replace(" ", "")
     return limpu == limpu[::-1]
 
 def konverti_temperatura(valór: float, di: str, pa: str) -> float | None:
-    """Konverti entre Celsius, Fahrenheit, i Kelvin"""
+    """Konverti entri Celsius, Fahrenheit, i Kelvin"""
     di = di.upper()
     pa = pa.upper()
 
@@ -235,7 +235,7 @@ def konverti_temperatura(valór: float, di: str, pa: str) -> float | None:
 
 ```python
 import pytest
-from utils import fatoriál, é_palindromu, konverti_temperatura
+from utils import fatoriál, e_palindromu, konverti_temperatura
 
 # === Testus di fatoriál ===
 
@@ -256,22 +256,22 @@ def test_fatoriál_negativu_da_erru():
     with pytest.raises(ValueError):
         fatoriál(-1)
 
-# === Testus di é_palindromu ===
+# === Testus di e_palindromu ===
 
 def test_palindromu_simples():
-    assert é_palindromu("ana") is True
-    assert é_palindromu("ovo") is True
+    assert e_palindromu("ana") is True
+    assert e_palindromu("ovo") is True
 
 def test_palindromu_ku_maiúskula():
-    assert é_palindromu("Ana") is True
-    assert é_palindromu("Ovo") is True
+    assert e_palindromu("Ana") is True
+    assert e_palindromu("Ovo") is True
 
 def test_palindromu_ku_espasu():
-    assert é_palindromu("o vo") is True
+    assert e_palindromu("o vo") is True
 
 def test_ka_palindromu():
-    assert é_palindromu("maria") is False
-    assert é_palindromu("python") is False
+    assert e_palindromu("maria") is False
+    assert e_palindromu("python") is False
 
 # === Testus di konverti_temperatura ===
 
@@ -384,12 +384,12 @@ pytest test_validador.py -v
 | Regra | Izemplu |
 |-------|---------|
 | Fixeru kumesa ku `test_` | `test_kalkuladora.py` |
-| Ficheru akaba ku `_test.py` | `kalkuladora_test.py` |
+| Fixeru akaba ku `_test.py` | `kalkuladora_test.py` |
 | Funsan di testu kumesa ku `test_` | `def test_soma():` |
 | Nomi deskritivi | `test_soma_ku_numerus_negativu` |
 
 :::callout{type=tip}
-Nomi di testu debe dizi **o ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.
+Nomi di testu debe dizi **kuze ki ta testa** i **rezultadu speradu**. `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.
 :::
 
 <SectionHeading variant="concept" seq={10}>Struktura di Projetu ku Testus</SectionHeading>
@@ -430,7 +430,7 @@ nha_projetu/
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Regra di oru">Testus é un investimentu — más tempu gosi, mutu menus bugs dipos. Si testu ta pasa, bu pode muda kódiku ku konfiansa.</RezumuItem>
   <RezumuItem term="assert">Ta verifika ki un kondisan é verdaderu; si ka é, ta lansa `AssertionError` i testu faya.</RezumuItem>
-  <RezumuItem term="pytest">Ta diskubri i kore tudu funsan `test_*` sózin. Ficheru `test_*.py`; funsan `def test_*()`. Roda ku `pytest` ou `pytest -v`.</RezumuItem>
+  <RezumuItem term="pytest">Ta diskubri i kore tudu funsan `test_*` sózin. Fixeru `test_*.py`; funsan `def test_*()`. Roda ku `pytest` ou `pytest -v`.</RezumuItem>
   <RezumuItem term="pytest.raises">`with pytest.raises(Error):` ta testa ki un funsan **debe** lansa un exseson espesífiku.</RezumuItem>
   <RezumuItem term="TDD">Skrebe testu primeru → implementa mínimu pa pasa → verifika → repeti.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">Nomi di testu deskritivu ta sirbi kumo dokumentasan: `test_dividi_por_zero_retorna_none` é mutu midjór ki `test_1`.</RezumuItem>

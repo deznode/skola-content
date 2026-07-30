@@ -22,9 +22,9 @@ Saida esperadu:
 def e_primu(numeru: int) -> bool:
     """Retorna True si numeru é primu, False si nau."""
     # TODO 1: Numeru menor ki 2 ka é primu
-    # TODO 2: Uza loop di 2 até numeru pa verifica si ten divisor
+    # TODO 2: Uza loop di 2 te numeru pa verifica si ten divisor
     # Dika: si numeru % i == 0, e ka é primu
-    # Bónus: bo só presiza verifica até raiz quadrada di numeru
+    # Bónus: bo só presiza verifica te raiz quadrada di numeru
     pass
 
 

@@ -1,4 +1,4 @@
-# Exercises sidecar (draft source) for lesson m1-01 "O ki é Python".
+# Exercises sidecar (draft source) for lesson m1-01 "Kuze ki é Python".
 # Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
 # content/courses/intro-python/lessons/01-o-ki-e-python/exercises.yaml, where
 # scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>

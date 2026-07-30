@@ -64,7 +64,7 @@ class MúzikuKompletu(Artista, Kompozitor):
         print(f"{'='*40}\n")
 
 
-# Kria un múziku konpletu
+# Kria un múziku kompletu
 cesaria = MúzikuKompletu("Cesária Évora", "Morna", "Voz", 50)
 cesaria.atua()                         # 🎤 Cesária Évora ta atua Morna!
 cesaria.kompoe("Mar Azul")             # 🎼 Kompozisan #51: 'Mar Azul'
@@ -118,7 +118,7 @@ Repara: `A` ta aparese **un só bez**, mésmu ki `B` i `C` tudu dos erda di el �
 :::
 
 ```python
-# Ezemplu prátiku di MRO ku kultura CV
+# Izemplu prátiku di MRO ku kultura CV
 class Morabeza:
     def kualidadi(self):
         return "Morabeza (ospitalidadi)"
@@ -131,7 +131,7 @@ class Kaboverdianu(Morabeza, Kriativdadi):
     pass  # Erda di dos
 
 kv = Kaboverdianu()
-print(kv.kualidadi())   # Morabeza (ospitalidadi)  ← Morabeza ven primeiru
+print(kv.kualidadi())   # Morabeza (ospitalidadi)  ← Morabeza ven primeru
 
 # Pa ve orden di buska
 for klasi in Kaboverdianu.__mro__:
@@ -164,12 +164,12 @@ class Autokaru(Viatúra):
 taxi = Taxi()
 bus = Autokaru()
 
-# isinstance() — verifica si objetu é instánsia di un klasi
+# isinstance() — verifika si objetu é instánsia di un klasi
 print(isinstance(taxi, Taxi))      # True — taxi É un Taxi
 print(isinstance(taxi, Viatúra))    # True — taxi TAMBÉN é un Viatúra (erdansa!)
 print(isinstance(taxi, Autokaru))  # False — taxi KA é un Autokaru
 
-# issubclass() — verifica si un klasi é filhu di otru
+# issubclass() — verifika si un klasi é filhu di otru
 print(issubclass(Taxi, Viatúra))      # True — Taxi é filhu di Viatúra
 print(issubclass(Autokaru, Viatúra))  # True — Autokaru é filhu di Viatúra
 print(issubclass(Taxi, Autokaru))    # False — Taxi ka é filhu di Autokaru

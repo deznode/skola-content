@@ -12,7 +12,7 @@
   options:
     - text: { kea: "Pa tenta un kódiku i, si el da un eru, trata-l grasiozamenti en bez di programa para" }
       correct: true
-    - text: { kea: "Pa repeti un kódiku até el funsiona" }
+    - text: { kea: "Pa repeti un kódiku te el funsiona" }
       correct: false
     - text: { kea: "Pa konverti un valor di un tipu pa otu" }
       correct: false
@@ -30,7 +30,7 @@
     - text: { kea: "Más kurtu primeru" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri bloku `else` i `finally` nun try/except?"
+    kea: "Kual é diferensa entri bloku `else` i `finally` nun try/except?"
   options:
     - text: { kea: "`else` só ta kore si `try` ka teve eru; `finally` ta kore **senpri** (ku eru ou sen eru)" }
       correct: true

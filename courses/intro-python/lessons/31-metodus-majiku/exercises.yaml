@@ -184,6 +184,6 @@
   kind: reflect
   title: { kea: "Refleta sobri __str__ versus __repr__" }
   prompt:
-    kea: "`__str__` é pa utilizador (bonitu); `__repr__` é pa programador (detalhadu, pa rekria objetu). Pensa nun klasi ki bu kreba kria. Skrebe o ki `__str__` ta mostra i o ki `__repr__` ta mostra, i pamodi un lista di objetu ta uza `__repr__`."
+    kea: "`__str__` é pa utilizador (bonitu); `__repr__` é pa programador (detalhadu, pa rekria objetu). Pensa nun klasi ki bu kreba kria. Skrebe kuze ki `__str__` ta mostra i kuze ki `__repr__` ta mostra, i pamodi un lista di objetu ta uza `__repr__`."
   notePlaceholder:
     kea: "Klasi: …   ·   __str__ (pa utilizador): …   ·   __repr__ (pa programador): …"

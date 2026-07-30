@@ -1,4 +1,4 @@
-# Quiz sidecar (draft source) for lesson m1-01 "O ki é Python".
+# Quiz sidecar (draft source) for lesson m1-01 "Kuze ki é Python".
 # Draft-canonical per ADR-0026. Publish copies this to
 # content/courses/intro-python/lessons/01-o-ki-e-python/quiz.yaml; positions
 # 0,1,2 correspond to <Quiz position={N}/> markers in kea.mdx.
@@ -7,7 +7,7 @@
 # pick. It gives the reason only — the right/wrong verdict comes from the status
 # line — so it reads naturally on both correct and incorrect picks.
 - question:
-    kea: "Kual di kes karakterístika li é un di razons ki ta faze Python tan popular?"
+    kea: "Kual di kes karakterístika li é un di razons ki ta faze Python popular?"
     en: "Which of these is one of the reasons Python is so popular?"
   options:
     - text: { kea: "El ta funsiona só na Windows", en: "It only runs on Windows" }
@@ -18,7 +18,7 @@
     - text: { kea: "Sintaxi faxi di ler, ki ta paresi ku inglés simples", en: "Easy-to-read syntax, close to plain English" }
       correct: true
       explain:
-        kea: "Sintaxi limpu i fáxi di ler é un di razons prinsipal pa Python ser tan popular."
+        kea: "Sintaxi limpu i fáxi di ler é un di razons prinsipal pa Python ser popular."
         en: "Clean, readable syntax is a key reason Python is so popular."
     - text: { kea: "El ka ten bibliotekas", en: "It has no libraries" }
       correct: false
@@ -31,7 +31,7 @@
         kea: "Python é grátis i open source."
         en: "Python is free and open source."
 - question:
-    kea: "Pa kuze é ki Python é fundasan modernu na mundu di tek?"
+    kea: "Pa kuze ki Python é fundasan modernu na mundu di tek?"
     en: "What is Python the foundational language for in the modern tech world?"
   options:
     - text: { kea: "Dezenvolvimentu di jogus móvel", en: "Mobile game development" }

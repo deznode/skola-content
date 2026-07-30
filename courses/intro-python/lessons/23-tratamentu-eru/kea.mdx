@@ -18,11 +18,11 @@ objectives:
 
 Na lisan 3, nos prende a **ler** erus. Gosi nos ta prende a **trata** kes — a faze programa reagí di forma intelijenti kuandu algu ta korri mal, na lugar di simplesmente para i mostra un traceback feiu pa uzuáriu.
 
-Imajina un artista di trapézi na sirku, ta salta di un baransa pa otu, txeu altu di txon. Normalmenti el ta panha baransa dretu — ma bes en kuandu el pode skorega. Sen un **rede di sigurãnsa** pa baxu, kualker skorega ta un dizastri.
+Imajina un artista di trapézi na sirku, ta salta di un baransa pa otu, txeu altu di txon. Normalmenti el ta panha baransa dretu — ma bez en kuandu el pode skorega. Sen un **rede di sigurãnsa** pa baxu, kualker skorega ta un dizastri.
 
 Na programasan, **exsesan** (eru) é kumo kel skorega — algu inisperadu ki pode kontise duranti izekusan di programa. `try`/`except` é bu **rede di sigurãnsa**: bu ta "tenta" (`try`) kódiku ki pode falha, i si el falha, `except` ta "panha" eru, permiti programa kontinua di forma kontroladu — na lugar di kebra tudu i mostra un traceback feiu pa uzuáriu.
 
-Ma kuidadu ku metáfora: un rede di sigurãnsa real é pasivu i ta panha **tudu** kuza ki kai. `except` ka ta funsiona asin — el é tipikamenti **espesífiku pa un tipu di exsesan**. Si bu kaptura `ValueError` i eru ki kontise é un `TypeError`, kel eru ta pasa dretu pa txon, sen ser panhadu — diferenti di un rede real. Pordi, senpri kaptura tipu espesífiku, nunka un `except:` sozinhu (sen tipu) ki ta finji ser un rede universal. Metáfora tanbe ka ta kobri kuandu bu relansa un eru di dentu di `except` ku `raise` (un desizon deliberadu di dexa-l kontinua kai), nen o ki `finally` ta faze — kel limpeza ki ta kore **senpri**, kaia eru ou ka kaia.
+Ma kuidadu ku metáfora: un rede di sigurãnsa real é pasivu i ta panha **tudu** kuza ki kai. `except` ka ta funsiona asin — el é tipikamenti **espesífiku pa un tipu di exsesan**. Si bu kaptura `ValueError` i eru ki kontise é un `TypeError`, kel eru ta pasa dretu pa txon, sen ser panhadu — diferenti di un rede real. Pordi, senpri kaptura tipu espesífiku, nunka un `except:` sozinhu (sen tipu) ki ta finji ser un rede universal. Metáfora tanbe ka ta kobri kuandu bu relansa un eru di dentu di `except` ku `raise` (un desizon deliberadu di dexa-l kontinua kai), nen kuze ki `finally` ta faze — kel limpeza ki ta kore **senpri**, kaia eru ou ka kaia.
 
 <SectionHeading variant="concept" seq={1}>Báziku: try/except</SectionHeading>
 
@@ -47,7 +47,7 @@ Gosi si uzuáriu mete "abc", na lugar di crash, programa ta mostra mensajen amig
 
 <SectionHeading variant="concept" seq={2}>Kaptura Exsesons Espesífiku</SectionHeading>
 
-Senpri kaptura exsesons espesífiku — ka uza `except:` sozinhu (sen tipu). Es ta ajuda bu identifika exatamenti o ki koreu mal:
+Senpri kaptura exsesons espesífiku — ka uza `except:` sozinhu (sen tipu). Es ta ajuda bu identifika exatamenti kuze ki kore mal:
 
 ```python
 def dividi(a, b):
@@ -67,7 +67,7 @@ print(dividi(10, 0))    # Eru: ka pode dividi pa zero! → None
 print(dividi("a", 2))   # Eru: argumentus ten ki ser numerus! → None
 ```
 
-### Múltiplu Handlers ku Asesu a Mensajen
+### Múltiplu Handlers ku Asesu pa Mensajen
 
 Bu pode asesa mensajen di eru ku `as`:
 
@@ -121,7 +121,7 @@ try:
     # Si es linha ta da eru, bu ka sabe si é di float() ou di otru koza
     guarda_na_bazi(nota)
 except ValueError:
-    print("Eru!")  # Undi exatamenti?
+    print("Eru!")  # Unde exatamenti?
 
 # MODU KORETU — só kódiku ki PODE faya ta na try
 try:
@@ -134,11 +134,11 @@ else:
 
 <SectionHeading variant="concept" seq={4}>finally — SENPRI Roda</SectionHeading>
 
-`finally` ta roda **senpri** — si teve eru ou si ka teve. É perfeitu pa limpeza: fexá ficheru, fexá koneksan di bazi di dadus, libera rekursu.
+`finally` ta roda **senpri** — si teve eru ou si ka teve. É perfeitu pa limpeza: fexá fixeru, fexá koneksan di bazi di dadus, libera rekursu.
 
 ```python
 def ler_konfigurasan(kaminhu):
-    """Ler ficheru di konfigurasan ku garantia di fexamentu"""
+    """Ler fixeru di konfigurasan ku garantia di fexamentu"""
     ficheru = None
     try:
         ficheru = open(kaminhu, "r")
@@ -151,11 +151,11 @@ def ler_konfigurasan(kaminhu):
         # SENPRI roda — mesmu si teve eru, mesmu si teve return!
         if ficheru and not ficheru.closed:
             ficheru.close()
-            print("Ficheru fexadu ku susesu.")
+            print("Fixeru fexadu ku susesu.")
 ```
 
 ```python
-# Melhor: uza with (ki ta fazi mesmu koza!)
+# Midjór: uza with (ki ta faze mesmu koza!)
 def ler_konfigurason_melhor(kaminhu):
     """Versan ku with — más limpu i seguru"""
     try:
@@ -167,10 +167,10 @@ def ler_konfigurason_melhor(kaminhu):
 ```
 
 :::callout{type=tip}
-`with` ta substitui padran `try/finally/close` pa ficheru. Ma `finally` inda é útil pa otru tipo di limpeza!
+`with` ta substitui padran `try/finally/close` pa fixeru. Ma `finally` inda é útil pa otru tipo di limpeza!
 :::
 
-<SectionHeading variant="concept" seq={5}>Fluxu Konpletu: try/except/else/finally</SectionHeading>
+<SectionHeading variant="concept" seq={5}>Fluxu Kompletu: try/except/else/finally</SectionHeading>
 
 ![Fluxu di try / except / else / finally](../../infographics/13-try-except-fluxu.jpg)
 
@@ -241,7 +241,7 @@ except TypeError as e:
 Uza `raise` kuandu:
 - Argumentu inválidu ta txega na bu funsan
 - Kondisan di negósiu ka é satisfeitu (saldu insufisienti, idadi inválidu)
-- Bu kre informá kódiku ki ta txoma bu funsan ki algu koreu mal
+- Bu kre informá kódiku ki ta txoma bu funsan ki algu kore mal
 
 ```python
 def registra_estudanti(nomi, idadi):
@@ -301,15 +301,15 @@ except SalduInsufisientiError as e:
 Un klasi di eru personalizadu ta dexa bo `except` kaptura **só** kel tipu di problema (`except SalduInsufisientiError`), na lugar di un `except Exception` ki ta apanha tudu. Kuandu bu prende klasis na Módulu 4, bu ta odja kumo da-l más detalhi (mensajen, atributus).
 :::
 
-<SectionHeading variant="concept" seq={8}>Padran Prátiku: Ficheru ku Exsesons</SectionHeading>
+<SectionHeading variant="concept" seq={8}>Padran Prátiku: Fixeru ku Exsesons</SectionHeading>
 
-Un izemplu ki kombina tudu ki nos prende — leitura di ficheru ku tratamentu konpletu:
+Un izemplu ki kombina tudu ki nos prende — leitura di fixeru ku tratamentu kompletu:
 
 ```python
 import os
 
 def prosesa_vendas(kaminhu):
-    """Ler ficheru di vendas i kalkula total"""
+    """Ler fixeru di vendas i kalkula total"""
     if not os.path.exists(kaminhu):
         raise FileNotFoundError(f"Ficheru '{kaminhu}' ka ezisti!")
 
@@ -319,7 +319,7 @@ def prosesa_vendas(kaminhu):
             for num_linha, linha in enumerate(ficheru, 1):
                 linha = linha.strip()
                 if not linha:
-                    continue  # Pula linhas váziu
+                    continue  # Salta linhas váziu
                 try:
                     valór = float(linha)
                     vendas.append(valór)
@@ -376,10 +376,10 @@ Senpri kaptura `Exception` (ka `BaseException`). `BaseException` inklui `Keyboar
 
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
-  <RezumuItem variant="gold" term="Regra di oru">Kaptura exseson **espesífiku** (`ValueError`, `ZeroDivisionError`…), ka un `except:` solu — asin bu sabe exatamenti o ki koreu mal.</RezumuItem>
+  <RezumuItem variant="gold" term="Regra di oru">Kaptura exseson **espesífiku** (`ValueError`, `ZeroDivisionError`…), ka un `except:` solu — asin bu sabe exatamenti kuze ki kore mal.</RezumuItem>
   <RezumuItem term="try / except">Tenta un kódiku i kaptura eru si el akontese — po kes espesífiku primeru, `Exception` na fin.</RezumuItem>
-  <RezumuItem term="else / finally">`else` só ta kore si `try` ka teve eru; `finally` ta kore **senpri** (limpeza: fexa ficheru, libera rekursu).</RezumuItem>
+  <RezumuItem term="else / finally">`else` só ta kore si `try` ka teve eru; `finally` ta kore **senpri** (limpeza: fexa fixeru, libera rekursu).</RezumuItem>
   <RezumuItem term="raise">Ta lansa un eru di bu própriu kódiku — pa sinaliza un argumentu inválidu ou un kondisan di negósiu ki ka é satisfeitu.</RezumuItem>
   <RezumuItem term="Personalizadu">`class MeuError(Exception)` ta da un tipu di eru spesífiku di bu projetu. `as e` ta da asesu a mensajen i atributus.</RezumuItem>
-  <RezumuItem variant="warning" term="Errus kumuns">Ka po tudu kódiku dentu di `try` — só o ki **pode** faya; restu na `else`, senan bu ta maská di unde eru ben.</RezumuItem>
+  <RezumuItem variant="warning" term="Errus kumuns">Ka po tudu kódiku dentu di `try` — só kuze ki **pode** faya; restu na `else`, senan bu ta maská di unde eru ben.</RezumuItem>
 </KeyTakeaways>

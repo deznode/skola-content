@@ -1,6 +1,6 @@
 # Exercises sidecar (draft source) for lesson m3-16 "Funsons Báziku".
 # Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
-# content/courses/intro-python/lessons/16-funsoens-baziku/exercises.yaml, where
+# content/courses/intro-python/lessons/16-funsons-baziku/exercises.yaml, where
 # scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
 # renders them in display order. Keep `slug` stable (completed_exercises FK).
 #
@@ -84,7 +84,7 @@
   kind: code
   title: { kea: "Soma rekursiva" }
   prompt:
-    kea: "Skrebe un funsan **rekursiva** `soma_ate(n)` ki retorna soma di tudu númeru di 1 até n. P.ex. `soma_ate(5)` → `15` (1+2+3+4+5)."
+    kea: "Skrebe un funsan **rekursiva** `soma_ate(n)` ki retorna soma di tudu númeru di 1 te n. P.ex. `soma_ate(5)` → `15` (1+2+3+4+5)."
   hint:
     kea: "Pensa na **kazu bazi** primeru: `soma_ate(1)` é `1` (ou `soma_ate(0)` é `0`). Kazu rekursivu: `n + soma_ate(n - 1)`. Sen kazu bazi, Python ta da `RecursionError`."
   starterCode: |
@@ -163,6 +163,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `return` versus `print`" }
   prompt:
-    kea: "`print()` ta mostra un valor na ekran; `return` ta manda-l di volta pa ken txoma funsan (pa uza-l más tardi). Skrebe o ki ta kontise si bu uza `print` unde bu debe uza `return`, i pamodi un funsan ki só ta `print` ta retorna `None`."
+    kea: "`print()` ta mostra un valor na ekran; `return` ta manda-l di volta pa ken txoma funsan (pa uza-l más tardi). Skrebe kuze ki ta kontise si bu uza `print` unde bu debe uza `return`, i pamodi un funsan ki só ta `print` ta retorna `None`."
   notePlaceholder:
-    kea: "Kazu pa return: …   ·   Kazu pa print: …   ·   O ki `x = funsan_ku_print()` ta da (i pamodi): …"
+    kea: "Kazu pa return: …   ·   Kazu pa print: …   ·   Kuze ki `x = funsan_ku_print()` ta da (i pamodi): …"

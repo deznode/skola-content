@@ -21,7 +21,7 @@
 - question:
     kea: "Pa kuze ki ta sirbi bloku `if __name__ == \"__main__\":`?"
   options:
-    - text: { kea: "Kódiku dentu del só ta kore kuandu ficheru é izekutadu **diretu**, ka kuandu é importadu kumo módulu" }
+    - text: { kea: "Kódiku dentu del só ta kore kuandu fixeru é izekutadu **diretu**, ka kuandu é importadu kumo módulu" }
       correct: true
     - text: { kea: "Ta marka primeru funsan ki Python ta txoma" }
       correct: false
@@ -30,13 +30,13 @@
     - text: { kea: "Ta da un nomi pa programa prinsipal" }
       correct: false
 - question:
-    kea: "Bu kre uza un pakotu ki **ka ta** na standard library (p.ex. `requests`). O ki bu ta faze?"
+    kea: "Bu kre uza un pakotu ki **ka ta** na standard library (p.ex. `requests`). Kuze ki bu ta faze?"
   options:
     - text: { kea: "Instala-l ku `pip install requests`, dipos `import requests` na kódiku" }
       correct: true
     - text: { kea: "`import requests` diretu — tudu pakotu ben ku Python" }
       correct: false
-    - text: { kea: "Kopia kódiku di `requests` pa bu ficheru" }
+    - text: { kea: "Kopia kódiku di `requests` pa bu fixeru" }
       correct: false
     - text: { kea: "Ka ten manera — só módulu di standard library pode ser uzadu" }
       correct: false

@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Bu kre guarda un inventáriu unde kada produtu ta mapia pa se presu i stoki. Kal estrutura é midjór?"
+    kea: "Bu kre guarda un inventáriu unde kada produtu ta mapia pa se presu i stoki. Kual estrutura é midjór?"
   options:
     - text: { kea: "Disionáriu — ta mapia un xavi (nomi di produtu) pa un valor, ku buska rápidu" }
       correct: true

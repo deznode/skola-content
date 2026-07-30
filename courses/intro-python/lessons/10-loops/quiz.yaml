@@ -19,18 +19,18 @@
     - text: { kea: "`2, 3, 4, 5, 6` — `start` ka ta entra" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri `break` i `continue`?"
+    kea: "Kual é diferensa entri `break` i `continue`?"
   options:
-    - text: { kea: "`break` ta sai di loop interu; `continue` ta pula só restu di iterasan atual i ta bai pa prósima" }
+    - text: { kea: "`break` ta sai di loop interu; `continue` ta salta só restu di iterasan atual i ta bai pa prósima" }
       correct: true
-    - text: { kea: "`break` ta pula un iterasan; `continue` ta sai di loop" }
+    - text: { kea: "`break` ta salta un iterasan; `continue` ta sai di loop" }
       correct: false
     - text: { kea: "Dos ta sai di loop, ma `continue` é más rápidu" }
       correct: false
     - text: { kea: "`break` ta pausa loop; `continue` ta rekomesa-l di inisu" }
       correct: false
 - question:
-    kea: "Nun `while` loop, o ki ta kontise si bu skese di atualiza variável di kontrol (p.ex. `kontador += 1`)?"
+    kea: "Nun `while` loop, kuze ki ta kontise si bu skese di atualiza variável di kontrol (p.ex. `kontador += 1`)?"
   options:
     - text: { kea: "Un loop infinitu — kondisan ta fika senpri `True` i loop ka ta para nunka" }
       correct: true

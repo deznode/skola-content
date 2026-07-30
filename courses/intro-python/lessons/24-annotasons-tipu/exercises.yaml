@@ -1,6 +1,6 @@
 # Exercises sidecar (draft source) for lesson m3-24 "Annotasons di Tipu".
 # Draft-canonical per ADR-0026 (skola-claude-plugins). Publish copies this to
-# content/courses/intro-python/lessons/24-annotasoens-tipu/exercises.yaml, where
+# content/courses/intro-python/lessons/24-annotasons-tipu/exercises.yaml, where
 # scripts/import-content.ts emits it into the `exercises` table; <TentaGosi/>
 # renders them in display order. Keep `slug` stable (completed_exercises FK).
 #
@@ -122,4 +122,4 @@
   prompt:
     kea: "Type hints é **sujestoens**, ka regras — Python ka ta verifika-s kuandu programa ta kore (`soma(\"a\", \"b\")` ta funsiona inda). Skrebe pa kuze ki es ta sirbi (umanus, IDE, mypy), i pamodi es inda ta vale a pena mesmu sen muda runtime."
   notePlaceholder:
-    kea: "O ki type hints ta faze (i ka faze): …   ·   Pa kuze ki es ta sirbi: …   ·   Pamodi vale a pena: …"
+    kea: "Kuze ki type hints ta faze (i ka faze): …   ·   Pa kuze ki es ta sirbi: …   ·   Pamodi vale a pena: …"

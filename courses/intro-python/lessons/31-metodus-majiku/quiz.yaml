@@ -8,7 +8,7 @@
 # finalized. A native Kriolu reviewer must approve/rewrite wording before
 # publish. languages_enabled = ["kea"] only (no `en` required).
 - question:
-    kea: "Kal é diferensa entri `__str__` i `__repr__`?"
+    kea: "Kual é diferensa entri `__str__` i `__repr__`?"
   options:
     - text: { kea: "`__str__` é vizun amigável pa utilizador (`print()`); `__repr__` é vizun teknika pa programador (shell, debug)" }
       correct: true
@@ -19,7 +19,7 @@
     - text: { kea: "`__str__` ta retorna un númeru; `__repr__` un string" }
       correct: false
 - question:
-    kea: "O ki é metodus majiku (dunder methods) kumo `__str__` ou `__len__`?"
+    kea: "Kuze ki é metodus majiku (dunder methods) kumo `__str__` ou `__len__`?"
   options:
     - text: { kea: "Funsons spesiál ku `__nomi__` ki Python ta txoma **automátikamenti** na momentus sertus — bu ka txoma-s diretu" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Nomis ki bu pode inventa livremente pa bu kódiku" }
       correct: false
 - question:
-    kea: "Bu tene un klasi ku `__str__` i `__repr__`, i bu faze `print([obj1, obj2])`. Kal é ki Python ta uza pa kada elementu?"
+    kea: "Bu tene un klasi ku `__str__` i `__repr__`, i bu faze `print([obj1, obj2])`. Kual é ki Python ta uza pa kada elementu?"
   options:
     - text: { kea: "`__repr__` — un lista ta uza `__repr__` di se elementu, ka `__str__`" }
       correct: true
@@ -43,7 +43,7 @@
 - question:
     kea: "Pa kuze ki ta sirbi funsan `dir(obj)`?"
   options:
-    - text: { kea: "Ta mostra tudu metodu i atributu di un objetu — útil pa deskubri o ki un objetu pode faze" }
+    - text: { kea: "Ta mostra tudu metodu i atributu di un objetu — útil pa deskubri kuze ki un objetu pode faze" }
       correct: true
     - text: { kea: "Ta apaga tudu atributu di objetu" }
       correct: false

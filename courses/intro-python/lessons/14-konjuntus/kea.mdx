@@ -30,7 +30,7 @@ Tene dos maneira di kria un set:
 ```python
 # Ku chaves {}
 ilhas = {"Santiago", "São Vicente", "Sal", "Fogo", "Santo Antão"}
-print(ilhas)        # Órdin podi varia! Sets KA tene órdin garantidu
+print(ilhas)        # Órdin pode varia! Sets KA tene órdin garantidu
 print(type(ilhas))  # <class 'set'>
 
 # Ku set() a partir di un lista
@@ -73,12 +73,12 @@ print(f"Tinha {len(notas)} notas, ma só {len(notas_unikas)} é úniku")
 # Letras di un palavra
 palavra = "katxupa"
 letras = set(palavra)
-print(letras)  # {'k', 'a', 't', 'x', 'u', 'p'} (órdin podi varia)
+print(letras)  # {'k', 'a', 't', 'x', 'u', 'p'} (órdin pode varia)
 print(f"'{palavra}' tene {len(letras)} letras diferenti")
 ```
 
 ```python
-# Nomi di estudantis ki registra pa kursus (podi tene duplikadus)
+# Nomi di estudantis ki registra pa kursus (pode tene duplikadus)
 registrus = ["Maria", "João", "Ana", "Maria", "Pedro", "Ana", "Maria"]
 estudantis = set(registrus)
 print(f"Total registrus: {len(registrus)}")
@@ -108,7 +108,7 @@ print("Fogo" in ilha_lista)          # False -- O(n)
 ```
 
 ```python
-# Ezemplu prátiku: verifica si password tene karakter spesial
+# Izemplu prátiku: verifika si password tene karakter spesial
 password = "M1nh@Senha"
 karakter_spesial = set("!@#$%^&*()_+-=")
 
@@ -149,7 +149,7 @@ print(f"Só na un kursus: {exklusivu}")
 ```
 
 ```python
-# Ezemplu: ingredientis pa katxupa
+# Izemplu: ingredientis pa katxupa
 ingredientis_katxupa_santiago = {"milhu", "feijun", "banana-verdi", "mandioka", "batata-dosi", "karni-porku"}
 ingredientis_katxupa_sv = {"milhu", "feijun", "banana-verdi", "mandioka", "pexi", "atum"}
 
@@ -157,7 +157,7 @@ ingredientis_katxupa_sv = {"milhu", "feijun", "banana-verdi", "mandioka", "pexi"
 komun = ingredientis_katxupa_santiago & ingredientis_katxupa_sv
 print(f"Ingredientis komun: {komun}")
 
-# Ki diferensa entre es?
+# Ki diferensa entri es?
 so_santiago = ingredientis_katxupa_santiago - ingredientis_katxupa_sv
 so_sv = ingredientis_katxupa_sv - ingredientis_katxupa_santiago
 print(f"Só Santiago: {so_santiago}")
@@ -176,7 +176,7 @@ Es kuadru ta rezumi kuatru operasan, ku rezultadu pa `python_estudantis` i `java
     { name: "Symmetric", syntax: "a ^ b", accent: "purple" },
   ]}
   rows={[
-    { label: "O ki ta da", kind: "text", vals: [
+    { label: "Kuze ki ta da", kind: "text", vals: [
       "Tudu estudanti di dos kursu",
       "Estudanti na **ambos** kursu",
       "Estudanti só na `a` (Python), ka na `b`",
@@ -261,7 +261,7 @@ print(f"Tamanhus diferenti di palavra: {tamanhu_palavras}")
 quadradus = {x ** 2 for x in range(1, 11)}
 print(quadradus)  # {1, 4, 9, 16, 25, 36, 49, 64, 81, 100}
 
-# Verifica si un numeru é quadradu perfeitu
+# Verifika si un numeru é quadradu perfeitu
 numeru = 49
 if numeru in quadradus:
     print(f"{numeru} é un quadradu perfeitu!")

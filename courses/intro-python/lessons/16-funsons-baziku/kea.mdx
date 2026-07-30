@@ -2,8 +2,8 @@
 title: "Funsons Báziku"
 language: kea
 courseSlug: intro-python
-lessonSlug: funsoens-baziku
-slug: "funsoens-baziku"
+lessonSlug: funsons-baziku
+slug: "funsons-baziku"
 module: 3
 lesson: 16
 duration: "25 min"
@@ -44,7 +44,7 @@ saudasan()   # Bon dia! Morabeza! (pode txoma kuantas bez bu kre)
 ```
 
 ```python
-# Funsan ki verifica si nùmeru é par ou ímpar
+# Funsan ki verifika si nùmeru é par ou ímpar
 def par_o_impar(numeru):
     if numeru % 2 == 0:
         print(f"{numeru} é par")
@@ -75,8 +75,8 @@ apresenta("João", "São Vicente")  # Nha nomi é João, N é di São Vicente.
 
 ```python
 # Funsan ku vários parámetrus
-def kalkula_area(largura, konprimentu):
-    area = largura * konprimentu
+def kalkula_area(largura, komprimentu):
+    area = largura * komprimentu
     print(f"Área: {area} m²")
 
 kalkula_area(5, 3)    # Área: 15 m²
@@ -271,11 +271,11 @@ registra_pedidu("Pedro", "livru", "moxila", entrega=True, urgenti=False)
 Orden senpri é: parámetrus normais, dipos `*args`, dipos `**kwargs`. `def f(a, b, *args, **kwargs)` — nunka inverte!
 :::
 
-<SectionHeading variant="concept" seq={8}>Izemplu Prátiku: Karrinhu di Konpras</SectionHeading>
+<SectionHeading variant="concept" seq={8}>Izemplu Prátiku: Karrinhu di Kompras</SectionHeading>
 
 ```python
 def kalkula_total(karrinhu):
-    """Kalkula total di un karrinhu di konpras.
+    """Kalkula total di un karrinhu di kompras.
 
     Args:
         karrinhu: Lista di disionárius ku 'nomi', 'presu', 'kuantidadi'.
@@ -288,7 +288,7 @@ def kalkula_total(karrinhu):
         total += item["presu"] * item["kuantidadi"]
     return total
 
-# Konpras na merkadu di Sukupira
+# Kompras na merkadu di Sukupira
 karrinhu = [
     {"nomi": "Banana", "presu": 50, "kuantidadi": 6},
     {"nomi": "Atun", "presu": 350, "kuantidadi": 2},
@@ -302,7 +302,7 @@ print(f"Total: {total} ECV")  # Total: 1360 ECV
 <SectionHeading variant="concept" seq={9}>Verifikador di Palíndromu</SectionHeading>
 
 ```python
-def é_palíndromu(tekstu):
+def e_palíndromu(tekstu):
     """Verifica si un tekstu é palíndromu (ler igual di frenti e di trás).
 
     Ignora espasus e maiúskulas/minúskulas.
@@ -311,10 +311,10 @@ def é_palíndromu(tekstu):
     return tekstu == tekstu[::-1]
 
 # Testa
-print(é_palíndromu("Ana"))          # True (a-n-a)
-print(é_palíndromu("Arara"))        # True (a-r-a-r-a)
-print(é_palíndromu("Python"))       # False
-print(é_palíndromu("A man a plan"))  # False
+print(e_palíndromu("Ana"))          # True (a-n-a)
+print(e_palíndromu("Arara"))        # True (a-r-a-r-a)
+print(e_palíndromu("Python"))       # False
+print(e_palíndromu("A man a plan"))  # False
 ```
 
 <SectionHeading variant="concept" seq={10}>Rekursan — Funsan ki ta Txoma Si Mesmu</SectionHeading>
@@ -357,7 +357,7 @@ print(fatoriál(10))  # 3628800
 ```python
 # Kontajen regresiva rekursiva
 def kontajen(n):
-    """Konta di n até 0."""
+    """Konta di n te 0."""
     if n < 0:
         print("Lansamentu! 🚀")
         return
@@ -392,6 +392,6 @@ Senpri pensa na **kazu bazi** primeru kuandu bu ta skrebe funsan rekursiva. Sen 
   <RezumuItem term="def">Ta defini un funsan — nomi deskritivu na snake_case. Parámetrus ta na definisan; argumentus ta na txomada.</RezumuItem>
   <RezumuItem term="Predefinidu">Un parámetru ku valor predefinidu ta da un valor si ningen ka pasa argumentu — i ten ki ben **dipos** di kes sen valor predefinidu.</RezumuItem>
   <RezumuItem term="*args / **kwargs">`*args` ta apanha argumentu pozisionál (tuple); `**kwargs` ta apanha nomiadu (dict). Orden: normais → `*args` → `**kwargs`.</RezumuItem>
-  <RezumuItem term="Docstrings">Un string na inísiu di funsan ta dokumenta o ki el ta faze — `help(funsan)` ta mostra-l.</RezumuItem>
+  <RezumuItem term="Docstrings">Un string na inísiu di funsan ta dokumenta kuze ki el ta faze — `help(funsan)` ta mostra-l.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Un funsan rekursiva **senpri** presiza un kazu bazi — sen el, Python ta da `RecursionError`.</RezumuItem>
 </KeyTakeaways>

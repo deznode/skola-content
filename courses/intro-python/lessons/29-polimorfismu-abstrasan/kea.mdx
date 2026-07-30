@@ -8,7 +8,7 @@ module: 4
 lesson: 29
 duration: "25 min"
 objectives:
-  - "Sobreskrebe metodus na klasis fidju pa konportamentu diferenti"
+  - "Sobreskrebe metodus na klasis fidju pa komportamentu diferenti"
   - "Skrebe funsons polimórfikus ki ta aseta kualker tipu di objetu"
   - "Uza ABC i @abstractmethod pa forsa implementasan na subklasis"
   - "Intende diferensa entri klasi konkretu i klasi abstratu"
@@ -18,13 +18,13 @@ objectives:
 
 Imajina tris animal: katxor, gatu, i pásaru. Tudu es pode "fla algu" — ma katxor ta ladra ("Au au"), gatu ta miu ("Miau"), pásaru ta kanta. Mesmu asan — "fla algu" — ma kada animal ta faze-l di si própiu manera.
 
-Na programasan, **polimorfismu** funsiona mesmu manera: diferenti klasi pode implementa mesmu metodu (mesmu interfasi) ma kada un ku si própiu konportamentu. Si bu tene un lista di objetu diferenti (katxor, gatu, pásaru) i bu xama metodu `fla()` riba di kada un, kada objetu ta responde di si própiu manera — sen bu meste sabe di antimon kal tipu di animal ki é.
+Na programasan, **polimorfismu** funsiona mesmu manera: diferenti klasi pode implementa mesmu metodu (mesmu interfasi) ma kada un ku si própiu komportamentu. Si bu tene un lista di objetu diferenti (katxor, gatu, pásaru) i bu xama metodu `fla()` riba di kada un, kada objetu ta responde di si própiu manera — sen bu meste sabe di antimon kual tipu di animal ki é.
 
 Gosi pensa: tudu animal TEN KI pode "fla algu" — ma nada ka ta dize KUMO (ladra, miu, ou kanta). Kada un ta skodje si própiu manera di faze-l. Isu é abstrasan: **defini un kontratu ki tudu fidju ten ki kunpri**, sen dize ezatamenti kumo.
 
-<SectionHeading variant="concept" seq={1}>Polimorfismu — O ki é?</SectionHeading>
+<SectionHeading variant="concept" seq={1}>Polimorfismu — Kuze ki é?</SectionHeading>
 
-Palavra "polimorfismu" ben di gregu: **poly** (txeu) + **morphe** (forma). Na programasan, signifika ki **mesmu metodu pode tene konportamentu diferenti dependendu di klasi ki ta txoma-l**.
+Palavra "polimorfismu" ben di gregu: **poly** (txeu) + **morphe** (forma). Na programasan, signifika ki **mesmu metodu pode tene komportamentu diferenti dependendu di klasi ki ta txoma-l**.
 
 ```python
 # Klasis diferenti ku mesmu metodu
@@ -57,7 +57,7 @@ Nota: metáfora di animal (katxor, gatu, pásaru) pode da-u ideia ki es debe par
 
 <SectionHeading variant="concept" seq={2}>Sobreskrebe Metodus (Method Overriding)</SectionHeading>
 
-Kuandu un klasi fidju ta redefini un metodu ki dja esisti na klasi pai, isu ta txoma **method overriding**. Klasi fidju ta "sobreskrebe" konportamentu di pai ku si própia versan.
+Kuandu un klasi fidju ta redefini un metodu ki dja esisti na klasi pai, isu ta txoma **method overriding**. Klasi fidju ta "sobreskrebe" komportamentu di pai ku si própia versan.
 
 ```python
 # Klasi pai — Forma jeométriku
@@ -73,13 +73,13 @@ class Forma:
 
 # Klasi fidju — Retángulu (terrenu na Santiago)
 class Retangulu(Forma):
-    def __init__(self, largura, konprimentu):
+    def __init__(self, largura, komprimentu):
         super().__init__("Retángulu")
         self.largura = largura
-        self.konprimentu = konprimentu
+        self.komprimentu = komprimentu
 
     def area(self):  # Sobreskrebe metodu di pai
-        return self.largura * self.konprimentu
+        return self.largura * self.komprimentu
 
 # Klasi fidju — Sírkulu (rotunda na Praia)
 class Sirkulu(Forma):
@@ -202,16 +202,16 @@ Gosi tudu klasi fidju é OBRIGADU a implementa `area()` i `perimetru()`:
 import math
 
 class Retangulu(Forma):
-    def __init__(self, largura, konprimentu):
+    def __init__(self, largura, komprimentu):
         super().__init__("Retángulu")
         self.largura = largura
-        self.konprimentu = konprimentu
+        self.komprimentu = komprimentu
 
     def area(self):
-        return self.largura * self.konprimentu
+        return self.largura * self.komprimentu
 
     def perimetru(self):
-        return 2 * (self.largura + self.konprimentu)
+        return 2 * (self.largura + self.komprimentu)
 
 class Sirkulu(Forma):
     def __init__(self, raiu):

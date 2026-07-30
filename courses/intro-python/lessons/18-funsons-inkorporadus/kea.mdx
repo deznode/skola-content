@@ -2,8 +2,8 @@
 title: "Funsons Inkorporadus Úteis"
 language: kea
 courseSlug: intro-python
-lessonSlug: funsoens-inkorporadus
-slug: "funsoens-inkorporadus"
+lessonSlug: funsons-inkorporadus
+slug: "funsons-inkorporadus"
 module: 3
 lesson: 18
 duration: "20 min"
@@ -92,14 +92,14 @@ print(f"\nBo skolhe: {pratus[eskólha - 1]}")  # Lagosta
 ```
 
 ```python
-# Prosesamentu di ficheru (linha pa linha ku nùmeru)
-linhas = ["# Títulu", "", "Primeiru parágrafu.", "Segundu parágrafu."]
+# Prosesamentu di fixeru (linha pa linha ku nùmeru)
+linhas = ["# Títulu", "", "Primeru parágrafu.", "Segundu parágrafu."]
 
 for num_linha, linha in enumerate(linhas, start=1):
     if linha.strip():  # ignora linhas vazias
         print(f"L{num_linha}: {linha}")
 # L1: # Títulu
-# L3: Primeiru parágrafu.
+# L3: Primeru parágrafu.
 # L4: Segundu parágrafu.
 ```
 
@@ -186,7 +186,7 @@ for nomi, nota in zip(nomis, notas):
 ```
 
 :::callout{type=tip}
-Si bu kre ki `zip()` kontinua até más longu (prixenxe ku un valor predefinidu), uza `itertools.zip_longest()` di módulu `itertools`.
+Si bu kre ki `zip()` kontinua te más longu (prixenxe ku un valor predefinidu), uza `itertools.zip_longest()` di módulu `itertools`.
 :::
 
 <SectionHeading variant="concept" seq={3}>`sorted()` vs `.sort()`</SectionHeading>
@@ -243,7 +243,7 @@ studantis = [
     {"nomi": "Kelvin", "nota": 15},
 ]
 
-# Pa nota (más altu primeiru)
+# Pa nota (más altu primeru)
 ranking = sorted(studantis, key=lambda s: s["nota"], reverse=True)
 for pos, s in enumerate(ranking, start=1):
     print(f"  {pos}° {s['nomi']}: {s['nota']}")
@@ -276,12 +276,12 @@ print(f"Tudu studanti aprová? {tudu_aprova}")    # False
 ```
 
 ```python
-# Verifica si lista tene algun nùmeru negativu
+# Verifika si lista tene algun nùmeru negativu
 temperaturas = [28, 30, 25, 32, 27]
 tene_negativu = any(t < 0 for t in temperaturas)
 print(f"Tene temperatura negativa? {tene_negativu}")  # False
 
-# Verifica si tudu presus é pozitivu
+# Verifika si tudu presus é pozitivu
 presus = [500, 1200, 350, -100, 800]
 tudu_pozitivu = all(p > 0 for p in presus)
 print(f"Tudu presu é pozitivu? {tudu_pozitivu}")  # False
@@ -290,7 +290,7 @@ print(f"Tudu presu é pozitivu? {tudu_pozitivu}")  # False
 ```python
 # Validasan di formuláriu
 def formuláriu_válidu(dados):
-    """Verifica si tudu kampu obrigatóriu ta prixenxidu."""
+    """Verifika si tudu kampu obrigatóriu ta prixenxidu."""
     kampus_obrigatóriu = ["nomi", "email", "ilha"]
     return all(dados.get(k) for k in kampus_obrigatóriu)
 
@@ -305,7 +305,7 @@ print(formuláriu_válidu(dados2))  # False (email ta vazíu)
 ```python
 # Verifikador di senha kombinu ku any/all
 def verifica_senha(senha):
-    """Verifica rekezitus di senha."""
+    """Verifika rekezitus di senha."""
     rezitus = {
         "8+ karáteris": len(senha) >= 8,
         "Tene maiúskula": any(c.isupper() for c in senha),
@@ -321,8 +321,8 @@ def verifica_senha(senha):
 
     return all(rezitus.values())
 
-é_forti = verifica_senha("Pr@ia2026")
-print(f"\nSenha forti? {é_forti}")
+e_forti = verifica_senha("Pr@ia2026")
+print(f"\nSenha forti? {e_forti}")
 # Rezitus di senha:
 #   ✓ 8+ karáteris
 #   ✓ Tene maiúskula
@@ -353,7 +353,7 @@ print(type(True) == int)        # False (type() é striitu)
 ```
 
 ```python
-# Verifica vários tipus di un bez
+# Verifika vários tipus di un bez
 def prosesa_valor(valor):
     """Prosesa valor dependendu di si tipu."""
     if isinstance(valor, (int, float)):

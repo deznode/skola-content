@@ -32,7 +32,7 @@
 - question:
     kea: "Pamodi pasta `.venv/` ka debe bai pa git?"
   options:
-    - text: { kea: "El tene miláris di ficheru, é spesífiku pa kada komputador, i pode ser rekriadu di `requirements.txt` — anton ta na `.gitignore`" }
+    - text: { kea: "El tene miláris di fixeru, é spesífiku pa kada komputador, i pode ser rekriadu di `requirements.txt` — anton ta na `.gitignore`" }
       correct: true
     - text: { kea: "Pamodi el tene kódiku sekretu di projetu" }
       correct: false

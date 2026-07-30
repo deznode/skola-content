@@ -41,7 +41,7 @@
 - slug: karrinhu-di-konpra
   language: python
   kind: code
-  title: { kea: "Karrinhu di konpra" }
+  title: { kea: "Karrinhu di kompra" }
   prompt:
     kea: "Kria un **disionáriu** di presus pa un merkadu. Dipos kria un **lista** (karrinhu) ku produtu ki klienti skodje (pode repeti). Kalkula total i mostra un rezumu ku kantidadi di kada produtu."
   hint:
@@ -64,7 +64,7 @@
     for p in karrinhu:
         konta[p] = konta.get(p, 0) + 1
 
-    print("--- Rezumu di konpra ---")
+    print("--- Rezumu di kompra ---")
     for p, q in konta.items():
         print(f"  {p} x{q} = {presus[p] * q} ECV")
     print(f"Total: {total} ECV")
@@ -75,14 +75,14 @@
   prompt:
     kea: "Dos amigu (Nilton i Edna) tene kada un un lista di múzika favoritu. Uza **sets** pa atxa: múzika ki dos ta gosta, múzika ki só Nilton ta gosta, i total di múzika úniku entri dos."
   hint:
-    kea: "Konverti lista pa set primeru. `nilton & edna` é o ki dos ta gosta; `nilton - edna` é só Nilton; `len(nilton | edna)` é total úniku."
+    kea: "Konverti lista pa set primeru. `nilton & edna` é kuze ki dos ta gosta; `nilton - edna` é só Nilton; `len(nilton | edna)` é total úniku."
   starterCode: |
     # playlists.py
     nilton = ["Sodade", "Petit Pays", "Tunuka", "Nha Cretcheu"]
     edna = ["Petit Pays", "Bna", "Tunuka", "Nôs Morna"]
 
     # TODO: konverti pa set
-    # TODO: os dos ta gosta (&), só Nilton (-), total úniku (|)
+    # TODO: kes dos ta gosta (&), só Nilton (-), total úniku (|)
   solutionCode: |
     # playlists.py
     nilton = set(["Sodade", "Petit Pays", "Tunuka", "Nha Cretcheu"])
@@ -96,7 +96,7 @@
   kind: explore
   title: { kea: "Splora kumo skodje a estrutura sertu" }
   prompt:
-    kea: "Diferensa entri lista, tuple, dict i set ta determina o ki é fásil (i rápidu) faze. Odja un komparasan di tipu inkorporadu i módulu `collections` pa estruturas más spesializadu."
+    kea: "Diferensa entri lista, tuple, dict i set ta determina kuze ki é fásil (i rápidu) faze. Odja un komparasan di tipu inkorporadu i módulu `collections` pa estruturas más spesializadu."
   resources:
     kea:
       - { label: "Python docs — Data Structures (tutorial)", url: "https://docs.python.org/3/tutorial/datastructures.html" }

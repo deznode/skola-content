@@ -2,22 +2,22 @@
 title: "Annotasons di Tipu"
 language: kea
 courseSlug: intro-python
-lessonSlug: annotasoens-tipu
-slug: "annotasoens-tipu"
+lessonSlug: annotasons-tipu
+slug: "annotasons-tipu"
 module: 3
 lesson: 24
 duration: "15 min"
 objectives:
   - "Adisiona type hints na funsons i variáveis pa dokumenta tipu di dadus"
   - "Uza sintaxi int | None (Python 3.10+) pa valoris opsionais"
-  - "Splika ki type hints é pa umanus i ferramenta — ka ta muda konportamentu na runtime"
+  - "Splika ki type hints é pa umanus i ferramenta — ka ta muda komportamentu na runtime"
 ---
 
 # Annotasons di Tipu
 
 Kuandu bu ta skrebe un funsan, bu sabi ki tipu di dadus el ta espera i ki tipu el ta retorna. Ma un otru programador ki ta ler bu kódiku 3 mez dipos... i sabi? I bo mesmu, dipos di un férias na Sal, bu ta lembra?
 
-**Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa o ki ta buska rápidu.
+**Type hints** é un forma di dokumenta diretamenti na kódiku ki tipu di dadus kada variável i funsan ta uza. É manera un etiketa na pratelera — ka ta muda konteúdu, ma ta ajuda tudu jen atxa kuze ki ta buska rápidu.
 
 <SectionHeading variant="concept" seq={1}>Primeru Izemplu: Antis i Dipós</SectionHeading>
 
@@ -29,7 +29,7 @@ def kalkula_total(presus, diskonto):
     return total - (total * diskonto / 100)
 ```
 
-Perguntas ki leitor ta faze: `presus` é un lista? Di ints ou floats? `diskonto` é persentajen (0-100) ou frasan (0-1)? O ki ta retorna?
+Perguntas ki leitor ta faze: `presus` é un lista? Di ints ou floats? `diskonto` é persentajen (0-100) ou frasan (0-1)? Kuze ki ta retorna?
 
 **Ku type hints:**
 
@@ -54,7 +54,7 @@ def soma(a: int, b: int) -> int:
     """Soma dos numerus interu"""
     return a + b
 
-def é_maior_di_idadi(idadi: int) -> bool:
+def e_maior_di_idadi(idadi: int) -> bool:
     """Verifika si pesoa é maior di idadi na Kabu Verdi"""
     return idadi >= 18
 
@@ -233,7 +233,7 @@ soma("ola", "mundu")  # mypy: error: Argument 1 has incompatible type "str"
 Pensa na type hints manera sinais di tránzitu. Sinál ta dizi "másimu 60 km/h" — karu PODE bai 100, ma si polísia (mypy) ta kontrola, bu ta leva multa!
 :::
 
-<SectionHeading variant="concept" seq={7}>Izemplu Konpletu: Registu di Estudantis</SectionHeading>
+<SectionHeading variant="concept" seq={7}>Izemplu Kompletu: Registu di Estudantis</SectionHeading>
 
 ```python
 def kria_estudanti(

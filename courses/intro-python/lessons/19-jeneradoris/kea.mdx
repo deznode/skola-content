@@ -18,12 +18,12 @@ objectives:
 
 Imajina bu tene un lista ku 10 milhoens di numeru. Si bu kria tudu na memória di un bez, bu komputador pode fika lentu ou krasá.
 
-Agora pensa na un **jeneradur di enerjia** (backup generator): el ka ta produzi tudu enerjia di antimon i garda — el ta **jerá** enerjia só kuandu meste, un pa un. É di la ki nomi "jeneradoris" ben.
+Gosi pensa na un **jeneradur di enerjia** (backup generator): el ka ta produzi tudu enerjia di antimon i garda — el ta **jerá** enerjia só kuandu meste, un pa un. É di la ki nomi "jeneradoris" ben.
 
-Na Python, **jeneradoris** funsiona di mesmu manera: es ka ta kalkula tudu valor di antimon i garda na memória — es ta produzi kada valor só kuandu bu pidi-l (`yield`), **pausa**, i spera pa prósimu pididu — parecidu ku pausa un vídiu i kontinua di undi el fikou, ka kumésa di zero. Isu ta poupa memória i ta permiti bu trabadja ku sekuénsia txeu grandi, ou até infinitu.
+Na Python, **jeneradoris** funsiona di mesmu manera: es ka ta kalkula tudu valor di antimon i garda na memória — es ta produzi kada valor só kuandu bu pidi-l (`yield`), **pausa**, i spera pa prósimu pididu — paresidu ku pausa un vídiu i kontinua di unde el fikou, ka kumésa di zero. Isu ta poupa memória i ta permiti bu trabadja ku sekuénsia txeu grandi, ou te infinitu.
 
 :::callout{type=warning}
-Kuidadu ku metáfora: un jeneradur di enerjia (ou un fábrika) normalmenti ta **fabrika kada peça dizde zero** kada bez ki el funsiona. Kel ka é kumo Python generator ta trabadja. Trikadu real di `yield` é **pausa i kontinua** — generator ta guarda estadu lokal (variávelis, pozison na loop) entri kada `yield`, parecidu ku pausa un vídiu, ka kumo un máquina ki ta fabrika un item nóvu kada bez.
+Kuidadu ku metáfora: un jeneradur di enerjia (ou un fábrika) normalmenti ta **fabrika kada pesa dizde zero** kada bez ki el funsiona. Kel ka é kumo Python generator ta trabadja. Trikadu real di `yield` é **pausa i kontinua** — generator ta guarda estadu lokal (variávelis, pozison na loop) entri kada `yield`, paresidu ku pausa un vídiu, ka kumo un mákina ki ta fabrika un item nóvu kada bez.
 :::
 
 <SectionHeading variant="concept" seq={1}>Problema: Listas Grandi ta Kume Memória</SectionHeading>
@@ -35,7 +35,7 @@ print(f"Lista tene {len(numeros)} elementus")
 # Kel lista ta okupa sérka di 80 MB di memória 😱
 ```
 
-Kuandu bu ta trabadja ku dadus grandi — ficheru pesadu, base di dadus enormi, ou sekuénsia infinita — bu ka presiza tudu na memória na mesmu tempu. Bu presiza un elementu, prosesa, i pasa pa prósimu.
+Kuandu bu ta trabadja ku dadus grandi — fixeru pesadu, base di dadus enormi, ou sekuénsia infinita — bu ka presiza tudu na memória na mesmu tempu. Bu presiza un elementu, prosesa, i pasa pa prósimu.
 
 <SectionHeading variant="concept" seq={2}>Generator Expressions</SectionHeading>
 
@@ -112,11 +112,11 @@ def saudason_ilhas():
     for ilha in ilhas:
         yield f"Morabeza di {ilha}! 🏝️"
 
-# Kada chamada a next() ta kontinua undi el para
+# Kada chamada a next() ta kontinua unde el para
 gen = saudason_ilhas()
 print(next(gen))  # Morabeza di Santiago! 🏝️
 print(next(gen))  # Morabeza di São Vicente! 🏝️
-# ... el ta kontinua di undi el para
+# ... el ta kontinua di unde el para
 ```
 
 <SectionHeading variant="concept" seq={4}>Sekuénsia di Fibonacci ku Generator</SectionHeading>
@@ -151,30 +151,30 @@ print(primeru_15)
 Un generator ku `while True` ta produz valoris pa senpri — el é **infinitu**. Bu ta kontrola kuantus valoris bu kere pega ku `next()`, `islice()`, ou un `break` dentu di un loop.
 :::
 
-<SectionHeading variant="concept" seq={5}>Ler Ficheru Grandi Linha pa Linha</SectionHeading>
+<SectionHeading variant="concept" seq={5}>Ler Fixeru Grandi Linha pa Linha</SectionHeading>
 
-Un di uzus más prátiku di jeneradoris é prosesa ficheru grandi sen karrega tudu na memória:
+Un di uzus más prátiku di jeneradoris é prosesa fixeru grandi sen karrega tudu na memória:
 
 :::callout{type=info}
-Es izemplu ta uza `with open(...)` pa ler ficheru — bu ta prende operasons ku ficheru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo generator ta entrega **un linha di kada bez**, sen po tudu ficheru na memória.
+Es izemplu ta uza `with open(...)` pa ler fixeru — bu ta prende operasons ku fixeru en detalhe na **Lisan 22**. Pa gosi, foka só na kumo generator ta entrega **un linha di kada bez**, sen po tudu fixeru na memória.
 :::
 
 ```python
 def le_linhas(kaminu_ficheru):
-    """Generator ki ler ficheru linha pa linha."""
+    """Generator ki ler fixeru linha pa linha."""
     with open(kaminu_ficheru, "r") as f:
         for linha in f:
             yield linha.strip()
 
-# Prosesa un ficheru grandi sen gasta memória
+# Prosesa un fixeru grandi sen gasta memória
 for linha in le_linhas("vendas_2024.csv"):
     if "Santiago" in linha:
         print(linha)
 ```
 
 ```python
-# Kompara: ler tudu di un bez (perigózu pa ficheru grandi!)
-# linhas = open("ficheru_enormi.txt").readlines()  # Tudu na memória!
+# Kompara: ler tudu di un bez (perigózu pa fixeru grandi!)
+# linhas = open("fixeru_enormi.txt").readlines()  # Tudu na memória!
 
 # Ku generator: só un linha di kada bez na memória
 def filtra_linhas(ficheru, palavra):
@@ -183,7 +183,7 @@ def filtra_linhas(ficheru, palavra):
         if palavra.lower() in linha.lower():
             yield linha
 
-# Ezemplu: buska tudu linhas ku "katxupa" na un ficheru di receitas
+# Izemplu: buska tudu linhas ku "katxupa" na un fixeru di receitas
 for resultado in filtra_linhas("receitas.txt", "katxupa"):
     print(resultado)
 ```
@@ -203,7 +203,7 @@ print(f"Generator: {sys.getsizeof(gen):,} bytes")  # ≈ 200 bytes!
 ```
 
 ```python
-# Ezemplu prátiku: soma di 1 milhan di numeru
+# Izemplu prátiku: soma di 1 milhan di numeru
 # Ku lista (uza memória)
 total_lista = sum([x for x in range(1_000_000)])
 
@@ -224,7 +224,7 @@ Kuandu bu ta pasa un generator diretu pa un funsan kumo `sum()`, `max()`, ou `mi
 |----------|---------------|-----------|
 | Dadus é muitiu grandi (milhoens) | ✓ | |
 | Só presiza itera un bez | ✓ | |
-| Prosesa stream di dadus (ficheru, rede) | ✓ | |
+| Prosesa stream di dadus (fixeru, rede) | ✓ | |
 | Sekuénsia infinita | ✓ | |
 | Presiza asesu aleatoriu (índisi) | | ✓ |
 | Presiza tamanhu (`len()`) | | ✓ |
@@ -245,6 +245,6 @@ Kuandu bu ta pasa un generator diretu pa un funsan kumo `sum()`, `max()`, ou `mi
   <RezumuItem term="Generator expression">`(expr for item in iterável)` — kumo un list comprehension, ma ku `()`.</RezumuItem>
   <RezumuItem term="Generator function">Un funsan ku `yield` en bez di `return` — `yield` ta **pauza** i lenbra unde el para.</RezumuItem>
   <RezumuItem term="next()">Ta pega prósimu valor; `StopIteration` ta signifika ki akaba (`for` ta trata-l sózin).</RezumuItem>
-  <RezumuItem>Pa ler un ficheru grandi linha pa linha, un generator ta evita karega tudu na memória.</RezumuItem>
+  <RezumuItem>Pa ler un fixeru grandi linha pa linha, un generator ta evita karega tudu na memória.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Generator é **un-bez-só** — dipos di iteradu, sta vazio. Ka ten `len()` nen índisi; pa isu, uza un lista.</RezumuItem>
 </KeyTakeaways>

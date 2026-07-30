@@ -51,9 +51,9 @@
 - slug: adivinha-saida-tipus
   language: python
   kind: code
-  title: { kea: "Adivinha o ki kada linha ta imprimi" }
+  title: { kea: "Adivinha kuze ki kada linha ta imprimi" }
   prompt:
-    kea: "Pa kada linha, adivinha o ki Python ta imprimi (tipu o valor). Dipos kore kódiku pa konfirma si bu staba sertu."
+    kea: "Pa kada linha, adivinha kuze ki Python ta imprimi (tipu o valor). Dipos kore kódiku pa konfirma si bu staba sertu."
   hint:
     kea: "Lenbra: `type()` ta da `<class '...'>`. `int(\"42\") + 8` ta soma dos interu. `str(42) + \"8\"` ta **konkatena** dos string. I `int(3.9)` ta **trunka** (korta desimal), ka aredonda."
   starterCode: |
@@ -107,7 +107,7 @@
   kind: explore
   title: { kea: "Splora tipus numérikus di Python" }
   prompt:
-    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i módulu `decimal` pa dinheru ezatu). Odja dokumentason pa odja o ki más izisti — ka meste dekora, só sabe unde buska."
+    kea: "Alén di `int` i `float`, Python tene otus tipus (kumo `complex` i módulu `decimal` pa dinheru ezatu). Odja dokumentason pa odja kuze ki más izisti — ka meste dekora, só sabe unde buska."
   resources:
     kea:
       - { label: "Python docs — Numeric Types (int, float, complex)", url: "https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" }

@@ -9,16 +9,16 @@ lesson: 33
 duration: "15 min"
 objectives:
   - "Uza @dataclass pa kria klasis ku menus kódiku repetitivu"
-  - "Kompriendi o ki ta aprende dipos di es kursu i unde kontinua"
+  - "Kompriendi kuze ki ta aprende dipos di es kursu i unde kontinua"
 ---
 
 # Prosimus Pasus: Dataclasses i Alén
 
 **Parabéns! Bu txiga na final di kursu!** 🎉
 
-Di primeru `print("Ola Mundu!")` até klasis ku metodus majiku i sobrekarga di operador — bu feze un viaji inkrível. Bu kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bu deve sinti orgulhu.
+Di primeru `print("Ola Mundu!")` te klasis ku metodus majiku i sobrekarga di operador — bu feze un viaji inkrível. Bu kumesa sen sabe nada di programasan, i gosi bu ta skrebe kódiku ku variáveis, loops, funsons, i klasis. Es é un konkista real, i bu deve sinti orgulhu.
 
-Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bu vida kumo programador mutu más fáxi: **dataclasses**. Depois, nos ta odja pa futuru — o ki bu pode aprende dipos.
+Antis di nos fexá, tene un últimu ferramenta poderoza ki ta faze bu vida kumo programador mutu más fáxi: **dataclasses**. Depois, nos ta odja pa futuru — kuze ki bu pode aprende dipos.
 
 <SectionHeading variant="concept" seq={1}>`@dataclass` — Klasis Mais Simples</SectionHeading>
 
@@ -153,7 +153,7 @@ print(repr(santiago))          # Ilha(nomi='Santiago', populasan=313912, area_km
 
 Otru opsons útil: `order=True` (permite `sorted()` automátiku) i `field(default_factory=list)` pa valoris padrón mutável.
 
-<SectionHeading variant="concept" seq={3}>O ki Aprende Dipos?</SectionHeading>
+<SectionHeading variant="concept" seq={3}>Kuze ki Aprende Dipos?</SectionHeading>
 
 Bu gosi tene un bazi sólidu di Python. Li sta sinku kaminhu ki bu pode sigi:
 
@@ -166,7 +166,7 @@ Bu gosi tene un bazi sólidu di Python. Li sta sinku kaminhu ki bu pode sigi:
 | 📱 | **Mobile i Desktop** | Kivy, PyQt, Flet | Apps grafiku |
 
 ```python
-# Ezemplu rápidu — un API ku Flask na 5 linhas:
+# Izemplu rápidu — un API ku Flask na 5 linhas:
 from flask import Flask
 app = Flask(__name__)
 
@@ -221,7 +221,7 @@ class JestorKontatu:
     def __contains__(self, nomi: str):
         return any(nomi.lower() in k.nomi.lower() for k in self.kontatus)
 
-# Ezemplu di uzu
+# Izemplu di uzu
 jestor = JestorKontatu()
 jestor.adisiona(Kontatu("Maria Santos", "991-2345", "maria@email.com", "Mindelo"))
 jestor.adisiona(Kontatu("João Évora", "995-6789", "joao@email.com"))
@@ -238,7 +238,7 @@ Es é un ponto di partida — bu pode kontinua ta adisiona funsons kuma salva na
 
 <SectionHeading variant="concept" seq={5}>Parabéns — Bu É un Programador!</SectionHeading>
 
-Bu kaba di kompleta **Introdusan Konpletu a Python**. Nu ta odja pa trás pa tudu ki bu prende:
+Bu kaba di kompleta **Introdusan Kompletu a Python**. Nu ta odja pa trás pa tudu ki bu prende:
 
 **Módulu 1 — Fundamentus:** Variáveis, tipu di dadus, strings, operadoris, kondisionais, loops
 
@@ -260,6 +260,6 @@ Na komunidadi tékniku di Kabu Verdi, nos ta krese djuntu. Kada linha di kódiku
   <RezumuItem term="Opsons">`frozen=True` (imutável), `order=True` (komparável ku `sorted()`), i valoris padrón kumo `kuantidadi: int = 1`.</RezumuItem>
   <RezumuItem term="Flexível">`@dataclass` ka ta limita — bu pode adisiona bu própriu metodu i sobreskrebe `__str__` jeradu.</RezumuItem>
   <RezumuItem>Dipos di es kursu, skodje **un** kaminhu: Web (Flask/Django/FastAPI), Data Science (pandas), AI (PyTorch), Automasan ou Mobile — i mergulha fundu.</RezumuItem>
-  <RezumuItem variant="tip" term="Projetu">Pratika tudu ku un **Jestor di Kontatu** na terminál — klasis, dataclasses, listas, funsons, ficheru JSON, tratamentu di eru i metodus majiku, tudu djuntu.</RezumuItem>
+  <RezumuItem variant="tip" term="Projetu">Pratika tudu ku un **Jestor di Kontatu** na terminál — klasis, dataclasses, listas, funsons, fixeru JSON, tratamentu di eru i metodus majiku, tudu djuntu.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">Bu ka é un prinsipianti más — bo é un **programador**. Nu ta kria djuntu! 🇨🇻</RezumuItem>
 </KeyTakeaways>

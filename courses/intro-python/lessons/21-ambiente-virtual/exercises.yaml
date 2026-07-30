@@ -81,6 +81,6 @@
   kind: reflect
   title: { kea: "Refleta sobri pamodi venv é esensiál" }
   prompt:
-    kea: "Sen un ambiente virtual, tudu pakotu ta bai pa un lugar global partilhadu. Pensa nun kazu di dos projetu ki presiza versan diferenti di mesmu pakotu (p.ex. requests 2.28 vs 2.31). Skrebe o ki ta kontise sen venv, i kumo venv ta rezolve-l."
+    kea: "Sen un ambiente virtual, tudu pakotu ta bai pa un lugar global partilhadu. Pensa nun kazu di dos projetu ki presiza versan diferenti di mesmu pakotu (p.ex. requests 2.28 vs 2.31). Skrebe kuze ki ta kontise sen venv, i kumo venv ta rezolve-l."
   notePlaceholder:
     kea: "Problema sen venv: …   ·   Kumo venv ta rezolve: …   ·   Pamodi requirements.txt ta djuda partilha: …"

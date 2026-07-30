@@ -17,7 +17,7 @@
   kind: code
   title: { kea: "Klasifikador di IMC" }
   prompt:
-    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", `30` ou más é \"Obezidadi\"."
+    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC (`pezu / altura ** 2`) i mostra klasifikasan ku `if`/`elif`/`else`: menor ki `18.5` é \"Baxu pezu\", te `25` é \"Pezu normal\", te `30` é \"Subrepezu\", `30` ou más é \"Obezidadi\"."
   hint:
     kea: "Konverti dos input ku `float()`. Pa kategorias, testa di más baxu pa más altu — `if imc < 18.5:` ... `elif imc < 25:` ... `elif imc < 30:` ... `else:`. Orden ta importa: primeru `True` ta ganha."
   starterCode: |
@@ -142,7 +142,7 @@
   kind: explore
   title: { kea: "Splora match/case (Python 3.10+)" }
   prompt:
-    kea: "`match`/`case` é un alternativa modernu pa kadeia di `if`/`elif` kuandu bu ta kompara un valor ku txeu opsan. Odja dokumentason pa odja o ki más el pode faze (kumo kombina padrons ku `|`)."
+    kea: "`match`/`case` é un alternativa modernu pa kadeia di `if`/`elif` kuandu bu ta kompara un valor ku txeu opsan. Odja dokumentason pa odja kuze ki más el pode faze (kumo kombina padrons ku `|`)."
   resources:
     kea:
       - { label: "Python docs — match statements (tutorial)", url: "https://docs.python.org/3/tutorial/controlflow.html#match-statements" }
@@ -152,6 +152,6 @@
   kind: reflect
   title: { kea: "Refleta sobri orden di `elif`" }
   prompt:
-    kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe o ki ta kontise si bu po kondisan más larga (`< 65`) antis di más estrita (`< 13`)."
+    kea: "Python ta para na primeru kondisan ki é `True`. Pensa nun kadeia `if`/`elif` ki bu ta skrebe (p.ex. klasifika nota o idadi). Skrebe kuze ki ta kontise si bu po kondisan más larga (`< 65`) antis di más estrita (`< 13`)."
   notePlaceholder:
-    kea: "Kadeia: …   ·   Orden koretu: …   ·   O ki ta kontise si troka orden: …"
+    kea: "Kadeia: …   ·   Orden koretu: …   ·   Kuze ki ta kontise si troka orden: …"

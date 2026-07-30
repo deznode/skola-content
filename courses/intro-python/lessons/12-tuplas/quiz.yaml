@@ -19,7 +19,7 @@
     - text: { kea: "`tuple(\"Sal\")` é úniku manera" }
       correct: false
 - question:
-    kea: "Bu tene `ilhas = (\"Santiago\", \"Sal\")` i bu tenta `ilhas[0] = \"Maio\"`. O ki ta kontise?"
+    kea: "Bu tene `ilhas = (\"Santiago\", \"Sal\")` i bu tenta `ilhas[0] = \"Maio\"`. Kuze ki ta kontise?"
   options:
     - text: { kea: "Un `TypeError` — tuple é **imutável**, ka pode muda se elementus" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Nada — Python ta ignora atribuisan" }
       correct: false
 - question:
-    kea: "Dipos di `primeiru, *restu = (1, 2, 3, 4)`, o ki é `restu`?"
+    kea: "Dipos di `primeiru, *restu = (1, 2, 3, 4)`, kuze ki é `restu`?"
   options:
     - text: { kea: "`[2, 3, 4]` — `*` ta apanha restu kumo un **lista**" }
       correct: true
@@ -41,7 +41,7 @@
     - text: { kea: "Un eru — `*` ka pode sta na unpacking" }
       correct: false
 - question:
-    kea: "Dipos di `primeiru, *meiu, ultimu = (10, 20, 30, 40, 50)`, o ki é `meiu`?"
+    kea: "Dipos di `primeiru, *meiu, ultimu = (10, 20, 30, 40, 50)`, kuze ki é `meiu`?"
   options:
     - text: { kea: "`[20, 30, 40]` — `*` na meiu ta apanha tudu elementu entri `primeiru` i `ultimu`, kumo un **lista**" }
       correct: true

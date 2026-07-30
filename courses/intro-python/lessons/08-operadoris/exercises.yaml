@@ -19,7 +19,7 @@
   prompt:
     kea: "Pidi presu di un produtu i kuantu klienti pagá. Kalkula troku, i dipos kuantas nota di 200 ECV, kuantas di 100 ECV, i kuantu sobra na moeda. Uza `//` (divisan interu) i `%` (restu)."
   hint:
-    kea: "`troku = pagamentu - presu`. Pa kontar as nota di 200: `troku // 200`; o ki sobra: `troku % 200`. Dipos repeti pa as nota di 100 sobri o restu. Lenbra konverti o `input()` ku `int()`."
+    kea: "`troku = pagamentu - presu`. Pa kontar as nota di 200: `troku // 200`; kuze ki sobra: `troku % 200`. Dipos repeti pa as nota di 100 sobri o restu. Lenbra konverti o `input()` ku `int()`."
   starterCode: |
     # troku.py
     presu = int(input("Presu? "))
@@ -72,9 +72,9 @@
   kind: code
   title: { kea: "Kalkuladora di IMC" }
   prompt:
-    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC ku `pezu / altura ** 2` i mostra kategoria: abaxu di `18.5` é \"Abaxu di pezu\", até `25` é \"Pezu normal\", até `30` é \"Subrepezu\", i `30` ou más é \"Obezidadi\"."
+    kea: "Pidi pezu (kg) i altura (m). Kalkula IMC ku `pezu / altura ** 2` i mostra kategoria: abaxu di `18.5` é \"Abaxu di pezu\", te `25` é \"Pezu normal\", te `30` é \"Subrepezu\", i `30` ou más é \"Obezidadi\"."
   hint:
-    kea: "Konverti os dos input ku `float(...)`. O `**` (esponensasan) ta kore antis di `/`, anton `pezu / altura ** 2` ta kalkula `altura ** 2` primeru. Pa skodje a kategoria, uza `if`/`elif`/`else` (un previu di Lisan 9). Bu pode enkadea komparasons: `18.5 <= imc < 25`."
+    kea: "Konverti kes dos input ku `float(...)`. O `**` (esponensasan) ta kore antis di `/`, anton `pezu / altura ** 2` ta kalkula `altura ** 2` primeru. Pa skodje a kategoria, uza `if`/`elif`/`else` (un previu di Lisan 9). Bu pode enkadea komparasons: `18.5 <= imc < 25`."
   starterCode: |
     # imc.py
     pezu = float(input("Pezu (kg)? "))
@@ -129,7 +129,7 @@
   kind: explore
   title: { kea: "Splora a tabela kompletu di operadoris" }
   prompt:
-    kea: "Python tene más operadoris alén di es (kumo os bit-a-bit `&`, `|`, `<<`). Odja a tabela ofisial di presedensia pa odja a orden ezatu — un referensia útil kuandu un espresan ka ta da o ki bu spera."
+    kea: "Python tene más operadoris alén di es (kumo os bit-a-bit `&`, `|`, `<<`). Odja a tabela ofisial di presedensia pa odja a orden ezatu — un referensia útil kuandu un espresan ka ta da kuze ki bu spera."
   resources:
     kea:
       - { label: "Python docs — Operator precedence", url: "https://docs.python.org/3/reference/expressions.html#operator-precedence" }
@@ -139,6 +139,6 @@
   kind: reflect
   title: { kea: "Refleta sobri `=` versus `==`" }
   prompt:
-    kea: "Un di os errus más kumuns é konfundi `=` (atribuisan — garda un valor) ku `==` (komparasan — pergunta si é igual). Skrebe un izemplu di kada un, i o ki ta kontise si bu troka un pa otu nun kondisan."
+    kea: "Un di os errus más kumuns é konfundi `=` (atribuisan — garda un valor) ku `==` (komparasan — pergunta si é igual). Skrebe un izemplu di kada un, i kuze ki ta kontise si bu troka un pa otu nun kondisan."
   notePlaceholder:
-    kea: "`=` (atribuisan): …   ·   `==` (komparasan): …   ·   O ki ta kontise si troka: …"
+    kea: "`=` (atribuisan): …   ·   `==` (komparasan): …   ·   Kuze ki ta kontise si troka: …"

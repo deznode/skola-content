@@ -105,21 +105,21 @@
 - slug: media-ficheru-protejidu
   language: python
   kind: code
-  title: { kea: "Média di ficheru ku tratamentu" }
+  title: { kea: "Média di fixeru ku tratamentu" }
   prompt:
-    kea: "Skrebe un programa ki lé un ficheru di notas (un númeru pa linha), kaptura `FileNotFoundError` si ficheru ka izisti, kaptura `ValueError` pa linha ki ka é númeru, i na fin (`else`) mostra média di notas válidu."
+    kea: "Skrebe un programa ki lé un fixeru di notas (un númeru pa linha), kaptura `FileNotFoundError` si fixeru ka izisti, kaptura `ValueError` pa linha ki ka é númeru, i na fin (`else`) mostra média di notas válidu."
   hint:
-    kea: "Po `open(...)` dentu di `try`; `except FileNotFoundError:` pa ficheru ki ka izisti. Dentu di loop, un `try/except ValueError` pa pula linha ki ka é númeru. `else` di `try` di fora ta kalkula média."
+    kea: "Po `open(...)` dentu di `try`; `except FileNotFoundError:` pa fixeru ki ka izisti. Dentu di loop, un `try/except ValueError` pa salta linha ki ka é númeru. `else` di `try` di fora ta kalkula média."
   starterCode: |
     # media.py
     try:
         notas = []
         with open("notas.txt", "r") as f:
             for linha in f:
-                # TODO: try float(linha); except ValueError -> pula
+                # TODO: try float(linha); except ValueError -> salta
                 ...
     except FileNotFoundError:
-        print("O ficheru notas.txt ka izisti.")
+        print("O fixeru notas.txt ka izisti.")
     else:
         # TODO: mostra a média das notas válidu
         ...
@@ -137,7 +137,7 @@
                 except ValueError:
                     print(f"Avizu: '{linha}' ka é un númeru — puladu.")
     except FileNotFoundError:
-        print("O ficheru notas.txt ka izisti.")
+        print("O fixeru notas.txt ka izisti.")
     else:
         if notas:
             print(f"Média: {sum(notas) / len(notas):.1f}")
@@ -181,6 +181,6 @@
   kind: reflect
   title: { kea: "Refleta sobri kaptura espesífiku" }
   prompt:
-    kea: "Regra di oru é kaptura exseson espesífiku (`ValueError`, `ZeroDivisionError`), ka un `except:` solu. Pensa nun programa ki bu kreba protejé. Skrebe ki exsesons espesífiku bu ta kaptura, i o ki ta pode kontise si bu uza un `except:` jenériku ki apanha tudu."
+    kea: "Regra di oru é kaptura exseson espesífiku (`ValueError`, `ZeroDivisionError`), ka un `except:` solu. Pensa nun programa ki bu kreba protejé. Skrebe ki exsesons espesífiku bu ta kaptura, i kuze ki ta pode kontise si bu uza un `except:` jenériku ki apanha tudu."
   notePlaceholder:
     kea: "Programa: …   ·   Exsesons espesífiku: …   ·   Riskus di un except: jenériku: …"

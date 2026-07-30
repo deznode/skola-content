@@ -103,6 +103,6 @@
   kind: reflect
   title: { kea: "Refleta sobri generator versus lista" }
   prompt:
-    kea: "Generator ta produz valor un pa un (poupa memória), ma só pode ser iteradu un bez i ka ten `len()` nen índisi. Pensa nun kazu di dadus grandi (un ficheru, un sekuénsia infinita). Skrebe pamodi un generator é midjór la, i unde un lista sería nesesáriu."
+    kea: "Generator ta produz valor un pa un (poupa memória), ma só pode ser iteradu un bez i ka ten `len()` nen índisi. Pensa nun kazu di dadus grandi (un fixeru, un sekuénsia infinita). Skrebe pamodi un generator é midjór la, i unde un lista sería nesesáriu."
   notePlaceholder:
     kea: "Kazu pa generator: …   ·   Kazu unde meste lista: …   ·   Pamodi (memória? un-bez-só? índisi?): …"

@@ -1,5 +1,5 @@
 ---
-title: Introdusan Konpletu a Python
+title: Introdusan Kompletu a Python
 slug: intro-python
 courseSlug: intro-python
 language: kea
@@ -8,11 +8,11 @@ validated_at: 2026-04-21
 trace_id: Skola-course-intro-python-20260420-113000
 ---
 
-# Python Cheatsheet — Introdusan Konpletu a Python
+# Python Cheatsheet — Introdusan Kompletu a Python
 
 **Lingua:** kea (Kabuverdianu) | **Python:** 3.13+ | **Doc version:** 1.0.0 | **Validadu na:** 2026-04-21
 
-> **Pa ken?** Prinsipiantes absolutu — estudantes Kabuverdianu ki sta kumesa programa ku Python.
+> **Pa ken?** Prinsipiantis absolutu — estudantis Kabuverdianu ki sta kumesa programa ku Python.
 > **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia i kola kódikus diretu pa bu editor.
 
 ---
@@ -35,7 +35,7 @@ trace_id: Skola-course-intro-python-20260420-113000
 14. [Jeneradoris](#14-jeneradoris)
 15. [Módulus i Pakotis](#15-módulus-i-pakotis)
 16. [Ambiente Virtual i pip](#16-ambiente-virtual-i-pip)
-17. [Operasons ku Ficheru](#17-operasons-ku-ficheru)
+17. [Operasons ku Fixeru](#17-operasons-ku-fixeru)
 18. [Tratamentu di Eru](#18-tratamentu-di-eru)
 19. [Annotasons di Tipu](#19-annotasons-di-tipu)
 20. [Testu ku pytest](#20-testu-ku-pytest)
@@ -43,7 +43,7 @@ trace_id: Skola-course-intro-python-20260420-113000
 22. [Eransa](#22-eransa)
 23. [Polimorfismu i Abstrasan](#23-polimorfismu-i-abstrasan)
 24. [Enkapsolamentu i @property](#24-enkapsolamentu-i-property)
-25. [Métodus Mádjiku i Sobrekarga](#25-métodus-mádjiku-i-sobrekarga)
+25. [Metodus Majiku i Sobrekarga](#25-metodus-majiku-i-sobrekarga)
 26. [Dataclasses](#26-dataclasses)
 27. [Komprehensions (Rezumu)](#27-komprehensions-rezumu)
 28. [Erus Komun i Kumo Rezolvé](#28-erus-komun-i-kumo-rezolvé)
@@ -58,7 +58,7 @@ trace_id: Skola-course-intro-python-20260420-113000
 # Windows: Bai python.org → Download → IMPORTANTE: Marka "Add python.exe to PATH"!
 
 # macOS: Bai python.org → Download .pkg
-# (Ka uza Homebrew — i tene problemas ku upgrades silensiozu)
+# (Ka uza Homebrew — el tene problemas ku upgrades silensiozu)
 
 # Linux (Ubuntu/Debian):
 sudo apt update
@@ -68,8 +68,13 @@ sudo apt install python3 python3-venv python3-pip
 ### Verifika Instalasan
 
 ```bash
-python --version        # Python 3.13.x
-pip --version           # pip 24.x
+# macOS / Linux — komandu ten `3` na fin
+python3 --version       # Python 3.13.x
+pip3 --version          # pip 25.x
+
+# Windows — sen `3`
+python --version
+pip --version
 ```
 
 ### VS Code Setup
@@ -95,7 +100,7 @@ print("Nu ta kria djuntu!")
 nomi = "Maria"          # str  — textu
 idadi = 25              # int  — numeru interu
 altura = 1.68           # float — numeru desimal
-é_estudanti = True      # bool — True ou False
+e_estudanti = True      # bool — True ou False
 ```
 
 ### Regras di Nomi
@@ -117,7 +122,7 @@ presu = float("9.99")       # 9.99
 textu = str(25)              # "25"
 
 # input() SENPRI retorna string!
-idadi = int(input("Bo idadi: "))
+idadi = int(input("Bu idadi: "))
 ```
 
 ### type() — Verifika Tipu
@@ -125,7 +130,7 @@ idadi = int(input("Bo idadi: "))
 ```python
 print(type(nomi))        # <class 'str'>
 print(type(idadi))       # <class 'int'>
-print(type(é_estudanti)) # <class 'bool'>
+print(type(e_estudanti)) # <class 'bool'>
 ```
 
 ### 4 Tipus Báziku
@@ -152,9 +157,9 @@ di Kabu Verdi.
 """
 ```
 
-### Métodus di String
+### Metodus di String
 
-| Métodu | Izemplu | Resultadu |
+| Metodu | Izemplu | Resultadu |
 |--------|---------|-----------|
 | `.upper()` | `"djon".upper()` | `"DJON"` |
 | `.lower()` | `"DJON".lower()` | `"djon"` |
@@ -175,7 +180,7 @@ di Kabu Verdi.
 nomi = "Amilka"
 nomi[0]       # "A"         — primeru karakter
 nomi[-1]      # "a"         — últimu karakter
-nomi[1:4]     # "mil"       — di 1 até 3
+nomi[1:4]     # "mil"       — di 1 te 3
 nomi[:3]      # "Ami"       — primeru 3
 nomi[::2]     # "Aik"       — keda 2
 nomi[::-1]    # "aklimA"    — reversu
@@ -186,7 +191,7 @@ nomi[::-1]    # "aklimA"    — reversu
 ```python
 nomi = "Maria"
 idadi = 22
-print(f"Nha nomi é {nomi} e N tene {idadi} anu.")
+print(f"Nha nomi é {nomi} i N tene {idadi} anu.")
 
 # Expresons dentu di {}
 presu = 150.5
@@ -345,13 +350,13 @@ for i in range(10):
         break                # Para na 5
     print(i)                 # 0, 1, 2, 3, 4
 
-# continue — pula iterasan atual
+# continue — salta iterasan atual
 for i in range(10):
     if i % 2 == 0:
-        continue             # Pula pares
+        continue             # Salta pares
     print(i)                 # 1, 3, 5, 7, 9
 
-# pass — ka fazi nada (placeholder)
+# pass — ka faze nada (placeholder)
 for i in range(5):
     pass                     # TODO: implementa dipós
 ```
@@ -383,9 +388,9 @@ frutas[1:3]     # ["banana", "papaia"]
 frutas[::-1]    # lista reversu
 ```
 
-### Métodus di Lista
+### Metodus di Lista
 
-| Métodu | Uson | Izemplu |
+| Metodu | Uson | Izemplu |
 |--------|------|---------|
 | `.append(x)` | djunta na final | `frutas.append("koko")` |
 | `.insert(i, x)` | Inseri na pozisan | `frutas.insert(0, "melun")` |
@@ -448,8 +453,8 @@ primeru, *meiu, ultimu = (1, 2, 3, 4, 5)
 | Tupla `()` | Lista `[]` |
 |------------|-----------|
 | Dadus ki ka muda (koordenadas, kores RGB) | Dadus ki muda (tarefas, karrinhu di kompra) |
-| Mais rápidu na memória | Mais métodus disponível |
-| Pode uza Kumo xavi di dict | Ka pode uza Kumo xavi di dict |
+| Mais rápidu na memória | Mais metodus disponível |
+| Pode uza kumo xavi di dict | Ka pode uza kumo xavi di dict |
 
 ---
 
@@ -477,9 +482,9 @@ estudanti["email"] = "amilka@mail.cv"  # djunta novu
 del estudanti["ilha"]             # elimina
 ```
 
-### Métodus Prinsipal
+### Metodus Prinsipal
 
-| Métodu | Retorna |
+| Metodu | Retorna |
 |--------|---------|
 | `.keys()` | Tudu xavis |
 | `.values()` | Tudu valoris |
@@ -573,9 +578,9 @@ pares = {x for x in range(20) if x % 2 == 0}
 ```python
 def saudason(nomi):
     """Saudason personalizadu."""
-    print(f"Ola, {nomi}! Tudo dretu?")
+    print(f"Ola, {nomi}! Tudu dretu?")
 
-saudason("Djina")    # Ola, Djina! Tudo dretu?
+saudason("Djina")    # Ola, Djina! Tudu dretu?
 ```
 
 ### Parámetrus
@@ -702,11 +707,11 @@ aprovadus = list(filter(lambda e: e["nota"] >= 14, estudantis))
 ```python
 ilhas = ["Santiago", "Fogo", "Sal"]
 
-# Ka fazi es:
+# Ka faze es:
 for i in range(len(ilhas)):
     print(f"{i}: {ilhas[i]}")
 
-# Fazi es:
+# Faze es:
 for i, ilha in enumerate(ilhas):
     print(f"{i}: {ilha}")
 ```
@@ -782,7 +787,7 @@ gosi = dt.datetime.now()
 | `random` | Alatóriu | `random.randint(1, 10)`, `random.choice(lista)` |
 | `os` | Sistema operasional | `os.getcwd()`, `os.path.exists(f)` |
 | `json` | JSON | `json.dumps(dict)`, `json.loads(str)` |
-| `csv` | Ficheru CSV | `csv.reader(f)`, `csv.writer(f)` |
+| `csv` | Fixeru CSV | `csv.reader(f)`, `csv.writer(f)` |
 | `datetime` | Data i ora | `datetime.now()`, `timedelta(days=1)` |
 | `re` | Regex | `re.search(r"\d+", textu)` |
 
@@ -790,7 +795,7 @@ gosi = dt.datetime.now()
 
 ```
 nha_pakoti/
-    __init__.py         # fazi diretóriu virá pakoti
+    __init__.py         # faze diretóriu virá pakoti
     matematika.py       # def soma(a, b): return a + b
     utilidades.py       # def saudason(nomi): ...
 ```
@@ -815,7 +820,7 @@ source .venv/bin/activate       # macOS / Linux
 .venv\Scripts\activate          # Windows (cmd)
 .venv\Scripts\Activate.ps1     # Windows (PowerShell)
 
-# 3. Verifica — prompt mostra (.venv)
+# 3. Verifika — prompt mostra (.venv)
 which python                    # deve aponta pa .venv/
 
 # 4. Instala pakotis
@@ -841,9 +846,9 @@ pip install -r requirements.txt
 
 ---
 
-## 17. Operasons ku Ficheru
+## 17. Operasons ku Fixeru
 
-### Lé Ficheru
+### Lé Fixeru
 
 ```python
 # Lé tudu
@@ -856,19 +861,19 @@ with open("dados.txt", "r") as f:
         print(linha.strip())
 ```
 
-### Skrevi Ficheru
+### Skrevi Fixeru
 
 ```python
 # Skrevi (KUIDADU — apaga konteúdu existenti!)
 with open("saida.txt", "w") as f:
-    f.write("Primeira linha\n")
+    f.write("Primeru linha\n")
 
 # Junta na final (preserva konteúdu)
 with open("saida.txt", "a") as f:
     f.write("Linha novu\n")
 ```
 
-### Modus di Ficheru
+### Modus di Fixeru
 
 | Modu | Ason | Konteúdu Existenti |
 |------|------|--------------------|
@@ -879,19 +884,19 @@ with open("saida.txt", "a") as f:
 | `"w+"` | Skrevi + lé | **APAGA tudu!** |
 | `"rb"` / `"wb"` | Binário | Pa imajen, PDF, etc. |
 
-### Kaminhu di Ficheru
+### Kaminhu di Fixeru
 
 ```python
 import os
 
-os.path.join("pasta", "ficheru.txt")   # kaminhu korretu pa kel OS
-os.path.exists("ficheru.txt")          # True / False
-os.path.isfile("ficheru.txt")          # True si é ficheru
+os.path.join("pasta", "fixeru.txt")    # kaminhu korretu pa kel OS
+os.path.exists("fixeru.txt")           # True / False
+os.path.isfile("fixeru.txt")           # True si é fixeru
 os.path.isdir("pasta")                 # True si é pasta
 os.listdir(".")                         # lista konteúdu di pasta
 ```
 
-> **REGRA:** SENPRI uza `with open(...)` — i ta fitxa ficheru automátiku, mesmu si tene eru!
+> **REGRA:** SENPRI uza `with open(...)` — el ta fitxa fixeru automátiku, mesmu si tene eru!
 
 ---
 
@@ -904,7 +909,7 @@ try:
     numeru = int(input("Mete un numeru: "))
     resultadu = 100 / numeru
 except ValueError:
-    print("Exi ka é un numeru válidu!")
+    print("Es ka é un numeru válidu!")
 except ZeroDivisionError:
     print("Ka pode dividi pa zeru!")
 except Exception as e:
@@ -917,17 +922,17 @@ finally:
 
 ### Exsesons Komun
 
-| Exsesan | Kuandu Akontesi |
+| Exsesan | Kuandu Kontise |
 |---------|-----------------|
 | `SyntaxError` | Kódiku mal skrevedu |
 | `NameError` | Variável ka existe |
 | `TypeError` | Operasan ku tipu eradu (`"5" + 5`) |
 | `ValueError` | Valor inválidu (`int("abc")`) |
-| `IndexError` | Índisi fora di ranja |
+| `IndexError` | Índisi fora di limiti |
 | `KeyError` | Xavi ka existe na dict |
-| `FileNotFoundError` | Ficheru ka existe |
+| `FileNotFoundError` | Fixeru ka existe |
 | `ZeroDivisionError` | Divizan pa zeru |
-| `AttributeError` | Métodu/atributu ka existe |
+| `AttributeError` | Metodu/atributu ka existe |
 
 ### raise — Lansa Exsesan
 
@@ -941,7 +946,7 @@ def saka_dineru(balansa, montanti):
 ### Exsesan Personalizadu
 
 ```python
-class SaldoInsufisentiError(Exception):
+class SaldoInsufisientiError(Exception):
     def __init__(self, balansa, montanti):
         self.balansa = balansa
         self.montanti = montanti
@@ -950,16 +955,16 @@ class SaldoInsufisentiError(Exception):
         )
 
 # Uzu:
-raise SaldoInsufisentiError(500, 1000)
+raise SaldoInsufisientiError(500, 1000)
 ```
 
 ### Lé Traceback (Eru)
 
 ```
 Traceback (most recent call last):
-  File "programa.py", line 5, in <module>     ← UNDI acontesi
+  File "programa.py", line 5, in <module>     ← UNDE kontise
     resultadu = 100 / 0                        ← LINHA ku eru
-ZeroDivisionError: division by zero            ← O KI acontesi
+ZeroDivisionError: division by zero            ← KUZE KI kontise
 ```
 
 > Lé traceback di **baxu pa sima** — últimu linha é eru, linhas di sima mostra kaminhu.
@@ -987,7 +992,7 @@ def saudason(nomi: str) -> str:
 def soma(a: int, b: int) -> int:
     return a + b
 
-def busca_estudanti(id: int) -> dict | None:    # Python 3.10+
+def busca_estudanti(estudanti_id: int) -> dict | None:    # Python 3.10+
     """Retorna estudanti ou None si ka atxa."""
     ...
 ```
@@ -1035,7 +1040,7 @@ def test_soma_zeru():
 
 ```bash
 pytest                      # roda tudu testis
-pytest test_matematika.py   # ficheru spesífiku
+pytest test_matematika.py   # fixeru spesífiku
 pytest -v                   # verbose — mostra kada testu
 ```
 
@@ -1078,11 +1083,11 @@ class NomiKlasi:
         self.atributu1 = param1            # Variável di instansia
         self.atributu2 = param2
 
-    def métodu(self):                      # Métodu di instansia
+    def metodu(self):                      # Metodu di instansia
         return self.atributu1
 ```
 
-> **LEMBRA:** `self` é referensia pa instansia atual — SENPRI primeru parámetru di métodus.
+> **LEMBRA:** `self` é referensia pa instansia atual — SENPRI primeru parámetru di metodus.
 
 ---
 
@@ -1104,34 +1109,34 @@ class Katxor(Animal):
         self.rasa = rasa
 
     def fala(self) -> str:              # override
-        return f"{self.nomi} ta fazi Woof!"
+        return f"{self.nomi} ta faze Woof!"
 
 class Gatu(Animal):
     def fala(self) -> str:
-        return f"{self.nomi} ta fazi Miau!"
+        return f"{self.nomi} ta faze Miau!"
 
 rex = Katxor("Rex", "Labrador")
-print(rex.fala())       # Rex ta fazi Woof!
+print(rex.fala())       # Rex ta faze Woof!
 print(rex.rasa)         # Labrador
 ```
 
 ### Eransa Múltiplu
 
 ```python
-class Animal:
+class Artista:
     def __init__(self, nomi):
         self.nomi = nomi
 
-class Animali:
-    def __init__(self, donu):
-        self.donu = donu
+class Kompozitor:
+    def __init__(self, instrumentu):
+        self.instrumentu = instrumentu
 
-class Katxor(Animal, Animali):
-    def __init__(self, nomi, donu):
-        Animal.__init__(self, nomi)      # txamada direta pa múltiplu
-        Animali.__init__(self, donu)
+class MúzikuKompletu(Artista, Kompozitor):
+    def __init__(self, nomi, instrumentu):
+        Artista.__init__(self, nomi)          # txamada direta pa múltiplu
+        Kompozitor.__init__(self, instrumentu)
 
-rex = Katxor("Rex", "Djon")
+tito = MúzikuKompletu("Tito Paris", "gitarra")
 ```
 
 > Uza `super()` pa eransa simples; `Klasi.__init__(self, ...)` pa eransa múltiplu.
@@ -1172,10 +1177,10 @@ from abc import ABC, abstractmethod
 class Forma(ABC):
     @abstractmethod
     def area(self) -> float:
-        """Tudu forma DEVE implementa es métodu."""
+        """Tudu forma DEVE implementa es metodu."""
         pass
 
-    def deskribi(self) -> str:           # métodu normal (erdadu)
+    def deskribi(self) -> str:           # metodu normal (erdadu)
         return f"Forma ku área {self.area()}"
 
 class Retangulu(Forma):
@@ -1200,7 +1205,7 @@ print(r.deskribi())  # Forma ku área 20
 | Prefixu | Tipu | Asesu |
 |---------|------|-------|
 | `self.nomi` | Públiku | Di kualker lugar |
-| `self._nomi` | Protejidu | Klasi + filhos (konvensan) |
+| `self._nomi` | Protejidu | Klasi + fidjus (konvensan) |
 | `self.__nomi` | Privadu | Só klasi (name mangling) |
 
 ### @property — Getter/Setter Modernu
@@ -1213,7 +1218,7 @@ class Estudanti:
 
     @property
     def nota(self) -> float:
-        """Getter — asesa Kumo atributu, ka Kumo métodu."""
+        """Getter — asesa kumo atributu, ka kumo metodu."""
         return self._nota
 
     @nota.setter
@@ -1222,7 +1227,7 @@ class Estudanti:
         if 0 <= valor <= 20:
             self._nota = valor
         else:
-            raise ValueError("Nota deve sé entre 0 e 20")
+            raise ValueError("Nota deve sé entri 0 i 20")
 
     @property
     def nomi(self) -> str:
@@ -1237,11 +1242,11 @@ maria.nota = 18          # (setter — valida)
 
 ---
 
-## 25. Métodus Mádjiku i Sobrekarga
+## 25. Metodus Majiku i Sobrekarga
 
-### Métodus Mádjiku Prinsipal
+### Metodus Majiku Prinsipal
 
-| Métodu | Kuandu Roda | Izemplu |
+| Metodu | Kuandu Roda | Izemplu |
 |--------|-------------|---------|
 | `__init__` | Kria objetu | `obj = Klasi(...)` |
 | `__str__` | `print(obj)`, `str(obj)` | Saída pa umanu |
@@ -1330,7 +1335,7 @@ print(maria)         # Estudanti(nomi='Maria', idadi=22, nota=17.5)
 ### Opsons Úteis
 
 ```python
-@dataclass(frozen=True)         # imutável (Kumo tupla)
+@dataclass(frozen=True)         # imutável (kumo tupla)
 class Puntu:
     x: float
     y: float
@@ -1350,7 +1355,7 @@ class Nota:
 | List | `[x**2 for x in range(5)]` | `[0, 1, 4, 9, 16]` |
 | Dict | `{x: x**2 for x in range(5)}` | `{0:0, 1:1, 2:4, ...}` |
 | Set | `{x % 3 for x in range(10)}` | `{0, 1, 2}` |
-| Generator | `(x**2 for x in range(5))` | objeto lazy |
+| Generator | `(x**2 for x in range(5))` | objetu lazy |
 
 ### Ku Kondisan
 
@@ -1361,7 +1366,7 @@ class Nota:
 # Transforma + filtra
 [nomi.upper() for nomi in nomis if len(nomi) > 3]
 
-# Dict filtrado
+# Filtra dict
 {k: v for k, v in estudantis.items() if v >= 14}
 ```
 
@@ -1378,8 +1383,8 @@ class Nota:
 | `IndexError: list index out of range` | Índisi fora di lista | Verifika `len()` antis |
 | `KeyError: 'nomi'` | Xavi ka existe na dict | Uza `.get(key, default)` |
 | `ModuleNotFoundError` | Pakoti ka instaladu | `pip install pakoti` (dentu di .venv) |
-| `FileNotFoundError` | Ficheru ka existe | Verifika kaminhu ku `os.path.exists()` |
-| `def f(x, data=[])` | Default mutável partilhadu | Uza `data=None`, dps `data = data or []` |
+| `FileNotFoundError` | Fixeru ka existe | Verifika kaminhu ku `os.path.exists()` |
+| `def f(x, data=[])` | Default mutável partilhadu | Uza `data=None`, dipós `if data is None: data = []` |
 | `except:` (sem tipu) | Kapta tudu inkluindu Ctrl+C | SENPRI kapta exsesan spesífiku |
 
 ---
@@ -1388,23 +1393,23 @@ class Nota:
 
 | Feature | List `[]` | Tuple `()` | Dict `{}` | Set `{}` |
 |---------|-----------|------------|-----------|----------|
-| Ordenadu | Sim | Sim | Sim (3.7+) | Nun |
-| Mutável | Sim | Nun | Valoris sim | Sim |
+| Ordenadu | Sin | Sin | Sin (3.7+) | Nau |
+| Mutável | Sin | Nau | Valoris sin | Sin |
 | Duplikadus | Permiti | Permiti | Xavis úniku | Ka permiti |
-| Indexasan | Pozisan | Pozisan | Xavi | Nun |
-| Comprehension | Sim | Nun | Sim | Sim |
-| Slicing | Sim | Sim | Nun | Nun |
-| Uzu típiku | Koleson ki muda | Dadus fixu | Mapamentu | Valores úniku |
+| Indexasan | Pozisan | Pozisan | Xavi | Nau |
+| Comprehension | Sin | Nau | Sin | Sin |
+| Slicing | Sin | Sin | Nau | Nau |
+| Uzu típiku | Koleson ki muda | Dadus fixu | Mapamentu | Valoris úniku |
 
 ---
 
 ## Tabela Rápidu: 4 Pilaris di OOP
 
-| Pilar | Mekanismu | Pal ki é |
+| Pilar | Mekanismu | Pa ki |
 |-------|-----------|----------|
 | **Klasis/Objetis** | `class`, `__init__`, `self` | Kria blueprints pa objetis |
 | **Eransa** | `super()`, klasi fidjo | Reusa kódiku di klasi pai |
-| **Polimorfismu** | Override, ABC | Mesmu métodu, komportamentu diferenti |
+| **Polimorfismu** | Override, ABC | Mesmu metodu, komportamentu diferenti |
 | **Enkapsolamentu** | `_`, `__`, @property | Proteje dadus, kontrola asesu |
 
 ---
@@ -1418,4 +1423,4 @@ class Nota:
 * **Revalidasan:**
   - [ ] Verifika changelog di Python pa novu versan
   - [ ] Roda izemplus di kódiku
-  - [ ] Verifika sintaxi di flag i métodu
+  - [ ] Verifika sintaxi di flag i metodu

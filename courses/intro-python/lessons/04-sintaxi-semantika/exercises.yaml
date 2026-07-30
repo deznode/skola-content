@@ -97,6 +97,6 @@
   kind: reflect
   title: { kea: "Refleta sobri un eru di sintaxi ki bu atxa" }
   prompt:
-    kea: "Pensa na un eru di sintaxi ki bu dja atxa na es lisan (`SyntaxError`, `NameError` o `IndentationError`). Skrebe ki tipu di eru era, o ki kauza-l, i kumo bu koriji-l."
+    kea: "Pensa na un eru di sintaxi ki bu dja atxa na es lisan (`SyntaxError`, `NameError` o `IndentationError`). Skrebe ki tipu di eru era, kuze ki kauza-l, i kumo bu koriji-l."
   notePlaceholder:
     kea: "Eru: …   ·   Kauza (case? indentasan? paréntesis?): …   ·   Koresan: …"

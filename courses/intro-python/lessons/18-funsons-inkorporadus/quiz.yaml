@@ -1,6 +1,6 @@
 # Quiz sidecar (draft source) for lesson m3-18 "Funsons Inkorporadus Úteis".
 # Draft-canonical per ADR-0026. Publish copies this VERBATIM to
-# content/courses/intro-python/lessons/18-funsoens-inkorporadus/quiz.yaml;
+# content/courses/intro-python/lessons/18-funsons-inkorporadus/quiz.yaml;
 # positions 0,1,2,3 correspond to <Quiz position={N}/> markers (FOUR quizzes).
 #
 # ⚠️  DRAFT — NEEDS CONTENT-TEAM REVIEW (Kriolu prose is .content ownership).
@@ -19,7 +19,7 @@
     - text: { kea: "`sorted(lista)`" }
       correct: false
 - question:
-    kea: "Bu faze `zip()` di dos lista di tamanhu diferenti (un ku 5, otu ku 3). O ki ta kontise?"
+    kea: "Bu faze `zip()` di dos lista di tamanhu diferenti (un ku 5, otu ku 3). Kuze ki ta kontise?"
   options:
     - text: { kea: "`zip()` ta para kuandu más kurtu akaba — só 3 par" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "Ta da 5 par, ku últimu repetidu" }
       correct: false
 - question:
-    kea: "Kal é diferensa entri `any()` i `all()`?"
+    kea: "Kual é diferensa entri `any()` i `all()`?"
   options:
     - text: { kea: "`any()` ta da `True` si **algun** elementu é `True`; `all()` só si **tudu** é `True`" }
       correct: true

@@ -8,6 +8,49 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-07-30] — publish
+
+### Changed
+- Kriolu lexicon corrections across all 33 lessons, 66 sidecars and the
+  cheatsheet, from a review pass over the drafts. Six user rulings: `o ki` →
+  `kuze ki` ("what", both interrogative and free-relative senses, 164 sites);
+  `koreu` → `kore`; `parecidu` → `paresidu`; `até` → `te`; `pula` → `salta`;
+  and `konp-` → `komp-` (65 sites).
+- Course title is now **Introdusan Kompletu a Python** (`Konpletu` → `Kompletu`).
+  The cheatsheet title and body previously disagreed on this word.
+- Kriolu inside code fences is now normalized too — comments and string literals
+  in 25 lesson files (83 fixes). Every normalize tier is prose-scoped by design,
+  so this text had never been linted; `scripts/audit_codefence_kriolu.py` in
+  skola-research now keeps that gap closed.
+- Accented boolean identifier prefix `é_` → `e_` across example code
+  (`e_par`, `e_palindromu`, `e_forti`, `e_maior_di_idadi`).
+- Portuguese article elisions applied case by case: `t'o` → `te` (apostrophe
+  elision is ALUPEC-illegal), `os dos` → `kes dos` ("both" — eliding would yield
+  the numeral "two" and corrupt the and/or truth table), `Asesu a` → `Asesu pa`
+  (dative), and `(o primi X)` → `(ou primi X)` (that `o` was a mangled "or").
+- `<CodeCloze>` titles: "Inche spasus" → "Kompleta kódiku". `inche` keeps a
+  Portuguese `ch` that papia cannot see — its digraph rule is word-initial only.
+- Cheatsheet setup section now distinguishes `python3`/`pip3` (macOS/Linux) from
+  `python`/`pip` (Windows); the previous text installed `python3` then told the
+  learner to run `python`, which fails on a stock Ubuntu.
+- Cheatsheet multiple-inheritance example now mirrors lesson 28's approved
+  `Artista`/`Kompozitor` pair, replacing the near-identical `Animal`/`Animali`.
+
+### Fixed
+- Mutable-default entry now shows `if data is None: data = []` instead of
+  `data = data or []`, which silently discards an intentionally-passed empty list
+  — in the entry that teaches the fix.
+- `course.yaml` module and lesson slugs realigned with `content.json`
+  (`funsoens-*` → `funsons-*`, `operasoens-ficheru` → `operasons-fixeru`,
+  `annotasoens-tipu` → `annotasons-tipu`). These pointed at directories that no
+  longer exist, so those four lessons would have 404'd.
+- Traceback annotation reads `UNDE`/`KUZE KI` rather than `UNDI`/`O KI`.
+
+### Removed
+- Four orphaned lesson directories left by the earlier slug rename:
+  `16-funsoens-baziku`, `18-funsoens-inkorporadus`, `22-operasoens-ficheru`,
+  `24-annotasoens-tipu`.
+
 ## [2026-07-30] — hand-edit
 
 ### Fixed

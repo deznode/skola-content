@@ -20,18 +20,18 @@ objectives:
 
 Na vida real, nos ta toma desizan a tudu momentu: "Si sta txobe, N ta leba garda-txuva. Si nau, N ta bai sen el." Programas ta funsiona mesmu maneira — és ta presiza toma desizan baseadu na kondisan. Na Python, nos ta uza `if`, `elif` i `else` pa kontrola kaminhu ki programa ta sigi. Dipos di kel lisan li, bu ta sabi faze bu programa pensa i disidi!
 
-Imajina bu ta kaminha i txiga na un **garfu di kaminhu** (fork in the road): un kaminhu ta bai pa direita, otu pa isquerda. Bu tem ki skodje sô un — bu ka pode sigui dos kaminhu na mesmu tempu.
+Imajina bu ta kaminha i txiga na un **garfu di kaminhu** (fork in the road): un kaminhu ta bai pa direita, otu pa isquerda. Bu tem ki skodje sô un — bu ka pode sigi dos kaminhu na mesmu tempu.
 
-Na programasan, **kondisional** (`if`/`elif`/`else`) funsiona mesmu manera: programa ta txiga na un pontu undi el meste skodje kal kaminhu (bloku di kódiku) pa sigui, baseadu na si un kondisan é verdadi ô falsu. Sô un bloku ta izekutadu — nunka dos na mesmu tempu.
+Na programasan, **kondisional** (`if`/`elif`/`else`) funsiona mesmu manera: programa ta txiga na un pontu unde el meste skodje kual kaminhu (bloku di kódiku) pa sigi, baseadu na si un kondisan é verdadi ou falsu. Sô un bloku ta izekutadu — nunka dos na mesmu tempu.
 
 :::callout{type=info}
-Un garfu di kaminhu na vida real é normalmenti un eskolha di un bez sô — dipos ki bu skodje direita ô isquerda, ka tem volta. Ma un `if`/`elif`/`else` na kódiku é reavaliadu **kada bez ki el ta izekutadu** — si el sta dentu di un **loop** (bu ta prende loops na Lisan 10), mesmu "garfu" pode manda kódiku pa un kaminhu diferenti na kada pasada, dipendendu di kumo kondisan muda. Metáfora di garfu ka ta kobri kel parti — el ta bon pa kompriende **un desizan sô**, ka pa desizons ripetidu.
+Un garfu di kaminhu na vida real é normalmenti un eskolha di un bez sô — dipos ki bu skodje direita ou isquerda, ka tem volta. Ma un `if`/`elif`/`else` na kódiku é reavaliadu **kada bez ki el ta izekutadu** — si el sta dentu di un **loop** (bu ta prende loops na Lisan 10), mesmu "garfu" pode manda kódiku pa un kaminhu diferenti na kada pasada, dipendendu di kumo kondisan muda. Metáfora di garfu ka ta kobri kel parti — el ta bon pa kompriende **un desizan sô**, ka pa desizons ripetidu.
 :::
 
 <GlossaryText
   text="Un programa ta toma desizan avaliandu un [[kondisan]] — un pergunta ki ta da `True` ou `False` (un valor [[boolean]])."
   terms={{
-    kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ou `False` — pa izemplu idadi >= 18. É o ki un if ta verifika antis di disidi." },
+    kondisan: { en: "condition", definition: "Un expresan ki Python ta avalia kumo `True` ou `False` — pa izemplu idadi >= 18. É kuze ki un if ta verifika antis di disidi." },
     boolean: { en: "boolean", definition: "Tipu di dadu ku dos valor sô: True ou False. Tudu komparasan (==, >, <...) ta produzi un boolean." },
   }}
 />
@@ -44,7 +44,7 @@ Na L08 bu prende es operadoris di komparasan (`==`, `>`, `<`, `>=`) i lójiku (`
 
 ![Fluxu di kontrol ku if / elif / else](../../infographics/04-kontrol-fluxu-desizan.jpg)
 
-Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta bloku di kódiku dentu. Si é `False`, el ta pula pa `else`.
+Estrutura `if` ta verifika un kondisan. Si kondisan é `True`, Python ta izekuta bloku di kódiku dentu. Si é `False`, el ta salta pa `else`.
 
 <AnnotatedCode
   lang="python"
@@ -140,7 +140,7 @@ else:
 Bu pode po un `if` dentu di otu `if`. Es ta txoma "kondisionais aninhadu" (nested conditionals). Útil kuandu bu presiza verifika más ki un koza di bez.
 
 ```python
-# Verifica si numeru é par/ímpar i positivu/negativu
+# Verifika si numeru é par/ímpar i positivu/negativu
 numeru = int(input("Inseri un numeru: "))
 
 if numeru > 0:
@@ -252,9 +252,9 @@ else:
 ```python
 # Verifikasan di disku na menu
 presu = 450  # ECV
-é_pratu_dia = True
+e_pratu_dia = True
 
-if presu <= 500 or é_pratu_dia:
+if presu <= 500 or e_pratu_dia:
     print("Kel presu li sta bon!")
 else:
     print("Sta un pokitu karu.")

@@ -16,12 +16,12 @@ objectives:
 
 # Disionárius i Dict Comprehension
 
-Imajina un livru di kontatus: bu ta buska nomi di pesoa i atxa si númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona izatamenti asin — é un kolesoun di **pares key-value** (xavi-valor): bu ta da un xavi (kumo un nomi), i el ta divolve valor korespondenti (kumo un númeru di telefoni), sen bu meste buska un pa un até atxa.
+Imajina un livru di kontatus: bu ta buska nomi di pesoa i atxa si númeru di telefoni. Na Python, **dictionary** (disionáriu) funsiona izatamenti asin — é un kolesoun di **pares key-value** (xavi-valor): bu ta da un xavi (kumo un nomi), i el ta divolve valor korespondenti (kumo un númeru di telefoni), sen bu meste buska un pa un te atxa.
 
 Disionárius é un di estruturas más podarozu di Python. É perfeitu pa guarda dadus ki bu presiza atxa rápidu — perfis di utilizador, inventáriu di loja, konfigurasons, i más.
 
 :::callout{type=note title="Limiti di metáfora"}
-Livru di kontatus normalmente ta obriga bu skanea página pa página en órdi alfabétiku te atxa un nomi — kel pode da-u ideia erradu ki búska ta fika más lentu kantu livru ta krese. Dictionary di Python ka ta funsiona asin: el ta uza **hash**, entoni búska ta kuazi O(1) — mesmu velosidadi, seja disionáriu grandi ô pikinoti, indipendenti di órdi di xavis. (Dizdi Python 3.7, disionáriu ta manté órdi di inserson kuandu bu ta itera sobri el — mas kel ka afeta velosidadi di búska.)
+Livru di kontatus normalmente ta obriga bu skanea página pa página en órdi alfabétiku te atxa un nomi — kel pode da-u ideia erradu ki búska ta fika más lentu kantu livru ta krese. Dictionary di Python ka ta funsiona asin: el ta uza **hash**, entoni búska ta kuazi O(1) — mesmu velosidadi, seja disionáriu grandi ou pikinoti, indipendenti di órdi di xavis. (Dizdi Python 3.7, disionáriu ta manté órdi di inserson kuandu bu ta itera sobri el — mas kel ka afeta velosidadi di búska.)
 :::
 
 :::callout{type=info title="Antis di kumesa"}
@@ -50,7 +50,7 @@ presu_frutas = {"manga": 50, "papaia": 80, "banana": 30, "koku": 100}
 # Disionáriu vazio
 inventáriu = {}
 
-# Ku funson dict()
+# Ku funsan dict()
 pessoa = dict(nomi="Nilton", idadi=25, sidadi="Mindelo")
 print(pessoa)  # {'nomi': 'Nilton', 'idadi': 25, 'sidadi': 'Mindelo'}
 ```
@@ -218,7 +218,7 @@ for key, valor in estudanti.items():
 ```
 
 ```python
-# Ezemplu prátiku: Menu di restauranti
+# Izemplu prátiku: Menu di restauranti
 menu = {
     "Katxupa Rica": 450,
     "Buzio Grelhadu": 600,
@@ -237,7 +237,7 @@ print(f"\nTotal (tudu): {total} ECV")
 ```
 
 :::callout{type=tip title="Para i pensa"}
-Antis di kontinua: dadu `nota = {"Telma": 88, "Edna": 95}`, o ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Telma")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é default; i `88`.)*
+Antis di kontinua: dadu `nota = {"Telma": 88, "Edna": 95}`, kuze ki `nota.get("Kelvin", 0)` ta retorna? I `nota.get("Telma")`? *(Resposta: `0` — pamodi "Kelvin" ka ezisti i `0` é default; i `88`.)*
 :::
 
 <SectionHeading variant="concept" seq={7}>Disionárius Aninhadu (Nested)</SectionHeading>

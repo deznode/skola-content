@@ -19,7 +19,7 @@
     - text: { kea: "`a.__plus__(b)`" }
       correct: false
 - question:
-    kea: "O ki un `__add__` debe retorna?"
+    kea: "Kuze ki un `__add__` debe retorna?"
   options:
     - text: { kea: "Un **novu** objetu ku rezultadu — ka debe muda `self` (mesmu manera ki `3 + 5` ka ta muda `3`)" }
       correct: true
@@ -30,7 +30,7 @@
     - text: { kea: "`True` ou `False`" }
       correct: false
 - question:
-    kea: "Bu kria dos objetu `Pontu(2, 3)` i `Pontu(2, 3)` **sen** definí `__eq__`. O ki ta da `p1 == p2`?"
+    kea: "Bu kria dos objetu `Pontu(2, 3)` i `Pontu(2, 3)` **sen** definí `__eq__`. Kuze ki ta da `p1 == p2`?"
   options:
     - text: { kea: "`False` — sen `__eq__`, Python ta kompara pa identidadi (mesmu objetu na memória), ka pa valor" }
       correct: true

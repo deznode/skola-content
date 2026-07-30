@@ -1,6 +1,6 @@
-# Introdusan Konpletu a Python — Published Assets
+# Introdusan Kompletu a Python — Published Assets
 
-**Published:** 2026-07-27
+**Published:** 2026-07-30
 **Source:** topics/intro-python/
 
 ## Files
@@ -15,5 +15,5 @@
 | code/start/ | Starter code | 32 files |
 | code/final/ | Solution code | 32 files |
 | infographics/* | Infographics (JPG) | 14 |
-| cover.jpg | Course cover, 1920×634, 280 KB (declared as `image_url` in course.yaml) | 1 |
+| cover.jpg | Course cover (declared as `image_url` in course.yaml) | 1 |
 | cheatsheet-kea.md | Cheatsheet | 1 |

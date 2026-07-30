@@ -92,7 +92,7 @@ print(f"{eskudus} ECV = {euros:.2f} EUR")
 ### Par ou Ímpar?
 
 ```python
-# Truque ku módulu: verifica si númeru é par ou ímpar
+# Truque ku módulu: verifika si númeru é par ou ímpar
 numeru = 17
 
 if numeru % 2 == 0:
@@ -102,7 +102,7 @@ else:
 # 17 é ímpar
 ```
 
-### Operadoris di Atribuisan Konposta
+### Operadoris di Atribuisan Komposta
 
 Bu pode kombina operadoris aritmétiku ku atribuisan pa atalhu.
 
@@ -137,7 +137,7 @@ print(saldo)   # 866
 
 <CodeCloze
   lang="python"
-  title="Inche os spasus"
+  title="Kompleta kódiku"
   prompt="Kalkula kuantas notas di 100 i kuantu sobra di un troku."
   template={[
     "troku = 250",
@@ -176,7 +176,7 @@ Ka konfundi `=` (atribuisan) ku `==` (komparasan)! `x = 5` ta guarda valor 5 na 
   lang="python"
   filename="kompara_str.py"
   title="Komparasan di strings é case-sensitive"
-  note="`==` ta distingui maiúskula di minúskula. Pa kompara sen liga pa kazu, baxa os dos ku `.lower()`."
+  note="`==` ta distingui maiúskula di minúskula. Pa kompara sen liga pa kazu, baxa kes dos ku `.lower()`."
   diff={[
     { type: "ctx", t: 'print("Praia" == "Praia")    # True' },
     { type: "del", t: 'print("Praia" == "praia")    # False — P ≠ p' },
@@ -197,7 +197,7 @@ print(f"Es tene mesmu idadi? {idadi_joao == idadi_ana}")       # False
 ### Izemplu Prátiku: Verifikasan di Idadi
 
 ```python
-# Verifica si pesoa pode vota (>= 18 anu)
+# Verifika si pesoa pode vota (>= 18 anu)
 nomi = "Nilton"
 idadi = 17
 
@@ -385,7 +385,7 @@ print(-7 // 2)   # -4  ← aredonda pa BAXU, ka pa zeru!
   <RezumuItem variant="gold" term="Regra di oru">Na dúvida sobri a orden, uza **paréntesis** — `(2 + 3) * 4` é más klaru ki konfia na presedensia. Kódiku klaru ganha di kódiku kurtu.</RezumuItem>
   <RezumuItem term="Aritmétiku">`/` ta da senpri float; `//` é divisan interu; `%` é restu; `**` é potensia.</RezumuItem>
   <RezumuItem term="Komparasan">`==`, `!=`, `>`, `<`, `>=`, `<=` ta da senpri `True`/`False`.</RezumuItem>
-  <RezumuItem term="Lójiku">`and` (os dos `True`), `or` (algun `True`), `not` (inverti).</RezumuItem>
+  <RezumuItem term="Lójiku">`and` (kes dos `True`), `or` (algun `True`), `not` (inverti).</RezumuItem>
   <RezumuItem term="Presedensia">`**` > `* / // %` > `+ -` > komparasan > `not` > `and` > `or`.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">Ka konfundi `=` (atribuisan) ku `==` (komparasan). I komparasan di string é **case-sensitive** — `"Pedro" == "pedro"` é `False`.</RezumuItem>
 </KeyTakeaways>
