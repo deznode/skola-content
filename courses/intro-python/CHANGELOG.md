@@ -64,6 +64,18 @@ recorded under their own dated heading.
   fields have no draft source in `skola-research` — `content.json` carries only
   module and lesson titles, so `course.yaml` is where they are maintained.
 
+- `infographics/12-modus-di-ficheru.jpg` → `12-modus-di-fixeru.jpg`. The
+  `ficheru` → `fixeru` sweep in the same-day publish rewrote text only — lesson
+  22's MDX image ref, its frontmatter and its directory name all moved to
+  `fixeru`, but the binary asset did not, leaving a dangling reference. Velite
+  compiles `![](…)` through `s.image()`, so a missing file is a hard error that
+  drops the **entire lesson** from the compiled catalog (route 404s under
+  `dynamicParams = false`) and fails the deploy build.
+
+  The matching source asset in `skola-research/topics/intro-python/assets/
+  infographics/` was renamed in the same change, so the next republish
+  reproduces this name rather than reverting it.
+
 ## [2026-07-27] — publish
 
 ### Added
