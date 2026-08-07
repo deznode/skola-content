@@ -11,6 +11,15 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-08-07] — hand-edit
+
+### Fixed
+- `04-callouts-and-figure/code-examples.yaml` — CodeExample title
+  "Tudu kódigus djuntu" → "Tudu kódikus djuntu", applying the Kriolu
+  `kódigu` → `kódiku` (g→k) lexicon rule. Mirrors the draft-side correction
+  already committed in `skola-research` (9e751776), which updated the drafts
+  but left this published copy behind.
+
 ## [2026-07-25] — publish
 
 ### Added

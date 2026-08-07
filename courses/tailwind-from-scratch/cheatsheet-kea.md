@@ -13,7 +13,7 @@ trace_id: Skola-course-tailwind-from-scratch-20260513-000000
 **Lingua:** kea (Kabuverdianu) | **Tailwind:** v4.3.0+ | **Doc version:** 1.0.0 | **Validadu na:** 2026-05-14
 
 > **Pa ken?** Prinsipiantes i nivel médiu — programadoris ki ta uza Tailwind v4 pa konstrui interface.
-> **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia kódigus diretu pa bo projetu — tudu egzemplus testadu ku v4.3.0+.
+> **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia kódikus diretu pa bo projetu — tudu egzemplus testadu ku v4.3.0+.
 
 ---
 

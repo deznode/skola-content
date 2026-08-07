@@ -8,6 +8,14 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-08-07] — hand-edit
+
+### Fixed
+- `cheatsheet-kea.md` — "Kopia kódigus diretu" → "Kopia kódikus diretu" in the
+  "Kumo uza" preamble, applying the Kriolu `kódigu` → `kódiku` (g→k) lexicon
+  rule. Mirrors the draft-side correction already committed in `skola-research`
+  (9e751776), which updated the drafts but left this published copy behind.
+
 ## [2026-07-27] — publish
 
 ### Added
