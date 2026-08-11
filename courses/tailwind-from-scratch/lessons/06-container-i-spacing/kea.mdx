@@ -23,7 +23,7 @@ Tailwind v4 ten **un sistema úniku di spacing**: un só token base, multipladu 
 
 <SectionHeading variant="concept" seq={1}>Klasi `container` — Largura ku Limiti</SectionHeading>
 
-`container` é un klasi ki ta poi un elementu na 100% di largura na ekrans pikinu i ta para na un máximu na ekrans grandi. Sen es, kontéudu ta stika di un bordu te otru — difísil di ler na monitor di 24 polegadas.
+`container` é un klasi ki ta poi un elementu na 100% di largura na ekrans pikenu i ta para na un máximu na ekrans grandi. Sen es, kontéudu ta stika di un bordu te otru — difísil di ler na monitor di 24 polegadas.
 
 ```html
 <main class="container mx-auto px-6">
@@ -45,7 +45,7 @@ Es ta da:
 Repara dos kuza:
 
 1. **`mx-auto`** — `container` ka ta sentra konteudu sozinhu. Bu meste djunta `mx-auto` (margin x = auto) pa sentra na meiu di página. Kel-li é diferenti di Bootstrap, ki ta sentra automatikamenti. Tailwind é di propósitu **baxu-nível**.
-2. **`px-6`** — sen padding horizontal, textu ta toka bordu na ekrans pikinu. Senpri kombina `container` ku `px-*`.
+2. **`px-6`** — sen padding horizontal, textu ta toka bordu na ekrans pikenu. Senpri kombina `container` ku `px-*`.
 
 :::callout{type=tip}
 Si bu ten kontéudu más narrow (izemplu: artigu di blog), uza `max-w-3xl` ou `max-w-5xl` en bez di `container`. `container` é más útil pa layouts inteiru di página.
@@ -287,7 +287,7 @@ Lembra di Resort Brava na fin di Lisan 5: kor sta, ma tudu kola. Nu ta poi rítm
 **Mudansas:**
 
 - **Header:** `px-6 py-4` — padding internu pa ki títulu i nav ka toka bordu
-- **Nav `mt-2`** — pikinu spasu antes di nav, separa di títulu
+- **Nav `mt-2`** — pikenu spasu antes di nav, separa di títulu
 - **Nav links:** `mr-4` na primeru dos (último ka mesti)
 - **`<main>`:** `container mx-auto px-6 py-12 space-y-12`
   - `container mx-auto px-6` — max-width responsivu i sentradu
@@ -313,7 +313,7 @@ Si bu abri na browser gosi, Resort Brava dja ten **rispira**. Kontéudu ten luga
 <SectionHeading variant="summary">Rezumu</SectionHeading>
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Un só token `--spacing`">na v4, tudu skala (`p-1`, `p-2`, `p-12`...) é multiplu di 0.25rem — muda o base, muda tudu di un bez.</RezumuItem>
-  <RezumuItem term="`container`">100% na ekrans pikinu, `max-width` na ekrans grandi (5 breakpoints sm/md/lg/xl/2xl).</RezumuItem>
+  <RezumuItem term="`container`">100% na ekrans pikenu, `max-width` na ekrans grandi (5 breakpoints sm/md/lg/xl/2xl).</RezumuItem>
   <RezumuItem term="Modelu di kaxa">margin = spasu **fora** di elementu; padding = spasu **dentu**, entri bordu i konteúdu.</RezumuItem>
   <RezumuItem term="Família di spacing">`m`/`p` + ladu (`x`, `y`, `t`, `r`, `b`, `l`) + skala.</RezumuItem>
   <RezumuItem variant="warning" term="`container` ka ta sentra sozinhu">senpri kombina `container` ku `mx-auto` (pa sentra) i `px-*` (pa rispira horizontal).</RezumuItem>

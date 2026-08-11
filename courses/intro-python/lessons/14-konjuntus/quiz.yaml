@@ -34,7 +34,7 @@
   options:
     - text: { kea: "Set ta uza hashing — buska é O(1) (tempu konstanti); na lista é O(n) (ta verifika kada elementu)" }
       correct: true
-    - text: { kea: "Set é senpri más pikinin ki lista" }
+    - text: { kea: "Set é senpri más pikininhu ki lista" }
       correct: false
     - text: { kea: "Lista ka ta suporta operador `in`" }
       correct: false

@@ -5960,7 +5960,7 @@
         xama-l — si ka ten `return`, funsan ta debolvi `None` autumátikamenti.
 
 
-        Nomi di funsan ta sigi mesmu regras di nomi di variável: pikinu, ku palavras separadu pa `_`
+        Nomi di funsan ta sigi mesmu regras di nomi di variável: pikenu, ku palavras separadu pa `_`
         (snake_case), i deve ser diskritivu — kel nomi meste splika kuze funsan ta faze.
 
 
@@ -7907,7 +7907,7 @@
         print(list(kria_gen()))  # [0, 2, 4] -- funsiona!
 
 
-        # Ou, si dadus é pikininu, uza lista
+        # Ou, si dadus é pikininhu, uza lista
 
         dadus = [x * 2 for x in range(3)]
 

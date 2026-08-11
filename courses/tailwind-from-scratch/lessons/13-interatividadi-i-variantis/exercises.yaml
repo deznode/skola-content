@@ -19,7 +19,7 @@
   language: html
   kind: code
   title: { kea: "Validasan viva ku `peer`" }
-  prompt: { kea: "Adisiona un kontaktu form pikinu no fin di seksan Kontaktu. Uza un `<input type=\"email\">` ku a klasi `peer`, i un `<p>` ku `peer-invalid:block` pa mostra un erru. Konfirma ki validasan apareci si bu skrebe `abc` sen `@`." }
+  prompt: { kea: "Adisiona un kontaktu form pikenu no fin di seksan Kontaktu. Uza un `<input type=\"email\">` ku a klasi `peer`, i un `<p>` ku `peer-invalid:block` pa mostra un erru. Konfirma ki validasan apareci si bu skrebe `abc` sen `@`." }
   hint: { kea: "O `<p>` di erru ta kumesa ku `hidden` i so ta apareseu ku `peer-invalid:block` kuandu o input markadu ku `peer` sta invalidu." }
   starterCode: |
     <form>

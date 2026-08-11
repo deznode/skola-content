@@ -29,7 +29,7 @@
   language: bash
   kind: setup
   title: { kea: "Kompara o tamanhu ku i sen `--minify`" }
-  prompt: { kea: "Primeru roda o build **sen** `--minify` i repara o tamanhu di `dist/style.css`. Dipos roda `pnpm run build` (ki dja ten `--minify`) i kompara — o fixeru minifikadu ten ki ser más pikinu." }
+  prompt: { kea: "Primeru roda o build **sen** `--minify` i repara o tamanhu di `dist/style.css`. Dipos roda `pnpm run build` (ki dja ten `--minify`) i kompara — o fixeru minifikadu ten ki ser más pikenu." }
   command: |
     npx @tailwindcss/cli -i ./input.css -o ./dist/style.css
     pnpm run build

@@ -8,6 +8,20 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-08-11] — publish
+
+### Changed
+- `pikinin` → `pikininhu` and `pikinu` → `pikenu` lexicon correction (user
+  ruling 2026-08-11: the correct forms are `pikininhu` for the diminutive and
+  `pikenu` for plain "small"). Five sites: `12-box-model/quiz.yaml` (2),
+  `17-grid-pozisiona-i-alinha/` in both `kea.mdx` and `quiz.yaml` (3 total),
+  `18-visita-kabu-verdi-html/kea.mdx`, `19-visita-kabu-verdi-css/kea.mdx`.
+  Part of a cross-course sweep also covering tailwind-from-scratch and
+  intro-python.
+- The `topics/web-foundations/authoring/box-model-*.md` note still carries the
+  old `pikinin` spelling and was left alone — it is a dated authoring record,
+  not a source that feeds publish.
+
 ## [2026-07-27] — publish
 
 ### Added

@@ -33,7 +33,7 @@ Tailwind v4 ten 5 breakpoints, tudu baseadu na **min-width** (mobile-first). Kla
   cards={[
     { term: "sm:", def: "min-width: 640px — telefoni grandi o tablet en portrait. Aplika di 640px pa riba." },
     { term: "md:", def: "min-width: 768px — tablet en landscape. Aplika di 768px pa riba." },
-    { term: "lg:", def: "min-width: 1024px — laptop o desktop pikinu. Aplika di 1024px pa riba." },
+    { term: "lg:", def: "min-width: 1024px — laptop o desktop pikenu. Aplika di 1024px pa riba." },
     { term: "xl:", def: "min-width: 1280px — desktop grandi. Aplika di 1280px pa riba." },
     { term: "2xl:", def: "min-width: 1536px — ekran ultra-wide. Aplika di 1536px pa riba." },
   ]}
@@ -43,7 +43,7 @@ Tailwind v4 ten 5 breakpoints, tudu baseadu na **min-width** (mobile-first). Kla
 
 ```html
 <h1 class="text-2xl md:text-4xl lg:text-6xl">
-  Pikinu na mobile, médiu na tablet, grandi na desktop
+  Pikenu na mobile, médiu na tablet, grandi na desktop
 </h1>
 ```
 
@@ -58,16 +58,16 @@ Es é manera **mobile-first**: bu skrebe stilu mobile primeru (sen prefixu), dip
 :::
 
 <MisconceptionConfront
-  belief="O prefixu `sm:` só ta aplika na ekrans **pikinu** — tipu telefoni."
-  myth="`sm:` ta signifika 'small', logu nu ta pensa ki el ta aplika só na ekrans pikinu."
-  real="`sm:` é un breakpoint `min-width: 640px` — el ta aplika di 640px **pa riba**. Ekrans pikinu (< 640px) ta uza o stilu default sen prefixu."
+  belief="O prefixu `sm:` só ta aplika na ekrans **pikenu** — tipu telefoni."
+  myth="`sm:` ta signifika 'small', logu nu ta pensa ki el ta aplika só na ekrans pikenu."
+  real="`sm:` é un breakpoint `min-width: 640px` — el ta aplika di 640px **pa riba**. Ekrans pikenu (< 640px) ta uza o stilu default sen prefixu."
   proof={[
     '<div class="sm:text-red-500">Olá</div>',
     '/* CSS ki Tailwind ta jera: */',
     '@media (min-width: 640px) { .sm\\:text-red-500 { color: red } }',
-    '/* → aplika di 640px pa riba, ka só na telefonis pikinu */',
+    '/* → aplika di 640px pa riba, ka só na telefonis pikenu */',
   ]}
-  takeaway="Tudu varianti é `min-width` — el ta liga di kel tamanhu pa riba. Pa kazus só na ekrans pikinu, uza `max-sm:`."
+  takeaway="Tudu varianti é `min-width` — el ta liga di kel tamanhu pa riba. Pa kazus só na ekrans pikenu, uza `max-sm:`."
 />
 
 <SectionHeading variant="concept" seq={3}>Kombinasan Kumun</SectionHeading>
@@ -170,7 +170,7 @@ Si bu presiza di más di 5, é simples:
 
 <SectionHeading variant="concept" seq={5}>`min-` vs `max-` Variantis</SectionHeading>
 
-Pa kazus raru ki só faze sentidu na ekrans **pikinu**:
+Pa kazus raru ki só faze sentidu na ekrans **pikenu**:
 
 ```html
 <div class="block max-md:bg-amber-100">
@@ -243,6 +243,6 @@ Abri na browser, risiza janela. Tudu adapta naturalmenti. **Sen un só linha di 
   <RezumuItem term="Son min-width">kada varianti ta aplika di se tamanhu **pa riba** — ka só na kel tamanhu.</RezumuItem>
   <RezumuItem term="Personaliza na v4">`@theme { --breakpoint-* }` na CSS — sen `tailwind.config.js`.</RezumuItem>
   <RezumuItem term="Tokens vira klasis">`--breakpoint-3xl` ta da o prefixu `3xl:` otomatikamenti.</RezumuItem>
-  <RezumuItem variant="warning" term="Ka konfundi sm:">`sm:` ka é só pa telefoni — el ta liga di 640px pa riba. Pa ekrans pikinu, uza `max-sm:`.</RezumuItem>
+  <RezumuItem variant="warning" term="Ka konfundi sm:">`sm:` ka é só pa telefoni — el ta liga di 640px pa riba. Pa ekrans pikenu, uza `max-sm:`.</RezumuItem>
   <RezumuItem variant="tip" term="Pista">testa na DevTools ku "Toggle device toolbar" — simula 375px, 768px i 1280px sen sai di browser.</RezumuItem>
 </KeyTakeaways>

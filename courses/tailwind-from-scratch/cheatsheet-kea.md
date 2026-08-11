@@ -142,7 +142,7 @@ Vite é skolha **default** pa novu projetu. PostCSS i Webpack inda ten suporti (
 
 ### O ki é "utility-first"? — _Lisan 4_
 
-Bez di skrebe CSS personalizadu pa kada elementu, bu ta kombina ku **klasi pikinin** ki ta faze **un só kuza**:
+Bez di skrebe CSS personalizadu pa kada elementu, bu ta kombina ku **klasi pikininhu** ki ta faze **un só kuza**:
 
 ```html
 <!-- Sem Tailwind -->
@@ -167,7 +167,7 @@ Bez di skrebe CSS personalizadu pa kada elementu, bu ta kombina ku **klasi pikin
 ### Vantajens
 
 - **Sem inventa nomi** — Bo ka tene di pensa na "kumo ta xama es klasi?"
-- **CSS bundle pikinin** — Tailwind ta jera só klasi ki bo ta uza
+- **CSS bundle pikininhu** — Tailwind ta jera só klasi ki bo ta uza
 - **Konsistensia** — Tudu valor (kor, spacing, fonte) ta ben di un sistema di tokens
 - **Faze mudansa lokal** — Mudansa na un elementu ka ta afeta otu
 
@@ -286,7 +286,7 @@ Mesmu padran: `m-*`, `mx-*`, `my-*`, `mt-*`, etc. Pa margin negativu, prefiksu `
 ```
 
 :::callout{type=tip}
-Sempri kombina `container` ku `mx-auto` pa sentraliza i `px-4` pa pading lateral. Sen es, kontentidu ta kola na borda na ekran pikinin.
+Sempri kombina `container` ku `mx-auto` pa sentraliza i `px-4` pa pading lateral. Sen es, kontentidu ta kola na borda na ekran pikininhu.
 :::
 
 ### Gap (pa flex/grid)
@@ -517,7 +517,7 @@ Sempri kombina `container` ku `mx-auto` pa sentraliza i `px-4` pa pading lateral
 | Klasi               | Tamanhu        |
 |---------------------|---------------|
 | `shadow-xs`         | minúskulu     |
-| `shadow-sm`         | pikinin       |
+| `shadow-sm`         | pikininhu       |
 | `shadow-md`         | médiu         |
 | `shadow-lg`         | grandi        |
 | `shadow-xl`         | muitu grandi  |
@@ -571,8 +571,8 @@ Sempri kombina `container` ku `mx-auto` pa sentraliza i `px-4` pa pading lateral
 
 | Klasi           | Tamanhu              |
 |-----------------|---------------------|
-| `rounded-xs`    | muitu pikinin       |
-| `rounded-sm`    | pikinin             |
+| `rounded-xs`    | muitu pikininhu       |
+| `rounded-sm`    | pikininhu             |
 | `rounded-md`    | médiu               |
 | `rounded-lg`    | grandi              |
 | `rounded-xl`    | muitu grandi        |
@@ -701,7 +701,7 @@ Máskaras ta faze fade ou rekorta elementu segundu un gradient.
 |----------|-----------|--------|
 | `sm:`    | 640px     | tablet portrait |
 | `md:`    | 768px     | tablet         |
-| `lg:`    | 1024px    | laptop pikinin |
+| `lg:`    | 1024px    | laptop pikininhu |
 | `xl:`    | 1280px    | desktop        |
 | `2xl:`   | 1536px    | desktop grandi |
 
@@ -723,7 +723,7 @@ Klasi sem prefiksu ta aplika a **tudu ekran**. Prefiksu ta sobreskreve a partir 
 ```
 
 :::callout{type=tip}
-**Pensa di mobile primeru.** Skrebe versan pa ekran pikinin sem prefiksu, depois adisiona overrides pa ekran maior. Es ta torna kódigu más limpu i bundle más pikinin.
+**Pensa di mobile primeru.** Skrebe versan pa ekran pikininhu sem prefiksu, depois adisiona overrides pa ekran maior. Es ta torna kódigu más limpu i bundle más pikininhu.
 :::
 
 ### Variantis max- — _Lisan 14_
@@ -1276,7 +1276,7 @@ Pa projetu HTML statiku simples (Jekyll, Hugo, GitHub Pages), CLI standalone é 
 }
 ```
 
-`@theme inline` ka ta espandi kor pa skala kompleta — útil pa egzemplus pikinin ou pa ka jera tudu klasi extra.
+`@theme inline` ka ta espandi kor pa skala kompleta — útil pa egzemplus pikininhu ou pa ka jera tudu klasi extra.
 
 ### Personaliza skala di spacing
 

@@ -19,7 +19,7 @@ objectives:
 
 Lisan pasadu, nu fala di breakpoints responsivu — `sm:`, `md:`, `lg:`. Es son baseadu na **viewport** (janela kompletu di browser). Funsiona pa layouts inteiru di página.
 
-Ma kuandu bu ten un **widget** ki pode apareci en lugaris diferenti — un karta ki ta apareci na sidebar pikinu **ou** na main wide — viewport queries falha. Karta ka ta sabi si el ten 300px di largura no sidebar o 800px no main. Solusan: **container queries**.
+Ma kuandu bu ten un **widget** ki pode apareci en lugaris diferenti — un karta ki ta apareci na sidebar pikenu **ou** na main wide — viewport queries falha. Karta ka ta sabi si el ten 300px di largura no sidebar o 800px no main. Solusan: **container queries**.
 
 Es é un di midjór features di Tailwind v4. Es ka izisti na v3 (era plugin extra). Na v4, é parte di kor.
 
@@ -35,7 +35,7 @@ Imagina un karta ki mostra avatar + nome + bio:
 </div>
 ```
 
-- Na **sidebar pikinu (200px)**: avatar i nome **en koluna** (vertikal). Bio skondidu.
+- Na **sidebar pikenu (200px)**: avatar i nome **en koluna** (vertikal). Bio skondidu.
 - Na **main wide (800px)**: avatar **na skerda**, nome i bio na direita. Tudu vizivel.
 
 Ku **media queries**, bu ta uza largura di **viewport**. Ma viewport pode ser 1500px ku karta na sidebar di 200px! Media queries da resposta **errada**. Container queries da resposta **direita**.
@@ -76,7 +76,7 @@ Son dos passu: marka o pai ku `@container`, dipos aplika variantis `@md:` na fil
   ]}
   notes={[
     { m: 1, title: "Marka o pai", body: "`@container` ta marka es `<aside>` kumo kontainer. Tudu kuza dentu ta pode uza `@sm:`, `@md:`, etc. `w-64` (16rem) ta fixa se largura." },
-    { m: 2, title: "Varianti di kontainer", body: "`flex-col` é o default (kontainer pikinu). `@md:flex-row` ta vira linha só kuandu o **kontainer** txiga 28rem — ka o viewport." },
+    { m: 2, title: "Varianti di kontainer", body: "`flex-col` é o default (kontainer pikenu). `@md:flex-row` ta vira linha só kuandu o **kontainer** txiga 28rem — ka o viewport." },
     { m: 3, title: "Mostra kondisional", body: "`hidden` ta skonde o bio; `@md:block` ta mostra-l só kuandu o kontainer ten spasu (≥ 28rem)." },
   ]}
 />
@@ -147,7 +147,7 @@ Mesmu karta, dos lugaris, dos manera diferenti. Sen JavaScript.
 ```html
 <div class="@container">
   <div class="@max-md:bg-amber-100">
-    Fundu amber só kuandu kontainer é pikinu
+    Fundu amber só kuandu kontainer é pikenu
   </div>
 </div>
 ```
@@ -211,7 +211,7 @@ Resort Brava ten un só layout di página (hero + 3 seksan + footer). Container 
 <KeyTakeaways showHeader={false}>
   <RezumuItem variant="gold" term="Container queries">stilus baseadu na largura **di kontainer**, ka di viewport.</RezumuItem>
   <RezumuItem term="@container" code>marka o pai kumo kontainer; filhus gosi pode uza `@sm:` a `@7xl:`.</RezumuItem>
-  <RezumuItem term="Breakpoints menor">variantis di kontainer son más pikinu ki viewport — es ta funsiona pa widgets, ka tela enteira.</RezumuItem>
+  <RezumuItem term="Breakpoints menor">variantis di kontainer son más pikenu ki viewport — es ta funsiona pa widgets, ka tela enteira.</RezumuItem>
   <RezumuItem term="Personaliza">`@theme { --container-* }` — mesmu padran ki breakpoints di viewport; `@max-*:` pa max-width.</RezumuItem>
   <RezumuItem term="@container-size">(v4.3) ta kria un size container → da unidadis `cqb`/`cqh` pa query baseadu na altura.</RezumuItem>
   <RezumuItem variant="warning" term="Errus kumuns">ka konfundi viewport ku kontainer — `@md:` ta skuta o pai, `md:` ta skuta a janela.</RezumuItem>

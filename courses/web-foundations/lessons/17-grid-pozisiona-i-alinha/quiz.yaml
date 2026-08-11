@@ -52,7 +52,7 @@
   options:
     - text: { kea: "`justify-items` = items dentru di kel cell; `justify-content` = tudu grid dentru di container" }
       correct: true
-      explain: { kea: "Sertu — skopu diferenti. `justify-items` ta moveu kada item dentru di sí cell; `justify-content` ta moveu grid inteiru kuandu el é mas pikinu ki container." }
+      explain: { kea: "Sertu — skopu diferenti. `justify-items` ta moveu kada item dentru di sí cell; `justify-content` ta moveu grid inteiru kuandu el é mas pikenu ki container." }
     - text: { kea: "Es dos é mesmu kuza, nomi diferenti" }
       correct: false
       explain: { kea: "Nau — skopu diferenti. Un é item dentru di cell, otru é grid dentru di container." }

@@ -8,6 +8,21 @@ draft changes since the previous publish (source of truth: `topics/intro-python/
 trace_id `Skola-course-intro-python-20260420-113000`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-08-11] — publish
+
+### Changed
+- `pikinin`/`pikininu` → `pikininhu` lexicon correction (user ruling
+  2026-08-11). Two sites: `14-konjuntus/quiz.yaml` ("Set é senpri más
+  pikininhu ki lista") and `19-jeneradoris/kea.mdx` ("Lista é pikininhu").
+  Part of a cross-course sweep — the companion form `pikinu` → `pikenu` has no
+  sites in this course.
+
+### Fixed
+- Draft filenames for L25 realigned to `v1-m3-25-testu-kodiku-pytest-*`,
+  matching `content.json`, the lesson frontmatter and the published directory.
+  No published bytes changed — publish already resolved the directory from
+  frontmatter, so this only removes a discrepancy that could mislead later.
+
 ## [2026-07-30] — publish
 
 ### Changed

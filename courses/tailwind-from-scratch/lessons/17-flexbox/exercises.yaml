@@ -21,7 +21,7 @@
   language: html
   kind: code
   title: { kea: "Footer ku justify-between" }
-  prompt: { kea: "Kria un footer flex ku o copyright na **skerda** i dos links pikinu na **direita**. Uza `flex justify-between items-center`. Adisiona os links **Privacidadi** i **Termu**." }
+  prompt: { kea: "Kria un footer flex ku o copyright na **skerda** i dos links pikenu na **direita**. Uza `flex justify-between items-center`. Adisiona os links **Privacidadi** i **Termu**." }
   hint: { kea: "`justify-between` ta poi espasu entri filhus, sen espasu na pontas — logo un grupu ta fika na skerda i otu na direita." }
   starterCode: |
     <footer>

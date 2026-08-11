@@ -20,11 +20,19 @@ copy are recorded under their own dated heading.
   published content before republishing — `izemplus` 30 vs `egzemplus` 8,
   `susesu` 39 vs `sukseso` 13, `boton` 203 vs `botaun` 15, `bu projetu` 10 vs
   `bo projetu` 1.
-- The same draft pass had also changed `klasi pikinin` → `klasi pikininhu`; that
-  one was **reverted in the draft** rather than published. `pikinin` has 33
-  corpus attestations (8 in this cheatsheet alone) against a single one for
-  `pikininhu` — the draft edit itself. It over-generalized the `nh` digraph,
-  which the `Rekonhese` ruling explicitly scopes.
+### Changed
+- **Course-wide `pikinin`/`pikinu` → `pikininhu`/`pikenu` lexicon sweep.** User
+  ruling (2026-08-11): the correct forms are `pikininhu` (diminutive, "tiny")
+  and `pikenu` (plain "small"); `pikinin`, `pikinu` and `pikininu` are all
+  wrong. Applied as a nearest-form mapping — `pikinin`/`pikininu` → `pikininhu`,
+  `pikinu` → `pikenu` — across drafts, then republished. 30 sites in this course:
+  `cheatsheet-kea.md` (9) plus lessons 06, 08, 13, 14, 15, 16, 17, 19 and 23.
+- Note this **overrides a corpus tally**, deliberately. `pikinin` had 33
+  attestations against 1 for `pikininhu`; the corpus recorded a consistently
+  misspelled form, so frequency was measuring the error, not the norm.
+- `pinikinho` (57 sites) is **untouched** — it stays locked to the infographic
+  prompts under the existing "never `pikinin`" rule, so prose and infographics
+  now carry deliberately different forms.
 
 ## [2026-08-07] — hand-edit
 

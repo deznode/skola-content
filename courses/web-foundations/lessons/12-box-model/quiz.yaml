@@ -44,9 +44,9 @@
     - text: { kea: "70px — es dos margin ta soma" }
       correct: false
       explain: { kea: "Margin **horizontal** ta soma, ma margin **vertikal** adjasenti ta kolapsa pa kel mas grandi." }
-    - text: { kea: "30px — ta toma kel mas pikinin" }
+    - text: { kea: "30px — ta toma kel mas pikininhu" }
       correct: false
-      explain: { kea: "Ta toma kel mas **grandi** (40), ka kel mas pikinin." }
+      explain: { kea: "Ta toma kel mas **grandi** (40), ka kel mas pikininhu." }
     - text: { kea: "0px — margin ka ta funsiona entri dos elementu" }
       correct: false
       explain: { kea: "Margin ta funsiona — so ta kolapsa pa kel mas grandi en bez di soma." }
