@@ -8,6 +8,24 @@ draft changes since the previous publish (source of truth: `topics/tailwind-from
 trace_id `Skola-course-tailwind-from-scratch-20260513-000000`). Hand-edits to this published
 copy are recorded under their own dated heading.
 
+## [2026-08-11] — publish
+
+### Fixed
+- `cheatsheet-kea.md` — republished from the draft, propagating the rest of the
+  2026-08-04 Kriolu lexicon pass (`9e751776`) that the 2026-08-07 hand-edit left
+  behind. That hand-edit applied only the `kódigu` → `kódiku` rule directly to
+  this published copy; four further corrections never crossed over:
+  `bo` → `bu` (clitic), `egzemplus` → `izemplus`, `sukseso` → `susesu`, and the
+  example class `.meu-botaun` → `.nha-boton`. Each was corpus-verified against
+  published content before republishing — `izemplus` 30 vs `egzemplus` 8,
+  `susesu` 39 vs `sukseso` 13, `boton` 203 vs `botaun` 15, `bu projetu` 10 vs
+  `bo projetu` 1.
+- The same draft pass had also changed `klasi pikinin` → `klasi pikininhu`; that
+  one was **reverted in the draft** rather than published. `pikinin` has 33
+  corpus attestations (8 in this cheatsheet alone) against a single one for
+  `pikininhu` — the draft edit itself. It over-generalized the `nh` digraph,
+  which the `Rekonhese` ruling explicitly scopes.
+
 ## [2026-08-07] — hand-edit
 
 ### Fixed

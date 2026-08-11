@@ -13,7 +13,7 @@ trace_id: Skola-course-tailwind-from-scratch-20260513-000000
 **Lingua:** kea (Kabuverdianu) | **Tailwind:** v4.3.0+ | **Doc version:** 1.0.0 | **Validadu na:** 2026-05-14
 
 > **Pa ken?** Prinsipiantes i nivel médiu — programadoris ki ta uza Tailwind v4 pa konstrui interface.
-> **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia kódikus diretu pa bo projetu — tudu egzemplus testadu ku v4.3.0+.
+> **Kumo uza:** Referensia rápidu pa konsulta durante kursu. Kopia kódikus diretu pa bu projetu — tudu izemplus testadu ku v4.3.0+.
 
 ---
 
@@ -142,14 +142,14 @@ Vite é skolha **default** pa novu projetu. PostCSS i Webpack inda ten suporti (
 
 ### O ki é "utility-first"? — _Lisan 4_
 
-Bez di skrebe CSS personalizadu pa kada elementu, bo ta kombina ku **klasi pikinin** ki ta faze **un só kuza**:
+Bez di skrebe CSS personalizadu pa kada elementu, bu ta kombina ku **klasi pikinin** ki ta faze **un só kuza**:
 
 ```html
 <!-- Sem Tailwind -->
-<button class="meu-botaun">Klika</button>
+<button class="nha-boton">Klika</button>
 
 <style>
-  .meu-botaun {
+  .nha-boton {
     background-color: #1e40af;
     color: white;
     padding: 0.5rem 1rem;
@@ -1507,7 +1507,7 @@ module.exports = {
 <style scoped>
   @reference "../assets/input.css";
 
-  .meu-botaun {
+  .nha-boton {
     @apply bg-mar-500 text-white;
   }
 </style>
@@ -1534,7 +1534,7 @@ module.exports = {
 
 ```js
 const kores = {
-  sukseso: "text-green-500",
+  susesu: "text-green-500",
   eru:     "text-red-500",
   avizu:   "text-yellow-500",
 };
