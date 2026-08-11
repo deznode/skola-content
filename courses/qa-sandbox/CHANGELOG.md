@@ -11,6 +11,15 @@ recorded under their own dated heading.
 qa-sandbox is the exhaustive `@skola/learning-content-core` component+variant demo
 fixture (one lesson family per authoring-doc README section).
 
+## [2026-08-11] — publish
+
+### Fixed
+- `04-callouts-and-figure/code-examples.yaml` — CodeExample title
+  "Tudu kódikus djuntu" → "Tudu kódiku djuntu", republished from the draft.
+  The 2026-08-07 hand-edit applied the `kódigu` → `kódiku` rule directly to this
+  published copy but kept the plural; the draft's 2026-08-04 pass (`9e751776`)
+  had also singularized the noun. Republishing from drafts closes the gap.
+
 ## [2026-08-07] — hand-edit
 
 ### Fixed
