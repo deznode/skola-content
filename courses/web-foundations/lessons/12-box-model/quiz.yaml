@@ -4,7 +4,7 @@
 # positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
 # `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
 - question:
-    kea: "Di **dentru pa fora**, kal é órdi korretu di kuatru kamada di box model?"
+    kea: "Di **dentru pa fora**, kual é órdi korretu di kuatru kamada di box model?"
   options:
     - text: { kea: "content → padding → border → margin" }
       correct: true

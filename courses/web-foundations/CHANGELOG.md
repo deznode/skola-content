@@ -18,6 +18,11 @@ recorded under their own dated heading.
   `18-visita-kabu-verdi-html/kea.mdx`, `19-visita-kabu-verdi-css/kea.mdx`.
   Part of a cross-course sweep also covering tailwind-from-scratch and
   intro-python.
+- `kal` → `kual` in three quiz prompts, surfaced by the kriolu-normalize gate
+  when the sweep above touched these files: `12-box-model/quiz.yaml` (1) and
+  `17-grid-pozisiona-i-alinha/quiz.yaml` (2). Pre-existing, unrelated to the
+  `pikininhu` ruling, but a confirmed rule so it was applied rather than
+  deferred.
 - The `topics/web-foundations/authoring/box-model-*.md` note still carries the
   old `pikinin` spelling and was left alone — it is a dated authoring record,
   not a source that feeds publish.

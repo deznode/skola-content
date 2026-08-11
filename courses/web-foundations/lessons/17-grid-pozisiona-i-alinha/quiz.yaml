@@ -33,7 +33,7 @@
       correct: false
       explain: { kea: "So é igual kuandu grid ten eksatamenti 5 kolunas. Muda pa 6 i `1 / 6` ta deixa un koluna di fora." }
 - question:
-    kea: "Bu kre sentra kontéudu (h3 + p) dentru di **kada** cell, horizontal i vertikal. Kal shorthand?"
+    kea: "Bu kre sentra kontéudu (h3 + p) dentru di **kada** cell, horizontal i vertikal. Kual shorthand?"
   options:
     - text: { kea: "`place-items: center`" }
       correct: true
@@ -48,7 +48,7 @@
       correct: false
       explain: { kea: "`align-self` ta afeta un **item** só i un eixu só. Pa sentra tudu items na dos eixu uza `place-items: center` na container." }
 - question:
-    kea: "Kal diferensa entri `justify-items` i `justify-content` nun grid?"
+    kea: "Kual diferensa entri `justify-items` i `justify-content` nun grid?"
   options:
     - text: { kea: "`justify-items` = items dentru di kel cell; `justify-content` = tudu grid dentru di container" }
       correct: true
