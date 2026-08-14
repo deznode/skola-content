@@ -578,7 +578,7 @@ margin: 10px 20px 30px 40px;     /* topu direita baxu skerda (clockwise) */
 | `F12` ou `Cmd+Option+I` (Mac) | Abri DevTools |
 | `Cmd+Shift+C` | Aktiva inspeksion ku kursor |
 | `Cmd+Shift+M` | Toggle device emulation (mobile) |
-| Klika direitu → "Inspect" | Inspekciona elementu spesífiku |
+| Klika direitu → "Inspect" | Inspesiona elementu spesífiku |
 
 ### Painel Elements
 
@@ -936,7 +936,7 @@ body {
 | Erru | Sintoma | Solusan |
 |---|---|---|
 | Skesi `alt` na `<img />` | Akesibilidadi kuebradu, SEO penaltí | Sempri adisiona `alt="..."`. Pa imajen dekorativu, `alt=""` vaziu |
-| `<div>` por tudu lado | Pajina sen signifikadu semantiku | Uza `<header>`, `<article>`, `<section>`, `<nav>`, `<footer>` undi apilika |
+| `<div>` por tudu lado | Pajina sen signifikadu semantiku | Uza `<header>`, `<article>`, `<section>`, `<nav>`, `<footer>` unde apilika |
 | Múltiplu `<h1>` por pajina | SEO i akesibilidadi penaltí | **Un `<h1>` por pajina**. Otus = h2-h6 |
 | Skesi `<link rel="stylesheet">` | CSS ka ta apilika | Konfirma ki `<link>` sta dentru di `<head>` |
 | Path eradu na `src` | Imajen kuebradu, sem konsola error | Verifika kaminhu relativu (`img/foto.jpg`, ka `/foto.jpg`) |
@@ -956,7 +956,7 @@ body {
 ### Debug — sequensia rekumendadu
 
 1. **Abri DevTools** (`F12`) → painel Elements.
-2. **Inspekciona elementu** ku problema (klika direitu → Inspect).
+2. **Inspesiona elementu** ku problema (klika direitu → Inspect).
 3. **Le "Styles"** — kuze regra ta apilika? Kuze sta riskado (sobrepasadu)?
 4. **Eksperimenta na DevTools** — muda valor inline, ta funsiona?
 5. **Kopia volta pa `style.css`** — salva mudansa.

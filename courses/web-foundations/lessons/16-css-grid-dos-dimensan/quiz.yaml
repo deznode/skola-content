@@ -31,7 +31,7 @@
       explain: { kea: "Sentra vertikal un item é trabaju komun di Flexbox (`align-items: center`). Grid é pa layout 2D." }
     - text: { kea: "Sempri — Grid ta substitui Flexbox" }
       correct: false
-      explain: { kea: "Nau — es dos ta brinka djuntu. Flexbox pa 1D, Grid pa 2D; bu ta uza kada un undi el ta sirvi midjór." }
+      explain: { kea: "Nau — es dos ta brinka djuntu. Flexbox pa 1D, Grid pa 2D; bu ta uza kada un unde el ta sirbi midjór." }
 - question:
     kea: "Na CSS Grid, keyword pa alinha pa **komesu** é…"
   options:

@@ -26,7 +26,7 @@
     .box {
       border: 5px solid #777;
     }
-  hint: { kea: "Un: `colur` ka é propriedadi — kal é nomi dretu? Dos: odja fin di `font-size`. Trez: órdi di `border` é `width style color`." }
+  hint: { kea: "Un: `colur` ka é propriedadi — kual é nomi dretu? Dos: odja fin di `font-size`. Trez: órdi di `border` é `width style color`." }
 
 - slug: stila-related-posts
   language: css

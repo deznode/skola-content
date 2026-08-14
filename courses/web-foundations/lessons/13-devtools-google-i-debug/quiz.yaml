@@ -15,15 +15,15 @@
     - text: { kea: "É un komentáriu CSS" }
       correct: false
       explain: { kea: "Komentáriu ka ta apareci kumo regra na painel Styles." }
-    - text: { kea: "É un regra padron di browser (user-agent)" }
+    - text: { kea: "É un regra default di browser (user-agent)" }
       correct: false
       explain: { kea: "User-agent styles ta ben na **fundu**, na itáliku — ka tachiadu." }
 - question:                                       # Q1 → Obj 1, 2 (recall — the yellow-triangle skill)
-    kea: "Bu ta odja un **triángulu amarelu** na lado di un linha na painel Styles. Kuze ki DevTools ta sta dize-bu?"
+    kea: "Bu ta odja un **triángulu amarelu** na lado di un linha na painel Styles. Kuze ki DevTools ta sta fra-bu?"
   options:
     - text: { kea: "Nomi di propriedadi ka egziste ou valor é inválidu" }
       correct: true
-      explain: { kea: "Sertu — egzemplu `colur: #333` ou `col); 10px`. DevTools ta inora regra invális i ta sinaliza ku triángulu." }
+      explain: { kea: "Sertu — izenplu `colur: #333` ou `col); 10px`. DevTools ta ignora regra invális i ta sinaliza ku triángulu." }
     - text: { kea: "Regra ta funsiona, ma é lentu" }
       correct: false
       explain: { kea: "DevTools ka ta mide velosidadi na painel Styles. Triángulu é un **avizu di valor inválidu**." }
@@ -34,7 +34,7 @@
       correct: false
       explain: { kea: "Si fose klasi, regra nin ta apareseria pa kel elementu. Triángulu é sobre **kontéudu** di regra." }
 - question:                                       # Q2 → Obj 4 (apply — formulate a query)
-    kea: "Bu kre sentra un elementu na orizontal i ka ta sa ben. Kal é **midjór** Google query?"
+    kea: "Bu kre sentra un elementu na orizontal i ka ta sa ben. Kual é **midjór** Google query?"
   options:
     - text: { kea: "`CSS center element horizontally`" }
       correct: true
@@ -44,7 +44,7 @@
       explain: { kea: "Português + vagu. Dokumentasan di web é em inglés — bu ta otxa 100× menus rezultadu útil." }
     - text: { kea: "pamodi meu CSS ka ta funsiona" }
       correct: false
-      explain: { kea: "Mutu vagu — ka diz kel ki bu kre faze. Sé spesífiku sobre objetivu, ka sobre frustrasan." }
+      explain: { kea: "Mutu vagu — ka fra kel ki bu kre faze. Sé spesífiku sobre objetivu, ka sobre frustrasan." }
     - text: { kea: "`style.css help`" }
       correct: false
       explain: { kea: "Ka ten termu téknika. Adisiona `CSS` + propriedadi/objetivu konkretu." }

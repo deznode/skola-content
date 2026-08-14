@@ -5,9 +5,9 @@
 - slug: skrebe-skeleton-a-mon
   language: html
   kind: code
-  title: { kea: "Skrebe skeleton HTML5 a mon" }
+  title: { kea: "Skrebe skeleton HTML5 na mon" }
   prompt:
-    kea: "Kria un ficheru `blog.html` i skrebe skeleton HTML5 kompletu **a mon** — sen Emmet, sen kopia-kolar: `<!DOCTYPE html>`, `<html lang=\"kea\">`, un `<head>` ku `<meta charset=\"UTF-8\" />` i `<title>Blog di Adilson</title>`, i un `<body>` vaziu. Fla na boz alta kuze ki kada linha ta faze."
+    kea: "Kria un ficheru `blog.html` i skrebe skeleton HTML5 kompletu **na mon** — sen Emmet, sen kopia-kolar: `<!DOCTYPE html>`, `<html lang=\"kea\">`, un `<head>` ku `<meta charset=\"UTF-8\" />` i `<title>Blog di Adilson</title>`, i un `<body>` vaziu. Fla na voz altu kuze ki kada linha ta faze."
   hint:
     kea: "Komesa di fora pa dentru: primeru `<!DOCTYPE html>`, dipos `<html>`, i dentru di el `<head>` i `<body>`."
   starterCode: |
@@ -59,6 +59,6 @@
   kind: reflect
   title: { kea: "Kuze ki ta akontese ku `<h1>` na `<head>`?" }
   prompt:
-    kea: "Po un `<h1>Olá</h1>` dentru di `<head>` (en bez di `<body>`), salva, i abri na browser. Kuze ki bu odja na pajina? Skrebe pamodi bu pensa ki kel-li ta akontese."
+    kea: "Po un `<h1>Olá</h1>` dentru di `<head>` (nves di `<body>`), salva, i abri na browser. Kuze ki bu odja na pajina? Skrebe pamodi bu pensa ki kel-li ta akontese."
   notePlaceholder:
     kea: "Kuandu N po `<h1>` na `<head>`, browser ta… Pamodi: …"

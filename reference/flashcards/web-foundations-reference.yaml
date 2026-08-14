@@ -1,0 +1,118 @@
+- category: "Konseitu"
+  term: "box model"
+  translations:
+    kea:
+      front: "Kual ki é kes 4 parti di CSS box model di dentru pa fora?"
+      back: "Content (konteúdu), padding (spasamentu internu), border (borda), i margin (spasamentu externu)."
+    en:
+      front: "What are the 4 parts of the CSS box model from inside to outside?"
+      back: "Content, padding, border, and margin."
+- category: "Konseitu"
+  term: "specificity"
+  translations:
+    kea:
+      front: "Na CSS, kumo ki navegador ta disidi kual regra ki ta ganha kuandu es ta entra na konflitu?"
+      back: "Navegador ta kalkula spesifikidadi: `!important` ta ganha tudu, dipos `inline styles`, dipos `ID selectors`, dipos `class selectors`, i pur ultimu `element selectors`."
+    en:
+      front: "In CSS, how does the browser decide which rule wins when there is a conflict?"
+      back: "The browser calculates specificity: `!important` wins all, then inline styles, then ID selectors, then class selectors, and finally element selectors."
+- category: "Konseitu"
+  term: "flexbox axes"
+  translations:
+    kea:
+      front: "Kual ki é diferensa entri `main axis` i `cross axis` na Flexbox?"
+      back: "`Main axis` (eixu prinsipal) é diresan ki items ta flui (padron é orizontal), i `cross axis` (eixu krusadu) é diresan perpendikular a el (padron é vertikal)."
+    en:
+      front: "What is the difference between the main axis and cross axis in Flexbox?"
+      back: "The main axis is the direction items flow (default horizontal), and the cross axis is perpendicular to it (default vertical)."
+- category: "Semantika"
+  term: "semantic html"
+  translations:
+    kea:
+      front: "Pamodi ki HTML semantiku é inportanti?"
+      back: "El ta midjora SEO (buska), asesibilidadi pa leitoris di tela, i manutensan di kodigu, pamodi tags sima `<header>` i `<article>` ta da signifikadu a konteúdu, enves di uza `<div/>` generiku."
+    en:
+      front: "Why is semantic HTML important?"
+      back: "It improves SEO, accessibility for screen readers, and code maintainability, because tags like `<header>` and `<article>` give meaning to the content, instead of using generic `<div/>`s."
+- category: "Layout"
+  term: "css grid vs flexbox"
+  translations:
+    kea:
+      front: "Kuandu bu debi uza CSS Grid enves di Flexbox?"
+      back: "Bu debi uza Flexbox pa layouts di un dimensan (linhas ou kolunas izoladu), i CSS Grid pa layouts di dos dimensan (linhas i kolunas a mesmu tempu)."
+    en:
+      front: "When should you use CSS Grid instead of Flexbox?"
+      back: "You should use Flexbox for one-dimensional layouts (single rows or columns), and CSS Grid for two-dimensional layouts (rows and columns at the same time)."
+
+- category: "Sintaksi"
+  term: "html boilerplate"
+  translations:
+    kea:
+      front: "Kual ki é kes tag obrigatóriu pa kria un dokumentu HTML5 válidu?"
+      back: "Bu meste di `<!DOCTYPE html>`, `<html>`, `<head>`, i `<body>`."
+    en:
+      front: "What are the mandatory tags to create a valid HTML5 document?"
+      back: "You need `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>`."
+- category: "Sintaksi"
+  term: "lvha rule"
+  translations:
+    kea:
+      front: "Na ki ordi bu debe stiliza pseudo-klasis di un link na CSS (Regra LVHA)?"
+      back: "Bu debe stiliza na ordi: `:link`, `:visited`, `:hover`, i `:active` (LoVe HAte)."
+    en:
+      front: "In what order should you style the pseudo-classes of a link in CSS (LVHA Rule)?"
+      back: "You should style them in order: `:link`, `:visited`, `:hover`, and `:active` (LoVe HAte)."
+- category: "Konseitu"
+  term: "box-sizing reset"
+  translations:
+    kea:
+      front: "Pamodi ki nu ta uza `box-sizing: border-box` na padron universal `*`?"
+      back: "Pa forsa larguru i altura inklui padding i border, pa ivita ma elementu fika mas grandi ki larguru definidu."
+    en:
+      front: "Why do we use `box-sizing: border-box` on the universal selector `*`?"
+      back: "To force the width and height to include padding and border, preventing the element from growing larger than its defined width."
+- category: "Layout"
+  term: "margin collapse"
+  translations:
+    kea:
+      front: "Kuze ki ta akontese kuandu `margin` vertikal (fundo di un i topu di kel otu) di dos elementu visinhu ta topa?"
+      back: "Es ta kolapsa (funde) na un so margin, i ta ganha valor di kel mas grandi, enves di soma-s dos."
+    en:
+      front: "What happens when the vertical margins (bottom of one and top of the other) of two adjacent elements meet?"
+      back: "They collapse (merge) into a single margin, taking the value of the larger one, instead of adding together."
+- category: "Layout"
+  term: "grid span full"
+  translations:
+    kea:
+      front: "Modi ki bu ta faze un item di CSS Grid spande di primeru ti ultimu linha di koluna?"
+      back: "Bu ta uza regra `grid-column: 1 / -1`."
+    en:
+      front: "How do you make a CSS Grid item span from the first to the last column line?"
+      back: "You use the rule `grid-column: 1 / -1`."
+- category: "Konseitu"
+  term: "block vs inline"
+  translations:
+    kea:
+      front: "Kual ki é diferensa strutural entri elementu block i inline?"
+      back: "Elementu block ta toma larguru total di pajina i ta kumesa na un linha novu (sima `<p>`), enkuantu ki inline ta toma so spasu ki el meste i ta fika na mesmu linha (sima `<a>`)."
+    en:
+      front: "What is the structural difference between block and inline elements?"
+      back: "A block element takes the full width and starts on a new line (like `<p>`), while an inline element only takes the space it needs and stays on the same line (like `<a>`)."
+- category: "Konseitu"
+  term: "url"
+  translations:
+    kea:
+      front: "Kuze ki é un URL i pa kuze ki el ta sirbi?"
+      back: "URL é enderesu ki ta identifika unde un rekursu (sima un pajina HTML ou imajen) sta na Web."
+    en:
+      front: "What is a URL and what is it used for?"
+      back: "A URL is the address that identifies where a resource (like an HTML page or image) is located on the Web."
+- category: "Ferramenta"
+  term: "emmet"
+  translations:
+    kea:
+      front: "Kuze ki é Emmet na VS Code i modi ki el ta poupa tenpu?"
+      back: "El é un ferramenta ki ta transforma atalhus kurtu na strutura bázika di kódigu HTML ou CSS kompletu (sima `!` pa un eskeletu HTML5)."
+    en:
+      front: "What is Emmet in VS Code and how does it save time?"
+      back: "It is a tool that transforms short abbreviations into complete HTML or CSS boilerplate (like `!` for an HTML5 skeleton)."

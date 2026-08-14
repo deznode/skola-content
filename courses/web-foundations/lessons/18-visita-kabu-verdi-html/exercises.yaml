@@ -8,9 +8,9 @@
   file: index.html
   title: { kea: "Adisiona un karta di muzika pa Batuku" }
   prompt:
-    kea: "Na seksan di muzika bu ten kartas pa Morna, Funaná i Coladera. Skrebe o `<article class=\"music-card\">` pa **Batuku** bu mésmu, sigi o mésmu padron: un `<h3>` ku o nomi i un `<p>` ku un deskrisan kurtu. Ka ten kódiku novu — só replika o padron."
+    kea: "Na seksan di muzika bu ten kartas pa Morna, Funaná i Coladera. Skrebe o `<article class=\"music-card\">` pa **Batuku** bu mésmu, sigi o mésmu pattern: un `<h3>` ku o nomi i un `<p>` ku un deskrisan kurtu. Ka ten kódiku novu — só replika o pattern."
   hint:
-    kea: "Kopia strutura di un `<article class=\"music-card\">` ki dja ten: un `<h3>` pa o nomi, un `<p>` pa o deskrisan. Sô muda o testu."
+    kea: "Kopia strutura di un `<article class=\"music-card\">` ki dja ten: un `<h3>` pa o nomi, un `<p>` pa o deskrisan. Só muda o testu."
   starterCode: |
     <div class="music-row">
       <!-- Morna, Funaná i Coladera dja sta li -->
@@ -31,7 +31,7 @@
   language: html
   kind: debug
   file: index.html
-  title: { kea: "Koriji `<div>` undi falta semántika" }
+  title: { kea: "Koriji `<div>` unde falta semántika" }
   prompt:
     kea: "Es seksan di testimunhu ta uza `<div>` pa tudu — ma un testimunhu é kontéudu independenti ki ta faze sentidu solu. Koriji o markup pa uza elementu semántiku korretu: o grupu, kada karta, a sitasan, i a atribuisan. (Callback L7.)"
   hint:

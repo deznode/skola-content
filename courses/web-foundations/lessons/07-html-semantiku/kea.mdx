@@ -9,7 +9,7 @@ duration: 25
 objectives:
   - "Inkapsula konteúdu di pajina ku `<header>`, `<nav>`, `<article>`, `<aside>`, `<footer>`"
   - "Splika pamodi semantic HTML ta importa: SEO, asesibilidadi, manutensan"
-  - "Distingui element semántika di `<div>` generiku"
+  - "Distingui elementu semántiku di `<div>` generiku"
   - "Uza HTML entities (`&copy;`, `&rarr;`) pa karater spesial"
   - "Adisiona un `<button>` na pajina (sen lojika — kel ta ben na JavaScript)"
 prerequisites:
@@ -18,11 +18,11 @@ prerequisites:
 
 # HTML semantiku
 
-Ti gosi, blog é un monton di tag. Pa screen reader, pa Google, ou pa un dezenvolvedor ki nunka odja bu kódiku, kel é un dokumentu opaku. **Semantic HTML** é kumo nu ta da-l strutura ki kualkér komputador ta konsigui intende.
+Un monton di tijolu ta faze un paredi, ma el ka ta faze un kaza sen un planta. Mesmu kuza na HTML: si bu uza so `<div>` pa tudu, pajina ta parse dretu na monitor, ma pa Google ou pa leitor di ekran, é un labirintu opaku. **Semantic HTML** é planta ki ta splika komputador exatamenti kuze ki é kada kuza.
 
-## `<div>` vs element semántika
+## `<div>` vs elementu semántiku
 
-Ten un element jeneriku ki ta sirvi so pa **grupar** kuza: `<div>`.
+Nu ten un elementu jeneriku ki ta sirbi so pa **djunta kuzas num lugar**: `<div>`.
 
 ```html
 <div>
@@ -31,11 +31,11 @@ Ten un element jeneriku ki ta sirvi so pa **grupar** kuza: `<div>`.
 </div>
 ```
 
-El ka ta diz **nada** sobre kuze ki ta sta dentru. Pa browser, é so un kaixa.
+El ka ta fra **nada** sobre kuze ki ta sta dentru. Pa browser, é so un kaixa.
 
-HTML5 trazi un familia di element **semántika** ki ta diz pa **kualkér komputador** kuze ki é kada parti:
+HTML5 traze un familia di elementu **semántiku** ki ta fra pa **kualkér komputador** kuze ki é kada parti:
 
-| Element | Signifikadu |
+| Elementu | Signifikadu |
 |---|---|
 | `<header>` | Topu di pajina ou topu di un artigu |
 | `<nav>` | Navegasan — link prinsipal di website |
@@ -64,7 +64,7 @@ Screen reader (ferramenta ki pesoa segu ta uza) ta da uzuáriu un **menu di nave
 - "Salta pa `<nav>` — menu"
 - "Salta pa `<footer>` — pé di pajina"
 
-Sen element semántika, screen reader ta perde — uzuáriu ten ki skuta tudu pajina di topu pa fundu.
+Sen elementu semántiku, screen reader ta perde — uzuáriu ten ki skuta tudu pajina di topu pa fundu.
 
 ### 3. Manutensan
 
@@ -86,7 +86,7 @@ Alguns karater ten signifikadu spesial na HTML i ka pode parese diretu. Pa skreb
 
 ## `<button>` — preparasan pa JavaScript
 
-`<button>` é un element ki ta parese kumo boton klikavel. Pa gosi, ka ten lojika — kel ta ben na kursu di JavaScript. Ma é importanti adisiona el na strutura korreta gosi:
+`<button>` é un elementu ki ta parse kumo boton klikavel. Pa gosi, ka ten lojika — kel ta ben na kursu di JavaScript. Ma é importanti adisiona el na strutura korreta gosi:
 
 ```html
 <button>Klika li</button>
@@ -160,24 +160,21 @@ Bu odja kumo `<article>` ten **se propi** `<header>` (ku titulu i byline) i **se
 
 ## Erus komun pa evita
 
-- **"Divitis"** — uza `<div>` pa tudu kuza kuandu existi un element semántika. Si konteúdu é independenti, é `<article>`. Si é navegasan, é `<nav>`. Si é sekundáriu, é `<aside>`.
+- **"Divitis"** — uza `<div>` pa tudu kuza kuandu existi un elementu semántiku. Si konteúdu é independenti, é `<article>`. Si é navegasan, é `<nav>`. Si é sekundáriu, é `<aside>`.
 - **Mas di un `<main>` pa pajina** — `<main>` é úniku, kumo `<h1>`.
 - **`<nav>` foru di kontextu** — kualkér grupu di link **prinsipal** é `<nav>`. Lista di link na rodapé jeralmenti ka é `<nav>` (ka é prinsipal di website).
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
-  <RezumuItem term="Element semántika" variant="gold">`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>` ta da signifikadu, ka so vizual.</RezumuItem>
+<KeyTakeaways showHeader={true} chrome="inline">
+  <RezumuItem term="Elementu semántiku" variant="gold">`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>` ta da signifikadu, ka so vizual.</RezumuItem>
   <RezumuItem term="Pamodi ta importa">Es ta djuda SEO, asesibilidadi i manutensan — sen kustu nenhun.</RezumuItem>
   <RezumuItem term="header i footer">`<header>` i `<footer>` é skopu-dependenti — pode existi na nivel di pajina ou di artigu.</RezumuItem>
   <RezumuItem term="HTML entities" variant="tip">HTML entities (`&copy;`, `&rarr;`, `&amp;`) é pa karater spesial.</RezumuItem>

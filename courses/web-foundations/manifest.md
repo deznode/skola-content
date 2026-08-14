@@ -1,6 +1,6 @@
 # Fundamentus di Web: HTML i CSS — Published Assets
 
-**Published:** 2026-07-27
+**Published:** 2026-08-14
 **Source:** topics/web-foundations/
 
 ## Files
@@ -9,10 +9,9 @@
 |------|------|-------|
 | course.yaml | Course manifest | 1 |
 | lessons/{NN}-{slug}/kea.mdx | Lessons (Kriolu) | 19 |
-| lessons/{NN}-{slug}/quiz.yaml | Lesson quiz sidecars | 19 |
-| lessons/{NN}-{slug}/exercises.yaml | Lesson exercise sidecars (code / debug / reflect) | 19 |
-| code/start/ | Starter code (blog-adilson, projetu-kabu-verdi) | 8 files |
-| code/final/ | Solution code (blog-adilson, projetu-kabu-verdi) | 8 files |
-| infographics/* | Infographics (JPG) | 11 |
-| cover.jpg | Course cover, 1920×634, 261 KB (declared as `image_url` in course.yaml) | 1 |
+| code/start/ | Starter code | 8 files |
+| code/final/ | Solution code | 8 files |
+| infographics/* | Infographics (PNG and/or JPG) | 11 |
+| cover.jpg | Course cover, ≤1920 wide and <300 KB | 1 |
 | cheatsheet-kea.md | Cheatsheet | 1 |
+| microlearn-kea/{unitSlug}/ | Microlearn unit bundles | 0 units |

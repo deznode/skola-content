@@ -18,7 +18,7 @@ prerequisites:
 
 # Grid: pozisiona i alinha items
 
-Ti gosi, kada grid item ta okupa un cell úniku — un linha + un koluna. Ma kuandu nu kre ki un item okupa **dos kolunas**, ou spani **tudu largura** di pajina (kumo un banner)? Pa kel-li, nu ta uza **line numbers**, **`span`** i un truk majiku ku **`-1`**.
+Bu ten un imajen ki bu kre pa stika pa fora di se kaixa pikenu i kobre largura interu di pajina, na stilu di un banner de kabesalhu. Si grid basi ta ranka kada item na se lugar apertadu, modi ki nu ta da ordem pa un elementu kobre 2, 3 ou 4 koluna de bez? É gosi ki bu ta prende stika elementus na Grid.
 
 ## Line numbers — fundamentu
 
@@ -48,7 +48,7 @@ Mêsmu pa linhas (horizontal). Pa un grid 4×3, ten 5 lines vertikal + 4 lines h
 
 ## Span — pa "kuantu largu" só
 
-Si bu ka kuida undi item ta komesa, só **kuantu largu el é**, uza `span`:
+Si bu ka kuida unde item ta komesa, só **kuantu largu el é**, uza `span`:
 
 ```css
 .feature {
@@ -90,14 +90,14 @@ Kuandu un item ten ki **spani tudu largura** di grid:
 
 ## Alinhamentu dentru di cell — item-level
 
-Kuandu un cell é **mas grandi ki kontéudu di item**, undi item ta poza dentru? CSS Grid ten kuatru propriedadi pa kel-li.
+Kuandu un cell é **mas grandi ki kontéudu di item**, unde item ta poza dentru? CSS Grid ten kuatru propriedadi pa kel-li.
 
 ### No container (afeta tudu items)
 
 | Propriedadi | Eixu | Valor |
 |---|---|---|
-| `justify-items` | Horizontal | `start`, `end`, `center`, `stretch` (padron) |
-| `align-items` | Vertikal | `start`, `end`, `center`, `stretch` (padron) |
+| `justify-items` | Horizontal | `start`, `end`, `center`, `stretch` (default) |
+| `align-items` | Vertikal | `start`, `end`, `center`, `stretch` (default) |
 
 **Atensan — Grid uza `start`/`end`, ka `flex-start`/`flex-end`.** Mêsmu konfundi di Lisan 16, gosi bu sta skrebe-l verdadeiramenti.
 
@@ -125,7 +125,7 @@ Kuandu un cell é **mas grandi ki kontéudu di item**, undi item ta poza dentru?
 
 ## Alinhamentu di grid inteiru — track-level
 
-Kuandu **grid tudu** é mas pikenu ki container (egzemplu, ten 3 kolunas di 100px ma container ten 1000px), pa undi tracks ta poza?
+Kuandu **grid tudu** é mas pikenu ki container (izenplu, ten 3 kolunas di 100px ma container ten 1000px), pa unde tracks ta poza?
 
 ```css
 .gallery {
@@ -270,11 +270,11 @@ Bu ta odja:
 - Restu di kartas (Djássi, Djamila, Kátia, Manuel, Mário, Cesária Lima, Adilson) ta okupa un cell kada.
 - Kada karta ten kontéudu **sentradu** vertikal i horizontal — grasas pa `place-items: center`.
 
-### Pasu 3 — inspekciona line numbers ku DevTools
+### Pasu 3 — inspesiona line numbers ku DevTools
 
 Abri DevTools. Na painel Elements, prokura `.gallery`. Klika batch "grid". Pajina ta resebi overlay ku **line numbers** vizível: 1, 2, 3, 4 horizontal i tanbé vertikal.
 
-**Kompara ku CSS:** `grid-column: 1 / -1` di hero ta komesa na line 1 i akaba na line 4 (-1 ta keri dizê "últimu" = 4 pa 3 koluna). `grid-column: span 2` di feature ta okupa di un line ti otru, 2 lugaris mas tarde.
+**Kompara ku CSS:** `grid-column: 1 / -1` di hero ta komesa na line 1 i akaba na line 4 (-1 ta keri fra "últimu" = 4 pa 3 koluna). `grid-column: span 2` di feature ta okupa di un line ti otru, 2 lugaris mas tarde.
 
 ### Pasu 4 — eksperimenta `justify-items: center`
 
@@ -295,23 +295,20 @@ Removê dipos di obzerva.
 
 - **`start`/`end` vs `flex-start`/`flex-end`** — pitfall di Lisan 16 ki ta repeti. Si alinhamentu di Grid ka ta funsiona, **primeru kuza ki bu kontrola é es**.
 - **Off-by-one na line numbers.** `grid-column: 1 / 3` ta okupa kolunas 1 i 2, **ka 1 ti 3**. Line di fin é **eksklusivu**.
-- **Skesi truk `1 / -1`.** Studantes ta skrebe `1 / 6` pa grid di 5 koluna i ta kebra kuandu adisiona 6ª koluna. **Sempri `1 / -1`** pa "tudu largura".
-- **Konfundi `justify-items` ku `justify-content`.** `justify-items` = items dentru di kel cell. `justify-content` = tudu grid dentru di container. Si items ka ta moveu, bu probabal kre kel **otru**.
+- **Skise truk `1 / -1`.** Studantes ta skrebe `1 / 6` pa grid di 5 koluna i ta kebra kuandu adisiona 6ª koluna. **Sempri `1 / -1`** pa "tudu largura".
+- **Konfundi `justify-items` ku `justify-content`.** `justify-items` = items dentru di kel cell. `justify-content` = tudu grid dentru di container. Si items ka ta moveu, provavelmenti bu kre kel **otru**.
 - **Spani mas tracks ki existi.** `grid-column: 1 / 10` na grid di 5 koluna ta kria kolunas implísitu i ta kebra layout. Uza `1 / -1` ou `span N` ku N ≤ kuantidadi di kolunas.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Line numbers">Pozitivu 1 ti N+1, negativu -1 di fin.</RezumuItem>
   <RezumuItem term="Line di fin é eksklusivu" variant="warning">`grid-column: 1 / 3` ta okupa kolunas 1 i 2, ka 3.</RezumuItem>
   <RezumuItem term="span N">`span N` — pa "kuantu largu", sen kuida pozisan.</RezumuItem>

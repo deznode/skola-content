@@ -17,11 +17,11 @@ prerequisites:
 
 # CSS: sintaksi i kumo liga-l ku HTML
 
-Ti gosi, blog di Adilson é funsional ma é feiu. Tudu testu pretu, fundu branku, sen font, sen spasing. Gosi ta entra parti divertidu: **CSS — Cascading Style Sheets**. CSS ta da kor, font, spasing i layout. Si HTML é osu, CSS é peli.
+Abri `cesaria.html`. El ta parse un dokumentu di Word di anu 90, sertu? Tudu pretu na branku, letru sen grasa, tudu grudadu. Oji nu ta prende visti nos HTML ku stilu. Ben-vindu a **CSS — Cascading Style Sheets**. CSS ta da kor, font, spasing i layout. Si HTML é osu, CSS é peli.
 
 ## Kuze ki é CSS
 
-**CSS** (Cascading Style Sheets) é un linguajen separadu di HTML ki ta diskreve **apariénsia** di pajina. HTML ta diz "kel-li é un titulu, kel-li é un paragrafu"; CSS ta diz "titulu é azul, paragrafu ten 16px di font, fundu é beji".
+**CSS** (Cascading Style Sheets) é un linguajen separadu di HTML ki ta diskreve **apariénsia** di pajina. HTML ta fra "kel-li é un titulu, kel-li é un paragrafu"; CSS ta fra "titulu é azul, paragrafu ten 16px di font, fundu é beji".
 
 Es separasan ten un nomi: **separation of concerns**.
 
@@ -44,7 +44,7 @@ h1 {
 }
 ```
 
-- `h1` — **selector**: ta diz "tudu element `<h1>` na pajina".
+- `h1` — **selector**: ta fra "tudu elementu `<h1>` na pajina".
 - `{ ... }` — **bloku di deklarasan**: tudu kuza ki ta entra entri es kuétxa.
 - `color: blue;` — un **deklarasan**, ki ten un **propriedadi** (`color`) i un **valor** (`blue`), separadu pa `:`.
 - `;` na fin di kada linha — **obrigatóriu** entri deklarasons.
@@ -52,7 +52,7 @@ h1 {
 ![Anatomia di un regra CSS: selector, kuétxa, propriedadi, valor, ponto-i-virgula](../../infographics/06-css-rule-anatomy.jpg)
 
 :::callout{type=tip}
-Nunka skesi `;` na fin di kada deklarasan. Si bu skesi, browser ka ta da erru — el ta **silensiozamenti inora** próximu regra. É un di bugs mas frustranti pa novatu. Hábitu: skrebe sempri `;`, mêsmu na última deklarasan di un bloku.
+Nunka skise `;` na fin di kada deklarasan. Si bu skise, browser ka ta da erru — el ta **silensiozamenti ignora** próximu regra. É un di bugs mas frustranti pa novatu. Hábitu: skrebe sempri `;`, mêsmu na última deklarasan di un bloku.
 :::
 
 ## Trez manera di skrebe CSS
@@ -104,7 +104,7 @@ Stilu ta mora na se propi ficheru, normalmenti txamadu `style.css`. Kada pajina 
 - **Kuandu uza:** **99% di tempu.** É padran na mundu real.
 
 :::callout{type=tip}
-`<link rel="stylesheet">` é un tag **void** (sen tag di féxa, kumo `<img>`). El ta vivi dentru di `<head>`, nunka dentru di `<body>`. Atributu `rel="stylesheet"` ta diz pa browser "kel ficheru li é folha di stilu", i `href` ta diz undi ta otxa-l.
+`<link rel="stylesheet">` é un tag **void** (sen tag di féxa, kumo `<img>`). El ta mora dentru di `<head>`, nunka dentru di `<body>`. Atributu `rel="stylesheet"` ta fra pa browser "kel ficheru li é folha di stilu", i `href` ta fra unde ta otxa-l.
 :::
 
 ## Komentáriu na CSS
@@ -131,7 +131,7 @@ Vamu da primeru kor pa blog di Adilson.
 
 ### Pasu 1 — kria ficheru `style.css`
 
-Na VS Code, na mêsmu pasta undi sta `cesaria.html`, klika **File → New File**. Salva ku nomi **`style.css`** (`Cmd+S` / `Ctrl+S`). Ficheru ta sta vaziu pa gosi.
+Na VS Code, na mêsmu pasta unde sta `cesaria.html`, klika **File → New File**. Salva ku nomi **`style.css`** (`Cmd+S` / `Ctrl+S`). Ficheru ta sta vaziu pa gosi.
 
 Strutura di pasta:
 
@@ -187,27 +187,24 @@ Si nada ka muda, kontrola:
 ## Erus komun pa evita
 
 - **Konfundi `<link rel="stylesheet">` ku `<a href>`.** Tudu dos ten "link" na nomi, ma `<link>` ta karega rekursu (CSS, ícon), `<a>` ta kria-l navegasan klikavel.
-- **Skesi atributu `href`** na `<link>` → silensiozamenti ka ta karega nada.
+- **Skise atributu `href`** na `<link>` → silensiozamenti ka ta karega nada.
 - **Poi `<style>` ou `<link>` dentru di `<body>`** — sempri na `<head>`.
 - **Skrebe stilu inline (`style="..."`)** kuandu bu sabe ki ta uza el na mas di un website. Hábitu difisil di kuebra dipos.
-- **Stilu na regra CSS sen `;` na fin di deklarasan.** Próximu regra ta keda inoradu.
+- **Stilu na regra CSS sen `;` na fin di deklarasan.** Browser ta ignora próximu regra.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="separation of concerns" variant="gold">HTML pa strutura (osu), CSS pa apariénsia (peli) — mantén separadu.</RezumuItem>
   <RezumuItem term="Regra CSS">`selector { propriedadi: valor; }` — kada deklarasan ta fexa ku `;`.</RezumuItem>
   <RezumuItem term="Trez manera">inline (evita), internal (`<style>` na `<head>`), external (`<link>` + `.css` — padran).</RezumuItem>
-  <RezumuItem term="link stylesheet" variant="tip">`<link rel="stylesheet" href="style.css" />` é tag void ki ta vivi na `<head>`.</RezumuItem>
+  <RezumuItem term="link stylesheet" variant="tip">`<link rel="stylesheet" href="style.css" />` é tag void ki ta mora na `<head>`.</RezumuItem>
   <RezumuItem term="Komentáriu">CSS é `/* … */`, diferenti di HTML `<!-- … -->`.</RezumuItem>
 </KeyTakeaways>

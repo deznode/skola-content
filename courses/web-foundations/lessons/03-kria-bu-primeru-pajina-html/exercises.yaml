@@ -22,7 +22,7 @@
   kind: code
   title: { kea: "Negritu i itáliku" }
   prompt:
-    kea: "Uza `<strong>` (negritu) i `<em>` (itáliku) pelu menus un bez na kada paragrafu pa destaka palavra importanti."
+    kea: "Uza `<strong>` (negritu) i `<em>` (itáliku) pelu menus un bes na kada paragrafu pa destaka palavra importanti."
   hint:
     kea: "`<strong>palavra</strong>` ta da negritu; `<em>palavra</em>` ta da itáliku."
   starterCode: |
@@ -32,8 +32,8 @@
 - slug: titulu-di-aba
   language: html
   kind: reflect
-  title: { kea: "Títulu di aba" }
+  title: { kea: "Títulu di tab" }
   prompt:
-    kea: "Muda `<title>` pa algu pesoal (ex: `Pajina di Adilson`). Salva i konfirma ki aba di browser ta atualiza. Skrebe li kuze ki aba ta mostra gosi."
+    kea: "Muda `<title>` pa algu pesoal (ex: `Pajina di Adilson`). Salva i konfirma ki tab di browser ta atualiza. Skrebe li kuze ki tab ta mostra gosi."
   notePlaceholder:
-    kea: "Aba di browser ta mostra agora: ..."
+    kea: "Tab di browser ta mostra agora: ..."

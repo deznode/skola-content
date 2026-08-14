@@ -226,30 +226,27 @@ grid-template-columns: 200px 1fr 200px;   /* 200px fixu + flexível + 200px fixu
 
 Layout ta reflowa automatikamenti. **Sen un linha di kódiku pa kada karta** — Grid ta kuida di restu.
 
-### Pasu 4 — inspekciona ku DevTools grid overlay
+### Pasu 4 — inspesiona ku DevTools grid overlay
 
 Abri DevTools. Na painel Elements, prokura `<div class="gallery">`. Klika batch "grid" na lado. Pajina ta resebi un overlay ku **line numbers** (1, 2, 3, 4 pa kolunas), gaps, i tracks vizível. Es line numbers ta importa muitu na Lisan 17 kuandu nu ta pozisiona items spesifikamenti.
 
 ## Erus komun pa evita
 
 - **`start`/`end` vs `flex-start`/`flex-end`.** Grid uza `start`/`end`; Flexbox uza `flex-start`/`flex-end`. Memoriza: **na Grid, kai prefix `flex-`**. Kel pitfall ta repeti na Lisan 17.
-- **Skesi `display: grid`.** Si bu skrebe `grid-template-columns` na un container sen `display: grid`, **nada ka ta akontesi**. Padron silensiozu.
+- **Skise `display: grid`.** Si bu skrebe `grid-template-columns` na un container sen `display: grid`, **nada ka ta akontesi**. Default silensiozu.
 - **Konfundi `repeat(3, 1fr)` ku `repeat(3, auto)`.** Primeru = 3 kolunas igual ki dividi spasu. Sigundu = 3 kolunas ki dimensiona pa kontéudu.
 - **Uza `width` na grid items.** Grid ta dimensiona automatikamenti via template. **Ka luta kontra Grid** — defini template korretu na container.
 - **Uza Grid pa un linha simples.** Si bu ten un navbar di 5 items na un linha, **Flexbox é mas simples**. Grid é pa **dos dimensan**.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Grid = 2D" variant="gold">Grid é pa **2D** (linhas + kolunas djuntu); Flexbox é pa **1D**.</RezumuItem>
   <RezumuItem term="Aktiva Grid">`display: grid` na container → fidju diretu ta torna grid items.</RezumuItem>
   <RezumuItem term="Defini kolunas">`grid-template-columns: repeat(3, 1fr)` pa kolunas igual.</RezumuItem>

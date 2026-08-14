@@ -10,7 +10,7 @@ objectives:
   - "Adisiona imajen na pajina ku `<img>` i atributu `src` i `alt`"
   - "Splika kuze ki é un *attribute* (par key=value dentru di tag)"
   - "Kria link ku `<a href=\"...\">` pa pajina interna i website externu"
-  - "Uza `target=\"_blank\"` pa abri link na un aba novu"
+  - "Uza `target=\"_blank\"` pa abri link na un tab novu"
   - "Splika pamodi `alt` ta importa pa asesibilidadi, SEO i fallback"
 prerequisites:
   - "Lisan 5 — Elementus di testu"
@@ -18,11 +18,11 @@ prerequisites:
 
 # Imajen, atributu i link
 
-Un blog post sen imajen é tristi. I un website sen link é un buraku undi ningen ka ta sai. Bu ben aprende es dos li.
+Un blog post sen imajen é tristi. I un website sen link é un buraku unde ningen ka ta sai. Bu ben aprende es dos li.
 
 ## Atributu — pasaja informasan pa tag
 
-Ti gosi, tudu tag ki bu skrebe foi simples: `<p>`, `<h1>`, `<strong>`. Ma alguns tag ten ki resebe **informasan extra** pa funsiona — `<img>` ten ki sabe **kuza ki imajen** pa karrega, `<a>` ten ki sabe **pa undi** ki ta liga.
+Imajina un kaza sen porta nin janela. É asim ki un pajina web ta fika si el ka ten link pa otru lugar ou imajen pa mostra. Gosi nu ta prende modi ki nu ta da vida a nos pajina: nu ta prende abri porta (links) i po kuadru na paredi (imajen). Pa kel-li, nu meste uza **atributus**.
 
 Es informasan extra é skrebedu kumo **atributu** dentru di opening tag, na forma `key="value"`:
 
@@ -40,9 +40,9 @@ Atributu ta vai sempri dentru di opening tag, separadu ku spasu, ku valor entri 
 <img src="foto.jpg" alt="Deskrisan di imajen" />
 ```
 
-### Atributu `src` — undi imajen ta sta
+### Atributu `src` — unde imajen ta sta
 
-`src` (di *source*) ta diz undi ficheru di imajen ta sta:
+`src` (di *source*) ta fra unde ficheru di imajen ta sta:
 
 - **Lokal** (mesmu pasta ki HTML): `src="cesaria.jpg"`
 - **Lokal** (subpasta): `src="img/cesaria.jpg"`
@@ -52,7 +52,7 @@ Si `src` é eradu ou ficheru ka egziste, browser ta mostra un ikoni di imajen ke
 
 ### Atributu `alt` — testu alternativu (krítiku!)
 
-`alt` ta da un **deskrisan textual** di imajen. Es ta sirvi pa:
+`alt` ta da un **deskrisan textual** di imajen. Es ta sirbi pa:
 
 1. **Asesibilidadi** — screen reader ta le `alt` pa pesoa ki ka ta odja.
 2. **SEO** — Google ta uza `alt` pa intende kuze ki é imajen.
@@ -61,7 +61,7 @@ Si `src` é eradu ou ficheru ka egziste, browser ta mostra un ikoni di imajen ke
 Skrebe `alt` deskritivu i útil. Ka skrebe so "imajen" — kel ka ta djuda ningen.
 
 ```html
-<!-- Mal: ka ta diz nada -->
+<!-- Mal: ka ta fra nada -->
 <img src="cesaria.jpg" alt="imajen" />
 
 <!-- Bem: deskrisan útil -->
@@ -69,7 +69,7 @@ Skrebe `alt` deskritivu i útil. Ka skrebe so "imajen" — kel ka ta djuda ninge
 ```
 
 :::callout{type=tip}
-Si imajen é puramenti **dekorativa** (ka ta da informasan — ex: un spasador), uza `alt=""` (vaziu). Screen reader ta diskese di el. **Nunka** omita atributu `alt` totalmenti — kel ta kausa screen reader anunsia nomi di ficheru, ki é piór ki vaziu.
+Si imajen é puramenti **dekorativa** (ka ta da informasan — ex: un spasador), uza `alt=""` (vaziu). Screen reader ta skise di el. **Nunka** omita atributu `alt` totalmenti — kel ta kausa screen reader anunsia nomi di ficheru, ki é piór ki vaziu.
 :::
 
 ### Tamanhu: `width` i `height`
@@ -90,7 +90,7 @@ Bu pode defini tamanhu na HTML:
 <a href="sobre.html">Sobre nos</a>
 ```
 
-### Atributu `href` — pa undi ki link ta liga
+### Atributu `href` — pa unde ki link ta liga
 
 - **Link interno** (pajina na mesmu website): `href="blog.html"`, `href="cesaria.html"`
 - **Link externu** (website na internet): `href="https://wikipedia.org"`
@@ -98,9 +98,9 @@ Bu pode defini tamanhu na HTML:
 
 Sen `href`, `<a>` ka é link — é so un anchor sen destinu. Sempri inklui `href`.
 
-### Atributu `target` — undi ki link ta abri
+### Atributu `target` — unde ki link ta abri
 
-Padran: link ta abri na mesmu aba. Pa abri na un aba novu (útil pa link externu, pa uzuáriu ka perde bu pajina):
+Padran: link ta abri na mesmu tab. Pa abri na un tab novu (útil pa link externu, pa uzuáriu ka perde bu pajina):
 
 ```html
 <a href="https://wikipedia.org/wiki/Cesária_Évora" target="_blank">
@@ -108,7 +108,7 @@ Padran: link ta abri na mesmu aba. Pa abri na un aba novu (útil pa link externu
 </a>
 ```
 
-`target="_blank"` ta abri link na un aba novu.
+`target="_blank"` ta abri link na un tab novu.
 
 ## Prátika: adisiona imajen i link na blog di Cesária
 
@@ -148,7 +148,7 @@ Adisiona antis di byline:
     <a
       href="https://www.youtube.com/results?search_query=cesaria+evora"
       target="_blank"
-    >Youtube — kansons di Cesária</a>
+    >Youtube — Musika di Cesária</a>
   </li>
   <li>
     <a href="sobre.html">Sobre es blog</a>
@@ -177,31 +177,28 @@ Pa link interno `sobre.html` ka da 404, kria un ficheru pikinoti:
 </html>
 ```
 
-Salva tudu, abri `cesaria.html` na Live Server. Klika un link externu — ta abri na un aba novu. Klika "Sobre es blog" — ta navega pa stub. Ku flecha ← bu pode volta.
+Salva tudu, abri `cesaria.html` na Live Server. Klika un link externu — ta abri na un tab novu. Klika "Sobre es blog" — ta navega pa stub. Ku flecha ← bu pode volta.
 
 ## Erus komun pa evita
 
-- **`<a href>` vs `<link rel="stylesheet" href>`** — dos kuza diferenti ku mesmu palavra. `<a>` é hyperlink visivel; `<link>` (na `<head>`) ta karrega CSS. Memoriza: `<a>` na `<body>`, `<link>` na `<head>`.
-- **Skesi `alt`** — screen reader ta diz "imajen" sen kontextu; SEO ta penaliza; imajen kebrada ta mostra so ikoni.
+- **`<a href>` vs `<link rel="stylesheet" href>`** — dos kuza diferenti ku mesmu nomi. `<a>` é hyperlink visivel; `<link>` (na `<head>`) ta karrega CSS. Memoriza: `<a>` na `<body>`, `<link>` na `<head>`.
+- **Skise `alt`** — screen reader ta fra "imajen" sen kontextu; SEO ta penaliza; imajen kebrada ta mostra so ikoni.
 - **`width` i `height` ku valor arbitráriu** — ta distorsi imajen. Defini un i deixa browser kalkula otru.
 - **`<a>` sen `href`** — ka é link, é so un anchor. Sempri inklui `href`.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Atributu" variant="gold">Par `key="value"` dentru di opening tag, ta da informasan extra.</RezumuItem>
   <RezumuItem term="img">`<img src="..." alt="..." />` — void element. `src` é pa imajen, `alt` é pa deskrisan textual.</RezumuItem>
   <RezumuItem term="a href">`<a href="...">testu</a>` — link. `href` é pa destinu; sen el ka é link.</RezumuItem>
-  <RezumuItem term="target=_blank">`target="_blank"` ta abri link na un aba novu (uza pa link externu).</RezumuItem>
+  <RezumuItem term="target=_blank">`target="_blank"` ta abri link na un tab novu (uza pa link externu).</RezumuItem>
   <RezumuItem term="alt krítiku" variant="warning">`alt` é krítiku pa asesibilidadi, SEO i fallback — sempri preenche-l (ou `alt=""` si dekorativa).</RezumuItem>
 </KeyTakeaways>

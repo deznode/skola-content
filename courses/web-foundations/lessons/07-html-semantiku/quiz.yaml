@@ -14,7 +14,7 @@
       explain: { kea: "`<aside>` é pa konteúdu **sekundáriu** (sidebar, \"artigu relasionadu\"), ka pa pesa prinsipal independenti." }
     - text: { kea: "`<div>`" }
       correct: false
-      explain: { kea: "`<div>` ta funsiona, ma ka ta diz **nada** sobre konteúdu — perde-bu tudu benefisiu semántiku." }
+      explain: { kea: "`<div>` ta funsiona, ma ka ta fra **nada** sobre konteúdu — perde-bu tudu benefisiu semántiku." }
     - text: { kea: "`<nav>`" }
       correct: false
       explain: { kea: "`<nav>` é pa navegasan — grupu di link prinsipal, ka pa un pesa di konteúdu." }

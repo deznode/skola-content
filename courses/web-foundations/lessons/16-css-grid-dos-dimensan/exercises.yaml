@@ -8,9 +8,9 @@
   file: style.css
   title: { kea: "Pamodi ki galeria ka ta vira grid?" }
   prompt:
-    kea: "Es `.gallery` debe ser un grid di 3 kolunas, ma na pajina tudu kartas ta enpilha **un en baxu di otru** kumo si nada ka ta funsiona. `grid-template-columns` ta ser **inoradu silensiozamenti**. Diskubri kel ki falta i koriji-l."
+    kea: "Es `.gallery` debe ser un grid di 3 kolunas, ma na pajina tudu kartas ta enpilha **un en baxu di otru** kumo si nada ka ta funsiona. `grid-template-columns` ta ser **ignoradu silensiozamenti**. Diskubri kel ki falta i koriji-l."
   hint:
-    kea: "`grid-template-columns` só ta funsiona kuandu container ten `display: grid`. Sen el, browser ta inora regra kompletamenti. Adisiona `display: grid` na `.gallery`."
+    kea: "`grid-template-columns` só ta funsiona kuandu container ten `display: grid`. Sen el, browser ta ignora regra kompletamenti. Adisiona `display: grid` na `.gallery`."
   starterCode: |
     .gallery {
       grid-template-columns: repeat(3, 1fr);
@@ -45,6 +45,6 @@
   kind: reflect
   title: { kea: "Grid ou Flexbox?" }
   prompt:
-    kea: "Splika ku bu propi palavra diferensa entri Grid i Flexbox. Da un izemplu di un layout undi ki Flexbox é midjór skolha i un izemplu undi ki Grid é midjór. Pensa nun website real (navbar, galeria di foto, byline, dashboard)."
+    kea: "Splika ku bu propi palavra diferensa entri Grid i Flexbox. Da un izemplu di un layout unde ki Flexbox é midjór skolha i un izemplu unde ki Grid é midjór. Pensa nun website real (navbar, galeria di foto, byline, dashboard)."
   notePlaceholder:
     kea: "Flexbox é midjór pa… (izemplu: …) pamodi é un dimensan. Grid é midjór pa… (izemplu: …) pamodi é dos dimensan."

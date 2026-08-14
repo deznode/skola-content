@@ -8,6 +8,16 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-08-14] — publish
+
+### Changed
+- Refined Kriolu grammar in lessons.
+- Added web foundations resources, glossary topic, and draft materials.
+- Updated web foundations lessons and launch materials.
+
+### Fixed
+- Fixed Kriolu spelling for `atalhu` and `inspesiona`.
+
 ## [2026-08-11] — publish
 
 ### Changed

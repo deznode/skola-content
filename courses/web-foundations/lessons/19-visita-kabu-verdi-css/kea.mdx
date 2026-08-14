@@ -25,7 +25,7 @@ prerequisites:
 Lisan final. Bu website sta tudu li, ma fe-feiu — un dokumentu longu sen layout. **Gosi ben kel parti satisfaktóriu:** nu ben da-l vida seksan pa seksan, i no fin bu ta ten un website profissional ki bu pode posta na CodePen, deploy-l na GitHub Pages, ou mostra pa un intrevistador di trabadju.
 
 :::callout{type=tip}
-**Kapstone é mas longu — i é normal.** Lisan kombinadu (teach + prátika) ta totaliza 45 minutu na ritmu di profesor, ma **mas studanti solu ta gasta 50–60 minutu**, prinsipalmenti na seksan di testimunhu undi Grid + Flexbox ta kombina. Kel-li é eksatamenti kel tenpu ki ta presisa. Salva freketamenti i inspekciona kada seksan ku DevTools antes di passa pa próximu.
+**Kapstone é mas longu — i é normal.** Lisan kombinadu (teach + prátika) ta totaliza 45 minutu na ritmu di profesor, ma **mas studanti solu ta gasta 50–60 minutu**, prinsipalmenti na seksan di testimunhu unde Grid + Flexbox ta kombina. Kel-li é eksatamenti kel tenpu ki ta presisa. Salva freketamenti i inspesiona kada seksan ku DevTools antes di passa pa próximu.
 :::
 
 ## Pasu 0 — Reset + baz tipográfiku
@@ -71,7 +71,7 @@ h2 {
 }
 ```
 
-**Pamodi `* { box-sizing: border-box }` é o primeru?** Callback di L14: sen reset, kada `padding` ta silensiozamenti **adisiona** pa largura, i grid di 5 koluna ta kuebra. Aplika reset un vés, kosta sintidu.
+**Pamodi `* { box-sizing: border-box }` é primeru?** Callback di L14: sen reset, kada `padding` ta silensiozamenti **adisiona** pa largura, i grid di 5 koluna ta kuebra. Aplika reset un vés, kosta sintidu.
 
 **Pamodi defini só `font-family` i `color` na `body`?** Callback di L11: kada `<h2>`, `<p>`, `<h3>` dentru di body ta inherita es propriedadi automatikamenti. Bu ka presiza repeti-l na kada selector.
 
@@ -150,17 +150,17 @@ Salva. Refresh. Bu ta odja logo na skerda, nav links na direita, headline grandi
 **Order di pseudo-classes (callback L10):** si bu adisiona `:link`, `:visited`, `:hover`, `:active` na link di nav, **uza ordi LVHA**. Tlon — Long Vests Hardly Aware. Si nau, `:hover` ta keda ofuskadu por `:visited`.
 
 :::callout{type=tip}
-**`justify-content: space-between` é o padron di header.** Logo skerda, nav direita, ku tudu spasu sobra na meiu — automátiku. Memoriza-l, bu ta repeti es kombinasan en kada projetu.
+**`justify-content: space-between` é pattern di header.** Logo skerda, nav direita, ku tudu spasu sobra na meiu — automátiku. Memoriza-l, bu ta repeti es kombinasan en kada projetu.
 :::
 
 ## Pasu 2 — Ilhas grid (5×2) ku CSS Grid
 
-Aki é undi Grid gana o kursu. 10 ilhas, 5 koluna, 2 linha — **un linha di CSS**.
+Aki é unde Grid gana kursu. 10 ilhas, 5 koluna, 2 linha — **un linha di CSS**.
 
 ![Grid template: lines numeradu (1 ti N+1, -1 di fin), tracks, cells](../../infographics/11-css-grid-template.jpg)
 
 :::callout{type=tip}
-Es kapstone ta uza tres propriedadi nobu — `border-radius`, `box-shadow` i `object-fit` — ki nu ka prende na M1–M4. Es é bu primeru "Google-it" di verdadi (callback L13): abri MDN, prokura kada un, i odja ki ta faze. Skill di developer ka é sabe tudu di kor — é sabe undi prokura.
+Es kapstone ta uza tres propriedadi nobu — `border-radius`, `box-shadow` i `object-fit` — ki nu ka prende na M1–M4. Es é bu primeru "Google-it" di verdadi (callback L13): abri MDN, prokura kada un, i odja ki ta faze. Skill di developer ka é sabe tudu di kor — é sabe unde prokura.
 :::
 
 ```css
@@ -198,7 +198,7 @@ Es kapstone ta uza tres propriedadi nobu — `border-radius`, `box-shadow` i `ob
 
 `repeat(5, 1fr)` = 5 koluna di largura igual. `gap: 24px` = spasu entri kada karta na ambus eixus. 10 kartas dentru ta otomátikamenti enxe 2 linhas.
 
-Salva. Refresh. **Es é o momentu wow.** 10 ilhas ta snap nun grid limpu, organizadu, profisional.
+Salva. Refresh. **Es é momentu wow.** 10 ilhas ta snap nun grid limpu, organizadu, profisional.
 
 **DevTools check:** klika batch "grid" na `.islands-grid` na painel Elements. Bu ta odja line numbers 1 ti 6 horizontal i 1 ti 3 vertikal. Konfirma ki é igual ki bu ta speraba.
 
@@ -237,7 +237,7 @@ Salva. Refresh. Foto na skerda, testu na direita, sentradu vertikal.
 
 ## Pasu 4 — Muzika ku CSS Grid 3-koluna
 
-Trez kartas di musika — Grid pamodi kada karta é o se própriu sela:
+Trez kartas di musika — Grid pamodi kada karta é se própriu sela:
 
 ```css
 .music-row {
@@ -273,7 +273,7 @@ Salva. Refresh. Trez kartas igual, sentradu, balansadu.
 
 ## Pasu 5 — Testimunhu: Grid + Flexbox kombinadu
 
-Aki é undi tudu kursu konverji. **Grid pa o eskema grandi** (3 koluna externa). **Flexbox pa o eskema interno di kada karta** (foto, sitasan, atribuisan enpilhadu vertikal).
+Aki é unde tudu kursu konverji. **Grid pa eskema grandi** (3 koluna externa). **Flexbox pa eskema interno di kada karta** (foto, sitasan, atribuisan enpilhadu vertikal).
 
 ```css
 /* Externa: Grid 3 koluna */
@@ -312,7 +312,7 @@ Aki é undi tudu kursu konverji. **Grid pa o eskema grandi** (3 koluna externa).
   font-size: 14px;
   color: #1098ad;
   font-weight: bold;
-  font-style: normal;       /* sobrepasa italic padron di <cite> */
+  font-style: normal;       /* sobrepasa italic default di <cite> */
 }
 ```
 
@@ -326,7 +326,7 @@ Aki é undi tudu kursu konverji. **Grid pa o eskema grandi** (3 koluna externa).
 **`border-radius: 50%`** ta faze imajen rondu kompletu (callback di L13 sobre azar di propriedadis na MDN — si bu ka konxe, **abri MDN i prokura**).
 
 :::callout{type=tip}
-**Grid pa o grandi, Flexbox pa o pikenu.** Sempri si bu sta indeskidu — pinta o mapa: bu kre 2D? Grid. 1D? Flexbox. Es regra ta resolvi 90% di dezision di layout.
+**Grid pa grandi, Flexbox pa pikenu.** Sempri si bu sta indeskidu — pinta mapa: bu kre 2D? Grid. 1D? Flexbox. Es regra ta resolvi 90% di dezision di layout.
 :::
 
 Salva. Refresh. Trez kartas profisional, sitasan en italiku, foto rondu di 80px, atribuisan ku nomi i lugar di kada persona.
@@ -369,7 +369,7 @@ footer {
 
 Salva. Refresh. **Pajina sta konpletu.**
 
-## Prátika — pasu, salva, inspekciona
+## Prátika — pasu, salva, inspesiona
 
 Trabalha kada pasu pa pasu, en ordi. Salva i refresh dipos di **kada pasu**, ka tudu na fin. Pamodi:
 
@@ -381,42 +381,39 @@ Trabalha kada pasu pa pasu, en ordi. Salva i refresh dipos di **kada pasu**, ka 
 6. Pasu 5 (testimunhu) — **seksan mas konplikadu**. Toma bu tenpu. Grid primeru, depós Flexbox dentru.
 7. Pasu 6 (footer) — projetu konkluí.
 
-**Fin pas — polimentu vizual.** Abri pajina. Tudu sta balansadu? `gap`, `padding`, `font-size` — tweaka ti pajina ta parese profisional. Tudu studanti ta gasta 5 minutu di polimentu fin, i é o ki faze diferensa entri "ta funsiona" i "ta mostra".
+**Fin pas — polimentu vizual.** Abri pajina. Tudu sta balansadu? `gap`, `padding`, `font-size` — tweaka ti pajina ta parese profisional. Tudu studanti ta gasta 5 minutu di polimentu fin, i é ki faze diferensa entri "ta funsiona" i "ta mostra".
 
-**Debug é esperadu (callback L13).** Pa-lo menus un seksan ta dá problema. Abri DevTools, prokura regra ganhador (callback L11 ku specificity), e fika fixu. Ka tenta `!important` — fika ku ferramenta.
+**Debug é esperadu (callback L13).** Pa-lo menus un seksan ta dá problema. Abri DevTools, prokura regra ganhador (callback L11 ku specificity), i fika fixu. Ka tenta `!important` — fika ku ferramenta.
 
 ## Erus komun pa evita
 
-- **Skesi reset universal.** Sen `* { box-sizing: border-box }`, kada `padding` ta kuebra grid di ilhas silensiozamenti. Primeru kuza pa adisiona, primeru kuza pa kontrola si layout sta kuebra.
-- **`start`/`end` (Grid) vs `flex-start`/`flex-end` (Flexbox).** Studantes ta troka es na seksan di testimunhu, undi dos sistema ta kombina. Si alinhamentu ta parece eradu, **es é primeru kuza pa kontrola**.
+- **Skise reset universal.** Sen `* { box-sizing: border-box }`, kada `padding` ta kuebra grid di ilhas silensiozamenti. Primeru kuza pa adisiona, primeru kuza pa kontrola si layout sta kuebra.
+- **`start`/`end` (Grid) vs `flex-start`/`flex-end` (Flexbox).** Studantes ta troka es na seksan di testimunhu, unde dos sistema ta kombina. Si alinhamentu ta parece eradu, **es é primeru kuza pa kontrola**.
 - **Tenta Flexbox pa grid 5×2.** Funsiona — ma fragil. Si bu muda pa 6 koluna mas tarde, layout ta kuebra. Pa 2D, **Grid**. Sempri.
 - **`grid-column: 1 / 6` en bez di `1 / -1` pa "tudu largura".** L17 callback — `1 / -1` é trik majiku. Funsiona indipendentamenti di kuantas koluna existi. Sempri prefer.
 - **Aninha Grid dentru di Flexbox dentru di Grid sen konsentrasan.** Na seksan di testimunhu, é fásil perde mapa. **Komenta CSS:** `/* Externa: Grid / Interna: Flexbox */`. Si bu refaktoriza mas tarde, komentariu ta salva-bu.
-- **Skesi DevTools.** Abri grid overlay pa kada `.islands-grid`, `.music-row`, `.testimonials-grid`. Konfirma line numbers. Si overlay ka aparece, bu skesi `display: grid`.
-- **`!important` ta volta.** Si bu sta tenta uza-l pa "fija un stilu xikadu", **para**. Inspekciona ku DevTools, prokura regra ganhador, otimiza selector (callback L11 ku specificity), ka aniquila ku `!important`.
+- **Skise DevTools.** Abri grid overlay pa kada `.islands-grid`, `.music-row`, `.testimonials-grid`. Konfirma line numbers. Si overlay ka aparece, bu skise `display: grid`.
+- **`!important` ta volta.** Si bu sta tenta uza-l pa "fija un stilu xikadu", **para**. Inspesiona ku DevTools, prokura regra ganhador, otimiza selector (callback L11 ku specificity), ka aniquila ku `!important`.
 - **Skipa polimentu fin.** Website "ta funsiona" ka é mêsmu kuza ki "sta polidu". Gasta 5 minutu na fin a fika `gap`, `padding`, `font-size`. Es 5 minutu ta faze diferensa.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
-  <RezumuItem term="Reset primeru" variant="warning">`* { box-sizing: border-box; margin: 0; padding: 0; }` — sempri o primeru regra.</RezumuItem>
+<KeyTakeaways showHeader={true} chrome="inline">
+  <RezumuItem term="Reset primeru" variant="warning">`* { box-sizing: border-box; margin: 0; padding: 0; }` — sempri primeru regra.</RezumuItem>
   <RezumuItem term="body ta inherita">Defini `font`, `color`, `line-height` un vés na `body`; tudu fidju ta inherita.</RezumuItem>
   <RezumuItem term=".container">`max-width: 1200px; margin: 0 auto;` limita largura i sentra kada seksan.</RezumuItem>
   <RezumuItem term="Flexbox = 1D">Header, fila di komida, koluna di footer, i dentru di kada testimunhu.</RezumuItem>
   <RezumuItem term="Grid = 2D">Ilhas (5×2), muzika (3×1), testimunhu (3×1 externa).</RezumuItem>
-  <RezumuItem term="Grid + Flexbox" variant="gold">Padron profisional: Grid pa o eskema externu, Flexbox pa o internu.</RezumuItem>
+  <RezumuItem term="Grid + Flexbox" variant="gold">Standard profisional: Grid pa eskema externu, Flexbox pa internu.</RezumuItem>
   <RezumuItem term="grid-column: 1 / -1">"Spani tudu largura" sen importa kuantas koluna existi.</RezumuItem>
-  <RezumuItem term="place-items: center">Sentra na o dos eixu dentru di kada sela di Grid.</RezumuItem>
+  <RezumuItem term="place-items: center">Sentra na dos eixu dentru di kada sela di Grid.</RezumuItem>
   <RezumuItem term="DevTools">Grid/Flex overlay pa konfirma ki tudu ta funsiona kumo bu skrebe.</RezumuItem>
   <RezumuItem term="Polimentu fin">5 minutu na `gap`, `padding`, `font-size` ki ta faze diferensa.</RezumuItem>
 </KeyTakeaways>

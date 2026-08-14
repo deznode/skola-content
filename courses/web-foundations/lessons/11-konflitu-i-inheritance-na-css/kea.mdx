@@ -8,7 +8,7 @@ lesson: 11
 duration: 20
 objectives:
   - "Rezolvi konflitu di selectors uzando ordi di especificidadi: `!important` > inline > id > class > element > universal"
-  - "Le un vetor di especificidadi `(a, b, c)` i prevê kal di dos regra ki ta ganha"
+  - "Le un vetor di especificidadi `(a, b, c)` i prevê kual di dos regra ki ta ganha"
   - "Aplika \"inheritance\": poi propriedadis di testu na `body` pa es kaska na tudu fidju"
   - "Distingui propriedadis ki ta inheri (color, font-family, font-size, line-height) di kes ki ka ta inheri (border, margin, padding, background)"
   - "Uza selector universal `*` i splika pamodi el ten especificidadi mas baxu"
@@ -26,7 +26,7 @@ Kuandu dos regra di CSS ta dizinhá pa mêsmu elementu, ken ta ganha? I pamodi u
 
 <SectionHeading variant="concept">Konflitu di selectors — ken ta ganha?</SectionHeading>
 
-Kuandu dos regras ta apunta pa mêsmu elementu ku deklarasons konflitudu (egzemplu, dos `color` diferenti), browser ta uza un **ordi di especificidadi** pa dicidi.
+Kuandu dos regras ta apunta pa mêsmu elementu ku deklarasons konflitudu (izenplu, dos `color` diferenti), browser ta uza un **ordi di especificidadi** pa dicidi.
 
 ### Skala di especificidadi — di mas altu pa mas baxu
 
@@ -53,7 +53,7 @@ Kada selector ta resebi un vetor di trez númeru:
 
 Konpara di skerda pa direita; primeru kolun ku diferensa ta dicidi.
 
-**Egzemplus:**
+**Izenplus:**
 
 | Selector | `(a, b, c)` |
 |---|---|
@@ -130,13 +130,13 @@ body {
 }
 ```
 
-`*` ta **aplika** regra diretu pa kada elementu. É util pa propriedadis ki **ka ta inheri** ma ki nu kre na tudu lugar — egzemplu, `box-sizing` (nu ta odja-l na Lisan 14).
+`*` ta **aplika** regra diretu pa kada elementu. É util pa propriedadis ki **ka ta inheri** ma ki nu kre na tudu lugar — izenplu, `box-sizing` (nu ta odja-l na Lisan 14).
 
 **Importanti:** uza `*` so pa reset. Pa stilu jeral di testu, uza `body` + inheritance — é mas leve.
 
 ## `!important` — un hack ki bu ta arrependi
 
-Si bu adisiona `!important` na fin di un valor, regra ta ganha tudu — **inora skala di especificidadi**.
+Si bu adisiona `!important` na fin di un valor, regra ta ganha tudu — **ignora skala di especificidadi**.
 
 ```css
 p { color: red !important; }    /* ta sobrepasa kualkér otru regra */
@@ -203,7 +203,7 @@ p { color: #555; }                    ← tachiadu, sobrepasadu
 
 Kel-li é **konflitu di especificidadi visualizadu**. Browser ta mostra kel ki ganha i kel ki perde.
 
-### Pasu 4 — proba `!important` un bez i remove
+### Pasu 4 — testa `!important` un bez i remove
 
 ```css
 p { color: red !important; }
@@ -229,22 +229,19 @@ Salva. Bu ta odja un border vermedju **so na elementu `<body>`** — kada `<p>`,
 - **Spera ki tudu propriedadi ta inheri.** `color` ta inheri di `<body>`; `border` nau. Si bu poi `border` na `<body>` i bu ta spera ki paragrafu ta resebi un border, bu ta dezilude.
 - **Uza `!important` kumo solusan.** El ta funsiona un bez i dipos ta kuebra kada sobrescrita ki bu skrebe dipos. Si bu kumesa alkansa-l, solusan é simplifika selector.
 - **Konta especificidadi mal.** Un ID ta sobrepasa kualkér número di class. `#x` ta ganha `.a.b.c.d.e`. Na duvida, konta `(a, b, c)` di skerda pa direita.
-- **Skesi ki ordi di fonti ta kuebra impati.** Dos regras ku especificidadi igual → kel ki ta ben **mas tarde** ta ganha. Reordena regras pode silensiozamenti muda lojika.
+- **Skise ki ordi di fonti ta kuebra impati.** Dos regras ku especificidadi igual → kel ki ta ben **mas tarde** ta ganha. Reordena regras pode silensiozamenti muda lojika.
 - **Uza `*` pa stilu ki ta inheri.** Pa `color` ou `font-family`, uza `body` (mas leve, ta inheri). `*` é so pa propriedadis ki **ka ta inheri** ma ki bu kre pa kada elementu.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="especificidadi" variant="gold">Konflitu di selectors ta resolvi pa especificidadi: `!important` > inline > id > class > element > universal.</RezumuItem>
   <RezumuItem term="Vetor `(a, b, c)`">Konta ID, class+pseudo, element — konpara di skerda pa direita.</RezumuItem>
   <RezumuItem term="Ordi di fonti">Ta kuebra impati: regra mas tarde ta ganha.</RezumuItem>

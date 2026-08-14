@@ -10,7 +10,7 @@
       explain: { kea: "Sertu — `flex: 1` é atadju pa `1 1 0`: item ta absorva tudu spasu disponivel igualmenti ku otus `flex: 1`." }
     - text: { kea: "`flex: 1 0 auto`" }
       correct: false
-      explain: { kea: "Nau — kel-li ta keri dizê 'krese, ka sprega, basis di kontéudu'. `flex: 1` é `1 1 0`." }
+      explain: { kea: "Nau — kel-li ta keri fra 'krese, ka sprega, basis di kontéudu'. `flex: 1` é `1 1 0`." }
     - text: { kea: "`flex: 0 1 auto`" }
       correct: false
       explain: { kea: "Kel-li é **defualt** di flex items (`flex: 0 1 auto`), ka `flex: 1`." }
@@ -33,11 +33,11 @@
       correct: false
       explain: { kea: "Absorva spasu é `flex: 1` na artigu. `align-items: flex-start` ka ta muda largura." }
 - question:
-    kea: "Bu kre un sidebar (`aside`) ku largura **fixu di 300px** ki ka ta krese nen sprega. Kal valor di `flex`?"
+    kea: "Bu kre un sidebar (`aside`) ku largura **fixu di 300px** ki ka ta krese nen sprega. Kual valor di `flex`?"
   options:
     - text: { kea: "`flex: 0 0 300px`" }
       correct: true
-      explain: { kea: "Sertu — `0` grow (ka krese), `0` shrink (ka sprega), `300px` basis (largura fixu). Es é padron pa sidebar fixu." }
+      explain: { kea: "Sertu — `0` grow (ka krese), `0` shrink (ka sprega), `300px` basis (largura fixu). Es é pattern pa sidebar fixu." }
     - text: { kea: "`flex: 1 1 300px`" }
       correct: false
       explain: { kea: "Ku `1 1` el ta krese i sprega — ka ta fika fixu. Pa fixu uza `0 0 300px`." }

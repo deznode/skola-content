@@ -4,7 +4,7 @@
 # positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
 # `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
 - question:                                    # Q0 → O1, O2 (APPLY: predict winner)
-    kea: "Dos regra ta apunta pa mesmu byline: `#topu .author-name` `(1, 1, 0)` i `a.author-name:hover` `(0, 2, 1)`. Kal ki ta ganha?"
+    kea: "Dos regra ta apunta pa mesmu byline: `#topu .author-name` `(1, 1, 0)` i `a.author-name:hover` `(0, 2, 1)`. Kual ki ta ganha?"
   options:
     - text: { kea: "`#topu .author-name` — pamodi ID na kolun `a` ta sobrepasa kualkér class" }
       correct: true
@@ -19,7 +19,7 @@
       correct: false
       explain: { kea: "Nau — `:hover` é un pseudo-class normal ki ta konta na kolun `b`. Ka ten nada spesial ki ta dizativa otru regra." }
 - question:                                    # Q1 → O4 (recall: inherits?)
-    kea: "Kal di es propriedadis **ka** ta inheri di `<body>` pa kada `<p>`?"
+    kea: "Kual di es propriedadis **ka** ta inheri di `<body>` pa kada `<p>`?"
   options:
     - text: { kea: "`border`" }
       correct: true
@@ -36,7 +36,7 @@
 - question:                                    # Q2 → O1 (why: !important)
     kea: "Pamodi `!important` ka é solusan korreta pa un konflitu di especificidadi?"
   options:
-    - text: { kea: "El ta inora skala i ta kria mas konflitu ki so otru `!important` pode kuebra dipos" }
+    - text: { kea: "El ta ignora skala i ta kria mas konflitu ki so otru `!important` pode kuebra dipos" }
       correct: true
       explain: { kea: "Sertu — ta funsiona un bez, ma kada sobrescrita dipos ta presiza di otru `!important`. Solusan real é simplifika selector." }
     - text: { kea: "El ta torna pajina mas lenta pa karega" }
@@ -44,12 +44,12 @@
       explain: { kea: "Velosidadi ka ten nada a ver — problema é manutensan: `!important` ta luta kontra cascade en bez di trabadja ku el." }
     - text: { kea: "El so ta funsiona na inline style" }
       correct: false
-      explain: { kea: "Nau — `!important` ta funsiona na kualkér regra. Problema ka é undi el ta funsiona, é kaos ki el ta kria." }
-    - text: { kea: "Browsers modernu ta inora-l" }
+      explain: { kea: "Nau — `!important` ta funsiona na kualkér regra. Problema ka é unde el ta funsiona, é kaos ki el ta kria." }
+    - text: { kea: "Browsers modernu ta ignora-l" }
       correct: false
       explain: { kea: "Browsers ta respeita-l (kel é problema) — el ta ganha tudu, inkluzivu kuza ki bu kre ki perde." }
 - question:                                    # Q3 → O5 (apply: universal + source order)
-    kea: "Bu ten `* { color: gray; }` i `body { color: navy; }`. Kal kor ki un `<p>` ta resebe, i pamodi?"
+    kea: "Bu ten `* { color: gray; }` i `body { color: navy; }`. Kual kor ki un `<p>` ta resebe, i pamodi?"
   options:
     - text: { kea: "Navy — `body { color }` ta inheri pa `<p>`, i inheritance ta ganha sobre `*` `(0,0,0)` ki aplika diretu… kuidadu: testa kazu real" }
       correct: false

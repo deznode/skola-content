@@ -14,15 +14,15 @@
     - text: { kea: "Pamodi `*` ta seleciona o `<body>` apenas" }
       correct: false
       explain: { kea: "`*` ta seleciona **tudu** elementu, ka só `<body>`. I o motivu di poi-l primeru é o kálkulu di largura, ka o skopu." }
-    - text: { kea: "Pa apaga tudu kor padron di o browser" }
+    - text: { kea: "Pa apaga tudu kor default di o browser" }
       correct: false
-      explain: { kea: "`box-sizing` ka ten a-ver ku kor — el ta kontrola kumo largura ta konta. `margin: 0; padding: 0` é ki ta zera spasamentu padron." }
+      explain: { kea: "`box-sizing` ka ten a-ver ku kor — el ta kontrola kumo largura ta konta. `margin: 0; padding: 0` é ki ta zera spasamentu default." }
 - question:
     kea: "Bu kre 3 kartas lado-a-lado, i dentru di kada karta foto → sitasan → nomi enpilhadu vertikal. Ki ferramenta pa o eskema **externu**, ki ferramenta pa o **internu**?"
   options:
     - text: { kea: "Grid pa o externu (3 koluna), Flexbox column pa o internu" }
       correct: true
-      explain: { kea: "Sertu — o eskema di 3 kartas é 2D (Grid); o enpilhamentu vertikal dentru di kada karta é 1D (Flexbox `flex-direction: column`). Es é o padron profisional di L19." }
+      explain: { kea: "Sertu — o eskema di 3 kartas é 2D (Grid); o enpilhamentu vertikal dentru di kada karta é 1D (Flexbox `flex-direction: column`). Es é o standard profisional di L19." }
     - text: { kea: "Flexbox pa o externu, Grid pa o internu" }
       correct: false
       explain: { kea: "Trokadu — o internu (foto/quote/cite nun koluna) é 1D = Flexbox. O externu (3 kartas alinhadu) é midjór ku Grid." }

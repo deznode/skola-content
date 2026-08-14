@@ -17,13 +17,13 @@ prerequisites:
 
 # Testu i kor na CSS
 
-Ti gosi, blog di Adilson ten un kor di fundu i un `<h1>` azul-mar. É un kumesu. Gosi nu ta torna-l bonitu di verdadi: font sériu, kor ku karater, spasing ki ta da konfortu pa ledjor di artigu sobre Cesária Évora.
+Tenta lé un artigu grandi unde letru é un mikrobiu i linha ta pega di un ladu te otu di ekran. É kansativu! Design ka é so pa fika bonitu, ma pa **konfortu di leitor**. Gosi nu ta afina letru, spasing i kor di blog di Adilson pa leitura bira un prazer.
 
 ## Propriedadis di testu
 
 Es é "kavala di trabaju" di CSS — kuze ki bu ta uza tudu dia.
 
-| Propriedadi | Kuze ki ta faze | Egzemplu di valor |
+| Propriedadi | Kuze ki ta faze | Izenplu di valor |
 |---|---|---|
 | `color` | Kor di testu | `#333`, `blue`, `rgb(50, 50, 50)` |
 | `font-family` | Família di font | `sans-serif`, `Georgia, serif` |
@@ -197,7 +197,7 @@ Abri `style.css`. Reskrebe el ku stilu kompletu pa testu i kor.
   notes={[
     { m: 1, title: "body — reset jeral", body: "Fundu areia klaru (`#f7f0e6`), testu grey sukuru (`#333`) en bez di pretu duru, font `sans-serif`, i `line-height: 1.5` pa konfortu di leitura." },
     { m: 2, title: "h1 — titulu prinsipal", body: "Azul-mar (`#1098ad`), `36px`, tudu maiúskula (`text-transform: uppercase`), sentradu (`text-align: center`)." },
-    { m: 3, title: "h2 — separador di seksan", body: "Grey sukuru ku un `border-bottom` azul embaxu — ta sirvi kumo separador entri seksan." },
+    { m: 3, title: "h2 — separador di seksan", body: "Grey sukuru ku un `border-bottom` azul embaxu — ta sirbi kumo separador entri seksan." },
     { m: 4, title: "p — paragrafu", body: "Ta erda font i kor di `body`; li nu so fixa `font-size: 16px`." },
     { m: 5, title: "em — byline", body: "Itáliku i grey médiu (`#777`) — mas suavi ki paragrafu, bon pa byline." },
   ]}
@@ -207,25 +207,22 @@ Salva i abri `cesaria.html` ku Live Server — kada regra ta transforma un parti
 
 ## Erus komun pa evita
 
-- **Skesi `;` na fin di un deklarasan.** Próximu deklarasan ta keda silensiozamenti inoradu. Hábitu: skrebe sempri `;`.
-- **Erru na nomi di propriedadi** (`colur` na bez di `color`, `font-sze` na bez di `font-size`). Browser ta inora linha. DevTools ta mostra un ikon di avisu na linha — nu ta odja kel-li na Lisan 13.
+- **Skise `;` na fin di un deklarasan.** Browser ta ignora próximu deklarasan silensiozamenti. Hábitu: skrebe sempri `;`.
+- **Erru na nomi di propriedadi** (`colur` na bez di `color`, `font-sze` na bez di `font-size`). Browser ta ignora linha. DevTools ta mostra un ikon di avisu na linha — nu ta odja kel-li na Lisan 13.
 - **Misturá `px` i `em` sen kuidadu.** Pa gosi, fika ku `px` pa font i `1.5` (sen unidadi) pa `line-height`. Unidadi rilativu (`em`, `rem`, `%`) ta ben na un kursu di responsive design.
 - **Uza kor nomeadu (`red`, `blue`) na projetu real.** Pinta-l so na demo. Pa produsan, sempri hex ou RGB.
-- **Skesi alpha na `rgba`** kuandu bu kre transparénsia. `rgb(...)` é sólidu sempri.
+- **Skise alpha na `rgba`** kuandu bu kre transparénsia. `rgb(...)` é sólidu sempri.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Propriedadis di testu" variant="gold">`color`, `font-family`, `font-size`, `font-weight`, `font-style`, `text-transform`, `text-align`, `line-height`.</RezumuItem>
   <RezumuItem term="line-height">Uza sempri múltiplu sen unidadi (`1.5`) — ta skala ku `font-size`.</RezumuItem>
   <RezumuItem term="Valor di kor">hex (`#1098ad`), hex kurtu (`#fff`), `rgb()`, `rgba()` (ku alpha), nomi nomeadu.</RezumuItem>

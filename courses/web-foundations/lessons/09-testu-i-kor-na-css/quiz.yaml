@@ -15,7 +15,7 @@
     - text: { kea: "Largura di border" }
       correct: false
 
-- question: { kea: "Kal di es valor ta da un kor **grey**?" }
+- question: { kea: "Kual di es valor ta da un kor **grey**?" }
   options:
     - text: { kea: "`#777777`" }
       correct: true
@@ -28,7 +28,7 @@
     - text: { kea: "`#00ff00`" }
       correct: false
 
-- question: { kea: "Kal sintaksi di `border` ta da un linha di **3px**, **tracejadu**, **azul-mar**?" }
+- question: { kea: "Kual sintaksi di `border` ta da un linha di **3px**, **tracejadu**, **azul-mar**?" }
   options:
     - text: { kea: "`border: 3px dashed #1098ad;`" }
       correct: true

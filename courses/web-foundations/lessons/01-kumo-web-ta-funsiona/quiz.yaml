@@ -21,7 +21,7 @@
       correct: false
       explain: { kea: "Browser ka ta instala nada; el ta resebe HTML i ta mostra-l diretu." }
 - question:
-    kea: "Kal di trez linguajen di front-end ki ta kuida di **apariénsia** — kor, tamanhu i pozisan?"
+    kea: "Kal di kes trez linguajen di front-end ki ta kuida di **apariénsia** — kor, tamanhu i pozisan?"
   options:
     - text: { kea: "CSS" }
       correct: true
@@ -51,7 +51,7 @@
       correct: false
       explain: { kea: "Kabu é infrastrutura di rede, ka undi kódiku di back-end ta korre." }
 - question:
-    kea: "Un landing page di un restoranti na Mindelo ki ta mostra **mesmu** konteúdu pa tudu vizitanti — ke ki tipu di website?"
+    kea: "Un landing page di un restoranti na Mindelo ki ta mostra **mesmu** konteúdu pa tudu vizitanti — keli e ki tipu di website?"
   options:
     - text: { kea: "Statiku" }
       correct: true
@@ -74,7 +74,7 @@
     - text: { kea: "Pamodi React ka ta funsiona na Kabu Verdi" }
       correct: false
       explain: { kea: "React ta funsiona na kualker lugar — kel-li ka é razan." }
-    - text: { kea: "Pamodi HTML é mas nove ki React" }
+    - text: { kea: "Pamodi HTML é mas novu ki React" }
       correct: false
       explain: { kea: "HTML é mas antigu; idadi ka é razan — é ki HTML i CSS é a baz." }
     - text: { kea: "Pamodi framework ka ta uza HTML" }

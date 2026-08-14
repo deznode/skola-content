@@ -18,14 +18,14 @@ prerequisites:
 
 # DevTools, Google i debug
 
-Ti gosi, kuandu un kuza dá erradu, bu ta fika paradu. Es lisan li bu ta aprende **debug** — kumo un kuzinheru ki ta proba sosa antis di sirvi. Ferramentas ki kada profisional di web ta uza tudu dia: DevTools, Google, MDN (Mozilla Developer Network). Kátia, ki ta aprende web na Praia, ja perdeu dos hora un dia pa odja ki problema éra so un erru di skritura na nomi di propriedadi. DevTools ta poupa-l tempu sima es.
+Telma perde dos ora onti ta tenta intende pamodi ki se paragrafu ka bira azul. Dipos, el repara ki el skrebe `colur: blue`. Tudu dezenvolvedor ta pasa pa es dor! Ma profisionais ka ta bota dedu na adivinha: es ta uza **DevTools** i Google. Oji bu ta prende uza feramentas majiku di browser pa resolve es tipu di eru na 2 minutu inves di 2 ora.
 
 ## Chrome DevTools — tour
 
 ### Abri DevTools
 
-- **Atallu:** `Cmd+Opt+I` (Mac) ou `Ctrl+Shift+I` (Windows/Linux).
-- **Ku rato:** klika ku rato direita na kualkér elementu di pajina → **Inspect** / **Inspekciona**.
+- **Atalhu:** <Kbd keys="Cmd+Opt+I" /> (Mac) ou <Kbd keys="Ctrl+Shift+I" /> (Windows/Linux).
+- **Ku rato:** klika ku rato direita na kualkér elementu di pajina → **Inspect** / **Inspesiona**.
 
 DevTools ta abri na un painel lateral ou na un janela separadu.
 
@@ -38,7 +38,7 @@ Ta mostra árvore di HTML kumo browser ta vé-l gosi — ka kumo bu skrebe-l. Si
 
 ### Painel **Styles** — kuze ki ta aplika
 
-Mostra **tudu regra CSS ki ta aplika** pa elementu selecionadu, ordenadu di mas spesífiku pa mas jeral. Na fundu, na itáliku, ta ben **user-agent styles** (kor i tamanhu padron di browser).
+Mostra **tudu regra CSS ki ta aplika** pa elementu selecionadu, ordenadu di mas spesífiku pa mas jeral. Na fundu, na itáliku, ta ben **user-agent styles** (kor i tamanhu default di browser).
 
 | Kuza ki bu ta odja | Signifikadu |
 |---|---|
@@ -48,17 +48,17 @@ Mostra **tudu regra CSS ki ta aplika** pa elementu selecionadu, ordenadu di mas 
 
 ### Edita live ku flecha
 
-Klika na kualkér valor numériku (egzemplu, `font-size: 16px`). Kumo kel valor ta keda azul (modu di edisan), pode:
+Klika na kualkér valor numériku (izenplu, `font-size: 16px`). Kumo kel valor ta keda azul (modu di edisan), pode:
 
-- **↑ / ↓** — inkrementa ou dekrementa por 1.
-- **Shift + ↑/↓** — inkrementa ou dekrementa por **10**.
-- **Alt + ↑/↓** — inkrementa ou dekrementa por **0.1**.
+- <Kbd keys="up" /> / <Kbd keys="down" /> — inkrementa ou dekrementa por 1.
+- <Kbd keys="Shift+up" /> / <Kbd keys="Shift+down" /> — inkrementa ou dekrementa por **10**.
+- <Kbd keys="Alt+up" /> / <Kbd keys="Alt+down" /> — inkrementa ou dekrementa por **0.1**.
 
 Edisons na DevTools **ka ta salva na ficheru**. Tudu ta pirdi kuandu bu rikarrega pajina. Uza DevTools pa **eksperimenta**, dipos kopia valor finál pa `style.css`.
 
 ### Forsa stadu `:hover`
 
-Pseudo-classes (`:hover`, `:focus`, `:active`) é difisil di debug pamodi es ta dezaparesi kuandu bu sai ku rato. Solusan: na topu di painel Styles, klika `:hov`. Marka kaixa pa `:hover`. Stadu ta keda "ligadu" — i bu pode inspekciona regra di hover ku kalmu.
+Pseudo-classes (`:hover`, `:focus`, `:active`) é difisil di debug pamodi es ta dezaparesi kuandu bu sai ku rato. Solusan: na topu di painel Styles, klika `:hov`. Marka kaixa pa `:hover`. Stadu ta keda "ligadu" — i bu pode inspesiona regra di hover ku kalmu.
 
 ### Box model na kantu direitu
 
@@ -112,13 +112,13 @@ Mas di metadi di tempu di un dezenvolvedor é Google. É mistériu — ma **kumo
 
 Página tipiku di MDN ten es strutura:
 
-1. **Diskrisan** — kuze ki é propriedadi/element.
+1. **Diskrisan** — kuze ki é propriedadi/elementu.
 2. **Try it** — demo interativu.
 3. **Syntax** — sintaksi formal i valor posivel.
-4. **Egzemplus** — kódiku kompletu.
+4. **Izenplus** — kódiku kompletu.
 5. **Browser compatibility** — tabela na fundu mostrando ki browser ta suportar (importanti pa projetu real).
 
-Pa novatu, parti mas útil é **Try it** i **Egzemplus**. Sintaksi formal ta keda mas klaru ku tempu.
+Pa novatu, parti mas útil é **Try it** i **Izenplus**. Sintaksi formal ta keda mas klaru ku tempu.
 
 ## Faze un bon pergunta (na fórum, Discord, Q&A di Skola)
 
@@ -141,7 +141,7 @@ Es strutura ta resolvi 50% di problema só pa faze pergunta. Txeu bez, kuandu bu
   showHeader={false}
   steps={[
     {
-      title: "Inspekciona titulu di blog",
+      title: "Inspesiona titulu di blog",
       content: [
         { type: "prose", t: "Abri `cesaria.html` ku Live Server, abri DevTools (`Cmd+Opt+I`), i klika ku rato direita na titulu \"Blog di Adilson\" → **Inspect**." },
         { type: "prose", t: "Na painel Styles, prokura regra `h1 { color: #1098ad; }`. Klika na `#1098ad` i edita pa `#ad1090` — **pajina ta muda imediatamenti** pa púrpura." },
@@ -157,14 +157,14 @@ Es strutura ta resolvi 50% di problema só pa faze pergunta. Txeu bez, kuandu bu
     {
       title: "Forsa stadu :hover na un link",
       content: [
-        { type: "prose", t: "Klika ku rato direita na un link → **Inspect**. Na topu di painel Styles, klika `:hov` i marka `:hover`. Regra `a:hover` ta apareci na lista — inspekciona-l ku kalmu." },
+        { type: "prose", t: "Klika ku rato direita na un link → **Inspect**. Na topu di painel Styles, klika `:hov` i marka `:hover`. Regra `a:hover` ta apareci na lista — inspesiona-l ku kalmu." },
       ],
     },
     {
       title: "Diagnostika un erru di skritura",
       content: [
         { type: "prose", t: "Na `style.css`, adisiona propozitalmenti un erru na regra `p`: skrebe `colur: #333;` en bez di `color: #333;`. Salva i rikarrega — paragrafu ta perdi kor." },
-        { type: "prose", t: "Inspekciona un `<p>` na DevTools. Un **ikon di triángulu amarelu** ta apareci na lado di `colur` — DevTools ta sinaliza ki propriedadi ka egziste. Koriji pa `color`, salva, rikarrega: kor ta volta." },
+        { type: "prose", t: "Inspesiona un `<p>` na DevTools. Un **ikon di triángulu amarelu** ta apareci na lado di `colur` — DevTools ta sinaliza ki propriedadi ka egziste. Koriji pa `color`, salva, rikarrega: kor ta volta." },
       ],
     },
     {
@@ -180,31 +180,28 @@ Es strutura ta resolvi 50% di problema só pa faze pergunta. Txeu bez, kuandu bu
 
 - **Edisons na DevTools ka salva.** Se bu kre keda mudansa, kopia pa `style.css`. Si nu, ta pirdi ku rikarregamenti.
 - **Konfiansa siga na W3Schools.** Ten muitu informasan dezatualizadu, prinsipalmenti pa Flexbox, Grid i propriedadis modernu. Kruza sempri ku MDN.
-- **Perguntar sen reprodusan minima.** "Pamodi es ka ta funsiona?" — resposta probabal: silénsiu. Ku CodePen + ekspetativa + tentativa, resposta ta ben rápidu.
-- **Inora avisu di DevTools.** Triángulu amarelu = mensajen di browser pa bu. Sempri kontrola-l antis di pirdi 30 minutu Googlando.
+- **Perguntar sen reprodusan minima.** "Pamodi es ka ta funsiona?" — resposta provável: silénsiu. Ku CodePen + ekspetativa + tentativa, resposta ta ben rápidu.
+- **Ignora avisu di DevTools.** Triángulu amarelu = mensajen di browser pa bu. Sempri kontrola-l antis di pirdi 30 minutu Googlando.
 - **Ka kontrola Network panel.** Si `style.css` ta da 404, **nada di stilu** ka ta aplika. Es é primeru kuza pa kontrola.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="DevTools">`Cmd/Ctrl+Opt+I` ou rato direitu → Inspect. Painels prinsipal: **Elements**, **Styles**, **Network**, **Computed**.</RezumuItem>
   <RezumuItem term="Regra tachiada">Na painel Styles = sobrepasadu pa otru regra mas spesífiku.</RezumuItem>
   <RezumuItem term="Edita live" variant="warning">Ku flecha (↑/↓, Shift pa ×10) — ma **ka ta salva na ficheru**, kopia valor final pa `style.css`.</RezumuItem>
-  <RezumuItem term=":hov">Ta forsa stadu di hover pa bu pode inspekciona regra di `:hover` ku kalmu.</RezumuItem>
+  <RezumuItem term=":hov">Ta forsa stadu di hover pa bu pode inspesiona regra di `:hover` ku kalmu.</RezumuItem>
   <RezumuItem term="Validá HTML">Na **validator.w3.org** — só HTML, ka CSS nin JavaScript.</RezumuItem>
   <RezumuItem term="Google query" variant="tip">Skrebe na inglés, komesa ku `CSS`/`HTML`, sé spesífiku, adisiona "MDN" na fin.</RezumuItem>
   <RezumuItem term="Fonti kanóniku" variant="gold">**MDN > Stack Overflow > CSS-Tricks > (evita) W3Schools**.</RezumuItem>
   <RezumuItem term="Bon pergunta">CodePen + ekspetativa + tentativa — ta resolvi metadi di problema só pa skrebe-l.</RezumuItem>
 </KeyTakeaways>
 
-**Konklui Módulu 3!** Gosi bu ta inspekciona kualkér pajina, debug CSS na DevTools, valida bu HTML i otxa resposta na MDN kuandu un kuza dá erradu.
+**Konklui Módulu 3!** Gosi bu ta inspesiona kualkér pajina, debug CSS na DevTools, valida bu HTML i otxa resposta na MDN kuandu un kuza dá erradu.

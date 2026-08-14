@@ -20,14 +20,14 @@
       margin: 0 auto;
       padding: 40px;
     }
-  hint: { kea: "Bloku elementu padron dja ta okupa **100%** di largura. Sen un `width` ou `max-width`, ka ten spasu pa `auto` divizi na dos ladu." }
+  hint: { kea: "Bloku elementu default dja ta okupa **100%** di largura. Sen un `width` ou `max-width`, ka ten spasu pa `auto` divizi na dos ladu." }
 # — traces Objective 4
 - slug: adisiona-spasing-kartaun
   language: css
   kind: code
-  title: { kea: "Da spasu pa un kartaun di artigu" }
+  title: { kea: "Da spasu pa un karton di artigu" }
   prompt:
-    kea: "Skrebe regra `.kartaun`: **20px** di padding na tudu ladu, **16px** di margin pa baxu, i un border di **1px solid `#ddd`**. Dipos da-l un largura di **300px**. Uza forma kurtu undi faze sentidu."
+    kea: "Skrebe regra `.kartaun`: **20px** di padding na tudu ladu, **16px** di margin pa baxu, i un border di **1px solid `#ddd`**. Dipos da-l un largura di **300px**. Uza forma kurtu unde faze sentidu."
   starterCode: |
     .kartaun {
       /* skrebe li */

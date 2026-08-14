@@ -21,32 +21,32 @@ Tudu website ki bu ta vizita — di **nosilha.com** ate pajina di Facebook ki bu
 
 ## Request → response
 
-Antis di bu skrebe un linha di kódiku, bu ten ki ten un mental model klaru di kuze ki ta akontese kuandu bu abri un pajina di website.
+Antis di bu skrebe un linha di kódiku, bu ten ki ten un ideia klaru di kuze ki ta akontese kuandu bu abri un pajina di website.
 
 <GlossaryText
-  text="Kuandu bu ta dijita un [[URL]] na bu browser i primi Enter, kuatru kuza ta akontese en sekuénsia, kuazi instantáneu — un konversa kurtu entri bu browser i un [[servidor]]. Browser ta manda un [[request]], servidor ta manda di volta un [[response]], i browser ta [[parse]] kel response pa dezenha pajina. Sigi kada pasu na diagrama."
+  text="Kuandu bu ta dijita un [[URL]] na bu browser i primi Enter, kuatru kuza ta akontese en sekuénsia, kuazi instantáneu — un konversa kurtu entri bu browser i un [[servidor]]. Browser ta manda un [[request]], servidor ta manda pa tras un [[response]], i browser ta [[parse]] kel response pa dezenha pajina. Sigi kada pasu na diagrama."
   terms={{
     URL: { en: "URL", definition: "Enderesu di un pajina web — kel ki bu ta dijita na browser, kumo nosilha.com." },
     request: { en: "request", definition: "Pergunta ki browser ta manda pa servidor pa pidi un pajina ou rekursu." },
-    servidor: { en: "server", definition: "Komputador sempri ligadu ki ta sirvi website i ta responde pa request di browser." },
+    servidor: { en: "server", definition: "Komputador sempri ligadu ki ta sirbi website i ta responde pa request di browser." },
     response: { en: "response", definition: "Repostu ki servidor ta manda di volta — pa un pajina web, é un dokumentu HTML." },
     parse: { en: "parse", definition: "Le i interpreta kódiku HTML pa transforma-l na pajina vizual." },
   }}
 />
 
-![Diagrama di sekuénsia request/response na web: 1) browser ta manda un request pa un servidor; 2) servidor ta resebe pergunta; 3) servidor ta manda di volta un response — un dokumentu HTML; 4) browser ta le kel HTML i ta mostra kel pajina](../../infographics/12-request-response-sequence.jpg)
+![Diagrama di sekuénsia request/response na web: 1) browser ta manda un request pa un servidor; 2) servidor ta resebe pergunta; 3) servidor ta manda pa tras un response — un dokumentu HTML; 4) browser ta le kel HTML i ta mostra kel pajina](../../infographics/12-request-response-sequence.jpg)
 
 ## Internet ka é Web
 
 "Internet" i "web" é mesmu kuza? Txeu djenti ta pensa ki sin. Ma nau.
 
 :::callout{type=tip}
-Pensa na internet kumo rede di strada ki ta liga tudu komputador di mundu — fiu, sinal di rádiu, protokolu. Web é un di kez kuza ki ta viaja na es strada: pajina HTML ligadu un ku otru via link. Email i WhatsApp ta viaja na mesmu strada, ma es é ka Web.
+Pensa na internet kumo rede di strada ki ta liga tudu komputador di mundu — fiu, sinal di rádiu, protokolu. Web é un di kes kuza ki ta viaja na es strada: pajina HTML ligadu un ku otru via link. Email i WhatsApp ta viaja na mesmu strada, ma es é ka Web.
 :::
 
 ## Kada linguajen ku se responsabilidadi
 
-Kada pajina di web ta djunta trez linguajen. Pensa na es moda trez kamada di mesmu kuza:
+Kada pajina di web ta djunta trez linguajen. Pensa na es kumo trez kamada di mesmu kuza:
 
 <ConceptDiagram
   showHeader={false}
@@ -57,7 +57,7 @@ Kada pajina di web ta djunta trez linguajen. Pensa na es moda trez kamada di mes
   ]}
 />
 
-Na es kursu nu ta foka na HTML i CSS. JavaScript ta ben dispós, na un kursu separadu (`intro-javascript`).
+Na es kursu nu ta foka na HTML i CSS. JavaScript ta ben dipos, na un kursu separadu (`intro-javascript`).
 
 :::callout{type=tip}
 HTML **é ka un "programming language"** — é un *markup language*. Ta marka konteúdu; ka ten lojika nen kondisional.
@@ -70,7 +70,7 @@ Kada bez ki bu ta uza un website, ten dos ladu envolvidu:
 - **Front-end** é tudu kuza ki ta kore na bu browser: HTML, CSS, JS. É kuza ki bu ta odja i ta klika.
 - **Back-end** é tudu kuza ki ta kore na servidor: bazi di dadus, lojika di autentifikasan, kalkulu. Bu ka ta odja-l, ma sen el website ka ta funsiona.
 
-Kuandu bu ta entra na bu konta di banku, front-end (HTML/CSS) ta mostra-bu un formuláriu di login. Bu username i password ta bai pa back-end ki ta verifika es i ta manda di volta bu saldo.
+Kuandu bu ta entra na bu konta di banku, front-end (HTML/CSS) ta mostra-bu un formuláriu di login. Bu username i password ta bai pa back-end ki ta verifika-s i ta manda pa tras bu saldo.
 
 ## Website statiku vs website dinámiku
 
@@ -82,7 +82,7 @@ Kuandu bu ta entra na bu konta di banku, front-end (HTML/CSS) ta mostra-bu un fo
     { name: "Dinámiku", accent: "orange" },
   ]}
   rows={[
-    { label: "Konteúdu", kind: "text", vals: ["Mesmu pa tudu kel ki ta vizita", "Ta muda konformi kel ki sta ligadu"] },
+    { label: "Konteúdu", kind: "text", vals: ["Mesmu pa tudu kel ki ta vizita", "Ta muda konformi kenha ki sta ligadu"] },
     { label: "Presiza back-end?", kind: "bool", vals: [false, true] },
     { label: "Izemplu", kind: "text", vals: ["Landing page di un restoranti na Mindelo", "Bu feed di Facebook"] },
     { label: "Linguajen", kind: "text", vals: ["So HTML i CSS", "HTML, CSS **i** JavaScript + back-end"] },
@@ -91,11 +91,9 @@ Kuandu bu ta entra na bu konta di banku, front-end (HTML/CSS) ta mostra-bu un fo
 
 Tudu kuza ki nu ta konstrui na es kursu é statiku. É fundasan di tudu framework moderno (React, Vue, Next.js).
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline" >
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
@@ -103,9 +101,8 @@ Tudu kuza ki nu ta konstrui na es kursu é statiku. É fundasan di tudu framewor
   <Quiz position={4} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
-  <RezumuItem term="Request / response">Browser ta manda un request; servidor ta manda di volta un response — kel response é HTML.</RezumuItem>
+<KeyTakeaways showHeader={true} chrome="inline" >
+  <RezumuItem term="Request / response">Browser ta manda un request; servidor ta manda pa tras un response — kel response é HTML.</RezumuItem>
   <RezumuItem term="Trez linguajen" variant="gold">HTML é konteúdu, CSS é stilu, JavaScript é lojika.</RezumuItem>
   <RezumuItem term="Front vs back">Front-end ta kore na browser; back-end ta kore na servidor.</RezumuItem>
   <RezumuItem term="Statiku vs dinámiku">Statiku = mesmu pa tudu vizitanti; dinámiku = ta muda pa kada uzuáriu.</RezumuItem>

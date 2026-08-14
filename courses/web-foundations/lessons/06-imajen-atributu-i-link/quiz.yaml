@@ -23,7 +23,7 @@
   options:
     - text: { kea: "Pa asesibilidadi, SEO i fallback — i `alt=\"\"` vaziu é midjór ki omiti-l" }
       correct: true
-      explain: { kea: "Sertu — screen reader ta le-l, Google ta uza-l, i si imajen ka karrega el ta parese. Pa imajen dekorativa `alt=\"\"` ta diz screen reader pa salta-l; omiti-l ta faze screen reader le nomi di ficheru." }
+      explain: { kea: "Sertu — screen reader ta le-l, Google ta uza-l, i si imajen ka karrega el ta parese. Pa imajen dekorativa `alt=\"\"` ta fra screen reader pa salta-l; omiti-l ta faze screen reader le nomi di ficheru." }
     - text: { kea: "Pa muda tamanhu di imajen" }
       correct: false
       explain: { kea: "Tamanhu é `width` i `height`, ka `alt`. `alt` é deskrisan textual." }
@@ -36,20 +36,20 @@
 - question:
     kea: "Kuze ki `target=\"_blank\"` ta faze na un `<a href=\"...\">`?"
   options:
-    - text: { kea: "Ta abri link na un aba novu" }
+    - text: { kea: "Ta abri link na un tab novu" }
       correct: true
-      explain: { kea: "Sertu — útil pa link externu, pa uzuáriu ka perde bu pajina. Padran (sen `target`) ta abri na mesmu aba." }
+      explain: { kea: "Sertu — útil pa link externu, pa uzuáriu ka perde bu pajina. Padran (sen `target`) ta abri na mesmu tab." }
     - text: { kea: "Ta faze link ten kor azul" }
       correct: false
-      explain: { kea: "Kor di link ben di browser/CSS, ka di `target`. `target=\"_blank\"` ta abri na aba novu." }
+      explain: { kea: "Kor di link ben di browser/CSS, ka di `target`. `target=\"_blank\"` ta abri na tab novu." }
     - text: { kea: "Ta skonde link te uzuáriu pasa rato na riba" }
       correct: false
-      explain: { kea: "`target` ka ta skonde nada — el ta kontrola undi ki link ta abri (mesmu aba ou aba novu)." }
+      explain: { kea: "`target` ka ta skonde nada — el ta kontrola unde ki link ta abri (mesmu tab ou tab novu)." }
     - text: { kea: "Ta transforma link internu na link externu" }
       correct: false
       explain: { kea: "Internu vs externu ben di valor di `href` (nomi di ficheru vs URL kompletu), ka di `target`." }
 - question:
-    kea: "Kal di es afirmasan sobre `<a>` é **korreta**?"
+    kea: "Kual di es afirmasan sobre `<a>` é **korreta**?"
   options:
     - text: { kea: "Sen `href`, `<a>` ka é un link real; i `<a>` (na `<body>`) é diferenti di `<link>` (na `<head>`, pa CSS)" }
       correct: true

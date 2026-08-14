@@ -8,10 +8,10 @@
   options:
     - text: { kea: "`<!DOCTYPE html>`" }
       correct: true
-      explain: { kea: "Sertu — sempri letra minúskula pa `html`. Es ta diz pa browser ki é HTML5 i ta evita *quirks mode*." }
+      explain: { kea: "Sertu — sempri letra minúskula pa `html`. Es ta indika browser ki é HTML5 i ta evita *quirks mode*." }
     - text: { kea: "`<!DOCTYPE HTML5>`" }
       correct: false
-      explain: { kea: "Ka é válidu — browser ka ta da eru, ma ta volta silensiozamenti pa *quirks mode*." }
+      explain: { kea: "Ka é válidu — browser ka ta da eru, ma el ta volta pa *quirks mode* sen fla nada." }
     - text: { kea: "`<!DOCTYPE>`" }
       correct: false
       explain: { kea: "Inkompletu. É sempri `<!DOCTYPE html>`." }
@@ -29,7 +29,7 @@
       explain: { kea: "`<head>` é metadata invizivel (title, charset, links). Konteúdu visivel ta vai na `<body>`." }
     - text: { kea: "Dentru di `<title>`" }
       correct: false
-      explain: { kea: "`<title>` é so nomi di pajina (na aba di browser), ka pa konteúdu di pajina." }
+      explain: { kea: "`<title>` é so nomi di pajina (na tab di browser), ka pa konteúdu di pajina." }
     - text: { kea: "Dentru di `<!DOCTYPE>`" }
       correct: false
       explain: { kea: "Deklarason di tipu di dokumentu ka ta resebe konteúdu." }
@@ -51,12 +51,12 @@
 - question:
     kea: "Pamodi `<meta charset=\"UTF-8\" />` é **krítiku** pa un pajina na Kriolu?"
   options:
-    - text: { kea: "Sen el, palavra ku asentu kumo \"São Vicente\" ta parese kodifikadu eradu" }
+    - text: { kea: "Sen el, palavra ku asentu kumo \"São Vicente\" ta parse kodifikadu mariadu" }
       correct: true
-      explain: { kea: "Sertu — UTF-8 ta suporta `á`, `é`, `ô`, `ñ`, `ç`. Sen el, ta parese `SÃ£o Vicente` ou `S?o Vicente`." }
+      explain: { kea: "Sertu — UTF-8 ta suporta `á`, `é`, `ô`, `ñ`, `ç`. Sen el, ta parse `SÃ£o Vicente` ou `S?o Vicente`." }
     - text: { kea: "Sen el, pajina ka ta karrega di tudu" }
       correct: false
-      explain: { kea: "Pajina ta karrega; é so karater spesial ki ta parese eradu." }
+      explain: { kea: "Pajina ta karrega; é so karater spesial ki ta parse mariadu." }
     - text: { kea: "Sen el, CSS ka ta funsiona" }
       correct: false
       explain: { kea: "Charset ka ten nada a ver ku CSS — é sobre kodifikasan di karater." }

@@ -37,7 +37,7 @@
 - slug: preve-inheri-o-nau                     # → O4, O5 (reflect / apply)
   language: css
   kind: reflect
-  title: { kea: "Preve: kal ki ta inheri, kal ki ka ta?" }
+  title: { kea: "Preve: kual ki ta inheri, kual ki ka ta?" }
   prompt:
     kea: "Imajina ki bu poi es na `body`: `color: navy`, `border: 2px solid red`, `font-family: serif`, `margin: 40px`. **Antis di testa**, skrebe pa kada un si un `<p>` dentru di `<body>` ta resebe-l ou nau — i splika ku un fraze pamodi nu ten selector `*` pa kes ki **ka** ta inheri."
   notePlaceholder:

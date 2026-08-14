@@ -2,14 +2,14 @@
 # Positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
 # One question per learning outcome (LO1→0, LO2→1, LO3→2, LO4→3).
 - question:
-    kea: "Pamodi nu ta uza un editor kumo VS Code en bez di Notepad pa skrebe HTML?"
+    kea: "Pamodi nu ta uza un editor kumo VS Code nves di Notepad pa skrebe HTML?"
   options:
     - text: { kea: "El ta da syntax highlighting, autocomplete i extensions" }
       correct: true
       explain: { kea: "Un editor profisional ta koloria kódiku, ta sujeri kuze ki ben siginti, i ta seta extensions — Notepad ka ten nada di kel-li." }
     - text: { kea: "El é mas baratu ki Notepad" }
       correct: false
-      explain: { kea: "Dos é grátis. Vantajen di VS Code é ferramenta, ka presu." }
+      explain: { kea: "Tudu dos é grátis. Vantajen di VS Code é ferramenta, ka presu." }
     - text: { kea: "El ta funsiona so na Windows" }
       correct: false
       explain: { kea: "VS Code ta funsiona igual na macOS, Windows i Linux." }
@@ -19,9 +19,9 @@
 - question:
     kea: "Dipos di instala extension Prettier, kuze mas ki bu ten ki faze pa el limpa kódiku na save?"
   options:
-    - text: { kea: "Po el kumo *default formatter* i marka *format on save* na Settings" }
+    - text: { kea: "Po-l kumo *default formatter* i marka *format on save* na Settings" }
       correct: true
-      explain: { kea: "So instala ka ta xega — Prettier ta funsiona so dipos ki bu poi-l kumo formatador padran i marka format-on-save." }
+      explain: { kea: "So instala ka ta txiga — Prettier ta funsiona so dipos ki bu poi-l kumo formatador padran i marka format-on-save." }
     - text: { kea: "Nada — so instala extension é sufisienti" }
       correct: false
       explain: { kea: "Es é eru kumun: sen konfigura Settings, Prettier ka ta formata nada na save." }
@@ -36,7 +36,7 @@
   options:
     - text: { kea: "Ta abri un servidor lokal na `localhost:5500` ki ta atualiza pajina kada save" }
       correct: true
-      explain: { kea: "Live Server ta sirvi bu pajina na `localhost:5500` i ta da refresh otomátiku kada bez ki bu salva." }
+      explain: { kea: "Live Server ta sirbi bu pajina na `localhost:5500` i ta da refresh otomátiku kada bes ki bu salva." }
     - text: { kea: "Ta manda bu pajina pa internet pa tudu mundu odja" }
       correct: false
       explain: { kea: "É só lokal — na bu komputador. Pa publika na internet meste otra ferramenta." }

@@ -31,10 +31,10 @@ Pensa na un foto na un parede:
 
 ![Box model: di dentru pa fora — content, padding, border, margin](../../infographics/09-box-model.jpg)
 
-**Area di fil (fill area)** = `content + padding + border`. É undi `background-color` ta pinta. `margin` é **fora** di fill — sempri transparenti.
+**Area di fil (fill area)** = `content + padding + border`. É unde `background-color` ta pinta. `margin` é **fora** di fill — sempri transparenti.
 
 :::callout{type=tip}
-**Box model padron ta adisiona padding i border na width.** Si bu defini `width: 300px` i `padding: 40px`, kaixa ta okupa **380px** (300 + 40 + 40), nau 300. Es ka é intuitivu — nu ta resolvi-l na Lisan 14 ku `box-sizing: border-box`.
+**Box model default ta adisiona padding i border na width.** Si bu defini `width: 300px` i `padding: 40px`, kaixa ta okupa **380px** (300 + 40 + 40), nau 300. Es ka é intuitivu — nu ta resolvi-l na Lisan 14 ku `box-sizing: border-box`.
 :::
 
 ## Padding — spasu internu
@@ -48,7 +48,7 @@ padding: 10px 20px 30px;        /* top, left/right, bottom */
 padding: 10px 20px 30px 40px;   /* top, right, bottom, left — relógiu */
 ```
 
-Pa lembra ordi di kuatru valor: kumesa na **topu** i sigui na sentidu di **relógiu** (top → right → bottom → left).
+Pa lembra ordi di kuatru valor: kumesa na **topu** i sigi na sentidu di **relógiu** (top → right → bottom → left).
 
 ### Forma só un lado
 
@@ -102,7 +102,7 @@ height: 200px;
 - **`px`** — pixel absolutu. Bon pa kontrolu preziso.
 - **`%`** — porsentajen di pai. Foundation pa responsive design (un kursu futuru).
 
-**Importanti:** `width` i `height` ta aplika só na elementu **bloku** (`<div>`, `<p>`, `<h1>`, `<section>`). Pa elementu **inline** (`<span>`, `<a>`, `<em>`), browser ta inora `width` i `height`. Nu ta ben falar mas di display na Módulu 4.
+**Importanti:** `width` i `height` ta aplika só na elementu **bloku** (`<div>`, `<p>`, `<h1>`, `<section>`). Pa elementu **inline** (`<span>`, `<a>`, `<em>`), browser ta ignora `width` i `height`. Nu ta ben falar mas di display na Módulu 4.
 
 ## Sentra un container ku `margin: 0 auto`
 
@@ -115,7 +115,7 @@ Truk klásiku: pa sentra horizontalmenti un elementu di largura fixu, uza `margi
 }
 ```
 
-**Kumo ta funsiona:** `auto` ta diz pa browser "kalkula margin igual na dos ladu", ki ta resulta na sentrajen. Pa funsiona, **elementu ten ki ten un `width` definidu** (ou `max-width`). Sen width, kaixa dja é tudu largura disponivel — ka ta sentra nada.
+**Kumo ta funsiona:** `auto` ta fra pa browser "kalkula margin igual na dos ladu", ki ta resulta na sentrajen. Pa funsiona, **elementu ten ki ten un `width` definidu** (ou `max-width`). Sen width, kaixa dja é tudu largura disponivel — ka ta sentra nada.
 
 <SectionHeading variant="install">Prátika: adisiona container i spasing na blog</SectionHeading>
 
@@ -181,7 +181,7 @@ Salva. Abri `cesaria.html` ku Live Server. Bu ta odja:
 - Kada paragrafu ku 16px di spasu pa baxu.
 - Lista di artigus relasionadu ku kaixa branku, border klaru, padding internu.
 
-### Pasu 3 — proba kolapsu di margin na DevTools
+### Pasu 3 — testa kolapsu di margin na DevTools
 
 Adisiona temporariamenti es kódiku na `style.css`:
 
@@ -196,30 +196,27 @@ Remove kes dos linha temporal dipos di konfirma.
 
 ## Erus komun pa evita
 
-- **Box model padron ta adisiona padding na width.** `width: 300px` + `padding: 40px` = 380px na pajina. Vai stragar layout. Solusan ta ben na Lisan 14: `box-sizing: border-box`.
+- **Box model default ta adisiona padding na width.** `width: 300px` + `padding: 40px` = 380px na pajina. Vai stragar layout. Solusan ta ben na Lisan 14: `box-sizing: border-box`.
 - **Kolapsu di margin vertikal** ta deixa novatu konfusu — "pamodi gap ka ta krese sima ki nu spera?". Lembra: ta toma kel mas grandi, ka soma.
-- **`margin: 0 auto` sen width** ka ta faze nada vizível. Bloku elementu padron dja okupa tudu largura.
-- **Margin vertikal i padding vertikal na inline elementus** (`<span>`, `<a>` sen display:block) ta keda inoradu. Browser ka ta da erru, so ka ta aplika.
-- **Skesi ki margin é transparenti.** `background-color` ka ta apareci na margin — só na content + padding + border (fill area).
+- **`margin: 0 auto` sen width** ka ta faze nada vizível. Bloku elementu default dja okupa tudu largura.
+Browser ta ignora **margin vertikal na inline elementus** (`<span>`, `<a>` sen `display:block`). Padding vertikal ta pinta fundu, ma ka ta inpurra otus linha (ta da overlap).
+- **Skise ki margin é transparenti.** `background-color` ka ta apareci na margin — só na content + padding + border (fill area).
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Kuatru kamada" variant="gold">**content → padding → border → margin** (di dentru pa fora) — kada elementu HTML é un kaixa di kuatru kamada.</RezumuItem>
-  <RezumuItem term="Fill area">`content + padding + border` é undi `background-color` ta apareci. Margin é fora, sempri transparenti.</RezumuItem>
+  <RezumuItem term="Fill area">`content + padding + border` é unde `background-color` ta apareci. Margin é fora, sempri transparenti.</RezumuItem>
   <RezumuItem term="Forma kurtu">Padding/margin ten forma di 1, 2 ou 4 valor (relógiu: top → right → bottom → left).</RezumuItem>
   <RezumuItem term="Kolapsu di margin">Dos margin vertikal adjasenti ta toma só kel mas grandi, ka soma. Padding nunka ta kolapsa.</RezumuItem>
-  <RezumuItem term="Dimensan">`width` i `height` ta aplika na elementus bloku; inline elementus ta inora-l.</RezumuItem>
+  <RezumuItem term="Dimensan">`width` i `height` ta aplika na elementus bloku; inline elementus ta ignora-l.</RezumuItem>
   <RezumuItem term="Sentrajen" variant="tip">Pa sentra horizontalmenti: elementu ten ki ten `width` (ou `max-width`) + `margin: 0 auto`.</RezumuItem>
-  <RezumuItem term="Pendenti" variant="warning">Box-sizing padron ta soma padding i border na width — Lisan 14 ta resolvi-l ku `box-sizing: border-box`.</RezumuItem>
+  <RezumuItem term="Pendenti" variant="warning">Box-sizing default ta soma padding i border na width — Lisan 14 ta resolvi-l ku `box-sizing: border-box`.</RezumuItem>
 </KeyTakeaways>

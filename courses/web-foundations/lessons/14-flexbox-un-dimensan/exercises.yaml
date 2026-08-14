@@ -44,8 +44,8 @@
 - slug: reflekti-sentra-vertikal
   language: css
   kind: reflect
-  title: { kea: "Undi ki `align-items: center` ta salva-bu?" }
+  title: { kea: "Unde ki `align-items: center` ta salva-bu?" }
   prompt:
-    kea: "Antes di Flexbox, sentra un kuza vertikalmenti é un di problema mas frustranti di CSS. Pensa nun lugar nun pajina real (un karton, un nav, un byline, un boton) undi ki `align-items: center` ta salva-bu trabaju. Splika ku bu propi palavra pamodi Flexbox ta torna kel-li un linha só."
+    kea: "Antes di Flexbox, sentra un kuza vertikalmenti é un di problema mas frustranti di CSS. Pensa nun lugar nun pajina real (un karton, un nav, un byline, un boton) unde ki `align-items: center` ta salva-bu trabaju. Splika ku bu propi palavra pamodi Flexbox ta torna kel-li un linha só."
   notePlaceholder:
-    kea: "Un lugar undi N ta uza `align-items: center` é… Antes di Flexbox, N teni ki… ma gosi é só un linha pamodi…"
+    kea: "Un lugar unde N ta uza `align-items: center` é… Antes di Flexbox, N teni ki… ma gosi é só un linha pamodi…"

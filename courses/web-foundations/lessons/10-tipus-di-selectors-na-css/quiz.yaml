@@ -4,7 +4,7 @@
 # positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
 # P0 recall · P1 why/conceptual · P2 apply · P3 recall
 - question:
-    kea: "Kal selector ki é **reutilizavel** (pode aparesi muitu bez na mesmu pajina)?"
+    kea: "Kual selector ki é **reutilizavel** (pode aparesi muitu bez na mesmu pajina)?"
   options:
     - text: { kea: "Class — `.post-meta`" }
       correct: true
@@ -49,11 +49,11 @@
       correct: false
       explain: { kea: "`:first-child` sta na `p`, ka na `article` — nton é sobre `<p>`, ka `<article>`." }
 - question:
-    kea: "Kal di es nomi di class ki ta sigui konvensan **kebab-case**?"
+    kea: "Kual di es nomi di class ki ta sigi konvensan **kebab-case**?"
   options:
     - text: { kea: "`.related-posts`" }
       correct: true
-      explain: { kea: "Sertu — kebab-case: palavra na minúskula, separadu pa traseu (`-`). Kel-li é padron pa nomi di class." }
+      explain: { kea: "Sertu — kebab-case: palavra na minúskula, separadu pa traseu (`-`). Kel-li é standard pa nomi di class." }
     - text: { kea: "`.relatedPosts`" }
       correct: false
       explain: { kea: "Kel-li é camelCase. Pa class uza kebab-case: `.related-posts`." }

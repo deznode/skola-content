@@ -9,7 +9,7 @@ duration: 30
 objectives:
   - "Aplika `* { box-sizing: border-box; }` kumo reset universal i splika pamodi"
   - "Uza `display: flex` na container; fidju ta torna **flex items** automatikamenti"
-  - "Distingui main axis (horizontal padron) di cross axis (vertikal padron)"
+  - "Distingui main axis (horizontal default) di cross axis (vertikal default)"
   - "Uza `justify-content`, `align-items`, `gap`, `align-self`, `order`"
   - "Splika ki Flexbox é pa layouts di un dimensan (Grid é pa dos, ta ben na Lisan 16)"
 prerequisites:
@@ -18,7 +18,7 @@ prerequisites:
 
 # Flexbox: un dimensan
 
-Ti gosi, nu ka kontrola undi elementus ta sta na pajina — es ta enpilha vertikal pamodi é padron di elementu bloku. **Flexbox** é forma modernu di nu organiza-l. Antes di Flexbox, programadores ta uza **floats** (durante muitu anu) — el inda funsiona ma é legasi, i nu ta inora-l na kursu li.
+Kola dos kaixa (divs) ladu a ladu na web sempre foi un tortura. Durante anus, dezenvolvedores uza truks konplikadu pa obriga browser a pozisiona kuzas dretu. Ti ki, finalmenti, parse un eroi: **Flexbox**. El nase pa uniku propozitu di dispo elementus na linha ou na koluna ku total flexibilidadi, sen dor di kabesa.
 
 ## Sobre floats — só nota di literasia
 
@@ -38,7 +38,7 @@ Solusan é un linha:
 
 `box-sizing: border-box` ta faze `width` signifika **largura final** di elementu. Padding i border ta **subtrai** di kontéudu, ka adisiona. Si bu defini `width: 300px` + `padding: 40px`, kaixa **ta okupa 300px**, ku padding **dentru** di kel 300px.
 
-**Aplika es reset un bez na topu di kada folha di stilu — i skesi.** Nu dja preve es regra na Lisan 11, gosi nu ta intende kuze ki el ta faze.
+**Aplika es reset un bez na topu di kada folha di stilu — i skise.** Nu dja preve es regra na Lisan 11, gosi nu ta intende kuze ki el ta faze.
 
 ```css
 /* style.css — topu di ficheru */
@@ -77,7 +77,7 @@ Resultadu: trez paragrafu ta poza **un lado di otru** (horizontal), nau enpilhad
 
 Kada flex container ten **dos eixu**:
 
-| Eixu | Direksan padron |
+| Eixu | Direksan default |
 |---|---|
 | **Main axis** | Horizontal — skerda → direita |
 | **Cross axis** | Vertikal — topu → fundu |
@@ -92,7 +92,7 @@ Tudu propriedadi di Flexbox ta opera **na un di es dos eixu**.
 
 | Valor | Lojika |
 |---|---|
-| `flex-start` | Items na komesu (padron) |
+| `flex-start` | Items na komesu (default) |
 | `center` | Items sentradu |
 | `flex-end` | Items na fin |
 | `space-between` | Spasu entri items, sen spasu nas pontas |
@@ -103,7 +103,7 @@ Tudu propriedadi di Flexbox ta opera **na un di es dos eixu**.
 
 | Valor | Lojika |
 |---|---|
-| `stretch` | Items ta stika pa nxe altura (padron) |
+| `stretch` | Items ta stika pa nxe altura (default) |
 | `center` | Items sentradu vertikalmenti |
 | `flex-start` | Items na topu |
 | `flex-end` | Items na fundu |
@@ -143,7 +143,7 @@ Mas limpu ki `margin-right` na kada item (ka ten trailing margin no últimu).
 }
 ```
 
-`order` negativu ta mové pa komesu; pozitivu pa fin. Padron é `0`.
+`order` negativu ta mové pa komesu; pozitivu pa fin. Default é `0`.
 
 ## Prátika 1 — Flex header na `cesaria.html`
 
@@ -221,34 +221,31 @@ Na `style.css`:
 Salva. Foto ta keda redondu, lado-a-lado ku nomi, **sentradu vertikalmenti**. 16px di spasu entri foto i nomi.
 
 :::callout{type=tip}
-**Flexbox pa byline ku foto + nomi é padron na web.** Kada blog di profisional ta uza es eksatu pattern: `display: flex; align-items: center; gap: 16px;`. Memoriza-l.
+**Flexbox pa byline ku foto + nomi é standard na web.** Kada blog di profisional ta uza es eksatu pattern: `display: flex; align-items: center; gap: 16px;`. Memoriza-l.
 :::
 
 ## Erus komun pa evita
 
-- **Skesi reset di box-sizing.** Sen `* { box-sizing: border-box; }`, kada `padding` ta silensiozamenti kebra largura. **Adisiona na kada projetu, kada bez.**
-- **Troka `justify-content` ku `align-items`.** `justify-content` é **main axis** (horizontal padron). `align-items` é **cross axis** (vertikal padron). Si bu konfundi, sentra horizontal i vertikal ta troka.
+- **Skise reset di box-sizing.** Sen `* { box-sizing: border-box; }`, kada `padding` ta silensiozamenti kebra largura. **Adisiona na kada projetu, kada bez.**
+- **Troka `justify-content` ku `align-items`.** `justify-content` é **main axis** (horizontal default). `align-items` é **cross axis** (vertikal default). Si bu konfundi, sentra horizontal i vertikal ta troka.
 - **`align-items: center` ka sentra nada vizível** kuandu container ten altura `auto`. Items ta determina altura, i ka ten nada pa sentra. Defini un altura na container ou aseita ki items é altura.
 - **Uza `text-align: center` pa sentra un elementu inline** — só sentra **testu dentru**. Pa sentra elementu, uza Flexbox.
 - **Tenta Flexbox kuandu un layout dos dimensan** (grid di kartas) — vai presiza ti aninhar Flexbox dentru di Flexbox. Es é sinal di ki bu kre **CSS Grid** (Lisan 16).
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Floats é legasi" variant="warning">Uza Flexbox i Grid pa kódiku novu.</RezumuItem>
   <RezumuItem term="Reset universal" variant="gold">`* { box-sizing: border-box; }` — aplika sempri na topu di stilu.</RezumuItem>
   <RezumuItem term="Aktiva Flexbox">`display: flex` na container → fidju diretu ta torna flex items.</RezumuItem>
-  <RezumuItem term="Dos eixu">**Main axis** = horizontal padron; **cross axis** = vertikal padron.</RezumuItem>
+  <RezumuItem term="Dos eixu">**Main axis** = horizontal default; **cross axis** = vertikal default.</RezumuItem>
   <RezumuItem term="Propriedadis di container">`justify-content` (main), `align-items` (cross), `gap` (entri items).</RezumuItem>
   <RezumuItem term="Propriedadis di item">`align-self` (sobrepasa), `order` (reorganiza vizual).</RezumuItem>
   <RezumuItem term="Sentra vertikal">`align-items: center` — un linha só.</RezumuItem>

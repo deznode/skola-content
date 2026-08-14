@@ -20,14 +20,14 @@
       explain: { kea: "Content é sempri sentru. Padding ta inrola content, ka kontráriu." }
 # — Objective 1 (recall)
 - question:
-    kea: "Un elementu ten `width: 300px`, `padding: 40px` i `border: 5px solid`. Ku box model **padron**, kantu pixel ta okupa na pajina na horizontal?"
+    kea: "Un elementu ten `width: 300px`, `padding: 40px` i `border: 5px solid`. Ku box model **default**, kantu pixel ta okupa na pajina na horizontal?"
   options:
     - text: { kea: "390px" }
       correct: true
-      explain: { kea: "Sertu — 300 + 40 + 40 (padding dos ladu) + 5 + 5 (border dos ladu) = **390px**. Box model padron ta soma padding i border na width." }
+      explain: { kea: "Sertu — 300 + 40 + 40 (padding dos ladu) + 5 + 5 (border dos ladu) = **390px**. Box model default ta soma padding i border na width." }
     - text: { kea: "300px" }
       correct: false
-      explain: { kea: "So si fose `box-sizing: border-box` (Lisan 14). Ku padron, padding i border ta soma na width." }
+      explain: { kea: "So si fose `box-sizing: border-box` (Lisan 14). Ku default, padding i border ta soma na width." }
     - text: { kea: "380px" }
       correct: false
       explain: { kea: "Bu skise border: 5px na kada ladu = +10px. 380 + 10 = **390px**." }
@@ -62,7 +62,7 @@
       explain: { kea: "Kor di fundu ka ten nada a ver ku sentrajen. Kel ki falta é un largura." }
     - text: { kea: "`display: inline`" }
       correct: false
-      explain: { kea: "Inline elementu ta inora `width` i margin vertikal — `margin: 0 auto` ka ta sentra inline. Presiza bloku ku largura." }
+      explain: { kea: "Inline elementu ta ignora `width` i margin vertikal — `margin: 0 auto` ka ta sentra inline. Presiza bloku ku largura." }
     - text: { kea: "Un `padding` na pai" }
       correct: false
       explain: { kea: "Padding di pai ka ta sentra fidju — elementu mesmu presiza un `width`." }

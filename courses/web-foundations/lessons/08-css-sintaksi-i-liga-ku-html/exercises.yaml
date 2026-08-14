@@ -22,13 +22,13 @@
       <link rel="stylesheet" href="style.css" />
     </head>
   hint:
-    kea: "`rel` ta diz pa browser **kuze** ki é ficheru — pa CSS é `rel=\"stylesheet\"`, ka `rel=\"icon\"`. I sen `href`, browser ka sabe **undi** ta otxa ficheru."
+    kea: "`rel` ta fra pa browser **kuze** ki é ficheru — pa CSS é `rel=\"stylesheet\"`, ka `rel=\"icon\"`. I sen `href`, browser ka sabe **unde** ta otxa ficheru."
 - slug: skrebe-style-css
   language: css
   kind: code
   title: { kea: "Skrebe `style.css` di raiz — dos regra" }
   prompt:
-    kea: "Na un ficheru `style.css` vaziu, skrebe **dos regra CSS kompletu**: (1) `<body>` ku `background-color: #f7f7f7;`, i (2) tudu `<h1>` ku `color: #1098ad;`. Ka skesi `;` na fin di kada deklarasan i kuétxa `{ }`."
+    kea: "Na un ficheru `style.css` vaziu, skrebe **dos regra CSS kompletu**: (1) `<body>` ku `background-color: #f7f7f7;`, i (2) tudu `<h1>` ku `color: #1098ad;`. Ka skise `;` na fin di kada deklarasan i kuétxa `{ }`."
   starterCode: |
     /* style.css — stilu pa blog di Adilson */
   solutionCode: |

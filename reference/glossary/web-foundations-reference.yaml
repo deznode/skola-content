@@ -1,0 +1,2264 @@
+- term: URL
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: URL
+      definition: Enderesu di un pajina web — kel ki bu ta dijita na browser, kumo nosilha.com.
+      body: |-
+        URL é enderesu ki ta identifika unde un rekursu sta na Web. Kel rekursu pode ser un pajina
+        HTML, un imajen, un fixeru CSS, un vídeo ou otu tipu di konteúdu. `nosilha.com` é un forma
+        simplifikadu di URL; un URL más konpletu pode ser `https://nosilha.com/notisias`.
+
+
+        Kuandu bu ta dijita un URL na browser i primi Enter, browser ta uza kel enderesu pa atxa
+        servidor sertu i manda-l un request. Servidor ta responde ku rekursu ki foi pididu, i
+        browser ta interpreta resposta pa mostra pajina. Si enderesu sta inkoretu, rekursu foi
+        mudadu ou el ka izisti, servidor pode manda un response ku un eru, sima “404 Not Found”.
+
+
+        Un URL pode ten vários parti: protokolu (`https`), domíniu (`nosilha.com`), kaminhu
+        (`/notisias`), parámetrus di buska i un fragmentu ki punta pa un seksan di pajina. Nem tudu
+        URL ten tudu es parti. `https` ta indika ki ligasan entri browser i servidor é enkriptadu,
+        ma el so ka ta garanti ki website é di konfiansa.
+
+
+        ## Izemplu
+
+
+        Na es URL:
+
+
+        ```text
+
+        https://nosilha.com/notisias?tema=teknolojia#ultimas
+
+        ```
+
+
+        - `https` é protokolu uzadu pa komunikason.
+
+        - `nosilha.com` é domíniu di website.
+
+        - `/notisias` é kaminhu pa un rekursu.
+
+        - `?tema=teknolojia` é un parámetru ki ta manda informason adisional.
+
+        - `#ultimas` ta aponta pa un seksan spesífiku dentu di pajina.
+  slug: url
+  context: web-foundations
+  provenance: suggested
+- term: request
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: request
+      definition: Pididu ki browser ta faze pa servidor pa pidi un pajina ou rekursu.
+      body: |-
+        Un **request** é un mensajen ki un klienti, normalmenti browser, ta manda pa un servidor pa
+        pidi un pajina, un imajen, un fixeru CSS, dadus ou otu rekursu. Kuandu bu ta dijita un URL i
+        primi Enter, browser ta uza protokolu HTTP ou HTTPS pa manda request pa servidor indikadu na
+        kel URL.
+
+
+        Request ta inklui informason sobri kuze ki klienti kre. El ten un métodu, sima `GET` pa pidi
+        un rekursu ou `POST` pa manda dadus; un kaminhu pa rekursu; i *headers* ku informason
+        adisional. Alguns request, prinsipalmenti `POST`, pode ten tanbe un korpu ku dadus di un
+        formuláriu ou aplikasan.
+
+
+        Servidor ta analiza request i ta manda un **response**. Pa un pajina web, primeru response
+        normalmenti ta konten HTML; dipos, browser pode manda más request separadu pa CSS,
+        JavaScript, imajen i otus rekursu ki HTML ta referensia. Pur isu, abri un so pajina pode
+        provoka vários request.
+
+
+        ## Izemplu
+
+
+        Es é un forma simplifikadu di un request HTTP pa pidi pajina prinsipal di `nosilha.com`:
+
+
+        ```http
+
+        GET / HTTP/1.1
+
+        Host: nosilha.com
+
+        Accept: text/html
+
+        ```
+
+
+        `GET` ta indika ki browser kre resebe un rekursu, `/` é kaminhu di pajina prinsipal, i
+        `Host` ta identifika servidor. Dipos di resebe-l, servidor ta manda un response ku HTML di
+        pajina ou ku informason sobri un eventual eru.
+  slug: request
+  context: web-foundations
+  provenance: suggested
+- term: server
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: servidor
+      definition: Komputador sempri ligadu ki ta sirvi website i ta responde pa request di browser.
+      body: |-
+        Un **servidor** é un komputador, ou un programa ki ta kore na un komputador, preparadu pa
+        resebe request i manda response. Normalmenti, el ta fika ligadu i disponível na internet pa
+        browser pode pidi pajina, imajen, ficheiru CSS, JavaScript ou otus rekursu di un website.
+
+
+        Kuandu bu ta dijita un URL, browser ta manda un request pa servidor. Servidor ta analiza kel
+        pedido, buska rekursu sertu i ta responde. Pa un pajina web, response pode inklui HTML;
+        dipos, browser ta le kel HTML i ta mostra pajina. Si rekursu ka izisti, servidor pode
+        responde ku un kódigu di eru, sima 404.
+
+
+        Servidor tanbê pode kore back-end di un website dinámiku. El pode verifika login, konsulta
+        un bazi di dadus, faze kalkulu i kria un response diferenti pa kada uzuáriu. Un servidor
+        pode ser un makina físiku na un sentru di dadus, un servidor virtual na cloud, ou ate bu
+        própriu komputador duranti dezenvolvimentu.
+
+
+        ## Izemplu
+
+
+        Es é un versan simplifikadu di un konversa HTTP entri browser i servidor. Browser ta pidi un
+        pajina:
+
+
+        ```http
+
+        GET /sobre.html HTTP/1.1
+
+        Host: izemplu.com
+
+        ```
+
+
+        Servidor ta responde ku kódigu `200 OK` i ku dokumentu HTML:
+
+
+        ```http
+
+        HTTP/1.1 200 OK
+
+        Content-Type: text/html
+
+
+        <h1|Sobre nos</h1|
+
+        <p|Bem-vindu pa nos website.</p|
+
+        ```
+
+
+        Browser ta interpreta kel HTML i ta dezenha konteúdu na ekran.
+  slug: server
+  context: web-foundations
+  provenance: suggested
+- term: response
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: response
+      definition: Resposta ki servidor ta manda di volta — pa un pajina web, é un dokumentu HTML.
+      body: |-
+        Un **response** é repostu ki un servidor ta manda dipos di resebe un request di browser.
+        Kuandu bu pidi un pajina pa meiu di un URL, servidor ta buska ou ta kria konteúdu i ta
+        manda-l di volta. Dipos, browser ta le response, ta parse HTML i ta dezenha pajina na ekran.
+
+
+        Normalmenti, un response HTTP ten trez parti: un **status** ki ta indika rezultadu di
+        request, **headers** ku informason sobri response, i un **body** ku konteúdu. Status `200
+        OK` ta signifika ki request kore dretu; un status sima `404 Not Found` ta indika ki rekursu
+        pidedu ka foi atxadu.
+
+
+        Pa un pajina web, body di response jeralmenti é un dokumentu HTML. Ma response ka é
+        obrigatoriamenti HTML: servidor pode manda CSS, JavaScript, imajen, vídeo ou dadus JSON.
+        Header `Content-Type` ta djuda browser sabe ki tipu di konteúdu el resebe i modi ki el debe
+        trata-l.
+
+
+        ## Izemplu
+
+
+        Es é un response HTTP simplifikadu ku un dokumentu HTML:
+
+
+        ```http
+
+        HTTP/1.1 200 OK
+
+        Content-Type: text/html; charset=UTF-8
+
+
+        <!doctype html|
+
+        <html|
+          <body|
+            <h1|Olá, mundu!</h1|
+          </body|
+        </html|
+
+        ```
+
+
+        `200 OK` ta mostra ki request foi susedidu. `Content-Type` ta fla ki body é HTML, i parti
+        dipos di linha vaziu é dokumentu ki browser ta interpreta pa mostra pajina.
+  slug: response
+  context: web-foundations
+  provenance: suggested
+- term: parse
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: parse
+      definition: Le i interpreta kódiku HTML pa transforma-l na pajina vizual.
+      body: |-
+        Parse é prosesu unde browser ta le i interpreta kódiku HTML ki el resebe na response di
+        servidor. HTML ta txiga kumo testu; browser ta analiza tags, atributus i konteúdu pa intende
+        strutura di dokumentu i transforma-l na un pajina ki pode ser mostradu.
+
+
+        Duranti parse, browser ta organiza elementus HTML na un strutura di árvore txomadu DOM
+        (*Document Object Model*). Relason entri elementus é importante: un `<p>` dentu di un
+        `<main>`, pur izemplu, ta bira fidju di kel `<main>` na DOM. JavaScript pode dipos le ou
+        muda es strutura.
+
+
+        Parse ka é exatamente mesmu ku dezenha pajina. Dipos di interpreta HTML, browser inda ten ki
+        aplika CSS, kalkula tamanhu i pozisan di elementus, i pinta rezultadu na ekran. Si HTML ten
+        un problema, parser di browser normalmenti ta tenta korriji-l automaticamente, ma rezultadu
+        pode ka ser kel ki autor staba ta spera.
+
+
+        ## Izemplu
+
+
+        ```html
+
+        <main|
+          <h1|Nha pajina</h1|
+          <p|Bon dia, mundu!</p|
+        </main|
+
+        ```
+
+
+        Browser ta parse es kódiku i ta intende ma ou menus es strutura:
+
+
+        ```text
+
+        main
+
+        ├── h1
+
+        │   └── "Nha pajina"
+
+        └── p
+            └── "Bon dia, mundu!"
+        ```
+
+
+        Dipos, browser ta uza es strutura pa aplika stilu CSS i mostra titulu i paragrafu na pajina.
+  slug: parse
+  context: web-foundations
+  provenance: suggested
+- term: syntax highlighting
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: syntax highlighting
+      definition: Kódiku ta ben koloridu pa bu distingui tag, atributu i valor di un odjada.
+      body: |-
+        **Syntax highlighting** é un funsionalidadi di editor di kódiku ki ta mostra parti diferenti
+        di kódiku ku kor diferenti. Na HTML, por izemplu, editor pode mostra *tags*, atributus,
+        valoris, komentárius i testu kada un ku si kor. Kel diferensa vizual ta djuda-bu le strutura
+        di dokumentu más rápidu i distingui un elementu di otu di un odjada.
+
+
+        Kolor ta sirbi so pa fasilita leitura; el ka ta muda kódiku nen rezultadu na browser. Kor ki
+        bu ta odja ta dipende di tema di editor i di linguagem ki editor deteta. Normalmenti, VS
+        Code ta uza extension di fixeru—sima `.html`, `.css` ou `.js`—pa sabe regras di kolorasan
+        ki el debe aplika.
+
+
+        Syntax highlighting tanbe pode djuda-bu repara alguns problemas vizualmenti. Si bu diskese
+        di fitxa aspas ou un tag, parti di kódiku pode fika ku un kor inesperadu. Ma el ka é un
+        verifikador kompletu: kódiku pode sta koloridu i inda ten un eru. Si kolorasan ka parse,
+        konfirma ma fixeru sta salvu ku extension sertu i ma modu di linguagem na editor sta
+        skodjedu dretu.
+
+
+        ## Izemplu
+
+
+        Na un fixeru ku nomi `index.html`, VS Code ta distingui tag `<a>`, atributu `href`, valor
+        di atributu i testu di link:
+
+
+        ```html
+
+        <!-- Un link pa Skola --|
+
+        <a href="https://skola.dev"|Vizita Skola</a|
+
+        ```
+
+
+        Si bu salva kel mesmu konteúdu kumo `index.txt`, editor pode trata-l kumo testu normal i ka
+        mostra syntax highlighting di HTML. Muda extension pa `.html` ta djuda editor rekonhese
+        linguagem sertu.
+  slug: syntax-highlighting
+  context: web-foundations
+  provenance: suggested
+- term: autocomplete
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: autocomplete
+      definition: Editor ta sujeri i kompleta kódiku enkuantu bu ta skrebe.
+      body: |-
+        Autocomplete é un funsionalidadi di editor di kódiku ki ta mostra sugeston enkuantu bu ta
+        skrebe. El pode sujeri nomi di tag, atributu, funson, variável ou otu elementu válidu pa
+        linguajen ki bu sta ta uza. Bu ta pode skodje un sugeston ku setas i aseita-l ku `Enter` ou
+        `Tab`, na bez di skrebe tudu palavra.
+
+
+        Sugeston ta dipende di kontextu. Na un fixeru `.html`, editor pode sujeri tag i atributu
+        HTML; na un fixeru Python, el pode sujeri funson i variável ki dja foi difinidu. Extension
+        instaladu na editor tanbé pode midjora autocomplete ku mas informason sobri kada linguajen.
+
+
+        Autocomplete ta poupa tenpu, ta diminui eru di skrita i ta djuda bu diskubri opson ki sta
+        disponivel. Ma el ka ta garanti ma kódiku sta sertu: bu meste inda entende sugeston i
+        konfirma ma el é apropriadu pa kel situason.
+
+
+        ## Izemplu
+
+
+        Na un fixeru HTML, dipos di bu skrebe kumésu di un tag:
+
+
+        ```html
+
+        <im
+
+        ```
+
+
+        Editor pode sujeri `img`. Dipos di bu aseita sugeston, el pode kompleta un strutura sima
+        es:
+
+
+        ```html
+
+        <img src="" alt="" /|
+
+        ```
+
+
+        Bu meste dipos prenxe valor di atributus:
+
+
+        ```html
+
+        <img src="foto.jpg" alt="Un paisajen di Kabu Verdi" /|
+
+        ```
+  slug: autocomplete
+  context: web-foundations
+  provenance: suggested
+- term: extensions
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: extensions
+      definition: Plugins ki ta da funsionalidadi extra — formatador, server lokal, temas.
+      body: |-
+        Extensions é plugins ki ta aumenta kapasidadi di un editor di kódiku, sima VS Code. Es pode
+        djuda ku formatasan, autocomplete, detesan di eru, temas, suporti pa linguajens i servidor
+        lokal. Asin, bu ta adapta editor pa bu tipu di trabadju sen bu meste instala un editor
+        diferenti.
+
+
+        Na kursu, **Prettier** é un extension ki ta formata kódiku otomatikamenti, enkuantu **Live
+        Server** ta sirvi pajina HTML na `localhost` i ta atualiza browser kuandu bu salva. Dipos di
+        instala un extension, bu pode meste konfigura si settings; pur izemplu, Prettier meste ser
+        skodjedu kumo formatador padran i ativadu pa formata na save.
+
+
+        É midjor instala so extensions ki bu meste, preferensialmenti di publikador konfiável.
+        Extensions pode konsumi memória, muda konportamentu di editor ou entra en konflitu ku otu
+        plugin. Si VS Code kumesa fika lentu ou mostra un konportamentu stranhu, disativa extensions
+        un pa un pa diskubri kal ki sta kauza problema.
+
+
+        Na kel kontestu, “extension” ka é mesmu ku extension di un fixeru. Un extension di VS Code
+        é un plugin; `.html`, `.css` i `.py` é final di nomi di fixeru ki ta indica si tipu.
+  slug: extensions
+  context: web-foundations
+  provenance: suggested
+- term: Emmet
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: Emmet
+      definition: Un ferramenta na VS Code ki ta spandi atalhu kurtu na kódiku HTML/CSS kompletu.
+      body: |-
+        Emmet é un ferramenta integradu na VS Code ki ta transforma atalhu kurtu na kódiku HTML ou
+        CSS kompletu. El ta poupa tenpu pamodi bu ka meste skrebe kada tag, atributu ou propriedadi
+        di mon. Na un fixeru HTML vaziu, por izemplu, `!` seguidu di **Tab** ta jera strutura bázika
+        di un dokumentu HTML5.
+
+
+        Emmet ta uza abreviason ku un sintaxi própriu. Sinal `>` ta indika ki un elementu sta dentu
+        di otu, `+` ta kria elementus na mesmu nível, i `*` ta ripiti un elementu. Es é útil pa
+        monta struturas repetitivas rapidamenti i diminui risku di skese un tag di fechu.
+
+
+        Emmet ka é un linguagem di programason nen un substitutu pa konhesimentu di HTML/CSS: el so
+        ta jera testu ki bu pode edita dipos. Spanson ta dipende di tipu di fixeru i di pozison di
+        cursor; si VS Code ka rekonhese fixeru komu HTML ou CSS, atalhu pode ka spandi. Tanbé é
+        importanti reviza rezultadu: skeleton padran pode ben ku `lang="en"`, ma pa un pajina na
+        Kriolu bu debe muda-l pa `lang="kea"`.
+
+
+        ## Izemplus
+
+
+        Na un fixeru `index.html` vaziu, skrebe:
+
+
+        ```text
+
+        !
+
+        ```
+
+
+        Dipos primi **Tab**. Emmet ta jera un strutura sima es:
+
+
+        ```html
+
+        <!DOCTYPE html|
+
+        <html lang="en"|
+          <head|
+            <meta charset="UTF-8" /|
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
+            <title|Document</title|
+          </head|
+          <body|</body|
+        </html|
+
+        ```
+
+
+        Pa kria un lista ku trez elementu, bu pode skrebe:
+
+
+        ```text
+
+        ul>li*3
+
+        ```
+
+
+        Ku **Tab**, Emmet ta spandi-l pa:
+
+
+        ```html
+
+        <ul|
+          <li|</li|
+          <li|</li|
+          <li|</li|
+        </ul|
+
+        ```
+
+
+        Dipos di spanson, bu pode prenxe kada `<li>` ku konteúdu ki bu kre.
+  slug: emmet
+  context: web-foundations
+  provenance: suggested
+- term: scaffold
+  category: web-foundations-module-1
+  translations:
+    kea:
+      local_term: scaffold
+      definition: Jera otomatikamenti strutura bázika di un fixeru, pa bu ka meste skrebe-l di mon.
+      body: |-
+        **Scaffold** é un strutura inisial di fixeru ou projetu ki ta ben dja preparadu pa bu
+        kontinua trabadju. El pode inklui pastas, fixerus, konfigurason, kódiku baz i markason
+        `TODO`. Asin, bu ka ten ki kria tudu di zero nem repiti kel mesmu kódiku na kada projetu.
+
+
+        Scaffold pode ser jeradu otomatikamenti pa un ferramenta, pa un komandu ou pa un editor di
+        kódiku. El ta sirbi pa poupa tenpu, mantén un strutura konsistenti i diminui posibilidade di
+        bu diskese un parti importante. Na dezenvolvimentu web, por izemplu, un scaffold pode kria
+        strutura bázika di HTML, CSS i JavaScript.
+
+
+        Un scaffold ka é un solusan final. Normalmenti, bu ten ki kompleta konteúdu, muda valor i
+        implementa funsionalidadi ki projetu meste. Na kódiku di kursu, pasta `code/start/` ten
+        scaffolding ku `TODO`s pa bu kompleta, enkuantu `code/final/` ten solusan kompleta pa
+        konferénsia.
+
+
+        ## Izemplu
+
+
+        Es scaffold di HTML dja ten strutura bázika, ma título i konteúdu inda meste ser kompletadu:
+
+
+        ```html
+
+        <!doctype html|
+
+        <html lang="kea"|
+          <head|
+            <meta charset="UTF-8" /|
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
+            <title|<!-- TODO: skrebe título di pajina --|</title|
+          </head|
+          <body|
+            <!-- TODO: poi konteúdu di pajina li --|
+          </body|
+        </html|
+
+        ```
+  slug: scaffold
+  context: web-foundations
+  provenance: suggested
+- term: HTML
+  category: HTML
+  translations:
+    kea:
+      local_term: HTML
+      definition: HyperText Markup Language. Linguajen uzadu pa strutura konteúdu di un pajina web.
+      body: |-
+        HTML é sigla di **HyperText Markup Language**. É linguajen di markasan uzadu pa strutura
+        konteúdu di un pajina web: titulu, paragrafu, link, lista, imajen, formuláriu i otus parti.
+        “HyperText” ta rifiri prinsipalmenti a link ki ta liga un dokumentu ku otu; “Markup” ta
+        signifika ki HTML ta uza marka, txomadu *tags*, pa identifika papel di kada kontiúdu.
+
+
+        HTML é ka un linguajen di programasan: el ka ta toma disizon nen ta faze kalkulu. Se papel é
+        organiza i da signifikadu na konteúdu. CSS ta kontrola aparénsia, sima kor i tamanhu,
+        enkuantu JavaScript ta adisiona interatividadi i lojika. Uzu di elementu apropriadu, sima
+        `<h1>`, `<p>` i `<nav>`, tanbé ta djuda browser, motor di buska i teknologia di
+        asesibilidadi intende pajina midjor.
+
+
+        Normalmenti, servidor ta manda un dokumentu HTML komu response pa request di browser.
+        Browser ta le i interpreta kel kódiku, ta konstrui strutura di pajina i ta mostra-l na
+        ekran. Mesmu na website dinámiku ou na framework moderno, HTML kontinua ta ser fundasan di
+        konteúdu ki browser ta resebe ou ta kria.
+
+
+        ## Izemplu
+
+
+        Es dokumentu ten un titulu prinsipal, un paragrafu i un link:
+
+
+        ```html
+
+        <!doctype html|
+
+        <html lang="kea"|
+          <head|
+            <meta charset="UTF-8"|
+            <title|Nha primeru pajina</title|
+          </head|
+          <body|
+            <h1|Bon dia!</h1|
+
+            <p|Es é un pajina HTML simples.</p|
+
+            <a href="https://skola.dev"|Vizita Skola.dev</a|
+          </body|
+        </html|
+
+        ```
+
+
+        Tag `<h1>` marka titulu prinsipal, `<p>` marka paragrafu, i `<a>` kria un link. Atributu
+        `href` ta indica enderesu unde link ta leba vizitanti.
+  context: web-foundations
+  provenance: suggested
+- term: CSS
+  category: CSS
+  translations:
+    kea:
+      local_term: CSS
+      definition: Cascading Style Sheets. Linguajen uzadu pa da stilu i formatason a pajinas HTML.
+      body: |-
+        CSS (*Cascading Style Sheets*) é un linguajen di stilu uzadu pa kontrola aparénsia i
+        formatason di pajinas HTML. HTML ta organiza konteúdu, sima títulu, paragrafu i imajen; CSS
+        ta difini kor, tamanhu di letra, spasu, borda, pozisan i layout des elementus. Kel separason
+        ta faze kódiku fika más organizadu i ta pirmiti uza mesmu stilu na vários pajina.
+
+
+        Un regra CSS ten normalmenti un **seletor** i un ou más deklarason. Seletor ta skodje kal
+        elementu HTML ki ta resebe stilu; kada deklarason ten un propriedadi i un valor. Na regra `p
+        { color: blue; }`, `p` é seletor, `color` é propriedadi i `blue` é valor.
+
+
+        Palavra “cascading” ta referi a manera ki browser ta disidi kal stilu ki ta aplika kuandu
+        más di un regra ta atinji mesmu elementu. El ta konsidera orijen di regra, importánsia,
+        spesifisidadi i órden di regras; sertus propriedadi tanbé ta pasa di elementu pai pa se
+        fidju através di eransa. CSS é parti di front-end i ta kore na browser, djuntu ku HTML i
+        JavaScript.
+
+
+        ## Izemplu
+
+
+        Es dokumentu HTML ten CSS dentu di elementu `<style>`. Seletor `h1` ta stila tudu títulu di
+        kel tipu, enkuantu `.destaque` ta stila kualker elementu ku kel klase.
+
+
+        ```html
+
+        <!doctype html|
+
+        <html lang="kea"|
+
+        <head|
+          <meta charset="utf-8"|
+          <title|Nha pajina</title|
+
+          <style|
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #f3f7fa;
+              margin: 40px;
+            }
+
+            h1 {
+              color: #075985;
+              font-size: 36px;
+            }
+
+            .destaque {
+              color: #b45309;
+              font-weight: bold;
+            }
+          </style|
+        </head|
+
+        <body|
+          <h1|Bon dia!</h1|
+          <p|Es é un paragrafu normal.</p|
+          <p class="destaque"|Es paragrafu ten un stilu spesial.</p|
+        </body|
+
+        </html|
+
+        ```
+
+
+        Na prátika, CSS tanbé pode fika na un fixeru separadu, pur izemplu `style.css`, ligadu a
+        HTML ku `<link rel="stylesheet" href="style.css">`. Es manera ta facilita reutilizason i
+        manutenson di stilu na vários pajina.
+  context: web-foundations
+  provenance: suggested
+- term: element
+  category: HTML
+  translations:
+    kea:
+      local_term: elementu
+      definition: Un bloku di strutura na HTML, formadu pa tag di abertura, konteúdu i tag di fexu.
+      body: |-
+        Un **elementu HTML** é un parti di strutura di un pajina web. Normalmenti, el é formadu pa
+        un tag di abertura, konteúdu i un tag di fexu. Na `<h1>Olá mundu!</h1>`, `<h1>` é tag di
+        abertura, `Olá mundu!` é konteúdu, i `</h1>` é tag di fexu. Browser ta interpreta elementu
+        pa sabe modi ki el debe organiza i mostra konteúdu.
+
+
+        Un elementu pode ten atributus na tag di abertura, ki ta da informason adisional sobri el.
+        Pur izemplu, na `<html lang="kea">`, atributu `lang` ta indika língua di pajina. Elementus
+        tanbe pode fika dentu di otus elementus; es ta txomadu **aninhamentu**. É pamodi di kel-li
+        ki `<strong>` pode marka un parti di testu dentu di un paragrafu `<p>`.
+
+
+        Nem tudu elementu HTML ten konteúdu ô tag di fexu. Elementus vaziu, sima `<meta>`, `<img>`,
+        `<br>` i `<input>`, é representadu so pa un tag. Mesmo asin, maioria di elementus ki ta
+        organiza testu i seksons meste un tag di abertura i un tag di fexu korrespondenti.
+
+
+        ## Izemplus
+
+
+        Es elementu ten abertura, konteúdu i fexu:
+
+
+        ```html
+
+        <h1|Bon dia, mundu!</h1|
+
+        ```
+
+
+        Elementus pode fika aninhadu. Li, `<strong>` sta dentu di `<p>`:
+
+
+        ```html
+
+        <p|N ta mora na <strong|Praia</strong|.</p|
+
+        ```
+
+
+        Un elementu vaziu sima `<img>` ka ten tag di fexu, ma el pode uza atributus:
+
+
+        ```html
+
+        <img src="praia.jpg" alt="Vista di Praia"|
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: tag
+  category: HTML
+  translations:
+    kea:
+      local_term: tag
+      definition: 'Markador uzadu na HTML pa kria elementus (izemplu: `<p>`).'
+      body: |-
+        Un **tag** é un markador di HTML skrebedu dentu di sinal `<` i `>`, sima `<p>`, `<h1>` ou
+        `<a>`. Browser ta interpreta tag pa sabe kal tipu di konteúdu el ten ki mostra: un
+        parágrafu, un títulu, un link, un imajen, i otu más. Normalmenti, tag propi ka ta parse na
+        pajina; el ta orienta browser sobri strutura di dokumentu.
+
+
+        Txeu elementu HTML ten un **tag di abertura**, konteúdu i un **tag di fitxamentu**. Pur
+        izemplu, na `<p>Olá!</p>`, `<p>` é tag di abertura, `Olá!` é konteúdu, i `</p>` é tag di
+        fitxamentu. Konjuntu interu é un elementu HTML. Tag di fitxamentu ta uza `/` antis di nómi
+        di tag.
+
+
+        Tag di abertura tanbé pode ten atributus, ki ta da informason adisional sobri elementu. Na
+        `<a href="https://skola.dev">Skola</a>`, `href` ta indica distinu di link. Alguns elementu,
+        sima `<img>` i `<br>`, ka ten tag di fitxamentu pamodi es ka ten konteúdu dentu.
+
+
+        ## Izemplus
+
+
+        Un parágrafu uza tag `<p>`:
+
+
+        ```html
+
+        <p|N sta prende HTML.</p|
+
+        ```
+
+
+        Tags pode fika un dentu di otu. Kel-li ta kria un parágrafu ku un parti na negritu:
+
+
+        ```html
+
+        <p|N sta prende <strong|HTML</strong|.</p|
+
+        ```
+
+
+        É importanti fitxa tags na órdi dretu. Kel forma li sta kuretu:
+
+
+        ```html
+
+        <p|N sta prende <strong|HTML</strong|.</p|
+
+        ```
+
+
+        Kel otu forma sta inkuretu, pamodi `<p>` fitxa antis di `<strong>`:
+
+
+        ```html
+
+        <p|N sta prende <strong|HTML.</p|</strong|
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: attribute
+  category: HTML
+  translations:
+    kea:
+      local_term: atributu
+      definition: 'Informason adisional pasadu pa un tag HTML (izemplu: `src` na `<img>`).'
+      body: |-
+        Atributu é informason adisional ki ta ben dentu di un tag HTML pa konfigura un elementu. El
+        ta skrebedu na tag di abertura, dipos di nomi di tag, normalmenti na forma `nomi="valor"`.
+        Na `<img src="foto.jpg">`, `src` é atributu i `"foto.jpg"` é si valor.
+
+
+        Atributus ta pode defini unde un rekursu sta, kumo elementu ta parse ou modi el ta funsiona.
+        `src` ta indika kaminhu di un imajen, `href` ta defini distinu di un link, i `alt` ta da un
+        diskrison di imajen. Atributus global, sima `class` i `id`, ta pode ser uzadu na kuazi tudu
+        elementu HTML; otus ta pertense prinsipalmenti a tags spesífiku.
+
+
+        Un elementu pode ten más di un atributu, separadu pa spasu. É konsedju po valor entri aspas,
+        prinsipalmenti ora ki el ten spasu. Ordi di atributus normalmenti ka ta muda rezultadu, ma
+        kada atributu debe ten un nomi klaru i un valor válidu pa kel elementu.
+
+
+        ## Izemplu
+
+
+        ```html
+
+        <img
+          src="imajens/praia.jpg"
+          alt="Praia ku areia branku i mar azul"
+          width="600"
+        /|
+
+        ```
+
+
+        Na kel elementu, `src` ta indika fixeru di imajen, `alt` ta diskribe se konteúdu, i `width`
+        ta defini largura. Tudu es atributus ta pasa informason adisional pa tag `<img>`.
+  context: web-foundations
+  provenance: suggested
+- term: semantic HTML
+  category: HTML
+  translations:
+    kea:
+      local_term: HTML semantiku
+      definition: |-
+        Uzu di tags HTML ki ta da signifikadu a konteúdu, kumo `<header>` i `<article>`, enves di
+        uza `<div>` pa tudu.
+      body: |-
+        HTML semantiku é uzu di element HTML ki ta splika funson i signifikadu di kada parti di
+        dokumentu. Enves di uza `<div>` pa tudu, bu ta uza element kumo `<header>` pa topu di pajina
+        ou seksan, `<nav>` pa navegasan prinsipal, `<main>` pa konteúdu prinsipal, `<article>` pa un
+        pesa di konteúdu independenti, `<aside>` pa informasan sekundáriu i `<footer>` pa pé di
+        pajina ou seksan. Apariénsia di pajina ka ta muda automatikamenti; CSS é ki ta kontrola
+        vizual.
+
+
+        Kel strutura ta djuda browser, motor di buska, screen reader i dezenvolvedor intende
+        dokumentu midjor. Na asesibilidadi, element semántika pode kria pontus di referénsia pa
+        uzuáriu navega pa `<main>`, `<nav>` ou `<footer>`. Na manutensan, `<article>` ta komunika
+        intenson di kódiku mas klaru ki un `<div class="article">`. Pa SEO, semantika ta da motor di
+        buska mas kontextu, ma el ka é garantia di un klasifikasan mas altu.
+
+
+        `<div>` inda é útil ora ka ten un element semántika apropriadu, prinsipalmenti pa agrupa
+        element pa stilizasan ou layout. `<header>` i `<footer>` pode pertense a pajina inteiru ou a
+        un `<article>`, pamodi signifikadu di es ta dipende di kontextu. Normalmenti, un pajina debe
+        ten un úniko `<main>` vizível ku se konteúdu prinsipal.
+
+
+        ## Izemplu
+
+
+        N-es strutura, kada element ta indika klaramenti papel di se konteúdu:
+
+
+        ```html
+
+        <body|
+          <header|
+            <h1|Blog di Kabu Verdi</h1|
+
+            <nav|
+              <a href="/"|Inísiu</a|
+              <a href="/artigus"|Artigus</a|
+              <a href="/sobre"|Sobre</a|
+            </nav|
+          </header|
+
+          <main|
+            <article|
+              <header|
+                <h2|Morna i se istória</h2|
+                <p|Skrebedu pa Ana</p|
+              </header|
+
+              <p|Morna é un jéneru musikal di Kabu Verdi...</p|
+
+              <footer|
+                <p|Publikadu na 2026.</p|
+              </footer|
+            </article|
+
+            <aside|
+              <h2|Artigus relasionadu</h2|
+              <a href="/funana"|Konhese funaná</a|
+            </aside|
+          </main|
+
+          <footer|
+            <p|&copy; 2026 Blog di Kabu Verdi</p|
+          </footer|
+        </body|
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: DOM
+  category: Web
+  translations:
+    kea:
+      local_term: DOM
+      definition: |-
+        Document Object Model. Reprezentason di strutura di pajina web kumo un arvi di objetus ki
+        pode ser manipuladu.
+      body: |-
+        DOM (Document Object Model) é un reprezentason di strutura di un dokumentu HTML na forma di
+        un arvi di objetus. Ora navegador karrega un pajina web, el transforma elementus sima
+        `<html>`, `<body>`, parágrafus, ligason y buton na nodus rilasionadu ku kunpanherus, pais y
+        fidjus. Kes nodu pode ten atributus, testu y otus propriedadis.
+
+
+        DOM ta funsiona tanbe sima un interfaz di programason. JavaScript pode uza-l pa buska
+        elementus, muda ses kontiudu ô stilu, kria y elimina nodus, y responde a asons di
+        utilizador. Modiﬁkason fetu na DOM pode muda kel ki sta mostradu na tela sen meste karrega
+        pajina interu otu bês.
+
+
+        HTML y DOM ka é izatamenti mesma kuza: HTML é kódigu-funti ki navegador ta analiza, enkuantu
+        DOM é reprezentason atual na memória. JavaScript normalmenti ten asesu diretu a DOM dentu di
+        navegador. Python pode interaji ku el atraves di feramentas di automatizason di navegador,
+        sima Selenium ô Playwright, ma un parser di HTML na Python normalmenti ta kria se propi
+        arvi, y ka un DOM ativu di navegador.
+
+
+        ## Izemplu
+
+
+        Kel pajina li ta buska un buton na DOM. Kantu utilizador klika nel, JavaScript ta muda testu
+        di parágrafu y ta adisiona un klas CSS.
+
+
+        ```html
+
+        <!doctype html|
+
+        <html lang="kea"|
+
+        <head|
+          <meta charset="utf-8"|
+          <title|Izemplu di DOM</title|
+
+          <style|
+            .destaque {
+              color: blue;
+              font-weight: bold;
+            }
+          </style|
+        </head|
+
+        <body|
+          <p id="mensajen"|Klika na buton.</p|
+          <button id="muda"|Muda mensajen</button|
+
+          <script|
+            const paragrafo = document.querySelector("#mensajen");
+            const buton = document.querySelector("#muda");
+
+            buton.addEventListener("click", () => {
+              paragrafo.textContent = "DOM foi atualizadu!";
+              paragrafo.classList.add("destaque");
+            });
+          </script|
+        </body|
+
+        </html|
+
+        ```
+
+
+        `document.querySelector()` ta lokaliza un nodu na DOM. `textContent` ta muda se testu,
+        enkuantu `classList.add()` ta adisiona un klas sen meste altera HTML orijinal manualmenti.
+  context: web-foundations
+  provenance: suggested
+- term: selector
+  category: CSS
+  translations:
+    kea:
+      local_term: seletor
+      definition: Regra CSS ki ta disidi kual elementus HTML ki ta resebe un determinadu stilu.
+      body: |-
+        Seletor é parti di un regra CSS ki ta identifika kal elementu HTML ki stilu debe ser
+        aplikadu. Na un regra sima `p { color: blue; }`, `p` é seletor, `color` é propriedadi, y
+        `blue` é valor. Navegador ta buska tudu elementus ki ta korresponde ku seletor y ta aplika
+        deklarasons ki sta dentu di txabiulas `{ }`.
+
+
+        Ten diferentis tipu di seletor. Un seletor di tipu, sima `p`, ta seleziona tudu paragrafus.
+        Un seletor di klasi, sima `.nota`, ta seleziona elementus ku `class="nota"` y pode ser
+        reutilizadu na vários elementus. Un seletor di identificador, sima `#menu`, ta seleziona
+        elementu ku `id="menu"`; normalmenti, kada valor di `id` debe ser únika dentu di pájina.
+
+
+        Seletores pode ser kombinadu pa faze un selesson más spesífiku. Pur izemplu, `nav a` ta
+        seleziona links ki sta dentu di un elementu `nav`, `ul > li` ta seleziona apenas `li` ki é
+        fidju diretu di `ul`, y `button:hover` ta seleziona un boton na momentu ki ponteiru sta riba
+        del. Si más di un regra ta korresponde ku mesmu elementu, kaskata di CSS ta determina kal
+        stilu ki ta ganha, konsiderandu fatores sima importánsia, spesifisidadi y órdi di regras.
+
+
+        ## Izemplus
+
+
+        Es HTML ten un paragrafu normal y un paragrafu ku klasi `destaque`:
+
+
+        ```html
+
+        <p|Kel li é un paragrafu normal.</p|
+
+        <p class="destaque"|Kel li é un paragrafu destacadu.</p|
+
+        ```
+
+
+        ```css
+
+        p {
+          color: gray;
+        }
+
+
+        .destaque {
+          color: darkred;
+          font-weight: bold;
+        }
+
+        ```
+
+
+        Seletor `.destaque` é más spesífiku ki seletor `p`, pamodi el ta apunta pa un klasi. Pur
+        isu, sigundu paragrafu ta resebe kor y pezu di letra definidu na `.destaque`.
+
+
+        Seletores tanbe pode dipende di pozison di elementu ô di un stadu:
+
+
+        ```css
+
+        nav a {
+          color: navy;
+          text-decoration: none;
+        }
+
+
+        nav a:hover {
+          text-decoration: underline;
+        }
+
+        ```
+
+
+        Primeru seletor ta afeta links dentu di `nav`. Sigundu ta aplika stilu só ora ki ponteiru
+        sta riba di un des links.
+
+
+        Un konfuzon komun é skese pontu antis di un nomi di klasi:
+
+
+        ```html
+
+        <button class="boton"|Envia</button|
+
+        ```
+
+
+        ```css
+
+        /* Ka ta seleziona kel klasi */
+
+        boton {
+          background-color: green;
+        }
+
+
+        /* Forma kuretu pa seleziona class="boton" */
+
+        .boton {
+          background-color: green;
+        }
+
+        ```
+
+
+        `boton` sen pontu ta tenta seleziona un elementu HTML ku kel nomi. `.boton` ta seleziona un
+        klasi. Primeru regra ka ta da un eru di sintaxi, má el ka ta atinji elementu pretendidu.
+  context: web-foundations
+  provenance: suggested
+- term: property
+  category: CSS
+  translations:
+    kea:
+      local_term: propriedadi
+      definition: Karakteristika ki bu kre muda na CSS, kumo `color` ou `font-size`.
+      body: |-
+        Na CSS, un **propriedadi** é karakteristika vizual ou di layout ki bu kre defini pa un
+        elementu HTML. Pur izemplu, `color` ta kontrola kor di testu, `font-size` ta kontrola
+        tamanhu di letra, i `background-color` ta kontrola kor di fundu. Propriedadi ta fika na
+        parti skerdu di un deklarasan, antis di `:`, i se valor ta fika na parti diretu.
+
+
+        Kada propriedadi ten valoris ki el ta seta. `color` pode resebe un nomi di kor, un kódigu
+        hexadecimal ou otu formatu di kor; `font-size` pode resebe un tamanhu kumo `16px` ou
+        `1.5rem`. Si nomi di propriedadi ka izisti, ou si valor ka é válidu pa kel propriedadi,
+        normalmenti browser ta inora kel deklarasan sen mostra un eru.
+
+
+        Un elementu pode ten txeu propriedadis dentru di mêsmu bloku di deklarasan. Kada deklarasan
+        debe ser separadu ku `;`. Alén di kel-li, alguns propriedadis, sima `color`, pode pasa di un
+        elementu pai pa se fidjus; otus, sima `margin`, normalmenti ka ta pasa. Si más di un regra
+        defini mêsmu propriedadi pa un elementu, regras di cascata CSS ta determina kal valor ki ta
+        ganha.
+
+
+        ## Izemplus
+
+
+        Es regra ta muda kor, tamanhu i spasing di linha di tudu paragrafu:
+
+
+        ```css
+
+        p {
+          color: #333333;
+          font-size: 18px;
+          line-height: 1.6;
+        }
+
+        ```
+
+
+        Na kada deklarasan, propriedadi sta antis di `:` i valor sta dipos. Es deklarasons ta
+        termina ku `;`.
+
+
+        Si bu skrebe nomi di propriedadi inkoretu, browser ta inora-l:
+
+
+        ```css
+
+        h1 {
+          font-colour: blue;
+          font-size: 32px;
+        }
+
+        ```
+
+
+        `font-colour` ka é un propriedadi CSS válidu. Pa muda kor di testu, uza `color`:
+
+
+        ```css
+
+        h1 {
+          color: blue;
+          font-size: 32px;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: value
+  category: CSS
+  translations:
+    kea:
+      local_term: valor
+      definition: 'Informason asosiadu a un propriedadi CSS (izemplu: `red` pa propriedadi `color`).'
+      body: |-
+        Valor é informason ki ta defini manera ki un propriedadi CSS ta aplika na un elementu. Na un
+        deklarason CSS, propriedadi ta ben antis di dos pontu (`:`), i valor ta ben dipos. Na
+        `color: red;`, `color` é propriedadi i `red` é valor.
+
+
+        Valor pode ser un palavra-txabi di CSS, suma `red`, `block` ou `center`; un númeru ku
+        unidadi, suma `16px`, `2rem` ou `50%`; un kor skrebedu na otu formatu, suma `#ff0000`; ou un
+        funson, suma `rgb(255, 0, 0)`. Kada propriedadi ta aseita so sertus tipu di valor. Pur
+        izemplu, `font-size` ta aseita tamanhu suma `20px`, ma ka ta aseita `center`.
+
+
+        Un deklarason pode ten más di un valor. Na `margin: 10px 20px;`, primeru valor ta defini
+        spasu na riba i na baxu, i sigundu ta defini spasu na lados. Si valor ka é válidu pa kel
+        propriedadi, browser normalmenti ta ignora kel deklarason sen para restu di CSS.
+
+
+        ## Izemplu
+
+
+        ```css
+
+        h1 {
+          color: red;
+          font-size: 32px;
+          text-align: center;
+          margin: 10px 20px;
+        }
+
+        ```
+
+
+        Na kel kódiku, `red`, `32px`, `center` i `10px 20px` é valoris asosiadu ku ses respetivu
+        propriedadi CSS.
+  context: web-foundations
+  provenance: suggested
+- term: declaration
+  category: CSS
+  translations:
+    kea:
+      local_term: deklarasan
+      definition: 'Kombinason di un propriedadi i un valor na CSS (izemplu: `color: red;`).'
+      body: |-
+        Un **deklarasan CSS** é un par formadu pa un **propriedadi** i un **valor**. Propriedadi ta
+        indica kuze ki bu kre muda, i valor ta indica modi ki kel kuza debe fika. Na `color: red;`,
+        `color` é propriedadi, `red` é valor, `:` ta separa-s, i `;` ta marka fin di deklarasan.
+
+
+        Deklarasons ta fika normalmenti dentru di un **bloku di deklarasan**, entri `{` i `}`. Kel
+        bloku ta faze parti di un regra CSS i pode ten vários deklarasons pa muda kor, tamanhu,
+        spasing i otus aspetus di elementus skodjedu pa selector.
+
+
+        Un valor pode ser un palavra, un númeru ku unidadi, un kor ou un kombinason di vários
+        valoris, dipendendu di propriedadi. Si propriedadi ka izisti ou valor ka é válidu, browser
+        ta inora kel deklarasan. `;` é obrigatóriu entri deklarasons; é bon prátika poi-l tanbé na
+        última deklarasan pa evita eru ora bu adisiona otu linha.
+
+
+        ## Izemplu
+
+
+        ```css
+
+        h1 {
+          color: #1098ad;
+          font-size: 32px;
+          margin-bottom: 16px;
+        }
+
+        ```
+
+
+        Na es regra, `h1` é selector. Bloku ten trez deklarasons: un pa kor, un pa tamanhu di letra
+        i un pa spasing na parti di baxu. Kada deklarasan ten se propi propriedadi, valor i `;` na
+        fin.
+  context: web-foundations
+  provenance: suggested
+- term: box model
+  category: CSS
+  translations:
+    kea:
+      local_term: box model
+      definition: Konseitu ki ta trata tudu elementu HTML kumo un kaxa ku konteúdu, padding, border i margin.
+      body: |-
+        **Box model** é konseitu di CSS ki ta trata kada elementu HTML sima un kaixa ku kuatru
+        kamada. Di dentru pa fora, es kamada é **content**, unde testu ou imajen ta fika;
+        **padding**, spasu entri kontéudu i border; **border**, linha ki ta sirka kaixa; i
+        **margin**, spasu sternu entri kaixa i otus elementu. `background-color` ta pinta kontéudu i
+        padding i, normalmenti, ta stendi baxu di border, ma margin ta kontinua transparenti.
+
+
+        Na modelu padron, `content-box`, valor di `width` i `height` ta defini só tamanhu di
+        kontéudu. Padding i border ta adisionadu na tamanhu final. Pur izemplu, un elementu ku
+        `width: 300px`, 20px di padding na kada ladu i border di 2px ta okupa 344px di largura, sen
+        konta margin. Ku `box-sizing: border-box`, padding i border ta inkluídu dentru di largura
+        definidu, kel ki ta torna kalkulu di layout mas simples.
+
+
+        Margin i padding ten objetivu diferenti: padding ta kria spasu dentru di elementu, enkuantu
+        margin ta separa elementu di otus. Margin vertikal di elementus bloku adjasenti na fluxu
+        normal podi kolapsa: en vez di soma, browser normalmenti ta uza kel valor mas grandi.
+        Padding nunka ta kolapsa. `margin: 0 auto` tanbé podi sentra horizontalmenti un elementu
+        bloku ku un `width` ou `max-width` ki ka ta ocupa tudu spasu disponivel.
+
+
+        ## Izemplus
+
+
+        Na modelu padron, largura final ta inklui `width`, padding i border:
+
+
+        ```css
+
+        .karton {
+          width: 300px;
+          padding: 20px;
+          border: 2px solid #1098ad;
+          margin: 16px;
+        }
+
+        ```
+
+
+        Largura vizível di kaixa é 344px: 300px di content + 40px di padding + 4px di border. Margin
+        ta kria spasu fora di kes 344px.
+
+
+        Ku `border-box`, largura total ta fika igual a valor di `width`:
+
+
+        ```css
+
+        .karton {
+          box-sizing: border-box;
+          width: 300px;
+          padding: 20px;
+          border: 2px solid #1098ad;
+          margin: 16px;
+        }
+
+        ```
+
+
+        Pa kria un container sentradu i responsivu, bu podi kombina `max-width`, padding i margin
+        automátiku:
+
+
+        ```css
+
+        .container {
+          box-sizing: border-box;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 24px;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: margin
+  category: CSS
+  translations:
+    kea:
+      local_term: margin
+      definition: Spasamentu externu di un elementu, logu fora di se borda.
+      body: |-
+        `margin` é un propriedadi di CSS ki ta kria spasu na parti di fora di borda di un elementu.
+        Na *box model*, el ta fika dipos di kontiudu, `padding` i `border`. Diferenti di `padding`,
+        `margin` ka ta aumenta spasu dentru di elementu, i kor di fundu di elementu ka ta pinta na
+        área di `margin`.
+
+
+        Bu pode kontrola kada ladu separadamenti ku `margin-top`, `margin-right`, `margin-bottom` i
+        `margin-left`. Bu pode tanbé uza forma kurtu `margin`, ku valóris na ordi: sima, direita,
+        baxu i skerda. Un valór `auto` na direita i na skerda é komun pa sentraliza un elementu ku
+        largura limitadu.
+
+
+        `margin` ka ta pasa di pai pa fidju através di *inheritance*. Kada elementu ten se própriu
+        `margin`, a menus ki un regra di CSS aplika-l diretu. Alén di kel-li, `margin` vertikal di
+        elementus vizinhu pode djunta na un úniku spasu — un konportamentu di CSS konhesidu komu
+        *margin collapsing*.
+
+
+        ## Izemplus
+
+
+        Un valór só ta aplika mêsmu `margin` na tudu kuatu ladu:
+
+
+        ```css
+
+        .kartao {
+          margin: 24px;
+        }
+
+        ```
+
+
+        Ku kuatu valór, ordi é sima, direita, baxu i skerda:
+
+
+        ```css
+
+        .kartao {
+          margin: 10px 20px 30px 40px;
+        }
+
+        ```
+
+
+        Pa sentraliza un elementu orizontalmenti, limita se largura i uza `auto` na dos ladu:
+
+
+        ```css
+
+        .kontiudu {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        ```
+
+
+        N’es últimu kazu, `0` ta retira `margin` di sima i di baxu, enkuantu `auto` ta distribui
+        spasu disponivel igualmenti na skerda i na direita.
+  context: web-foundations
+  provenance: suggested
+- term: padding
+  category: CSS
+  translations:
+    kea:
+      local_term: padding
+      definition: Spasamentu internu di un elementu, entri se konteúdu i se borda.
+      body: |-
+        **Padding** é spasamentu internu di un elementu, entri se konteúdu i se borda. El ta sirbi
+        pa da testu, imajen ô otus konteúdu mas espasu pa respira, sen muda distánsia entri elementu
+        i se vizinhus. Diferenti di `margin`, ki ta kria spasu na parti di fora di borda, `padding`
+        ta fika dentru di elementu.
+
+
+        Na CSS, bu pode aplika mêsmu padding na tudu kuatru ladu, ô difini kada ladu separadamenti
+        ku `padding-top`, `padding-right`, `padding-bottom` i `padding-left`. Na forma kurtu,
+        valoris ta sigi ordi riloju: sima, direita, baxu i skerda. Normalmenti, padding ta aumenta
+        tamanhu total di elementu; ku `box-sizing: border-box`, el ta fika inkluídu na largura i
+        altura difinidu.
+
+
+        Kor ô imajen di fundu di un elementu ta kubri tanben área di padding. Padding ka pode ten
+        valor negativu. Pa kria spasu na parti di fora di elementu, bu debe uza `margin`.
+
+
+        ## Izemplus
+
+
+        Mêsmu spasamentu internu na tudu ladu:
+
+
+        ```css
+
+        .btn {
+          padding: 10px;
+        }
+
+        ```
+
+
+        Spasamentu di `10px` na sima i baxu, i `20px` na direita i skerda:
+
+
+        ```css
+
+        .btn {
+          padding: 10px 20px;
+        }
+
+        ```
+
+
+        Ku kuatru valor diferenti:
+
+
+        ```css
+
+        .card {
+          /* sima, direita, baxu, skerda */
+          padding: 10px 20px 15px 5px;
+          border: 1px solid #ddd;
+        }
+
+        ```
+
+
+        Pa mante largura total di elementu na `300px`, inkluindu padding i borda:
+
+
+        ```css
+
+        .card {
+          box-sizing: border-box;
+          width: 300px;
+          padding: 20px;
+          border: 2px solid #333;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: border
+  category: CSS
+  translations:
+    kea:
+      local_term: borda
+      definition: Linha ki ta sirkuita konteúdu i padding di un elementu na box model.
+      body: |-
+        **Borda** é linha ki ta sirkuita kontéudu i `padding` di un elementu na CSS box model. El ta
+        fika entri `padding` i `margin`, i pode ser uzadu pa separa kartas, marka kampus di
+        formuláriu, cria linhas divisória ou da mas destaque vizual pa un elementu.
+
+
+        Propriedadi abreviadu `border` ta permiti defini largura, stilu i kor nun só regra, sima
+        `border: 1px solid #555`. Stilu é nesesáriu pa borda aparece: si bu defini só kor ou
+        largura, valor padron `none` ta faze-l fika invisível. Bu pode kontrola kada ladu
+        separadamenti ku `border-top`, `border-right`, `border-bottom` i `border-left`.
+
+
+        Na box model padron, borda pode aumenta largura i altura total di elementu. Ku `box-sizing:
+        border-box`, largura i altura deklaradu ja ta inklui `padding` i borda, ki ta torna layout
+        mas previsível. `border-radius` ta arredonda kantus di caixa, ma el ka cria borda; el pode
+        funsiona tanbê nun elementu ki ten só kor di fundu.
+
+
+        ## Izemplus
+
+
+        Es karta ten un borda kompletu, ku kantus arredondadu:
+
+
+        ```css
+
+        .card {
+          padding: 16px;
+          border: 2px solid #1098ad;
+          border-radius: 8px;
+          background-color: white;
+        }
+
+        ```
+
+
+        Pa cria só un linha divisória, bu pode aplika borda nun únku ladu:
+
+
+        ```css
+
+        .copy {
+          margin-top: 32px;
+          padding-top: 32px;
+          border-top: 1px solid #555;
+        }
+
+        ```
+
+
+        Ku `border-box`, borda i `padding` ka ta aumenta largura final pa além di valor deklaradu:
+
+
+        ```css
+
+        * {
+          box-sizing: border-box;
+        }
+
+
+        .box {
+          width: 300px;
+          padding: 20px;
+          border: 4px solid #333;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: specificity
+  category: CSS
+  translations:
+    kea:
+      local_term: spesifisidadi
+      definition: Sistema ki navegador ta uza pa disidi kual regra CSS ki ta ganha kuandu ezisti konflitu.
+      body: |-
+        Spesifisidadi é un sistema di pontuason ki navegador ta uza na **cascata di CSS** pa skodje
+        kal seletor ten prioridadi kuandu dôs ô más regras ta tenta muda mesma propriedadi di un
+        elementu. Un seletor más spesífiku normalmenti ta ganha di un seletor más jeral.
+
+
+        Navegador ta konpara, na órden di importánsia, seletoris ku **ID**, dipos seletoris ku
+        **klasi**, atributus ô pseudo-klasis, y finalmenti seletoris di tipu y pseudo-elementus. Pur
+        izemplu, `#menu` ten más spesifisidadi ki `.menu`, y `.menu` ten más ki `nav`. Stilu skritu
+        diretamenti na atributu `style` di HTML ten prioridadi altu.
+
+
+        Spesifisidadi é só un parti di cascata. Regras ku `!important`, orijen di stilu y kamadas di
+        cascata (`@layer`) tanbê podi influensia rezultadu. Si dôs regras ten mesma spesifisidadi,
+        regra ki ben más tardi na CSS normalmenti ta ganha. É midjor uza seletoris simplis y evitá
+        `!important` sen nesesidadi, pamodi CSS ta fika más fásil di mante.
+
+
+        ## Izemplus
+
+
+        Kel seletor di klasi é más spesífiku ki seletor di tipu, pur isu testu ta fika azul:
+
+
+        ```html
+
+        <p class="destaque"|Un testu importanti</p|
+
+        ```
+
+
+        ```css
+
+        p {
+          color: green;
+        }
+
+
+        .destaque {
+          color: blue;
+        }
+
+        ```
+
+
+        N-es kazu, seletor ku ID ta ganha di seletor ku klasi:
+
+
+        ```html
+
+        <p id="avizu" class="destaque"|Un avizu importanti</p|
+
+        ```
+
+
+        ```css
+
+        .destaque {
+          color: blue;
+        }
+
+
+        #avizu {
+          color: red;
+        }
+
+        ```
+
+
+        Si spesifisidadi é igual, últimu regra ta ganha:
+
+
+        ```css
+
+        .destaque {
+          color: blue;
+        }
+
+
+        .destaque {
+          color: purple;
+        }
+
+        ```
+
+
+        Kor final é roxu, pamodi segundu regra aparese dipos primeru na CSS.
+  context: web-foundations
+  provenance: suggested
+- term: inheritance
+  category: CSS
+  translations:
+    kea:
+      local_term: eransa
+      definition: Prosesu unde elementus fidju ta erda stilu (kumo kor di testu) di ses elementus pai.
+      body: |-
+        Eransa é prosesu unde un elementu fidju ta resebe sertus propriedadis di stilu di se
+        elementu pai. Na CSS, kel-li ta djuda mantén un aparénsia konsistenti sen meste ripiti mesmu
+        regra pa kada elementu. Pur izemplu, si un elementu pai ten `color` difinidu, normalmenti
+        ses fidjus ta uza kel kor tanbé.
+
+
+        Ka tudu propriedadi CSS ta pasa pa eransa. Propriedadis rilasionadu ku testu, sima `color`,
+        `font-family` y `font-size`, jeralmenti ta ser erdadu. Otus, sima `margin`, `padding`,
+        `border` y `background`, normalmenti ka ta ser erdadu. Bu pode uza valor `inherit` pa manda
+        un propriedadi uza valor di elementu pai.
+
+
+        Eransa ka é mesmu ku kaskata CSS. Eransa ta entra en sena ora ki elementu fidju ka ten un
+        valor más spesífiku pa kel propriedadi. Si fidju ten se propi regra CSS, kel regra pode
+        substitui valor ki el erda di pai.
+
+
+        ## Izemplu
+
+
+        Nes kazu, parágrafu ta erda kor azul y tipu di letra di elementu `div`. Ma `span` ten se
+        propi kor, pur isu el ta fika burmedju.
+
+
+        ```html
+
+        <div class="pai"|
+          <p|
+            Es testu ta fika azul.
+            <span|Es parti ta fika burmedju.</span|
+          </p|
+        </div|
+
+
+        <style|
+          .pai {
+            color: blue;
+            font-family: Arial, sans-serif;
+            border: 2px solid black;
+          }
+
+          span {
+            color: red;
+          }
+        </style|
+
+        ```
+
+
+        `p` ta erda `color` y `font-family`, ma el ka ta erda `border`, pamodi `border` ka é un
+        propriedadi ki normalmenti ta pasa di pai pa fidju.
+  context: web-foundations
+  provenance: suggested
+- term: flexbox
+  category: Layout
+  translations:
+    kea:
+      local_term: flexbox
+      definition: Módulu di CSS projetadu pa organiza layout di elementus na un dimensan (linha ou koluna).
+      body: |-
+        Flexbox é un módulu di CSS pa organiza elementus na un dimensan: na un linha ou na un
+        koluna. El é útil pa alinha menus, sentra kontiudu, distribui spasamenti entre elementus i
+        kria layout ki ta adapta a tamanhu di ekra. Pa ativa-l, bu ta poi `display: flex` na
+        elementu pai, ki ta bira **flex container**; si fidjus diretu ta bira **flex items**.
+
+
+        Diresan di layout é kontroladu pa `flex-direction`. Valor padron, `row`, ta organiza
+        elementus na un linha; `column` ta organiza-s na un koluna. `justify-content` ta alinha
+        elementus na eixu prinsipal, enkuantu `align-items` ta alinha-s na eixu transversal.
+        Propriedadi `gap` ta poi spasu konsistenti entre items sen bu ten ki uzal `margin` na kada
+        elementu.
+
+
+        Normalmenti, flexbox ta tenta poi tudu items na un linha. Si es ka ta kabe, `flex-wrap:
+        wrap` ta permiti-s pasa pa linha siginti. Flexbox é bon pa layout unidimensional; pa
+        organiza linha **i** koluna na mesmu tempu, CSS Grid pode ser mas apropriadu. Na DevTools,
+        bu pode edita es propriedadis live pa testa alinhamentu, ma mudansas ka ta salva na
+        `style.css`.
+
+
+        ## Izemplu
+
+
+        Es HTML ten un kontéiner ku três boton:
+
+
+        ```html
+
+        <div class="acoes"|
+          <button|Guarda</button|
+          <button|Edita</button|
+          <button|Apaga</button|
+        </div|
+
+        ```
+
+
+        Ku flexbox, boton ta fika na un linha, sentradu i ku spasu igual entre es:
+
+
+        ```css
+
+        .acoes {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        ```
+
+
+        `display: flex` ta afeta so fidjus diretu di `.acoes`. `justify-content: center` ta sentra
+        boton na eixu prinsipal, `align-items: center` ta alinha-s na otru eixu, i `flex-wrap: wrap`
+        ta evita ki es fika apertadu kuandu ekra é streitu.
+  context: web-foundations
+  provenance: suggested
+- term: CSS grid
+  category: Layout
+  translations:
+    kea:
+      local_term: CSS grid
+      definition: |-
+        Sistema di layout di CSS ki ta permiti kria layouts konplexu na dos dimensan (linhas i
+        kolunas).
+      body: |-
+        CSS Grid é un sistema di layout di CSS ki ta organiza elementus na dos dimenson: linhas i
+        kolunas. Pa ativa-l, bu ta uza `display: grid` na un elementu pai, konxedu komu *grid
+        container*. Elementus diretu dentu di kel container ta bira *grid items*, i navegador ta
+        poi-s na grelha sigundu regras ki bu defini.
+
+
+        Ku propriedades suma `grid-template-columns` i `grid-template-rows`, bu pode skodje númeru i
+        tamanhu di kolunas i linhas. Unidade `fr` ta raparti spasu disponivel entre kolunas,
+        enkuantu `gap` ta kria spasu entre items sen nesesidadi di uza marjen. CSS Grid tanbé ten
+        pozisionamentu automátiku, ma bu pode indika unde kada item debe fika ku propriedades suma
+        `grid-column` i `grid-row`.
+
+
+        Grid é útil pa layouts di pájina, galerias, kartons i interfaz ki meste kontrolu na dos
+        dimenson. Pa un layout prinsipalmenti na un únika direson, Flexbox pode ser más simples; ma
+        Grid é más apropriadu ora ki relason entre linhas i kolunas é importanti. Funsons suma
+        `repeat()`, `minmax()` i valores suma `auto-fit` ta permiti kria grelhas responsivu ki ta
+        adapta a tamanhu di ekran.
+
+
+        ## Izemplus
+
+
+        Kel primeru izemplu ta kria un grelha ku tres kolunas igual i un spasu di `16px` entre
+        kartons:
+
+
+        ```html
+
+        <div class="grelha"|
+          <article class="karton"|Karton 1</article|
+          <article class="karton"|Karton 2</article|
+          <article class="karton"|Karton 3</article|
+          <article class="karton"|Karton 4</article|
+        </div|
+
+
+        <style|
+
+        .grelha {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+
+
+        .karton {
+          padding: 20px;
+          background-color: #e5e7eb;
+        }
+
+        </style|
+
+        ```
+
+
+        Pa faze grelha adapta automaticamenti a spasu disponivel, bu pode troka definison di kolunas
+        pa `auto-fit` ku `minmax()`. Kada karton ta ten pelu menus `200px`; si ten más spasu, el ta
+        alarga, i si spasu ka txiga, items ta pasa pa linha siginti:
+
+
+        ```css
+
+        .grelha {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 16px;
+        }
+
+        ```
+
+
+        Un item tanbé pode okupa más di un koluna. Li, primeru karton ta stende di primeru linha
+        vertikal ti terseru, ocupandu dos kolunas:
+
+
+        ```css
+
+        .karton-destakadu {
+          grid-column: 1 / 3;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: media query
+  category: CSS
+  translations:
+    kea:
+      local_term: media query
+      definition: |-
+        Regra CSS ki ta permiti aplika stilus diferenti dependendu di tamanhu di tela (pa design
+        responsivu).
+      body: |-
+        Media query é un regra di CSS ki ta aplika un grupu di stilu so ora ki un sertu kondison di
+        midia é kunpridu. El é txeu uzadu na design responsivu, pamodi el ta permiti adapta
+        aparénsia di un pájina pa largura di tela, orientason ô tipu di dispozitivu, sen meste kria
+        un pájina diferenti pa kada ekran.
+
+
+        Un media query normalmenti ta kumesa ku `@media`, sigidu di un kondison sima `min-width` ô
+        `max-width`. Es valoris é konxedu komu *breakpoints*. É midjor skodje breakpoints undi
+        kontiudu ô layout meste muda, en vez di tenta kria un breakpoint pa kada modelu di
+        telemóvel, tablet ô konputador.
+
+
+        Na abordajen *mobile-first*, CSS báziku é skrebedu pa telas más pikinoti. Dipos, media
+        queries ku `min-width` ta akresenta ô altera stilus pa telas más largu. Media queries tanbé
+        pode responde a otus karaterístika, sima orientason di tela, preferénsia pa tema skuru ku
+        `prefers-color-scheme`, ô formatason pa inpreson.
+
+
+        ## Izemplu
+
+
+        Nes izemplu, karton ta okupa largura dispunível na telas pikinoti. Ora viewport ten pelu
+        menus `768px`, el ta fika ku un largura limitadu i ta sentraliza na pájina.
+
+
+        ```css
+
+        .karton {
+          width: 100%;
+          padding: 1rem;
+          background-color: lightblue;
+        }
+
+
+        @media (min-width: 768px) {
+          .karton {
+            width: 600px;
+            margin-inline: auto;
+            padding: 2rem;
+          }
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: pseudo-class
+  category: CSS
+  translations:
+    kea:
+      local_term: pseudo-class
+      definition: Palavra-xavi asosiadu a un seletor ki ta spesifika un stadu spesial, kumo `:hover`.
+      body: |-
+        Pseudo-class é un palavra-txabi di CSS, skrebedu ku `:` dipos di un seletor, ki ta kojí
+        elementus segundu un stadu, un interasan ou un pozisan na strutura HTML. Pur izemplu,
+        `a:hover` ta kojí un link ora pontador sta riba di el, enkuantu `li:first-child` ta kojí un
+        `<li>` ki é primeru fidju di se pai.
+
+
+        Pseudo-class ka ta kria un class na HTML. El ta permiti CSS aplika stilu ora un kondisan é
+        verdade, sen presiza adisiona ou tira atributu `class`. Alguns pseudo-classes ta ripara na
+        interasan di utilizador, manera `:hover` i `:active`; otus ta ripara na stadu di link,
+        manera `:link` i `:visited`; i otus ta uza pozisan, manera `:first-child` i `:nth-child()`.
+
+
+        Pseudo-class ta uza un só dos pontu (`:`). El é diferenti di pseudo-elementu, ki normalmenti
+        ta uza dos dos pontu, manera `::before`. Pseudo-class ta seleksiona un elementu na un
+        kondisan spesial; pseudo-elementu ta apunta pa un parti ou un kontiudu virtual di kel
+        elementu.
+
+
+        ## Izemplus
+
+
+        `button:hover` ta muda aparensia di boton ora pontador pasa riba di el:
+
+
+        ```css
+
+        button:hover {
+          background-color: #1098ad;
+          color: white;
+        }
+
+        ```
+
+
+        Pseudo-classes struturais pode stila elementus segundu ses pozisan. Kel regra li ta da un
+        fundu diferenti pa kada elementu ímpar di lista:
+
+
+        ```css
+
+        li:nth-child(odd) {
+          background-color: #f7f7f7;
+        }
+
+        ```
+
+
+        Na `:first-child`, elementu ten ki ser di verdadi primeru fidju di se pai. Kel seletor li ka
+        signifika “primeru parágrafu”; el ta kojí un `<p>` so si kel `<p>` é primeru fidju:
+
+
+        ```css
+
+        article p:first-child {
+          font-weight: bold;
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: pseudo-element
+  category: CSS
+  translations:
+    kea:
+      local_term: pseudo-element
+      definition: Regra ki ta permiti stila un parti spesifiku di un elementu, kumo `::before` ou `::after`.
+      body: |-
+        Pseudo-element é un parti spesial di selector CSS ki ta permiti stila un parti di un
+        elementu sen ten ki kria un novu tag HTML. El pode raprezenta un parti ki dja izisti, sima
+        primeru linha ku `::first-line`, ou kria kontiudu visual antis ou dipos di kontiudu di
+        elementu, ku `::before` i `::after`.
+
+
+        Sintaxi modernu ta uza dos pontu duplu (`::`) pa distingui pseudo-element di pseudo-class,
+        ki ta uza un pontu (`:`). Pur izemplu, `p::first-line` ta stila primeru linha di un
+        paragrafu, enkuantu `a:hover` ta stila un link ora utilizador pasa ponteiru riba-l. Na
+        especificidadi CSS, pseudo-element ta konta na mêsmu nivel ki selector di elementu, na
+        pozisan `c` di vetor `(a, b, c)`.
+
+
+        `::before` i `::after` normalmenti meste propriedadi `content` pa es apareci. Es é bon pa
+        detalhis dekorativu, sima ikon, separador ou sinal visual, ma kontiudu importanti debe
+        kontinua na HTML pa el ser mas asesivel i ten un bon signifikadu semántiku.
+
+
+        ## Izemplu
+
+
+        Kel CSS li ta poi un sinal antis di títulu, un linha dipos di link i un stilu spesial na
+        primeru linha di paragrafu:
+
+
+        ```html
+
+        <h2 class="titulo"|Notísias</h2|
+
+        <p|
+          Es é primeru linha di paragrafu. Restu di testu ta kontinua ku stilu normal.
+        </p|
+
+        <a class="link" href="/notisias"|Le mas</a|
+
+
+        <style|
+
+        .titulo::before {
+          content: "★ ";
+          color: gold;
+        }
+
+
+        .link::after {
+          content: "";
+          display: block;
+          width: 40px;
+          border-bottom: 2px solid #1098ad;
+        }
+
+
+        p::first-line {
+          font-weight: bold;
+          color: #555;
+        }
+
+        </style|
+
+        ```
+  context: web-foundations
+  provenance: suggested
+- term: z-index
+  category: CSS
+  translations:
+    kea:
+      local_term: z-index
+      definition: |-
+        Propriedadi ki ta kontrola ordi di sobropozisan di elementus na eixu Z (kual ki ta fika pur
+        sima).
+      body: |-
+        `z-index` é un propriedadi di CSS ki ta kontrola ordi vizual di elementus ki sta sobropostu.
+        El ta trabadja na un eixu Z imajináriu: elementus ku valor más altu normalmenti ta fika más
+        pértu di utilizador, pur sima di kes ku valor más baxu. Valor pode ser un númeru interu,
+        inkluindu númerus negativu, ô `auto`, ki ta uza ordi normal di pájina.
+
+
+        Na maioria di kazus, `z-index` ta ten efeitu na elementus ku `position` difirenti di
+        `static`, sima `relative`, `absolute`, `fixed` ô `sticky`. El tanbé pode funsiona na iten di
+        kontentor ku `display: flex` ô `display: grid`. Si dôs elementu ten mesmu `z-index`, ordi na
+        HTML pode determina kal ki ta fika pur sima.
+
+
+        Un detálhi inpurtanti é **stacking context**, ki é un grupu ku se própriu ordi di
+        sobropozisan. Un elementu fidju ku `z-index: 9999` ka ta konsigi pasa un elementu di otu
+        stacking context si se elementu pai sta más baxu. Pur isu, antis di aumenta valor senpri, é
+        midjor odja `position`, `z-index` di elementus pai y propriedadis ki pode kria un novu
+        stacking context, sima `opacity`, `transform` ô sertus valor di `position`.
+
+
+        ## Izemplus
+
+
+        Li, kaxa ku `z-index` más altu ta fika pur sima:
+
+
+        ```html
+
+        <div class="kaxa azul"|Azul</div|
+
+        <div class="kaxa bermedju"|Bermedju</div|
+
+
+        <style|
+
+        .kaxa {
+          position: absolute;
+          width: 140px;
+          height: 100px;
+          padding: 12px;
+        }
+
+
+        .azul {
+          background: steelblue;
+          left: 20px;
+          top: 20px;
+          z-index: 1;
+        }
+
+
+        .bermedju {
+          background: tomato;
+          left: 70px;
+          top: 60px;
+          z-index: 2;
+        }
+
+        </style|
+
+        ```
+
+
+        Na kel otu situason, valor grandi di elementu fidju ka é sufisienti, pamodi kada pai ten se
+        própriu stacking context:
+
+
+        ```html
+
+        <div class="grupo grupo-baxu"|
+          <div class="janela"|Janela: z-index 9999</div|
+        </div|
+
+
+        <div class="grupo grupo-altu"|
+          Painel: z-index 2
+        </div|
+
+
+        <style|
+
+        .grupo {
+          position: relative;
+        }
+
+
+        .grupo-baxu {
+          z-index: 1;
+        }
+
+
+        .grupo-altu {
+          z-index: 2;
+          background: gold;
+        }
+
+
+        .janela {
+          position: absolute;
+          z-index: 9999;
+          background: white;
+        }
+
+        </style|
+
+        ```
+
+
+        `janela` kontinua dentu di stacking context ku `z-index: 1`, enton el ka pode pasa
+        `grupo-altu`, ki ten `z-index: 2`. Soluson pode ser muda `z-index` di `grupo-baxu` ô poi
+        `janela` na un parti di HTML unde el ka sta limitadu pa kel stacking context.
+  context: web-foundations
+  provenance: suggested
+- term: viewport
+  category: Web
+  translations:
+    kea:
+      local_term: viewport
+      definition: Ária vizivel di un pajina web na tela di uzuariu.
+      body: |-
+        Viewport é ária di un pajina web ki uzuariu pode odja na kel momentu dentru di browser. El
+        ka é tamanhu total di pajina: si konteúdu é más grandi ki viewport, uzuariu ten ki faze
+        scroll pa odja restu. Tamanhu di viewport ta muda konformi largura di janela, tamanhu di
+        tela i orientason di dispositivu.
+
+
+        Na CSS, largura di viewport é importanti pa kria layouts responsivu, ki ta adapta pa
+        telemovel, tablet i computador. Unidadis `vw` i `vh` ta depende di viewport: `1vw` é 1% di
+        se largura, i `1vh` é 1% di se altura. Media queries tanbe ta uza largura di viewport pa
+        aplika stilu diferenti na telas diferenti.
+
+
+        Na dispositivus móvel, tag `<meta name="viewport">` ta orienta browser sobri manera ki el
+        debe defini largura i skala inisial di pajina. Valor `width=device-width` ta faze largura di
+        layout kunbina ku largura di dispositivu, enkuantu `initial-scale=1.0` ta mostra pajina na
+        skala normal. Sen es konfigurason, alguns browsers móvel pode simula un viewport más largu i
+        diminui pajina, fazendu testu i elementus parse más pikinoti.
+
+
+        ## Izemplu
+
+
+        Es tag debe fika dentru di `<head>` di dokumentu HTML:
+
+
+        ```html
+
+        <!DOCTYPE html|
+
+        <html lang="kea"|
+          <head|
+            <meta charset="UTF-8" /|
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
+            <title|Pajina responsivu</title|
+          </head|
+          <body|
+            <h1|Bon dia!</h1|
+            <p|Es pajina ta adapta pa largura di viewport.</p|
+          </body|
+        </html|
+
+        ```
+
+
+        Un media query pode muda stilu konformi largura di viewport:
+
+
+        ```css
+
+        body {
+          font-size: 18px;
+        }
+
+
+        @media (max-width: 600px) {
+          body {
+            font-size: 16px;
+          }
+        }
+
+        ```
+  context: web-foundations
+  provenance: suggested

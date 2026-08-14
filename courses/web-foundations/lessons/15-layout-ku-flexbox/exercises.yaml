@@ -77,6 +77,6 @@
   kind: reflect
   title: { kea: "`flex: 1` ou `flex: 0 0 Npx`?" }
   prompt:
-    kea: "Splika ku bu propi palavra: kuandu ki bu ta da un item `flex: 1` i kuandu ki bu ta da-l `flex: 0 0 Npx`? Pensa nun layout real (artigu vs sidebar, kontéudu prinsipal vs menu) i diz kual ki debe ser flexível i kual ki debe ser fixu."
+    kea: "Splika ku bu propi palavra: kuandu ki bu ta da un item `flex: 1` i kuandu ki bu ta da-l `flex: 0 0 Npx`? Pensa nun layout real (artigu vs sidebar, kontéudu prinsipal vs menu) i fra kual ki debe ser flexível i kual ki debe ser fixu."
   notePlaceholder:
     kea: "N ta uza `flex: 1` kuandu… (izemplu: …). N ta uza `flex: 0 0 Npx` kuandu… (izemplu: …)."

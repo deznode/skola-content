@@ -18,7 +18,7 @@ prerequisites:
 
 # Tipus di selectors na CSS
 
-Ti gosi, nu sta stila tudu `<h2>` di mêsmu manera, tudu `<p>` di mêsmu manera. Ma si nu kre stila so un `<h2>` spesífiku? Ou tudu link ku un nomi spesífiku? Pa kel-li nu ten **selectors** — diferenti manera di apunta CSS pa elementu kortu.
+Imajina ki bu ten 10 paragrafu na bu pajina. Bu kre pinta **so un** di kor rosa, pa da destaki, ma kuandu bu po `p { color: pink; }`, *tudu* 10 fika rosa! Modi ki nu ta fla CSS pa toka so na *un* spesifiku? Nu meste uza armas di precisan: **classes** i **IDs**.
 
 ## Trez tipus básiku di selector
 
@@ -177,7 +177,7 @@ a:active  { color: #800; }
 ```
 
 :::callout{type=tip}
-Si bu skesi mnemoniku **LoVe HAte**, lembra: na vida real, primeru bu ta gosta (Love = Link + Visited), dipos bu ta odia (Hate = Hover + Active). CSS ta sigui mêsmu ordi.
+Si bu skise mnemoniku **LoVe HAte**, lembra: na vida real, primeru bu ta gosta (Love = Link + Visited), dipos bu ta odia (Hate = Hover + Active). CSS ta sigi mêsmu ordi.
 :::
 
 <SectionHeading variant="install">Prátika: stila link i lista di cesaria.html</SectionHeading>
@@ -258,23 +258,20 @@ Salva. Abri `cesaria.html` ku Live Server.
 - **Uza id pa stilu di kuza ki ta repeti** (kumo boton) — id é úniku. Uza class.
 - **Selector profundu** kumo `nav ul li a` ta kola CSS na strutura HTML. Prefere un class na elementu diretu.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
   <Quiz position={3} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Trez tipus">element (`h1`), class (`.nomi`), id (`#nomi`).</RezumuItem>
   <RezumuItem term="Preferi class">pa stilu — reutilizavel, baxu especificidadi.</RezumuItem>
   <RezumuItem term="Kombina selectors">lista (`,`), descendent (spasu), irmon adjasenti (`+`).</RezumuItem>
   <RezumuItem term="Pseudo-classes">struturais (`:first-child`, `:nth-child(odd)`) ta kojí pa pozisan.</RezumuItem>
-  <RezumuItem term="LVHA" variant="gold">link ta sigui sempri ordi `:link`, `:visited`, `:hover`, `:active` (LoVe HAte).</RezumuItem>
+  <RezumuItem term="LVHA" variant="gold">link ta sigi sempri ordi `:link`, `:visited`, `:hover`, `:active` (LoVe HAte).</RezumuItem>
   <RezumuItem term="kebab-case">nomi di class na minúskula ku traseu (`.author-name`, ka `.authorName`).</RezumuItem>
 </KeyTakeaways>

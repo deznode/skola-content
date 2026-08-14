@@ -29,12 +29,12 @@
   file: cesaria.html
   title: { kea: "Adisiona un link externu i un link internu" }
   prompt:
-    kea: "Skrebe dos link dentru di lista: (1) un link **externu** pa `https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora` ku `target=\"_blank\"` pa abri na un aba novu, i (2) un link **internu** pa `blog.html` (mesmu website, sen `target`). Skrebe-s a mon dentru di kada `<li>`."
+    kea: "Skrebe dos link dentru di lista: (1) un link **externu** pa `https://en.wikipedia.org/wiki/Ces%C3%A1ria_%C3%89vora` ku `target=\"_blank\"` pa abri na un tab novu, i (2) un link **internu** pa `blog.html` (mesmu website, sen `target`). Skrebe-s a mon dentru di kada `<li>`."
   starterCode: |
     <h2>Websites pa konxe mas</h2>
 
     <ul>
-      <li><!-- link externu pa Wikipedia (aba novu) --></li>
+      <li><!-- link externu pa Wikipedia (tab novu) --></li>
       <li><!-- link internu pa blog.html --></li>
     </ul>
   solutionCode: |

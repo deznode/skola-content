@@ -36,7 +36,7 @@
   kind: code
   title: { kea: "Faze un karta okupa dos kolunas" }
   prompt:
-    kea: "Bu ten un `.feature` karta nun grid. Faze-l **spani dos kolunas** undi-kuze el ta otxa na grid — sen kuida pozisan eksatu, só largura. Uza keyword `span`."
+    kea: "Bu ten un `.feature` karta nun grid. Faze-l **spani dos kolunas** unde-kuze el ta otxa na grid — sen kuida pozisan eksatu, só largura. Uza keyword `span`."
   hint:
     kea: "Pa \"kuantu largu\" sen kuida pozisan, uza `span`: `grid-column: span 2`. Mas léji di ler ki numerus di line."
   starterCode: |
@@ -52,6 +52,6 @@
   kind: reflect
   title: { kea: "`justify-items` ou `justify-content`?" }
   prompt:
-    kea: "Splika ku bu propi palavra diferensa entri `justify-items` i `justify-content` nun grid. Kual ki ta moveu kada item dentru di kel cell, i kual ki ta moveu grid inteiru dentru di container? Da un situasan undi ki bu ta uza kada un."
+    kea: "Splika ku bu propi palavra diferensa entri `justify-items` i `justify-content` nun grid. Kual ki ta moveu kada item dentru di kel cell, i kual ki ta moveu grid inteiru dentru di container? Da un situasan unde ki bu ta uza kada un."
   notePlaceholder:
     kea: "`justify-items` ta moveu… N ta uza-l kuandu… `justify-content` ta moveu… N ta uza-l kuandu…"

@@ -8,7 +8,7 @@
   kind: explore
   title: { kea: "Odja HTML di un website real" }
   prompt:
-    kea: "Abri **Chrome** i vizita `nosilha.com` (ou `deznode.cv`). Klika ku boton direitu na un parti vaziu di pajina i skodje **\"View Page Source\"** (ou primi `Ctrl+U` / `Cmd+Option+U`). Na aba novu ki ta abri, prokura trez kuza: a tag `<html>` na riba di tudu, `<head>` ku metadata (titulu, charset, link pa CSS), i `<body>` ku konteúdu visivel. **Kel HTML li é mesmu HTML ki bu ta skrebe na es kursu — diferensa é so tamanhu.**"
+    kea: "Abri **Chrome** i vizita `nosilha.com` (ou `deznode.cv`). Klika ku boton direitu na un parti vaziu di pajina i skodje **\"View Page Source\"** (ou primi `Ctrl+U` / `Cmd+Option+U`). Na tab novu ki ta abri, prokura trez kuza: a tag `<html>` na riba di tudu, `<head>` ku metadata (titulu, charset, link pa CSS), i `<body>` ku konteúdu visivel. **Kel HTML li é mesmu HTML ki bu ta skrebe na es kursu — diferensa é so tamanhu.**"
   resources:
     kea:
       - { label: "nosilha.com", url: "https://nosilha.com" }

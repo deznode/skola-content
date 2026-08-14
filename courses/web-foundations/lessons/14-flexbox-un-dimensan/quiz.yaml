@@ -4,14 +4,14 @@
 # positions 0..3 correspond to <Quiz position={N}/> markers in kea.mdx.
 # `explain` is the author-written "Pamodi:" why-feedback shown after a pick.
 - question:
-    kea: "Kal propriedadi ki ta alinha flex items na **cross axis** (vertikal padron)?"
+    kea: "Kual propriedadi ki ta alinha flex items na **cross axis** (vertikal default)?"
   options:
     - text: { kea: "`align-items`" }
       correct: true
-      explain: { kea: "Sertu — `align-items` ta opera na cross axis (vertikal padron). É el ki ta sentra items vertikalmenti ku `center`." }
+      explain: { kea: "Sertu — `align-items` ta opera na cross axis (vertikal default). É el ki ta sentra items vertikalmenti ku `center`." }
     - text: { kea: "`justify-content`" }
       correct: false
-      explain: { kea: "`justify-content` ta opera na **main axis** (horizontal padron), ka na cross axis. Si bu konfundi es dos, troka-l." }
+      explain: { kea: "`justify-content` ta opera na **main axis** (horizontal default), ka na cross axis. Si bu konfundi es dos, troka-l." }
     - text: { kea: "`gap`" }
       correct: false
       explain: { kea: "`gap` ta da spasu **entri** items, ma el ka ta alinha-s na ninhun eixu." }
@@ -34,7 +34,7 @@
       correct: false
       explain: { kea: "Largura final ta keda 300px; kontéudu dentru é ki ta diminui pa kaba spasu pa padding." }
 - question:
-    kea: "Bu kre un header ku titulu na skerda i nav na direita, alinhadu vertikalmenti na meiu. Kal **dos** regras na container?"
+    kea: "Bu kre un header ku titulu na skerda i nav na direita, alinhadu vertikalmenti na meiu. Kual **dos** regras na container?"
   options:
     - text: { kea: "`justify-content: space-between` + `align-items: center`" }
       correct: true

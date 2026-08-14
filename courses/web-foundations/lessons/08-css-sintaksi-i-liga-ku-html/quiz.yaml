@@ -8,7 +8,7 @@
   options:
     - text: { kea: "`h1`" }
       correct: true
-      explain: { kea: "Sertu — selector ta diz **ken** nu ta stila: aki, tudu element `<h1>` na pajina." }
+      explain: { kea: "Sertu — selector ta fra **ken** nu ta stila: aki, tudu element `<h1>` na pajina." }
     - text: { kea: "`color`" }
       correct: false
       explain: { kea: "`color` é **propriedadi** — kuze ki nu ta muda, dentru di bloku di deklarasan." }
@@ -23,7 +23,7 @@
   options:
     - text: { kea: "Un ficheru ta stila tudu pajina — muda un bez, tudu pajina ta atualiza" }
       correct: true
-      explain: { kea: "Sertu — sentralizasan: mesmu `style.css` ta sirvi tudu pajina, sen repetisan." }
+      explain: { kea: "Sertu — sentralizasan: mesmu `style.css` ta sirbi tudu pajina, sen repetisan." }
     - text: { kea: "Ta faze pajina karega mas dipresa ki kualkér otu manera" }
       correct: false
       explain: { kea: "Velosidadi ka é razan — ganhu é manutensan i separation of concerns." }

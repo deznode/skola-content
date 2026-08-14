@@ -48,7 +48,7 @@
       <p>&copy; 2026 Blog di Adilson.</p>
     </footer>
   hint:
-    kea: "Kada `class` ta da-bu dika: `class=\"header\"` ta vira `<header>`, `class=\"nav\"` ta vira `<nav>`, `class=\"article\"` ta vira `<article>`. Bu ka ta presiza mas atributu `class`."
+    kea: "Kada `class` ta da-bu dika: `class=\"header\"` ta vira `<header>`, `class=\"nav\"` ta vira `<nav>`, `class=\"article\"` ta vira `<article>`. Bu ka ta presiza ma atributu `class`."
 - slug: skrebe-pajina-semantika
   language: html
   kind: code

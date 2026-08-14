@@ -57,7 +57,7 @@ Antes di toka teklado, **dezenha**. Pega un papel ou un kuadru branku i sketcha 
 **Pamodi sketcha primeru?** Pamodi kódiku ki ka ten plan ta vira karavana — seksan dipendi di seksan, i bu ta perde fukus. Sketch é mapa.
 
 :::callout{type=tip}
-**Skrebe HTML i CSS na mêsmu tempu é trapadju.** Lisan 18 = só strutura. Lisan 19 = só stilu. Si bu tenta dos djuntu, kódiku fika fragil — kuandu un kuza muda, otru ta keda. Separa por padron, mistura só na fin.
+**Skrebe HTML i CSS na mêsmu tempu é trapadju.** Lisan 18 = só strutura. Lisan 19 = só stilu. Si bu tenta dos djuntu, kódiku fika fragil — kuandu un kuza muda, otru ta keda. Separa por default, mistura só na fin.
 :::
 
 ## Identifika elementus semantiku pa kada seksan
@@ -326,7 +326,7 @@ Trez sitasan di trez personas — un di Praia, un di Mindelo, un di Fogo. Kada t
 </section>
 ```
 
-**Lembra di L7:** `<blockquote>` é pa sitasan longu di otra fonti. `<cite>` é pa nomi di otor ou fonti. Es dos djuntu = padron pa testimunhu.
+**Lembra di L7:** `<blockquote>` é pa sitasan longu di otra fonti. `<cite>` é pa nomi di otor ou fonti. Es dos djuntu = pattern pa testimunhu.
 
 ## Pasu 7 — Footer (seksan 6)
 
@@ -378,32 +378,29 @@ Bu ta odja:
 - Trez testimunhu enpilhadu.
 - Footer ku 3 koluna enpilhadu.
 
-**Es é o ponto di partida pretendidu.** Pajina é semantikamenti korretu, akesível, i pronto pa stiliza. **Ka modifika strutura gosi.** Lisan 19 ta transforma-l ku CSS sen toka HTML (eksetu un wrap `.container` ou dos ki dja ten lugar).
+**Es é ponto di partida pretendidu.** Pajina é semantikamenti korretu, akesível, i pronto pa stiliza. **Ka modifika strutura gosi.** Lisan 19 ta transforma-l ku CSS sen toka HTML (eksetu un wrap `.container` ou dos ki dja ten lugar).
 
 :::callout{type=tip}
-**Inspekciona ku DevTools (callback di L13).** Klika direitu na pajina → Inspect. Na painel Elements bu pode konfirma ki tudu seksan ta uza `<section>`, `<article>`, `<header>`, `<footer>` — nau só `<div>`. Si tudu é `<div>`, voltai i refaktoriza pa elementu semantiku korretu.
+**Inspesiona ku DevTools (callback di L13).** Klika direitu na pajina → Inspect. Na painel Elements bu pode konfirma ki tudu seksan ta uza `<section>`, `<article>`, `<header>`, `<footer>` — nau só `<div>`. Si tudu é `<div>`, voltai i refaktoriza pa elementu semantiku korretu.
 :::
 
 ## Erus komun pa evita
 
-- **Skesi `alt` na imajen di ilha.** 10 ilhas = 10 `alt` ki ten ki ten testu. Ka usa `alt="img"` ou deixa vaziu — pa akesibilidadi, kada `alt` ten ki splika kuze imajen ta mostra. Mas komum erru di studanti.
+- **Skise `alt` na imajen di ilha.** 10 ilhas = 10 `alt` ki ten ki ten testu. Ka usa `alt="img"` ou deixa vaziu — pa akesibilidadi, kada `alt` ten ki splika kuze imajen ta mostra. Mas komum erru di studanti.
 - **Skrebe HTML i CSS na mêsmu tempu.** Resisti. Es lisan = só strutura. Si bu sta tenta poi `style="..."` inline, **para**. Wait pa L19.
 - **Konvensan di klassi inkonsistenti.** `island-card`, `IslandCard`, `island_card` — pega un i pega só un. Kebab-case di L10 (`island-card`) ta sigi konvensan di tudu kursu.
-- **`<div>` undi `<section>` ou `<article>` é mas korretu.** Si bu ta wrap algun kuza ki ten un títulu i kontéudu independenti, é `<article>`. Si é un agrupamentu temátiku, é `<section>`. `<div>` é só pa wrap di layout sen signifikadu (kumo `.container` ou `.food-row`).
-- **Skesi `<link rel="stylesheet" href="style.css" />`.** Si Lisan 19 ka ta parese faze nada, **primeru kuza pa kontrola**: bu ten `<link>` na `<head>`?
+- **`<div>` unde `<section>` ou `<article>` é mas korretu.** Si bu ta wrap algun kuza ki ten un títulu i kontéudu independenti, é `<article>`. Si é un agrupamentu temátiku, é `<section>`. `<div>` é só pa wrap di layout sen signifikadu (kumo `.container` ou `.food-row`).
+- **Skise `<link rel="stylesheet" href="style.css" />`.** Si Lisan 19 ka ta parese faze nada, **primeru kuza pa kontrola**: bu ten `<link>` na `<head>`?
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Ka ten konseitu novu">Es módulu é aplikasan di Módulus 1–4 nun projetu di verdadi.</RezumuItem>
   <RezumuItem term="Planea antes di skrebe">Sketch di 6 seksan na papel ta salva tenpu.</RezumuItem>
   <RezumuItem term="Strutura primeru, stilu dipos" variant="gold">Skrebe HTML semantiku primeru; separa kontéudu di apresentasan.</RezumuItem>

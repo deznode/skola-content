@@ -33,7 +33,7 @@ flex: <grow> <shrink> <basis>;
 | `flex-shrink` | Si item pode sprega kuandu ka kabe |
 | `flex-basis` | Tamanhu di partida (kumo `width` ma midjór pa flex items) |
 
-Defualt: `flex: 0 1 auto` (ka krese, pode sprega, tamanhu padron di kontéudu).
+Defualt: `flex: 0 1 auto` (ka krese, pode sprega, tamanhu default di kontéudu).
 
 ### `flex-grow`
 
@@ -43,7 +43,7 @@ Defualt: `flex: 0 1 auto` (ka krese, pode sprega, tamanhu padron di kontéudu).
 .item-c { flex-grow: 2; }    /* absorva du-bli spasu di b */
 ```
 
-**Atensan:** `flex-grow: 2` ka ta keri dizê "kel item é dos bez tamanhu di otus". Ta keri dizê "kel item ta resebi dos bez mas di **spasu sobra**". Resultadu finál ta depende di kontéudu mas spasu disponivel.
+**Atensan:** `flex-grow: 2` ka ta keri fra "kel item é dos bez tamanhu di otus". Ta keri fra "kel item ta resebi dos bez mas di **spasu sobra**". Resultadu finál ta depende di kontéudu mas spasu disponivel.
 
 ### `flex-basis`
 
@@ -170,7 +170,7 @@ Bu ta odja:
 - Aside ten un fundu branku ku padding internu — strutura é vizível.
 - Footer ta abranji **largura kompletu** embaxu di kel dos kolunas.
 
-### Pasu 3 — inspekciona ku DevTools
+### Pasu 3 — inspesiona ku DevTools
 
 Abri DevTools (`Cmd/Ctrl+Opt+I`). Klika ku rato direita na `.row` → **Inspect**. Bu ta odja un **batch "flex"** na lado di tag na painel Elements.
 
@@ -179,23 +179,20 @@ Klika kel batch "flex". Chrome ta overlay un dezenhu di flex container — bu ta
 ## Erus komun pa evita
 
 - **Uza `width: 300px` na flex item** na bez di `flex-basis: 300px` ou `flex: 0 0 300px`. Ta funsiona na kazu jeral, ma ta kebra inesperadamenti kuandu spasu ta diminui. **Sempri prefere shorthand `flex`** pa flex items.
-- **Speera ki `flex-grow: 1` i `flex-grow: 2` ta dizê "metadi di otru".** Ka — `2` ta resebi **dos bez mas di spasu sobra**, ka dos bez mas di total. Si items é grandi i spasu sobra é poku, diferensa ta keda kuazi invizível.
+- **Speera ki `flex-grow: 1` i `flex-grow: 2` ta fra "metadi di otru".** Ka — `2` ta resebi **dos bez mas di spasu sobra**, ka dos bez mas di total. Si items é grandi i spasu sobra é poku, diferensa ta keda kuazi invizível.
 - **Adisiona spasu ku `margin-right` na items** na bez di `gap` na container. Funsiona, ma ta deixa un trailing margin na últimu item. `gap` é mas limpu.
-- **Skesi `align-items: flex-start`** na layout dos-koluna. Defualt `stretch` ta torna kolunas igual altura, mêsmu si un ten muitu menus kontéudu.
+- **Skise `align-items: flex-start`** na layout dos-koluna. Defualt `stretch` ta torna kolunas igual altura, mêsmu si un ten muitu menus kontéudu.
 - **Mistura defualts difisil di distingui.** `flex: auto` ka é igual `flex: 1`. Si bu kre absorva tudu spasu, **uza `flex: 1`** sempri.
 
-<SectionHeading variant="practice">Tenta gosi</SectionHeading>
-<TentaGosi showHeader={false} />
+<TentaGosi showHeader={true} chrome="inline" />
 
-<SectionHeading variant="quiz">Testa bu konhesimentu</SectionHeading>
-<QuizSet showHeader={false}>
+<QuizSet showHeader={true} chrome="inline">
   <Quiz position={0} />
   <Quiz position={1} />
   <Quiz position={2} />
 </QuizSet>
 
-<SectionHeading variant="summary">Rezumu</SectionHeading>
-<KeyTakeaways showHeader={false}>
+<KeyTakeaways showHeader={true} chrome="inline">
   <RezumuItem term="Shorthand flex" variant="gold">`flex: <grow> <shrink> <basis>` — trez propriedadi nun shorthand.</RezumuItem>
   <RezumuItem term="flex: 1">`flex: 1` = "absorva tudu spasu sobra" (uzu mas komun).</RezumuItem>
   <RezumuItem term="flex: 0 0 300px">`flex: 0 0 300px` = "fixu 300px, ka muda".</RezumuItem>
