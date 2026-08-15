@@ -26,7 +26,7 @@
       explain: { kea: "Sertu — `<strong>` ten semantika di importansia. Screen reader ta da-l ntonason i Google ta uza-l pa pezu na SEO." }
     - text: { kea: "`<b>`" }
       correct: false
-      explain: { kea: "`<b>` so ta poi na negritu sen signifikadu. Pa importansia semántika uza `<strong>`." }
+      explain: { kea: "`<b>` so ta poi na bold sen signifikadu. Pa importansia semántika uza `<strong>`." }
     - text: { kea: "`<em>`" }
       correct: false
       explain: { kea: "`<em>` é pa énfasi (itáliku), ka pa importansia. Pa importansia uza `<strong>`." }

@@ -8,6 +8,13 @@ draft changes since the previous publish (source of truth: `topics/web-foundatio
 trace_id `Skola-course-web-foundations-20260513`). Hand-edits to this published copy are
 recorded under their own dated heading.
 
+## [2026-08-15] — publish
+
+### Changed
+- Replaced 'negritu' with 'bold' in elementus-di-testu lesson, exercise, and quiz.
+- Replaced 'padran' with 'normalmenti', 'norma', and 'prinsipal' in link and css lessons.
+- Fixed Kriolu normalizations for 'bez' and 'unde' in earlier lessons.
+
 ## [2026-08-14] — publish
 
 ### Changed

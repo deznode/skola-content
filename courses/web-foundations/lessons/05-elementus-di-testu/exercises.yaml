@@ -8,9 +8,9 @@
   file: cesaria.html
   title: { kea: "Koriji un `<strong>` sen fexa" }
   prompt:
-    kea: "Es snippet ten un **bug**: tag `<strong>` na primeru paragrafu ka sta fexadu. Pa kauza di kel-li, tudu testu dispós di \"Mindelo\" ta parese **negritu** ti fim di dokumentu. Diskubri unde ki falta `</strong>` i koriji-l."
+    kea: "Es snippet ten un **bug**: tag `<strong>` na primeru paragrafu ka sta fexadu. Pa kauza di kel-li, tudu testu dispós di \"Mindelo\" ta parese **bold** ti fim di dokumentu. Diskubri unde ki falta `</strong>` i koriji-l."
   hint:
-    kea: "Kada `<strong>` ten ki ten un `</strong>` korrespondenti. Odja pa palavra \"Mindelo\" — el ta abri negritu, ma nunka el ka ta fexa."
+    kea: "Kada `<strong>` ten ki ten un `</strong>` korrespondenti. Odja pa palavra \"Mindelo\" — el ta abri bold, ma nunka el ka ta fexa."
   starterCode: |
     <h1>Cesária Évora</h1>
     <p>Cesária Évora nase na <strong>Mindelo, na ilha di São Vicente.</p>

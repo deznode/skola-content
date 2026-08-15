@@ -18,18 +18,9 @@ prerequisites:
 
 # Kria bu primeru pajina HTML
 
-Gosi ben kel parti ki ta da dopamina: bu ta skrebe HTML i odja-l na browser. Kel momentu li, tudu programador na mundu dja vivi-l — i ka ta diskise.
+Gosi nu ta pasa pa prátika: bu ta skrebe bu primeru kódiku HTML i odja rezultadu diretu na browser. É un pasu inportanti ki ta marka inísiu di kaminhada di kualker dezenvolvedor web.
 
-## Kria ficheru `index.html`
-
-1. Na VS Code, ku bu pasta `web-foundations` abertu, klika **File → New File**.
-2. Salva ficheru imediatamenti ku `Cmd+S` / `Ctrl+S` i da-l nomi **`index.html`**.
-
-:::callout{type=tip}
-Pamodi `index.html` nves di un nomi ki bu skodje? Pamodi servidor web (kel ki ta sirbi pajina pa mundu) ta sempri prokura un ficheru xamadu `index.html` kuandu un uzuáriu ta vizita un pasta. É konvensan universal — i é mesmu pamodi ki Live Server ta funsiona.
-:::
-
-## Emmet — scaffolding instantáneu
+<SectionHeading variant="concept">Emmet — scaffolding instantáneu</SectionHeading>
 
 <GlossaryText
   text="VS Code ten un ferramenta interna xamadu [[Emmet]] ki ta [[scaffold]] HTML pa bo: skrebe `!` i primi Tab."
@@ -38,9 +29,6 @@ Pamodi `index.html` nves di un nomi ki bu skodje? Pamodi servidor web (kel ki ta
     "scaffold": { en: "scaffold", definition: "Jera otomatikamenti strutura baz di un ficheru, pa bu ka ten ki skrebe-l tudu na mon." },
   }}
 />
-
-1. Na ficheru `index.html` vaziu, skrebe so **`!`** (esklamasan).
-2. Primi **Tab**.
 
 Emmet ta scaffold tudu skeleton di HTML5. Ben nu odja, linha-pa-linha, kuze ki kada parti ta faze:
 
@@ -65,14 +53,14 @@ Emmet ta scaffold tudu skeleton di HTML5. Ben nu odja, linha-pa-linha, kuze ki k
     { m: 1, title: "DOCTYPE", body: "`<!DOCTYPE html>` ta fra pa browser «es é HTML5»." },
     { m: 2, title: "Elementu root", body: '`<html lang="en">` é root element di tudu pajina. `lang="en"` ta indika screen readers ki testu sta na inglés (nu ta muda-l pa `kea` mas tardi).' },
     { m: 3, title: "Kabésa (head)", body: "`<head>` ta karega **metadata**: ka é konteúdu visivel, el ta leba informason sobri pajina (titulu, charset, link pa CSS)." },
-    { m: 4, title: "charset", body: "`<meta charset=\"UTF-8\" />` ta garante ki karater spesial (kumo `á`, `é`, `ô`, `ñ`) ta parse dretu. **Krítiku pa Kriolu i Portuguez.**" },
-    { m: 5, title: "Títulu", body: "`<title>` é kel ki ta parse na tab di browser i na rezultadu di Google. El é fundamiental pa SEO (kumo bu pajina ta rankia)." },
+    { m: 4, title: "charset", body: "`<meta charset=\"UTF-8\" />` ta garante ki karater spesial (sima `á`, `é`, `ô`, `ñ`) ta parse dretu. **Krítiku pa Kriolu i Portuguez.**" },
+    { m: 5, title: "Títulu", body: "`<title>` é kel ki ta parse na tab di browser i na rezultadu di Google. El é fundamiental pa SEO (modi ki bu pajina ta rankia)." },
     { m: 6, title: "Korpu (body)", body: "`<body>` — tudu konteúdu visivel di pajina ta vai li dentu." },
   ]}
 />
 
 :::callout{type=tip}
-Emmet ta skrebe `lang="en"` di padran. Ma bu pajina sta na Kriolu — troka-l pa `lang="kea"`. Na Lisan 4 nu ta faze-l na mon i splika pamodi.
+Emmet ta skrebe `lang="en"` automatikamenti. Ma bu pajina sta na Kriolu — troka-l pa `lang="kea"`. Na Lisan 4 nu ta faze-l na mon i splika pamodi.
 :::
 
 <SectionHeading variant="concept">Anatomia di un element</SectionHeading>
@@ -89,31 +77,61 @@ Djunta tudu: `<h1>Olá mundu!</h1>`.
 
 Es é so un primeru odjada na elementu — na Módulu 2 nu ta entra fundu na tag, atributu i strutura.
 
-## Skrebe primeru konteúdu
+<SectionHeading variant="practice">Tenta ao vivu</SectionHeading>
 
-Edita ficheru ki Emmet kria:
+<LivePreview
+  storageKey="web-foundations-03-kria"
+  html={"<h1>Olá, mi é Adilson!</h1>\n<p>N ta mora na <strong>Praia</strong>, na ilha di Santiago. N ta studa pa bira un dezenvolvedor web.</p>\n<p>Trez kuza ki N ta gosta: <em>tira foto</em>, <em>múzika</em>, i <em>txeu sol</em>.</p>"}
+  showHeader={true}
+  eyebrow="Tenta ao vivu"
+  title="Edita HTML i odja rezultadu gosi mesmu!"
+/>
 
-1. Muda `<title>Document</title>` pa `<title>Pajina di Adilson</title>`.
-2. Adisiona dentru `<body>`:
-
-```html
-<h1>Olá, N é Adilson!</h1>
-<p>N ta mora na <strong>Praia</strong>, na ilha di Santiago. N ta studa pa bira un dezenvolvedor web.</p>
-<p>Trez kuza ki N ta gosta: <em>tira foto</em>, <em>múzika</em>, i <em>txeu sol</em>.</p>
-```
-
-3. Salva (`Cmd+S` / `Ctrl+S`) — Prettier ta indenta tudu dretu.
-
-## Abri pajina na browser
-
-1. Na Explorer di VS Code (skerda), klika ku boton direitu na `index.html`.
-2. Skodje **"Open with Live Server"** (ou klika **"Go Live"** na status bar baixu).
-3. Chrome ta abri automatikamenti na URL `http://localhost:5500/index.html`.
+<Steps
+  variant="phases"
+  showHeader={true}
+  title="Faze-l na bu komputador"
+  phaseWord="Pasu"
+  chrome="inline"
+  showAccentRule={false}
+  steps={[
+    {
+      title: "Kria i salva ficheru",
+      content: [
+        { type: "prose", t: "Na VS Code, ku bu pasta `web-foundations` abertu, klika **File → New File**." },
+        { type: "prose", t: "Salva ficheru imediatamenti ku `Cmd+S` / `Ctrl+S` i da-l nomi `index.html`." },
+        { type: "callout", sev: "info", t: "Pamodi `index.html`? Servidor web ta sempri prokura un ficheru xamadu `index.html` kuandu un uzuáriu ta vizita un pasta." }
+      ]
+    },
+    {
+      title: "Jera strutura HTML5",
+      content: [
+        { type: "prose", t: "Na ficheru `index.html` vaziu, skrebe so `!` (esklamasan) i primi **Tab** pa Emmet jera skeleton." }
+      ]
+    },
+    {
+      title: "Skrebe primeru konteúdu",
+      content: [
+        { type: "prose", t: "Muda `<title>Document</title>` pa `<title>Pajina di Adilson</title>`." },
+        { type: "prose", t: "Kopia kódiku di playground `Tenta ao vivu` na riba i kola dentru di `<body>`." },
+        { type: "prose", t: "Salva (`Cmd+S` / `Ctrl+S`) — Prettier ta indenta tudu dretu." }
+      ]
+    },
+    {
+      title: "Abri pajina na browser",
+      content: [
+        { type: "prose", t: "Na Explorer di VS Code (skerda), klika ku boton direitu na `index.html`." },
+        { type: "prose", t: "Skodje **Open with Live Server** (ou klika **Go Live** na status bar baixu)." },
+        { type: "prose", t: "Chrome ta abri automatikamenti na URL `http://localhost:5500/index.html`." }
+      ]
+    }
+  ]}
+/>
 
 Bu ta odja:
 
-- Titulu grandi: **Olá, N é Adilson!**
-- Dos paragrafu, ku palavra "Praia" en negritu i trez palavra en itáliku.
+- Titulu grandi: **Olá, mi é Adilson!**
+- Dos paragrafu, ku palavra "Praia" na bold i trez palavra en itáliku.
 - Tab di browser ta mostra **"Pajina di Adilson"**.
 
 :::callout{type=tip}
@@ -136,10 +154,10 @@ Responde di kabésa antis di bu kontinua.
 
 - **Salva ficheru sen `.html`** — ta bira un text file simples i ka ta parse na browser.
 - **Da otru nomi ki ka é `index.html`** — ta funsiona lokal (Live Server ta abri kualkér ficheru), ma na un servidor real, konvensan é sempri `index.html`.
-- **Skise `<meta charset="UTF-8" />`** — palavra ku asentu kumo "São Vicente" ta parese `SÃ£o Vicente` ou `S?o Vicente`.
+- **Skise `<meta charset="UTF-8" />`** — palavra ku asentu sima "São Vicente" ta parese `SÃ£o Vicente` ou `S?o Vicente`.
 
 <KeyTakeaways showHeader={true} chrome="inline">
-  <RezumuItem term="index.html">Nomi padran pa pajina di entrada di un website.</RezumuItem>
+  <RezumuItem term="index.html">Nomi ofisial pa pajina di entrada di un website.</RezumuItem>
   <RezumuItem term="Emmet">`!` + Tab ta scaffold tudu skeleton di HTML5 nun klik.</RezumuItem>
   <RezumuItem term="Element" variant="gold">Kada element ten opening tag, konteúdu i closing tag: `<h1>...</h1>`.</RezumuItem>
   <RezumuItem term="Salva ku .html" variant="warning">Sen extension `.html`, ficheru ta bira text simples i ka ta parse na browser.</RezumuItem>

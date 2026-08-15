@@ -21,7 +21,7 @@
   options:
     - text: { kea: "Po-l kumo *default formatter* i marka *format on save* na Settings" }
       correct: true
-      explain: { kea: "So instala ka ta txiga — Prettier ta funsiona so dipos ki bu poi-l kumo formatador padran i marka format-on-save." }
+      explain: { kea: "So instala ka ta txiga — Prettier ta funsiona so dipos ki bu poi-l kumo formatador prinsipal i marka format-on-save." }
     - text: { kea: "Nada — so instala extension é sufisienti" }
       correct: false
       explain: { kea: "Es é eru kumun: sen konfigura Settings, Prettier ka ta formata nada na save." }
@@ -36,7 +36,7 @@
   options:
     - text: { kea: "Ta abri un servidor lokal na `localhost:5500` ki ta atualiza pajina kada save" }
       correct: true
-      explain: { kea: "Live Server ta sirbi bu pajina na `localhost:5500` i ta da refresh otomátiku kada bes ki bu salva." }
+      explain: { kea: "Live Server ta sirbi bu pajina na `localhost:5500` i ta da refresh otomátiku kada bez ki bu salva." }
     - text: { kea: "Ta manda bu pajina pa internet pa tudu mundu odja" }
       correct: false
       explain: { kea: "É só lokal — na bu komputador. Pa publika na internet meste otra ferramenta." }
@@ -47,7 +47,7 @@
       correct: false
       explain: { kea: "Live Server ta uza browser ki bu dja ten; el ka ta instala nada." }
 - question:
-    kea: "Undi ki kódiku di kursu ta mora, i kuze ki el ten dentru?"
+    kea: "Unde ki kódiku di kursu ta mora, i kuze ki el ten dentru?"
   options:
     - text: { kea: "Nun repo públiku na GitHub, ku un pasta `start/` (ku TODOs) i un pasta `final/` (solusan kompleta)" }
       correct: true

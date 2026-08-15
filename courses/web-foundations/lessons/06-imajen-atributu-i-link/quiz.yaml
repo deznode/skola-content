@@ -38,7 +38,7 @@
   options:
     - text: { kea: "Ta abri link na un tab novu" }
       correct: true
-      explain: { kea: "Sertu — útil pa link externu, pa uzuáriu ka perde bu pajina. Padran (sen `target`) ta abri na mesmu tab." }
+      explain: { kea: "Sertu — útil pa link externu, pa uzuáriu ka perde bu pajina. Normalmenti (sen `target`) ta abri na mesmu tab." }
     - text: { kea: "Ta faze link ten kor azul" }
       correct: false
       explain: { kea: "Kor di link ben di browser/CSS, ka di `target`. `target=\"_blank\"` ta abri na tab novu." }
