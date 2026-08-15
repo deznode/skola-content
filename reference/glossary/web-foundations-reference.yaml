@@ -1,5 +1,5 @@
 - term: URL
-  category: web-foundations-module-1
+  category: General
   translations:
     kea:
       local_term: URL
@@ -48,10 +48,10 @@
   context: web-foundations
   provenance: suggested
 - term: request
-  category: web-foundations-module-1
+  category: Backend
   translations:
     kea:
-      local_term: request
+      local_term: pididu
       definition: Pididu ki browser ta faze pa servidor pa pidi un pajina ou rekursu.
       body: |-
         Un **request** é un mensajen ki un klienti, normalmenti browser, ta manda pa un servidor pa
@@ -96,10 +96,10 @@
   context: web-foundations
   provenance: suggested
 - term: server
-  category: web-foundations-module-1
+  category: Backend
   translations:
     kea:
-      local_term: servidor
+      local_term: sirbidor
       definition: Komputador sempri ligadu ki ta sirvi website i ta responde pa request di browser.
       body: |-
         Un **servidor** é un komputador, ou un programa ki ta kore na un komputador, preparadu pa
@@ -145,9 +145,9 @@
         Content-Type: text/html
 
 
-        <h1|Sobre nos</h1|
+        <h1>Sobre nos</h1>
 
-        <p|Bem-vindu pa nos website.</p|
+        <p>Bem-vindu pa nos website.</p>
 
         ```
 
@@ -157,10 +157,10 @@
   context: web-foundations
   provenance: suggested
 - term: response
-  category: web-foundations-module-1
+  category: Backend
   translations:
     kea:
-      local_term: response
+      local_term: risposta
       definition: Resposta ki servidor ta manda di volta — pa un pajina web, é un dokumentu HTML.
       body: |-
         Un **response** é repostu ki un servidor ta manda dipos di resebe un request di browser.
@@ -193,13 +193,13 @@
         Content-Type: text/html; charset=UTF-8
 
 
-        <!doctype html|
+        <!doctype html>
 
-        <html|
-          <body|
-            <h1|Olá, mundu!</h1|
-          </body|
-        </html|
+        <html>
+          <body>
+            <h1>Olá, mundu!</h1>
+          </body>
+        </html>
 
         ```
 
@@ -210,10 +210,10 @@
   context: web-foundations
   provenance: suggested
 - term: parse
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
-      local_term: parse
+      local_term: analiza
       definition: Le i interpreta kódiku HTML pa transforma-l na pajina vizual.
       body: |-
         Parse é prosesu unde browser ta le i interpreta kódiku HTML ki el resebe na response di
@@ -238,10 +238,10 @@
 
         ```html
 
-        <main|
-          <h1|Nha pajina</h1|
-          <p|Bon dia, mundu!</p|
-        </main|
+        <main>
+          <h1>Nha pajina</h1>
+          <p>Bon dia, mundu!</p>
+        </main>
 
         ```
 
@@ -267,10 +267,10 @@
   context: web-foundations
   provenance: suggested
 - term: syntax highlighting
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
-      local_term: syntax highlighting
+      local_term: realxi di sintaksi
       definition: Kódiku ta ben koloridu pa bu distingui tag, atributu i valor di un odjada.
       body: |-
         **Syntax highlighting** é un funsionalidadi di editor di kódiku ki ta mostra parti diferenti
@@ -301,9 +301,9 @@
 
         ```html
 
-        <!-- Un link pa Skola --|
+        <!-- Un link pa Skola -->
 
-        <a href="https://skola.dev"|Vizita Skola</a|
+        <a href="https://skola.dev">Vizita Skola</a>
 
         ```
 
@@ -315,10 +315,10 @@
   context: web-foundations
   provenance: suggested
 - term: autocomplete
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
-      local_term: autocomplete
+      local_term: outukonpleta
       definition: Editor ta sujeri i kompleta kódiku enkuantu bu ta skrebe.
       body: |-
         Autocomplete é un funsionalidadi di editor di kódiku ki ta mostra sugeston enkuantu bu ta
@@ -356,7 +356,7 @@
 
         ```html
 
-        <img src="" alt="" /|
+        <img src="" alt="" />
 
         ```
 
@@ -366,17 +366,17 @@
 
         ```html
 
-        <img src="foto.jpg" alt="Un paisajen di Kabu Verdi" /|
+        <img src="foto.jpg" alt="Un paisajen di Kabu Verdi" />
 
         ```
   slug: autocomplete
   context: web-foundations
   provenance: suggested
 - term: extensions
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
-      local_term: extensions
+      local_term: stenson
       definition: Plugins ki ta da funsionalidadi extra — formatador, server lokal, temas.
       body: |-
         Extensions é plugins ki ta aumenta kapasidadi di un editor di kódiku, sima VS Code. Es pode
@@ -403,7 +403,7 @@
   context: web-foundations
   provenance: suggested
 - term: Emmet
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
       local_term: Emmet
@@ -445,16 +445,16 @@
 
         ```html
 
-        <!DOCTYPE html|
+        <!DOCTYPE html>
 
-        <html lang="en"|
-          <head|
-            <meta charset="UTF-8" /|
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
-            <title|Document</title|
-          </head|
-          <body|</body|
-        </html|
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Document</title>
+          </head>
+          <body></body>
+        </html>
 
         ```
 
@@ -474,11 +474,11 @@
 
         ```html
 
-        <ul|
-          <li|</li|
-          <li|</li|
-          <li|</li|
-        </ul|
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
 
         ```
 
@@ -488,10 +488,10 @@
   context: web-foundations
   provenance: suggested
 - term: scaffold
-  category: web-foundations-module-1
+  category: Coding
   translations:
     kea:
-      local_term: scaffold
+      local_term: strutura-bazi
       definition: Jera otomatikamenti strutura bázika di un fixeru, pa bu ka meste skrebe-l di mon.
       body: |-
         **Scaffold** é un strutura inisial di fixeru ou projetu ki ta ben dja preparadu pa bu
@@ -519,25 +519,25 @@
 
         ```html
 
-        <!doctype html|
+        <!doctype html>
 
-        <html lang="kea"|
-          <head|
-            <meta charset="UTF-8" /|
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
-            <title|<!-- TODO: skrebe título di pajina --|</title|
-          </head|
-          <body|
-            <!-- TODO: poi konteúdu di pajina li --|
-          </body|
-        </html|
+        <html lang="kea">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title><!-- TODO: skrebe título di pajina --></title>
+          </head>
+          <body>
+            <!-- TODO: poi konteúdu di pajina li -->
+          </body>
+        </html>
 
         ```
   slug: scaffold
   context: web-foundations
   provenance: suggested
 - term: HTML
-  category: HTML
+  category: Frontend
   translations:
     kea:
       local_term: HTML
@@ -570,21 +570,21 @@
 
         ```html
 
-        <!doctype html|
+        <!doctype html>
 
-        <html lang="kea"|
-          <head|
-            <meta charset="UTF-8"|
-            <title|Nha primeru pajina</title|
-          </head|
-          <body|
-            <h1|Bon dia!</h1|
+        <html lang="kea">
+          <head>
+            <meta charset="UTF-8">
+            <title>Nha primeru pajina</title>
+          </head>
+          <body>
+            <h1>Bon dia!</h1>
 
-            <p|Es é un pajina HTML simples.</p|
+            <p>Es é un pajina HTML simples.</p>
 
-            <a href="https://skola.dev"|Vizita Skola.dev</a|
-          </body|
-        </html|
+            <a href="https://skola.dev">Vizita Skola.dev</a>
+          </body>
+        </html>
 
         ```
 
@@ -594,7 +594,7 @@
   context: web-foundations
   provenance: suggested
 - term: CSS
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: CSS
@@ -627,15 +627,15 @@
 
         ```html
 
-        <!doctype html|
+        <!doctype html>
 
-        <html lang="kea"|
+        <html lang="kea">
 
-        <head|
-          <meta charset="utf-8"|
-          <title|Nha pajina</title|
+        <head>
+          <meta charset="utf-8">
+          <title>Nha pajina</title>
 
-          <style|
+          <style>
             body {
               font-family: Arial, sans-serif;
               background-color: #f3f7fa;
@@ -651,16 +651,16 @@
               color: #b45309;
               font-weight: bold;
             }
-          </style|
-        </head|
+          </style>
+        </head>
 
-        <body|
-          <h1|Bon dia!</h1|
-          <p|Es é un paragrafu normal.</p|
-          <p class="destaque"|Es paragrafu ten un stilu spesial.</p|
-        </body|
+        <body>
+          <h1>Bon dia!</h1>
+          <p>Es é un paragrafu normal.</p>
+          <p class="destaque">Es paragrafu ten un stilu spesial.</p>
+        </body>
 
-        </html|
+        </html>
 
         ```
 
@@ -671,7 +671,7 @@
   context: web-foundations
   provenance: suggested
 - term: element
-  category: HTML
+  category: Frontend
   translations:
     kea:
       local_term: elementu
@@ -702,7 +702,7 @@
 
         ```html
 
-        <h1|Bon dia, mundu!</h1|
+        <h1>Bon dia, mundu!</h1>
 
         ```
 
@@ -712,7 +712,7 @@
 
         ```html
 
-        <p|N ta mora na <strong|Praia</strong|.</p|
+        <p>N ta mora na <strong>Praia</strong>.</p>
 
         ```
 
@@ -722,13 +722,13 @@
 
         ```html
 
-        <img src="praia.jpg" alt="Vista di Praia"|
+        <img src="praia.jpg" alt="Vista di Praia">
 
         ```
   context: web-foundations
   provenance: suggested
 - term: tag
-  category: HTML
+  category: Frontend
   translations:
     kea:
       local_term: tag
@@ -759,7 +759,7 @@
 
         ```html
 
-        <p|N sta prende HTML.</p|
+        <p>N sta prende HTML.</p>
 
         ```
 
@@ -769,7 +769,7 @@
 
         ```html
 
-        <p|N sta prende <strong|HTML</strong|.</p|
+        <p>N sta prende <strong>HTML</strong>.</p>
 
         ```
 
@@ -779,7 +779,7 @@
 
         ```html
 
-        <p|N sta prende <strong|HTML</strong|.</p|
+        <p>N sta prende <strong>HTML</strong>.</p>
 
         ```
 
@@ -789,13 +789,13 @@
 
         ```html
 
-        <p|N sta prende <strong|HTML.</p|</strong|
+        <p>N sta prende <strong>HTML.</p></strong>
 
         ```
   context: web-foundations
   provenance: suggested
 - term: attribute
-  category: HTML
+  category: Frontend
   translations:
     kea:
       local_term: atributu
@@ -826,7 +826,7 @@
           src="imajens/praia.jpg"
           alt="Praia ku areia branku i mar azul"
           width="600"
-        /|
+        />
 
         ```
 
@@ -836,7 +836,7 @@
   context: web-foundations
   provenance: suggested
 - term: semantic HTML
-  category: HTML
+  category: Frontend
   translations:
     kea:
       local_term: HTML semantiku
@@ -873,47 +873,47 @@
 
         ```html
 
-        <body|
-          <header|
-            <h1|Blog di Kabu Verdi</h1|
+        <body>
+          <header>
+            <h1>Blog di Kabu Verdi</h1>
 
-            <nav|
-              <a href="/"|Inísiu</a|
-              <a href="/artigus"|Artigus</a|
-              <a href="/sobre"|Sobre</a|
-            </nav|
-          </header|
+            <nav>
+              <a href="/">Inísiu</a>
+              <a href="/artigus">Artigus</a>
+              <a href="/sobre">Sobre</a>
+            </nav>
+          </header>
 
-          <main|
-            <article|
-              <header|
-                <h2|Morna i se istória</h2|
-                <p|Skrebedu pa Ana</p|
-              </header|
+          <main>
+            <article>
+              <header>
+                <h2>Morna i se istória</h2>
+                <p>Skrebedu pa Ana</p>
+              </header>
 
-              <p|Morna é un jéneru musikal di Kabu Verdi...</p|
+              <p>Morna é un jéneru musikal di Kabu Verdi...</p>
 
-              <footer|
-                <p|Publikadu na 2026.</p|
-              </footer|
-            </article|
+              <footer>
+                <p>Publikadu na 2026.</p>
+              </footer>
+            </article>
 
-            <aside|
-              <h2|Artigus relasionadu</h2|
-              <a href="/funana"|Konhese funaná</a|
-            </aside|
-          </main|
+            <aside>
+              <h2>Artigus relasionadu</h2>
+              <a href="/funana">Konhese funaná</a>
+            </aside>
+          </main>
 
-          <footer|
-            <p|&copy; 2026 Blog di Kabu Verdi</p|
-          </footer|
-        </body|
+          <footer>
+            <p>&copy; 2026 Blog di Kabu Verdi</p>
+          </footer>
+        </body>
 
         ```
   context: web-foundations
   provenance: suggested
 - term: DOM
-  category: Web
+  category: Frontend
   translations:
     kea:
       local_term: DOM
@@ -949,27 +949,27 @@
 
         ```html
 
-        <!doctype html|
+        <!doctype html>
 
-        <html lang="kea"|
+        <html lang="kea">
 
-        <head|
-          <meta charset="utf-8"|
-          <title|Izemplu di DOM</title|
+        <head>
+          <meta charset="utf-8">
+          <title>Izemplu di DOM</title>
 
-          <style|
+          <style>
             .destaque {
               color: blue;
               font-weight: bold;
             }
-          </style|
-        </head|
+          </style>
+        </head>
 
-        <body|
-          <p id="mensajen"|Klika na buton.</p|
-          <button id="muda"|Muda mensajen</button|
+        <body>
+          <p id="mensajen">Klika na buton.</p>
+          <button id="muda">Muda mensajen</button>
 
-          <script|
+          <script>
             const paragrafo = document.querySelector("#mensajen");
             const buton = document.querySelector("#muda");
 
@@ -977,10 +977,10 @@
               paragrafo.textContent = "DOM foi atualizadu!";
               paragrafo.classList.add("destaque");
             });
-          </script|
-        </body|
+          </script>
+        </body>
 
-        </html|
+        </html>
 
         ```
 
@@ -990,7 +990,7 @@
   context: web-foundations
   provenance: suggested
 - term: selector
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: seletor
@@ -1023,9 +1023,9 @@
 
         ```html
 
-        <p|Kel li é un paragrafu normal.</p|
+        <p>Kel li é un paragrafu normal.</p>
 
-        <p class="destaque"|Kel li é un paragrafu destacadu.</p|
+        <p class="destaque">Kel li é un paragrafu destacadu.</p>
 
         ```
 
@@ -1076,7 +1076,7 @@
 
         ```html
 
-        <button class="boton"|Envia</button|
+        <button class="boton">Envia</button>
 
         ```
 
@@ -1104,7 +1104,7 @@
   context: web-foundations
   provenance: suggested
 - term: property
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: propriedadi
@@ -1177,7 +1177,7 @@
   context: web-foundations
   provenance: suggested
 - term: value
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: valor
@@ -1219,7 +1219,7 @@
   context: web-foundations
   provenance: suggested
 - term: declaration
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: deklarasan
@@ -1261,7 +1261,7 @@
   context: web-foundations
   provenance: suggested
 - term: box model
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: box model
@@ -1343,7 +1343,7 @@
   context: web-foundations
   provenance: suggested
 - term: margin
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: margin
@@ -1412,7 +1412,7 @@
   context: web-foundations
   provenance: suggested
 - term: padding
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: padding
@@ -1492,7 +1492,7 @@
   context: web-foundations
   provenance: suggested
 - term: border
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: borda
@@ -1567,7 +1567,7 @@
   context: web-foundations
   provenance: suggested
 - term: specificity
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: spesifisidadi
@@ -1598,7 +1598,7 @@
 
         ```html
 
-        <p class="destaque"|Un testu importanti</p|
+        <p class="destaque">Un testu importanti</p>
 
         ```
 
@@ -1622,7 +1622,7 @@
 
         ```html
 
-        <p id="avizu" class="destaque"|Un avizu importanti</p|
+        <p id="avizu" class="destaque">Un avizu importanti</p>
 
         ```
 
@@ -1662,7 +1662,7 @@
   context: web-foundations
   provenance: suggested
 - term: inheritance
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: eransa
@@ -1694,15 +1694,15 @@
 
         ```html
 
-        <div class="pai"|
-          <p|
+        <div class="pai">
+          <p>
             Es testu ta fika azul.
-            <span|Es parti ta fika burmedju.</span|
-          </p|
-        </div|
+            <span>Es parti ta fika burmedju.</span>
+          </p>
+        </div>
 
 
-        <style|
+        <style>
           .pai {
             color: blue;
             font-family: Arial, sans-serif;
@@ -1712,7 +1712,7 @@
           span {
             color: red;
           }
-        </style|
+        </style>
 
         ```
 
@@ -1722,7 +1722,7 @@
   context: web-foundations
   provenance: suggested
 - term: flexbox
-  category: Layout
+  category: Frontend
   translations:
     kea:
       local_term: flexbox
@@ -1756,11 +1756,11 @@
 
         ```html
 
-        <div class="acoes"|
-          <button|Guarda</button|
-          <button|Edita</button|
-          <button|Apaga</button|
-        </div|
+        <div class="acoes">
+          <button>Guarda</button>
+          <button>Edita</button>
+          <button>Apaga</button>
+        </div>
 
         ```
 
@@ -1788,7 +1788,7 @@
   context: web-foundations
   provenance: suggested
 - term: CSS grid
-  category: Layout
+  category: Frontend
   translations:
     kea:
       local_term: CSS grid
@@ -1825,15 +1825,15 @@
 
         ```html
 
-        <div class="grelha"|
-          <article class="karton"|Karton 1</article|
-          <article class="karton"|Karton 2</article|
-          <article class="karton"|Karton 3</article|
-          <article class="karton"|Karton 4</article|
-        </div|
+        <div class="grelha">
+          <article class="karton">Karton 1</article>
+          <article class="karton">Karton 2</article>
+          <article class="karton">Karton 3</article>
+          <article class="karton">Karton 4</article>
+        </div>
 
 
-        <style|
+        <style>
 
         .grelha {
           display: grid;
@@ -1847,7 +1847,7 @@
           background-color: #e5e7eb;
         }
 
-        </style|
+        </style>
 
         ```
 
@@ -1882,7 +1882,7 @@
   context: web-foundations
   provenance: suggested
 - term: media query
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: media query
@@ -1936,7 +1936,7 @@
   context: web-foundations
   provenance: suggested
 - term: pseudo-class
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: pseudo-class
@@ -2003,7 +2003,7 @@
   context: web-foundations
   provenance: suggested
 - term: pseudo-element
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: pseudo-element
@@ -2036,16 +2036,16 @@
 
         ```html
 
-        <h2 class="titulo"|Notísias</h2|
+        <h2 class="titulo">Notísias</h2>
 
-        <p|
+        <p>
           Es é primeru linha di paragrafu. Restu di testu ta kontinua ku stilu normal.
-        </p|
+        </p>
 
-        <a class="link" href="/notisias"|Le mas</a|
+        <a class="link" href="/notisias">Le mas</a>
 
 
-        <style|
+        <style>
 
         .titulo::before {
           content: "★ ";
@@ -2066,13 +2066,13 @@
           color: #555;
         }
 
-        </style|
+        </style>
 
         ```
   context: web-foundations
   provenance: suggested
 - term: z-index
-  category: CSS
+  category: Frontend
   translations:
     kea:
       local_term: z-index
@@ -2107,12 +2107,12 @@
 
         ```html
 
-        <div class="kaxa azul"|Azul</div|
+        <div class="kaxa azul">Azul</div>
 
-        <div class="kaxa bermedju"|Bermedju</div|
+        <div class="kaxa bermedju">Bermedju</div>
 
 
-        <style|
+        <style>
 
         .kaxa {
           position: absolute;
@@ -2137,7 +2137,7 @@
           z-index: 2;
         }
 
-        </style|
+        </style>
 
         ```
 
@@ -2148,17 +2148,17 @@
 
         ```html
 
-        <div class="grupo grupo-baxu"|
-          <div class="janela"|Janela: z-index 9999</div|
-        </div|
+        <div class="grupo grupo-baxu">
+          <div class="janela">Janela: z-index 9999</div>
+        </div>
 
 
-        <div class="grupo grupo-altu"|
+        <div class="grupo grupo-altu">
           Painel: z-index 2
-        </div|
+        </div>
 
 
-        <style|
+        <style>
 
         .grupo {
           position: relative;
@@ -2182,7 +2182,7 @@
           background: white;
         }
 
-        </style|
+        </style>
 
         ```
 
@@ -2193,7 +2193,7 @@
   context: web-foundations
   provenance: suggested
 - term: viewport
-  category: Web
+  category: Frontend
   translations:
     kea:
       local_term: viewport
@@ -2226,19 +2226,19 @@
 
         ```html
 
-        <!DOCTYPE html|
+        <!DOCTYPE html>
 
-        <html lang="kea"|
-          <head|
-            <meta charset="UTF-8" /|
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" /|
-            <title|Pajina responsivu</title|
-          </head|
-          <body|
-            <h1|Bon dia!</h1|
-            <p|Es pajina ta adapta pa largura di viewport.</p|
-          </body|
-        </html|
+        <html lang="kea">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Pajina responsivu</title>
+          </head>
+          <body>
+            <h1>Bon dia!</h1>
+            <p>Es pajina ta adapta pa largura di viewport.</p>
+          </body>
+        </html>
 
         ```
 
