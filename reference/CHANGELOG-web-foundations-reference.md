@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Standardized all reference categories to English across `flashcards.yaml` and `resources.yaml` for global taxonomy consistency.
 - Fixed ALUPEC orthography issue (`Ferramenta` -> `Feramenta`) in flashcards.
 - Normalized `undi` to `unde` in flashcards and resources.
+- Normalized `glossary.yaml` orthography to comply with ALUPEC (e.g., standardizing on `programador` and `Feramenta`).
 
 ## [2026-08-14] — publish
 
