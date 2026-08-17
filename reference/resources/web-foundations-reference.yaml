@@ -1,19 +1,19 @@
 - url: "https://developer.mozilla.org/pt-BR/docs/Learn/Getting_started_with_the_web"
   type: "link"
-  category: "Dokumentason"
+  category: "Documentation"
   tags:
     - "topic:HTML"
     - "topic:CSS"
   translations:
     kea:
       title: "MDN Web Docs: Introduson a Web"
-      description: "Gia ofisial di Mozilla sobri fundamentus di HTML i CSS. Es é midjor rekursu di referensia."
+      description: "Gia ofisial di Mozilla sobri fundamentus di HTML i CSS. Es é midjor rekursu di referénsia."
     en:
       title: "MDN Web Docs: Getting started with the web"
       description: "Official Mozilla guide on HTML and CSS fundamentals. This is the best reference resource."
 - url: "https://flexboxfroggy.com/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
@@ -25,7 +25,7 @@
       description: "A fun interactive game to practice using CSS Flexbox properties."
 - url: "https://cssgridgarden.com/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
@@ -37,31 +37,31 @@
       description: "An interactive game to learn how to use CSS Grid by growing your garden."
 - url: "https://validator.w3.org/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:HTML"
   translations:
     kea:
       title: "W3C Markup Validation Service"
-      description: "Ferramenta ofisial di W3C pa verifika si bu kodigu HTML sta válidu i sen erru."
+      description: "Feramenta ofisial di W3C pa verifika si bu kódiku HTML sta válidu i sen eru."
     en:
       title: "W3C Markup Validation Service"
       description: "Official W3C tool to check if your HTML code is valid and error-free."
 - url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
   type: "link"
-  category: "Dokumentason"
+  category: "Documentation"
   tags:
     - "topic:CSS"
   translations:
     kea:
       title: "CSS-Tricks: Gia Konpletu pa Flexbox"
-      description: "Gia visual konpletu sobri tudu propriedadis di Flexbox. Ótimu pa konsulta rapida."
+      description: "Gia vizual konpletu sobri tudu propriedadis di Flexbox. Ótimu pa konsulta rápida."
     en:
       title: "CSS-Tricks: A Complete Guide to Flexbox"
       description: "A comprehensive visual guide to all Flexbox properties. Great for quick reference."
 - url: "https://flukeout.github.io/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
@@ -73,7 +73,7 @@
       description: "A fun and interactive game to learn and practice CSS selectors, from simple to advanced."
 - url: "http://www.flexboxdefense.com/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
@@ -85,39 +85,39 @@
       description: "A Tower Defense game where you use CSS Flexbox to position your towers and stop enemies. Great for layout practice."
 - url: "https://www.frontendmentor.io/"
   type: "link"
-  category: "Pratika"
+  category: "Practice"
   tags:
     - "topic:HTML"
     - "topic:CSS"
   translations:
     kea:
       title: "Frontend Mentor"
-      description: "Plataforma ku dizafius real di HTML i CSS pa bu pratika kria layouts kumo un verdadeiru dizenvolvedor."
+      description: "Plataforma ku dizafius real di HTML i CSS pa bu pratika kria layouts kumo un profisional."
     en:
       title: "Frontend Mentor"
       description: "Platform with real HTML and CSS challenges to practice building layouts like a real developer."
 
 - url: "https://webaim.org/resources/contrastchecker/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
     kea:
       title: "WebAIM Contrast Checker"
-      description: "Ferramenta pa verifika si kontrasti di kor entri testu i fundu sta di akordu ku regras di asesibilidadi (WCAG)."
+      description: "Feramenta pa verifika si kontrasti di kor entri testu i fundu sta di akordu ku regras di asesibilidadi (WCAG)."
     en:
       title: "WebAIM Contrast Checker"
       description: "Tool to check if the color contrast between text and background meets accessibility standards (WCAG)."
 - url: "https://fonts.google.com/"
   type: "link"
-  category: "Ferramenta"
+  category: "Tools"
   tags:
     - "topic:CSS"
   translations:
     kea:
       title: "Google Fonts"
-      description: "Kolesan giganti di tipografia gratuitu. Ótimu pa atxa i inporta fontis di kualidadi pa uza na bu projetus web."
+      description: "Koleson giganti di tipografia gratuitu. Ótimu pa atxa i inporta fontis di kualidadi pa uza na bu projetus web."
     en:
       title: "Google Fonts"
       description: "Huge collection of free typography. Great for finding and importing high-quality fonts for your web projects."

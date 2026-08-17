@@ -4,6 +4,13 @@ All notable changes to the `web-foundations-reference` topic will be documented 
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-08-17] — publish
+
+### Changed
+- Standardized all reference categories to English across `flashcards.yaml` and `resources.yaml` for global taxonomy consistency.
+- Fixed ALUPEC orthography issue (`Ferramenta` -> `Feramenta`) in flashcards.
+- Normalized `undi` to `unde` in flashcards and resources.
+
 ## [2026-08-14] — publish
 
 ### Added
